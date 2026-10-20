@@ -1,0 +1,118 @@
+{
+ "meta": {
+  "id": "2112493855727825272",
+  "slug": "fanshifu-semrush-9-seo-courses",
+  "title": "让 AI Agent 自学 SEO：Semrush 精选 9 门课程",
+  "url": "https://x.com/FanShifu/status/2112493855727825272",
+  "author_name": "范师傅",
+  "author_username": "FanShifu",
+  "published_utc": "2026-10-20T10:39:18.000Z",
+  "published_local": "2026-10-20 18:39",
+  "category": "SEO基础",
+  "description": "Semrush 官方精选 9 门 SEO 课程：Brian Dean、HubSpot、UC Davis、Aleyda Solis、Bastian Grimm 等，附课程链接",
+  "source_type": "x_post",
+  "avatar_local": "avatar.jpg",
+  "images_total": 0,
+  "images_ok": 0,
+  "api_media_count": 0,
+  "fidelity_note": "原帖为普通推文（note_tweet，非 Article），无配图；短链已展开为原始课程链接；标题为镜像站自拟。",
+  "plain_text_len": 1474,
+  "blocks_count": 21
+ },
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 1,
+   "text": "让 AI Agent 自学 SEO：Semrush 精选 9 门课程"
+  },
+  {
+   "type": "paragraph",
+   "text": "想让你的 AI Agent 系统自学 SEO ？Semrush 官方精选的 9 门课程汇总放这了。"
+  },
+  {
+   "type": "paragraph",
+   "text": "导师阵容均为全球顶流 SEO 专家，涵盖从底层理论、关键词挖掘到出海实操的全链路，建议收藏食用："
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "1、Semrush SEO Crash Course with Brian Dean"
+  },
+  {
+   "type": "paragraph",
+   "text": "Backlinko 创始人 Brian Dean 亲授，快速梳理现代 SEO 底层运行逻辑与实战排坑技巧\nhttps://www.semrush.com/academy/courses/semrush-seo-crash-course-with-brian-dean/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "2、HubSpot SEO Certification Course"
+  },
+  {
+   "type": "paragraph",
+   "text": "入境营销鼻祖 HubSpot 官方出品附带证书，系统拆解页面优化、外链建设与全链路获客体系\nhttps://academy.hubspot.com/courses/seo-training"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "3、Google SEO Fundamentals by UC Davis"
+  },
+  {
+   "type": "paragraph",
+   "text": "加州大学戴维斯分校教授主讲，深度剖析搜索算法机制与白帽优化底层理论\nhttps://www.coursera.org/learn/seo-fundamentals"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "4、Semrush Keyword Research Essentials"
+  },
+  {
+   "type": "paragraph",
+   "text": "全球顶尖 SEO 数据库官方团队实操教学，掌握用户搜索意图识别与高商业价值词挖掘方法\nhttps://www.semrush.com/academy/courses/keyword-research-essentials-with-semrush/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "5、The SEO Roadmap"
+  },
+  {
+   "type": "paragraph",
+   "text": "欧洲顶尖 SEO 顾问 Aleyda Solis 耗时搭建，涵盖入门到专家全阶段的结构化知识体系图谱\nhttps://learningseo.io/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "6、Content-Led SEO with Brian Dean"
+  },
+  {
+   "type": "paragraph",
+   "text": "Brian Dean 主讲，深度解析如何用优质内容驱动自然排名与高质量外链\nhttps://www.semrush.com/academy/courses/content-led-seo-course-with-brian-dean/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "7、International SEO with Aleyda Solis"
+  },
+  {
+   "type": "paragraph",
+   "text": "全球出海 SEO 顶级专家 Aleyda Solis 执教，专项攻克多语言站点架构、hreflang 标签与跨国本地化难关\nhttps://www.semrush.com/academy/courses/International-seo/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "8、Local SEO Course with Rita Cidre（Local Toolkit Crash Course）"
+  },
+  {
+   "type": "paragraph",
+   "text": "资深增长专家 Rita Cidre 主讲，专注 Google 商家资料运营与同城实体商户精准流量获取\nhttps://www.semrush.com/academy/courses/local-toolkit-crash-course/"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "9、Technical SEO Course with Bastian Grimm"
+  },
+  {
+   "type": "paragraph",
+   "text": "技术 SEO 顶级权威 Bastian Grimm 打造，硬核讲透爬取预算、索引机制与核心网页性能指标\nhttps://www.semrush.com/academy/courses/technical-seo-course-with-bastian-grimm/"
+  }
+ ]
+}
