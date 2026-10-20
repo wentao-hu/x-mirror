@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "id": "2112500466877960329",
+  "slug": "jasonyu-four-new-keyword-sites",
+  "title": "一口气上 4 个新词站：AI 上站流程一气呵成",
+  "url": "https://x.com/AI_Jasonyu/status/2112500466877960329",
+  "author_name": "鱼总聊AI",
+  "author_username": "AI_Jasonyu",
+  "published_utc": "2026-10-20T11:05:34.000Z",
+  "published_local": "2026-10-20 19:05",
+  "category": "新词站实战复盘",
+  "description": "鱼总一天上 4 个新词站（3 游戏 1 工具），先堆数量；AI 上站从域名到外链一气呵成",
+  "source_type": "x_post",
+  "avatar_local": "avatar.jpg",
+  "images_total": 1,
+  "images_ok": 1,
+  "api_media_count": 1,
+  "fidelity_note": "原帖为普通推文（非 Article），1 张配图已本地化；标题为镜像站自拟。",
+  "plain_text_len": 120,
+  "blocks_count": 4
+ },
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 1,
+   "text": "一口气上 4 个新词站：AI 上站流程一气呵成"
+  },
+  {
+   "type": "paragraph",
+   "text": "今天一口气上了4个可能的新词站，期待有结果，3个游戏的，1个工具的，反正，先把数量堆够吧，AI现在上站都是一气呵成，注册域名——写代码——部署上线——提交GSC——接入数据分析——提交部分外链。"
+  },
+  {
+   "type": "paragraph",
+   "text": "不知道几天后会不会有成果，到时候来给大家汇报。"
+  },
+  {
+   "type": "image",
+   "src": "https://pbs.twimg.com/media/HVEb-DlXkAElI93?format=jpg&name=orig",
+   "orig_url": "https://pbs.twimg.com/media/HVEb-DlXkAElI93?format=jpg&name=orig",
+   "alt": "帖子配图",
+   "key": "HVEb-DlXkAElI93",
+   "local": "HVEb-DlXkAElI93.jpg"
+  }
+ ]
+}
