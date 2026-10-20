@@ -13,6 +13,9 @@
   --border: #eff3f4;
   --link: #1d9bf0;
   --card: #f7f9f9;
+  --star: #f5a524;
+  --ok: #0f7b45;
+  --ok-soft: #e8f5ee;
 }
 * { box-sizing: border-box; }
 html, body {
@@ -98,7 +101,59 @@ h1.title {
 .card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
 .card .cdesc { color: var(--muted); font-size: 14px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+/* rating / read */
+.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
+.xr-stars .xr-star { font-size: inherit; cursor: default; }
+.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
+.xr-star {
+  appearance: none; -webkit-appearance: none; border: 0; background: none;
+  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
+  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
+}
+.xr-star.on { color: var(--star); }
+.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
+.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
+.badge-read {
+  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
+  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+}
+.post-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 0 0 12px; padding: 10px 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  font-size: 14px;
+}
+.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
+.post-controls .pc-label { color: var(--muted); font-size: 13px; }
+.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
+.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.pc-clear {
+  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
+  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
+}
+.pc-clear:hover { color: var(--fg); }
+.pc-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+}
+.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
+.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
+.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
+.pc-read.on .pc-dot { opacity: 1; }
+.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
+.filter-row { display: flex; align-items: center; gap: 10px; }
+.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
+.filter-row .filters { margin: 0; gap: 6px; }
+.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
+.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
+#meta-count { margin-left: 10px; }
 @media (max-width: 480px) {
+  .filter-row { align-items: flex-start; }
+  .filter-row .flabel { padding-top: 5px; }
+}
   h1.title { font-size: 24px; }
   html, body { font-size: 16px; }
 }
@@ -108,47 +163,78 @@ h1.title {
 <div class="wrap">
   <header class="site-header">
     <span class="brand">X Mirror</span>
-    <nav><a href="https://x-mirror-af7.pages.dev/">Cloudflare</a><a href="https://github.com/wentao-hu/x-mirror">GitHub</a></nav>
+    <nav><a href="https://github.com/wentao-hu/x-mirror">GitHub</a></nav>
   </header>
   <h1 class="title" style="font-size:24px">出海 SEO 收藏镜像</h1>
   <p style="color:var(--muted);font-size:14px;margin-top:-8px">
-    原文托管在 X，本站做内容完全映射（正文 + 图片本地化）。主站 Cloudflare Pages，备用 GitHub Pages。
+    原文托管在 X，本站做内容完全映射（正文 + 图片本地化），方便在打不开 x.com 时阅读。
   </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
   <div class="filters" id="filters"><button class="active" data-cat="all">全部</button><button data-cat="新词站实战复盘">新词站实战复盘</button><button data-cat="SEO基础">SEO基础</button><button data-cat="建站教程">建站教程</button><button data-cat="外链推广">外链推广</button></div>
+  <div class="filter-rows">
+    <div class="filter-row">
+      <span class="flabel">评分</span>
+      <div class="filters" data-meta-filter="rating">
+        <button data-rating="all" class="active">全部</button>
+        <button data-rating="0">未评分</button>
+        <button data-rating="1">≥1★</button>
+        <button data-rating="2">≥2★</button>
+        <button data-rating="3">≥3★</button>
+        <button data-rating="4">≥4★</button>
+        <button data-rating="5">5★</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">阅读</span>
+      <div class="filters" data-meta-filter="read">
+        <button data-read="all" class="active">全部</button>
+        <button data-read="yes">已读完</button>
+        <button data-read="no">未读</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">排序</span>
+      <div class="filters" data-meta-filter="sort">
+        <button data-sort="default" class="active">默认</button>
+        <button data-sort="rating">评分高→低</button>
+        <button data-sort="unread">未读优先</button>
+      </div>
+    </div>
+  </div>
+  <div class="meta-status"><span id="meta-status"></span><span id="meta-count"></span></div>
   <div id="list">
 <h2 class="cat">新词站实战复盘</h2>
-<a class="card" data-cat="新词站实战复盘" data-q="AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金 弗里 0xEcho99 新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘" href="posts/echo99-ai-site-5days-1500/index.html">
+<a class="card" data-slug="echo99-ai-site-5days-1500" data-cat="新词站实战复盘" data-q="AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金 弗里 0xEcho99 新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘" href="posts/echo99-ai-site-5days-1500/index.html">
   <div class="ctitle">AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金</div>
   <div class="cmeta">弗里 · @0xEcho99 · 2026-10-15 17:51</div>
   <div class="cdesc">新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘</div>
 </a>
-<a class="card" data-cat="新词站实战复盘" data-q="副业出海小白 首日破百刀，5天破千刀的新词经验分享 蒋云何 JiangK82705 副业出海小白首日破百、5 天破千的新词经验" href="posts/jiangk-new-keyword-1000/index.html">
+<a class="card" data-slug="jiangk-new-keyword-1000" data-cat="新词站实战复盘" data-q="副业出海小白 首日破百刀，5天破千刀的新词经验分享 蒋云何 JiangK82705 副业出海小白首日破百、5 天破千的新词经验" href="posts/jiangk-new-keyword-1000/index.html">
   <div class="ctitle">副业出海小白 首日破百刀，5天破千刀的新词经验分享</div>
   <div class="cmeta">蒋云何 · @JiangK82705 · 2026-10-18 22:25</div>
   <div class="cdesc">副业出海小白首日破百、5 天破千的新词经验</div>
 </a>
-<a class="card" data-cat="新词站实战复盘" data-q="没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘 绪轩 xuxuanzhou 没投流没买外链，新词站 72 小时流水 $5480" href="posts/xuxuan-72h-5480/index.html">
+<a class="card" data-slug="xuxuan-72h-5480" data-cat="新词站实战复盘" data-q="没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘 绪轩 xuxuanzhou 没投流没买外链，新词站 72 小时流水 $5480" href="posts/xuxuan-72h-5480/index.html">
   <div class="ctitle">没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘</div>
   <div class="cmeta">绪轩 · @xuxuanzhou · 2026-10-19 18:30</div>
   <div class="cdesc">没投流没买外链，新词站 72 小时流水 $5480</div>
 </a>
-<a class="card" data-cat="新词站实战复盘" data-q="出海小白靠新词破千刀的经验复盘 kristoff kristoff_wu 出海小白靠新词半个月破千刀的经验复盘" href="posts/kristoff-new-keyword-1100/index.html">
+<a class="card" data-slug="kristoff-new-keyword-1100" data-cat="新词站实战复盘" data-q="出海小白靠新词破千刀的经验复盘 kristoff kristoff_wu 出海小白靠新词半个月破千刀的经验复盘" href="posts/kristoff-new-keyword-1100/index.html">
   <div class="ctitle">出海小白靠新词破千刀的经验复盘</div>
   <div class="cmeta">kristoff · @kristoff_wu · 2026-10-20 00:18</div>
   <div class="cdesc">出海小白靠新词半个月破千刀的经验复盘</div>
 </a><h2 class="cat">SEO基础</h2>
-<a class="card" data-cat="SEO基础" data-q="SEO 地基怎么打？整理了哥飞几百篇文章，我总结了这份新手出关指南 浅水虾 qianshuixia2026 整理哥飞干货：SEO 地基与新手出关指南" href="posts/qianshuixia-seo-foundation/index.html">
+<a class="card" data-slug="qianshuixia-seo-foundation" data-cat="SEO基础" data-q="SEO 地基怎么打？整理了哥飞几百篇文章，我总结了这份新手出关指南 浅水虾 qianshuixia2026 整理哥飞干货：SEO 地基与新手出关指南" href="posts/qianshuixia-seo-foundation/index.html">
   <div class="ctitle">SEO 地基怎么打？整理了哥飞几百篇文章，我总结了这份新手出关指南</div>
   <div class="cmeta">浅水虾 · @qianshuixia2026 · 2026-10-17 09:31</div>
   <div class="cdesc">整理哥飞干货：SEO 地基与新手出关指南</div>
 </a><h2 class="cat">建站教程</h2>
-<a class="card" data-cat="建站教程" data-q="出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程 CloudHu CloudHuxxx 小白可跟做的 AI 出海建站全流程教程（含截图）" href="posts/cloudhu-ai-site-tutorial/index.html">
+<a class="card" data-slug="cloudhu-ai-site-tutorial" data-cat="建站教程" data-q="出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程 CloudHu CloudHuxxx 小白可跟做的 AI 出海建站全流程教程（含截图）" href="posts/cloudhu-ai-site-tutorial/index.html">
   <div class="ctitle">出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程</div>
   <div class="cmeta">CloudHu · @CloudHuxxx · 2026-10-13 13:47</div>
   <div class="cdesc">小白可跟做的 AI 出海建站全流程教程（含截图）</div>
 </a><h2 class="cat">外链推广</h2>
-<a class="card" data-cat="外链推广" data-q="用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程 SagaSu sujingshen 用 Grok Bot 一天筛提 4000+ 站的外链自动化流程" href="posts/sagasu-grokbot-backlinks/index.html">
+<a class="card" data-slug="sagasu-grokbot-backlinks" data-cat="外链推广" data-q="用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程 SagaSu sujingshen 用 Grok Bot 一天筛提 4000+ 站的外链自动化流程" href="posts/sagasu-grokbot-backlinks/index.html">
   <div class="ctitle">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程</div>
   <div class="cmeta">SagaSu · @sujingshen · 2026-10-19 14:00</div>
   <div class="cdesc">用 Grok Bot 一天筛提 4000+ 站的外链自动化流程</div>
@@ -156,36 +242,6 @@ h1.title {
   </div>
   <div class="footer">共 7 篇 · Personal archive · Asia/Shanghai</div>
 </div>
-<script>
-(function(){
-  const q=document.getElementById('q');
-  const filters=document.getElementById('filters');
-  let cat='all';
-  function apply(){
-    const term=(q.value||'').trim().toLowerCase();
-    document.querySelectorAll('.card').forEach(el=>{
-      const okCat=cat==='all'||el.dataset.cat===cat;
-      const okQ=!term||(el.dataset.q||'').toLowerCase().includes(term);
-      el.style.display=(okCat&&okQ)?'':'none';
-    });
-    document.querySelectorAll('.cat').forEach(h=>{
-      let n=h.nextElementSibling, show=false;
-      while(n && n.classList && n.classList.contains('card')){
-        if(n.style.display!=='none') show=true;
-        n=n.nextElementSibling;
-      }
-      h.style.display=(!term && (cat==='all'||h.textContent===cat)) || show ? '' : 'none';
-      if(cat!=='all' && h.textContent!==cat) h.style.display='none';
-    });
-  }
-  filters.addEventListener('click', e=>{
-    if(e.target.tagName!=='BUTTON') return;
-    cat=e.target.dataset.cat;
-    filters.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b===e.target));
-    apply();
-  });
-  q.addEventListener('input', apply);
-})();
-</script>
+<script src="assets/meta.js" defer></script>
 </body>
 </html>

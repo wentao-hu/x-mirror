@@ -1,0 +1,7 @@
+name = "x-mirror"
+compatibility_date = "2026-10-20"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "ARTICLE_META"
+id = "9de02bd9638042c0b0289fb3022f8ddd"

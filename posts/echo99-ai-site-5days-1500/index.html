@@ -13,6 +13,9 @@
   --border: #eff3f4;
   --link: #1d9bf0;
   --card: #f7f9f9;
+  --star: #f5a524;
+  --ok: #0f7b45;
+  --ok-soft: #e8f5ee;
 }
 * { box-sizing: border-box; }
 html, body {
@@ -98,7 +101,59 @@ h1.title {
 .card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
 .card .cdesc { color: var(--muted); font-size: 14px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+/* rating / read */
+.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
+.xr-stars .xr-star { font-size: inherit; cursor: default; }
+.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
+.xr-star {
+  appearance: none; -webkit-appearance: none; border: 0; background: none;
+  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
+  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
+}
+.xr-star.on { color: var(--star); }
+.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
+.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
+.badge-read {
+  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
+  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+}
+.post-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 0 0 12px; padding: 10px 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  font-size: 14px;
+}
+.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
+.post-controls .pc-label { color: var(--muted); font-size: 13px; }
+.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
+.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.pc-clear {
+  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
+  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
+}
+.pc-clear:hover { color: var(--fg); }
+.pc-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+}
+.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
+.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
+.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
+.pc-read.on .pc-dot { opacity: 1; }
+.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
+.filter-row { display: flex; align-items: center; gap: 10px; }
+.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
+.filter-row .filters { margin: 0; gap: 6px; }
+.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
+.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
+#meta-count { margin-left: 10px; }
 @media (max-width: 480px) {
+  .filter-row { align-items: flex-start; }
+  .filter-row .flabel { padding-top: 5px; }
+}
   h1.title { font-size: 24px; }
   html, body { font-size: 16px; }
 }
@@ -118,6 +173,7 @@ h1.title {
     </div>
   </div>
   <h1 class="title">AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金</h1>
+  <div class="post-controls" data-meta-mount data-slug="echo99-ai-site-5days-1500"></div>
   <a class="orig-link" href="https://x.com/0xEcho99/status/2110669876482203775" target="_blank" rel="noopener">查看原文（X）↗</a>
   
   <article class="article">
@@ -203,5 +259,6 @@ Jason老师的新词雷达分享，就把我的这个需求和他的雷达作为
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
+<script src="../../assets/meta.js" defer></script>
 </body>
 </html>

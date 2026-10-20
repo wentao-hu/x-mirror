@@ -555,6 +555,9 @@ CSS = r"""
   --border: #eff3f4;
   --link: #1d9bf0;
   --card: #f7f9f9;
+  --star: #f5a524;
+  --ok: #0f7b45;
+  --ok-soft: #e8f5ee;
 }
 * { box-sizing: border-box; }
 html, body {
@@ -640,7 +643,59 @@ h1.title {
 .card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
 .card .cdesc { color: var(--muted); font-size: 14px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+/* rating / read */
+.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
+.xr-stars .xr-star { font-size: inherit; cursor: default; }
+.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
+.xr-star {
+  appearance: none; -webkit-appearance: none; border: 0; background: none;
+  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
+  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
+}
+.xr-star.on { color: var(--star); }
+.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
+.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
+.badge-read {
+  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
+  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+}
+.post-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 0 0 12px; padding: 10px 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  font-size: 14px;
+}
+.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
+.post-controls .pc-label { color: var(--muted); font-size: 13px; }
+.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
+.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.pc-clear {
+  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
+  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
+}
+.pc-clear:hover { color: var(--fg); }
+.pc-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+}
+.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
+.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
+.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
+.pc-read.on .pc-dot { opacity: 1; }
+.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
+.filter-row { display: flex; align-items: center; gap: 10px; }
+.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
+.filter-row .filters { margin: 0; gap: 6px; }
+.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
+.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
+#meta-count { margin-left: 10px; }
 @media (max-width: 480px) {
+  .filter-row { align-items: flex-start; }
+  .filter-row .flabel { padding-top: 5px; }
+}
   h1.title { font-size: 24px; }
   html, body { font-size: 16px; }
 }
@@ -683,6 +738,7 @@ def post_page(meta: dict, body_html: str) -> str:
     </div>
   </div>
   <h1 class="title">{esc(meta['title'])}</h1>
+  <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
   <a class="orig-link" href="{esc(meta['url'])}" target="_blank" rel="noopener">查看原文（X）↗</a>
   {cover_html}
   <article class="article">
@@ -695,6 +751,7 @@ def post_page(meta: dict, body_html: str) -> str:
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
+<script src="../../assets/meta.js" defer></script>
 </body>
 </html>
 """
@@ -715,7 +772,7 @@ def index_page(posts: list[dict]) -> str:
             if p["category"] != c:
                 continue
             cards.append(
-                f"""<a class="card" data-cat="{esc(c)}" data-q="{esc(p['title']+' '+p['author_name']+' '+p['author_username']+' '+p.get('description',''))}" href="posts/{esc(p['slug'])}/index.html">
+                f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{esc(p['title']+' '+p['author_name']+' '+p['author_username']+' '+p.get('description',''))}" href="posts/{esc(p['slug'])}/index.html">
   <div class="ctitle">{esc(p['title'])}</div>
   <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {esc(p['published_local'][:16])}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
@@ -743,42 +800,43 @@ def index_page(posts: list[dict]) -> str:
   </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
   <div class="filters" id="filters">{''.join(filter_btns)}</div>
+  <div class="filter-rows">
+    <div class="filter-row">
+      <span class="flabel">评分</span>
+      <div class="filters" data-meta-filter="rating">
+        <button data-rating="all" class="active">全部</button>
+        <button data-rating="0">未评分</button>
+        <button data-rating="1">≥1★</button>
+        <button data-rating="2">≥2★</button>
+        <button data-rating="3">≥3★</button>
+        <button data-rating="4">≥4★</button>
+        <button data-rating="5">5★</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">阅读</span>
+      <div class="filters" data-meta-filter="read">
+        <button data-read="all" class="active">全部</button>
+        <button data-read="yes">已读完</button>
+        <button data-read="no">未读</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="flabel">排序</span>
+      <div class="filters" data-meta-filter="sort">
+        <button data-sort="default" class="active">默认</button>
+        <button data-sort="rating">评分高→低</button>
+        <button data-sort="unread">未读优先</button>
+      </div>
+    </div>
+  </div>
+  <div class="meta-status"><span id="meta-status"></span><span id="meta-count"></span></div>
   <div id="list">
 {''.join(sections)}
   </div>
   <div class="footer">共 {len(posts)} 篇 · Personal archive · Asia/Shanghai</div>
 </div>
-<script>
-(function(){{
-  const q=document.getElementById('q');
-  const filters=document.getElementById('filters');
-  let cat='all';
-  function apply(){{
-    const term=(q.value||'').trim().toLowerCase();
-    document.querySelectorAll('.card').forEach(el=>{{
-      const okCat=cat==='all'||el.dataset.cat===cat;
-      const okQ=!term||(el.dataset.q||'').toLowerCase().includes(term);
-      el.style.display=(okCat&&okQ)?'':'none';
-    }});
-    document.querySelectorAll('.cat').forEach(h=>{{
-      let n=h.nextElementSibling, show=false;
-      while(n && n.classList && n.classList.contains('card')){{
-        if(n.style.display!=='none') show=true;
-        n=n.nextElementSibling;
-      }}
-      h.style.display=(!term && (cat==='all'||h.textContent===cat)) || show ? '' : 'none';
-      if(cat!=='all' && h.textContent!==cat) h.style.display='none';
-    }});
-  }}
-  filters.addEventListener('click', e=>{{
-    if(e.target.tagName!=='BUTTON') return;
-    cat=e.target.dataset.cat;
-    filters.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b===e.target));
-    apply();
-  }});
-  q.addEventListener('input', apply);
-}})();
-</script>
+<script src="assets/meta.js" defer></script>
 </body>
 </html>
 """

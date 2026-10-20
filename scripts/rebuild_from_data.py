@@ -10,6 +10,10 @@ spec = importlib.util.spec_from_file_location("build", ROOT / "scripts" / "extra
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
+# keep the shared stylesheet in sync with the template CSS
+(ROOT / "assets").mkdir(exist_ok=True)
+(ROOT / "assets" / "site.css").write_text(mod.CSS, encoding="utf-8")
+
 posts_meta = []
 for f in sorted((ROOT / "data").glob("*.json")):
     raw = json.loads(f.read_text(encoding="utf-8"))
