@@ -486,6 +486,43 @@ def esc(s: str) -> str:
     )
 
 
+SOURCE_TYPE_LABELS = {
+    "x_post": "帖子",
+    "x_article": "长文",
+    "web_article": "网页",
+}
+
+X_ICON = '<span class="src-icon" aria-hidden="true">𝕏</span>'
+GLOBE_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<circle cx="8" cy="8" r="6.5"></circle>'
+    '<ellipse cx="8" cy="8" rx="3" ry="6.5"></ellipse>'
+    '<path d="M1.5 8h13"></path></svg>'
+)
+
+
+def source_type_of(meta: dict) -> str:
+    """来源类型；旧数据缺失时按 entry_type 推断，保证徽标与筛选不落空。"""
+    return meta.get("source_type") or (
+        "webcafe_link" if meta.get("entry_type") == "link_only" else "x_post"
+    )
+
+
+def source_badge(meta: dict) -> str:
+    """标题旁的来源徽标；web.cafe 沿用原有的仅链接徽标。"""
+    st = source_type_of(meta)
+    if st == "webcafe_link":
+        return '<span class="badge-linkonly">web.cafe · 仅链接</span>'
+    label = SOURCE_TYPE_LABELS.get(st)
+    if not label:
+        return ""
+    icon = GLOBE_ICON if st == "web_article" else X_ICON
+    return (
+        f'<span class="source-badge" data-source-type="{esc(st)}">'
+        f'{icon}<span class="src-label">{label}</span></span>'
+    )
+
+
 def linkify(text: str) -> str:
     """Escape then linkify URLs and @handles and #hashtags lightly."""
     s = esc(text)
@@ -700,6 +737,18 @@ h1.title {
   background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
   line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
 }
+.source-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-left: 7px; vertical-align: middle;
+  border: 1px solid var(--border); border-radius: 999px; padding: 0 7px;
+  color: var(--muted); font-size: 11px; font-weight: 600;
+  line-height: 1.7; white-space: nowrap;
+}
+.source-badge .src-icon {
+  display: inline-block; width: 12px; height: 12px;
+  font-size: 11px; line-height: 1; text-align: center;
+}
+.source-badge svg.src-icon { fill: none; stroke: currentColor; stroke-width: 1.2; }
 .card-linkonly { cursor: default; }
 .card-linkonly .ctitle a { color: inherit; }
 .card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
@@ -790,7 +839,7 @@ def post_page(meta: dict, body_html: str) -> str:
       <div class="meta">{esc(meta['published_local'])} · Asia/Shanghai</div>
     </div>
   </div>
-  <h1 class="title">{esc(meta['title'])}</h1>
+  <h1 class="title">{esc(meta['title'])}{source_badge(meta)}</h1>
   <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
   <a class="orig-link" href="{esc(meta['url'])}" target="_blank" rel="noopener">查看原文（X）↗</a>
   {cover_html}
@@ -832,8 +881,8 @@ def index_page(posts: list[dict]) -> str:
                 handle = f"@{esc(username)}" if username and username != "web.cafe" else esc(username)
                 cmeta = f"{esc(p['author_name'])}" + (f" · {handle}" if handle else "") + f" · {date}"
                 cards.append(
-                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}">
-  <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a><span class="badge-linkonly">web.cafe · 仅链接</span></div>
+                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-q="{q}">
+  <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
   <div class="cmeta">{cmeta}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
@@ -841,8 +890,8 @@ def index_page(posts: list[dict]) -> str:
                 )
             else:
                 cards.append(
-                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/">
-  <div class="ctitle">{esc(p['title'])}</div>
+                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/">
+  <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
   <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
 </a>"""
@@ -870,6 +919,16 @@ def index_page(posts: list[dict]) -> str:
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
   <div class="filters" id="filters">{''.join(filter_btns)}</div>
   <div class="filter-rows">
+    <div class="filter-row">
+      <span class="flabel">类型</span>
+      <div class="filters" data-meta-filter="type">
+        <button data-type="all" class="active">全部</button>
+        <button data-type="x_post">帖子</button>
+        <button data-type="x_article">长文</button>
+        <button data-type="web_article">网页</button>
+        <button data-type="webcafe_link">仅链接</button>
+      </div>
+    </div>
     <div class="filter-row">
       <span class="flabel">评分</span>
       <div class="filters" data-meta-filter="rating">
@@ -1033,6 +1092,7 @@ def process_one(post_api: dict, users: dict) -> dict:
         "published_local": published,
         "category": CATEGORIES[pid],
         "description": DESCS[pid],
+        "source_type": "x_post",  # 当前抽取流程均为普通推文；X 长文/网页来源在 data/*.json 标注
         "avatar_local": avatar_local,
         "images_total": images_total,
         "images_ok": images_ok,

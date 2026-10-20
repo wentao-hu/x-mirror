@@ -392,7 +392,7 @@
     var snapshot = Array.prototype.slice.call(list.children); // 原始顺序（含分类标题）
     var statusEl = document.getElementById('meta-status');
     var countEl = document.getElementById('meta-count');
-    var ui = { term: '', cat: 'all', rating: 'all', read: 'all', sort: 'default' };
+    var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', sort: 'default' };
 
     function metaFor(el) { return get(el.dataset.slug); }
     function originalIndex(el) { return snapshot.indexOf(el); }
@@ -436,12 +436,13 @@
       cards.forEach(function (el) {
         var m = metaFor(el);
         var okCat = ui.cat === 'all' || el.dataset.cat === ui.cat;
+        var okType = ui.type === 'all' || el.dataset.sourceType === ui.type;
         var okQ = !term || (el.dataset.q || '').toLowerCase().indexOf(term) >= 0;
         var okRating = ui.rating === 'all'
           ? true
           : (ui.rating === '0' ? m.rating === 0 : m.rating >= Number(ui.rating));
         var okRead = ui.read === 'all' ? true : (ui.read === 'yes' ? m.read : !m.read);
-        el._xmShow = okCat && okQ && okRating && okRead;
+        el._xmShow = okCat && okType && okQ && okRating && okRead;
         el.style.display = el._xmShow ? '' : 'none';
       });
 
@@ -455,7 +456,7 @@
       Array.prototype.forEach.call(list.querySelectorAll('.cat'), function (h) {
         if (ui.sort !== 'default') { h.style.display = 'none'; return; }
         if (ui.cat !== 'all' && h.textContent !== ui.cat) { h.style.display = 'none'; return; }
-        if (!term && ui.rating === 'all' && ui.read === 'all') { h.style.display = ''; return; }
+        if (!term && ui.type === 'all' && ui.rating === 'all' && ui.read === 'all') { h.style.display = ''; return; }
         var node = h.nextElementSibling, hasVisible = false;
         while (node && node.classList && node.classList.contains('card')) {
           if (node._xmShow) hasVisible = true;
@@ -489,6 +490,9 @@
 
     bindBar(document.getElementById('filters'), function (btn) {
       ui.cat = btn.dataset.cat || 'all';
+    });
+    bindBar(document.querySelector('[data-meta-filter="type"]'), function (btn) {
+      ui.type = btn.dataset.type || 'all';
     });
     bindBar(document.querySelector('[data-meta-filter="rating"]'), function (btn) {
       ui.rating = btn.dataset.rating || 'all';

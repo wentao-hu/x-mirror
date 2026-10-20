@@ -16,7 +16,7 @@
 
 ```
 index.html            # 目录页（分类 + 搜索 + 评分/已读筛选）
-posts.json            # 清单（标题/作者/分类/图片统计，entry_type: mirror | link_only）
+posts.json            # 清单（标题/作者/分类/来源类型/图片统计，entry_type: mirror | link_only）
 posts/<slug>/
   index.html          # 单篇阅读页（内置评分 + 已读完控件）
   assets/             # 该篇头像 + 正文图片（本地文件）
@@ -56,7 +56,7 @@ python3 -m http.server 8765
 - **1–5 星评分**：再点一次当前分数即清除（回到未评分）；文章页还提供「清除」按钮。
 - **已读完**：标题下方的胶囊按钮一键切换。
 
-目录页支持按评分（全部 / 未评分 / ≥1★…5★）、阅读状态（全部 / 已读完 / 未读）筛选，以及默认 / 评分高→低 / 未读优先排序。镜像卡片上显示只读星级和「已读」徽标；`link_only` 卡片（无详情页）直接在卡片上提供可点击的星级与「已读完」按钮。
+目录页支持按类型（全部 / 帖子 / 长文 / 网页 / 仅链接）、评分（全部 / 未评分 / ≥1★…5★）、阅读状态（全部 / 已读完 / 未读）筛选，以及默认 / 评分高→低 / 未读优先排序，各条件可叠加。镜像卡片上显示只读星级和「已读」徽标；`link_only` 卡片（无详情页）直接在卡片上提供可点击的星级与「已读完」按钮。
 
 数据持久化：
 
@@ -105,6 +105,19 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css`、补齐 WebP 副本并保留所有文章页的控件。
 
+## 内容类型（source_type）
+
+`data/*.json` 的 `meta` 与 `posts.json` 的每条记录都带 `source_type`，用于目录卡片/文章页标题旁的徽标和目录页「类型」筛选：
+
+| source_type | 徽标 | 说明 |
+| --- | --- | --- |
+| `x_post` | 𝕏 帖子 | 普通 X 推文镜像（当前已镜像条目均为此类型） |
+| `x_article` | 𝕏 长文 | X 长文/Article 镜像 |
+| `web_article` | 🌐 网页 | 外部网页镜像 |
+| `webcafe_link` | web.cafe · 仅链接 | web.cafe 仅链接条目，同时保留 `entry_type: link_only` |
+
+构建时卡片会输出 `data-source-type`，`assets/meta.js` 据此与分类、搜索、评分、已读、排序条件叠加过滤；缺失该字段的旧数据按 `entry_type` 回退（链接条目 → `webcafe_link`，其余 → `x_post`）。抽取脚本默认写入 `x_post`，其他类型在 `data/*.json` 中标注。
+
 ## 仅链接条目（web.cafe / 好友 VIP 站）
 
 `new.web.cafe` 是朋友的 VIP 站点，站内文章**永远只做目录条目，不做镜像**：
@@ -134,6 +147,7 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
   "published_local": "2026-10-19 21:20",
   "category": "web.cafe 精选",
   "description": "web.cafe 仅链接 · 不镜像正文",
+  "source_type": "webcafe_link",
   "entry_type": "link_only",
   "avatar_local": "",
   "images_total": 0,
