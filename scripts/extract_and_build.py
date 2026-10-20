@@ -48,7 +48,7 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
-CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
+CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
 
 CATEGORIES = {
     "2110669876482203775": "新词站实战复盘",
@@ -556,13 +556,24 @@ def source_badge(meta: dict) -> str:
 
 
 def linkify(text: str) -> str:
-    """Escape then linkify URLs and @handles and #hashtags lightly."""
+    """Escape then linkify markdown links, bare URLs and @handles lightly."""
     s = esc(text)
+
+    # [文字](https://…) → <a>；先换成占位符，避免裸 URL 规则二次命中
+    md_links: dict[str, str] = {}
+
+    def repl_md(m):
+        label, url = m.group(1), m.group(2)
+        key = f"\x00md{len(md_links)}\x00"
+        md_links[key] = (
+            f'<a href="{url}" rel="noopener noreferrer" target="_blank">{label}</a>'
+        )
+        return key
+
+    s = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", repl_md, s)
 
     def repl_url(m):
         u = m.group(0)
-        # unescape not needed; we escaped first so URL has no &amp issues... wait we did escape
-        # actually URLs in text may contain & which became &amp;
         return f'<a href="{u}" rel="noopener noreferrer" target="_blank">{u}</a>'
 
     s = re.sub(r"https?://[^\s<>\"']+", repl_url, s)
@@ -571,6 +582,8 @@ def linkify(text: str) -> str:
         r'<a class="mention" href="https://x.com/\1" rel="noopener noreferrer" target="_blank">@\1</a>',
         s,
     )
+    for key, html in md_links.items():
+        s = s.replace(key, html)
     # preserve newlines as <br> for multi-line paras
     s = s.replace("\n", "<br>\n")
     return s

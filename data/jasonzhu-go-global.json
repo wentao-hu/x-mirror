@@ -1,0 +1,983 @@
+{
+  "meta": {
+    "id": "jasonzhu-go-global",
+    "slug": "jasonzhu-go-global",
+    "title": "独立开发者出海路线图：建站、收钱、增长",
+    "url": "https://jasonzhu.ai/zh/go-global",
+    "author_name": "Jason Zhu",
+    "author_username": "GoSailGlobal",
+    "published_utc": "2026-10-20T16:12:11.000Z",
+    "published_local": "2026-10-21 00:12",
+    "category": "出海路线图",
+    "description": "从域名、托管、数据库到收款、SEO 和外链，独立开发者出海的四步路线图，附工具与实操文章索引。",
+    "source_type": "web_article",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "普通网页（jasonzhu.ai 出海专题）全文镜像。原页未标注发布时间，按抓取时间记录，内容更新至 2026-10-20；折叠面板与选择器按展开后的静态文本收录，站内外链接保留原地址。",
+    "plain_text_len": 21983,
+    "blocks_count": 196
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "出海专题"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "独立开发者出海路线图：建站、收钱、增长"
+    },
+    {
+      "type": "paragraph",
+      "text": "从买域名到收到第一笔海外的钱，再到做 SEO 和外链，按顺序整理成四步。每一步都是我自己在用的工具和踩过的坑；收款部分按各平台的官方文档整理，每周再数一遍新卖家都在卖什么。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新手先看"
+    },
+    {
+      "type": "paragraph",
+      "text": "刚开始做出海，先看这几样：John（YouTube「英文SEO实战派」）回答读者提问的两期 AMA（第一期还有一位搭档一起答），一个从零做出并上线 AI 应用的教程，和两份工具清单。 [频道主页](https://www.youtube.com/@seoactionblog)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Weekly AMA 第一期](https://www.youtube.com/watch?v=vz7Y_Px-YEY)"
+    },
+    {
+      "type": "paragraph",
+      "text": "1:11:48 · 2024-04-27"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "看要点（13 条，点时间跳到那一段）"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[04:42](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=282s) SEO 的未来会延伸到 AI 搜索里；做联盟营销别贪多：专心做一个站、做你最喜欢的内容，再加一种变现（数字产品、课程）。",
+        "[09:02](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=542s) SEO 链路是抓取、收录、排名、点击、转化；看数据从大到小拆：月、周、日，再按国家和页面类型；八成转化来自两成页面，盯住它们。",
+        "[15:17](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=917s) 定期更新重要，但别为了更新而更新，只改日期可能被当成刷；按重要程度分级，核心文章每月对照前十名更新，其余半年到一年审一次。",
+        "[19:23](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1163s) 找国外写手：合作前说清不收 AI 稿；AI 检测工具不准，最终靠你自己判断写得好不好。",
+        "[24:37](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1477s) 多语言网站：用 hreflang 标签，结构选子目录（像 /jp/ 这样），一般按语言分就够，不用再按国家拆。",
+        "[29:04](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1744s) 独立站 SEO：产品页、分类页做能直接成交的词，首页做品牌；辅助内容做话题相关和内链；别在自己的店里写「best X」测评，那是内容站的词。",
+        "[38:02](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2282s) 把别人的网站翻译成另一种语言发出来，既是抄袭也是重复内容，谷歌专门打击过。",
+        "[41:12](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2472s) AI 写、人工审，风险不在 AI，在商业模式：内容站谁写都容易被打，电商、SaaS、有品牌的站问题不大。",
+        "[49:33](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2973s) SEO 标题不用死卡字数，五六十个字符、带上关键词就行；标题是为了在搜索结果里吸引点击，H1 是给进了页面的人看的。",
+        "[54:44](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3284s) 每次核心算法更新都被打，不一定是你做错了什么；怎么恢复，目前没人说得清。",
+        "[56:51](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3411s) 别把鸡蛋放在一个篮子里：最好有自己的产品、服务或品牌，SEO 只是渠道之一。",
+        "[1:00:55](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3655s) 新手别从「做哪个流量渠道」入手，先想清楚商业模式：你能做、别人做不好的是什么，用户在哪里，再选渠道。",
+        "[1:04:06](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3846s) AI 工具导航站一万多个页面都被收录了却没排名：AI 生成的介绍没有价值；可以改成 G2 那样让用户评论打分，新站批量上 AI 页面还可能被少抓、甚至人工处罚。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "[Weekly AMA 第二期](https://www.youtube.com/watch?v=gAT7UDF806Y)"
+    },
+    {
+      "type": "paragraph",
+      "text": "29:23 · 2024-05-02"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "看要点（10 条，点时间跳到那一段）"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[01:50](https://www.youtube.com/watch?v=gAT7UDF806Y&t=110s) 新站一下子用 AI 发大量页面风险很高：站没权重、内容又一般，容易被去索引；就算还被收录，流量也可能比算法更新前掉八九成。",
+        "[04:22](https://www.youtube.com/watch?v=gAT7UDF806Y&t=262s) 沙盒期有没有，没人说得清，John 自己不信。",
+        "[07:44](https://www.youtube.com/watch?v=gAT7UDF806Y&t=464s) 「采集 + AI」想在谷歌拿排名，2022、2023 年以后基本没戏。",
+        "[08:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=493s) SEO 一半偏文一半偏理：内容是根本，会写最好，不会写就找写手；做技术 SEO 也一样有市场。",
+        "[09:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=553s) 外贸站被算法打了：有历史的品牌站别急着重做，先查内容质量；B2B 站写成了内容站、连 About Us、创始人和地址都没有，最容易被打。",
+        "[12:53](https://www.youtube.com/watch?v=gAT7UDF806Y&t=773s) 电商的颜色、尺寸：每个规格都有人搜，才单独做页面，并改标题、H1 和描述；否则一个页面让用户自己选。",
+        "[18:00](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1080s) 想做好技术 SEO：挑一个方向（收录、网站速度），在自己或客户的网站（WordPress、Shopify）上练。",
+        "[21:10](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1270s) 没有外链预算，竞争大的词很难排上去，要跟老板说清楚。",
+        "[25:06](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1506s) SEO 公式以前是「内容 + 外链 + 技术」，现在还要加上用户交互信号和品牌。",
+        "[26:36](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1596s) 不会编程别纠结建站：做电商直接用 Shopify，先想清楚产品和竞争力，找人建站，别追求一次完美。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2024 年 4–5 月录的，谈的多是 2024 年 3 月谷歌核心算法更新前后的情况；谷歌 SEO 这两年变化快，部分说法可能已经过时。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[▶ 0 基础做 AI 应用：从想法到上线的终极教程](https://www.youtube.com/watch?v=EtTXeQGHgWI)"
+    },
+    {
+      "type": "paragraph",
+      "text": "木子不写代码 · 46:28 · 2026-05-13"
+    },
+    {
+      "type": "paragraph",
+      "text": "一期跟完就能做出并上线自己的第一个 AI 应用，按章节点进去看。"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "按章节看（18 节）"
+    },
+    {
+      "type": "paragraph",
+      "text": "基础入门 ：[AI 编程工具准备](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=42s) · [基本操作和界面](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=97s) · [智能体插件](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=271s)"
+    },
+    {
+      "type": "paragraph",
+      "text": "开发流程 ：[用 superpowers 定开发计划](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=423s) · [前端和后端](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=743s) · [Supabase](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=845s) · [API 请求](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=886s) · [子智能体驱动开发](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=968s) · [环境变量](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1031s) · [GitHub](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1321s) · [Supabase 密钥](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1486s) · [数据库迁移](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1610s)"
+    },
+    {
+      "type": "paragraph",
+      "text": "上线实战 ：[验收功能](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1743s) · [前端设计优化](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1939s) · [端到端测试](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2061s) · [网站部署](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2234s) · [购买域名](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2623s) · [总结与展望](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2682s)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[AI 编程出海工具超级清单（2026 版）](https://x.com/xiaoluv12o/status/2044422996539089094)"
+    },
+    {
+      "type": "paragraph",
+      "text": "小路 · 2026-04-15"
+    },
+    {
+      "type": "paragraph",
+      "text": "域名、托管、AI 编程工具到上线要用的一整套，每样一句话说清用途。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[出海工具链：一个人从需求做到收款](https://x.com/sitinme/status/1994677962990289190)"
+    },
+    {
+      "type": "paragraph",
+      "text": "sitin · 2025-11-29"
+    },
+    {
+      "type": "paragraph",
+      "text": "按环节分九类：网站分析、趋势和关键词、竞品分析、开发部署、设计原型、模型 API、找需求、域名、收款，每类两三个常用工具。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "建站：域名、托管、数据库"
+    },
+    {
+      "type": "paragraph",
+      "text": "起步几乎不花钱：三样都有免费额度，起量后再升级。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我在用的"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[Cloudflare](https://www.cloudflare.com/products/registrar/) · 域名 ：第二年续费和首年同价",
+        "[Vercel](https://vercel.com) · 网页托管 ：单个项目免费，起量后再转 Cloudflare",
+        "[Supabase](https://supabase.com) · 数据库 ：免费额度内不花钱"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 出海网站 SaaS 产品推荐 」](https://x.com/GoSailGlobal/status/2093541050614759662) 2026-08-29"
+    },
+    {
+      "type": "paragraph",
+      "text": "域名后缀怎么选"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "后缀对排名基本中立，影响的是信任感和点击习惯。",
+        ".com、.net、.org 历史久，信任度和外链点击率更好；国家后缀（.cn、.us、.de）在本地搜索里有加权。",
+        ".xyz、.online、.top、.shop 这类新后缀算法上不吃亏，但垃圾站多，搜索引擎更谨慎，要靠内容和外链证明质量。",
+        "真正决定排名的是内容质量、外链、点击率和停留时间。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Niko [「 域名后缀到底会不会影响 SEO 排名？ 」](https://x.com/guishou_56/status/1973971390220153221) 2025-10-03"
+    },
+    {
+      "type": "paragraph",
+      "text": "另一种做法：全放 Cloudflare"
+    },
+    {
+      "type": "paragraph",
+      "text": "域名、解析和防护在 Cloudflare 一站搞定；前端放 Pages（自带全球 CDN），后端用 Workers，数据库 D1，文件放 R2（不收出站流量费），缓存 KV，图片和视频用 Images、Stream，监控和统计用自带的。免费额度够大部分人起步。"
+    },
+    {
+      "type": "paragraph",
+      "text": "左子祯 [「AI + Cloudflare = 你需要的全部」](https://x.com/zuozizhen/status/2031233335050313944) 2026-03-10"
+    },
+    {
+      "type": "paragraph",
+      "text": "[不做网站：插件、App 和 MCP 怎么上架](https://jasonzhu.ai/zh/go-global/extensions)"
+    },
+    {
+      "type": "paragraph",
+      "text": "我做 Chrome 插件从开发到上架踩过的坑，加上 Chrome、Edge、Firefox、App Store、Google Play、MCP 和 GPT 各家的官方规则。"
+    },
+    {
+      "type": "paragraph",
+      "text": "相关文章"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[出海产品收邮件：用Cloudflare Email Routing免费搞定](https://jasonzhu.ai/zh/blog/going-global-email-receiving-cloudflare-routing) 2026-04-10",
+        "[出海产品发邮件：为什么你应该用Resend替代平台自带SMTP](https://jasonzhu.ai/zh/blog/going-global-email-sending-with-resend) 2026-03-12"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "收钱：个人还是公司、开哪家、过审核"
+    },
+    {
+      "type": "paragraph",
+      "text": "没注册公司也能收海外的钱。先定身份，再选平台，提交审核前体检网站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[个人还是公司，怎么开户](https://jasonzhu.ai/zh/go-global/open-account)"
+    },
+    {
+      "type": "paragraph",
+      "text": "大陆个人和香港、美国、英国公司分别能开哪几家，开户每一步要准备什么，注册公司要花多少。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[香港公司每年要做什么](https://jasonzhu.ai/zh/go-global/hk-company)"
+    },
+    {
+      "type": "paragraph",
+      "text": "周年申报、商业登记、审计报税、公司秘书，一张时间表和每年的最低成本。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[国内、英国、美国三家公司怎么分工](https://jasonzhu.ai/zh/go-global/company-roles)"
+    },
+    {
+      "type": "paragraph",
+      "text": "做 App 时国内版和海外版各挂哪家，美国客户的钱用谁收，三家每年各要报什么，国内公司给英国公司做开发怎么收服务费。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[收款平台选择器](https://jasonzhu.ai/zh/go-global/payments)"
+    },
+    {
+      "type": "paragraph",
+      "text": "点两下：谁来收钱、卖什么，直接出排名、到手金额和开户步骤。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[上线前体检网站：payment-guard](https://github.com/zhuyansen/payment-guard)"
+    },
+    {
+      "type": "paragraph",
+      "text": "按各家公开的审核清单逐条查网站，开源，命令行和 Claude Code 都能用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 出海网站 SaaS 产品推荐 」](https://x.com/GoSailGlobal/status/2093541050614759662) 2026-08-29"
+    },
+    {
+      "type": "paragraph",
+      "text": "收到钱以后"
+    },
+    {
+      "type": "paragraph",
+      "text": "[出金和报税](https://jasonzhu.ai/zh/go-global/cash-out)"
+    },
+    {
+      "type": "paragraph",
+      "text": "我的出金方案，加上每年 5 万美元的结汇额度、境外所得要不要报个税、CRS 会交换什么。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[上线以后的风控](https://jasonzhu.ai/zh/go-global/payment-risk)"
+    },
+    {
+      "type": "paragraph",
+      "text": "盗刷和卡测试、拒付率、冻结和保证金，各家收款平台的官方规定。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "增长：数据、技术 SEO、外链"
+    },
+    {
+      "type": "paragraph",
+      "text": "没学过 SEO 先补课。然后搭好 SEO 系统、分清必做页面和增长页面，抢在别人之前找新词，看清自己和竞品的数据，用气泡图挑出该改的页面，用 skill 把技术 SEO 查一遍，外链少而精。"
+    },
+    {
+      "type": "paragraph",
+      "text": "没学过 SEO？先按这两条路线补课"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Google 搜索中心文档](https://developers.google.com/search/docs?hl=zh-cn) ：Google 自己写的规则，有中文版，按这个顺序读："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "[SEO 入门指南](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn) ：从这篇开始：Google 怎么找到、看懂你的网站，网址、标题、摘要、链接、图片这些基本功，最后一节专讲不用操心的事 2025-12-18 更新",
+        "[Google 搜索运作方式的深度指南](https://developers.google.com/search/docs/fundamentals/how-search-works?hl=zh-cn) ：抓取、编入索引、呈现结果三个阶段，页面没被收录时知道卡在哪一步 2025-12-18 更新",
+        "[Google 搜索要素](https://developers.google.com/search/docs/essentials?hl=zh-cn) ：能进 Google 的门槛：技术要求、垃圾内容政策和几条关键最佳实践 2025-12-18 更新",
+        "[垃圾内容政策](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn) ：哪些做法会被降权甚至移除：买卖链接、批量生成内容、滥用过期域名、借别人网站的声誉等 2026-09-02 更新",
+        "[创建实用、可靠、以用户为中心的内容](https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=zh-cn) ：一组自查问题，看内容是写给人看的还是为排名凑的；10 月新加的「主要内容」一节说，只靠 Feed 自动生成页面、用 AI 批量写又没人把关，算几乎没有投入，注明出处也替代不了原创 2026-10-08 更新",
+        "[针对 Google 搜索中的生成式 AI 功能优化网站](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn) ：Google 对 GEO 的正式说法：在 Google 搜索里它就是 SEO；哪些 GEO 技巧可以不管，为什么不该给每个扇出查询单独建页 2026-07-15 更新",
+        "[Search Console 使用入门](https://developers.google.com/search/docs/monitor-debug/search-console-start?hl=zh-cn) ：上线后：验证网站、看收录、提交站点地图、看搜索效果；官方建议大约每月看一次，改了内容再看 2025-12-18 更新",
+        "[调试 Google 搜索流量下降问题](https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops?hl=zh-cn) ：流量掉了先按这篇排查：算法更新、技术问题、安全问题、垃圾内容、季节变化还是改版迁移，再拉 16 个月数据找规律 2025-12-18 更新"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesse 的「佛系 SEO」"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google 的 SEO 主要就是把 Google 自己的《SEO 新手指南》仔细读完、照着做，别的都不用管。工具从 Ahrefs、Ubersuggest 换成了两样免费的：Backlinko 的关键词工具和 Google Trends，只粗看一个词有多少需求，搜索量小到一天连一块钱都撑不起就不做。Similarweb 只适合打听别人的站，对自己的细分领域没什么用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesse Lau 遁一子 [「 我现在是佛系 SEO 」](https://x.com/jesselaunz/status/1871673239644360706) 2024-12-24"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞列的学习顺序："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "先把 Ahrefs 的免费 SEO 课程粗读一遍，不用读懂，知道有哪些概念就行。 [Ahrefs：SEO 新手指南](https://ahrefs.com/zh/seo)",
+        "再把进阶教程看一遍，这一步也只求了解。 [进阶教程](https://new.web.cafe/tutorial/0c91c83924e9495aa75384becf6304ff)",
+        "回过头读哥飞写的新手入门。 [新手入门](https://new.web.cafe/tutorial/7c36c9a7c6e34d21b8f3efd857d980aa)",
+        "学怎么挖需求、找词。 [挖掘需求](https://new.web.cafe/tutorial/89afd4d0414d41e6b5f9304ee42df055) · [小白怎么找词](https://new.web.cafe/tutorial/detail/fp0zl0dtob)",
+        "学怎么判断一个关键词能不能做。 [如何判断一个关键词是否能做](https://new.web.cafe/tutorial/detail/7v7tfjneg9)",
+        "网站上线以后做什么，拿一个月收入 5 万美元的站把谷歌排名再讲一遍。 [上站之后要做什么](https://new.web.cafe/tutorial/detail/sk5je1bj0f)",
+        "工具的落地页怎么设计，从 V1.0 一路改到 V2.0。 [落地页从 V1.0 到 V2.0](https://new.web.cafe/tutorial/detail/5yyr7zjxk7)",
+        "照精品工具页面的思路做精品工具站。 [如何做精品工具站](https://new.web.cafe/tutorial/detail/za408lc1q9)",
+        "最后跟着「养网站防老」系列把全流程走一遍（11 篇），可以先通读，再一步步照着做。 [养网站防老](https://new.web.cafe/tutorial/7PG1iQzr3sXx1tyKmf9ZYd)",
+        "外链：哥飞认为博客评论外链依然有用。 [博客评论外链怎么找、怎么做](https://new.web.cafe/experience/ao30ki8tzk) · [从博客评论外链想到的找需求思路](https://new.web.cafe/topic/xoi32sha0d)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "[教程栏目的其他文章也都值得看 →](https://new.web.cafe/tutorials)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google 的垃圾链接政策（2026-09-02 更新）把「用自动程序或服务给网站建链接」和「评论里带优化过的链接」都算作垃圾链接。评论只在相关的博客里认真写，别用工具批量发，也别塞关键词锚文本。 [政策原文](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn#link-spam)"
+    },
+    {
+      "type": "paragraph",
+      "text": "web.cafe 是哥飞的付费社群：标题和目录谁都能看，教程正文要开通会员登录后才能读。第一步的 Ahrefs 课程免费。"
+    },
+    {
+      "type": "paragraph",
+      "text": "SEO 系统：水系模型 v4"
+    },
+    {
+      "type": "paragraph",
+      "text": "把 SEO 当成一套水系来搭。进水口有三个：传统的外链权威（免费目录只管收录、不传权重，别堆量），被 AI 引用（被提及比被链接更重要），Toolify、Product Hunt 这类平台的收录。效果也要分层看：GSC 和 GA 里的点击只是冰山一角，我实测 AI 引用量是 AI 点击量的 9 倍，被引用却没被点击的那部分，用 Bing 的 AI Performance 和 Clarity 的引用报告补上，都免费。"
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 SEO 水系模型更新到 v4 了 」](https://x.com/GoSailGlobal/status/2080588406091022747) 2026-07-24"
+    },
+    {
+      "type": "paragraph",
+      "text": "GEO：新站先做什么"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "先在 AI 里建立定位：把产品定位页面做好，让 AI 知道你是什么。",
+        "研究 GEO 的内容主题和信源：看 GEO 做得好的竞品，用 Fan-out Queries（AI 把一个问题拆成的多个子查询）找主题；AI 常采信 Reddit、知乎这类信源，就去那里做内容。",
+        "做 PR 和品牌，让 AI 采用你、推荐你。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "新站怎么定页面的先后"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "新站资源有限，先后顺序看产品相关性、商业价值、搜索意图、流量潜力、竞争难度和自己能不能交付，不要只按搜索量排。",
+        "SEO 必做型页面：首页、功能页、场景页，以及定价、API、文档页，负责说清产品是什么、能做什么、服务谁。词再难、短期排不上，也要先建好，把标题、H1、介绍和 CTA 对上需求。",
+        "SEO 增长型页面：工具页、长尾场景页、教程、榜单、对比和替代页，这些才按机会排先后。",
+        "增长型按「蓝海词 → 中等词 → 大词」推进。蓝海词不只是搜索量小，还要需求明确、和产品相关、能真正交付结果、竞争可进入、有转化价值。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "写增长的子木 [「 GEO，讲讲我的实操点 for 新站 」](https://x.com/CoderJeffLee/status/2110992235982737493) 2026-10-16"
+    },
+    {
+      "type": "paragraph",
+      "text": "「定页面先后」一段出自他的新文章（帖子配图）。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google 的官方说法（2026-07-15）：在 Google 搜索里做 GEO 就是做 SEO；把内容「分块」、llms.txt 这类 AI 专用文件、虚假提及，都可以不管；为每个扇出查询单独建页算规模化内容滥用，所以扇出查询拿来找主题，别一个词建一页。网站在 AI 概览和 AI 模式里被展示了多少次，看 Search Console 的「生成式 AI 效果报告」（2026-08-31 起全球可用）。 [官方指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn) · [效果报告说明](https://support.google.com/webmasters/answer/16984139?hl=zh-cn)"
+    },
+    {
+      "type": "paragraph",
+      "text": "数据查看"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[AITDK](https://x.com/blankwebdev) · 站点数据",
+        "[SiteData](https://x.com/fantexi997) · 站点数据",
+        "[哥伦布](https://x.com/jinlv11) · 外链和排名数据",
+        "[AIsa](https://go.aisa.one/yansen-zhu) （推荐链接） · 外链、流量、DR、社媒数据 API"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 补充一些自己在用的出海产品 」](https://x.com/GoSailGlobal/status/2093961655747072092) 2026-08-30"
+    },
+    {
+      "type": "paragraph",
+      "text": "技术 SEO skill"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[marketingskills（Corey Haines）](https://github.com/coreyhaines31/marketingskills) · 营销技能合集（CRO、文案、SEO、数据分析）",
+        "[seo-audit-skill（子木）](https://github.com/JeffLi1993/seo-audit-skill) · 页面 SEO 体检，新手版和进阶技术版",
+        "[seo-audit（Wonfull）](https://github.com/wonfull888/seo-audit) · 按 Google 指南和 Ahrefs 清单做 92 项检查",
+        "[seo-audit-skill（SEOmator）](https://github.com/seo-skills/seo-audit-skill) · 本地全站技术体检，370 多条规则，能对比改版前后 ：10 月实测在我两个站各查出一个真问题，但误报多，GEO 和硬门槛类结论只当参考"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 补充一些自己在用的出海产品 」](https://x.com/GoSailGlobal/status/2093961655747072092) 2026-08-30"
+    },
+    {
+      "type": "paragraph",
+      "text": "SEO 关键词"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[哥飞的 KD 工具](https://seo.web.cafe/kd/) · 关键词难度查询 ：非社群用户每天也能查 100 次[（droidHZ 2026-06-10）](https://x.com/hezhiyan7/status/2064710884791112052)",
+        "[哥飞 SEO Agent](https://seo.web.cafe/chat/) · SEO Agent[（哥飞 2026-10-02）](https://x.com/gefei55/status/2106024221671567671)",
+        "[Backlinko Keyword Tool](https://backlinko.com/tools/keyword) · 免费，粗看一个词有多少搜索需求[（Jesse Lau 遁一子 2024-12-24）](https://x.com/jesselaunz/status/1871673239644360706)",
+        "[Google Trends](https://trends.google.com/trends/) · 看一个词的热度怎么走[（Jesse Lau 遁一子 2024-12-24）](https://x.com/jesselaunz/status/1871673239644360706)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "上线先装的统计"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[Google Search Console](https://search.google.com/search-console) · 看收录、索引、搜索展示和点击，也在这里请求收录 ：填好信息、配一条 DNS 记录就能接入",
+        "[Google Analytics](https://analytics.google.com/analytics/web) · 访问量、访问时长、退出率等基础数据",
+        "[Plausible](https://plausible.io/) · 同样看访问量、时长和退出率",
+        "[Microsoft Clarity](https://clarity.microsoft.com/) · 用户操作录屏和热力图"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "GA、Plausible 和 Clarity 都是填好信息以后，把官方给的那段代码交给 AI，让它加到网站上。"
+    },
+    {
+      "type": "paragraph",
+      "text": "droidHZ [「 分享一些常见的数据分析工具 」](https://x.com/hezhiyan7/status/1986338996071637054) 2025-11-06"
+    },
+    {
+      "type": "paragraph",
+      "text": "[网页版（可筛选，每 8 小时更新）](https://agentskillshub.top/best/seo-tools/)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[GitHub](https://github.com/zhuyansen/awesome-claude-seo-skills)"
+    },
+    {
+      "type": "paragraph",
+      "text": "页面优化：用 GSC 气泡图挑该改的词和页面"
+    },
+    {
+      "type": "paragraph",
+      "text": "在 Looker Studio 里接上 Search Console（选「网站展示」表），每个查询词画成一个气泡：纵轴是平均排名，倒过来放，第 1 名在最上面；横轴是点击率；两个轴都用对数刻度。气泡越大点击越多，颜色区分设备，两条平均线把图分成四块。默认看过去 28 天。 [官方示例图表](https://datastudio.google.com/reporting/1e5b5f6a-38d7-4547-a54b-69594681a09b/page/xFbeC/preview?hl=zh-cn)"
+    },
+    {
+      "type": "paragraph",
+      "text": "① 排名高、点击率高"
+    },
+    {
+      "type": "paragraph",
+      "text": "不用动，现在就很好。"
+    },
+    {
+      "type": "paragraph",
+      "text": "② 排名低、点击率高"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户翻到后面还愿意点，说明需要你，但 Google 觉得页面和词不够匹配。有对应的页面就给这个词补内容，没有就专门做一页；这类词排名一上去，效果最明显。"
+    },
+    {
+      "type": "paragraph",
+      "text": "③ 排名低、点击率低"
+    },
+    {
+      "type": "paragraph",
+      "text": "先分相关和不相关。和产品相关的词，内容和标题一起改，这比从零去抢一个还没出现在搜索里的词容易；不相关的放掉，把力气花在能带来对口流量的词上。"
+    },
+    {
+      "type": "paragraph",
+      "text": "④ 排名高、点击率低"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesse 认为这类词多半被 AI 摘要截走了点击，没太好的办法。Google 给的检查方向：对手是不是用了结构化数据、显示成富媒体结果；这个词是不是用户本来就不想找你；用户是不是在摘要里就拿到了答案。想让人点进来，就改标题和描述。"
+    },
+    {
+      "type": "paragraph",
+      "text": "挑出词以后，在 Search Console 里按这个查询筛选，找到它对应的页面，再把标题、描述、图片 alt 和小标题改得具体、准确。"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[GSC 和 GA 一起看](https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console?hl=zh-cn) （Google，2026-01-09 更新）： 官方模板把 GSC 的点击和 GA 的自然搜索会话并排放。两边数字对不上是正常的，看趋势一不一致；搜索表现以 GSC 为准，站内行为以 GA 为准。[模板](https://lookerstudio.google.com/reporting/408e669d-07d1-4353-a1dc-94f06bde27ef/page/Hqrp/preview?hl=zh-cn)",
+        "[社交和视频内容在 Google 上的表现](https://developers.google.com/search/docs/monitor-debug/analyze-social-video-content?hl=zh-cn) （Google，2026-09-12 更新）： X、YouTube、TikTok、Instagram 账号可以作为「平台资源」加进 Search Console，看别人在 Google 上搜什么词找到你的帖子和视频；有 24 小时过滤，能看新视频是不是在起量，还能对比 YouTube 长视频（/watch）和 Shorts（/shorts/）。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Jesse Lau 遁一子 [「 Google 官方 SEO 教程里的四象限气泡图 」](https://x.com/jesselaunz/status/2109774797928612223) 2026-10-12"
+    },
+    {
+      "type": "paragraph",
+      "text": "四个象限的做法出自 Google 官方教程 [「利用 Search Console 气泡图改进 SEO 效果」](https://developers.google.com/search/docs/monitor-debug/bubble-chart-analysis?hl=zh-cn) （2025-12-18 更新）。"
+    },
+    {
+      "type": "paragraph",
+      "text": "找新词：new-term-radar"
+    },
+    {
+      "type": "paragraph",
+      "text": "每天从 X、Hugging Face、GitHub 和竞品的 sitemap 里抓刚冒出来的新模型、新产品名，赶在关键词工具收录之前，再排出值得做的关键词。开源，命令行、Agent Skill 和 MCP 都能用，要一个 AIsa 的 key。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[GitHub →](https://github.com/zhuyansen/new-term-radar)"
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 直接开源出来新词雷达 」](https://x.com/GoSailGlobal/status/2109543158761808243) 2026-10-12"
+    },
+    {
+      "type": "paragraph",
+      "text": "外链清单：一个月 DR 从 0 到 15"
+    },
+    {
+      "type": "paragraph",
+      "text": "外链不能贪多，这几个渠道就够："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "用 DataForSEO 抓竞品的外链",
+        "在 X 上收集征集外链的帖子",
+        "Helloleo 分享的外链清单",
+        "哥伦布的外链榜",
+        "公众号里分享的外链表格"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "出自我的帖子 [「 免费分享我收集的几大渠道外链 」](https://x.com/GoSailGlobal/status/2090693084317413479) 2026-08-21"
+    },
+    {
+      "type": "paragraph",
+      "text": "外链检测：backlink-guard"
+    },
+    {
+      "type": "paragraph",
+      "text": "提交外链之前先查这个站值不值得发：卖链接的、站群、被 Google 降权的站直接跳过，结论附证据。开源，命令行和 Claude Code 都能用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[GitHub →](https://github.com/zhuyansen/backlink-guard) [垃圾外链来源库 →](https://jasonzhu.ai/zh/backlink-spam-list)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[SEO 以外的获客渠道](https://jasonzhu.ai/zh/go-global/channels)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Product Hunt、Hacker News、Reddit、X、AI 工具目录站、邮件订阅、联盟分佣和付费广告：每个平台的官方规则和新手最容易踩的坑。"
+    },
+    {
+      "type": "paragraph",
+      "text": "相关文章"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[同名不同命：两个SEO Audit Skills的定位差异与推荐](https://jasonzhu.ai/zh/blog/two-seo-audit-skills-comparison) 2026-04-14",
+        "[出海调研工具推荐：AITDK、SEOquake、Wappalyzer](https://jasonzhu.ai/zh/blog/sitin-going-global-research-tools) 2025-09-16"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "每周看数据：出海选品周报"
+    },
+    {
+      "type": "paragraph",
+      "text": "每周一更新：7 家收款平台上新挂出收款链接的网站，大家在卖什么，什么起量了，哪些需求还没人做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[出海选品周报 · 第 2 期：给 coding agent 做配套，买断制收费](https://jasonzhu.ai/zh/blog/chuhai-weekly-02)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[出海选品周报 · 第 1 期：每 5 个新卖家就有 1 个在卖软件](https://jasonzhu.ai/zh/blog/chuhai-weekly-01)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[全部周报 →](https://jasonzhu.ai/zh/go-global/weekly)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新手常见问题"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "没有公司，能收海外的钱吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "能。Creem、Dodo Payments、Waffo Pancake 和 PayPal.cn 都接受中国大陆个人开户，Stripe 和 Polar 不行。先用个人开，收入多了再考虑注册公司。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[个人还是公司，怎么开户 →](https://jasonzhu.ai/zh/go-global/open-account)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "中国大陆个人能开 Stripe 吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "不能。Stripe 不给中国大陆的个人或公司开户；香港个人户要香港身份证号，美国个人户要 SSN 或 ITIN，所以大陆创业者要用香港或美国公司开。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[看各家对个人和公司的要求 →](https://jasonzhu.ai/zh/go-global/open-account)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第一家收款平台开哪个？"
+    },
+    {
+      "type": "paragraph",
+      "text": "用收款平台选择器，选「谁来收钱」和「卖什么」，会按能不能开户、收不收这类产品和到手多少排出来，并给出开户步骤。社群经验是大陆个人多从 PayPal.cn 或 Waffo Pancake 开始：先接一个跑起来，再按用户地区补渠道。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[打开收款平台选择器 →](https://jasonzhu.ai/zh/go-global/payments)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "收款平台要审网站，提交前要准备什么？"
+    },
+    {
+      "type": "paragraph",
+      "text": "不登录就能看到的价格页、服务条款、隐私政策、退款政策、能收信的支持邮箱，法律页面的链接放在页脚。提交前可以用开源工具 payment-guard 按各家公开的清单逐条查一遍；Creem 被拒是终局，尤其要先查。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[payment-guard →](https://github.com/zhuyansen/payment-guard)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "域名在哪买，网站放哪？"
+    },
+    {
+      "type": "paragraph",
+      "text": "我用 Cloudflare 买域名（第二年续费和首年同价），网站放 Vercel（单个项目免费），数据库用 Supabase（免费额度够起步）。也可以全放 Cloudflare：Pages、Workers、D1、R2 一站搞定。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[看建站那一步 →](https://jasonzhu.ai/zh/go-global#build)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "不会编程，能做出自己的产品吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "能。木子的零基础教程从 AI 编程工具讲到部署和买域名，46 分钟跟完就能上线第一个 AI 应用。John 的建议是别在建站上纠结：做电商直接用 Shopify，先想清楚卖什么产品、有什么竞争力。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第二期 26:36](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1596s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "新站能不能用 AI 一下子发很多文章？"
+    },
+    {
+      "type": "paragraph",
+      "text": "风险很高。站没有权重、内容又一般，一下子发大量页面容易被去索引；靠「采集 + AI」拿谷歌排名，2022、2023 年以后基本没戏。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第二期 01:50](https://www.youtube.com/watch?v=gAT7UDF806Y&t=110s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "网站被谷歌算法打了，要不要重做一个新站？"
+    },
+    {
+      "type": "paragraph",
+      "text": "有历史的品牌站别急着重做，先查内容质量。B2B 站写成了内容站、连 About Us、创始人和地址都没有，最容易被打；没有品牌的关键词域名站，放弃也没关系。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第二期 09:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=553s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "没有外链预算，SEO 还有机会吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "竞争大的词很难。John 的看法是：没有外链建设，别的做得再好也很难排上去。我的建议是外链少而精，提交之前用 backlink-guard 查一下对方的站值不值得发。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第二期 21:10](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1270s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "新手该从哪个流量渠道入手：SEO、投广告还是社媒？"
+    },
+    {
+      "type": "paragraph",
+      "text": "John 的建议是别从渠道入手，先想清楚商业模式：你能做、别人做不好的是什么（产品、软件、咨询），用户在哪里，再选渠道。不要为了学 SEO 而做 SEO。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第一期 1:00:55](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3655s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "用 AI 写内容、再人工审核，会被谷歌打吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "风险不在 AI，在商业模式：纯内容站谁写都容易被打，电商、SaaS、有品牌的站问题不大。谷歌不会因为你用了 AI 就惩罚你，关键还是内容质量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第一期 41:12](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2472s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "网站要做多语言，用什么结构？"
+    },
+    {
+      "type": "paragraph",
+      "text": "用 hreflang 标签告诉谷歌每个语言版本，结构选子目录（例如 /jp/），一般按语言分就够了，不用再按国家拆。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第一期 24:37](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1477s) （2024 年录制）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "AI 工具导航站的页面都收录了，为什么没排名？"
+    },
+    {
+      "type": "paragraph",
+      "text": "收录不等于有排名。AI 生成的工具介绍在谷歌眼里没有额外价值；可以改成 G2、Trustpilot 那样让用户评论打分，再加有用的资讯和教程。新站一下子上大量 AI 页面，还可能被少抓、甚至人工处罚。"
+    },
+    {
+      "type": "paragraph",
+      "text": "来自 John 的 [Weekly AMA 第一期 1:04:06](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3846s) （2024 年录制）"
+    },
+    {
+      "type": "paragraph",
+      "text": "社群经验"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "哥飞的朋友们一年踩下来，怎么选收款"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是群里的经验，不是平台规则，和上面按官方文档算出的结果可以对照着看。来源：@gefei55 的「AI SaaS 怎么收钱」，2026-10。 [看原帖](https://x.com/gefei55/status/2110744564189515986)"
+    },
+    {
+      "type": "paragraph",
+      "text": "只有国内个人身份"
+    },
+    {
+      "type": "paragraph",
+      "text": "PayPal.cn（注册时选个人卖家）或 Waffo（waffo.ai）；另有护照和香港银行卡的，也能开 Stripe 个人户"
+    },
+    {
+      "type": "paragraph",
+      "text": "官方核对：PayPal.cn 的个人卖家账户用个人实名认证开户（中国居民、满 18 岁）；收海外付款 4.40% + 0.30 美元；可以按人民币提现到国内银行卡（2026 年内 0.5% 封顶，标准 1.0%，另加 6% 增值税），也可以电汇美元（每笔 35 美元）。2026 年 6 月 30 日之后在 paypal.com 注册的个人账户不能收货款。 [来源](https://www.paypal.cn/portal/individual-seller)"
+    },
+    {
+      "type": "paragraph",
+      "text": "官方核对：Stripe 香港个人开户要香港身份证号；没有的话，要有香港商业登记号，按独资经营开户，还要香港地址和本人名下的香港银行账户。只有护照和香港银行卡不够。 [来源](https://support.stripe.com/questions/requirements-for-hong-kong-based-businesses)"
+    },
+    {
+      "type": "paragraph",
+      "text": "有公司（海外或国内公司、个体户）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Stripe（一个网站一个商户）或 PayPal.cn，也可以走 Subotiz"
+    },
+    {
+      "type": "paragraph",
+      "text": "官方核对：Stripe 官方：各自独立运营的网站或业务要分别开 Stripe 账户，被停用的用户不能未经批准再开新账户。 [来源](https://docs.stripe.com/get-started/account/multiple-accounts)"
+    },
+    {
+      "type": "paragraph",
+      "text": "官方核对：Subotiz 官方定位是面向 SaaS 的 MoR（5% + 50 美分），可以接 PayPal、Checkout.com、Airwallex 等，接入列表里没有 Stripe；一个账号最多 100 个店铺。 [来源](https://www.subotiz.com/global-payments)"
+    },
+    {
+      "type": "paragraph",
+      "text": "做换脸、deepfake、NSFW"
+    },
+    {
+      "type": "paragraph",
+      "text": "主流通道基本不收，别拿主账号冒险"
+    },
+    {
+      "type": "paragraph",
+      "text": "[社群总结的 7 条选型要点 →](https://jasonzhu.ai/zh/go-global/payments#community)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "出海实操文章"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "注册公司和开银行账户"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[2025年最新：2小时完成英国公司注册，只需50英镑](https://jasonzhu.ai/zh/blog/uk-company-registration-2hours) 2025-10-31",
+        "[英国公司注册Wise企业银行账户：无月费、多币种收款](https://jasonzhu.ai/zh/blog/uk-company-wise-business-account) 2025-11-16",
+        "[英国公司Wise账户地址验证：证明文件要包含公司名称](https://jasonzhu.ai/zh/blog/uk-company-wise-address-verification) 2025-10-06",
+        "[出海必备：GiffGaff英国电话卡申请与激活指南](https://jasonzhu.ai/zh/blog/giffgaff-uk-phone-card) 2025-11-17",
+        "[出海网站收款全流程：美国公司注册、EIN申请、银行开户到Stripe激活](https://jasonzhu.ai/zh/blog/us-company-registration-full-guide) 2025-06-07",
+        "[独立开发者出海实操指南：193刀搞定美国公司+EIN+Stripe+银行](https://jasonzhu.ai/zh/blog/indie-hacker-us-company-complete-guide) 2025-07-21",
+        "[168 美元跑通海外收款：美国 LLC + Mercury + Stripe 实测要点（整理自玄同）](https://jasonzhu.ai/zh/blog/us-llc-mercury-stripe-168-usd) 2026-10-07",
+        "[国内个人主体收款方案：Zpay第三方支付接入微信和支付宝](https://jasonzhu.ai/zh/blog/china-individual-payment-zpay) 2025-03-18"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "收款平台和数据"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[独立开发者收款平台怎么选：8 家对比，加 20 万卖家的真实选择（2026）](https://jasonzhu.ai/zh/blog/choose-payment-platform-2026) 2026-10-15",
+        "[20 万个收款链接告诉我们什么：2026 独立开发者收款报告](https://jasonzhu.ai/zh/blog/indie-payments-report-2026) 2026-10-15",
+        "[Bitget U卡体验：支付宝无损支付，远程工作者的好选择](https://jasonzhu.ai/zh/blog/bitget-u-card-review) 2025-12-04"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "年审、报税和合规"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[英国公司第一年年审实战 Timeline：£228 搞定 + 两个被忽略的省税信息差](https://jasonzhu.ai/zh/blog/uk-company-annual-review-timeline-checklist) 2026-05-31",
+        "[£148 搞定英国公司年审，淘宝报 ¥2000 还不含税款](https://jasonzhu.ai/zh/blog/uk-company-annual-review-diy-guide) 2026-04-26",
+        "[英国公司年审+零申报：自己办只需1000元，省下一半费用](https://jasonzhu.ai/zh/blog/uk-company-annual-review-tax-filing) 2026-03-24",
+        "[英国公司数据保护费：SaaS出海合规必缴的52英镑/年](https://jasonzhu.ai/zh/blog/uk-company-data-protection-fee) 2024-11-20",
+        "[美国公司年税申报DIY：全程只花3美元](https://jasonzhu.ai/zh/blog/us-company-annual-tax-filing-diy) 2026-04-07",
+        "[电子签名平台怎么选？国内外六大平台对比，最终选了腾讯电子签和SignNow](https://jasonzhu.ai/zh/blog/electronic-signature-platform-comparison) 2026-03-31"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "工具合集和出海思路"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[独立开发出海工具合集](https://jasonzhu.ai/zh/blog/indie-dev-going-global-tool-collection) 2025-12-01",
+        "[零成本出海独立开发全家桶](https://jasonzhu.ai/zh/blog/zero-cost-indie-dev-going-global-toolkit) 2025-07-13",
+        "[出海三件套：模版站、API站、知识付费](https://jasonzhu.ai/zh/blog/going-global-three-essentials) 2025-12-14",
+        "[出海业务分类：SaaS出海 vs 跨境电商](https://jasonzhu.ai/zh/blog/going-global-business-types) 2026-03-20"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "订阅 Newsletter，免费获取完整手册"
+    },
+    {
+      "type": "paragraph",
+      "text": "Subscribe即送《AIP出海自媒体实战手册》完整版，还有每周AI精选内容推送"
+    }
+  ],
+  "plain_text": "出海专题\n独立开发者出海路线图：建站、收钱、增长\n从买域名到收到第一笔海外的钱，再到做 SEO 和外链，按顺序整理成四步。每一步都是我自己在用的工具和踩过的坑；收款部分按各平台的官方文档整理，每周再数一遍新卖家都在卖什么。\n新手先看\n刚开始做出海，先看这几样：John（YouTube「英文SEO实战派」）回答读者提问的两期 AMA（第一期还有一位搭档一起答），一个从零做出并上线 AI 应用的教程，和两份工具清单。 [频道主页](https://www.youtube.com/@seoactionblog)\n[Weekly AMA 第一期](https://www.youtube.com/watch?v=vz7Y_Px-YEY)\n1:11:48 · 2024-04-27\n看要点（13 条，点时间跳到那一段）\n[04:42](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=282s) SEO 的未来会延伸到 AI 搜索里；做联盟营销别贪多：专心做一个站、做你最喜欢的内容，再加一种变现（数字产品、课程）。\n[09:02](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=542s) SEO 链路是抓取、收录、排名、点击、转化；看数据从大到小拆：月、周、日，再按国家和页面类型；八成转化来自两成页面，盯住它们。\n[15:17](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=917s) 定期更新重要，但别为了更新而更新，只改日期可能被当成刷；按重要程度分级，核心文章每月对照前十名更新，其余半年到一年审一次。\n[19:23](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1163s) 找国外写手：合作前说清不收 AI 稿；AI 检测工具不准，最终靠你自己判断写得好不好。\n[24:37](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1477s) 多语言网站：用 hreflang 标签，结构选子目录（像 /jp/ 这样），一般按语言分就够，不用再按国家拆。\n[29:04](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1744s) 独立站 SEO：产品页、分类页做能直接成交的词，首页做品牌；辅助内容做话题相关和内链；别在自己的店里写「best X」测评，那是内容站的词。\n[38:02](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2282s) 把别人的网站翻译成另一种语言发出来，既是抄袭也是重复内容，谷歌专门打击过。\n[41:12](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2472s) AI 写、人工审，风险不在 AI，在商业模式：内容站谁写都容易被打，电商、SaaS、有品牌的站问题不大。\n[49:33](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2973s) SEO 标题不用死卡字数，五六十个字符、带上关键词就行；标题是为了在搜索结果里吸引点击，H1 是给进了页面的人看的。\n[54:44](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3284s) 每次核心算法更新都被打，不一定是你做错了什么；怎么恢复，目前没人说得清。\n[56:51](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3411s) 别把鸡蛋放在一个篮子里：最好有自己的产品、服务或品牌，SEO 只是渠道之一。\n[1:00:55](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3655s) 新手别从「做哪个流量渠道」入手，先想清楚商业模式：你能做、别人做不好的是什么，用户在哪里，再选渠道。\n[1:04:06](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3846s) AI 工具导航站一万多个页面都被收录了却没排名：AI 生成的介绍没有价值；可以改成 G2 那样让用户评论打分，新站批量上 AI 页面还可能被少抓、甚至人工处罚。\n[Weekly AMA 第二期](https://www.youtube.com/watch?v=gAT7UDF806Y)\n29:23 · 2024-05-02\n看要点（10 条，点时间跳到那一段）\n[01:50](https://www.youtube.com/watch?v=gAT7UDF806Y&t=110s) 新站一下子用 AI 发大量页面风险很高：站没权重、内容又一般，容易被去索引；就算还被收录，流量也可能比算法更新前掉八九成。\n[04:22](https://www.youtube.com/watch?v=gAT7UDF806Y&t=262s) 沙盒期有没有，没人说得清，John 自己不信。\n[07:44](https://www.youtube.com/watch?v=gAT7UDF806Y&t=464s) 「采集 + AI」想在谷歌拿排名，2022、2023 年以后基本没戏。\n[08:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=493s) SEO 一半偏文一半偏理：内容是根本，会写最好，不会写就找写手；做技术 SEO 也一样有市场。\n[09:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=553s) 外贸站被算法打了：有历史的品牌站别急着重做，先查内容质量；B2B 站写成了内容站、连 About Us、创始人和地址都没有，最容易被打。\n[12:53](https://www.youtube.com/watch?v=gAT7UDF806Y&t=773s) 电商的颜色、尺寸：每个规格都有人搜，才单独做页面，并改标题、H1 和描述；否则一个页面让用户自己选。\n[18:00](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1080s) 想做好技术 SEO：挑一个方向（收录、网站速度），在自己或客户的网站（WordPress、Shopify）上练。\n[21:10](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1270s) 没有外链预算，竞争大的词很难排上去，要跟老板说清楚。\n[25:06](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1506s) SEO 公式以前是「内容 + 外链 + 技术」，现在还要加上用户交互信号和品牌。\n[26:36](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1596s) 不会编程别纠结建站：做电商直接用 Shopify，先想清楚产品和竞争力，找人建站，别追求一次完美。\n2024 年 4–5 月录的，谈的多是 2024 年 3 月谷歌核心算法更新前后的情况；谷歌 SEO 这两年变化快，部分说法可能已经过时。\n[▶ 0 基础做 AI 应用：从想法到上线的终极教程](https://www.youtube.com/watch?v=EtTXeQGHgWI)\n木子不写代码 · 46:28 · 2026-05-13\n一期跟完就能做出并上线自己的第一个 AI 应用，按章节点进去看。\n按章节看（18 节）\n基础入门 ：[AI 编程工具准备](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=42s) · [基本操作和界面](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=97s) · [智能体插件](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=271s)\n开发流程 ：[用 superpowers 定开发计划](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=423s) · [前端和后端](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=743s) · [Supabase](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=845s) · [API 请求](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=886s) · [子智能体驱动开发](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=968s) · [环境变量](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1031s) · [GitHub](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1321s) · [Supabase 密钥](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1486s) · [数据库迁移](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1610s)\n上线实战 ：[验收功能](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1743s) · [前端设计优化](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=1939s) · [端到端测试](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2061s) · [网站部署](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2234s) · [购买域名](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2623s) · [总结与展望](https://www.youtube.com/watch?v=EtTXeQGHgWI&t=2682s)\n[AI 编程出海工具超级清单（2026 版）](https://x.com/xiaoluv12o/status/2044422996539089094)\n小路 · 2026-04-15\n域名、托管、AI 编程工具到上线要用的一整套，每样一句话说清用途。\n[出海工具链：一个人从需求做到收款](https://x.com/sitinme/status/1994677962990289190)\nsitin · 2025-11-29\n按环节分九类：网站分析、趋势和关键词、竞品分析、开发部署、设计原型、模型 API、找需求、域名、收款，每类两三个常用工具。\n建站：域名、托管、数据库\n起步几乎不花钱：三样都有免费额度，起量后再升级。\n我在用的\n[Cloudflare](https://www.cloudflare.com/products/registrar/) · 域名 ：第二年续费和首年同价\n[Vercel](https://vercel.com) · 网页托管 ：单个项目免费，起量后再转 Cloudflare\n[Supabase](https://supabase.com) · 数据库 ：免费额度内不花钱\n出自我的帖子 [「 出海网站 SaaS 产品推荐 」](https://x.com/GoSailGlobal/status/2093541050614759662) 2026-08-29\n域名后缀怎么选\n后缀对排名基本中立，影响的是信任感和点击习惯。\n.com、.net、.org 历史久，信任度和外链点击率更好；国家后缀（.cn、.us、.de）在本地搜索里有加权。\n.xyz、.online、.top、.shop 这类新后缀算法上不吃亏，但垃圾站多，搜索引擎更谨慎，要靠内容和外链证明质量。\n真正决定排名的是内容质量、外链、点击率和停留时间。\nNiko [「 域名后缀到底会不会影响 SEO 排名？ 」](https://x.com/guishou_56/status/1973971390220153221) 2025-10-03\n另一种做法：全放 Cloudflare\n域名、解析和防护在 Cloudflare 一站搞定；前端放 Pages（自带全球 CDN），后端用 Workers，数据库 D1，文件放 R2（不收出站流量费），缓存 KV，图片和视频用 Images、Stream，监控和统计用自带的。免费额度够大部分人起步。\n左子祯 [「AI + Cloudflare = 你需要的全部」](https://x.com/zuozizhen/status/2031233335050313944) 2026-03-10\n[不做网站：插件、App 和 MCP 怎么上架](https://jasonzhu.ai/zh/go-global/extensions)\n我做 Chrome 插件从开发到上架踩过的坑，加上 Chrome、Edge、Firefox、App Store、Google Play、MCP 和 GPT 各家的官方规则。\n相关文章\n[出海产品收邮件：用Cloudflare Email Routing免费搞定](https://jasonzhu.ai/zh/blog/going-global-email-receiving-cloudflare-routing) 2026-04-10\n[出海产品发邮件：为什么你应该用Resend替代平台自带SMTP](https://jasonzhu.ai/zh/blog/going-global-email-sending-with-resend) 2026-03-12\n收钱：个人还是公司、开哪家、过审核\n没注册公司也能收海外的钱。先定身份，再选平台，提交审核前体检网站。\n[个人还是公司，怎么开户](https://jasonzhu.ai/zh/go-global/open-account)\n大陆个人和香港、美国、英国公司分别能开哪几家，开户每一步要准备什么，注册公司要花多少。\n[香港公司每年要做什么](https://jasonzhu.ai/zh/go-global/hk-company)\n周年申报、商业登记、审计报税、公司秘书，一张时间表和每年的最低成本。\n[国内、英国、美国三家公司怎么分工](https://jasonzhu.ai/zh/go-global/company-roles)\n做 App 时国内版和海外版各挂哪家，美国客户的钱用谁收，三家每年各要报什么，国内公司给英国公司做开发怎么收服务费。\n[收款平台选择器](https://jasonzhu.ai/zh/go-global/payments)\n点两下：谁来收钱、卖什么，直接出排名、到手金额和开户步骤。\n[上线前体检网站：payment-guard](https://github.com/zhuyansen/payment-guard)\n按各家公开的审核清单逐条查网站，开源，命令行和 Claude Code 都能用。\n出自我的帖子 [「 出海网站 SaaS 产品推荐 」](https://x.com/GoSailGlobal/status/2093541050614759662) 2026-08-29\n收到钱以后\n[出金和报税](https://jasonzhu.ai/zh/go-global/cash-out)\n我的出金方案，加上每年 5 万美元的结汇额度、境外所得要不要报个税、CRS 会交换什么。\n[上线以后的风控](https://jasonzhu.ai/zh/go-global/payment-risk)\n盗刷和卡测试、拒付率、冻结和保证金，各家收款平台的官方规定。\n增长：数据、技术 SEO、外链\n没学过 SEO 先补课。然后搭好 SEO 系统、分清必做页面和增长页面，抢在别人之前找新词，看清自己和竞品的数据，用气泡图挑出该改的页面，用 skill 把技术 SEO 查一遍，外链少而精。\n没学过 SEO？先按这两条路线补课\n[Google 搜索中心文档](https://developers.google.com/search/docs?hl=zh-cn) ：Google 自己写的规则，有中文版，按这个顺序读：\n[SEO 入门指南](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn) ：从这篇开始：Google 怎么找到、看懂你的网站，网址、标题、摘要、链接、图片这些基本功，最后一节专讲不用操心的事 2025-12-18 更新\n[Google 搜索运作方式的深度指南](https://developers.google.com/search/docs/fundamentals/how-search-works?hl=zh-cn) ：抓取、编入索引、呈现结果三个阶段，页面没被收录时知道卡在哪一步 2025-12-18 更新\n[Google 搜索要素](https://developers.google.com/search/docs/essentials?hl=zh-cn) ：能进 Google 的门槛：技术要求、垃圾内容政策和几条关键最佳实践 2025-12-18 更新\n[垃圾内容政策](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn) ：哪些做法会被降权甚至移除：买卖链接、批量生成内容、滥用过期域名、借别人网站的声誉等 2026-09-02 更新\n[创建实用、可靠、以用户为中心的内容](https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=zh-cn) ：一组自查问题，看内容是写给人看的还是为排名凑的；10 月新加的「主要内容」一节说，只靠 Feed 自动生成页面、用 AI 批量写又没人把关，算几乎没有投入，注明出处也替代不了原创 2026-10-08 更新\n[针对 Google 搜索中的生成式 AI 功能优化网站](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn) ：Google 对 GEO 的正式说法：在 Google 搜索里它就是 SEO；哪些 GEO 技巧可以不管，为什么不该给每个扇出查询单独建页 2026-07-15 更新\n[Search Console 使用入门](https://developers.google.com/search/docs/monitor-debug/search-console-start?hl=zh-cn) ：上线后：验证网站、看收录、提交站点地图、看搜索效果；官方建议大约每月看一次，改了内容再看 2025-12-18 更新\n[调试 Google 搜索流量下降问题](https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops?hl=zh-cn) ：流量掉了先按这篇排查：算法更新、技术问题、安全问题、垃圾内容、季节变化还是改版迁移，再拉 16 个月数据找规律 2025-12-18 更新\nJesse 的「佛系 SEO」\nGoogle 的 SEO 主要就是把 Google 自己的《SEO 新手指南》仔细读完、照着做，别的都不用管。工具从 Ahrefs、Ubersuggest 换成了两样免费的：Backlinko 的关键词工具和 Google Trends，只粗看一个词有多少需求，搜索量小到一天连一块钱都撑不起就不做。Similarweb 只适合打听别人的站，对自己的细分领域没什么用。\nJesse Lau 遁一子 [「 我现在是佛系 SEO 」](https://x.com/jesselaunz/status/1871673239644360706) 2024-12-24\n哥飞列的学习顺序：\n先把 Ahrefs 的免费 SEO 课程粗读一遍，不用读懂，知道有哪些概念就行。 [Ahrefs：SEO 新手指南](https://ahrefs.com/zh/seo)\n再把进阶教程看一遍，这一步也只求了解。 [进阶教程](https://new.web.cafe/tutorial/0c91c83924e9495aa75384becf6304ff)\n回过头读哥飞写的新手入门。 [新手入门](https://new.web.cafe/tutorial/7c36c9a7c6e34d21b8f3efd857d980aa)\n学怎么挖需求、找词。 [挖掘需求](https://new.web.cafe/tutorial/89afd4d0414d41e6b5f9304ee42df055) · [小白怎么找词](https://new.web.cafe/tutorial/detail/fp0zl0dtob)\n学怎么判断一个关键词能不能做。 [如何判断一个关键词是否能做](https://new.web.cafe/tutorial/detail/7v7tfjneg9)\n网站上线以后做什么，拿一个月收入 5 万美元的站把谷歌排名再讲一遍。 [上站之后要做什么](https://new.web.cafe/tutorial/detail/sk5je1bj0f)\n工具的落地页怎么设计，从 V1.0 一路改到 V2.0。 [落地页从 V1.0 到 V2.0](https://new.web.cafe/tutorial/detail/5yyr7zjxk7)\n照精品工具页面的思路做精品工具站。 [如何做精品工具站](https://new.web.cafe/tutorial/detail/za408lc1q9)\n最后跟着「养网站防老」系列把全流程走一遍（11 篇），可以先通读，再一步步照着做。 [养网站防老](https://new.web.cafe/tutorial/7PG1iQzr3sXx1tyKmf9ZYd)\n外链：哥飞认为博客评论外链依然有用。 [博客评论外链怎么找、怎么做](https://new.web.cafe/experience/ao30ki8tzk) · [从博客评论外链想到的找需求思路](https://new.web.cafe/topic/xoi32sha0d)\n[教程栏目的其他文章也都值得看 →](https://new.web.cafe/tutorials)\nGoogle 的垃圾链接政策（2026-09-02 更新）把「用自动程序或服务给网站建链接」和「评论里带优化过的链接」都算作垃圾链接。评论只在相关的博客里认真写，别用工具批量发，也别塞关键词锚文本。 [政策原文](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn#link-spam)\nweb.cafe 是哥飞的付费社群：标题和目录谁都能看，教程正文要开通会员登录后才能读。第一步的 Ahrefs 课程免费。\nSEO 系统：水系模型 v4\n把 SEO 当成一套水系来搭。进水口有三个：传统的外链权威（免费目录只管收录、不传权重，别堆量），被 AI 引用（被提及比被链接更重要），Toolify、Product Hunt 这类平台的收录。效果也要分层看：GSC 和 GA 里的点击只是冰山一角，我实测 AI 引用量是 AI 点击量的 9 倍，被引用却没被点击的那部分，用 Bing 的 AI Performance 和 Clarity 的引用报告补上，都免费。\n出自我的帖子 [「 SEO 水系模型更新到 v4 了 」](https://x.com/GoSailGlobal/status/2080588406091022747) 2026-07-24\nGEO：新站先做什么\n先在 AI 里建立定位：把产品定位页面做好，让 AI 知道你是什么。\n研究 GEO 的内容主题和信源：看 GEO 做得好的竞品，用 Fan-out Queries（AI 把一个问题拆成的多个子查询）找主题；AI 常采信 Reddit、知乎这类信源，就去那里做内容。\n做 PR 和品牌，让 AI 采用你、推荐你。\n新站怎么定页面的先后\n新站资源有限，先后顺序看产品相关性、商业价值、搜索意图、流量潜力、竞争难度和自己能不能交付，不要只按搜索量排。\nSEO 必做型页面：首页、功能页、场景页，以及定价、API、文档页，负责说清产品是什么、能做什么、服务谁。词再难、短期排不上，也要先建好，把标题、H1、介绍和 CTA 对上需求。\nSEO 增长型页面：工具页、长尾场景页、教程、榜单、对比和替代页，这些才按机会排先后。\n增长型按「蓝海词 → 中等词 → 大词」推进。蓝海词不只是搜索量小，还要需求明确、和产品相关、能真正交付结果、竞争可进入、有转化价值。\n写增长的子木 [「 GEO，讲讲我的实操点 for 新站 」](https://x.com/CoderJeffLee/status/2110992235982737493) 2026-10-16\n「定页面先后」一段出自他的新文章（帖子配图）。\nGoogle 的官方说法（2026-07-15）：在 Google 搜索里做 GEO 就是做 SEO；把内容「分块」、llms.txt 这类 AI 专用文件、虚假提及，都可以不管；为每个扇出查询单独建页算规模化内容滥用，所以扇出查询拿来找主题，别一个词建一页。网站在 AI 概览和 AI 模式里被展示了多少次，看 Search Console 的「生成式 AI 效果报告」（2026-08-31 起全球可用）。 [官方指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn) · [效果报告说明](https://support.google.com/webmasters/answer/16984139?hl=zh-cn)\n数据查看\n[AITDK](https://x.com/blankwebdev) · 站点数据\n[SiteData](https://x.com/fantexi997) · 站点数据\n[哥伦布](https://x.com/jinlv11) · 外链和排名数据\n[AIsa](https://go.aisa.one/yansen-zhu) （推荐链接） · 外链、流量、DR、社媒数据 API\n出自我的帖子 [「 补充一些自己在用的出海产品 」](https://x.com/GoSailGlobal/status/2093961655747072092) 2026-08-30\n技术 SEO skill\n[marketingskills（Corey Haines）](https://github.com/coreyhaines31/marketingskills) · 营销技能合集（CRO、文案、SEO、数据分析）\n[seo-audit-skill（子木）](https://github.com/JeffLi1993/seo-audit-skill) · 页面 SEO 体检，新手版和进阶技术版\n[seo-audit（Wonfull）](https://github.com/wonfull888/seo-audit) · 按 Google 指南和 Ahrefs 清单做 92 项检查\n[seo-audit-skill（SEOmator）](https://github.com/seo-skills/seo-audit-skill) · 本地全站技术体检，370 多条规则，能对比改版前后 ：10 月实测在我两个站各查出一个真问题，但误报多，GEO 和硬门槛类结论只当参考\n出自我的帖子 [「 补充一些自己在用的出海产品 」](https://x.com/GoSailGlobal/status/2093961655747072092) 2026-08-30\nSEO 关键词\n[哥飞的 KD 工具](https://seo.web.cafe/kd/) · 关键词难度查询 ：非社群用户每天也能查 100 次[（droidHZ 2026-06-10）](https://x.com/hezhiyan7/status/2064710884791112052)\n[哥飞 SEO Agent](https://seo.web.cafe/chat/) · SEO Agent[（哥飞 2026-10-02）](https://x.com/gefei55/status/2106024221671567671)\n[Backlinko Keyword Tool](https://backlinko.com/tools/keyword) · 免费，粗看一个词有多少搜索需求[（Jesse Lau 遁一子 2024-12-24）](https://x.com/jesselaunz/status/1871673239644360706)\n[Google Trends](https://trends.google.com/trends/) · 看一个词的热度怎么走[（Jesse Lau 遁一子 2024-12-24）](https://x.com/jesselaunz/status/1871673239644360706)\n上线先装的统计\n[Google Search Console](https://search.google.com/search-console) · 看收录、索引、搜索展示和点击，也在这里请求收录 ：填好信息、配一条 DNS 记录就能接入\n[Google Analytics](https://analytics.google.com/analytics/web) · 访问量、访问时长、退出率等基础数据\n[Plausible](https://plausible.io/) · 同样看访问量、时长和退出率\n[Microsoft Clarity](https://clarity.microsoft.com/) · 用户操作录屏和热力图\nGA、Plausible 和 Clarity 都是填好信息以后，把官方给的那段代码交给 AI，让它加到网站上。\ndroidHZ [「 分享一些常见的数据分析工具 」](https://x.com/hezhiyan7/status/1986338996071637054) 2025-11-06\n[网页版（可筛选，每 8 小时更新）](https://agentskillshub.top/best/seo-tools/)\n[GitHub](https://github.com/zhuyansen/awesome-claude-seo-skills)\n页面优化：用 GSC 气泡图挑该改的词和页面\n在 Looker Studio 里接上 Search Console（选「网站展示」表），每个查询词画成一个气泡：纵轴是平均排名，倒过来放，第 1 名在最上面；横轴是点击率；两个轴都用对数刻度。气泡越大点击越多，颜色区分设备，两条平均线把图分成四块。默认看过去 28 天。 [官方示例图表](https://datastudio.google.com/reporting/1e5b5f6a-38d7-4547-a54b-69594681a09b/page/xFbeC/preview?hl=zh-cn)\n① 排名高、点击率高\n不用动，现在就很好。\n② 排名低、点击率高\n用户翻到后面还愿意点，说明需要你，但 Google 觉得页面和词不够匹配。有对应的页面就给这个词补内容，没有就专门做一页；这类词排名一上去，效果最明显。\n③ 排名低、点击率低\n先分相关和不相关。和产品相关的词，内容和标题一起改，这比从零去抢一个还没出现在搜索里的词容易；不相关的放掉，把力气花在能带来对口流量的词上。\n④ 排名高、点击率低\nJesse 认为这类词多半被 AI 摘要截走了点击，没太好的办法。Google 给的检查方向：对手是不是用了结构化数据、显示成富媒体结果；这个词是不是用户本来就不想找你；用户是不是在摘要里就拿到了答案。想让人点进来，就改标题和描述。\n挑出词以后，在 Search Console 里按这个查询筛选，找到它对应的页面，再把标题、描述、图片 alt 和小标题改得具体、准确。\n[GSC 和 GA 一起看](https://developers.google.com/search/docs/monitor-debug/google-analytics-search-console?hl=zh-cn) （Google，2026-01-09 更新）： 官方模板把 GSC 的点击和 GA 的自然搜索会话并排放。两边数字对不上是正常的，看趋势一不一致；搜索表现以 GSC 为准，站内行为以 GA 为准。[模板](https://lookerstudio.google.com/reporting/408e669d-07d1-4353-a1dc-94f06bde27ef/page/Hqrp/preview?hl=zh-cn)\n[社交和视频内容在 Google 上的表现](https://developers.google.com/search/docs/monitor-debug/analyze-social-video-content?hl=zh-cn) （Google，2026-09-12 更新）： X、YouTube、TikTok、Instagram 账号可以作为「平台资源」加进 Search Console，看别人在 Google 上搜什么词找到你的帖子和视频；有 24 小时过滤，能看新视频是不是在起量，还能对比 YouTube 长视频（/watch）和 Shorts（/shorts/）。\nJesse Lau 遁一子 [「 Google 官方 SEO 教程里的四象限气泡图 」](https://x.com/jesselaunz/status/2109774797928612223) 2026-10-12\n四个象限的做法出自 Google 官方教程 [「利用 Search Console 气泡图改进 SEO 效果」](https://developers.google.com/search/docs/monitor-debug/bubble-chart-analysis?hl=zh-cn) （2025-12-18 更新）。\n找新词：new-term-radar\n每天从 X、Hugging Face、GitHub 和竞品的 sitemap 里抓刚冒出来的新模型、新产品名，赶在关键词工具收录之前，再排出值得做的关键词。开源，命令行、Agent Skill 和 MCP 都能用，要一个 AIsa 的 key。\n[GitHub →](https://github.com/zhuyansen/new-term-radar)\n出自我的帖子 [「 直接开源出来新词雷达 」](https://x.com/GoSailGlobal/status/2109543158761808243) 2026-10-12\n外链清单：一个月 DR 从 0 到 15\n外链不能贪多，这几个渠道就够：\n用 DataForSEO 抓竞品的外链\n在 X 上收集征集外链的帖子\nHelloleo 分享的外链清单\n哥伦布的外链榜\n公众号里分享的外链表格\n出自我的帖子 [「 免费分享我收集的几大渠道外链 」](https://x.com/GoSailGlobal/status/2090693084317413479) 2026-08-21\n外链检测：backlink-guard\n提交外链之前先查这个站值不值得发：卖链接的、站群、被 Google 降权的站直接跳过，结论附证据。开源，命令行和 Claude Code 都能用。\n[GitHub →](https://github.com/zhuyansen/backlink-guard) [垃圾外链来源库 →](https://jasonzhu.ai/zh/backlink-spam-list)\n[SEO 以外的获客渠道](https://jasonzhu.ai/zh/go-global/channels)\nProduct Hunt、Hacker News、Reddit、X、AI 工具目录站、邮件订阅、联盟分佣和付费广告：每个平台的官方规则和新手最容易踩的坑。\n相关文章\n[同名不同命：两个SEO Audit Skills的定位差异与推荐](https://jasonzhu.ai/zh/blog/two-seo-audit-skills-comparison) 2026-04-14\n[出海调研工具推荐：AITDK、SEOquake、Wappalyzer](https://jasonzhu.ai/zh/blog/sitin-going-global-research-tools) 2025-09-16\n每周看数据：出海选品周报\n每周一更新：7 家收款平台上新挂出收款链接的网站，大家在卖什么，什么起量了，哪些需求还没人做。\n[出海选品周报 · 第 2 期：给 coding agent 做配套，买断制收费](https://jasonzhu.ai/zh/blog/chuhai-weekly-02)\n[出海选品周报 · 第 1 期：每 5 个新卖家就有 1 个在卖软件](https://jasonzhu.ai/zh/blog/chuhai-weekly-01)\n[全部周报 →](https://jasonzhu.ai/zh/go-global/weekly)\n新手常见问题\n没有公司，能收海外的钱吗？\n能。Creem、Dodo Payments、Waffo Pancake 和 PayPal.cn 都接受中国大陆个人开户，Stripe 和 Polar 不行。先用个人开，收入多了再考虑注册公司。\n[个人还是公司，怎么开户 →](https://jasonzhu.ai/zh/go-global/open-account)\n中国大陆个人能开 Stripe 吗？\n不能。Stripe 不给中国大陆的个人或公司开户；香港个人户要香港身份证号，美国个人户要 SSN 或 ITIN，所以大陆创业者要用香港或美国公司开。\n[看各家对个人和公司的要求 →](https://jasonzhu.ai/zh/go-global/open-account)\n第一家收款平台开哪个？\n用收款平台选择器，选「谁来收钱」和「卖什么」，会按能不能开户、收不收这类产品和到手多少排出来，并给出开户步骤。社群经验是大陆个人多从 PayPal.cn 或 Waffo Pancake 开始：先接一个跑起来，再按用户地区补渠道。\n[打开收款平台选择器 →](https://jasonzhu.ai/zh/go-global/payments)\n收款平台要审网站，提交前要准备什么？\n不登录就能看到的价格页、服务条款、隐私政策、退款政策、能收信的支持邮箱，法律页面的链接放在页脚。提交前可以用开源工具 payment-guard 按各家公开的清单逐条查一遍；Creem 被拒是终局，尤其要先查。\n[payment-guard →](https://github.com/zhuyansen/payment-guard)\n域名在哪买，网站放哪？\n我用 Cloudflare 买域名（第二年续费和首年同价），网站放 Vercel（单个项目免费），数据库用 Supabase（免费额度够起步）。也可以全放 Cloudflare：Pages、Workers、D1、R2 一站搞定。\n[看建站那一步 →](https://jasonzhu.ai/zh/go-global#build)\n不会编程，能做出自己的产品吗？\n能。木子的零基础教程从 AI 编程工具讲到部署和买域名，46 分钟跟完就能上线第一个 AI 应用。John 的建议是别在建站上纠结：做电商直接用 Shopify，先想清楚卖什么产品、有什么竞争力。\n来自 John 的 [Weekly AMA 第二期 26:36](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1596s) （2024 年录制）\n新站能不能用 AI 一下子发很多文章？\n风险很高。站没有权重、内容又一般，一下子发大量页面容易被去索引；靠「采集 + AI」拿谷歌排名，2022、2023 年以后基本没戏。\n来自 John 的 [Weekly AMA 第二期 01:50](https://www.youtube.com/watch?v=gAT7UDF806Y&t=110s) （2024 年录制）\n网站被谷歌算法打了，要不要重做一个新站？\n有历史的品牌站别急着重做，先查内容质量。B2B 站写成了内容站、连 About Us、创始人和地址都没有，最容易被打；没有品牌的关键词域名站，放弃也没关系。\n来自 John 的 [Weekly AMA 第二期 09:13](https://www.youtube.com/watch?v=gAT7UDF806Y&t=553s) （2024 年录制）\n没有外链预算，SEO 还有机会吗？\n竞争大的词很难。John 的看法是：没有外链建设，别的做得再好也很难排上去。我的建议是外链少而精，提交之前用 backlink-guard 查一下对方的站值不值得发。\n来自 John 的 [Weekly AMA 第二期 21:10](https://www.youtube.com/watch?v=gAT7UDF806Y&t=1270s) （2024 年录制）\n新手该从哪个流量渠道入手：SEO、投广告还是社媒？\nJohn 的建议是别从渠道入手，先想清楚商业模式：你能做、别人做不好的是什么（产品、软件、咨询），用户在哪里，再选渠道。不要为了学 SEO 而做 SEO。\n来自 John 的 [Weekly AMA 第一期 1:00:55](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3655s) （2024 年录制）\n用 AI 写内容、再人工审核，会被谷歌打吗？\n风险不在 AI，在商业模式：纯内容站谁写都容易被打，电商、SaaS、有品牌的站问题不大。谷歌不会因为你用了 AI 就惩罚你，关键还是内容质量。\n来自 John 的 [Weekly AMA 第一期 41:12](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=2472s) （2024 年录制）\n网站要做多语言，用什么结构？\n用 hreflang 标签告诉谷歌每个语言版本，结构选子目录（例如 /jp/），一般按语言分就够了，不用再按国家拆。\n来自 John 的 [Weekly AMA 第一期 24:37](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=1477s) （2024 年录制）\nAI 工具导航站的页面都收录了，为什么没排名？\n收录不等于有排名。AI 生成的工具介绍在谷歌眼里没有额外价值；可以改成 G2、Trustpilot 那样让用户评论打分，再加有用的资讯和教程。新站一下子上大量 AI 页面，还可能被少抓、甚至人工处罚。\n来自 John 的 [Weekly AMA 第一期 1:04:06](https://www.youtube.com/watch?v=vz7Y_Px-YEY&t=3846s) （2024 年录制）\n社群经验\n哥飞的朋友们一年踩下来，怎么选收款\n这是群里的经验，不是平台规则，和上面按官方文档算出的结果可以对照着看。来源：@gefei55 的「AI SaaS 怎么收钱」，2026-10。 [看原帖](https://x.com/gefei55/status/2110744564189515986)\n只有国内个人身份\nPayPal.cn（注册时选个人卖家）或 Waffo（waffo.ai）；另有护照和香港银行卡的，也能开 Stripe 个人户\n官方核对：PayPal.cn 的个人卖家账户用个人实名认证开户（中国居民、满 18 岁）；收海外付款 4.40% + 0.30 美元；可以按人民币提现到国内银行卡（2026 年内 0.5% 封顶，标准 1.0%，另加 6% 增值税），也可以电汇美元（每笔 35 美元）。2026 年 6 月 30 日之后在 paypal.com 注册的个人账户不能收货款。 [来源](https://www.paypal.cn/portal/individual-seller)\n官方核对：Stripe 香港个人开户要香港身份证号；没有的话，要有香港商业登记号，按独资经营开户，还要香港地址和本人名下的香港银行账户。只有护照和香港银行卡不够。 [来源](https://support.stripe.com/questions/requirements-for-hong-kong-based-businesses)\n有公司（海外或国内公司、个体户）\nStripe（一个网站一个商户）或 PayPal.cn，也可以走 Subotiz\n官方核对：Stripe 官方：各自独立运营的网站或业务要分别开 Stripe 账户，被停用的用户不能未经批准再开新账户。 [来源](https://docs.stripe.com/get-started/account/multiple-accounts)\n官方核对：Subotiz 官方定位是面向 SaaS 的 MoR（5% + 50 美分），可以接 PayPal、Checkout.com、Airwallex 等，接入列表里没有 Stripe；一个账号最多 100 个店铺。 [来源](https://www.subotiz.com/global-payments)\n做换脸、deepfake、NSFW\n主流通道基本不收，别拿主账号冒险\n[社群总结的 7 条选型要点 →](https://jasonzhu.ai/zh/go-global/payments#community)\n出海实操文章\n注册公司和开银行账户\n[2025年最新：2小时完成英国公司注册，只需50英镑](https://jasonzhu.ai/zh/blog/uk-company-registration-2hours) 2025-10-31\n[英国公司注册Wise企业银行账户：无月费、多币种收款](https://jasonzhu.ai/zh/blog/uk-company-wise-business-account) 2025-11-16\n[英国公司Wise账户地址验证：证明文件要包含公司名称](https://jasonzhu.ai/zh/blog/uk-company-wise-address-verification) 2025-10-06\n[出海必备：GiffGaff英国电话卡申请与激活指南](https://jasonzhu.ai/zh/blog/giffgaff-uk-phone-card) 2025-11-17\n[出海网站收款全流程：美国公司注册、EIN申请、银行开户到Stripe激活](https://jasonzhu.ai/zh/blog/us-company-registration-full-guide) 2025-06-07\n[独立开发者出海实操指南：193刀搞定美国公司+EIN+Stripe+银行](https://jasonzhu.ai/zh/blog/indie-hacker-us-company-complete-guide) 2025-07-21\n[168 美元跑通海外收款：美国 LLC + Mercury + Stripe 实测要点（整理自玄同）](https://jasonzhu.ai/zh/blog/us-llc-mercury-stripe-168-usd) 2026-10-07\n[国内个人主体收款方案：Zpay第三方支付接入微信和支付宝](https://jasonzhu.ai/zh/blog/china-individual-payment-zpay) 2025-03-18\n收款平台和数据\n[独立开发者收款平台怎么选：8 家对比，加 20 万卖家的真实选择（2026）](https://jasonzhu.ai/zh/blog/choose-payment-platform-2026) 2026-10-15\n[20 万个收款链接告诉我们什么：2026 独立开发者收款报告](https://jasonzhu.ai/zh/blog/indie-payments-report-2026) 2026-10-15\n[Bitget U卡体验：支付宝无损支付，远程工作者的好选择](https://jasonzhu.ai/zh/blog/bitget-u-card-review) 2025-12-04\n年审、报税和合规\n[英国公司第一年年审实战 Timeline：£228 搞定 + 两个被忽略的省税信息差](https://jasonzhu.ai/zh/blog/uk-company-annual-review-timeline-checklist) 2026-05-31\n[£148 搞定英国公司年审，淘宝报 ¥2000 还不含税款](https://jasonzhu.ai/zh/blog/uk-company-annual-review-diy-guide) 2026-04-26\n[英国公司年审+零申报：自己办只需1000元，省下一半费用](https://jasonzhu.ai/zh/blog/uk-company-annual-review-tax-filing) 2026-03-24\n[英国公司数据保护费：SaaS出海合规必缴的52英镑/年](https://jasonzhu.ai/zh/blog/uk-company-data-protection-fee) 2024-11-20\n[美国公司年税申报DIY：全程只花3美元](https://jasonzhu.ai/zh/blog/us-company-annual-tax-filing-diy) 2026-04-07\n[电子签名平台怎么选？国内外六大平台对比，最终选了腾讯电子签和SignNow](https://jasonzhu.ai/zh/blog/electronic-signature-platform-comparison) 2026-03-31\n工具合集和出海思路\n[独立开发出海工具合集](https://jasonzhu.ai/zh/blog/indie-dev-going-global-tool-collection) 2025-12-01\n[零成本出海独立开发全家桶](https://jasonzhu.ai/zh/blog/zero-cost-indie-dev-going-global-toolkit) 2025-07-13\n[出海三件套：模版站、API站、知识付费](https://jasonzhu.ai/zh/blog/going-global-three-essentials) 2025-12-14\n[出海业务分类：SaaS出海 vs 跨境电商](https://jasonzhu.ai/zh/blog/going-global-business-types) 2026-03-20\n订阅 Newsletter，免费获取完整手册\nSubscribe即送《AIP出海自媒体实战手册》完整版，还有每周AI精选内容推送",
+  "entities": {}
+}
