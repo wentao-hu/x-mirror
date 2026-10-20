@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程 · X Mirror</title>
+<meta name="description" content="小白可跟做的 AI 出海建站全流程教程（含截图）" />
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #0f1419;
+  --muted: #536471;
+  --border: #eff3f4;
+  --link: #1d9bf0;
+  --card: #f7f9f9;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+}
+.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
+.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
+.author {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
+}
+.author img {
+  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  background: var(--card);
+}
+.author .name { font-weight: 700; font-size: 16px; }
+.author .meta { color: var(--muted); font-size: 14px; }
+h1.title {
+  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
+}
+.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
+.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
+.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
+.article p { margin: 0 0 14px; white-space: normal; }
+.article figure.media { margin: 16px 0; }
+.article figure.media img {
+  display: block; width: 100%; height: auto; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--card);
+}
+.article pre {
+  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
+  overflow-x: auto; font-size: 13px; line-height: 1.45;
+}
+.article blockquote {
+  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
+  color: var(--muted);
+}
+.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
+.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.article th, .article td {
+  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
+}
+.article th { background: var(--card); }
+.orig-link {
+  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
+}
+.fidelity {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
+}
+.img-missing { color: #f4212e; font-size: 14px; }
+/* index */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.filters button {
+  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
+  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
+}
+.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.search {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 15px; margin-bottom: 8px;
+}
+.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
+.card {
+  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.card:hover { background: transparent; }
+.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+.card .cdesc { color: var(--muted); font-size: 14px; }
+.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+@media (max-width: 480px) {
+  h1.title { font-size: 24px; }
+  html, body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header">
+    <a class="brand" href="../../index.html">X Mirror</a>
+    <nav><a href="../../index.html">目录</a></nav>
+  </header>
+  <div class="author">
+    <img src="assets/avatar.jpg" alt="" />
+    <div>
+      <div class="name">CloudHu <span class="meta">@CloudHuxxx</span></div>
+      <div class="meta">2026-10-13 13:47 · Asia/Shanghai</div>
+    </div>
+  </div>
+  <h1 class="title">出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程</h1>
+  <a class="orig-link" href="https://x.com/CloudHuxxx/status/2109883678897909932" target="_blank" rel="noopener">查看原文（X）↗</a>
+  
+  <article class="article">
+<figure class="media"><img src="assets/HUfHynObYAEuMiH.jpg" alt="Article cover image" loading="lazy" /></figure>
+<p>因为自己淋过雨，所以想为别人撑伞。于是我做了一个完全面向小白的AI出海建站教程。</p>
+<p>教程提供了上站全流程文字说明+截图。只需要你：用过AI、不用懂代码，不用懂英文。</p>
+<p>跟着流程走，<br>
+你要是跑不通我提头来见</p>
+<p>我人麻了，X不给上传那么多图片。。。教程后半段图片都加载不出来，完整带图片的教程流程在飞书的文档里，如果有帮助到你的话，请给它点一个赞吧～如果有哪里有阻碍的，也可以留下标注，我看到会及时解决<br>
+<a href="https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc" rel="noopener noreferrer" target="_blank">https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc</a></p>
+<figure class="media"><img src="assets/HUfI_nKa4AAgI8p.jpg" alt="" loading="lazy" /></figure>
+<p>叠甲：</p>
+<p>这篇教程只教会你如何跑通【找到需求关键词】-【做网站】-【部署上线】的流程，想要通过这个赚到钱，还有很多事要做，一步登天不可取。</p>
+<p>为了便于新手理解，工具我都推荐了最便宜或者最方便的，基本功练扎实了，才能想赚钱的事。</p>
+<p>大约需要花费0.5~2天可以跑通全流程，中间有任何问题，都可以复制文本或者截图问AI，实在不行留个言，我来补充到这篇教程里(#^.^#)</p>
+<p>开工准备</p>
+<p>最理想的花费在30以下，如果算上编码工具codex/claude code和魔法工具clash，一个月内最多200块。</p>
+<ul><li>域名商：spaceship（最便宜的域名几块钱、支持支付宝）</li><li>服务器部署：vercel（免费）</li><li>SEO工具（其实新手可以不买，但是出海肯定会用上）：semrush</li><li>找词工具： google trends（免费） <a href="https://trends.google.com/" rel="noopener noreferrer" target="_blank">https://trends.google.com/</a></li><li>站长工具，做完网站，在这里提交。可以在这里查看你的网站数据： 谷歌（免费） <a href="https://search.google.com/" rel="noopener noreferrer" target="_blank">https://search.google.com/</a> google search console简称gsc 必应（免费） Bing Webmaster</li><li>AI编码工具，最好是codex或者claude code，没有用国产免费的workbuddy或者trae也行，但是国产的不咋好用。</li><li>代码仓库：github（免费）</li></ul>
+<p>第一步，找需求关键词：</p>
+<p>找需求关键词分两种</p>
+<p>一个是老词（长期有人会搜索的词，比如说【word转pdf】，一直都有人搜）</p>
+<p>一个是新词  (当下流行的事，比如说【26年世界杯】这种，过一段时间就没啥人讨论了)。</p>
+<p>目前跟练我们就暂时不区分得那么细，直接任选一个我们感兴趣的方向就好。</p>
+<p>新词，在<br>
+<a href="https://trends.google.com/" rel="noopener noreferrer" target="_blank">https://trends.google.com/</a><br>
+上找</p>
+<figure class="media"><img src="assets/HUfK-vJaQAEq1mG.jpg" alt="" loading="lazy" /></figure>
+<p>怎么判断一个关键词有没有人搜索？我怎么知道做出来不是白忙活？</p>
+<p>中间的1M+和200K+这些数据就是搜索量，分别代表着100万+和20万+，右侧就是这段时间的搜索趋势数据。</p>
+<figure class="media"><img src="assets/HUfLNAabUAAtlwm.jpg" alt="" loading="lazy" /></figure>
+<p>这里需要一定的经验才能判断出什么词适合我们出海做，有一个简单的筛选原则就是：</p>
+<p>不做体育比赛/天气预报/政治时事消息/娱乐新闻</p>
+<p>因为这些领域都有非常成熟的大平台，我们基本不可能在短时间之内和他们竞争到流量。 再者，他们的时效性都非常短，经常过了两天就根本没有搜索量了。</p>
+<p>老词，可以在以下的词根里去拓展</p>
+<p>新手找新词词根</p>
+<p>当你选好要做什么词的时候，去semrush（付费工具，一个月几十）上搜这个关键词，看看适不适合做。</p>
+<figure class="media"><img src="assets/HUfLXCAbUAAc48p.jpg" alt="" loading="lazy" /></figure>
+<p>以generator为例，我们来筛选看看有哪些好做的关键词</p>
+<p>kd筛选0~30的，</p>
+<p>CPC筛选0.1~10的，CPC为0可以基本理解为毫无变现价值</p>
+<ul><li>KD：关键词难度，新手适合0~30的</li><li>CPC：商业意图指数，价格越高，代表市场付费意愿越强</li></ul>
+<figure class="media"><img src="assets/HUfLjEibMAAjPi0.jpg" alt="" loading="lazy" /></figure>
+<p>第二步，做网站</p>
+<p>当我们选好了关键词，就准备开始制作网站。</p>
+<p>注意，这一步完全不需要你实际操作，你全程只需要和AI交流，让他出方案和写代码即可。</p>
+<p>以UUID generator为例，我们要做的就是生成唯一ID的网站。</p>
+<p>让我用codex来为你演示</p>
+<pre><code>我是一个出海网站的新手，我现在要做一个网站进行练习，关键词是【xxx】
+我要做一个功能为【xxx】的网站
+请你使用一个新手可以听得懂的方式反问我问题，不要使用专业词汇，以确认这个项目的项目边界，然后给我生成项目需求文档和可以跟着执行的部署文档。
+
+项目背景：
+技术栈由你直接决定
+需要使用vercel进行部署
+需要提交到google search console
+练习到以下程度算完成：
+功能可用 → 部署 Vercel → 绑定域名 → 可以通过域名直接访问网站 →验证 Google Search Console → 提交站点地图。收录和排名作为后续观察，不作为项目完成条件。</code></pre>
+<figure class="media"><img src="assets/HUfLvHKaIAAgipL.jpg" alt="" loading="lazy" /></figure>
+<p>文档出来后，让他直接实现就行，右边就是网页结果。</p>
+<p>你看，很简单吧？有写过啥代码吗？完全不需要懂代码！</p>
+<figure class="media"><img src="assets/HUfL3oka4AAjaK-.jpg" alt="" loading="lazy" /></figure>
+<p>第三步，部署</p>
+<p>到上面为止，网页都只是在我们电脑本地能看到，想要其他人看到，就要把代码放到服务器上。</p>
+<p>这一步操作叫部署。</p>
+<p>而vercel恰好有免费的部署额度，我们前期白嫖他就行。</p>
+<p>第一步，我们需要让vercel读到我们的代码，所以我们要把代码传上去。这里我们需要提前注册好github的账号</p>
+<p>github.com</p>
+<p>注册好之后，新建一个仓库</p>
+<figure class="media"><img src="assets/HUfMBRkbgAAvaXS.jpg" alt="" loading="lazy" /></figure>
+<p>新建仓库页面</p>
+<figure class="media"><img src="assets/HUfMGrLb0AAaEib.jpg" alt="" loading="lazy" /></figure>
+<p>把这个复制给AI，这个是我们要上传代码的路径</p>
+<figure class="media"><img src="assets/HUfMwolbcAEK2o_.jpg" alt="" loading="lazy" /></figure>
+<p>AI提示词</p>
+<p>作者这里已经登录了，就不再详细演示了，如果出现任何阻塞的地方，都把错误信息或者现象告诉AI，让它来指导你如何做即可。</p>
+<pre><code>【这里放上面复制下来的地址】
+把我的代码上传到这个地址，可能需要我使用网页登录，如果需要我登录的，停下来告诉我，登录后我会让你继续。</code></pre>
+<figure class="media"><img src="assets/HUfM0twaoAA-gtM.jpg" alt="" loading="lazy" /></figure>
+<p>上传后就可以看得到代码</p>
+<figure class="media"><img src="assets/HUfM3fIbMAApk93.jpg" alt="" loading="lazy" /></figure>
+<p>这个是本次演示的代码，我已经公开了，可以直接拿去用</p>
+<p><a href="https://github.com/cloud-hu2000/uuid-generator" rel="noopener noreferrer" target="_blank">https://github.com/cloud-hu2000/uuid-generator</a><br>
+到这里代码就上传结束了。</p>
+<p>后续如果你做了任何代码更新，和AI直接说，把我需要提交的代码全部提交到github上，这样vercel就可以实时同步到代码了</p>
+<p>接下来我们进入vercel，这个就是能让别人看到你网站的地方，专业术语叫部署网站</p>
+<p>vercel.com</p>
+<figure class="media"><img src="assets/HUfM9hWbcAA-BSy.jpg" alt="" loading="lazy" /></figure>
+<p>点击右上角新建项目</p>
+<figure class="media"><img src="assets/HUfM_uqaYAAgEkT.jpg" alt="" loading="lazy" /></figure>
+<p>登录你的github账号</p>
+<figure class="media"><img src="assets/HUfNCJ1a4AEeu1m.jpg" alt="" loading="lazy" /></figure>
+<p>选择我们的网站进行导入，进入下面的界面</p>
+<p>这个界面看不懂怎么办？直接复制给AI让它告诉你怎么填</p>
+<figure class="media"><img src="assets/HUfNEQ0bgAAuC-1.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><img src="assets/HUfNGZvaIAAd9zE.jpg" alt="" loading="lazy" /></figure>
+<p>按AI说的直接部署就行了，那我们点一下deploy，就部署好啦~</p>
+<figure class="media"><img src="assets/HUfNI4IbQAADX3o.jpg" alt="" loading="lazy" /></figure>
+<p>进入到项目界面</p>
+<figure class="media"><img src="assets/HUfNLY-aYAAEv1q.jpg" alt="" loading="lazy" /></figure>
+<p>别人就已经可以访问啦~</p>
+<p><a href="https://uuid-generator-iota.vercel.app/zh/" rel="noopener noreferrer" target="_blank">https://uuid-generator-iota.vercel.app/zh/</a></p>
+<figure class="media"><img src="assets/HUfNNouaoAA3ylp.jpg" alt="" loading="lazy" /></figure>
+<p>第四步 （可选）域名</p>
+<p>这一步作者就不买了，我直接用以前的记录来演示。</p>
+<p>uuid-generator-iota.vercel.app</p>
+<p>这个vercel给我们分配的域名太丑了，如果是uuid-generator.com就顺眼多了。</p>
+<p>那我们直接去spaceship买域名，最好的地方在于它可以支付宝哦~</p>
+<p><a href="https://www.spaceship.com/" rel="noopener noreferrer" target="_blank">https://www.spaceship.com/</a></p>
+<figure class="media"><img src="assets/HUfNTMKagAA4fIe.jpg" alt="" loading="lazy" /></figure>
+<p>这里练手的话，我们买个便宜的域名就好了</p>
+<p>后面正式上站，我还是推荐com和org这两个域名，ai域名太贵了，有条件的话也可以上。</p>
+<p>（毕竟站在用户视角用户，第一眼看到taobao.online这种域名，第一时间肯定是觉得这个网站不正规）</p>
+<p>买好了之后，我们回到首页去关联域名到vercel</p>
+<figure class="media"><img src="assets/HUfNWfEbcAA1FD9.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><img src="assets/HUfNYoDbQAAHxk1.jpg" alt="" loading="lazy" /></figure>
+<p>找到刚刚买的域名，点开【Nameservers &amp; DNS</p>
+<figure class="media"><img src="assets/HUfNbBaa4AA4BpW.jpg" alt="" loading="lazy" /></figure>
+<p>此时切换到vercel的这个界面</p>
+<figure class="media"><img src="assets/HUfNgSqaAAAE5Te.jpg" alt="" loading="lazy" /></figure>
+<p>我们输入刚刚买好的域名</p>
+<p>这个时候列表页面会报错：“invalid configuration”,按照我的截图点击：“vercel dns”即可。</p>
+<p>复制下面的两个nameservers到spaceship里</p>
+<p>📷</p>
+<p>过一段时间，vercel上面显示valid Configuration就是没问题了，就可以用域名直接访问网站啦~</p>
+<p>中间出现任何问题，都可以直接截图或者把网页内容全部copy给AI，让他们来解决，如果没有解决，可以找作者~</p>
+<p>📷</p>
+<p>第五步 登记网站到谷歌、bing</p>
+<p>谷歌需要翻墙，bing不用</p>
+<p><a href="https://search.google.com/search-console" rel="noopener noreferrer" target="_blank">https://search.google.com/search-console</a></p>
+<p><a href="https://www.bing.com/webmasters" rel="noopener noreferrer" target="_blank">https://www.bing.com/webmasters</a></p>
+<p>你一开始的界面可能不是这样的，因为我有网站，只能在这里添加，注意看add property就行</p>
+<p>📷</p>
+<p>选择Domain，把你vercel或者买好的域名输上去</p>
+<p>📷</p>
+<p>然后把这一部分copy给AI，让它写到网站里</p>
+<p>📷</p>
+<p>我要把网站注册到google search console</p>
+<p>这个是它提供给我的TXT内容，请帮我加到网站里，并且上传到github</p>
+<p>【刚刚复制的txt内容】</p>
+<p>注：vercel是可以自动获取到最新的github代码并且自动更新网站的，所以一般情况下直接把代码传到github就行，不过也要注意Vercel上的部署情况：如果出错了，网站是不会更新的。</p>
+<p>📷</p>
+<p>bing的就比较简单了，你在google那里设置好了，就可以直接同步过来了</p>
+<p>📷</p>
+<p>数据方面最好不要抱有期待，本次我们只是新手跟练，目的是为了跑通整个流程。要想让网站真的让别人看到，我们还有其他事得做</p>
+<p>后续想要提升数据，这个就参考出海教程的进阶篇啦~（如果没出，请在下方联系作者，踹他一脚）</p>
+<p>📷</p>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 26/26。
+    作者注明 X 上传图片有限制，后半段在 X 上可能加载不全；完整带图版见飞书：https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+</body>
+</html>

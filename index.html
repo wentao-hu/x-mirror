@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>X Mirror · 出海 SEO 收藏镜像</title>
+<meta name="description" content="X 长文收藏的本地化镜像站，图片全部本地托管" />
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #0f1419;
+  --muted: #536471;
+  --border: #eff3f4;
+  --link: #1d9bf0;
+  --card: #f7f9f9;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+}
+.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
+.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
+.author {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
+}
+.author img {
+  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  background: var(--card);
+}
+.author .name { font-weight: 700; font-size: 16px; }
+.author .meta { color: var(--muted); font-size: 14px; }
+h1.title {
+  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
+}
+.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
+.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
+.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
+.article p { margin: 0 0 14px; white-space: normal; }
+.article figure.media { margin: 16px 0; }
+.article figure.media img {
+  display: block; width: 100%; height: auto; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--card);
+}
+.article pre {
+  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
+  overflow-x: auto; font-size: 13px; line-height: 1.45;
+}
+.article blockquote {
+  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
+  color: var(--muted);
+}
+.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
+.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.article th, .article td {
+  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
+}
+.article th { background: var(--card); }
+.orig-link {
+  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
+}
+.fidelity {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
+}
+.img-missing { color: #f4212e; font-size: 14px; }
+/* index */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.filters button {
+  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
+  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
+}
+.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.search {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 15px; margin-bottom: 8px;
+}
+.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
+.card {
+  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.card:hover { background: transparent; }
+.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+.card .cdesc { color: var(--muted); font-size: 14px; }
+.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+@media (max-width: 480px) {
+  h1.title { font-size: 24px; }
+  html, body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header">
+    <span class="brand">X Mirror</span>
+    <nav><a href="https://github.com/wentao-hu/x-mirror">GitHub</a></nav>
+  </header>
+  <h1 class="title" style="font-size:24px">出海 SEO 收藏镜像</h1>
+  <p style="color:var(--muted);font-size:14px;margin-top:-8px">
+    原文托管在 X，本站做内容完全映射（正文 + 图片本地化），方便在打不开 x.com 时阅读。
+  </p>
+  <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
+  <div class="filters" id="filters"><button class="active" data-cat="all">全部</button><button data-cat="新词站实战复盘">新词站实战复盘</button><button data-cat="SEO基础">SEO基础</button><button data-cat="建站教程">建站教程</button><button data-cat="外链推广">外链推广</button></div>
+  <div id="list">
+<h2 class="cat">新词站实战复盘</h2>
+<a class="card" data-cat="新词站实战复盘" data-q="AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金 弗里 0xEcho99 新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘" href="posts/echo99-ai-site-5days-1500/index.html">
+  <div class="ctitle">AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金</div>
+  <div class="cmeta">弗里 · @0xEcho99 · 2026-10-15 17:51</div>
+  <div class="cdesc">新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘</div>
+</a>
+<a class="card" data-cat="新词站实战复盘" data-q="副业出海小白 首日破百刀，5天破千刀的新词经验分享 蒋云何 JiangK82705 副业出海小白首日破百、5 天破千的新词经验" href="posts/jiangk-new-keyword-1000/index.html">
+  <div class="ctitle">副业出海小白 首日破百刀，5天破千刀的新词经验分享</div>
+  <div class="cmeta">蒋云何 · @JiangK82705 · 2026-10-18 22:25</div>
+  <div class="cdesc">副业出海小白首日破百、5 天破千的新词经验</div>
+</a>
+<a class="card" data-cat="新词站实战复盘" data-q="没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘 绪轩 xuxuanzhou 没投流没买外链，新词站 72 小时流水 $5480" href="posts/xuxuan-72h-5480/index.html">
+  <div class="ctitle">没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘</div>
+  <div class="cmeta">绪轩 · @xuxuanzhou · 2026-10-19 18:30</div>
+  <div class="cdesc">没投流没买外链，新词站 72 小时流水 $5480</div>
+</a>
+<a class="card" data-cat="新词站实战复盘" data-q="出海小白靠新词破千刀的经验复盘 kristoff kristoff_wu 出海小白靠新词半个月破千刀的经验复盘" href="posts/kristoff-new-keyword-1100/index.html">
+  <div class="ctitle">出海小白靠新词破千刀的经验复盘</div>
+  <div class="cmeta">kristoff · @kristoff_wu · 2026-10-20 00:18</div>
+  <div class="cdesc">出海小白靠新词半个月破千刀的经验复盘</div>
+</a><h2 class="cat">SEO基础</h2>
+<a class="card" data-cat="SEO基础" data-q="SEO 地基怎么打？整理了哥飞几百篇文章，我总结了这份新手出关指南 浅水虾 qianshuixia2026 整理哥飞干货：SEO 地基与新手出关指南" href="posts/qianshuixia-seo-foundation/index.html">
+  <div class="ctitle">SEO 地基怎么打？整理了哥飞几百篇文章，我总结了这份新手出关指南</div>
+  <div class="cmeta">浅水虾 · @qianshuixia2026 · 2026-10-17 09:31</div>
+  <div class="cdesc">整理哥飞干货：SEO 地基与新手出关指南</div>
+</a><h2 class="cat">建站教程</h2>
+<a class="card" data-cat="建站教程" data-q="出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程 CloudHu CloudHuxxx 小白可跟做的 AI 出海建站全流程教程（含截图）" href="posts/cloudhu-ai-site-tutorial/index.html">
+  <div class="ctitle">出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程</div>
+  <div class="cmeta">CloudHu · @CloudHuxxx · 2026-10-13 13:47</div>
+  <div class="cdesc">小白可跟做的 AI 出海建站全流程教程（含截图）</div>
+</a><h2 class="cat">外链推广</h2>
+<a class="card" data-cat="外链推广" data-q="用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程 SagaSu sujingshen 用 Grok Bot 一天筛提 4000+ 站的外链自动化流程" href="posts/sagasu-grokbot-backlinks/index.html">
+  <div class="ctitle">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程</div>
+  <div class="cmeta">SagaSu · @sujingshen · 2026-10-19 14:00</div>
+  <div class="cdesc">用 Grok Bot 一天筛提 4000+ 站的外链自动化流程</div>
+</a>
+  </div>
+  <div class="footer">共 7 篇 · Personal archive · Asia/Shanghai</div>
+</div>
+<script>
+(function(){
+  const q=document.getElementById('q');
+  const filters=document.getElementById('filters');
+  let cat='all';
+  function apply(){
+    const term=(q.value||'').trim().toLowerCase();
+    document.querySelectorAll('.card').forEach(el=>{
+      const okCat=cat==='all'||el.dataset.cat===cat;
+      const okQ=!term||(el.dataset.q||'').toLowerCase().includes(term);
+      el.style.display=(okCat&&okQ)?'':'none';
+    });
+    document.querySelectorAll('.cat').forEach(h=>{
+      let n=h.nextElementSibling, show=false;
+      while(n && n.classList && n.classList.contains('card')){
+        if(n.style.display!=='none') show=true;
+        n=n.nextElementSibling;
+      }
+      h.style.display=(!term && (cat==='all'||h.textContent===cat)) || show ? '' : 'none';
+      if(cat!=='all' && h.textContent!==cat) h.style.display='none';
+    });
+  }
+  filters.addEventListener('click', e=>{
+    if(e.target.tagName!=='BUTTON') return;
+    cat=e.target.dataset.cat;
+    filters.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b===e.target));
+    apply();
+  });
+  q.addEventListener('input', apply);
+})();
+</script>
+</body>
+</html>
