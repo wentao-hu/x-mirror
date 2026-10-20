@@ -503,9 +503,11 @@ GLOBE_ICON = (
 
 def source_type_of(meta: dict) -> str:
     """来源类型；旧数据缺失时按 entry_type 推断，保证徽标与筛选不落空。"""
-    return meta.get("source_type") or (
+    st = meta.get("source_type") or (
         "webcafe_link" if meta.get("entry_type") == "link_only" else "x_post"
     )
+    # link_only 是条目形态，统一归一到 webcafe_link，避免徽标和类型筛选落空
+    return "webcafe_link" if st in ("link_only", "webcafe_link") else st
 
 
 def source_badge(meta: dict) -> str:

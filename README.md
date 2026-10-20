@@ -111,7 +111,7 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 | source_type | 徽标 | 说明 |
 | --- | --- | --- |
-| `x_post` | 𝕏 帖子 | 普通 X 推文镜像（当前已镜像条目均为此类型） |
+| `x_post` | 𝕏 帖子 | 普通 X 推文镜像 |
 | `x_article` | 𝕏 长文 | X 长文/Article 镜像 |
 | `web_article` | 🌐 网页 | 外部网页镜像 |
 | `webcafe_link` | web.cafe · 仅链接 | web.cafe 仅链接条目，同时保留 `entry_type: link_only` |
