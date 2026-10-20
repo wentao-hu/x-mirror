@@ -5,183 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程 · X Mirror</title>
 <meta name="description" content="用 Grok Bot 一天筛提 4000+ 站的外链自动化流程" />
-<style>
-:root {
-  --bg: #ffffff;
-  --fg: #0f1419;
-  --muted: #536471;
-  --border: #eff3f4;
-  --link: #1d9bf0;
-  --card: #f7f9f9;
-  --star: #f5a524;
-  --ok: #0f7b45;
-  --ok-soft: #e8f5ee;
-}
-* { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
-}
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
-.site-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
-}
-.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
-.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
-.author {
-  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
-}
-.author img {
-  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-  background: var(--card);
-}
-.author .name { font-weight: 700; font-size: 16px; }
-.author .meta { color: var(--muted); font-size: 14px; }
-h1.title {
-  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
-}
-.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
-.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
-.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
-.article p { margin: 0 0 14px; white-space: normal; }
-.article figure.media { margin: 16px 0; }
-.article figure.media img {
-  display: block; width: 100%; height: auto; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--card);
-}
-.article pre {
-  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
-  overflow-x: auto; font-size: 13px; line-height: 1.45;
-}
-.article blockquote {
-  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
-  color: var(--muted);
-}
-.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
-.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
-.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
-.article th, .article td {
-  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
-}
-.article th { background: var(--card); }
-.orig-link {
-  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
-}
-.fidelity {
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
-}
-.img-missing { color: #f4212e; font-size: 14px; }
-/* index */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
-.filters button {
-  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
-  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
-}
-.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.search {
-  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
-  font-size: 15px; margin-bottom: 8px;
-}
-.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
-.card {
-  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
-  color: inherit;
-}
-.card:hover { background: transparent; }
-.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
-.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.card .cdesc { color: var(--muted); font-size: 14px; }
-.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
-/* rating / read */
-.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
-.xr-stars .xr-star { font-size: inherit; cursor: default; }
-.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
-.xr-star {
-  appearance: none; -webkit-appearance: none; border: 0; background: none;
-  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
-  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
-}
-.xr-star.on { color: var(--star); }
-.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
-.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
-.badge-read {
-  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
-  line-height: 1.6; padding: 0 7px; border-radius: 999px;
-}
-.badge-linkonly {
-  display: inline-block; margin-left: 6px; vertical-align: middle;
-  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
-  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
-}
-.card-linkonly { cursor: default; }
-.card-linkonly .ctitle a { color: inherit; }
-.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-.card-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
-  margin-top: 8px; font-size: 13px;
-}
-.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.card-controls .xr-star { font-size: 17px; }
-.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
-.post-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
-  margin: 0 0 12px; padding: 10px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  font-size: 14px;
-}
-.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
-.post-controls .pc-label { color: var(--muted); font-size: 13px; }
-.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
-.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.pc-clear {
-  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
-  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
-}
-.pc-clear:hover { color: var(--fg); }
-.pc-read {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
-  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
-  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
-}
-.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
-.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
-.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
-.pc-read.on .pc-dot { opacity: 1; }
-.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
-.filter-row { display: flex; align-items: center; gap: 10px; }
-.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
-.filter-row .filters { margin: 0; gap: 6px; }
-.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
-.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
-#meta-count { margin-left: 10px; }
-@media (max-width: 480px) {
-  .filter-row { align-items: flex-start; }
-  .filter-row .flabel { padding-top: 5px; }
-}
-  h1.title { font-size: 24px; }
-  html, body { font-size: 16px; }
-}
-</style>
+<link rel="stylesheet" href="../../assets/site.css?v=7c7da0cb" />
 </head>
 <body>
 <div class="wrap">
   <header class="site-header">
-    <a class="brand" href="../../index.html">X Mirror</a>
-    <nav><a href="../../index.html">目录</a></nav>
+    <a class="brand" href="../../">X Mirror</a>
+    <nav><a href="../../">目录</a></nav>
   </header>
   <div class="author">
-    <img src="assets/avatar.jpg" alt="" />
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
     <div>
       <div class="name">SagaSu <span class="meta">@sujingshen</span></div>
       <div class="meta">2026-10-19 14:00 · Asia/Shanghai</div>
@@ -192,7 +25,7 @@ h1.title {
   <a class="orig-link" href="https://x.com/sujingshen/status/2112061360708403397" target="_blank" rel="noopener">查看原文（X）↗</a>
   
   <article class="article">
-<figure class="media"><img src="assets/HU-MUkMawAAI1sO.jpg" alt="Article cover image" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-MUkMawAAI1sO.webp" type="image/webp"><img src="assets/HU-MUkMawAAI1sO.jpg" alt="Article cover image" loading="lazy" decoding="async" /></picture></figure>
 <p>规则怎么写、资产怎么备、站怎么筛、表怎么交，以及想要更多外链时可以拧的六个旋钮</p>
 <p>by Sagasu · 2026年10月</p>
 <p>给新产品做外链，最磨人的从来不是策略，是体力活：找站、注册、收验证邮件、填表、传 logo、选分类、等审核。一个人一晚上交十几个站就算高效了。</p>
@@ -247,7 +80,7 @@ dmthefounder.com<br>
 <p>列表是别人按别人的产品整理的。先按自己的品类筛一遍，再开始交。</p>
 <h2>五、第四步：分三条线提交</h2>
 <p>队列有了，提交按难度分流：</p>
-<figure class="media"><img src="assets/HU-MVB8bgAA5OBA.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-MVB8bgAA5OBA.webp" type="image/webp"><img src="assets/HU-MVB8bgAA5OBA.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>脚本提交。<br>
 不需要账号的简单表单、同一套模板搭出来的站（大量老式 phpLD 目录、Laravel 书签站），还有开放了 API 的站（比如 Founderhood，调接口直接返回 pending），Agent 写小脚本或用 curl 批量提交，日志落到文件里。这条线最快，适合那些长得一模一样的目录站。</p>
 <p>浏览器批量。<br>
@@ -284,12 +117,12 @@ awesome-london<br>
 <p>所以，7 个书签站和目录站大约到明年 1 月中旬会集体到期。建议提交当天就让 Agent 把到期日写进总表，到期前提醒你决定续不续。</p>
 <p>加上已排期的 10 个，整个漏斗是这样：</p>
 <div class='table-wrap'><table><tr><th>阶段</th><th>数量</th><th>占候选比例</th></tr><tr><td>候选站</td><td>1567</td><td>100%</td></tr><tr><td>标注免费或免费排队</td><td>638</td><td>40.7%</td></tr><tr><td>正式入队</td><td>282</td><td>18.0%</td></tr><tr><td>已上线或已排期</td><td>19</td><td>1.2%</td></tr><tr><td>已上线</td><td>9</td><td>0.57%</td></tr></table></div>
-<figure class="media"><img src="assets/HU-MVf3bMAATwRL.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-MVf3bMAATwRL.webp" type="image/webp"><img src="assets/HU-MVf3bMAATwRL.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>读这张表要注意两点。第一，各层不是严格的子集：282 条入队里有一部分来自这 1567 个之外的研究表，比例只能看量级。第二，这是跑完当天的快照。还有约 120 个站在审核中，接下来几周会陆续出结果，再加上 22 个 PR，最终数字会比现在高。</p>
 <p>回到开头说的三个原因，这个漏斗里每一层的流失都能对上：likely-paid 的 175 个和付费插队的站，是「不付费」挡掉的；badge-required 的 283 个，是「不挂徽章」挡掉的；个人简介类外链根本没进候选池；而已排期的 10 个和待审的约 120 个，就是「在排队」。</p>
 <h2>九、想要更多外链：六个可以拧的旋钮</h2>
 <p>这一节是这篇教程里最值得挖的部分。我的规则把大部分旋钮都拧到了最低，你可以按自己的预算和底线调。</p>
-<figure class="media"><img src="assets/HU-MV9hawAAQdKZ.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-MV9hawAAQdKZ.webp" type="image/webp"><img src="assets/HU-MV9hawAAQdKZ.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <div class='table-wrap'><table><tr><th>旋钮</th><th>这次的设置</th><th>拧开后能多拿到什么</th></tr><tr><td>付费</td><td>关</td><td>只有付费档的站、付费插队、付费才发布的站</td></tr><tr><td>交换外链</td><td>关</td><td>要求互链的目录和合作伙伴页</td></tr><tr><td>挂徽章</td><td>关</td><td>第三轮候选里 283 个强制徽章站，加上「挂徽章才给 dofollow」的站</td></tr><tr><td>扩大搜索</td><td>开</td><td>更多候选，但边际收益递减</td></tr><tr><td>点赞评论</td><td>部分开</td><td>「先点赞 N 个才能提交」的 launch 平台</td></tr><tr><td>个人简介 + URL</td><td>关</td><td>社区、论坛、开发者平台的个人主页外链</td></tr></table></div>
 <p>付费。<br>
 这是最直接的一个旋钮。这次跳过的付费站里有 Tiny Startups（69 英镑）、aitoolly（29.99 美元）、BetaList、Microlaunch 等，第三轮候选里标成 likely-paid 的有 175 个。很多 launch 平台的付费档买的其实是时间：免费排几个月，付费下周上线。如果你的产品有明确的发布节点，付费插队是合理的选择。给 Agent 的规则可以写成：「单站 30 美元以内可以付，先列清单给我批，不要自己下单。」把付款这一步留在自己手里。</p>
@@ -319,7 +152,7 @@ awesome-london<br>
 书签站大多是 90 天左右，发布平台的首页曝光是一天或一周，awesome 列表只要不被删就一直在。先看它能给你留下什么，再决定花多少力气。</p>
 <p>品类对不对？<br>
 最好的站，是你的目标用户本来就会去逛的站。</p>
-<figure class="media"><img src="assets/HU-MWgAbYAAmEGh.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-MWgAbYAAmEGh.webp" type="image/webp"><img src="assets/HU-MWgAbYAAmEGh.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>提交交给 AI，判断留给自己。</p>
 <h2>常见问题</h2>
 <p>需要会写代码吗？<br>
@@ -346,6 +179,6 @@ Google 搜索中心博客<br>
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js" defer></script>
+<script src="../../assets/meta.js?v=00707d09" defer></script>
 </body>
 </html>

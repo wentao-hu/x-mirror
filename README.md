@@ -22,13 +22,15 @@ posts/<slug>/
   assets/             # 该篇头像 + 正文图片（本地文件）
 data/<slug>.json      # 抽取后的结构化数据（便于重建）
 assets/
-  site.css            # 共享样式（页面实际内联同一份 CSS）
+  site.css            # 共享样式（模板以 ?v=<content-hash> 引用）
   meta.js             # 评分/已读共享脚本（KV + localStorage）
 functions/api/meta.js # Pages Function：GET/PUT 评分与已读
+_headers              # Cloudflare Pages 缓存策略
 wrangler.toml         # Pages 配置 + ARTICLE_META KV 绑定
 scripts/
   extract_and_build.py  # 从已抓取的 page.html + API JSON 构建
   rebuild_from_data.py  # 仅用 data/*.json + 已有 assets 重建 HTML
+  generate_webp.py      # 为 jpg/jpeg/png 生成同名 WebP 副本
   deploy_cloudflare.sh  # 用 wrangler 部署到 Cloudflare Pages
 ```
 
@@ -39,6 +41,13 @@ cd /Users/steven/MyApps/x-mirror
 python3 -m http.server 8765
 # 打开 http://127.0.0.1:8765/
 ```
+
+## 加载与缓存
+
+- **尾斜杠链接**：目录卡片指向 `posts/<slug>/`，文章页品牌/目录链接指向 `../../`，由 Pages 直接返回 `index.html`。
+- **静态资源版本化**：`assets/site.css`、`assets/meta.js` 以 `?v=<sha256 前 8 位>` 引用，哈希在构建时按文件内容计算。
+- **WebP**：`scripts/generate_webp.py` 为 `assets/` 和 `posts/*/assets/` 下的 jpg/jpeg/png 生成同名 `.webp`（`cwebp -q 90 -metadata none`，保留原图，源图更新才重建）。模板在 WebP 存在时输出 `<picture><source type="image/webp">`，并保留原 `<img>` 属性；`picture { display: contents; }` 保证布局不变。正文图片和封面使用 `loading="lazy" decoding="async"`，头像保持 eager。`rebuild_from_data.py` 与提取流程会在生成 HTML 前自动调用。
+- **`_headers`**：`/`、`/*.html`、`/posts/*/`、`/posts/*/index.html` 为 `max-age=0, must-revalidate`；`/assets/*`、`/posts/:slug/assets/*` 为一年 `immutable`；`/api/*` 为 `no-store`（Functions 响应本身也在 `functions/api/meta.js` 里设置了 `no-store`）。Cloudflare 每条规则只允许一个 `*`，文章资源规则用 `:slug` 占位符避免与 HTML 规则重叠。
 
 ## 评分与已读
 
@@ -94,7 +103,7 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 4. 运行 `python3 scripts/extract_and_build.py`
 5. `git push` 后执行 `./scripts/deploy_cloudflare.sh`（或等 Git 绑定自动部署）。
 
-评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css` 并保留所有文章页的控件。
+评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css`、补齐 WebP 副本并保留所有文章页的控件。
 
 ## 仅链接条目（web.cafe / 好友 VIP 站）
 

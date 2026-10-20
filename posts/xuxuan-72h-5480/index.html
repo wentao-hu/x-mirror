@@ -5,183 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>没投流、没买外链，一个新词站 72 小时 $5,480：从买域名到出单的完整复盘 · X Mirror</title>
 <meta name="description" content="没投流没买外链，新词站 72 小时流水 $5480" />
-<style>
-:root {
-  --bg: #ffffff;
-  --fg: #0f1419;
-  --muted: #536471;
-  --border: #eff3f4;
-  --link: #1d9bf0;
-  --card: #f7f9f9;
-  --star: #f5a524;
-  --ok: #0f7b45;
-  --ok-soft: #e8f5ee;
-}
-* { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
-}
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
-.site-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
-}
-.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
-.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
-.author {
-  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
-}
-.author img {
-  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-  background: var(--card);
-}
-.author .name { font-weight: 700; font-size: 16px; }
-.author .meta { color: var(--muted); font-size: 14px; }
-h1.title {
-  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
-}
-.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
-.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
-.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
-.article p { margin: 0 0 14px; white-space: normal; }
-.article figure.media { margin: 16px 0; }
-.article figure.media img {
-  display: block; width: 100%; height: auto; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--card);
-}
-.article pre {
-  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
-  overflow-x: auto; font-size: 13px; line-height: 1.45;
-}
-.article blockquote {
-  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
-  color: var(--muted);
-}
-.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
-.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
-.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
-.article th, .article td {
-  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
-}
-.article th { background: var(--card); }
-.orig-link {
-  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
-}
-.fidelity {
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
-}
-.img-missing { color: #f4212e; font-size: 14px; }
-/* index */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
-.filters button {
-  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
-  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
-}
-.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.search {
-  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
-  font-size: 15px; margin-bottom: 8px;
-}
-.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
-.card {
-  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
-  color: inherit;
-}
-.card:hover { background: transparent; }
-.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
-.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.card .cdesc { color: var(--muted); font-size: 14px; }
-.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
-/* rating / read */
-.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
-.xr-stars .xr-star { font-size: inherit; cursor: default; }
-.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
-.xr-star {
-  appearance: none; -webkit-appearance: none; border: 0; background: none;
-  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
-  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
-}
-.xr-star.on { color: var(--star); }
-.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
-.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
-.badge-read {
-  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
-  line-height: 1.6; padding: 0 7px; border-radius: 999px;
-}
-.badge-linkonly {
-  display: inline-block; margin-left: 6px; vertical-align: middle;
-  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
-  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
-}
-.card-linkonly { cursor: default; }
-.card-linkonly .ctitle a { color: inherit; }
-.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-.card-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
-  margin-top: 8px; font-size: 13px;
-}
-.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.card-controls .xr-star { font-size: 17px; }
-.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
-.post-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
-  margin: 0 0 12px; padding: 10px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  font-size: 14px;
-}
-.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
-.post-controls .pc-label { color: var(--muted); font-size: 13px; }
-.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
-.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.pc-clear {
-  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
-  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
-}
-.pc-clear:hover { color: var(--fg); }
-.pc-read {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
-  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
-  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
-}
-.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
-.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
-.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
-.pc-read.on .pc-dot { opacity: 1; }
-.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
-.filter-row { display: flex; align-items: center; gap: 10px; }
-.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
-.filter-row .filters { margin: 0; gap: 6px; }
-.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
-.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
-#meta-count { margin-left: 10px; }
-@media (max-width: 480px) {
-  .filter-row { align-items: flex-start; }
-  .filter-row .flabel { padding-top: 5px; }
-}
-  h1.title { font-size: 24px; }
-  html, body { font-size: 16px; }
-}
-</style>
+<link rel="stylesheet" href="../../assets/site.css?v=7c7da0cb" />
 </head>
 <body>
 <div class="wrap">
   <header class="site-header">
-    <a class="brand" href="../../index.html">X Mirror</a>
-    <nav><a href="../../index.html">目录</a></nav>
+    <a class="brand" href="../../">X Mirror</a>
+    <nav><a href="../../">目录</a></nav>
   </header>
   <div class="author">
-    <img src="assets/avatar.jpg" alt="" />
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
     <div>
       <div class="name">绪轩 <span class="meta">@xuxuanzhou</span></div>
       <div class="meta">2026-10-19 18:30 · Asia/Shanghai</div>
@@ -192,10 +25,10 @@ h1.title {
   <a class="orig-link" href="https://x.com/xuxuanzhou/status/2112129349071831259" target="_blank" rel="noopener">查看原文（X）↗</a>
   
   <article class="article">
-<figure class="media"><img src="assets/HU-tHk1a8AE0hkG.jpg" alt="Article cover image" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-tHk1a8AE0hkG.webp" type="image/webp"><img src="assets/HU-tHk1a8AE0hkG.jpg" alt="Article cover image" loading="lazy" decoding="async" /></picture></figure>
 <p>先放数据：10 月 9 号下午买的域名，第二天凌晨 2:38 出第一单，72 小时流水 $5,480，第一周 6700 多刀，到现在接近 7200 刀（Stripe 总交易额，含税）。没靠投流，也没买外链。</p>
 <p>如果非要说这次的秘诀，就一个字：早。</p>
-<figure class="media"><img src="assets/HU-tzDDaAAATp0v.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-tzDDaAAATp0v.webp" type="image/webp"><img src="assets/HU-tzDDaAAATp0v.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>简单说一下我做的是什么。10 月初，多米尼加说唱歌手 Bulin 47 的一段即兴说唱在 TikTok 上火了，很多人用 AI 把自己放进这段视频里再发出来。我的网站就干这一件事：上传一张自己的照片，生成一条你在里面说唱的 19 秒视频。</p>
 <h3>为什么这次去做新词</h3>
 <p>再解释一下「新词」：刚冒出来、还没多少网站在做的搜索词。比如一个梗刚在 TikTok 上火，大家开始搜「xxx ai」，这时候谁先有一个能用的网站，谁就能吃到第一波搜索流量和 AI 过来的流量。</p>
@@ -203,7 +36,7 @@ h1.title {
 <a class="mention" href="https://x.com/gefei55" rel="noopener noreferrer" target="_blank">@gefei55</a><br>
 飞哥在群里一条条晒新词站的出单，我才发现这块还是能做出不错的收益。</p>
 <p>9 月底哥飞老师为了给我们教学，亲自下场做了一个新词站，目前累计收入 5345 刀。那段时间他经常在群里转发新词，很多群友跟着去做站，也都拿到了不少收益。我在旁边看得心动，但人在外面旅游，一直没动手，10 月 8 号回来才开始。</p>
-<figure class="media"><img src="assets/HU-9R5KaMAALGiE.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-9R5KaMAALGiE.webp" type="image/webp"><img src="assets/HU-9R5KaMAALGiE.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <h3>10 月 8 号：先在老站上加了一个页面</h3>
 <p>8 号早上 10 点半，良辰美老师发给我一堆新词，有 ai raindance、ai zombie 这些（都是 10 月初火过的 AI 视频梗），我回了感谢，说会好好研究。但那天手上一堆老站的事要处理，没顾上看。</p>
 <p>下午在想要不要给 hotel lobby ai 这个词做个新站。想想已经晚了这么多天，新站估计也没量了，最后只打算在我一个老站上加个页面试试。晚上 6 点多，小群里另一位朋友做的 hotel lobby 新站也出单了。我一想，都过去这么多天了还能出单，那还是有机会，就赶紧把那个页面上了。（这个页面第二天也出单了，也算一个契机。）</p>
@@ -218,14 +51,14 @@ h1.title {
 <p>本来这时候该睡了，但前一天上的那个 hotel lobby 页面出了两单，我赶紧去看，发现两个用户都没生成成功。查问题、修复、发邮件跟用户道歉，弄完已经 2:19 了。中间回头看了一眼新站，已经有人进来了，但没人付钱，我就让 Claude 赶紧在 Plausible 加上漏斗统计，看用户是在哪一步走掉的。</p>
 <p>处理完那边，我发现新站的价格区怎么默认推订阅套餐？这种做一条视频就走的用户，谁会订阅。马上改成主推积分包。改完 8 分钟就有人下单了，20 分钟后已经有 3 个人付费。看出单这么猛，哪里还有睡意，就一直盯着后台，看用户有没有生成成功、进来了多少人。</p>
 <p>然后就发现，有个用户明明生成成功了，网站却给他退了款。我去看了视频，挺像的啊。跟 AI 一通沟通才发现，是 Claude 之前加的那个「没换人就判失败」的判断，把付费用户的正常成片误判了。先把判定标准调松，后来干脆整个删掉。接着又发现网页特别卡，还会报 500。原因是人进来太多，数据库连接被打满了，又赶紧修。前两天基本没怎么睡，一直在修 bug、改体验。这里让 claude code 整理出我头两天修的 bug，感兴趣可以点开看看：</p>
-<figure class="media"><img src="assets/HU_BD5FaAAAoFTR.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU_BD5FaAAAoFTR.webp" type="image/webp"><img src="assets/HU_BD5FaAAAoFTR.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <h3>为了少出客服单，我还做了这几件事</h3>
 <ul><li>视频一生成好就给用户发邮件，让他们知道有问题可以直接回邮件找我。</li><li>发邮件要退款的，一律退。觉得效果不好、想要更多积分的，也都给了。</li><li>盯着用户的生成任务看，有问题直接联系。这种热梗站的用户都是买了马上就用，希望立刻出结果。失败了能马上看出问题在哪，马上响应。</li></ul>
 <h3>数据</h3>
 <p>标题里的 $5,480 是首单后 72 小时的订单标价，不含结账时加的税，也没扣退款。第一周一共 558 单、$6,434（同样是标价），393 个人付了钱，退了 22 单。</p>
-<figure class="media"><img src="assets/HU-4HZEaoAAr13w.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-4HZEaoAAr13w.webp" type="image/webp"><img src="assets/HU-4HZEaoAAr13w.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>梗冒头到 Google Trends 见顶大概 4 天。85% 的钱是头 72 小时进来的，第 4 天单量就只剩高峰的五分之一。</p>
-<figure class="media"><img src="assets/HU-4OPJacAAJIQW.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HU-4OPJacAAJIQW.webp" type="image/webp"><img src="assets/HU-4OPJacAAJIQW.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>几个出乎我意料的数：</p>
 <ul><li>打开付款页之后，iPhone 用户一半以上付掉了，安卓只有 17%。我猜是 iPhone 用 Apple Pay 一点就付，安卓用户大多没绑 Google Pay，只能手动输卡号。</li><li>流量一半是直接访问，Google 占三成多。ChatGPT 上线第一天就有人点进来，付款率差不多是 Google 的 1.7 倍。站上放了 llms.txt、提交了 IndexNow，不过我不确定这招有没有用，我觉得更关键的是域名和页面标题对上了大家搜的词。</li><li>美国访客只占四分之一，付款却占了快一半。梗是从多米尼加火起来的，那边流量排第二，但点了购买的人只有五分之一付成功。</li><li>退款率 3.9%，基本都是觉得「不像本人」。</li></ul>
 <h3>可以复用的几点</h3>
@@ -244,6 +77,6 @@ h1.title {
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js" defer></script>
+<script src="../../assets/meta.js?v=00707d09" defer></script>
 </body>
 </html>

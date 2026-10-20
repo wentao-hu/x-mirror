@@ -15,6 +15,8 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 
+from generate_webp import generate_all
+
 
 def sniff_ext(path: Path) -> str:
     data = path.read_bytes()[:32]
@@ -30,7 +32,7 @@ def sniff_ext(path: Path) -> str:
         return "mp4"
     return "jpg"
 
-ROOT = Path("/workspace/x-mirror")
+ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 POSTS = ROOT / "posts"
 TZ8 = timezone(timedelta(hours=8))
@@ -505,7 +507,36 @@ def linkify(text: str) -> str:
     return s
 
 
-def render_blocks_html(blocks: list[dict], assets_rel: str) -> str:
+def asset_version(rel_path: str) -> str:
+    """返回资产内容 sha256 前 8 位，用于 ?v= 缓存版本。"""
+    return hashlib.sha256((ROOT / rel_path).read_bytes()).hexdigest()[:8]
+
+
+def image_html(
+    rel_src: str,
+    alt: str,
+    assets_dir: Path | None = None,
+    lazy: bool = False,
+) -> str:
+    """输出 <img>；若同目录已有 webp，则包一层 <picture> 提供 WebP 源。"""
+    attrs = f'src="{rel_src}" alt="{alt}"'
+    if lazy:
+        attrs += ' loading="lazy" decoding="async"'
+    img = f"<img {attrs} />"
+
+    if assets_dir is not None:
+        webp_path = Path(rel_src).with_suffix(".webp")
+        if (assets_dir / webp_path.name).exists():
+            return (
+                f'<picture><source srcset="{webp_path.as_posix()}" '
+                f'type="image/webp">{img}</picture>'
+            )
+    return img
+
+
+def render_blocks_html(
+    blocks: list[dict], assets_rel: str, assets_dir: Path | None = None
+) -> str:
     parts = []
     for b in blocks:
         t = b["type"]
@@ -524,9 +555,10 @@ def render_blocks_html(blocks: list[dict], assets_rel: str) -> str:
                 )
                 continue
             alt = esc(b.get("alt") or "")
-            parts.append(
-                f'<figure class="media"><img src="{assets_rel}/{local}" alt="{alt}" loading="lazy" /></figure>'
+            img = image_html(
+                f"{assets_rel}/{local}", alt, assets_dir=assets_dir, lazy=True
             )
+            parts.append(f'<figure class="media">{img}</figure>')
         elif t == "code":
             parts.append(f"<pre><code>{esc(b['text'])}</code></pre>")
         elif t == "quote":
@@ -573,6 +605,7 @@ html, body {
 }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
+picture { display: contents; }
 .wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
 .site-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -720,15 +753,18 @@ h1.title {
 
 
 def post_page(meta: dict, body_html: str) -> str:
+    post_assets = ROOT / "posts" / meta["slug"] / "assets"
     avatar = meta.get("avatar_local")
     avatar_html = (
-        f'<img src="assets/{avatar}" alt="" />'
+        image_html(f"assets/{avatar}", "", assets_dir=post_assets)
         if avatar
         else '<img src="" alt="" style="background:#ddd" />'
     )
     cover = meta.get("cover_local")
     cover_html = (
-        f'<figure class="media"><img src="assets/{cover}" alt="封面" /></figure>'
+        f'<figure class="media">'
+        f'{image_html(f"assets/{cover}", "封面", assets_dir=post_assets, lazy=True)}'
+        f'</figure>'
         if cover and meta.get("cover_separate")
         else ""
     )
@@ -739,13 +775,13 @@ def post_page(meta: dict, body_html: str) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{esc(meta['title'])} · X Mirror</title>
 <meta name="description" content="{esc(meta.get('description',''))}" />
-<style>{CSS}</style>
+<link rel="stylesheet" href="../../assets/site.css?v={asset_version('assets/site.css')}" />
 </head>
 <body>
 <div class="wrap">
   <header class="site-header">
-    <a class="brand" href="../../index.html">X Mirror</a>
-    <nav><a href="../../index.html">目录</a></nav>
+    <a class="brand" href="../../">X Mirror</a>
+    <nav><a href="../../">目录</a></nav>
   </header>
   <div class="author">
     {avatar_html}
@@ -768,7 +804,7 @@ def post_page(meta: dict, body_html: str) -> str:
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js" defer></script>
+<script src="../../assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
 </body>
 </html>
 """
@@ -805,7 +841,7 @@ def index_page(posts: list[dict]) -> str:
                 )
             else:
                 cards.append(
-                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/index.html">
+                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}</div>
   <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
@@ -819,7 +855,7 @@ def index_page(posts: list[dict]) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X Mirror · 出海 SEO 收藏镜像</title>
 <meta name="description" content="X 长文收藏的本地化镜像站，图片全部本地托管" />
-<style>{CSS}</style>
+<link rel="stylesheet" href="assets/site.css?v={asset_version('assets/site.css')}" />
 </head>
 <body>
 <div class="wrap">
@@ -869,7 +905,7 @@ def index_page(posts: list[dict]) -> str:
   </div>
   <div class="footer">共 {len(posts)} 篇 · Personal archive · Asia/Shanghai</div>
 </div>
-<script src="assets/meta.js" defer></script>
+<script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
 </body>
 </html>
 """
@@ -982,7 +1018,8 @@ def process_one(post_api: dict, users: dict) -> dict:
     body_blocks = [b for b in blocks if not (b["type"] == "heading" and b.get("level") == 1)]
     # If first image is cover duplicated in body, keep it (matches X article layout)
 
-    body_html = render_blocks_html(body_blocks, "assets")
+    generate_all(ROOT)
+    body_html = render_blocks_html(body_blocks, "assets", assets)
 
     published = parse_time(post_api["created_at"])
     meta = {
@@ -1027,6 +1064,8 @@ def main():
     api = json.load(open("/workspace/x-posts-api.json"))
     users = {u["id"]: u for u in api["includes"]["users"]}
     DATA.mkdir(parents=True, exist_ok=True)
+    (ROOT / "assets").mkdir(exist_ok=True)
+    (ROOT / "assets" / "site.css").write_text(CSS, encoding="utf-8")
     posts_meta = []
     # preserve a sensible order
     order = [
@@ -1041,10 +1080,6 @@ def main():
     by_id = {p["id"]: p for p in api["data"]}
     for pid in order:
         posts_meta.append(process_one(by_id[pid], users))
-
-    # shared css file optional
-    (ROOT / "assets").mkdir(exist_ok=True)
-    (ROOT / "assets" / "site.css").write_text(CSS, encoding="utf-8")
 
     manifest = {"generated_at": datetime.now(TZ8).isoformat(), "posts": posts_meta}
     (ROOT / "posts.json").write_text(

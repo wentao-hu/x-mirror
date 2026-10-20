@@ -14,6 +14,9 @@ spec.loader.exec_module(mod)
 (ROOT / "assets").mkdir(exist_ok=True)
 (ROOT / "assets" / "site.css").write_text(mod.CSS, encoding="utf-8")
 
+# 先生成 WebP 副本，模板据此决定是否输出 <picture>
+mod.generate_all(ROOT)
+
 # link_only 条目（web.cafe 等）不在 data/*.json 里，重建时必须从旧 posts.json 原样保留
 link_only = []
 posts_path = ROOT / "posts.json"
@@ -30,8 +33,9 @@ for f in sorted((ROOT / "data").glob("*.json")):
     meta = raw["meta"]
     blocks = raw["blocks"]
     body_blocks = [b for b in blocks if not (b["type"] == "heading" and b.get("level") == 1)]
-    body_html = mod.render_blocks_html(body_blocks, "assets")
-    out = ROOT / "posts" / meta["slug"] / "index.html"
+    post_assets = ROOT / "posts" / meta["slug"] / "assets"
+    body_html = mod.render_blocks_html(body_blocks, "assets", post_assets)
+    out = post_assets.parent / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(mod.post_page(meta, body_html), encoding="utf-8")
     posts_meta.append(meta)

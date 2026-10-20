@@ -5,183 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金 · X Mirror</title>
 <meta name="description" content="新手 AI 付费工具站 5 天收入约 1500 刀的完整复盘" />
-<style>
-:root {
-  --bg: #ffffff;
-  --fg: #0f1419;
-  --muted: #536471;
-  --border: #eff3f4;
-  --link: #1d9bf0;
-  --card: #f7f9f9;
-  --star: #f5a524;
-  --ok: #0f7b45;
-  --ok-soft: #e8f5ee;
-}
-* { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
-}
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
-.site-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
-}
-.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
-.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
-.author {
-  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
-}
-.author img {
-  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-  background: var(--card);
-}
-.author .name { font-weight: 700; font-size: 16px; }
-.author .meta { color: var(--muted); font-size: 14px; }
-h1.title {
-  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
-}
-.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
-.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
-.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
-.article p { margin: 0 0 14px; white-space: normal; }
-.article figure.media { margin: 16px 0; }
-.article figure.media img {
-  display: block; width: 100%; height: auto; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--card);
-}
-.article pre {
-  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
-  overflow-x: auto; font-size: 13px; line-height: 1.45;
-}
-.article blockquote {
-  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
-  color: var(--muted);
-}
-.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
-.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
-.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
-.article th, .article td {
-  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
-}
-.article th { background: var(--card); }
-.orig-link {
-  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
-}
-.fidelity {
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
-}
-.img-missing { color: #f4212e; font-size: 14px; }
-/* index */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
-.filters button {
-  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
-  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
-}
-.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.search {
-  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
-  font-size: 15px; margin-bottom: 8px;
-}
-.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
-.card {
-  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
-  color: inherit;
-}
-.card:hover { background: transparent; }
-.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
-.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.card .cdesc { color: var(--muted); font-size: 14px; }
-.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
-/* rating / read */
-.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
-.xr-stars .xr-star { font-size: inherit; cursor: default; }
-.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
-.xr-star {
-  appearance: none; -webkit-appearance: none; border: 0; background: none;
-  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
-  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
-}
-.xr-star.on { color: var(--star); }
-.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
-.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
-.badge-read {
-  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
-  line-height: 1.6; padding: 0 7px; border-radius: 999px;
-}
-.badge-linkonly {
-  display: inline-block; margin-left: 6px; vertical-align: middle;
-  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
-  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
-}
-.card-linkonly { cursor: default; }
-.card-linkonly .ctitle a { color: inherit; }
-.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-.card-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
-  margin-top: 8px; font-size: 13px;
-}
-.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.card-controls .xr-star { font-size: 17px; }
-.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
-.post-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
-  margin: 0 0 12px; padding: 10px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  font-size: 14px;
-}
-.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
-.post-controls .pc-label { color: var(--muted); font-size: 13px; }
-.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
-.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.pc-clear {
-  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
-  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
-}
-.pc-clear:hover { color: var(--fg); }
-.pc-read {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
-  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
-  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
-}
-.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
-.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
-.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
-.pc-read.on .pc-dot { opacity: 1; }
-.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
-.filter-row { display: flex; align-items: center; gap: 10px; }
-.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
-.filter-row .filters { margin: 0; gap: 6px; }
-.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
-.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
-#meta-count { margin-left: 10px; }
-@media (max-width: 480px) {
-  .filter-row { align-items: flex-start; }
-  .filter-row .flabel { padding-top: 5px; }
-}
-  h1.title { font-size: 24px; }
-  html, body { font-size: 16px; }
-}
-</style>
+<link rel="stylesheet" href="../../assets/site.css?v=7c7da0cb" />
 </head>
 <body>
 <div class="wrap">
   <header class="site-header">
-    <a class="brand" href="../../index.html">X Mirror</a>
-    <nav><a href="../../index.html">目录</a></nav>
+    <a class="brand" href="../../">X Mirror</a>
+    <nav><a href="../../">目录</a></nav>
   </header>
   <div class="author">
-    <img src="assets/avatar.jpg" alt="" />
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
     <div>
       <div class="name">弗里 <span class="meta">@0xEcho99</span></div>
       <div class="meta">2026-10-15 17:51 · Asia/Shanghai</div>
@@ -192,12 +25,12 @@ h1.title {
   <a class="orig-link" href="https://x.com/0xEcho99/status/2110669876482203775" target="_blank" rel="noopener">查看原文（X）↗</a>
   
   <article class="article">
-<figure class="media"><img src="assets/HUp1qPSaoAEpOzM.jpg" alt="Article cover image" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HUp1qPSaoAEpOzM.webp" type="image/webp"><img src="assets/HUp1qPSaoAEpOzM.jpg" alt="Article cover image" loading="lazy" decoding="async" /></picture></figure>
 <p>开始上站到目前 5 天时间，我的第 1 个 AI 付费工具站实现了收入突破 1500 刀，我的心情不亚于我做跨境电商独立站突破万刀时的激动。对我来说意义重大，所以特别记录一下这次上站的经验复盘，希望能对想了解和实践 AI 网站出海的朋友有所帮助。</p>
-<figure class="media"><img src="assets/HUp2sOla4AACug8.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HUp2sOla4AACug8.webp" type="image/webp"><img src="assets/HUp2sOla4AACug8.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <h3>0/ 先看数据：5 天收入、单数、客单价、成本</h3>
 <p>这 5 天时间我看了下 Stripe 后台的收入统计，截止目前收入总共 1549 美金，上站第二天即高峰，突破 500 美金，接着就开始下跌，可以看到趋势非常明显，到今天下午就只剩下 39.97 美金了。也基本预示着这个站点走向谢幕，下面是我自己制作的数据面板。</p>
-<figure class="media"><img src="assets/HUp8wnUbAAAmYIa.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HUp8wnUbAAAmYIa.webp" type="image/webp"><img src="assets/HUp8wnUbAAAmYIa.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>可以看到我实际付款的客户有 61 位，订单数却有 84 单，是因为有部分用户复购了，这个我下面会分享关于我的付费墙设计，复购跟这个是离不开关系的，用了一点小巧思。</p>
 <p>让我比较惊讶的是转化率高达 8%，要知道这个指标如果放在跨境电商里面已经是非常夸张了，甚至比付费流量还精准，第 1 个用户就给我带来了订单。</p>
 <p>平均客单价在 18.2 美金，每条视频成本大约占比在 29% 左右，因为我为了保证效果用了 Seedance 2.5 模型，如果换其他模型成本会更低。</p>
@@ -218,7 +51,7 @@ h1.title {
 <p>国庆回来后在哥飞群看到大家的上站复盘分享贴，不少群友都拿到了快速的反馈和结果，仔细看完了大家的分享后，发现并没有想象中那么复杂，只要找准词去干就完事了，也不会分摊我太多精力，看得我跃跃欲试。</p>
 <p>因为就我之前做跨境电商独立站的经验来说我做的都是比较老的需求，需要靠优化内页、做外链来做 SEO 慢慢提升网站权重才可能获得一些自然搜索流量。</p>
 <p>这是一个漫长的工程，所以跨境电商独立站前期基本都是靠付费广告起量的。因此我也一直只是在研究怎么提高我独立站的谷歌排名和 DR，也慢慢有了一些成效。</p>
-<figure class="media"><img src="assets/HUqIP8naIAAnA-u.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HUqIP8naIAAnA-u.webp" type="image/webp"><img src="assets/HUqIP8naIAAnA-u.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>这次看到群友直接用新词上站通过 ChatGPT 迅速拿到 AI 推荐出单，这点相信是突破了不少人的认知的包括我，原来新的需求拿到流量这么简单啊我想。</p>
 <p>原来只需要以最快的速度去满足用户的需求就好了。</p>
 <p>这种经验真的是只有实操过的才会有的，而就像哥飞所说，这个点很多人其实大半年前就知道了，只不过在默默赚钱没人分享，而他作为社群的负责人，想把尽可能赚钱的方法分享给大家，才有了这波机会。所以在此也非常感谢哥飞老师。</p>
@@ -231,7 +64,7 @@ h1.title {
 <p>所以我就去研究如何才能在爆发早期找到这些存在需求的词，正好刷到了<br>
 <a class="mention" href="https://x.com/GoSailGlobal" rel="noopener noreferrer" target="_blank">@GoSailGlobal</a><br>
 Jason老师的新词雷达分享，就把我的这个需求和他的雷达作为早期的框架扔给了 Grok Bot，让 Grok Bot 去帮我寻找新词。</p>
-<figure class="media"><img src="assets/HUqNl_Vb0AADJdU.jpg" alt="" loading="lazy" /></figure>
+<figure class="media"><picture><source srcset="assets/HUqNl_Vb0AADJdU.webp" type="image/webp"><img src="assets/HUqNl_Vb0AADJdU.jpg" alt="" loading="lazy" decoding="async" /></picture></figure>
 <p>这里我还接入了 AIHOT、导入了社群群友分享帖子的一些经验总结，同时让 Grok Bot 去结合下 Instagram、TikTok 的数据，创建了我自己的专属新词雷达。</p>
 <p>于是我就通过雷达找到了这个词，确定它有非常大的传播潜力和需求，就开始准备上站了。这个词就不公开了，但相信看完的朋友自己去实操，或许也能找到答案。</p>
 <p>我平时没有太过于关注模型词，我的雷达更多是站在用户角度去考虑的，作为普通人我们是不是更倾向于找某某爆款视频如何制作，某某痛点如何解决？</p>
@@ -274,6 +107,6 @@ Jason老师的新词雷达分享，就把我的这个需求和他的雷达作为
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js" defer></script>
+<script src="../../assets/meta.js?v=00707d09" defer></script>
 </body>
 </html>

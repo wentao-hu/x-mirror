@@ -5,183 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>按哥飞社群流程正式开工：新词站六步计划 · X Mirror</title>
 <meta name="description" content="失业一年半后按哥飞社群六步流程开工做新词站（含引用的前情原帖）" />
-<style>
-:root {
-  --bg: #ffffff;
-  --fg: #0f1419;
-  --muted: #536471;
-  --border: #eff3f4;
-  --link: #1d9bf0;
-  --card: #f7f9f9;
-  --star: #f5a524;
-  --ok: #0f7b45;
-  --ok-soft: #e8f5ee;
-}
-* { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
-}
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
-.site-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
-}
-.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
-.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
-.author {
-  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
-}
-.author img {
-  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-  background: var(--card);
-}
-.author .name { font-weight: 700; font-size: 16px; }
-.author .meta { color: var(--muted); font-size: 14px; }
-h1.title {
-  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
-}
-.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
-.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
-.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
-.article p { margin: 0 0 14px; white-space: normal; }
-.article figure.media { margin: 16px 0; }
-.article figure.media img {
-  display: block; width: 100%; height: auto; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--card);
-}
-.article pre {
-  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
-  overflow-x: auto; font-size: 13px; line-height: 1.45;
-}
-.article blockquote {
-  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
-  color: var(--muted);
-}
-.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
-.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
-.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
-.article th, .article td {
-  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
-}
-.article th { background: var(--card); }
-.orig-link {
-  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
-}
-.fidelity {
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
-}
-.img-missing { color: #f4212e; font-size: 14px; }
-/* index */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
-.filters button {
-  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
-  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
-}
-.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-.search {
-  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
-  font-size: 15px; margin-bottom: 8px;
-}
-.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
-.card {
-  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
-  color: inherit;
-}
-.card:hover { background: transparent; }
-.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
-.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.card .cdesc { color: var(--muted); font-size: 14px; }
-.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
-/* rating / read */
-.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
-.xr-stars .xr-star { font-size: inherit; cursor: default; }
-.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
-.xr-star {
-  appearance: none; -webkit-appearance: none; border: 0; background: none;
-  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
-  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
-}
-.xr-star.on { color: var(--star); }
-.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
-.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
-.badge-read {
-  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
-  line-height: 1.6; padding: 0 7px; border-radius: 999px;
-}
-.badge-linkonly {
-  display: inline-block; margin-left: 6px; vertical-align: middle;
-  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
-  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
-}
-.card-linkonly { cursor: default; }
-.card-linkonly .ctitle a { color: inherit; }
-.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-.card-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
-  margin-top: 8px; font-size: 13px;
-}
-.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.card-controls .xr-star { font-size: 17px; }
-.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
-.post-controls {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
-  margin: 0 0 12px; padding: 10px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  font-size: 14px;
-}
-.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
-.post-controls .pc-label { color: var(--muted); font-size: 13px; }
-.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
-.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.pc-clear {
-  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
-  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
-}
-.pc-clear:hover { color: var(--fg); }
-.pc-read {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
-  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
-  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
-}
-.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
-.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
-.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
-.pc-read.on .pc-dot { opacity: 1; }
-.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
-.filter-row { display: flex; align-items: center; gap: 10px; }
-.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
-.filter-row .filters { margin: 0; gap: 6px; }
-.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
-.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
-#meta-count { margin-left: 10px; }
-@media (max-width: 480px) {
-  .filter-row { align-items: flex-start; }
-  .filter-row .flabel { padding-top: 5px; }
-}
-  h1.title { font-size: 24px; }
-  html, body { font-size: 16px; }
-}
-</style>
+<link rel="stylesheet" href="../../assets/site.css?v=7c7da0cb" />
 </head>
 <body>
 <div class="wrap">
   <header class="site-header">
-    <a class="brand" href="../../index.html">X Mirror</a>
-    <nav><a href="../../index.html">目录</a></nav>
+    <a class="brand" href="../../">X Mirror</a>
+    <nav><a href="../../">目录</a></nav>
   </header>
   <div class="author">
-    <img src="assets/avatar.jpg" alt="" />
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
     <div>
       <div class="name">Jianyu Wu <span class="meta">@iamjianyuwu</span></div>
       <div class="meta">2026-10-16 14:38 · Asia/Shanghai</div>
@@ -228,6 +61,6 @@ h1.title {
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js" defer></script>
+<script src="../../assets/meta.js?v=00707d09" defer></script>
 </body>
 </html>
