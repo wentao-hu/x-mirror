@@ -664,8 +664,13 @@ def render_blocks_html(
             )
             parts.append(f'<figure class="media">{img}</figure>')
         elif t == "video":
+            src = b.get("src")
             local = b.get("local")
-            if not local:
+            if src and re.match(r"^https?://", src):
+                video_src = esc(src)
+            elif local:
+                video_src = f"{assets_rel}/{esc(local)}"
+            else:
                 parts.append('<p class="img-missing">[视频未能下载]</p>')
                 continue
             poster = b.get("poster")
@@ -674,7 +679,7 @@ def render_blocks_html(
             )
             parts.append(
                 f'<figure class="media"><video controls preload="metadata"'
-                f'{poster_attr} src="{assets_rel}/{esc(local)}"></video></figure>'
+                f'{poster_attr} src="{video_src}"></video></figure>'
             )
         elif t == "code":
             parts.append(f"<pre><code>{esc(b['text'])}</code></pre>")

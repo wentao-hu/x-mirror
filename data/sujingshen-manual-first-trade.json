@@ -64,7 +64,7 @@
     },
     {
       "type": "video",
-      "local": "parent-video.mp4",
+      "src": "https://video.twimg.com/amplify_video/2112077120604352512/vid/avc1/1920x1080/01oojQMzfzqlRtTZ.mp4",
       "poster": "parent-poster.jpg"
     }
   ]
