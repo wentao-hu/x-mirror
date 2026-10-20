@@ -132,6 +132,18 @@ h1.title {
 .card-linkonly { cursor: default; }
 .card-linkonly .ctitle a { color: inherit; }
 .card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
+/* 目录卡片标题按来源类型轻微区分：略放大，并以前景色混合链接色做轻微色差 */
+.card[data-source-type="x_article"] .ctitle,
+.card[data-source-type="web_article"] .ctitle {
+  font-size: 18px; color: color-mix(in srgb, var(--fg) 76%, var(--link));
+}
+.card[data-source-type="x_post"] .ctitle {
+  font-size: 17.5px; color: color-mix(in srgb, var(--fg) 86%, var(--link));
+}
+.card[data-source-type="webcafe_link"] .ctitle,
+.card[data-source-type="link_only"] .ctitle {
+  font-size: 17.5px; color: color-mix(in srgb, var(--fg) 80%, #1d4ed8);
+}
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
   margin-top: 8px; font-size: 13px;
