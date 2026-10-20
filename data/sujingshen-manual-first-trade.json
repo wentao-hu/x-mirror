@@ -12,12 +12,12 @@
     "description": "建议先做市场调研并手动跑通 1-3 次交易闭环，再决定是否购买域名和投入自动化。",
     "source_type": "x_post",
     "avatar_local": "avatar.jpg",
-    "images_total": 0,
-    "images_ok": 0,
+    "images_total": 1,
+    "images_ok": 1,
     "api_media_count": 1,
-    "fidelity_note": "普通回复帖；含被回复父帖全文与本地视频；标题自拟。",
+    "fidelity_note": "普通回复帖；含被回复父帖全文；视频以原帖链接展示，无嵌入播放器；标题自拟。",
     "plain_text_len": 93,
-    "blocks_count": 11
+    "blocks_count": 12
   },
   "blocks": [
     {
@@ -63,9 +63,13 @@
       "text": "3｜增长：先读 Google 官方的 SEO https://t.co/XXwTyWzKi0 https://t.co/PfXovdBQmy"
     },
     {
-      "type": "video",
-      "src": "https://video.twimg.com/amplify_video/2112077120604352512/vid/avc1/1920x1080/01oojQMzfzqlRtTZ.mp4",
-      "poster": "parent-poster.jpg"
+      "type": "image",
+      "local": "parent-poster.jpg",
+      "alt": "原帖视频封面"
+    },
+    {
+      "type": "paragraph",
+      "text": "观看原视频：https://x.com/GoSailGlobal/status/2112077471839621203/video/1"
     }
   ]
 }

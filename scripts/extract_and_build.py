@@ -664,22 +664,19 @@ def render_blocks_html(
             )
             parts.append(f'<figure class="media">{img}</figure>')
         elif t == "video":
-            src = b.get("src")
-            local = b.get("local")
-            if src and re.match(r"^https?://", src):
-                video_src = esc(src)
-            elif local:
-                video_src = f"{assets_rel}/{esc(local)}"
-            else:
-                parts.append('<p class="img-missing">[视频未能下载]</p>')
+            # Legacy video blocks are links only. Never emit a player.
+            src = b.get("src") or b.get("url") or b.get("local")
+            if not src:
+                parts.append('<p class="img-missing">[视频链接缺失]</p>')
                 continue
-            poster = b.get("poster")
-            poster_attr = (
-                f' poster="{assets_rel}/{esc(poster)}"' if poster else ""
+            href = (
+                esc(src)
+                if re.match(r"^https?://", src)
+                else f"{assets_rel}/{esc(src)}"
             )
             parts.append(
-                f'<figure class="media"><video controls preload="metadata"'
-                f'{poster_attr} src="{video_src}"></video></figure>'
+                f'<p>观看原视频：<a href="{href}" rel="noopener noreferrer" '
+                f'target="_blank">{href}</a></p>'
             )
         elif t == "code":
             parts.append(f"<pre><code>{esc(b['text'])}</code></pre>")
