@@ -2,21 +2,21 @@
   "meta": {
     "id": "mcaodn",
     "slug": "reddit-dan-wizard-2000-site",
-    "title": "How I Built A Site For Less Than $2000 Which Now Makes $1,000/month",
+    "title": "我如何用不到 2000 美元建站，如今每月赚 1000 美元",
     "url": "https://www.reddit.com/r/juststart/comments/mcaodn/how_i_built_a_site_for_less_than_2000_which_now/",
     "author_name": "dan__wizard",
     "author_username": "dan__wizard",
     "published_utc": "2021-03-24T16:56:33.000Z",
     "published_local": "2021-03-25 00:56",
     "category": "新词站实战复盘",
-    "description": "用 Ahrefs Content Explorer 找低 DR、高流量的词，投入不到 2000 美元建站，月广告收入约 1000 美元。",
+    "description": "一篇 Reddit 复盘：用 Ahrefs 找低 DR、高流量的词，投入不到 2000 美元建站，月广告收入约 1000 美元。",
     "source_type": "reddit",
     "avatar_local": "",
     "images_total": 0,
     "images_ok": 0,
     "api_media_count": 0,
-    "fidelity_note": "Reddit 原帖英文全文镜像；原帖无配图。文末精选评论为默认排序前 10 条高赞评论及楼主回复，部分楼主回复的父评论映射按页面顺序推断。",
-    "plain_text_len": 7062,
+    "fidelity_note": "Reddit 原帖英文全文已翻译为中文，专有名词保留英文；原帖无配图。文末精选评论为默认排序前 10 条高赞评论及楼主回复，均已翻译，部分楼主回复的父评论映射按页面顺序推断。",
+    "plain_text_len": 2861,
     "blocks_count": 59
   },
   "blocks": [
@@ -26,130 +26,130 @@
     },
     {
       "type": "paragraph",
-      "text": "Hi guys, long time lurker, occasional commenter."
+      "text": "大家好，我长期潜水，偶尔冒个泡。"
     },
     {
       "type": "paragraph",
-      "text": "**Update - Read my recent post with detailed stats about this site here:** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)"
+      "text": "**更新：这个站的详细数据见我最近发的帖子：** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)"
     },
     {
       "type": "paragraph",
-      "text": "Back towards the end of 2019 I was messing around with Ahrefs Content Explorer when I came across a site that had a DR of around 7 which was ranking top for a massive keyword with over 40,000 searches a month."
+      "text": "2019 年底，我在 Ahrefs Content Explorer 里翻着玩，偶然看到一个站：DR 只有 7 左右，却排在一个每月搜索量超过 4 万的大词的第一名。"
     },
     {
       "type": "paragraph",
-      "text": "I had a look at the site and was confident I could build something better, **so I did.**"
+      "text": "我看了看那个站，确信自己能做一个更好的，**于是我就做了。**"
     },
     {
       "type": "paragraph",
-      "text": "**I invested less than $2,000 into building that site and it now brings in almost $1,000 a month in ad revenue** - not too shabby a return on investment!"
+      "text": "**我在这个站上投入了不到 2000 美元，现在它每月带来近 1000 美元的广告收入**——这个投资回报还不错吧！"
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "Here's the process I used to find that opportunity:"
+      "text": "我找到这个机会的流程："
     },
     {
       "type": "list",
       "ordered": true,
       "items": [
-        "**Log into ahrefs and navigate to the content explorer.**",
-        "**Chuck a very broad generic keyword into the search bar. If you're looking to build an affiliate site then something like \"best\" is a good choice.**",
-        "**Change language to \"English\"**",
-        "**Turn \"Filter explicit search results\" on**",
-        "**Then press \"add filter\" and select \"domain rating\", leave the from box empty and put a low number (around 10) in the to box.**",
-        "**Then add a \"page traffic\" filter, go for a fairly high number up to 10,000.**"
+        "**登录 Ahrefs，进入 Content Explorer。**",
+        "**在搜索框里输入一个非常宽泛的通用关键词。如果你想做联盟营销站，像「best」这样的词就不错。**",
+        "**把语言改成「English」。**",
+        "**打开「Filter explicit search results」（过滤成人内容搜索结果）。**",
+        "**然后点「add filter」，选择「domain rating」，from 框留空，在 to 框里填一个较小的数字（10 左右）。**",
+        "**再加一个「page traffic」筛选，把上限设到 10000 这样一个较高的数字。**"
       ]
     },
     {
       "type": "paragraph",
-      "text": "You will now see a list of pages that get more than 10,000 sessions a month on sites with a domain rating of less than 10."
+      "text": "这样你看到的列表，都是每月获得超过 1 万次访问、且所在网站 DR 低于 10 的页面。"
     },
     {
       "type": "paragraph",
-      "text": "While not all of these articles are something you'd want to build a site around you are sure to find a few diamonds in there which prove you can build high traffic sites without having to spend countless hours and $$$s building links."
+      "text": "这些文章不一定都值得围绕它建站，但你一定能从中找到几个宝藏，证明你不必花无数小时和大把钞票做外链，也能做出高流量网站。"
     },
     {
       "type": "paragraph",
-      "text": "**This process found me two massive (40k+/month) keywords in the same niche which were very low competition.**"
+      "text": "**用这个流程，我在同一个细分领域找到了两个搜索量巨大（每月 4 万+）、竞争却非常低的关键词。**"
     },
     {
       "type": "paragraph",
-      "text": "I've made a vid explaining this strategy here which may be useful: [https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)"
+      "text": "我录了一个视频讲这个策略，可能对你有用：[https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)"
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "Here's How I Built Out The Site:"
+      "text": "我是怎么把这个站做起来的："
     },
     {
       "type": "paragraph",
-      "text": "What I noticed was that the sites that were ranking top for those two keywords were very small (one had less than 10 pages)."
+      "text": "我注意到，这两个词排在前面的站都非常小（其中一个只有不到 10 个页面）。"
     },
     {
       "type": "paragraph",
-      "text": "I was confident that if I built around just 50 relevant pages linking back to those big keyword pages I stood a good chance of winning that top spot."
+      "text": "我确信，只要围绕这两个大词页建大约 50 个相关页面、并链回它们，我很有机会拿下第一名。"
     },
     {
       "type": "paragraph",
-      "text": "I outsourced all the content."
+      "text": "所有内容我都外包了。"
     },
     {
       "type": "paragraph",
-      "text": "I spent a total of $200 on links (early on just to try and speed up indexing - don't think it made any difference)."
+      "text": "外链一共花了 200 美元（早期只是想加快收录——我觉得没什么用）。"
     },
     {
       "type": "paragraph",
-      "text": "Most of the supporting articles were around 500 words."
+      "text": "大部分辅助文章大约 500 词。"
     },
     {
       "type": "paragraph",
-      "text": "The big volume keyword pages were around 1,500 words."
+      "text": "两个大流量关键词页面各约 1500 词。"
     },
     {
       "type": "paragraph",
-      "text": "I got the two big volume keyword pages and 20 supporting pages written up before I purchased the domain."
+      "text": "买域名之前，我就把两个大流量关键词页面和 20 个辅助页面写好了。"
     },
     {
       "type": "paragraph",
-      "text": "Then I got roughly an additional 10 articles (500 words) written every month for the first 7 months."
+      "text": "之后的前 7 个月，我每月再让人写约 10 篇（每篇 500 词）文章。"
     },
     {
       "type": "paragraph",
-      "text": "I made sure to link through to the big volume money pages from all of the supporting articles as well as any other pages that were at all relevant."
+      "text": "我确保所有辅助文章、以及其他任何相关的页面，都链向那两个大流量的赚钱页面。"
     },
     {
       "type": "paragraph",
-      "text": "That's literally all I did."
+      "text": "我真的就只做了这些。"
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "How The Site Is Doing"
+      "text": "网站现在的表现"
     },
     {
       "type": "paragraph",
-      "text": "I started this site in November 2019, it currently has 87 articles on it and gets around 1800 sessions a day."
+      "text": "这个站是 2019 年 11 月开始的，目前有 87 篇文章，每天大约 1800 次访问。"
     },
     {
       "type": "paragraph",
-      "text": "It makes 95% of its money from Ezoic and a small amount from Amazon."
+      "text": "95% 的收入来自 Ezoic，一小部分来自 Amazon。"
     },
     {
       "type": "paragraph",
-      "text": "It's averaging around $950/month over the last 6 months."
+      "text": "过去 6 个月平均每月约 950 美元。"
     },
     {
       "type": "paragraph",
-      "text": "If I sold it now it should get a price between $25,000-$30,000."
+      "text": "如果现在卖掉，价格应该在 25000 到 30000 美元之间。"
     },
     {
       "type": "paragraph",
-      "text": "Not bad for a site which only cost $2,000 to build!"
+      "text": "对一个只花了 2000 美元建起来的站来说，不错了！"
     },
     {
       "type": "paragraph",
-      "text": "I hope that's of some use and interest to you guys, going forward I'll be trying to build more crazy low competition sites like this (I've got two others that are slowly growing)."
+      "text": "希望这些对大家有点用、也有点意思。接下来我会继续尝试做更多这种竞争低到离谱的站（另外两个正在慢慢增长）。"
     },
     {
       "type": "heading",
@@ -163,7 +163,7 @@
     },
     {
       "type": "paragraph",
-      "text": "That's a great idea. Thanks for sharing! Hope you continue building further."
+      "text": "这个思路很棒。谢谢分享！希望你再接再厉。"
     },
     {
       "type": "heading",
@@ -172,11 +172,11 @@
     },
     {
       "type": "paragraph",
-      "text": "How repeatable is this? You know exactly how this formula works, what stops you from doing this with 10 sites to make $10k per month? Is it the difficulty of finding a niche?"
+      "text": "这个方法可复制性如何？你已经完全摸清这套公式了，是什么阻止你用 10 个站每月赚 1 万美元？是找到合适细分领域的难度吗？"
     },
     {
       "type": "quote",
-      "text": "楼主回复：Its a strategy I'll definitely be trying again, the hard part is finding the opportunity; if you can find a good one then it's repeatable"
+      "text": "楼主回复：这个策略我肯定会再用。难的是找到机会；只要能找到好机会，它就是可复制的。"
     },
     {
       "type": "heading",
@@ -185,11 +185,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Wow actual quality post good job"
+      "text": "哇，真正有质量的好帖，干得漂亮。"
     },
     {
       "type": "quote",
-      "text": "楼主回复：Thanks very much"
+      "text": "楼主回复：非常感谢。"
     },
     {
       "type": "heading",
@@ -198,11 +198,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Does your site focus on just a specific, niched keyword/subject or do you have a more blog-like site where you write about more varying subjects? (examples: a food blog with news/culture/tips and affiliate links vs. an airfryer-niche affiliate site.) Which alternative would you say is the best? I imagine it could be hard to write so many articles as you did in a niche that is too small? u/dan__wizard"
+      "text": "你的站是只聚焦一个很窄的关键词/主题，还是更像博客、写各种不同主题？（比如：一个带新闻/文化/技巧和联盟链接的美食博客 vs. 一个空气炸锅细分领域的联盟站。）你觉得哪种更好？我想，在太小的细分领域里写这么多文章会很难吧？u/dan__wizard"
     },
     {
       "type": "quote",
-      "text": "楼主回复：My niche was extremely small but I've still written 87 articles in it and I think there's easily potential for another 100+. With the two options you are suggesting there's no reason why one site couldn't do both. That's what I'd do. Hope that helps 👍"
+      "text": "楼主回复：我的细分领域非常小，但我在里面还是写了 87 篇文章，而且我觉得再写 100 多篇也完全有空间。你说的两种选择，没有理由一个站不能兼顾。我会这么做。希望对你有帮助 👍"
     },
     {
       "type": "heading",
@@ -211,7 +211,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Do you know anything about Youtube or how to search for something similar on youtube? I'm curious about doing a similar search except for programming tutorial videos. I know a little about SEO thanks to my site but Youtube is another monster that I've been working on recently. A trick to finding low competition keywords in my niche would be nice. Thanks!"
+      "text": "你了解 YouTube 吗，或者知道怎么在 YouTube 上做类似的搜索吗？我很好奇能不能用类似的方法搜索编程教学视频。多亏我自己的站，我懂一点 SEO，但 YouTube 是另一个怪物，我最近一直在研究。要是能找到我所在领域低竞争关键词的技巧就好了。谢谢！"
     },
     {
       "type": "heading",
@@ -220,11 +220,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Amazing! Did you buy a pre-existing domain name, or create a new one? And how relevant was the domain to the keyword(s)? And about how many times does the keyword appear in the main 1500-word articles? And how many related keywords do you use? Just a few, or dozens and dozens? I will totally be trying out this idea ASAP! Keep going!"
+      "text": "太厉害了！你是买了一个现有域名，还是注册新域名？域名和关键词的相关性有多高？在 1500 词的主文章里，关键词大概出现多少次？你会用多少个相关关键词？只有几个，还是几十上百个？我肯定会尽快试试这个思路！继续加油！"
     },
     {
       "type": "quote",
-      "text": "楼主回复：This was built on a brand new domain, strong expired domains aren't really necessary for this technique. The site name was vaguely related to the niche, a bit like thesprucecrafts, but also branded so it isn't a keyword domain. Can't give exact numbers but the main keyword was in the H1 and the rest was written naturally; I don't worry about keyword ratios."
+      "text": "楼主回复：这个站是用全新域名做的，这个技法并不需要很强的过期域名。站名和细分领域有点关系，有点像 thesprucecrafts，但也是品牌化的，所以不算关键词域名。具体数字给不了，但主关键词放在 H1 里，其余自然写；我不纠结关键词比例。"
     },
     {
       "type": "heading",
@@ -233,11 +233,11 @@
     },
     {
       "type": "paragraph",
-      "text": "What if you were to add 2 or more moderately tough keywords with their article farms to the site? what do you think would happen then without any link building? If you dont mind me asking why you didnt think of continuing your site further?"
+      "text": "如果你再加入 2 个或更多中等难度的关键词，以及配套的文章群，会怎样？在完全不建外链的情况下，你觉得会发生什么？另外冒昧问一句，你为什么没想过把这个站继续做大？"
     },
     {
       "type": "quote",
-      "text": "楼主回复：sure, the primary content is the high traffic potential keywords (40k+) and the supporting content is basically everything else. Most of my supporting articles have less than 500 searches a month"
+      "text": "楼主回复：可以。主力内容是那些有高流量潜力的关键词（4 万+），辅助内容基本就是其他所有东西。我的辅助文章大多每月搜索量不到 500。"
     },
     {
       "type": "heading",
@@ -246,11 +246,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Looks good and I'm going to watch the video later too. Who did you get to write the Content and how much per word?"
+      "text": "看起来不错，我晚点也会看视频。你找谁写的内容？每词多少钱？"
     },
     {
       "type": "quote",
-      "text": "楼主回复：Mostly Upwork writers. Hope you find the video useful"
+      "text": "楼主回复：主要在 Upwork 上找的写手。希望你觉得视频有用。"
     },
     {
       "type": "heading",
@@ -259,11 +259,11 @@
     },
     {
       "type": "paragraph",
-      "text": "I have a catchy food-related domain I bought a while ago... So, what you're saying is that I can build up an article site on it and profit from a set of keywords? Do you used paid ads to promote your site, or was all that organic?"
+      "text": "我前阵子买了一个挺好记的食品相关域名……所以你的意思是，我可以在上面做一个文章站，靠一组关键词赚钱？你用付费广告推广网站，还是全靠自然流量？"
     },
     {
       "type": "quote",
-      "text": "楼主回复：That's the idea yes, providing you do your keyword research well and write decent content. All traffic came from organic."
+      "text": "楼主回复：就是这个思路，前提是关键词研究做得好、内容也写得不错。所有流量都来自自然搜索。"
     },
     {
       "type": "heading",
@@ -272,13 +272,13 @@
     },
     {
       "type": "paragraph",
-      "text": "I use AHREFs a lot and this is a great tip that I did not know about - thanks!"
+      "text": "我经常用 Ahrefs，这是个我之前不知道的好技巧——谢谢！"
     },
     {
       "type": "quote",
-      "text": "楼主回复：Thanks man hope you found that useful, I've got another site built off this type of research that I started in September which is slowly ascending now."
+      "text": "楼主回复：谢谢，希望这对你有用。我还有一个站就是用这类研究做出来的，9 月开始，现在在慢慢上升。"
     }
   ],
-  "plain_text": "r/juststart · u/dan__wizard · 699 分 · 195 条评论 · 2021-03-24（UTC）\nHi guys, long time lurker, occasional commenter.\n**Update - Read my recent post with detailed stats about this site here:** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)\nBack towards the end of 2019 I was messing around with Ahrefs Content Explorer when I came across a site that had a DR of around 7 which was ranking top for a massive keyword with over 40,000 searches a month.\nI had a look at the site and was confident I could build something better, **so I did.**\n**I invested less than $2,000 into building that site and it now brings in almost $1,000 a month in ad revenue** - not too shabby a return on investment!\nHere's the process I used to find that opportunity:\n**Log into ahrefs and navigate to the content explorer.**\n**Chuck a very broad generic keyword into the search bar. If you're looking to build an affiliate site then something like \"best\" is a good choice.**\n**Change language to \"English\"**\n**Turn \"Filter explicit search results\" on**\n**Then press \"add filter\" and select \"domain rating\", leave the from box empty and put a low number (around 10) in the to box.**\n**Then add a \"page traffic\" filter, go for a fairly high number up to 10,000.**\nYou will now see a list of pages that get more than 10,000 sessions a month on sites with a domain rating of less than 10.\nWhile not all of these articles are something you'd want to build a site around you are sure to find a few diamonds in there which prove you can build high traffic sites without having to spend countless hours and $$$s building links.\n**This process found me two massive (40k+/month) keywords in the same niche which were very low competition.**\nI've made a vid explaining this strategy here which may be useful: [https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)\nHere's How I Built Out The Site:\nWhat I noticed was that the sites that were ranking top for those two keywords were very small (one had less than 10 pages).\nI was confident that if I built around just 50 relevant pages linking back to those big keyword pages I stood a good chance of winning that top spot.\nI outsourced all the content.\nI spent a total of $200 on links (early on just to try and speed up indexing - don't think it made any difference).\nMost of the supporting articles were around 500 words.\nThe big volume keyword pages were around 1,500 words.\nI got the two big volume keyword pages and 20 supporting pages written up before I purchased the domain.\nThen I got roughly an additional 10 articles (500 words) written every month for the first 7 months.\nI made sure to link through to the big volume money pages from all of the supporting articles as well as any other pages that were at all relevant.\nThat's literally all I did.\nHow The Site Is Doing\nI started this site in November 2019, it currently has 87 articles on it and gets around 1800 sessions a day.\nIt makes 95% of its money from Ezoic and a small amount from Amazon.\nIt's averaging around $950/month over the last 6 months.\nIf I sold it now it should get a price between $25,000-$30,000.\nNot bad for a site which only cost $2,000 to build!\nI hope that's of some use and interest to you guys, going forward I'll be trying to build more crazy low competition sites like this (I've got two others that are slowly growing).\n精选评论\n[deleted] · 34 分\nThat's a great idea. Thanks for sharing! Hope you continue building further.\nu/skylego · 20 分\nHow repeatable is this? You know exactly how this formula works, what stops you from doing this with 10 sites to make $10k per month? Is it the difficulty of finding a niche?\n楼主回复：Its a strategy I'll definitely be trying again, the hard part is finding the opportunity; if you can find a good one then it's repeatable\nu/thenextlvl · 33 分\nWow actual quality post good job\n楼主回复：Thanks very much\nu/sketchybutter · 9 分\nDoes your site focus on just a specific, niched keyword/subject or do you have a more blog-like site where you write about more varying subjects? (examples: a food blog with news/culture/tips and affiliate links vs. an airfryer-niche affiliate site.) Which alternative would you say is the best? I imagine it could be hard to write so many articles as you did in a niche that is too small? u/dan__wizard\n楼主回复：My niche was extremely small but I've still written 87 articles in it and I think there's easily potential for another 100+. With the two options you are suggesting there's no reason why one site couldn't do both. That's what I'd do. Hope that helps 👍\nu/darkspy13 · 5 分\nDo you know anything about Youtube or how to search for something similar on youtube? I'm curious about doing a similar search except for programming tutorial videos. I know a little about SEO thanks to my site but Youtube is another monster that I've been working on recently. A trick to finding low competition keywords in my niche would be nice. Thanks!\nu/fotogneric · 5 分\nAmazing! Did you buy a pre-existing domain name, or create a new one? And how relevant was the domain to the keyword(s)? And about how many times does the keyword appear in the main 1500-word articles? And how many related keywords do you use? Just a few, or dozens and dozens? I will totally be trying out this idea ASAP! Keep going!\n楼主回复：This was built on a brand new domain, strong expired domains aren't really necessary for this technique. The site name was vaguely related to the niche, a bit like thesprucecrafts, but also branded so it isn't a keyword domain. Can't give exact numbers but the main keyword was in the H1 and the rest was written naturally; I don't worry about keyword ratios.\nu/JB5K · 4 分\nWhat if you were to add 2 or more moderately tough keywords with their article farms to the site? what do you think would happen then without any link building? If you dont mind me asking why you didnt think of continuing your site further?\n楼主回复：sure, the primary content is the high traffic potential keywords (40k+) and the supporting content is basically everything else. Most of my supporting articles have less than 500 searches a month\nu/MickeyMagicMoves · 4 分\nLooks good and I'm going to watch the video later too. Who did you get to write the Content and how much per word?\n楼主回复：Mostly Upwork writers. Hope you find the video useful\nu/zuugzwang · 4 分\nI have a catchy food-related domain I bought a while ago... So, what you're saying is that I can build up an article site on it and profit from a set of keywords? Do you used paid ads to promote your site, or was all that organic?\n楼主回复：That's the idea yes, providing you do your keyword research well and write decent content. All traffic came from organic.\nu/Trumpets145 · 6 分\nI use AHREFs a lot and this is a great tip that I did not know about - thanks!\n楼主回复：Thanks man hope you found that useful, I've got another site built off this type of research that I started in September which is slowly ascending now.",
+  "plain_text": "r/juststart · u/dan__wizard · 699 分 · 195 条评论 · 2021-03-24（UTC）\n大家好，我长期潜水，偶尔冒个泡。\n**更新：这个站的详细数据见我最近发的帖子：** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)\n2019 年底，我在 Ahrefs Content Explorer 里翻着玩，偶然看到一个站：DR 只有 7 左右，却排在一个每月搜索量超过 4 万的大词的第一名。\n我看了看那个站，确信自己能做一个更好的，**于是我就做了。**\n**我在这个站上投入了不到 2000 美元，现在它每月带来近 1000 美元的广告收入**——这个投资回报还不错吧！\n我找到这个机会的流程：\n**登录 Ahrefs，进入 Content Explorer。**\n**在搜索框里输入一个非常宽泛的通用关键词。如果你想做联盟营销站，像「best」这样的词就不错。**\n**把语言改成「English」。**\n**打开「Filter explicit search results」（过滤成人内容搜索结果）。**\n**然后点「add filter」，选择「domain rating」，from 框留空，在 to 框里填一个较小的数字（10 左右）。**\n**再加一个「page traffic」筛选，把上限设到 10000 这样一个较高的数字。**\n这样你看到的列表，都是每月获得超过 1 万次访问、且所在网站 DR 低于 10 的页面。\n这些文章不一定都值得围绕它建站，但你一定能从中找到几个宝藏，证明你不必花无数小时和大把钞票做外链，也能做出高流量网站。\n**用这个流程，我在同一个细分领域找到了两个搜索量巨大（每月 4 万+）、竞争却非常低的关键词。**\n我录了一个视频讲这个策略，可能对你有用：[https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)\n我是怎么把这个站做起来的：\n我注意到，这两个词排在前面的站都非常小（其中一个只有不到 10 个页面）。\n我确信，只要围绕这两个大词页建大约 50 个相关页面、并链回它们，我很有机会拿下第一名。\n所有内容我都外包了。\n外链一共花了 200 美元（早期只是想加快收录——我觉得没什么用）。\n大部分辅助文章大约 500 词。\n两个大流量关键词页面各约 1500 词。\n买域名之前，我就把两个大流量关键词页面和 20 个辅助页面写好了。\n之后的前 7 个月，我每月再让人写约 10 篇（每篇 500 词）文章。\n我确保所有辅助文章、以及其他任何相关的页面，都链向那两个大流量的赚钱页面。\n我真的就只做了这些。\n网站现在的表现\n这个站是 2019 年 11 月开始的，目前有 87 篇文章，每天大约 1800 次访问。\n95% 的收入来自 Ezoic，一小部分来自 Amazon。\n过去 6 个月平均每月约 950 美元。\n如果现在卖掉，价格应该在 25000 到 30000 美元之间。\n对一个只花了 2000 美元建起来的站来说，不错了！\n希望这些对大家有点用、也有点意思。接下来我会继续尝试做更多这种竞争低到离谱的站（另外两个正在慢慢增长）。\n精选评论\n[deleted] · 34 分\n这个思路很棒。谢谢分享！希望你再接再厉。\nu/skylego · 20 分\n这个方法可复制性如何？你已经完全摸清这套公式了，是什么阻止你用 10 个站每月赚 1 万美元？是找到合适细分领域的难度吗？\n楼主回复：这个策略我肯定会再用。难的是找到机会；只要能找到好机会，它就是可复制的。\nu/thenextlvl · 33 分\n哇，真正有质量的好帖，干得漂亮。\n楼主回复：非常感谢。\nu/sketchybutter · 9 分\n你的站是只聚焦一个很窄的关键词/主题，还是更像博客、写各种不同主题？（比如：一个带新闻/文化/技巧和联盟链接的美食博客 vs. 一个空气炸锅细分领域的联盟站。）你觉得哪种更好？我想，在太小的细分领域里写这么多文章会很难吧？u/dan__wizard\n楼主回复：我的细分领域非常小，但我在里面还是写了 87 篇文章，而且我觉得再写 100 多篇也完全有空间。你说的两种选择，没有理由一个站不能兼顾。我会这么做。希望对你有帮助 👍\nu/darkspy13 · 5 分\n你了解 YouTube 吗，或者知道怎么在 YouTube 上做类似的搜索吗？我很好奇能不能用类似的方法搜索编程教学视频。多亏我自己的站，我懂一点 SEO，但 YouTube 是另一个怪物，我最近一直在研究。要是能找到我所在领域低竞争关键词的技巧就好了。谢谢！\nu/fotogneric · 5 分\n太厉害了！你是买了一个现有域名，还是注册新域名？域名和关键词的相关性有多高？在 1500 词的主文章里，关键词大概出现多少次？你会用多少个相关关键词？只有几个，还是几十上百个？我肯定会尽快试试这个思路！继续加油！\n楼主回复：这个站是用全新域名做的，这个技法并不需要很强的过期域名。站名和细分领域有点关系，有点像 thesprucecrafts，但也是品牌化的，所以不算关键词域名。具体数字给不了，但主关键词放在 H1 里，其余自然写；我不纠结关键词比例。\nu/JB5K · 4 分\n如果你再加入 2 个或更多中等难度的关键词，以及配套的文章群，会怎样？在完全不建外链的情况下，你觉得会发生什么？另外冒昧问一句，你为什么没想过把这个站继续做大？\n楼主回复：可以。主力内容是那些有高流量潜力的关键词（4 万+），辅助内容基本就是其他所有东西。我的辅助文章大多每月搜索量不到 500。\nu/MickeyMagicMoves · 4 分\n看起来不错，我晚点也会看视频。你找谁写的内容？每词多少钱？\n楼主回复：主要在 Upwork 上找的写手。希望你觉得视频有用。\nu/zuugzwang · 4 分\n我前阵子买了一个挺好记的食品相关域名……所以你的意思是，我可以在上面做一个文章站，靠一组关键词赚钱？你用付费广告推广网站，还是全靠自然流量？\n楼主回复：就是这个思路，前提是关键词研究做得好、内容也写得不错。所有流量都来自自然搜索。\nu/Trumpets145 · 6 分\n我经常用 Ahrefs，这是个我之前不知道的好技巧——谢谢！\n楼主回复：谢谢，希望这对你有用。我还有一个站就是用这类研究做出来的，9 月开始，现在在慢慢上升。",
   "entities": {}
 }
