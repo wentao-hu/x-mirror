@@ -48,7 +48,7 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
-CATEGORY_ORDER = ["新词站实战复盘", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
+CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
 
 CATEGORIES = {
     "2110669876482203775": "新词站实战复盘",
@@ -490,6 +490,8 @@ SOURCE_TYPE_LABELS = {
     "x_post": "帖子",
     "x_article": "长文",
     "web_article": "网页",
+    "webcafe": "web.cafe",
+    "wechat": "微信",
 }
 
 X_ICON = '<span class="src-icon" aria-hidden="true">𝕏</span>'
@@ -499,26 +501,39 @@ GLOBE_ICON = (
     '<ellipse cx="8" cy="8" rx="3" ry="6.5"></ellipse>'
     '<path d="M1.5 8h13"></path></svg>'
 )
+CAFE_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<path d="M3.2 5.5h7.3v4.2a2.9 2.9 0 0 1-2.9 2.9H6.1a2.9 2.9 0 0 1-2.9-2.9V5.5Z"></path>'
+    '<path d="M10.5 6.6h1.2a1.9 1.9 0 1 1 0 3.8h-1.2"></path>'
+    '<path d="M5.2 2.2c0 .7-.7.7-.7 1.4M7.7 2.2c0 .7-.7.7-.7 1.4"></path></svg>'
+)
+WECHAT_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<path d="M6.4 3C3.7 3 1.8 4.6 1.8 6.6c0 1.1.6 2 1.6 2.7l-.3 1.5 1.7-.9c.5.1 1 .2 1.6.2 2.7 0 4.6-1.6 4.6-3.6S9.1 3 6.4 3Z"></path>'
+    '<path d="M10.2 6.4c2 0 3.6 1.3 3.6 2.9 0 .9-.5 1.7-1.3 2.3l.3 1.2-1.4-.7c-.4.1-.8.1-1.2.1-2 0-3.6-1.3-3.6-2.9s1.6-2.9 3.6-2.9Z"></path></svg>'
+)
 
 
 def source_type_of(meta: dict) -> str:
-    """来源类型；旧数据缺失时按 entry_type 推断，保证徽标与筛选不落空。"""
+    """来源类型；旧数据缺失时按 entry_type 推断，legacy webcafe_link 归一到 webcafe。"""
     st = meta.get("source_type") or (
-        "webcafe_link" if meta.get("entry_type") == "link_only" else "x_post"
+        "webcafe" if meta.get("entry_type") == "link_only" else "x_post"
     )
-    # link_only 是条目形态，统一归一到 webcafe_link，避免徽标和类型筛选落空
-    return "webcafe_link" if st in ("link_only", "webcafe_link") else st
+    # link_only 是条目形态，不是独立类型；旧值 webcafe_link 一并归一
+    return "webcafe" if st in ("link_only", "webcafe_link") else st
 
 
 def source_badge(meta: dict) -> str:
-    """标题旁的来源徽标；web.cafe 沿用原有的仅链接徽标。"""
+    """标题旁的来源徽标；类型名与筛选按钮保持一致。"""
     st = source_type_of(meta)
-    if st == "webcafe_link":
-        return '<span class="badge-linkonly">web.cafe · 仅链接</span>'
     label = SOURCE_TYPE_LABELS.get(st)
     if not label:
         return ""
-    icon = GLOBE_ICON if st == "web_article" else X_ICON
+    icon = {
+        "webcafe": CAFE_ICON,
+        "wechat": WECHAT_ICON,
+        "web_article": GLOBE_ICON,
+    }.get(st, X_ICON)
     return (
         f'<span class="source-badge" data-source-type="{esc(st)}">'
         f'{icon}<span class="src-label">{label}</span></span>'
@@ -738,11 +753,6 @@ h1.title {
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
-.badge-linkonly {
-  display: inline-block; margin-left: 6px; vertical-align: middle;
-  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
-  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
-}
 .source-badge {
   display: inline-flex; align-items: center; gap: 4px;
   margin-left: 7px; vertical-align: middle;
@@ -758,7 +768,7 @@ h1.title {
 .card-linkonly { cursor: default; }
 .card-linkonly .ctitle a { color: inherit; }
 .card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-/* 徽标按来源类型配色：淡底深字，对齐 .badge-linkonly；web.cafe 仍走蓝色徽标 */
+/* 徽标按来源类型配色：淡底深字 */
 .source-badge[data-source-type="x_article"] {
   background: #f2ecfc; color: #6b21c4; border-color: #e2d5f5;
 }
@@ -767,6 +777,12 @@ h1.title {
 }
 .source-badge[data-source-type="web_article"] {
   background: #e9f2f1; color: #1f5f5b; border-color: #d2e3e1;
+}
+.source-badge[data-source-type="webcafe"] {
+  background: #eef4ff; color: #1d4ed8; border-color: #dbe7ff;
+}
+.source-badge[data-source-type="wechat"] {
+  background: #e8f7ee; color: #14803c; border-color: #cfead9;
 }
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
@@ -941,7 +957,8 @@ def index_page(posts: list[dict]) -> str:
         <button data-type="x_post">帖子</button>
         <button data-type="x_article">长文</button>
         <button data-type="web_article">网页</button>
-        <button data-type="webcafe_link">仅链接</button>
+        <button data-type="webcafe">web.cafe</button>
+        <button data-type="wechat">微信</button>
       </div>
     </div>
     <div class="filter-row">
