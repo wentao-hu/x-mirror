@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>按哥飞社群流程正式开工：新词站六步计划 · X Mirror</title>
+<meta name="description" content="失业一年半后按哥飞社群六步流程开工做新词站（含引用的前情原帖）" />
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #0f1419;
+  --muted: #536471;
+  --border: #eff3f4;
+  --link: #1d9bf0;
+  --card: #f7f9f9;
+  --star: #f5a524;
+  --ok: #0f7b45;
+  --ok-soft: #e8f5ee;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+}
+.site-header .brand { font-weight: 800; font-size: 20px; color: var(--fg); }
+.site-header nav a { color: var(--muted); margin-left: 12px; font-size: 14px; }
+.author {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
+}
+.author img {
+  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  background: var(--card);
+}
+.author .name { font-weight: 700; font-size: 16px; }
+.author .meta { color: var(--muted); font-size: 14px; }
+h1.title {
+  font-size: 28px; line-height: 1.25; font-weight: 800; margin: 8px 0 16px;
+}
+.article h2 { font-size: 22px; margin: 28px 0 10px; font-weight: 800; }
+.article h3 { font-size: 19px; margin: 24px 0 8px; font-weight: 700; }
+.article h4 { font-size: 17px; margin: 20px 0 8px; font-weight: 700; }
+.article p { margin: 0 0 14px; white-space: normal; }
+.article figure.media { margin: 16px 0; }
+.article figure.media img {
+  display: block; width: 100%; height: auto; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--card);
+}
+.article pre {
+  background: #0f1419; color: #e7e9ea; padding: 14px; border-radius: 12px;
+  overflow-x: auto; font-size: 13px; line-height: 1.45;
+}
+.article blockquote {
+  margin: 12px 0; padding: 8px 14px; border-left: 4px solid var(--border);
+  color: var(--muted);
+}
+.article ul, .article ol { padding-left: 1.4em; margin: 0 0 14px; }
+.table-wrap { overflow-x: auto; margin: 12px 0 16px; }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.article th, .article td {
+  border: 1px solid var(--border); padding: 8px 10px; text-align: left;
+}
+.article th { background: var(--card); }
+.orig-link {
+  display: inline-block; margin: 8px 0 20px; font-size: 14px; color: var(--muted);
+}
+.fidelity {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; font-size: 13px; color: var(--muted); margin: 20px 0;
+}
+.img-missing { color: #f4212e; font-size: 14px; }
+/* index */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.filters button {
+  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
+  padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
+}
+.filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.search {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 15px; margin-bottom: 8px;
+}
+.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
+.card {
+  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.card:hover { background: transparent; }
+.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+.card .cdesc { color: var(--muted); font-size: 14px; }
+.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+/* rating / read */
+.xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
+.xr-stars .xr-star { font-size: inherit; cursor: default; }
+.xr-rating { display: inline-flex; gap: 2px; align-items: center; }
+.xr-star {
+  appearance: none; -webkit-appearance: none; border: 0; background: none;
+  padding: 0 1px; margin: 0; font-family: inherit; font-size: 22px; line-height: 1;
+  color: #cfd6dc; cursor: pointer; transition: color .12s ease, transform .12s ease;
+}
+.xr-star.on { color: var(--star); }
+.xr-rating .xr-star:hover { transform: translateY(-1px) scale(1.08); }
+.xr-star:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+.card-badges { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
+.badge-read {
+  background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
+  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+}
+.badge-linkonly {
+  display: inline-block; margin-left: 6px; vertical-align: middle;
+  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
+  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
+}
+.card-linkonly { cursor: default; }
+.card-linkonly .ctitle a { color: inherit; }
+.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
+.card-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin-top: 8px; font-size: 13px;
+}
+.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.card-controls .xr-star { font-size: 17px; }
+.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
+.post-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 0 0 12px; padding: 10px 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  font-size: 14px;
+}
+.post-controls .pc-row { display: flex; align-items: center; gap: 8px; }
+.post-controls .pc-label { color: var(--muted); font-size: 13px; }
+.post-controls .pc-rating-text { color: var(--muted); font-size: 12px; min-width: 3.2em; }
+.post-controls .pc-note { flex-basis: 100%; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.pc-clear {
+  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
+  cursor: pointer; padding: 2px 4px; text-decoration: underline; text-underline-offset: 2px;
+}
+.pc-clear:hover { color: var(--fg); }
+.pc-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+}
+.pc-read:hover { border-color: #cbd5dc; color: var(--fg); }
+.pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
+.pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
+.pc-read.on .pc-dot { opacity: 1; }
+.filter-rows { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 14px; }
+.filter-row { display: flex; align-items: center; gap: 10px; }
+.filter-row .flabel { flex: 0 0 32px; color: var(--muted); font-size: 12px; }
+.filter-row .filters { margin: 0; gap: 6px; }
+.filter-row .filters button { padding: 4px 10px; font-size: 12px; }
+.meta-status { min-height: 1.2em; margin: -4px 0 16px; color: var(--muted); font-size: 12px; }
+#meta-count { margin-left: 10px; }
+@media (max-width: 480px) {
+  .filter-row { align-items: flex-start; }
+  .filter-row .flabel { padding-top: 5px; }
+}
+  h1.title { font-size: 24px; }
+  html, body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header">
+    <a class="brand" href="../../index.html">X Mirror</a>
+    <nav><a href="../../index.html">目录</a></nav>
+  </header>
+  <div class="author">
+    <img src="assets/avatar.jpg" alt="" />
+    <div>
+      <div class="name">Jianyu Wu <span class="meta">@iamjianyuwu</span></div>
+      <div class="meta">2026-10-16 14:38 · Asia/Shanghai</div>
+    </div>
+  </div>
+  <h1 class="title">按哥飞社群流程正式开工：新词站六步计划</h1>
+  <div class="post-controls" data-meta-mount data-slug="jianyuwu-geifei-six-steps"></div>
+  <a class="orig-link" href="https://x.com/iamjianyuwu/status/2110983676993683761" target="_blank" rel="noopener">查看原文（X）↗</a>
+  
+  <article class="article">
+<p>今天正式开工了，昨天凌晨开了个头。</p>
+<p>接下来就按哥飞社群的流程走，一共六步：</p>
+<p>1. 学方法。先把 SEO 的基本概念过一遍，搞清楚搜索量、难度、搜索意图这几个词。</p>
+<p>2. 挖词。找刚出现、有人搜、还没有好网站承接的新词，先凑 20 个候选。</p>
+<p>3. 判断。拿标准逐个打分，筛到 3 个，拿去群里问，最后定 1 个，买域名。</p>
+<p>4. 做站。只做关键词对应的那一个功能，单页静态站，不堆东西。</p>
+<p>5. 上线。部署，绑域名，向 Google 和 Bing 提交收录。目标 10 月底前完成。</p>
+<p>6. 养站。做外链，每周看一次 Search Console，等收录和第一个访客。</p>
+<p>上线之前不公开关键词和域名，上线之后方法、进度、花了多少钱、挣了多少钱，全部公开。</p>
+<p>每走到一个节点，有啥心得体会，都会更新</p>
+<h2>引用的原帖（2026-10-13 13:52）</h2>
+<p>原帖链接：<a href="https://x.com/iamjianyuwu/status/2109884894478577854" rel="noopener noreferrer" target="_blank">https://x.com/iamjianyuwu/status/2109884894478577854</a></p>
+<blockquote>做了 15 年互联网技术，去年 5 月失业，到现在一年半。这一年半我一个人折腾了好几件事，基本都没成。今天把过程和教训写出来，一是想找同频的人聊聊，二是想问问走在前面的人，接下来的路该怎么选。</blockquote>
+<blockquote>先说经过。</blockquote>
+<blockquote>失业后我没急着找工作，想做自己的东西。选的方向是德州扑克的训练工具，做成 SaaS，给想系统提升牌技的玩家用。从产品设计到开发全是我一个人，花了半年多，东西做出来了，能用。</blockquote>
+<blockquote>做产品的同时我开了个小红书账号，输出德扑相关的内容，半年做到 5000 粉。前几天因为卖教学类的 PDF，账号被封了。德扑这个品类本身在平台就是敏感的，我低估了这一点。</blockquote>
+<blockquote>中间还试过两条路。一个是给外国人做中国旅行方案定制，一个是自学 SEO 和 GEO，想做 AI 搜索优化这块的服务。学是学了，但一个人靠这个变现很难：商业模式不清楚，做企业交付又没有案例背书，冷启动基本启动不了。</blockquote>
+<blockquote>一年半下来，我总结自己最大的两个问题：</blockquote>
+<blockquote>一是顺序反了。我习惯先把产品做出来，自己觉得这东西应该有人要，做完才发现获客比开发难十倍。技术出身的人很容易掉进这个坑，做东西是舒适区，找客户不是。</blockquote>
+<blockquote>二是一个人扛不住没有正反馈的日子。连续几个月没有任何结果，再坚定的人也会开始怀疑自己，然后焦虑、内耗、效率下降，恶性循环。</blockquote>
+<blockquote>所以我现在的想法是，别再一个人闷头干了，找个有方法、有同行者的地方。目前在看两个付费社群：哥飞社群和生财有术。</blockquote>
+<blockquote>我的理解是，哥飞偏垂直，主打新词新站做站赚收益，路径具体。生财有术更全面，从发现需求、判断验证到获客，案例也覆盖很多行业和模式。</blockquote>
+<blockquote>我个人更倾向哥飞。理由很简单：我现在最需要的不是看更多可能性，而是先学会一门具体的手艺，拿到第一笔哪怕很小的正反馈，把精气神先提起来。</blockquote>
+<blockquote>我不指望进个社群就月入万刀。我想要的就是像早年拜师学艺那样，花时间、花精力、花钱，跟着做出过结果的人学，有人把我领进门。</blockquote>
+<blockquote>我知道不管哪个社群都不缺我这一个成员。但对社群是几千分之一，对一个在低谷期的人来说可能就是能不能撑过去的区别。我还能熬的时间不多了。</blockquote>
+<blockquote>写这篇帖子，一是想听听过来人的看法：这两个社群你们怎么选？有没有我没看到的第三条路？二是想连接到和我处境类似的人，一年半的弯路我已经走完了，希望你们少走一点。</blockquote>
+<blockquote>不求一夜暴富，只想用对的方式做事，早点走出来。</blockquote>
+<blockquote>如果觉得对别人有用，麻烦帮忙转一下。</blockquote>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 0/0。
+    原帖为普通长帖（非 Article），无配图；标题为镜像站自拟。已附引用原帖全文。
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<script src="../../assets/meta.js" defer></script>
+</body>
+</html>
