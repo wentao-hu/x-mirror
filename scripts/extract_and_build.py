@@ -702,12 +702,16 @@ h1.title {
   border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
   padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--muted);
 }
+/* 分类筛选按钮（#filters 内 data-cat）比其余小按钮略大、颜色略偏链接色 */
+.filters button[data-cat] {
+  font-size: 15px; color: color-mix(in srgb, var(--fg) 82%, var(--link));
+}
 .filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .search {
   width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
   font-size: 15px; margin-bottom: 8px;
 }
-.cat { margin: 28px 0 10px; font-size: 18px; font-weight: 800; }
+.cat { margin: 28px 0 10px; font-size: 19px; font-weight: 800; color: color-mix(in srgb, var(--fg) 78%, var(--link)); }
 .card {
   display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
   color: inherit;
@@ -754,17 +758,15 @@ h1.title {
 .card-linkonly { cursor: default; }
 .card-linkonly .ctitle a { color: inherit; }
 .card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
-/* 目录卡片标题按来源类型轻微区分：略放大，并以前景色混合链接色做轻微色差 */
-.card[data-source-type="x_article"] .ctitle,
-.card[data-source-type="web_article"] .ctitle {
-  font-size: 18px; color: color-mix(in srgb, var(--fg) 76%, var(--link));
+/* 徽标按来源类型配色：淡底深字，对齐 .badge-linkonly；web.cafe 仍走蓝色徽标 */
+.source-badge[data-source-type="x_article"] {
+  background: #f2ecfc; color: #6b21c4; border-color: #e2d5f5;
 }
-.card[data-source-type="x_post"] .ctitle {
-  font-size: 17.5px; color: color-mix(in srgb, var(--fg) 86%, var(--link));
+.source-badge[data-source-type="x_post"] {
+  background: #fff1e6; color: #c2410c; border-color: #f6dcc3;
 }
-.card[data-source-type="webcafe_link"] .ctitle,
-.card[data-source-type="link_only"] .ctitle {
-  font-size: 17.5px; color: color-mix(in srgb, var(--fg) 80%, #1d4ed8);
+.source-badge[data-source-type="web_article"] {
+  background: #e9f2f1; color: #1f5f5b; border-color: #d2e3e1;
 }
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
@@ -808,7 +810,6 @@ h1.title {
 @media (max-width: 480px) {
   .filter-row { align-items: flex-start; }
   .filter-row .flabel { padding-top: 5px; }
-}
   h1.title { font-size: 24px; }
   html, body { font-size: 16px; }
 }
