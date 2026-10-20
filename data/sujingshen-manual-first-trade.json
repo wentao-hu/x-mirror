@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "id": "2112133884477600141",
+    "slug": "sujingshen-manual-first-trade",
+    "title": "先别买域名：先手动跑通 1-3 次交易闭环",
+    "url": "https://x.com/sujingshen/status/2112133884477600141",
+    "author_name": "SagaSu",
+    "author_username": "sujingshen",
+    "published_utc": "2026-10-19T10:48:54.000Z",
+    "published_local": "2026-10-19 18:48",
+    "category": "出海复盘",
+    "description": "建议先做市场调研并手动跑通 1-3 次交易闭环，再决定是否购买域名和投入自动化。",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 1,
+    "fidelity_note": "普通回复帖；含被回复父帖全文与本地视频；标题自拟。",
+    "plain_text_len": 93,
+    "blocks_count": 11
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "先别买域名：先手动跑通 1-3 次交易闭环"
+    },
+    {
+      "type": "paragraph",
+      "text": "@GoSailGlobal 我的观点：先别买域名 买VPS 买ai套餐。"
+    },
+    {
+      "type": "paragraph",
+      "text": "先去做市场调研，然后尽可能手动的完成1-3次商业交易闭环，最后再考虑要不要搞个自动化脚本 域名 机器人 甚至ai"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "被回复的原帖（2026-10-19 15:04）"
+    },
+    {
+      "type": "paragraph",
+      "text": "原帖链接：https://x.com/GoSailGlobal/status/2112077471839621203"
+    },
+    {
+      "type": "quote",
+      "text": "独立开发者出海，按顺序就三步：建站、收钱、增长。"
+    },
+    {
+      "type": "quote",
+      "text": "我让 Opus 5.5 把出海专题页，做成了一支 68 秒的等距信息图动画："
+    },
+    {
+      "type": "quote",
+      "text": "1｜建站：域名、托管、数据库，三样都有免费额度"
+    },
+    {
+      "type": "quote",
+      "text": "2｜收钱：没公司也能收，大陆个人有好几家能开，Stripe 不行；提交审核前先体检网站"
+    },
+    {
+      "type": "quote",
+      "text": "3｜增长：先读 Google 官方的 SEO https://t.co/XXwTyWzKi0 https://t.co/PfXovdBQmy"
+    },
+    {
+      "type": "video",
+      "local": "parent-video.mp4",
+      "poster": "parent-poster.jpg"
+    }
+  ]
+}
