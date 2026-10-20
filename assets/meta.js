@@ -219,7 +219,7 @@
   /* ---------- 文章页控件 ---------- */
 
   function initPostControls(slug) {
-    var mount = document.querySelector('[data-meta-mount]');
+    var mount = document.querySelector('[data-meta-mount]:not(.card-controls)');
     if (!mount) return;
     slug = slug || mount.dataset.slug;
     if (!SLUG_RE.test(String(slug || ''))) return;
@@ -259,6 +259,40 @@
       '<div class="pc-note" data-note>' + postNote() + '</div>';
   }
 
+  /* ---------- 目录卡片控件（link_only 无详情页） ---------- */
+
+  function renderCard(mount, slug) {
+    var m = get(slug);
+    mount.innerHTML =
+      '<div class="cc-row">' +
+        starsHtml(m.rating, true) +
+        '<button type="button" class="pc-read' + (m.read ? ' on' : '') + '" data-act="read"' +
+          ' aria-pressed="' + (m.read ? 'true' : 'false') + '">' +
+          '<span class="pc-dot" aria-hidden="true"></span>' +
+          (m.read ? '已读完' : '标记为已读完') +
+        '</button>' +
+      '</div>';
+  }
+
+  function initCardControls() {
+    var mounts = document.querySelectorAll('.card-controls[data-meta-mount][data-slug]');
+    Array.prototype.forEach.call(mounts, function (mount) {
+      var slug = mount.dataset.slug;
+      if (!SLUG_RE.test(String(slug || ''))) return;
+      if (mount.dataset.xmBound !== '1') {
+        mount.dataset.xmBound = '1';
+        bindCardEvents(mount);
+      }
+      renderCard(mount, slug);
+      ready.then(function () { renderCard(mount, slug); });
+    });
+  }
+
+  function renderMetaMount(mount, slug) {
+    if (mount.classList && mount.classList.contains('card-controls')) renderCard(mount, slug);
+    else renderPost(mount, slug);
+  }
+
   function paintStars(mount, n) {
     var stars = mount.querySelectorAll('.xr-rating .xr-star');
     for (var i = 0; i < stars.length; i++) {
@@ -268,7 +302,10 @@
 
   function applyPatch(mount, slug, patch) {
     var done = setMeta(slug, patch);  // 同步更新内存 + localStorage
-    renderPost(mount, slug);          // 立即按新值重绘（乐观 UI）
+    renderMetaMount(mount, slug);     // 立即按新值重绘（乐观 UI）
+    if (mount.dispatchEvent && typeof global.CustomEvent === 'function') {
+      mount.dispatchEvent(new global.CustomEvent('xm-meta-change', { bubbles: true }));
+    }
     done.then(function (ok) {
       var note = mount.querySelector('[data-note]');
       if (!note || IS_FILE) return;
@@ -282,6 +319,40 @@
     mount.addEventListener('click', function (e) {
       var target = e.target.closest ? e.target.closest('[data-v],[data-act]') : null;
       if (!target || !mount.contains(target)) return;
+      var slug = mount.dataset.slug;
+      var m = get(slug);
+      if (target.classList.contains('xr-star')) {
+        var v = Number(target.dataset.v);
+        applyPatch(mount, slug, { rating: v === m.rating ? 0 : v }); // 再点当前分数 = 清除
+      } else if (target.dataset.act === 'read') {
+        applyPatch(mount, slug, { read: !m.read });
+      } else if (target.dataset.act === 'clear') {
+        applyPatch(mount, slug, { rating: 0 });
+      }
+    });
+
+    mount.addEventListener('mouseover', function (e) {
+      var star = e.target.closest ? e.target.closest('.xr-star') : null;
+      if (!star || !mount.contains(star)) return;
+      paintStars(mount, Number(star.dataset.v));
+    });
+
+    mount.addEventListener('mouseout', function (e) {
+      var star = e.target.closest ? e.target.closest('.xr-star') : null;
+      if (!star || !mount.contains(star)) return;
+      var to = e.relatedTarget;
+      if (to && mount.contains(to) && to.closest && to.closest('.xr-star')) return;
+      paintStars(mount, get(mount.dataset.slug).rating);
+    });
+  }
+
+  function bindCardEvents(mount) {
+    mount.addEventListener('click', function (e) {
+      // 卡片上只有标题是链接；控件点击不得触发跳转/冒泡
+      e.stopPropagation();
+      var target = e.target.closest ? e.target.closest('[data-v],[data-act]') : null;
+      if (!target || !mount.contains(target)) return;
+      e.preventDefault();
       var slug = mount.dataset.slug;
       var m = get(slug);
       if (target.classList.contains('xr-star')) {
@@ -328,6 +399,8 @@
 
     function renderBadges() {
       cards.forEach(function (el) {
+        // link_only 卡片自带可交互控件，跳过只读徽标，避免重复
+        if (el.querySelector('.card-controls[data-meta-mount]')) return;
         var metaLine = el.querySelector('.cmeta');
         if (!metaLine) return;
         var box = metaLine.querySelector('.card-badges');
@@ -435,6 +508,11 @@
       });
     }
 
+    list.addEventListener('xm-meta-change', function () {
+      renderBadges();
+      apply();
+    });
+
     renderBadges();
     apply();
     ready.then(function () {
@@ -446,9 +524,13 @@
   /* ---------- 自动初始化 ---------- */
 
   function autoInit() {
-    var mount = document.querySelector('[data-meta-mount][data-slug]');
+    if (document.getElementById('list')) {
+      initCardControls();
+      if (document.querySelector('#list .card[data-slug]')) initIndexFilters();
+      return;
+    }
+    var mount = document.querySelector('[data-meta-mount][data-slug]:not(.card-controls)');
     if (mount) initPostControls(mount.dataset.slug);
-    if (document.querySelector('#list .card[data-slug]')) initIndexFilters();
   }
 
   global.XMirrorMeta = {
@@ -462,6 +544,7 @@
     setMeta: setMeta,
     starsHtml: starsHtml,
     initIndexFilters: initIndexFilters,
+    initCardControls: initCardControls,
     initPostControls: initPostControls
   };
 

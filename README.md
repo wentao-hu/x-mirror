@@ -16,7 +16,7 @@
 
 ```
 index.html            # 目录页（分类 + 搜索 + 评分/已读筛选）
-posts.json            # 清单（标题/作者/分类/图片统计）
+posts.json            # 清单（标题/作者/分类/图片统计，entry_type: mirror | link_only）
 posts/<slug>/
   index.html          # 单篇阅读页（内置评分 + 已读完控件）
   assets/             # 该篇头像 + 正文图片（本地文件）
@@ -47,7 +47,7 @@ python3 -m http.server 8765
 - **1–5 星评分**：再点一次当前分数即清除（回到未评分）；文章页还提供「清除」按钮。
 - **已读完**：标题下方的胶囊按钮一键切换。
 
-目录页支持按评分（全部 / 未评分 / ≥1★…5★）、阅读状态（全部 / 已读完 / 未读）筛选，以及默认 / 评分高→低 / 未读优先排序。卡片上直接显示星级和「已读」徽标。
+目录页支持按评分（全部 / 未评分 / ≥1★…5★）、阅读状态（全部 / 已读完 / 未读）筛选，以及默认 / 评分高→低 / 未读优先排序。镜像卡片上显示只读星级和「已读」徽标；`link_only` 卡片（无详情页）直接在卡片上提供可点击的星级与「已读完」按钮。
 
 数据持久化：
 
@@ -96,12 +96,58 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css` 并保留所有文章页的控件。
 
+## 仅链接条目（web.cafe / 好友 VIP 站）
+
+`new.web.cafe` 是朋友的 VIP 站点，站内文章**永远只做目录条目，不做镜像**：
+
+- **不抓取正文、不镜像、不下载/存储图片、不自动对该 host 发起任何 HTTP 请求**。
+- 目录里只保留：标题、作者、日期、原文 URL。
+- 卡片标题直接外链原文（`target="_blank" rel="noopener noreferrer"`），并显示徽标 `web.cafe · 仅链接`。
+- 不生成 `posts/<slug>/` 目录，也不生成 `data/<slug>.json`。
+- 评分 1–5★、已读完、筛选/排序都在**目录卡片上**操作，复用同一个 `assets/meta.js` 与 KV slug key。
+- 分类使用 `web.cafe 精选`。
+
+`posts.json` 中这类条目标记 `"entry_type": "link_only"`；X 镜像条目默认是 `mirror`（可省略）。
+
+### 新增一个 link_only 条目
+
+1. 在 `posts.json` 的 `posts` 数组里追加一条（不要创建 `posts/` 或 `data/` 文件）：
+
+```json
+{
+  "id": "w6k45cpc42",
+  "slug": "webcafe-w6k45cpc42",
+  "title": "入群15个月，月入万刀走过的那些弯路",
+  "url": "https://new.web.cafe/topic/w6k45cpc42",
+  "author_name": "浩承yang",
+  "author_username": "web.cafe",
+  "published_utc": "2026-10-19T13:20:00.000Z",
+  "published_local": "2026-10-19 21:20",
+  "category": "web.cafe 精选",
+  "description": "web.cafe 仅链接 · 不镜像正文",
+  "entry_type": "link_only",
+  "avatar_local": "",
+  "images_total": 0,
+  "images_ok": 0,
+  "api_media_count": 0,
+  "fidelity_note": "link_only: no body mirror",
+  "plain_text_len": 0,
+  "blocks_count": 0
+}
+```
+
+2. 运行 `python3 scripts/rebuild_from_data.py`。脚本会从旧 `posts.json` 收集 `entry_type == "link_only"` 的条目并按 slug 合并回去，再重建 `index.html`、`posts.json` 与 `assets/site.css`。
+3. `git push` 后执行 `./scripts/deploy_cloudflare.sh`，回复 https://x-mirror-af7.pages.dev/ 。
+
+> 注意：`slug` 必须匹配 `^[a-z0-9][a-z0-9-]{0,79}$`（与 `assets/meta.js` 的 `SLUG_RE` 一致），否则评分/已读不会生效。
+
 ## 分类
 
 - 新词站实战复盘
 - SEO基础
 - 建站教程
 - 外链推广
+- web.cafe 精选（仅链接）
 
 ## 说明
 

@@ -118,6 +118,21 @@ h1.title {
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
+.badge-linkonly {
+  display: inline-block; margin-left: 6px; vertical-align: middle;
+  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
+  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
+}
+.card-linkonly { cursor: default; }
+.card-linkonly .ctitle a { color: inherit; }
+.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
+.card-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin-top: 8px; font-size: 13px;
+}
+.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.card-controls .xr-star { font-size: 17px; }
+.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
 .post-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
   margin: 0 0 12px; padding: 10px 14px;
@@ -170,7 +185,7 @@ h1.title {
     原文托管在 X，本站做内容完全映射（正文 + 图片本地化），方便在打不开 x.com 时阅读。
   </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
-  <div class="filters" id="filters"><button class="active" data-cat="all">全部</button><button data-cat="新词站实战复盘">新词站实战复盘</button><button data-cat="SEO基础">SEO基础</button><button data-cat="建站教程">建站教程</button><button data-cat="外链推广">外链推广</button></div>
+  <div class="filters" id="filters"><button class="active" data-cat="all">全部</button><button data-cat="新词站实战复盘">新词站实战复盘</button><button data-cat="SEO基础">SEO基础</button><button data-cat="建站教程">建站教程</button><button data-cat="外链推广">外链推广</button><button data-cat="web.cafe 精选">web.cafe 精选</button></div>
   <div class="filter-rows">
     <div class="filter-row">
       <span class="flabel">评分</span>
@@ -238,9 +253,15 @@ h1.title {
   <div class="ctitle">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程</div>
   <div class="cmeta">SagaSu · @sujingshen · 2026-10-19 14:00</div>
   <div class="cdesc">用 Grok Bot 一天筛提 4000+ 站的外链自动化流程</div>
-</a>
+</a><h2 class="cat">web.cafe 精选</h2>
+<div class="card card-linkonly" data-slug="webcafe-w6k45cpc42" data-cat="web.cafe 精选" data-q="入群15个月，月入万刀走过的那些弯路 浩承yang web.cafe web.cafe 仅链接 · 不镜像正文">
+  <div class="ctitle"><a href="https://new.web.cafe/topic/w6k45cpc42" target="_blank" rel="noopener noreferrer">入群15个月，月入万刀走过的那些弯路</a><span class="badge-linkonly">web.cafe · 仅链接</span></div>
+  <div class="cmeta">浩承yang · web.cafe · 2026-10-19 21:20</div>
+  <div class="cdesc">web.cafe 仅链接 · 不镜像正文</div>
+  <div class="card-controls" data-meta-mount data-slug="webcafe-w6k45cpc42"></div>
+</div>
   </div>
-  <div class="footer">共 7 篇 · Personal archive · Asia/Shanghai</div>
+  <div class="footer">共 8 篇 · Personal archive · Asia/Shanghai</div>
 </div>
 <script src="assets/meta.js" defer></script>
 </body>

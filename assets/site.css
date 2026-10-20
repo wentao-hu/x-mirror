@@ -111,6 +111,21 @@ h1.title {
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
+.badge-linkonly {
+  display: inline-block; margin-left: 6px; vertical-align: middle;
+  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
+  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
+}
+.card-linkonly { cursor: default; }
+.card-linkonly .ctitle a { color: inherit; }
+.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
+.card-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin-top: 8px; font-size: 13px;
+}
+.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.card-controls .xr-star { font-size: 17px; }
+.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
 .post-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
   margin: 0 0 12px; padding: 10px 14px;

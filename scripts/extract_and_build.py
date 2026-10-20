@@ -46,6 +46,8 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
+CATEGORY_ORDER = ["新词站实战复盘", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
+
 CATEGORIES = {
     "2110669876482203775": "新词站实战复盘",
     "2112216903150436383": "新词站实战复盘",
@@ -660,6 +662,21 @@ h1.title {
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
+.badge-linkonly {
+  display: inline-block; margin-left: 6px; vertical-align: middle;
+  background: #eef4ff; color: #1d4ed8; font-size: 11px; font-weight: 600;
+  line-height: 1.7; padding: 0 8px; border-radius: 999px; white-space: nowrap;
+}
+.card-linkonly { cursor: default; }
+.card-linkonly .ctitle a { color: inherit; }
+.card-linkonly .ctitle a:hover { color: var(--link); text-decoration: underline; }
+.card-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin-top: 8px; font-size: 13px;
+}
+.card-controls .cc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.card-controls .xr-star { font-size: 17px; }
+.card-controls .pc-read { padding: 3px 10px; font-size: 12px; }
 .post-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
   margin: 0 0 12px; padding: 10px 14px;
@@ -758,7 +775,7 @@ def post_page(meta: dict, body_html: str) -> str:
 
 
 def index_page(posts: list[dict]) -> str:
-    cats = []
+    cats = [c for c in CATEGORY_ORDER if any(p["category"] == c for p in posts)]
     for p in posts:
         if p["category"] not in cats:
             cats.append(p["category"])
@@ -771,13 +788,29 @@ def index_page(posts: list[dict]) -> str:
         for p in posts:
             if p["category"] != c:
                 continue
-            cards.append(
-                f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{esc(p['title']+' '+p['author_name']+' '+p['author_username']+' '+p.get('description',''))}" href="posts/{esc(p['slug'])}/index.html">
+            q = esc(p['title'] + ' ' + p['author_name'] + ' ' + p['author_username'] + ' ' + p.get('description', ''))
+            date = esc(p['published_local'][:16])
+            if p.get("entry_type") == "link_only":
+                # 仅链接条目：标题直接外链原文，正文/图片一律不镜像
+                username = p.get('author_username', '')
+                handle = f"@{esc(username)}" if username and username != "web.cafe" else esc(username)
+                cmeta = f"{esc(p['author_name'])}" + (f" · {handle}" if handle else "") + f" · {date}"
+                cards.append(
+                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}">
+  <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a><span class="badge-linkonly">web.cafe · 仅链接</span></div>
+  <div class="cmeta">{cmeta}</div>
+  <div class="cdesc">{esc(p.get('description',''))}</div>
+  <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
+</div>"""
+                )
+            else:
+                cards.append(
+                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/index.html">
   <div class="ctitle">{esc(p['title'])}</div>
-  <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {esc(p['published_local'][:16])}</div>
+  <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
 </a>"""
-            )
+                )
         sections.append(f'<h2 class="cat">{esc(c)}</h2>\n' + "\n".join(cards))
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">

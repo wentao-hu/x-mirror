@@ -14,6 +14,16 @@ spec.loader.exec_module(mod)
 (ROOT / "assets").mkdir(exist_ok=True)
 (ROOT / "assets" / "site.css").write_text(mod.CSS, encoding="utf-8")
 
+# link_only 条目（web.cafe 等）不在 data/*.json 里，重建时必须从旧 posts.json 原样保留
+link_only = []
+posts_path = ROOT / "posts.json"
+if posts_path.exists():
+    try:
+        old = json.loads(posts_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        old = {}
+    link_only = [p for p in old.get("posts", []) if p.get("entry_type") == "link_only"]
+
 posts_meta = []
 for f in sorted((ROOT / "data").glob("*.json")):
     raw = json.loads(f.read_text(encoding="utf-8"))
@@ -27,8 +37,15 @@ for f in sorted((ROOT / "data").glob("*.json")):
     posts_meta.append(meta)
     print("rebuilt", meta["slug"])
 
+# 按 slug 合并回 link_only，不重复、不覆盖镜像条目
+seen = {p["slug"] for p in posts_meta}
+for item in link_only:
+    if item.get("slug") and item["slug"] not in seen:
+        posts_meta.append(item)
+        seen.add(item["slug"])
+
 # keep category order stable
-order = ["新词站实战复盘", "SEO基础", "建站教程", "外链推广"]
+order = mod.CATEGORY_ORDER
 posts_meta.sort(key=lambda p: (order.index(p["category"]) if p["category"] in order else 99, p["published_utc"]), reverse=False)
 (ROOT / "posts.json").write_text(json.dumps({"posts": posts_meta}, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "index.html").write_text(mod.index_page(posts_meta), encoding="utf-8")
