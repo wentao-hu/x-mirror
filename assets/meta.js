@@ -389,13 +389,72 @@
     if (!cards.length) return;
     list.dataset.xmFiltersReady = '1';
 
+    var COLLAPSED_KEY = 'x-mirror-collapsed-v1';
+    var FILTER_OPEN_KEY = 'x-mirror-filter-open-v1';
+    var TIME_WINDOWS = { '7d': 7 * 864e5, '30d': 30 * 864e5, '90d': 90 * 864e5 };
+
     var snapshot = Array.prototype.slice.call(list.children); // 原始顺序（含分类标题）
+    var catHeads = Array.prototype.slice.call(list.querySelectorAll('.cat[data-cat]'));
     var statusEl = document.getElementById('meta-status');
     var countEl = document.getElementById('meta-count');
-    var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', sort: 'default' };
+    var summaryEl = document.getElementById('filter-summary');
+    var panel = document.getElementById('filter-panel');
+    var toggle = document.getElementById('filter-toggle');
+    var listActions = document.getElementById('list-actions');
+    var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', time: 'all', sort: 'default' };
+
+    function readJSON(key) {
+      try {
+        var raw = global.localStorage.getItem(key);
+        var parsed = raw ? JSON.parse(raw) : null;
+        return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+      } catch (e) { return {}; }
+    }
+    function writeJSON(key, value) {
+      try { global.localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* ignore */ }
+    }
+    function readFlag(key) {
+      try { return global.localStorage.getItem(key) === '1'; } catch (e) { return false; }
+    }
+    function writeFlag(key, value) {
+      try { global.localStorage.setItem(key, value ? '1' : '0'); } catch (e) { /* ignore */ }
+    }
+
+    var collapsed = readJSON(COLLAPSED_KEY);
 
     function metaFor(el) { return get(el.dataset.slug); }
     function originalIndex(el) { return snapshot.indexOf(el); }
+    function catOf(el) { return el.dataset.cat || ''; }
+    function publishedOf(el) {
+      var t = Date.parse(el.dataset.published || '');
+      return isNaN(t) ? 0 : t;
+    }
+    function filteringNow() {
+      return !!(ui.term || '').trim() || ui.cat !== 'all' || ui.type !== 'all' ||
+        ui.rating !== 'all' || ui.read !== 'all' || ui.time !== 'all';
+    }
+    function setCatCollapsed(cat, value) {
+      collapsed[cat] = !!value;
+      writeJSON(COLLAPSED_KEY, collapsed);
+    }
+
+    function updateFilterSummary() {
+      if (!summaryEl) return;
+      var parts = [];
+      function add(bar, label, value) {
+        if (value === 'all') return;
+        var btn = bar ? bar.querySelector('button.active') : null;
+        parts.push(label + '：' + (btn ? btn.textContent.trim() : value));
+      }
+      add(document.getElementById('filters'), '分类', ui.cat);
+      add(document.querySelector('[data-meta-filter="type"]'), '类型', ui.type);
+      add(document.querySelector('[data-meta-filter="rating"]'), '评分', ui.rating);
+      add(document.querySelector('[data-meta-filter="read"]'), '阅读', ui.read);
+      add(document.querySelector('[data-meta-filter="time"]'), '时间', ui.time);
+      add(document.querySelector('[data-meta-filter="sort"]'), '排序', ui.sort === 'default' ? 'all' : ui.sort);
+      summaryEl.textContent = parts.length ? parts.join(' · ') : '全部';
+      if (toggle) toggle.classList.toggle('has-active', parts.length > 0);
+    }
 
     function renderBadges() {
       cards.forEach(function (el) {
@@ -427,22 +486,33 @@
           if (ma.read !== mb.read) return ma.read ? 1 : -1;
           return (mb.rating - ma.rating) || (originalIndex(a) - originalIndex(b));
         });
+      } else if (ui.sort === 'new') {
+        arr.sort(function (a, b) {
+          return (publishedOf(b) - publishedOf(a)) || (originalIndex(a) - originalIndex(b));
+        });
       }
       return arr;
     }
 
     function apply() {
       var term = (ui.term || '').trim().toLowerCase();
+      var now = Date.now();
+      var filtering = filteringNow();
+
       cards.forEach(function (el) {
         var m = metaFor(el);
-        var okCat = ui.cat === 'all' || el.dataset.cat === ui.cat;
+        var okCat = ui.cat === 'all' || catOf(el) === ui.cat;
         var okType = ui.type === 'all' || el.dataset.sourceType === ui.type;
         var okQ = !term || (el.dataset.q || '').toLowerCase().indexOf(term) >= 0;
         var okRating = ui.rating === 'all'
           ? true
           : (ui.rating === '0' ? m.rating === 0 : m.rating >= Number(ui.rating));
         var okRead = ui.read === 'all' ? true : (ui.read === 'yes' ? m.read : !m.read);
-        el._xmShow = okCat && okType && okQ && okRating && okRead;
+        var okTime = ui.time === 'all' ||
+          (publishedOf(el) > 0 && now - publishedOf(el) <= TIME_WINDOWS[ui.time]);
+        el._xmPass = okCat && okType && okQ && okRating && okRead && okTime;
+        var folded = ui.sort === 'default' && !filtering && !!collapsed[catOf(el)];
+        el._xmShow = el._xmPass && !folded;
         el.style.display = el._xmShow ? '' : 'none';
       });
 
@@ -452,20 +522,33 @@
         sortedCards().forEach(function (el) { list.appendChild(el); });
       }
 
-      var shown = cards.filter(function (el) { return el._xmShow; }).length;
-      Array.prototype.forEach.call(list.querySelectorAll('.cat'), function (h) {
+      var shown = cards.filter(function (el) { return el._xmPass; }).length;
+      catHeads.forEach(function (h) {
+        var cat = h.dataset.cat || '';
+        var folded = ui.sort === 'default' && !filtering && !!collapsed[cat];
+        h.classList.toggle('is-collapsed', folded);
+        h.classList.toggle('is-static', filtering);
+        h.setAttribute('aria-expanded', folded ? 'false' : 'true');
+
         if (ui.sort !== 'default') { h.style.display = 'none'; return; }
-        if (ui.cat !== 'all' && h.textContent !== ui.cat) { h.style.display = 'none'; return; }
-        if (!term && ui.type === 'all' && ui.rating === 'all' && ui.read === 'all') { h.style.display = ''; return; }
-        var node = h.nextElementSibling, hasVisible = false;
+        if (ui.cat !== 'all' && cat !== ui.cat) { h.style.display = 'none'; return; }
+
+        var node = h.nextElementSibling;
+        var total = 0, matched = 0;
         while (node && node.classList && node.classList.contains('card')) {
-          if (node._xmShow) hasVisible = true;
+          total++;
+          if (node._xmPass) matched++;
           node = node.nextElementSibling;
         }
-        h.style.display = hasVisible ? '' : 'none';
+        h.style.display = matched ? '' : 'none';
+        var countNode = h.querySelector('.cat-count');
+        if (countNode) countNode.textContent = filtering ? matched + ' / ' + total + ' 篇' : total + ' 篇';
       });
 
-      if (countEl) countEl.textContent = '· 显示 ' + shown + ' / ' + cards.length + ' 篇';
+      if (listActions) listActions.style.display = (ui.sort === 'default' && !filtering) ? '' : 'none';
+      if (countEl) {
+        countEl.textContent = filtering ? '· 筛选命中 ' + shown + ' / ' + cards.length + ' 篇' : '';
+      }
       if (statusEl) {
         statusEl.textContent = IS_FILE
           ? '本地文件模式：只读取本机浏览器里的评分与已读。'
@@ -473,6 +556,7 @@
             ? '离线：正在使用本机缓存，联网后会自动同步。'
             : '评分与已读已从 Cloudflare KV 同步。');
       }
+      updateFilterSummary();
     }
 
     function bindBar(bar, onPick) {
@@ -500,6 +584,9 @@
     bindBar(document.querySelector('[data-meta-filter="read"]'), function (btn) {
       ui.read = btn.dataset.read || 'all';
     });
+    bindBar(document.querySelector('[data-meta-filter="time"]'), function (btn) {
+      ui.time = btn.dataset.time || 'all';
+    });
     bindBar(document.querySelector('[data-meta-filter="sort"]'), function (btn) {
       ui.sort = btn.dataset.sort || 'default';
     });
@@ -508,6 +595,52 @@
     if (search) {
       search.addEventListener('input', function () {
         ui.term = search.value;
+        apply();
+      });
+    }
+
+    function setPanelOpen(open, persist) {
+      if (!panel || !toggle) return;
+      panel.hidden = !open;
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (persist) writeFlag(FILTER_OPEN_KEY, open);
+    }
+    setPanelOpen(readFlag(FILTER_OPEN_KEY), false);
+    if (toggle && panel) {
+      toggle.addEventListener('click', function () {
+        setPanelOpen(panel.hidden, true);
+      });
+    }
+
+    catHeads.forEach(function (h) {
+      function flip() {
+        if (filteringNow()) return;
+        var cat = h.dataset.cat || '';
+        setCatCollapsed(cat, !collapsed[cat]);
+        apply();
+      }
+      h.addEventListener('click', flip);
+      h.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          flip();
+        }
+      });
+    });
+
+    var expandAll = document.getElementById('expand-all');
+    var collapseAll = document.getElementById('collapse-all');
+    if (expandAll) {
+      expandAll.addEventListener('click', function () {
+        catHeads.forEach(function (h) { collapsed[h.dataset.cat || ''] = false; });
+        writeJSON(COLLAPSED_KEY, collapsed);
+        apply();
+      });
+    }
+    if (collapseAll) {
+      collapseAll.addEventListener('click', function () {
+        catHeads.forEach(function (h) { collapsed[h.dataset.cat || ''] = true; });
+        writeJSON(COLLAPSED_KEY, collapsed);
         apply();
       });
     }

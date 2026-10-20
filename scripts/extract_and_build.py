@@ -676,6 +676,7 @@ a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 picture { display: contents; }
 .wrap { max-width: 680px; margin: 0 auto; padding: 16px 16px 64px; }
+.index-wrap { max-width: 960px; }
 .site-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
@@ -739,17 +740,79 @@ h1.title {
 .filters button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .search {
   width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 999px;
-  font-size: 15px; margin-bottom: 8px;
+  font-size: 15px; margin-bottom: 12px;
 }
-.cat { margin: 28px 0 10px; font-size: 19px; font-weight: 800; color: color-mix(in srgb, var(--fg) 78%, var(--link)); }
+.index-intro { color: var(--muted); font-size: 14px; margin: -8px 0 18px; }
+.filter-bar { margin: 0 0 8px; }
+.filter-toggle {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--card); color: var(--fg); font: inherit; cursor: pointer; text-align: left;
+}
+.filter-toggle:hover { border-color: #cbd5dc; }
+.filter-toggle-label { font-weight: 700; font-size: 14px; white-space: nowrap; }
+.filter-summary {
+  flex: 1; min-width: 0; color: var(--muted); font-size: 13px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.filter-toggle.has-active .filter-summary { color: var(--link); }
+.filter-chevron { color: var(--muted); font-size: 12px; transition: transform .15s ease; }
+.filter-toggle[aria-expanded="true"] .filter-chevron { transform: rotate(180deg); }
+.filter-panel { padding: 2px 0 0; }
+.filter-panel .filters { margin: 10px 0 12px; }
+.filter-panel .filter-rows { margin-bottom: 8px; }
+.cat {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 8px;
+  margin: 22px 0 10px; padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); color: color-mix(in srgb, var(--fg) 78%, var(--link));
+  font-size: 18px; font-weight: 800; cursor: pointer; user-select: none;
+}
+.cat:hover { border-color: #cbd5dc; }
+.cat:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.cat .cat-name { flex: 1; min-width: 0; }
+.cat .cat-count {
+  color: var(--muted); font-size: 12px; font-weight: 600; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap;
+}
+.cat .cat-chevron { color: var(--muted); font-size: 12px; transition: transform .15s ease; }
+.cat.is-collapsed .cat-chevron { transform: rotate(-90deg); }
+.cat.is-collapsed { background: transparent; }
+.cat.is-static, .cat.is-static:hover { cursor: default; border-color: var(--border); }
+#list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+#list .cat { margin-top: 18px; }
 .card {
-  display: block; padding: 14px 0; border-bottom: 1px solid var(--border);
-  color: inherit;
+  display: flex; flex-direction: column;
+  padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg); color: inherit;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
 }
-.card:hover { background: transparent; }
-.card .ctitle { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
-.card .cmeta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.card .cdesc { color: var(--muted); font-size: 14px; }
+.card:hover {
+  border-color: #cbd5dc; box-shadow: 0 6px 18px rgba(15,20,25,.06);
+  transform: translateY(-1px); background: var(--bg);
+}
+.card .ctitle { font-weight: 700; font-size: 16px; line-height: 1.45; margin-bottom: 6px; }
+.card .cmeta {
+  color: var(--muted); font-size: 12px; margin-bottom: 6px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.card .cdesc {
+  color: var(--muted); font-size: 13px; flex: 1;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 2px 0 4px; }
+.list-count { color: var(--muted); font-size: 13px; }
+.list-actions { display: flex; gap: 8px; }
+.list-actions button {
+  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
+  padding: 4px 10px; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer;
+}
+.list-actions button:hover { color: var(--fg); border-color: #cbd5dc; }
+@media (max-width: 760px) {
+  #list { grid-template-columns: 1fr; }
+  .index-wrap { max-width: 680px; }
+}
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 /* rating / read */
 .xr-stars { display: inline-flex; gap: 1px; line-height: 1; color: #cfd6dc; font-size: 12px; }
@@ -927,7 +990,7 @@ def index_page(posts: list[dict]) -> str:
                 handle = f"@{esc(username)}" if username and username != "web.cafe" else esc(username)
                 cmeta = f"{esc(p['author_name'])}" + (f" · {handle}" if handle else "") + f" · {date}"
                 cards.append(
-                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-q="{q}">
+                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}">
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
   <div class="cmeta">{cmeta}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
@@ -936,76 +999,108 @@ def index_page(posts: list[dict]) -> str:
                 )
             else:
                 cards.append(
-                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-q="{q}" href="posts/{esc(p['slug'])}/">
+                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
   <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
 </a>"""
                 )
-        sections.append(f'<h2 class="cat">{esc(c)}</h2>\n' + "\n".join(cards))
+        sections.append(
+            f'<h2 class="cat" data-cat="{esc(c)}" role="button" tabindex="0" aria-expanded="true">'
+            f'<span class="cat-name">{esc(c)}</span>'
+            f'<span class="cat-count">{len(cards)} 篇</span>'
+            f'<span class="cat-chevron" aria-hidden="true">▾</span></h2>\n'
+            + "\n".join(cards)
+        )
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X Mirror · 出海 SEO 收藏镜像</title>
-<meta name="description" content="X 长文收藏的本地化镜像站，图片全部本地托管" />
+<meta name="description" content="出海 SEO 收藏镜像：X、web.cafe 与微信公众号文章本地化，图片全部本地托管" />
 <link rel="stylesheet" href="assets/site.css?v={asset_version('assets/site.css')}" />
 </head>
 <body>
-<div class="wrap">
+<div class="wrap index-wrap">
   <header class="site-header">
     <span class="brand">X Mirror</span>
     <nav><a href="https://github.com/wentao-hu/x-mirror">GitHub</a></nav>
   </header>
   <h1 class="title" style="font-size:24px">出海 SEO 收藏镜像</h1>
-  <p style="color:var(--muted);font-size:14px;margin-top:-8px">
-    原文托管在 X，本站做内容完全映射（正文 + 图片本地化），方便在打不开 x.com 时阅读。
+  <p class="index-intro">
+    原文来自 X、web.cafe 与微信公众号，本站做内容完全映射（正文 + 图片本地化），方便在打不开原站时阅读。
   </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
-  <div class="filters" id="filters">{''.join(filter_btns)}</div>
-  <div class="filter-rows">
-    <div class="filter-row">
-      <span class="flabel">类型</span>
-      <div class="filters" data-meta-filter="type">
-        <button data-type="all" class="active">全部</button>
-        <button data-type="x_post">帖子</button>
-        <button data-type="x_article">长文</button>
-        <button data-type="web_article">网页</button>
-        <button data-type="webcafe">web.cafe</button>
-        <button data-type="wechat">微信</button>
+  <div class="filter-bar">
+    <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
+      <span class="filter-toggle-label">筛选与排序</span>
+      <span class="filter-summary" id="filter-summary">全部</span>
+      <span class="filter-chevron" aria-hidden="true">▾</span>
+    </button>
+  </div>
+  <div class="filter-panel" id="filter-panel" hidden>
+    <div class="filters" id="filters">{''.join(filter_btns)}</div>
+    <div class="filter-rows">
+      <div class="filter-row">
+        <span class="flabel">类型</span>
+        <div class="filters" data-meta-filter="type">
+          <button data-type="all" class="active">全部</button>
+          <button data-type="x_post">帖子</button>
+          <button data-type="x_article">长文</button>
+          <button data-type="web_article">网页</button>
+          <button data-type="webcafe">web.cafe</button>
+          <button data-type="wechat">微信</button>
+        </div>
       </div>
-    </div>
-    <div class="filter-row">
-      <span class="flabel">评分</span>
-      <div class="filters" data-meta-filter="rating">
-        <button data-rating="all" class="active">全部</button>
-        <button data-rating="0">未评分</button>
-        <button data-rating="1">≥1★</button>
-        <button data-rating="2">≥2★</button>
-        <button data-rating="3">≥3★</button>
-        <button data-rating="4">≥4★</button>
-        <button data-rating="5">5★</button>
+      <div class="filter-row">
+        <span class="flabel">评分</span>
+        <div class="filters" data-meta-filter="rating">
+          <button data-rating="all" class="active">全部</button>
+          <button data-rating="0">未评分</button>
+          <button data-rating="1">≥1★</button>
+          <button data-rating="2">≥2★</button>
+          <button data-rating="3">≥3★</button>
+          <button data-rating="4">≥4★</button>
+          <button data-rating="5">5★</button>
+        </div>
       </div>
-    </div>
-    <div class="filter-row">
-      <span class="flabel">阅读</span>
-      <div class="filters" data-meta-filter="read">
-        <button data-read="all" class="active">全部</button>
-        <button data-read="yes">已读完</button>
-        <button data-read="no">未读</button>
+      <div class="filter-row">
+        <span class="flabel">阅读</span>
+        <div class="filters" data-meta-filter="read">
+          <button data-read="all" class="active">全部</button>
+          <button data-read="yes">已读完</button>
+          <button data-read="no">未读</button>
+        </div>
       </div>
-    </div>
-    <div class="filter-row">
-      <span class="flabel">排序</span>
-      <div class="filters" data-meta-filter="sort">
-        <button data-sort="default" class="active">默认</button>
-        <button data-sort="rating">评分高→低</button>
-        <button data-sort="unread">未读优先</button>
+      <div class="filter-row">
+        <span class="flabel">时间</span>
+        <div class="filters" data-meta-filter="time">
+          <button data-time="all" class="active">全部</button>
+          <button data-time="7d">最近 7 天</button>
+          <button data-time="30d">最近 1 个月</button>
+          <button data-time="90d">最近 3 个月</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="flabel">排序</span>
+        <div class="filters" data-meta-filter="sort">
+          <button data-sort="default" class="active">默认</button>
+          <button data-sort="new">从新到旧</button>
+          <button data-sort="rating">评分高→低</button>
+          <button data-sort="unread">未读优先</button>
+        </div>
       </div>
     </div>
   </div>
   <div class="meta-status"><span id="meta-status"></span><span id="meta-count"></span></div>
+  <div class="list-toolbar">
+    <span class="list-count">共 {len(posts)} 篇</span>
+    <div class="list-actions" id="list-actions">
+      <button type="button" id="expand-all">全部展开</button>
+      <button type="button" id="collapse-all">全部折叠</button>
+    </div>
+  </div>
   <div id="list">
 {''.join(sections)}
   </div>
