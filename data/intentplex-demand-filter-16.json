@@ -1,0 +1,121 @@
+{
+ "meta": {
+  "id": "2112506605652594884",
+  "slug": "intentplex-demand-filter-16",
+  "title": "做出海工具站前，排除不值得做的需求：16 条筛选清单",
+  "url": "https://x.com/intentplex/status/2112506605652594884",
+  "author_name": "Wyong · 产品增长",
+  "author_username": "intentplex",
+  "published_utc": "2026-10-20T11:29:57.000Z",
+  "published_local": "2026-10-20 19:29",
+  "category": "需求筛选",
+  "description": "出海工具站开发前的 16 条需求排除清单：流量、竞争、付费、合规四类，命中三四条直接放掉",
+  "source_type": "x_post",
+  "avatar_local": "avatar.jpg",
+  "images_total": 0,
+  "images_ok": 0,
+  "api_media_count": 0,
+  "fidelity_note": "原帖为普通推文（note_tweet，非 Article），无配图；标题为镜像站自拟，正文为原文全文。",
+  "plain_text_len": 894,
+  "blocks_count": 23
+ },
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 1,
+   "text": "做出海工具站前，排除不值得做的需求：16 条筛选清单"
+  },
+  {
+   "type": "paragraph",
+   "text": "做出海工具站，开发前怎么排除不值得做的需求？我的筛选清单16 条："
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "需求和流量"
+  },
+  {
+   "type": "paragraph",
+   "text": "1. 搜索量太小。核心词加长尾词撑不起一个站。多少算够要看客单价，卖几百美元一年的 B2B 工具，搜索量低一些也能做"
+  },
+  {
+   "type": "paragraph",
+   "text": "2. 搜索量虚高。 很多词的答案 直接显示在结果页， 排第一也没多少点击。 要看排名靠前的页面实际拿到多少流量"
+  },
+  {
+   "type": "paragraph",
+   "text": "3. 一次性热度。Google Trends 只有一个尖峰然后一路下滑，蹭新模型名字的词最常见"
+  },
+  {
+   "type": "paragraph",
+   "text": "4. AI Overview 直接给了答案。Ahrefs 统计了 30 万个关键词，出现 AI Overview 时，排第一的页面点击率比两年前低了 58%。信息类的词受影响最大"
+  },
+  {
+   "type": "paragraph",
+   "text": "5. 意图对不上。你要做工具，搜索结果首页却全是教程文章，说明用户要的是答案"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "竞争"
+  },
+  {
+   "type": "paragraph",
+   "text": "6. KD 太高。KD 是关键词难度，Ahrefs、Semrush 这类工具给的 0 到 100 分，主要看排在前面的页面有多少外链，分越高越难排上去。各家算法不同，新站先从低分词做起"
+  },
+  {
+   "type": "paragraph",
+   "text": "7. 首页被 Wikipedia、Amazon、大媒体占满"
+  },
+  {
+   "type": "paragraph",
+   "text": "8. 现有产品已经很好，还免费。首页如果是论坛帖、Pinterest 这类低质量结果，反而是机会"
+  },
+  {
+   "type": "paragraph",
+   "text": "9. 大模型一次更新就能吃掉。问自己：ChatGPT 明天上线同样的功能，用户还会留下吗？"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "付费"
+  },
+  {
+   "type": "paragraph",
+   "text": "10. 没有商业信号。CPC 是广告主在 Google 上为这个词每次点击付的钱，CPC 很低、没人投广告、竞品都没有付费版，说明这类用户很难收钱"
+  },
+  {
+   "type": "paragraph",
+   "text": "11. 流量主要来自付费能力弱的地区"
+  },
+  {
+   "type": "paragraph",
+   "text": "12. 用户天然不付费。一次性使用、学生为主、用完就走"
+  },
+  {
+   "type": "paragraph",
+   "text": "13. 单次成本太高。视频、图像生成每次调用都要给模型厂商付钱，免费用户一多就亏"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "合规和平台风险"
+  },
+  {
+   "type": "paragraph",
+   "text": "14. 支付受限。成人、赌博、借贷、保健品等类目 Stripe 明确不支持"
+  },
+  {
+   "type": "paragraph",
+   "text": "15. 医疗、法律、财务这类需要专业资质的领域"
+  },
+  {
+   "type": "paragraph",
+   "text": "16. 踩版权或平台规则。下载器、绕付费墙、抓特定平台数据，随时可能被下架或封支付"
+  },
+  {
+   "type": "paragraph",
+   "text": "命中一两条可以再看看，命中三四条直接放掉。筛选控制在一两天内，剩下的交给上线后的数据。"
+  }
+ ]
+}
