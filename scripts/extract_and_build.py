@@ -523,6 +523,21 @@ def source_type_of(meta: dict) -> str:
     return "webcafe" if st in ("link_only", "webcafe_link") else st
 
 
+ORIGIN_LABELS = {
+    "x_article": "X",
+    "x_post": "X",
+    "webcafe": "web.cafe",
+    "wechat": "微信公众号",
+    "web_article": "网页",
+}
+
+
+def original_link_text(meta: dict) -> str:
+    """原文链接文案：括号内按来源类型标注，非 X 内容不要冒充 X。"""
+    origin = ORIGIN_LABELS.get(source_type_of(meta))
+    return f"查看原文（{origin}）↗" if origin else "查看原文↗"
+
+
 def source_badge(meta: dict) -> str:
     """标题旁的来源徽标；类型名与筛选按钮保持一致。"""
     st = source_type_of(meta)
@@ -872,7 +887,7 @@ def post_page(meta: dict, body_html: str) -> str:
   </div>
   <h1 class="title">{esc(meta['title'])}{source_badge(meta)}</h1>
   <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
-  <a class="orig-link" href="{esc(meta['url'])}" target="_blank" rel="noopener">查看原文（X）↗</a>
+  <a class="orig-link" href="{esc(meta['url'])}" target="_blank" rel="noopener">{original_link_text(meta)}</a>
   {cover_html}
   <article class="article">
 {body_html}
