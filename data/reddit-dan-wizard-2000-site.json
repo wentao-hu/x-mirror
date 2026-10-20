@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "id": "mcaodn",
+    "slug": "reddit-dan-wizard-2000-site",
+    "title": "How I Built A Site For Less Than $2000 Which Now Makes $1,000/month",
+    "url": "https://www.reddit.com/r/juststart/comments/mcaodn/how_i_built_a_site_for_less_than_2000_which_now/",
+    "author_name": "dan__wizard",
+    "author_username": "dan__wizard",
+    "published_utc": "2021-03-24T16:56:33.000Z",
+    "published_local": "2021-03-25 00:56",
+    "category": "新词站实战复盘",
+    "description": "用 Ahrefs Content Explorer 找低 DR、高流量的词，投入不到 2000 美元建站，月广告收入约 1000 美元。",
+    "source_type": "reddit",
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "Reddit 原帖英文全文镜像；原帖无配图。文末精选评论为默认排序前 10 条高赞评论及楼主回复，部分楼主回复的父评论映射按页面顺序推断。",
+    "plain_text_len": 7062,
+    "blocks_count": 59
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "r/juststart · u/dan__wizard · 699 分 · 195 条评论 · 2021-03-24（UTC）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Hi guys, long time lurker, occasional commenter."
+    },
+    {
+      "type": "paragraph",
+      "text": "**Update - Read my recent post with detailed stats about this site here:** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Back towards the end of 2019 I was messing around with Ahrefs Content Explorer when I came across a site that had a DR of around 7 which was ranking top for a massive keyword with over 40,000 searches a month."
+    },
+    {
+      "type": "paragraph",
+      "text": "I had a look at the site and was confident I could build something better, **so I did.**"
+    },
+    {
+      "type": "paragraph",
+      "text": "**I invested less than $2,000 into building that site and it now brings in almost $1,000 a month in ad revenue** - not too shabby a return on investment!"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Here's the process I used to find that opportunity:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "**Log into ahrefs and navigate to the content explorer.**",
+        "**Chuck a very broad generic keyword into the search bar. If you're looking to build an affiliate site then something like \"best\" is a good choice.**",
+        "**Change language to \"English\"**",
+        "**Turn \"Filter explicit search results\" on**",
+        "**Then press \"add filter\" and select \"domain rating\", leave the from box empty and put a low number (around 10) in the to box.**",
+        "**Then add a \"page traffic\" filter, go for a fairly high number up to 10,000.**"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "You will now see a list of pages that get more than 10,000 sessions a month on sites with a domain rating of less than 10."
+    },
+    {
+      "type": "paragraph",
+      "text": "While not all of these articles are something you'd want to build a site around you are sure to find a few diamonds in there which prove you can build high traffic sites without having to spend countless hours and $$$s building links."
+    },
+    {
+      "type": "paragraph",
+      "text": "**This process found me two massive (40k+/month) keywords in the same niche which were very low competition.**"
+    },
+    {
+      "type": "paragraph",
+      "text": "I've made a vid explaining this strategy here which may be useful: [https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Here's How I Built Out The Site:"
+    },
+    {
+      "type": "paragraph",
+      "text": "What I noticed was that the sites that were ranking top for those two keywords were very small (one had less than 10 pages)."
+    },
+    {
+      "type": "paragraph",
+      "text": "I was confident that if I built around just 50 relevant pages linking back to those big keyword pages I stood a good chance of winning that top spot."
+    },
+    {
+      "type": "paragraph",
+      "text": "I outsourced all the content."
+    },
+    {
+      "type": "paragraph",
+      "text": "I spent a total of $200 on links (early on just to try and speed up indexing - don't think it made any difference)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Most of the supporting articles were around 500 words."
+    },
+    {
+      "type": "paragraph",
+      "text": "The big volume keyword pages were around 1,500 words."
+    },
+    {
+      "type": "paragraph",
+      "text": "I got the two big volume keyword pages and 20 supporting pages written up before I purchased the domain."
+    },
+    {
+      "type": "paragraph",
+      "text": "Then I got roughly an additional 10 articles (500 words) written every month for the first 7 months."
+    },
+    {
+      "type": "paragraph",
+      "text": "I made sure to link through to the big volume money pages from all of the supporting articles as well as any other pages that were at all relevant."
+    },
+    {
+      "type": "paragraph",
+      "text": "That's literally all I did."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How The Site Is Doing"
+    },
+    {
+      "type": "paragraph",
+      "text": "I started this site in November 2019, it currently has 87 articles on it and gets around 1800 sessions a day."
+    },
+    {
+      "type": "paragraph",
+      "text": "It makes 95% of its money from Ezoic and a small amount from Amazon."
+    },
+    {
+      "type": "paragraph",
+      "text": "It's averaging around $950/month over the last 6 months."
+    },
+    {
+      "type": "paragraph",
+      "text": "If I sold it now it should get a price between $25,000-$30,000."
+    },
+    {
+      "type": "paragraph",
+      "text": "Not bad for a site which only cost $2,000 to build!"
+    },
+    {
+      "type": "paragraph",
+      "text": "I hope that's of some use and interest to you guys, going forward I'll be trying to build more crazy low competition sites like this (I've got two others that are slowly growing)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "精选评论"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "[deleted] · 34 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "That's a great idea. Thanks for sharing! Hope you continue building further."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/skylego · 20 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "How repeatable is this? You know exactly how this formula works, what stops you from doing this with 10 sites to make $10k per month? Is it the difficulty of finding a niche?"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：Its a strategy I'll definitely be trying again, the hard part is finding the opportunity; if you can find a good one then it's repeatable"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/thenextlvl · 33 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "Wow actual quality post good job"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：Thanks very much"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/sketchybutter · 9 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "Does your site focus on just a specific, niched keyword/subject or do you have a more blog-like site where you write about more varying subjects? (examples: a food blog with news/culture/tips and affiliate links vs. an airfryer-niche affiliate site.) Which alternative would you say is the best? I imagine it could be hard to write so many articles as you did in a niche that is too small? u/dan__wizard"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：My niche was extremely small but I've still written 87 articles in it and I think there's easily potential for another 100+. With the two options you are suggesting there's no reason why one site couldn't do both. That's what I'd do. Hope that helps 👍"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/darkspy13 · 5 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "Do you know anything about Youtube or how to search for something similar on youtube? I'm curious about doing a similar search except for programming tutorial videos. I know a little about SEO thanks to my site but Youtube is another monster that I've been working on recently. A trick to finding low competition keywords in my niche would be nice. Thanks!"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/fotogneric · 5 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "Amazing! Did you buy a pre-existing domain name, or create a new one? And how relevant was the domain to the keyword(s)? And about how many times does the keyword appear in the main 1500-word articles? And how many related keywords do you use? Just a few, or dozens and dozens? I will totally be trying out this idea ASAP! Keep going!"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：This was built on a brand new domain, strong expired domains aren't really necessary for this technique. The site name was vaguely related to the niche, a bit like thesprucecrafts, but also branded so it isn't a keyword domain. Can't give exact numbers but the main keyword was in the H1 and the rest was written naturally; I don't worry about keyword ratios."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/JB5K · 4 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "What if you were to add 2 or more moderately tough keywords with their article farms to the site? what do you think would happen then without any link building? If you dont mind me asking why you didnt think of continuing your site further?"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：sure, the primary content is the high traffic potential keywords (40k+) and the supporting content is basically everything else. Most of my supporting articles have less than 500 searches a month"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/MickeyMagicMoves · 4 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "Looks good and I'm going to watch the video later too. Who did you get to write the Content and how much per word?"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：Mostly Upwork writers. Hope you find the video useful"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/zuugzwang · 4 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "I have a catchy food-related domain I bought a while ago... So, what you're saying is that I can build up an article site on it and profit from a set of keywords? Do you used paid ads to promote your site, or was all that organic?"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：That's the idea yes, providing you do your keyword research well and write decent content. All traffic came from organic."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "u/Trumpets145 · 6 分"
+    },
+    {
+      "type": "paragraph",
+      "text": "I use AHREFs a lot and this is a great tip that I did not know about - thanks!"
+    },
+    {
+      "type": "quote",
+      "text": "楼主回复：Thanks man hope you found that useful, I've got another site built off this type of research that I started in September which is slowly ascending now."
+    }
+  ],
+  "plain_text": "r/juststart · u/dan__wizard · 699 分 · 195 条评论 · 2021-03-24（UTC）\nHi guys, long time lurker, occasional commenter.\n**Update - Read my recent post with detailed stats about this site here:** [**https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/**](https://www.reddit.com/r/juststart/comments/mlk7g6/the_stats_behind_my_2000_site_that_makes_almost/)\nBack towards the end of 2019 I was messing around with Ahrefs Content Explorer when I came across a site that had a DR of around 7 which was ranking top for a massive keyword with over 40,000 searches a month.\nI had a look at the site and was confident I could build something better, **so I did.**\n**I invested less than $2,000 into building that site and it now brings in almost $1,000 a month in ad revenue** - not too shabby a return on investment!\nHere's the process I used to find that opportunity:\n**Log into ahrefs and navigate to the content explorer.**\n**Chuck a very broad generic keyword into the search bar. If you're looking to build an affiliate site then something like \"best\" is a good choice.**\n**Change language to \"English\"**\n**Turn \"Filter explicit search results\" on**\n**Then press \"add filter\" and select \"domain rating\", leave the from box empty and put a low number (around 10) in the to box.**\n**Then add a \"page traffic\" filter, go for a fairly high number up to 10,000.**\nYou will now see a list of pages that get more than 10,000 sessions a month on sites with a domain rating of less than 10.\nWhile not all of these articles are something you'd want to build a site around you are sure to find a few diamonds in there which prove you can build high traffic sites without having to spend countless hours and $$$s building links.\n**This process found me two massive (40k+/month) keywords in the same niche which were very low competition.**\nI've made a vid explaining this strategy here which may be useful: [https://youtu.be/IHB6g7S_4sA](https://youtu.be/IHB6g7S_4sA)\nHere's How I Built Out The Site:\nWhat I noticed was that the sites that were ranking top for those two keywords were very small (one had less than 10 pages).\nI was confident that if I built around just 50 relevant pages linking back to those big keyword pages I stood a good chance of winning that top spot.\nI outsourced all the content.\nI spent a total of $200 on links (early on just to try and speed up indexing - don't think it made any difference).\nMost of the supporting articles were around 500 words.\nThe big volume keyword pages were around 1,500 words.\nI got the two big volume keyword pages and 20 supporting pages written up before I purchased the domain.\nThen I got roughly an additional 10 articles (500 words) written every month for the first 7 months.\nI made sure to link through to the big volume money pages from all of the supporting articles as well as any other pages that were at all relevant.\nThat's literally all I did.\nHow The Site Is Doing\nI started this site in November 2019, it currently has 87 articles on it and gets around 1800 sessions a day.\nIt makes 95% of its money from Ezoic and a small amount from Amazon.\nIt's averaging around $950/month over the last 6 months.\nIf I sold it now it should get a price between $25,000-$30,000.\nNot bad for a site which only cost $2,000 to build!\nI hope that's of some use and interest to you guys, going forward I'll be trying to build more crazy low competition sites like this (I've got two others that are slowly growing).\n精选评论\n[deleted] · 34 分\nThat's a great idea. Thanks for sharing! Hope you continue building further.\nu/skylego · 20 分\nHow repeatable is this? You know exactly how this formula works, what stops you from doing this with 10 sites to make $10k per month? Is it the difficulty of finding a niche?\n楼主回复：Its a strategy I'll definitely be trying again, the hard part is finding the opportunity; if you can find a good one then it's repeatable\nu/thenextlvl · 33 分\nWow actual quality post good job\n楼主回复：Thanks very much\nu/sketchybutter · 9 分\nDoes your site focus on just a specific, niched keyword/subject or do you have a more blog-like site where you write about more varying subjects? (examples: a food blog with news/culture/tips and affiliate links vs. an airfryer-niche affiliate site.) Which alternative would you say is the best? I imagine it could be hard to write so many articles as you did in a niche that is too small? u/dan__wizard\n楼主回复：My niche was extremely small but I've still written 87 articles in it and I think there's easily potential for another 100+. With the two options you are suggesting there's no reason why one site couldn't do both. That's what I'd do. Hope that helps 👍\nu/darkspy13 · 5 分\nDo you know anything about Youtube or how to search for something similar on youtube? I'm curious about doing a similar search except for programming tutorial videos. I know a little about SEO thanks to my site but Youtube is another monster that I've been working on recently. A trick to finding low competition keywords in my niche would be nice. Thanks!\nu/fotogneric · 5 分\nAmazing! Did you buy a pre-existing domain name, or create a new one? And how relevant was the domain to the keyword(s)? And about how many times does the keyword appear in the main 1500-word articles? And how many related keywords do you use? Just a few, or dozens and dozens? I will totally be trying out this idea ASAP! Keep going!\n楼主回复：This was built on a brand new domain, strong expired domains aren't really necessary for this technique. The site name was vaguely related to the niche, a bit like thesprucecrafts, but also branded so it isn't a keyword domain. Can't give exact numbers but the main keyword was in the H1 and the rest was written naturally; I don't worry about keyword ratios.\nu/JB5K · 4 分\nWhat if you were to add 2 or more moderately tough keywords with their article farms to the site? what do you think would happen then without any link building? If you dont mind me asking why you didnt think of continuing your site further?\n楼主回复：sure, the primary content is the high traffic potential keywords (40k+) and the supporting content is basically everything else. Most of my supporting articles have less than 500 searches a month\nu/MickeyMagicMoves · 4 分\nLooks good and I'm going to watch the video later too. Who did you get to write the Content and how much per word?\n楼主回复：Mostly Upwork writers. Hope you find the video useful\nu/zuugzwang · 4 分\nI have a catchy food-related domain I bought a while ago... So, what you're saying is that I can build up an article site on it and profit from a set of keywords? Do you used paid ads to promote your site, or was all that organic?\n楼主回复：That's the idea yes, providing you do your keyword research well and write decent content. All traffic came from organic.\nu/Trumpets145 · 6 分\nI use AHREFs a lot and this is a great tip that I did not know about - thanks!\n楼主回复：Thanks man hope you found that useful, I've got another site built off this type of research that I started in September which is slowly ascending now.",
+  "entities": {}
+}

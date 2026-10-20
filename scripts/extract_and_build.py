@@ -492,6 +492,7 @@ SOURCE_TYPE_LABELS = {
     "web_article": "网页",
     "webcafe": "web.cafe",
     "wechat": "微信",
+    "reddit": "Reddit",
 }
 
 X_ICON = '<span class="src-icon" aria-hidden="true">𝕏</span>'
@@ -512,6 +513,15 @@ WECHAT_ICON = (
     '<path d="M6.4 3C3.7 3 1.8 4.6 1.8 6.6c0 1.1.6 2 1.6 2.7l-.3 1.5 1.7-.9c.5.1 1 .2 1.6.2 2.7 0 4.6-1.6 4.6-3.6S9.1 3 6.4 3Z"></path>'
     '<path d="M10.2 6.4c2 0 3.6 1.3 3.6 2.9 0 .9-.5 1.7-1.3 2.3l.3 1.2-1.4-.7c-.4.1-.8.1-1.2.1-2 0-3.6-1.3-3.6-2.9s1.6-2.9 3.6-2.9Z"></path></svg>'
 )
+REDDIT_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<circle cx="8" cy="9" r="5.2"></circle>'
+    '<circle cx="6.1" cy="8.6" r="0.7" fill="currentColor" stroke="none"></circle>'
+    '<circle cx="9.9" cy="8.6" r="0.7" fill="currentColor" stroke="none"></circle>'
+    '<path d="M5.9 11c1.2.9 3 .9 4.2 0"></path>'
+    '<path d="M8 3.9V2.5"></path><circle cx="8" cy="2.2" r=".55"></circle>'
+    '<path d="M8 2.5 10.2 3"></path></svg>'
+)
 
 
 def source_type_of(meta: dict) -> str:
@@ -529,7 +539,14 @@ ORIGIN_LABELS = {
     "webcafe": "web.cafe",
     "wechat": "微信公众号",
     "web_article": "网页",
+    "reddit": "Reddit",
 }
+
+
+def author_handle(meta: dict) -> str:
+    """作者 handle：Reddit 用 u/，其余用 @。"""
+    username = esc(meta.get("author_username", ""))
+    return f"u/{username}" if source_type_of(meta) == "reddit" else f"@{username}"
 
 
 def original_link_text(meta: dict) -> str:
@@ -548,6 +565,7 @@ def source_badge(meta: dict) -> str:
         "webcafe": CAFE_ICON,
         "wechat": WECHAT_ICON,
         "web_article": GLOBE_ICON,
+        "reddit": REDDIT_ICON,
     }.get(st, X_ICON)
     return (
         f'<span class="source-badge" data-source-type="{esc(st)}">'
@@ -564,6 +582,7 @@ def linkify(text: str) -> str:
 
     def repl_md(m):
         label, url = m.group(1), m.group(2)
+        label = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", label)
         key = f"\x00md{len(md_links)}\x00"
         md_links[key] = (
             f'<a href="{url}" rel="noopener noreferrer" target="_blank">{label}</a>'
@@ -571,6 +590,9 @@ def linkify(text: str) -> str:
         return key
 
     s = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", repl_md, s)
+
+    # **强调** → <strong>（网页/Reddit 原文的加粗）
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
 
     def repl_url(m):
         u = m.group(0)
@@ -701,6 +723,10 @@ picture { display: contents; }
 }
 .author img {
   width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  background: var(--card);
+}
+.author .avatar-empty {
+  flex: none; width: 48px; height: 48px; border-radius: 50%;
   background: var(--card);
 }
 .author .name { font-weight: 700; font-size: 16px; }
@@ -875,6 +901,10 @@ h1.title {
 .source-badge[data-source-type="wechat"] {
   background: #e8f7ee; color: #14803c; border-color: #cfead9;
 }
+.source-badge[data-source-type="reddit"] {
+  background: #fff0e8; color: #c93a00; border-color: #ffd5c0;
+}
+.source-badge[data-source-type="reddit"] svg.src-icon { color: #ff4500; }
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
   margin-top: 8px; font-size: 13px;
@@ -929,7 +959,7 @@ def post_page(meta: dict, body_html: str) -> str:
     avatar_html = (
         image_html(f"assets/{avatar}", "", assets_dir=post_assets)
         if avatar
-        else '<img src="" alt="" style="background:#ddd" />'
+        else '<span class="avatar-empty" aria-hidden="true"></span>'
     )
     cover = meta.get("cover_local")
     cover_html = (
@@ -957,7 +987,7 @@ def post_page(meta: dict, body_html: str) -> str:
   <div class="author">
     {avatar_html}
     <div>
-      <div class="name">{esc(meta['author_name'])} <span class="meta">@{esc(meta['author_username'])}</span></div>
+      <div class="name">{esc(meta['author_name'])} <span class="meta">{author_handle(meta)}</span></div>
       <div class="meta">{esc(meta['published_local'])} · Asia/Shanghai</div>
     </div>
   </div>
@@ -1014,7 +1044,7 @@ def index_page(posts: list[dict]) -> str:
                 cards.append(
                     f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
-  <div class="cmeta">{esc(p['author_name'])} · @{esc(p['author_username'])} · {date}</div>
+  <div class="cmeta">{esc(p['author_name'])} · {author_handle(p)} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
 </a>"""
                 )
@@ -1064,6 +1094,7 @@ def index_page(posts: list[dict]) -> str:
           <button data-type="web_article">网页</button>
           <button data-type="webcafe">web.cafe</button>
           <button data-type="wechat">微信</button>
+          <button data-type="reddit">Reddit</button>
         </div>
       </div>
       <div class="filter-row">

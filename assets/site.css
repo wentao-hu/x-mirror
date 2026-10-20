@@ -38,6 +38,10 @@ picture { display: contents; }
   width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
   background: var(--card);
 }
+.author .avatar-empty {
+  flex: none; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--card);
+}
 .author .name { font-weight: 700; font-size: 16px; }
 .author .meta { color: var(--muted); font-size: 14px; }
 h1.title {
@@ -210,6 +214,10 @@ h1.title {
 .source-badge[data-source-type="wechat"] {
   background: #e8f7ee; color: #14803c; border-color: #cfead9;
 }
+.source-badge[data-source-type="reddit"] {
+  background: #fff0e8; color: #c93a00; border-color: #ffd5c0;
+}
+.source-badge[data-source-type="reddit"] svg.src-icon { color: #ff4500; }
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
   margin-top: 8px; font-size: 13px;

@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "id": "mcaodn",
+      "slug": "reddit-dan-wizard-2000-site",
+      "title": "How I Built A Site For Less Than $2000 Which Now Makes $1,000/month",
+      "url": "https://www.reddit.com/r/juststart/comments/mcaodn/how_i_built_a_site_for_less_than_2000_which_now/",
+      "author_name": "dan__wizard",
+      "author_username": "dan__wizard",
+      "published_utc": "2021-03-24T16:56:33.000Z",
+      "published_local": "2021-03-25 00:56",
+      "category": "新词站实战复盘",
+      "description": "用 Ahrefs Content Explorer 找低 DR、高流量的词，投入不到 2000 美元建站，月广告收入约 1000 美元。",
+      "source_type": "reddit",
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "Reddit 原帖英文全文镜像；原帖无配图。文末精选评论为默认排序前 10 条高赞评论及楼主回复，部分楼主回复的父评论映射按页面顺序推断。",
+      "plain_text_len": 7062,
+      "blocks_count": 59
+    },
+    {
       "id": "2110669876482203775",
       "slug": "echo99-ai-site-5days-1500",
       "title": "AI 网站出海新手 5 天 1500 刀实战复盘，我实现了通过 AI 出海赚美金",
