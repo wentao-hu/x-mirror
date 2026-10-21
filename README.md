@@ -2,11 +2,13 @@
 
 把收藏的 X（Twitter）长文做成**静态镜像站**：正文按原文顺序保留，**图片全部下载到仓库本地托管**（不热链 `pbs.twimg.com`），方便在打不开 x.com 的网络环境下阅读。
 
-## 线上地址（主）
+## 线上地址
 
-**Cloudflare Pages（推荐，国内更稳）：** https://x-mirror-af7.pages.dev/
+**日常阅读（快）：** https://wentao-hu.github.io/x-mirror/
 
-备用 GitHub Pages：https://wentao-hu.github.io/x-mirror/
+**评分同步 / 备用：** https://x-mirror-af7.pages.dev/
+
+GitHub Pages 只托管静态页面；评分与已读在浏览器本机即时生效，并通过 CORS 后台同步到 Cloudflare `/api/meta` 的 KV。Cloudflare 不通时退回本机，联网后自动补传。
 
 仓库：https://github.com/wentao-hu/x-mirror
 
@@ -67,7 +69,7 @@ python3 -m http.server 8765
 
 合并规则是 **last-write-wins**：每条记录带 `updatedAt`（ISO 时间），本地与服务端逐 slug 比较，保留更新时间较新的一条。离线期间产生的本地修改会在下次正常联网打开页面时自动补传到 KV。
 
-直接用 `file://` 打开页面时不会请求 API，只在 `localStorage` 里保存，页面会显示一行灰色提示。GitHub Pages 备用站点没有 Functions，同样自动降级为本地模式。
+直接用 `file://` 打开页面时不会请求 API，只在 `localStorage` 里保存，页面会显示一行灰色提示。GitHub Pages 站点没有 Pages Functions，`assets/meta.js` 会在 `*.github.io` 上改调 Cloudflare 的 `/api/meta`（已开 CORS）同步评分；Cloudflare 不可达时退回本机，联网后自动补传。
 
 KV 绑定写在 `wrangler.toml`：
 
