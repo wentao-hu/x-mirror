@@ -221,6 +221,26 @@
       "blocks_count": 43
     },
     {
+      "id": "wechat-2650081277",
+      "slug": "wechat-xinren-chuhai-duojiu",
+      "title": "新人出海建站从找到需求做出网站到成功变现跑通闭环大概要多久？",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5OTIzMzYyMA==&mid=2650081277&idx=1&sn=aa6a73c28960320d5a8778d5cc0304db",
+      "author_name": "哥飞",
+      "author_username": "哥飞",
+      "published_utc": "2023-11-18T08:42:00.000Z",
+      "published_local": "2023-11-18 16:42",
+      "category": "出海路线图",
+      "description": "哥飞按兼职每周 20 小时估算：全栈最快第五周赚到第 1 美元；不会编程建议先用 WordPress 做内容站。",
+      "source_type": "wechat",
+      "avatar_local": "avatar.png",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 1,
+      "fidelity_note": "微信原文；正文无配图，保留原文封面图与作者头像。",
+      "plain_text_len": 756,
+      "blocks_count": 26
+    },
+    {
       "id": "jasonzhu-go-global",
       "slug": "jasonzhu-go-global",
       "title": "独立开发者出海路线图：建站、收钱、增长",
@@ -299,6 +319,25 @@
       "fidelity_note": "作者注明 X 上传图片有限制，后半段在 X 上可能加载不全；完整带图版见飞书：https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc",
       "plain_text_len": 3424,
       "blocks_count": 129
+    },
+    {
+      "id": "feishu-BqrRwoyjDidlcLk6H7FcVN0unnc",
+      "slug": "cloudhu-feishu-newbie-runthrough",
+      "title": "跑通出海网站-新手跟练版",
+      "url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc",
+      "author_name": "CloudHu",
+      "author_username": "知行有迹",
+      "published_utc": "2026-10-20T00:00:00.000Z",
+      "published_local": "2026-10-20",
+      "category": "建站教程",
+      "description": "CloudHu 飞书新手跟练：找词→AI 做站→GitHub/Vercel 部署→买域名绑 DNS→GSC/Bing 登记；含 35 张截图与常见问题",
+      "source_type": "web_article",
+      "images_total": 35,
+      "images_ok": 35,
+      "api_media_count": 35,
+      "fidelity_note": "全文来自飞书 wiki 抓取包；作者微信联系方式及联系用二维码已按抓取约定剥离。两份嵌入附件 01-项目需求文档.md / 02-部署执行文档.md 未下载（飞书 preview URL 疑似会话绑定），页面以原 wiki 链接作纯文本超链。代码块原样保留。",
+      "plain_text_len": 5859,
+      "blocks_count": 180
     },
     {
       "id": "2112061360708403397",

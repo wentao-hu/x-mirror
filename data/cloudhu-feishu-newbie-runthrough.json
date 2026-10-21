@@ -1,0 +1,917 @@
+{
+  "meta": {
+    "id": "feishu-BqrRwoyjDidlcLk6H7FcVN0unnc",
+    "slug": "cloudhu-feishu-newbie-runthrough",
+    "title": "跑通出海网站-新手跟练版",
+    "url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc",
+    "author_name": "CloudHu",
+    "author_username": "知行有迹",
+    "published_utc": "2026-10-20T00:00:00.000Z",
+    "published_local": "2026-10-20",
+    "category": "建站教程",
+    "description": "CloudHu 飞书新手跟练：找词→AI 做站→GitHub/Vercel 部署→买域名绑 DNS→GSC/Bing 登记；含 35 张截图与常见问题",
+    "source_type": "web_article",
+    "images_total": 35,
+    "images_ok": 35,
+    "api_media_count": 35,
+    "fidelity_note": "全文来自飞书 wiki 抓取包；作者微信联系方式及联系用二维码已按抓取约定剥离。两份嵌入附件 01-项目需求文档.md / 02-部署执行文档.md 未下载（飞书 preview URL 疑似会话绑定），页面以原 wiki 链接作纯文本超链。代码块原样保留。",
+    "plain_text_len": 5859,
+    "blocks_count": 180
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "跑通出海网站-新手跟练版"
+    },
+    {
+      "type": "paragraph",
+      "text": "作者：CloudHu"
+    },
+    {
+      "type": "paragraph",
+      "text": "声明：本文档完全免费，可以外传分享。"
+    },
+    {
+      "type": "paragraph",
+      "text": "文档完全面向新手小白，只需要你：用过AI、不用懂代码，不用懂英文"
+    },
+    {
+      "type": "paragraph",
+      "text": "本文档大约需要花费0.5~2天可以跑通全流程，对于纯小白，或许需要三天及以上，不过中间有任何问题，都可以问AI，实在不行作者会给你们兜底。"
+    },
+    {
+      "type": "paragraph",
+      "text": "(#^.^#)"
+    },
+    {
+      "type": "paragraph",
+      "text": "最理想的花费在30以下，如果算上编码工具codex/claude code和魔法工具clash，一个月内最多200块。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "开工准备"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "域名商：spaceship（最便宜的域名几块钱）",
+        "服务器部署：vercel（免费）",
+        "SEO工具（其实新手可以不买，但是出海肯定会用上，如果你要买这个工具，我有优惠，可以找我，一个月15）：semrush",
+        "找词工具： google trends（免费） https://trends.google.com/",
+        "站长工具，做完网站，在这里提交。可以在这里查看你的网站数据： 谷歌（免费） https://search.google.com/   google search console简称gsc， 必应（免费） Bing Webmaster (https://www.bing.com/webmasters/about?cc=www)",
+        "AI编码工具，最好是codex或者claude code，没有用国产免费的workbuddy或者trae也行，但是国产的不咋好用。",
+        "代码仓库：github（免费）",
+        "魔法工具（🪜），这个自备，实在不行找作者"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "说明："
+    },
+    {
+      "type": "paragraph",
+      "text": "跟练的目的不是为了赚到钱，而是扎实基本功。"
+    },
+    {
+      "type": "paragraph",
+      "text": "出海有一个比较庞大的知识系统，这个不是一时半会就啃得下来的。为了便于新手理解，工具我都推荐了最便宜或者最方便的，基本功练扎实了，才能想赚钱的事。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "第一步，找词："
+    },
+    {
+      "type": "paragraph",
+      "text": "找词分两种"
+    },
+    {
+      "type": "paragraph",
+      "text": "一个是老词（长期有人会搜索的词，比如说【怎么快速赚到钱】，一直都有人搜）"
+    },
+    {
+      "type": "paragraph",
+      "text": "一个是新词  (当下流行的事，比如说【26年世界杯】这种，过一段时间就没啥人讨论了)。"
+    },
+    {
+      "type": "paragraph",
+      "text": "目前跟练我们就暂时不区分得那么细，直接任选一个我们感兴趣的方向就好。"
+    },
+    {
+      "type": "paragraph",
+      "text": "新词，在https://trends.google.com/上找"
+    },
+    {
+      "type": "image",
+      "src": "assets/01.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-01",
+      "alt": "文档配图 1",
+      "key": "01",
+      "local": "01.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "怎么判断一个关键词有没有人搜索？我怎么知道做出来不是白忙活？"
+    },
+    {
+      "type": "paragraph",
+      "text": "中间的1M+和200K+这些数据就是搜索量，分别代表着100万+和20万+，右侧就是这段时间的搜索趋势数据。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这里需要一定的经验才能判断出什么词适合我们出海做，有一个简单的筛选原则就是："
+    },
+    {
+      "type": "paragraph",
+      "text": "不做体育比赛/天气预报/政治时事/娱乐新闻"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为这些领域都有非常成熟的大平台，我们基本不可能在短时间之内和他们竞争到流量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "再者，他们的时效性都非常短，经常过了两天就根本没有搜索量了。"
+    },
+    {
+      "type": "image",
+      "src": "assets/02.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-02",
+      "alt": "文档配图 2",
+      "key": "02",
+      "local": "02.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "老词，可以在以下的词根里去拓展"
+    },
+    {
+      "type": "paragraph",
+      "text": "新手找新词词根 (https://swmedbueei.feishu.cn/sheets/UZpGshLvKhq7MdtQOFycstuUn4e)"
+    },
+    {
+      "type": "paragraph",
+      "text": "当你选好要做什么词的时候，去semrush（付费工具，一个月20）上搜这个关键词，看看适不适合做。"
+    },
+    {
+      "type": "image",
+      "src": "assets/03.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-03",
+      "alt": "文档配图 3",
+      "key": "03",
+      "local": "03.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "以generator为例，我们来筛选看看有哪些好做的关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "kd筛选0~30的，"
+    },
+    {
+      "type": "paragraph",
+      "text": "CPC筛选0.1~10的，CPC为0可以基本理解为毫无变现价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "KD：关键词难度，新手适合0~30的"
+    },
+    {
+      "type": "paragraph",
+      "text": "CPC：商业意图指数，价格越高，代表市场付费意愿越强"
+    },
+    {
+      "type": "image",
+      "src": "assets/04.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-04",
+      "alt": "文档配图 4",
+      "key": "04",
+      "local": "04.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "第二步，做网站："
+    },
+    {
+      "type": "paragraph",
+      "text": "当我们选好了关键词，就准备开始制作网站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "注意，这一步完全不需要你实际操作，你全程只需要和AI交流，让他出方案和写代码即可。"
+    },
+    {
+      "type": "paragraph",
+      "text": "以UUID generator为例，我们要做的就是生成唯一ID的网站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "让我用codex来为你演示"
+    },
+    {
+      "type": "code",
+      "text": "我是一个出海网站的新手，我现在要做一个网站进行练习，关键词是【xxx】\n我要做一个功能为【xxx】的网站，请你使用一个新手可以听得懂的方式反问我问题，不要使用专业词汇，以确认这个项目的项目边界，然后给我生成项目需求文档和可以跟着执行的部署文档。\n项目背景：\n技术栈由你直接决定\n需要使用vercel进行部署\n需要提交到google search console\n练习到以下程度算完成：\n功能可用 → 部署 Vercel → 绑定域名 → 可以通过域名直接访问网站 →验证 Google Search Console → 提交站点地图。收录和排名作为后续观察，不作为项目完成条件。"
+    },
+    {
+      "type": "image",
+      "src": "assets/05.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-05",
+      "alt": "文档配图 5",
+      "key": "05",
+      "local": "05.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "附件（原文嵌入，未下载）：[01-项目需求文档.md](https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc)"
+    },
+    {
+      "type": "paragraph",
+      "text": "附件（原文嵌入，未下载）：[02-部署执行文档.md](https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc)"
+    },
+    {
+      "type": "paragraph",
+      "text": "这两个文件仅供参考，实际上你完全不需要读懂，直接丢给AI接着搞就完事"
+    },
+    {
+      "type": "paragraph",
+      "text": "（这里放出文件来，是为了让你对过程有一个大致的了解，看看AI需要生成什么样的方案，同时大致了解整个程序有哪些功能，具体的细节不用详细了解）"
+    },
+    {
+      "type": "paragraph",
+      "text": "文档出来后，让他直接实现就行，右边就是网页结果。"
+    },
+    {
+      "type": "paragraph",
+      "text": "你看，很简单吧？有写过啥代码吗？完全不需要懂代码！"
+    },
+    {
+      "type": "image",
+      "src": "assets/06.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-06",
+      "alt": "文档配图 6",
+      "key": "06",
+      "local": "06.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "第三步，部署"
+    },
+    {
+      "type": "paragraph",
+      "text": "到上面为止，网页都只是在我们电脑本地能看到，想要其他人看到，就要把代码放到服务器上。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这一步操作叫部署。"
+    },
+    {
+      "type": "paragraph",
+      "text": "而vercel恰好有免费的部署额度，我们前期白嫖他就行。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第一步，我们需要让vercel读到我们的代码，所以我们要把代码传上去。这里我们需要提前注册好github的账号"
+    },
+    {
+      "type": "paragraph",
+      "text": "github.com (http://github.com)"
+    },
+    {
+      "type": "paragraph",
+      "text": "注册好之后，新建一个仓库"
+    },
+    {
+      "type": "image",
+      "src": "assets/07.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-07",
+      "alt": "文档配图 7",
+      "key": "07",
+      "local": "07.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "新建仓库页面"
+    },
+    {
+      "type": "image",
+      "src": "assets/08.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-08",
+      "alt": "文档配图 8",
+      "key": "08",
+      "local": "08.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "把这个复制给AI，这个是我们要上传代码的路径"
+    },
+    {
+      "type": "image",
+      "src": "assets/09.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-09",
+      "alt": "文档配图 9",
+      "key": "09",
+      "local": "09.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI提示词"
+    },
+    {
+      "type": "code",
+      "text": "【这里放上面复制下来的地址】\n把我的代码上传到这个地址，可能需要我使用网页登录，如果需要我登录的，停下来告诉我，登录后我会让你继续。"
+    },
+    {
+      "type": "paragraph",
+      "text": "作者这里已经登录了，就不再详细演示了，如果出现任何阻塞的地方，都把错误信息或者现象告诉AI，让它来指导你如何做即可。"
+    },
+    {
+      "type": "image",
+      "src": "assets/10.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-10",
+      "alt": "文档配图 10",
+      "key": "10",
+      "local": "10.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "上传后就可以看得到代码"
+    },
+    {
+      "type": "image",
+      "src": "assets/11.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-11",
+      "alt": "文档配图 11",
+      "key": "11",
+      "local": "11.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个是本次演示的代码，我已经公开了，你们可以直接拿去用"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://github.com/cloud-hu2000/uuid-generator"
+    },
+    {
+      "type": "paragraph",
+      "text": "到这里代码就上传结束了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "后续如果你做了任何代码更新，和AI直接说，把我需要提交的代码全部提交到github上，这样vercel就可以实时同步到代码了"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来我们进入vercel，这个就是能让别人看到你网站的地方，专业术语叫部署网站"
+    },
+    {
+      "type": "paragraph",
+      "text": "vercel.com (http://vercel.com)"
+    },
+    {
+      "type": "image",
+      "src": "assets/12.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-12",
+      "alt": "文档配图 12",
+      "key": "12",
+      "local": "12.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "点击右上角新建项目"
+    },
+    {
+      "type": "image",
+      "src": "assets/13.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-13",
+      "alt": "文档配图 13",
+      "key": "13",
+      "local": "13.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "登录你的github账号"
+    },
+    {
+      "type": "image",
+      "src": "assets/14.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-14",
+      "alt": "文档配图 14",
+      "key": "14",
+      "local": "14.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "选择我们的网站进行导入，进入下面的界面"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个界面看不懂怎么办？直接复制给AI让它告诉你怎么填"
+    },
+    {
+      "type": "image",
+      "src": "assets/15.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-15",
+      "alt": "文档配图 15",
+      "key": "15",
+      "local": "15.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/16.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-16",
+      "alt": "文档配图 16",
+      "key": "16",
+      "local": "16.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "按AI说的直接部署就行了，那我们点一下deploy，就部署好啦~"
+    },
+    {
+      "type": "image",
+      "src": "assets/17.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-17",
+      "alt": "文档配图 17",
+      "key": "17",
+      "local": "17.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "进入到项目界面"
+    },
+    {
+      "type": "image",
+      "src": "assets/18.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-18",
+      "alt": "文档配图 18",
+      "key": "18",
+      "local": "18.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "别人就已经可以访问啦~"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://uuid-generator-iota.vercel.app/zh/"
+    },
+    {
+      "type": "image",
+      "src": "assets/19.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-19",
+      "alt": "文档配图 19",
+      "key": "19",
+      "local": "19.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "第四步 （可选）域名"
+    },
+    {
+      "type": "paragraph",
+      "text": "这一步作者就不买了，我直接用以前的记录来演示"
+    },
+    {
+      "type": "paragraph",
+      "text": "uuid-generator-iota.vercel.app"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个vercel给我们分配的域名太丑了，如果是uuid-generator.com (http://uuid-generator.com)就顺眼多了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "那我们直接去spaceship买域名，最好的地方在于它可以支付宝哦~"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://www.spaceship.com/"
+    },
+    {
+      "type": "image",
+      "src": "assets/20.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-20",
+      "alt": "文档配图 20",
+      "key": "20",
+      "local": "20.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "这里练手的话，我们买个便宜的域名就好了"
+    },
+    {
+      "type": "paragraph",
+      "text": "后面正式上站，我还是推荐com和org这两个域名，ai域名太贵了，有条件的话也可以上。"
+    },
+    {
+      "type": "paragraph",
+      "text": "（毕竟站在用户视角用户，第一眼看到taobao.online这种域名，第一时间肯定是觉得这个网站不正规）"
+    },
+    {
+      "type": "paragraph",
+      "text": "买好了之后，我们回到首页去关联域名到vercel"
+    },
+    {
+      "type": "image",
+      "src": "assets/21.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-21",
+      "alt": "文档配图 21",
+      "key": "21",
+      "local": "21.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/22.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-22",
+      "alt": "文档配图 22",
+      "key": "22",
+      "local": "22.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "找到刚刚买的域名，点开【Nameservers & DNS】"
+    },
+    {
+      "type": "image",
+      "src": "assets/23.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-23",
+      "alt": "文档配图 23",
+      "key": "23",
+      "local": "23.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "此时切换到vercel的这个界面"
+    },
+    {
+      "type": "image",
+      "src": "assets/24.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-24",
+      "alt": "文档配图 24",
+      "key": "24",
+      "local": "24.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/25.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-25",
+      "alt": "文档配图 25",
+      "key": "25",
+      "local": "25.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们输入刚刚买好的域名"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个时候列表页面会报错：“invalid configuration”,按照我的截图点击：“vercel dns”即可。"
+    },
+    {
+      "type": "paragraph",
+      "text": "复制下面的两个nameservers到spaceship里"
+    },
+    {
+      "type": "image",
+      "src": "assets/26.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-26",
+      "alt": "文档配图 26",
+      "key": "26",
+      "local": "26.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/27.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-27",
+      "alt": "文档配图 27",
+      "key": "27",
+      "local": "27.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "过一段时间，vercel上面显示valid Configuration就是没问题了，就可以用域名直接访问网站啦~"
+    },
+    {
+      "type": "paragraph",
+      "text": "中间出现任何问题，都可以直接截图或者把网页内容全部copy给AI，让他们来解决，如果没有解决，可以找作者~"
+    },
+    {
+      "type": "image",
+      "src": "assets/28.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-28",
+      "alt": "文档配图 28",
+      "key": "28",
+      "local": "28.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "第五步 登记网站到谷歌、bing"
+    },
+    {
+      "type": "paragraph",
+      "text": "谷歌需要翻墙，bing不用"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://search.google.com/search-console"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://www.bing.com/webmasters"
+    },
+    {
+      "type": "paragraph",
+      "text": "你一开始的界面可能不是这样的，因为我有网站，只能在这里添加，注意看add property就行"
+    },
+    {
+      "type": "image",
+      "src": "assets/29.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-29",
+      "alt": "文档配图 29",
+      "key": "29",
+      "local": "29.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/30.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-30",
+      "alt": "文档配图 30",
+      "key": "30",
+      "local": "30.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "选择Domain，把你vercel或者买好的域名输上去"
+    },
+    {
+      "type": "image",
+      "src": "assets/31.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-31",
+      "alt": "文档配图 31",
+      "key": "31",
+      "local": "31.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "然后把这一部分copy给AI，让它写到网站里"
+    },
+    {
+      "type": "image",
+      "src": "assets/32.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-32",
+      "alt": "文档配图 32",
+      "key": "32",
+      "local": "32.png"
+    },
+    {
+      "type": "code",
+      "text": "我要把网站注册到google search console\n这个是它提供给我的TXT内容，请帮我加到网站里，并且上传到github\n【刚刚复制的txt内容】"
+    },
+    {
+      "type": "paragraph",
+      "text": "注：vercel是可以自动获取到最新的github代码并且自动更新网站的，所以一般情况下直接把代码传到github就行，不过也要注意Vercel上的部署情况：如果出错了，网站是不会更新的。"
+    },
+    {
+      "type": "image",
+      "src": "assets/33.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-33",
+      "alt": "文档配图 33",
+      "key": "33",
+      "local": "33.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "bing的就比较简单了，你在google那里设置好了，就可以直接同步过来了"
+    },
+    {
+      "type": "image",
+      "src": "assets/34.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-34",
+      "alt": "文档配图 34",
+      "key": "34",
+      "local": "34.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "数据方面最好不要抱有期待，本次我们只是新手跟练，目的是为了跑通整个流程。要想让网站真的让别人看到，我们还有其他事得做"
+    },
+    {
+      "type": "paragraph",
+      "text": "后续想要提升数据，这个就参考出海教程的进阶篇啦~（如果没出，请在下方联系作者，踹他一脚）"
+    },
+    {
+      "type": "image",
+      "src": "assets/35.png",
+      "orig_url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#img-35",
+      "alt": "文档配图 35",
+      "key": "35",
+      "local": "35.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "常见问题"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Google Trends 看到了趋势，但不会判断需求、竞争和商业价值。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有一个简单的原则："
+    },
+    {
+      "type": "paragraph",
+      "text": "不做体育比赛/天气预报/政治时事消息/娱乐新闻。"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为这些领域都有非常成熟的大平台，我们基本不可能在短时间之内和他们竞争到流量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "再者，他们的时效性都非常短，经常过了两天就根本没有搜索量了，根本没有变现机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "除此之外，这是一些常见的机会："
+    },
+    {
+      "type": "paragraph",
+      "text": "AI模型名："
+    },
+    {
+      "type": "paragraph",
+      "text": "GPT6.1 /Opus 5.5（可以做API中转站）"
+    },
+    {
+      "type": "paragraph",
+      "text": "意图关键词："
+    },
+    {
+      "type": "paragraph",
+      "text": "how to ........（可以做对应的工具站）"
+    },
+    {
+      "type": "paragraph",
+      "text": "What is .......（可以做专项的资讯站）"
+    },
+    {
+      "type": "paragraph",
+      "text": "游戏词："
+    },
+    {
+      "type": "paragraph",
+      "text": "GTA 6 (可以做对应的游戏攻略站，注意需要强调非官方项目)"
+    },
+    {
+      "type": "paragraph",
+      "text": "XXX Game（如果是火爆的浏览器游戏，可以常识使用iframe直接抄过来）"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“别人都已经做过的网站，我再做一个，我还会有流量吗？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "能不能拿到流量，取决于两个大的因素："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "你网站本身的质量如何。",
+        "你的网站有没有背书。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "网站本身质量："
+    },
+    {
+      "type": "paragraph",
+      "text": "【你的流程设计是否合理？你的网页内容是否规范？你的网站使用体验是否友好？你的博客或者帮助页面是否真的有用？】等等问题，都是会被谷歌纳入考量的。表现好的网站自然排名高。"
+    },
+    {
+      "type": "paragraph",
+      "text": "网站有没有背书："
+    },
+    {
+      "type": "paragraph",
+      "text": "这里引用一个概念叫外链。可以理解为别的网站引用你的网站链接。"
+    },
+    {
+      "type": "paragraph",
+      "text": "站在谷歌的视角来看，假如有100个网站都做的同一个功能，它怎么知道要给哪个网站排第一呢？"
+    },
+    {
+      "type": "paragraph",
+      "text": "外链就是一个很好的参考数据。当一个网站被大平台提到得越多，也就越能说明这个网站是符合市场需求的。反之，如果一个网站没有被任何平台提到，那在谷歌眼里就是没有任何被讨论的价值，也就自然很难被分到流量。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“AI 给了我一大堆代码，我完全看不懂，怎么确认网站真的做好了？” ."
+    },
+    {
+      "type": "paragraph",
+      "text": "首先，做出来以后，自己肯定要手工测试一轮。"
+    },
+    {
+      "type": "paragraph",
+      "text": "其次，AI也可以做测试。你可以让AI帮你做一些测试，并给你一个测试报告。"
+    },
+    {
+      "type": "paragraph",
+      "text": "网站没有”做好“一说，你总有优化不完的东西，我们最该做的是把登录、支付等核心功能保障好了，剩下的实时调整。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“GitHub、Vercel、域名到底是什么关系？为什么做个网站需要注册这么多平台？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "注册那么多平台是为了薅他们的免费额度。"
+    },
+    {
+      "type": "paragraph",
+      "text": "github：代码仓库，用于在云端保存你的代码。"
+    },
+    {
+      "type": "paragraph",
+      "text": "vercel：服务器提供商，可以连接到你GitHub上的代码，从而进行部署。"
+    },
+    {
+      "type": "paragraph",
+      "text": "域名：网站的底层都是例如111.222.111.22这样的IP，域名只是为了方便别人记住的东西。baidu.com (http://baidu.com)肯定比一堆数字好记。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“我在电脑上已经能打开网站了，怎么让全世界的人都能访问？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "参考部署 (https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#share-FWr7dTKGyoZ2w3xqN4Fc2u0dnYc)教程 (https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#share-FWr7dTKGyoZ2w3xqN4Fc2u0dnYc)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“域名应该怎么买？买了之后为什么还要配置 DNS？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "可以买cc，online这种后缀的便宜域名，至于具体的名字，实在想不出来，你让ai帮你想好了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "DNS的作用是绑定域名，不然域名商怎么知道这个域名对应你的哪个网站嘞？"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“网站终于上线了，为什么 Google 搜不到？是不是我哪里做错了？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个阶段暂时还看不到成果。要想在谷歌上面搜到，我们还有其他的事情要做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "参考跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "“网站上线之后，我每天应该做什么？什么时候才可能有人访问，甚至赚到第一笔美元？”"
+    },
+    {
+      "type": "paragraph",
+      "text": "参考跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "跑通出海网站-进阶版"
+    },
+    {
+      "type": "paragraph",
+      "text": "跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)"
+    }
+  ],
+  "plain_text": "跑通出海网站-新手跟练版\n\n作者：CloudHu\n\n声明：本文档完全免费，可以外传分享。\n\n文档完全面向新手小白，只需要你：用过AI、不用懂代码，不用懂英文\n\n本文档大约需要花费0.5~2天可以跑通全流程，对于纯小白，或许需要三天及以上，不过中间有任何问题，都可以问AI，实在不行作者会给你们兜底。\n\n(#^.^#)\n\n最理想的花费在30以下，如果算上编码工具codex/claude code和魔法工具clash，一个月内最多200块。\n\n开工准备\n\n- 域名商：spaceship（最便宜的域名几块钱）\n- 服务器部署：vercel（免费）\n- SEO工具（其实新手可以不买，但是出海肯定会用上，如果你要买这个工具，我有优惠，可以找我，一个月15）：semrush\n- 找词工具： google trends（免费） https://trends.google.com/\n- 站长工具，做完网站，在这里提交。可以在这里查看你的网站数据： 谷歌（免费） https://search.google.com/   google search console简称gsc， 必应（免费） Bing Webmaster (https://www.bing.com/webmasters/about?cc=www)\n- AI编码工具，最好是codex或者claude code，没有用国产免费的workbuddy或者trae也行，但是国产的不咋好用。\n- 代码仓库：github（免费）\n- 魔法工具（🪜），这个自备，实在不行找作者\n\n说明：\n\n跟练的目的不是为了赚到钱，而是扎实基本功。\n\n出海有一个比较庞大的知识系统，这个不是一时半会就啃得下来的。为了便于新手理解，工具我都推荐了最便宜或者最方便的，基本功练扎实了，才能想赚钱的事。\n\n第一步，找词：\n\n找词分两种\n\n一个是老词（长期有人会搜索的词，比如说【怎么快速赚到钱】，一直都有人搜）\n\n一个是新词  (当下流行的事，比如说【26年世界杯】这种，过一段时间就没啥人讨论了)。\n\n目前跟练我们就暂时不区分得那么细，直接任选一个我们感兴趣的方向就好。\n\n新词，在https://trends.google.com/上找\n\n怎么判断一个关键词有没有人搜索？我怎么知道做出来不是白忙活？\n\n中间的1M+和200K+这些数据就是搜索量，分别代表着100万+和20万+，右侧就是这段时间的搜索趋势数据。\n\n这里需要一定的经验才能判断出什么词适合我们出海做，有一个简单的筛选原则就是：\n\n不做体育比赛/天气预报/政治时事/娱乐新闻\n\n因为这些领域都有非常成熟的大平台，我们基本不可能在短时间之内和他们竞争到流量。\n\n再者，他们的时效性都非常短，经常过了两天就根本没有搜索量了。\n\n老词，可以在以下的词根里去拓展\n\n新手找新词词根 (https://swmedbueei.feishu.cn/sheets/UZpGshLvKhq7MdtQOFycstuUn4e)\n\n当你选好要做什么词的时候，去semrush（付费工具，一个月20）上搜这个关键词，看看适不适合做。\n\n以generator为例，我们来筛选看看有哪些好做的关键词\n\nkd筛选0~30的，\n\nCPC筛选0.1~10的，CPC为0可以基本理解为毫无变现价值\n\nKD：关键词难度，新手适合0~30的\n\nCPC：商业意图指数，价格越高，代表市场付费意愿越强\n\n第二步，做网站：\n\n当我们选好了关键词，就准备开始制作网站。\n\n注意，这一步完全不需要你实际操作，你全程只需要和AI交流，让他出方案和写代码即可。\n\n以UUID generator为例，我们要做的就是生成唯一ID的网站。\n\n让我用codex来为你演示\n\n我是一个出海网站的新手，我现在要做一个网站进行练习，关键词是【xxx】\n我要做一个功能为【xxx】的网站，请你使用一个新手可以听得懂的方式反问我问题，不要使用专业词汇，以确认这个项目的项目边界，然后给我生成项目需求文档和可以跟着执行的部署文档。\n项目背景：\n技术栈由你直接决定\n需要使用vercel进行部署\n需要提交到google search console\n练习到以下程度算完成：\n功能可用 → 部署 Vercel → 绑定域名 → 可以通过域名直接访问网站 →验证 Google Search Console → 提交站点地图。收录和排名作为后续观察，不作为项目完成条件。\n\n附件（原文嵌入，未下载）：01-项目需求文档.md\n\n附件（原文嵌入，未下载）：02-部署执行文档.md\n\n这两个文件仅供参考，实际上你完全不需要读懂，直接丢给AI接着搞就完事\n\n（这里放出文件来，是为了让你对过程有一个大致的了解，看看AI需要生成什么样的方案，同时大致了解整个程序有哪些功能，具体的细节不用详细了解）\n\n文档出来后，让他直接实现就行，右边就是网页结果。\n\n你看，很简单吧？有写过啥代码吗？完全不需要懂代码！\n\n第三步，部署\n\n到上面为止，网页都只是在我们电脑本地能看到，想要其他人看到，就要把代码放到服务器上。\n\n这一步操作叫部署。\n\n而vercel恰好有免费的部署额度，我们前期白嫖他就行。\n\n第一步，我们需要让vercel读到我们的代码，所以我们要把代码传上去。这里我们需要提前注册好github的账号\n\ngithub.com (http://github.com)\n\n注册好之后，新建一个仓库\n\n新建仓库页面\n\n把这个复制给AI，这个是我们要上传代码的路径\n\nAI提示词\n\n【这里放上面复制下来的地址】\n把我的代码上传到这个地址，可能需要我使用网页登录，如果需要我登录的，停下来告诉我，登录后我会让你继续。\n\n作者这里已经登录了，就不再详细演示了，如果出现任何阻塞的地方，都把错误信息或者现象告诉AI，让它来指导你如何做即可。\n\n上传后就可以看得到代码\n\n这个是本次演示的代码，我已经公开了，你们可以直接拿去用\n\nhttps://github.com/cloud-hu2000/uuid-generator\n\n到这里代码就上传结束了。\n\n后续如果你做了任何代码更新，和AI直接说，把我需要提交的代码全部提交到github上，这样vercel就可以实时同步到代码了\n\n接下来我们进入vercel，这个就是能让别人看到你网站的地方，专业术语叫部署网站\n\nvercel.com (http://vercel.com)\n\n点击右上角新建项目\n\n登录你的github账号\n\n选择我们的网站进行导入，进入下面的界面\n\n这个界面看不懂怎么办？直接复制给AI让它告诉你怎么填\n\n按AI说的直接部署就行了，那我们点一下deploy，就部署好啦~\n\n进入到项目界面\n\n别人就已经可以访问啦~\n\nhttps://uuid-generator-iota.vercel.app/zh/\n\n第四步 （可选）域名\n\n这一步作者就不买了，我直接用以前的记录来演示\n\nuuid-generator-iota.vercel.app\n\n这个vercel给我们分配的域名太丑了，如果是uuid-generator.com (http://uuid-generator.com)就顺眼多了。\n\n那我们直接去spaceship买域名，最好的地方在于它可以支付宝哦~\n\nhttps://www.spaceship.com/\n\n这里练手的话，我们买个便宜的域名就好了\n\n后面正式上站，我还是推荐com和org这两个域名，ai域名太贵了，有条件的话也可以上。\n\n（毕竟站在用户视角用户，第一眼看到taobao.online这种域名，第一时间肯定是觉得这个网站不正规）\n\n买好了之后，我们回到首页去关联域名到vercel\n\n找到刚刚买的域名，点开【Nameservers & DNS】\n\n此时切换到vercel的这个界面\n\n我们输入刚刚买好的域名\n\n这个时候列表页面会报错：“invalid configuration”,按照我的截图点击：“vercel dns”即可。\n\n复制下面的两个nameservers到spaceship里\n\n过一段时间，vercel上面显示valid Configuration就是没问题了，就可以用域名直接访问网站啦~\n\n中间出现任何问题，都可以直接截图或者把网页内容全部copy给AI，让他们来解决，如果没有解决，可以找作者~\n\n第五步 登记网站到谷歌、bing\n\n谷歌需要翻墙，bing不用\n\nhttps://search.google.com/search-console\n\nhttps://www.bing.com/webmasters\n\n你一开始的界面可能不是这样的，因为我有网站，只能在这里添加，注意看add property就行\n\n选择Domain，把你vercel或者买好的域名输上去\n\n然后把这一部分copy给AI，让它写到网站里\n\n我要把网站注册到google search console\n这个是它提供给我的TXT内容，请帮我加到网站里，并且上传到github\n【刚刚复制的txt内容】\n\n注：vercel是可以自动获取到最新的github代码并且自动更新网站的，所以一般情况下直接把代码传到github就行，不过也要注意Vercel上的部署情况：如果出错了，网站是不会更新的。\n\nbing的就比较简单了，你在google那里设置好了，就可以直接同步过来了\n\n数据方面最好不要抱有期待，本次我们只是新手跟练，目的是为了跑通整个流程。要想让网站真的让别人看到，我们还有其他事得做\n\n后续想要提升数据，这个就参考出海教程的进阶篇啦~（如果没出，请在下方联系作者，踹他一脚）\n\n常见问题\n\nGoogle Trends 看到了趋势，但不会判断需求、竞争和商业价值。\n\n有一个简单的原则：\n\n不做体育比赛/天气预报/政治时事消息/娱乐新闻。\n\n因为这些领域都有非常成熟的大平台，我们基本不可能在短时间之内和他们竞争到流量。\n\n再者，他们的时效性都非常短，经常过了两天就根本没有搜索量了，根本没有变现机会。\n\n除此之外，这是一些常见的机会：\n\nAI模型名：\n\nGPT6.1 /Opus 5.5（可以做API中转站）\n\n意图关键词：\n\nhow to ........（可以做对应的工具站）\n\nWhat is .......（可以做专项的资讯站）\n\n游戏词：\n\nGTA 6 (可以做对应的游戏攻略站，注意需要强调非官方项目)\n\nXXX Game（如果是火爆的浏览器游戏，可以常识使用iframe直接抄过来）\n\n“别人都已经做过的网站，我再做一个，我还会有流量吗？”\n\n能不能拿到流量，取决于两个大的因素：\n\n- 你网站本身的质量如何。\n- 你的网站有没有背书。\n\n网站本身质量：\n\n【你的流程设计是否合理？你的网页内容是否规范？你的网站使用体验是否友好？你的博客或者帮助页面是否真的有用？】等等问题，都是会被谷歌纳入考量的。表现好的网站自然排名高。\n\n网站有没有背书：\n\n这里引用一个概念叫外链。可以理解为别的网站引用你的网站链接。\n\n站在谷歌的视角来看，假如有100个网站都做的同一个功能，它怎么知道要给哪个网站排第一呢？\n\n外链就是一个很好的参考数据。当一个网站被大平台提到得越多，也就越能说明这个网站是符合市场需求的。反之，如果一个网站没有被任何平台提到，那在谷歌眼里就是没有任何被讨论的价值，也就自然很难被分到流量。\n\n“AI 给了我一大堆代码，我完全看不懂，怎么确认网站真的做好了？” .\n\n首先，做出来以后，自己肯定要手工测试一轮。\n\n其次，AI也可以做测试。你可以让AI帮你做一些测试，并给你一个测试报告。\n\n网站没有”做好“一说，你总有优化不完的东西，我们最该做的是把登录、支付等核心功能保障好了，剩下的实时调整。\n\n“GitHub、Vercel、域名到底是什么关系？为什么做个网站需要注册这么多平台？”\n\n注册那么多平台是为了薅他们的免费额度。\n\ngithub：代码仓库，用于在云端保存你的代码。\n\nvercel：服务器提供商，可以连接到你GitHub上的代码，从而进行部署。\n\n域名：网站的底层都是例如111.222.111.22这样的IP，域名只是为了方便别人记住的东西。baidu.com (http://baidu.com)肯定比一堆数字好记。\n\n“我在电脑上已经能打开网站了，怎么让全世界的人都能访问？”\n\n参考部署 (https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#share-FWr7dTKGyoZ2w3xqN4Fc2u0dnYc)教程 (https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc#share-FWr7dTKGyoZ2w3xqN4Fc2u0dnYc)\n\n“域名应该怎么买？买了之后为什么还要配置 DNS？”\n\n可以买cc，online这种后缀的便宜域名，至于具体的名字，实在想不出来，你让ai帮你想好了。\n\nDNS的作用是绑定域名，不然域名商怎么知道这个域名对应你的哪个网站嘞？\n\n“网站终于上线了，为什么 Google 搜不到？是不是我哪里做错了？”\n\n这个阶段暂时还看不到成果。要想在谷歌上面搜到，我们还有其他的事情要做。\n\n参考跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)\n\n“网站上线之后，我每天应该做什么？什么时候才可能有人访问，甚至赚到第一笔美元？”\n\n参考跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)\n\n跑通出海网站-进阶版\n\n跑通出海网站-进阶版 (https://qcnj3k0hgb3d.feishu.cn/wiki/LCrcwNT9EijGAIkRrMXcF8vmnQc?from=from_copylink)",
+  "entities": {}
+}
