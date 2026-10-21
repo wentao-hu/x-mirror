@@ -520,6 +520,26 @@
       "blocks_count": 28
     },
     {
+      "id": "wechat-KDcUC0j3kV5ygE2Ls5FtaQ",
+      "slug": "wechat-hertz-email-recall-266",
+      "title": "网站出海分享：分享一些邮件召回小技巧，成功召回266美金付款",
+      "url": "https://mp.weixin.qq.com/s/KDcUC0j3kV5ygE2Ls5FtaQ",
+      "author_name": "赫兹",
+      "author_username": "droidHZ",
+      "published_utc": "2026-09-04T00:04:13.000Z",
+      "published_local": "2026-09-04 08:04",
+      "category": "用户运营",
+      "description": "赫兹分享邮件召回实操：按新用户欢迎、打开付款页、流失付费用户、普通用户、跨站召回五类场景设计召回邮件；105 封邮件召回 5 人、9 单，收回 $266.51。",
+      "source_type": "wechat",
+      "avatar_local": "",
+      "images_total": 2,
+      "images_ok": 2,
+      "api_media_count": 2,
+      "fidelity_note": "微信公众号原文；正文按原文顺序完整保留，2 张正文配图全部本地化。文末引流 CTA（关注哥飞老师、微信搜索 361079）及公众号二维码图按镜像规则去除，保留作者身份介绍。",
+      "plain_text_len": 778,
+      "blocks_count": 16
+    },
+    {
       "id": "2112426068007420125",
       "slug": "airobert-geoimgr-18-years",
       "title": "做了快 18 年的照片定位小工具 GeoImgr：简单需求也能长期订阅收费",
