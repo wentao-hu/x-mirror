@@ -19,8 +19,13 @@ def iter_sources(root: Path):
         if not directory.is_dir():
             continue
         for path in sorted(directory.rglob("*")):
-            if path.is_file() and path.suffix.lower() in SOURCE_EXTS:
-                yield path
+            if not path.is_file() or path.suffix.lower() not in SOURCE_EXTS:
+                continue
+            # 站点图标/favicon 由浏览器和 manifest 直接引用 PNG，不需要 WebP 副本
+            if (directory == root / "assets"
+                    and path.name.startswith(("favicon", "icon-", "apple-touch-icon"))):
+                continue
+            yield path
 
 
 def ensure_webp(src: Path) -> bool:
