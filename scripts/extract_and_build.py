@@ -15,7 +15,7 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 
-from generate_webp import generate_all
+from generate_webp import generate_all, image_width
 
 
 def sniff_ext(path: Path) -> str:
@@ -636,8 +636,12 @@ def image_html(
     alt: str,
     assets_dir: Path | None = None,
     lazy: bool = False,
+    responsive: bool = False,
 ) -> str:
-    """输出 <img>；若同目录已有 webp，则包一层 <picture> 提供 WebP 源。"""
+    """输出 <img>；若同目录已有 webp，则包一层 <picture> 提供 WebP 源。
+
+    responsive=True 时输出 640/960/原尺寸三档 srcset，交给浏览器按视口选择。
+    """
     attrs = f'src="{rel_src}" alt="{alt}"'
     if lazy:
         attrs += ' loading="lazy" decoding="async"'
@@ -646,6 +650,23 @@ def image_html(
     if assets_dir is not None:
         webp_path = Path(rel_src).with_suffix(".webp")
         if (assets_dir / webp_path.name).exists():
+            if responsive:
+                candidates = []
+                for w in (640, 960, 1280):
+                    cand = assets_dir / f"{webp_path.stem}-{w}.webp"
+                    if cand.exists():
+                        candidates.append(
+                            f"{webp_path.with_name(cand.name).as_posix()} {w}w"
+                        )
+                width = image_width(assets_dir / Path(rel_src).name)
+                if width:
+                    candidates.append(f"{webp_path.as_posix()} {width}w")
+                if len(candidates) > 1:
+                    sizes = "(max-width: 760px) calc(100vw - 32px), 660px"
+                    return (
+                        f'<picture><source srcset="{", ".join(candidates)}" '
+                        f'sizes="{sizes}" type="image/webp">{img}</picture>'
+                    )
             return (
                 f'<picture><source srcset="{webp_path.as_posix()}" '
                 f'type="image/webp">{img}</picture>'
@@ -675,7 +696,8 @@ def render_blocks_html(
                 continue
             alt = esc(b.get("alt") or "")
             img = image_html(
-                f"{assets_rel}/{local}", alt, assets_dir=assets_dir, lazy=True
+                f"{assets_rel}/{local}", alt, assets_dir=assets_dir, lazy=True,
+                responsive=True,
             )
             # 手机上正文图片只有屏宽，点开可在新标签查看原图
             parts.append(
@@ -1234,7 +1256,7 @@ def post_page(meta: dict, body_html: str) -> str:
         f'<figure class="media">'
         f'<a class="media-link" href="assets/{esc(cover)}" target="_blank" rel="noopener" '
         f'aria-label="查看大图">'
-        f'{image_html(f"assets/{cover}", "封面", assets_dir=post_assets, lazy=True)}</a>'
+        f'{image_html(f"assets/{cover}", "封面", assets_dir=post_assets, lazy=True, responsive=True)}</a>'
         f'</figure>'
         if cover and meta.get("cover_separate")
         else ""
