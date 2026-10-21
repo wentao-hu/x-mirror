@@ -1129,20 +1129,35 @@ h1.title {
 .site-group .cat { margin: 0 0 12px; }
 .sites-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .site-card {
-  display: flex; align-items: center; gap: 12px;
-  padding: 13px 15px; border: 1px solid var(--border); border-radius: var(--radius);
+  display: flex; align-items: center; gap: 8px;
+  padding: 13px 12px 13px 15px; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); color: inherit;
   transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
   -webkit-tap-highlight-color: transparent;
+}
+.site-main {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 12px;
+  color: inherit;
 }
 .site-card:active { background: var(--card); }
 @media (hover: hover) {
   .site-card:hover {
     border-color: var(--border-strong);
     box-shadow: 0 8px 24px rgba(15, 20, 25, .06);
-    text-decoration: none;
   }
+  .site-main:hover { text-decoration: none; }
 }
+.site-pin {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 999px;
+  border: 1px solid transparent; background: transparent; color: var(--muted);
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.site-pin:hover { background: var(--card); color: var(--fg); }
+.site-pin.on { background: #fff4e5; border-color: #f0d3a8; color: #b45309; }
+.site-pin-icon { display: block; width: 15px; height: 15px; }
 .site-logo {
   flex: none; width: 40px; height: 40px; border-radius: 10px;
   object-fit: contain; background: var(--card);
@@ -1334,13 +1349,21 @@ def sites_page(sites: list[dict]) -> str:
             if s["category"] != c:
                 continue
             cards.append(
-                f"""<a class="site-card" href="{esc(s['url'])}" target="_blank" rel="noopener noreferrer">
-      {site_logo_html(s)}
-      <span class="site-info">
-        <span class="site-title">{esc(s['title'])}</span>
-        <span class="site-host">{esc(site_host(s['url']))}</span>
-      </span>
-    </a>"""
+                f"""<div class="site-card" data-slug="site-{esc(s['slug'])}">
+      <a class="site-main" href="{esc(s['url'])}" target="_blank" rel="noopener noreferrer">
+        {site_logo_html(s)}
+        <span class="site-info">
+          <span class="site-title">{esc(s['title'])}</span>
+          <span class="site-host">{esc(site_host(s['url']))}</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 {esc(s['title'])}" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>"""
             )
         groups.append(
             f'<section class="site-group">\n'
@@ -1375,11 +1398,17 @@ def sites_page(sites: list[dict]) -> str:
   <p class="index-intro">
     收藏的有用网站，按用途分类；点击卡片直达原站。
   </p>
+  <section class="pinned" id="sites-pinned" hidden>
+    <h2 class="pinned-title">置顶</h2>
+    <div class="pinned-list" id="sites-pinned-list"></div>
+  </section>
   <div id="sites">
 {body}
   </div>
   <div class="footer">共 {len(sites)} 个网站 · Personal archive</div>
 </div>
+<script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+<script src="assets/sites.js?v={asset_version('assets/sites.js')}" defer></script>
 </body>
 </html>
 """

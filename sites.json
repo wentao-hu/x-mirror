@@ -1,11 +1,25 @@
 {
   "sites": [
     {
+      "slug": "webcafe",
+      "title": "Web.Cafe",
+      "url": "https://new.web.cafe/all",
+      "category": "SEO 内容站",
+      "logo": "assets/sites/webcafe.png"
+    },
+    {
       "slug": "aichuhai",
       "title": "AI 网站出海开发者社区",
       "url": "https://aichuhai.dev/",
       "category": "SEO 内容站",
       "logo": "assets/sites/aichuhai.png"
+    },
+    {
+      "slug": "cloudflare",
+      "title": "Cloudflare Registrar",
+      "url": "https://www.cloudflare.com/domains/",
+      "category": "域名注册",
+      "logo": "assets/sites/cloudflare.png"
     },
     {
       "slug": "spaceship",

@@ -27,7 +27,8 @@ posts/<slug>/
 data/<slug>.json      # 抽取后的结构化数据（便于重建）
 assets/
   site.css            # 共享样式（模板以 ?v=<content-hash> 引用）
-  meta.js             # 评分/已读共享脚本（KV + localStorage）
+  meta.js             # 评分/已读/置顶共享脚本（KV + localStorage）
+  sites.js            # 网站收藏置顶（复用 meta.js 的同步链路）
   sites/              # 收藏网站的 logo，全部本地托管
 functions/api/meta.js # Pages Function：GET/PUT 评分与已读
 _headers              # Cloudflare Pages 缓存策略
@@ -128,6 +129,8 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 - `category` 决定分组。分组顺序由 `scripts/extract_and_build.py` 的 `SITE_CATEGORY_ORDER` 控制，未列出的分类排在后面。
 - `logo` 可省略，省略时显示标题首字母。图片下载到 `assets/sites/`，与文章图片一样本地托管。
+- 组内顺序就是 `sites.json` 里的数组顺序；要固定某个网站排第一，把它放在该分类的最前面。
+- 每张卡片右侧有置顶按钮，置顶状态复用 `meta.js` 的 Cloudflare KV（slug 前缀 `site-`），多端自动同步；置顶的网站会出现在页面顶部「置顶」区。
 - 改完运行 `python3 scripts/rebuild_from_data.py`，会重新生成 `sites.html`。
 
 ## 内容类型（source_type）

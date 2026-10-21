@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
-<link rel="stylesheet" href="assets/site.css?v=99493fad" />
+<link rel="stylesheet" href="assets/site.css?v=c4fc52ee" />
 </head>
 <body>
 <div class="wrap index-wrap">
@@ -27,45 +27,105 @@
   <p class="index-intro">
     收藏的有用网站，按用途分类；点击卡片直达原站。
   </p>
+  <section class="pinned" id="sites-pinned" hidden>
+    <h2 class="pinned-title">置顶</h2>
+    <div class="pinned-list" id="sites-pinned-list"></div>
+  </section>
   <div id="sites">
 <section class="site-group">
-<h2 class="cat is-static"><span class="cat-name">SEO 内容站</span><span class="cat-count">1 个</span></h2>
+<h2 class="cat is-static"><span class="cat-name">SEO 内容站</span><span class="cat-count">2 个</span></h2>
 <div class="sites-grid">
-<a class="site-card" href="https://aichuhai.dev/" target="_blank" rel="noopener noreferrer">
-      <img class="site-logo" src="assets/sites/aichuhai.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
-      <span class="site-info">
-        <span class="site-title">AI 网站出海开发者社区</span>
-        <span class="site-host">aichuhai.dev</span>
-      </span>
-    </a>
+<div class="site-card" data-slug="site-webcafe">
+      <a class="site-main" href="https://new.web.cafe/all" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/webcafe.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="site-info">
+          <span class="site-title">Web.Cafe</span>
+          <span class="site-host">new.web.cafe</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Web.Cafe" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+<div class="site-card" data-slug="site-aichuhai">
+      <a class="site-main" href="https://aichuhai.dev/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/aichuhai.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="site-info">
+          <span class="site-title">AI 网站出海开发者社区</span>
+          <span class="site-host">aichuhai.dev</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 AI 网站出海开发者社区" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
 </div>
 </section>
 <section class="site-group">
-<h2 class="cat is-static"><span class="cat-name">域名注册</span><span class="cat-count">1 个</span></h2>
+<h2 class="cat is-static"><span class="cat-name">域名注册</span><span class="cat-count">2 个</span></h2>
 <div class="sites-grid">
-<a class="site-card" href="https://www.spaceship.com/zh/" target="_blank" rel="noopener noreferrer">
-      <img class="site-logo" src="assets/sites/spaceship.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
-      <span class="site-info">
-        <span class="site-title">Spaceship</span>
-        <span class="site-host">spaceship.com</span>
-      </span>
-    </a>
+<div class="site-card" data-slug="site-cloudflare">
+      <a class="site-main" href="https://www.cloudflare.com/domains/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/cloudflare.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="site-info">
+          <span class="site-title">Cloudflare Registrar</span>
+          <span class="site-host">cloudflare.com</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Cloudflare Registrar" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+<div class="site-card" data-slug="site-spaceship">
+      <a class="site-main" href="https://www.spaceship.com/zh/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/spaceship.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="site-info">
+          <span class="site-title">Spaceship</span>
+          <span class="site-host">spaceship.com</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Spaceship" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
 </div>
 </section>
 <section class="site-group">
 <h2 class="cat is-static"><span class="cat-name">支付</span><span class="cat-count">1 个</span></h2>
 <div class="sites-grid">
-<a class="site-card" href="https://stripe.com/cn" target="_blank" rel="noopener noreferrer">
-      <img class="site-logo" src="assets/sites/stripe.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
-      <span class="site-info">
-        <span class="site-title">Stripe</span>
-        <span class="site-host">stripe.com</span>
-      </span>
-    </a>
+<div class="site-card" data-slug="site-stripe">
+      <a class="site-main" href="https://stripe.com/cn" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/stripe.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="site-info">
+          <span class="site-title">Stripe</span>
+          <span class="site-host">stripe.com</span>
+        </span>
+      </a>
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Stripe" title="置顶">
+        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
 </div>
 </section>
   </div>
-  <div class="footer">共 3 个网站 · Personal archive</div>
+  <div class="footer">共 5 个网站 · Personal archive</div>
 </div>
+<script src="assets/meta.js?v=c6a0ce6b" defer></script>
+<script src="assets/sites.js?v=afef9f4a" defer></script>
 </body>
 </html>

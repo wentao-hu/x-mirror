@@ -408,20 +408,35 @@ h1.title {
 .site-group .cat { margin: 0 0 12px; }
 .sites-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .site-card {
-  display: flex; align-items: center; gap: 12px;
-  padding: 13px 15px; border: 1px solid var(--border); border-radius: var(--radius);
+  display: flex; align-items: center; gap: 8px;
+  padding: 13px 12px 13px 15px; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); color: inherit;
   transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
   -webkit-tap-highlight-color: transparent;
+}
+.site-main {
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 12px;
+  color: inherit;
 }
 .site-card:active { background: var(--card); }
 @media (hover: hover) {
   .site-card:hover {
     border-color: var(--border-strong);
     box-shadow: 0 8px 24px rgba(15, 20, 25, .06);
-    text-decoration: none;
   }
+  .site-main:hover { text-decoration: none; }
 }
+.site-pin {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 999px;
+  border: 1px solid transparent; background: transparent; color: var(--muted);
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.site-pin:hover { background: var(--card); color: var(--fg); }
+.site-pin.on { background: #fff4e5; border-color: #f0d3a8; color: #b45309; }
+.site-pin-icon { display: block; width: 15px; height: 15px; }
 .site-logo {
   flex: none; width: 40px; height: 40px; border-radius: 10px;
   object-fit: contain; background: var(--card);
