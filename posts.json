@@ -181,6 +181,26 @@
       "blocks_count": 28
     },
     {
+      "id": "wechat-cMoMgIgFXAWRrY",
+      "slug": "wechat-wangmazha-4mo-1usd-15d-1000",
+      "title": "海外AI产品新手期复盘：4个月赚到1刀，15天破1000刀",
+      "url": "https://mp.weixin.qq.com/s/cMoMgIgFXAWRrY-raJRHnw",
+      "author_name": "王马扎",
+      "author_username": "王马扎",
+      "published_utc": "2025-09-24T13:58:00.000Z",
+      "published_local": "2025-09-24 21:58",
+      "category": "出海复盘",
+      "description": "王马扎出海新手期复盘：追新词 4 个月赚到 0.01 刀，品牌工具站 15 天破 1000 刀；挖词、AdSense、订阅定价与外链经验",
+      "source_type": "wechat",
+      "avatar_local": "avatar.png",
+      "images_total": 64,
+      "images_ok": 64,
+      "api_media_count": 64,
+      "fidelity_note": "微信公众号全文；正文取自 WebFetch markdown（已去掉 untrusted fence 与 Page image/Original 元信息）；致谢保留；文末无赞赏/关注 CTA。64 张配图按抓取包 manifest 的 caption/章节提示、按序号顺序插入对应段落后，全部本地化。",
+      "plain_text_len": 19034,
+      "blocks_count": 401
+    },
+    {
       "id": "2112133884477600141",
       "slug": "sujingshen-manual-first-trade",
       "title": "先别买域名：先手动跑通 1-3 次交易闭环",
