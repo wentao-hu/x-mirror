@@ -48,7 +48,7 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
-CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
+CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "海外收款", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
 
 # 网站收藏：数据在根目录 sites.json，站点页在 sites.html
 SITES_FILE = ROOT / "sites.json"
