@@ -48,7 +48,7 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
-CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "海外收款", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
+CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "海外收款", "SEO基础", "建站教程", "外链推广"]
 
 # 网站收藏：数据在根目录 sites.json，站点页在 sites.html
 SITES_FILE = ROOT / "sites.json"
@@ -1015,6 +1015,17 @@ h1.title {
   gap: 12px; margin: 2px 0 4px;
 }
 .list-count { color: var(--muted); font-size: 13px; }
+.empty-state {
+  margin: 28px 0; padding: 32px 20px; text-align: center;
+  border: 1px dashed var(--border-strong); border-radius: var(--radius);
+  color: var(--muted); font-size: 14px;
+}
+.empty-state p { margin: 0 0 14px; }
+.empty-state button {
+  border: 1px solid var(--border); background: var(--bg); border-radius: 999px;
+  padding: 6px 16px; font: inherit; font-size: 13px; color: var(--fg); cursor: pointer;
+}
+.empty-state button:hover { background: var(--card-hover); }
 .list-actions { display: flex; gap: 8px; }
 .list-actions button {
   border: 1px solid var(--border); background: var(--bg); border-radius: 999px;

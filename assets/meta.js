@@ -480,7 +480,19 @@
     var panel = document.getElementById('filter-panel');
     var toggle = document.getElementById('filter-toggle');
     var listActions = document.getElementById('list-actions');
+    var listCountEl = document.querySelector('.list-count');
     var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', time: 'all', sort: 'default' };
+
+    var emptyEl = document.getElementById('xm-empty');
+    if (!emptyEl) {
+      emptyEl = document.createElement('div');
+      emptyEl.id = 'xm-empty';
+      emptyEl.className = 'empty-state';
+      emptyEl.hidden = true;
+      emptyEl.innerHTML = '<p>没有符合当前筛选条件的文章。</p>' +
+        '<button type="button" id="xm-clear-filters">清除全部筛选</button>';
+      list.parentNode.insertBefore(emptyEl, list.nextSibling);
+    }
 
     function readJSON(key) {
       try {
@@ -574,6 +586,32 @@
       return arr;
     }
 
+    function resetFilters() {
+      ui.term = '';
+      ui.cat = 'all';
+      ui.type = 'all';
+      ui.rating = 'all';
+      ui.read = 'all';
+      ui.time = 'all';
+      ui.sort = 'default';
+      var searchBox = document.getElementById('q');
+      if (searchBox) searchBox.value = '';
+      function resetBar(bar) {
+        if (!bar) return;
+        var btns = bar.querySelectorAll('button');
+        Array.prototype.forEach.call(btns, function (b, i) {
+          b.classList.toggle('active', i === 0);
+        });
+      }
+      resetBar(document.getElementById('filters'));
+      resetBar(document.querySelector('[data-meta-filter="type"]'));
+      resetBar(document.querySelector('[data-meta-filter="rating"]'));
+      resetBar(document.querySelector('[data-meta-filter="read"]'));
+      resetBar(document.querySelector('[data-meta-filter="time"]'));
+      resetBar(document.querySelector('[data-meta-filter="sort"]'));
+      apply();
+    }
+
     function apply() {
       var term = (ui.term || '').trim().toLowerCase();
       var now = Date.now();
@@ -603,6 +641,12 @@
       }
 
       var shown = cards.filter(function (el) { return el._xmPass; }).length;
+      if (listCountEl) {
+        listCountEl.textContent = filtering
+          ? '筛选结果 ' + shown + ' 篇 / 共 ' + cards.length + ' 篇'
+          : '共 ' + cards.length + ' 篇';
+      }
+      if (emptyEl) emptyEl.hidden = !(filtering && shown === 0);
       catHeads.forEach(function (h) {
         var cat = h.dataset.cat || '';
         var folded = ui.sort === 'default' && !filtering && !!collapsed[cat];
@@ -651,6 +695,9 @@
         apply();
       });
     }
+
+    var clearFiltersBtn = emptyEl ? emptyEl.querySelector('#xm-clear-filters') : null;
+    if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetFilters);
 
     bindBar(document.getElementById('filters'), function (btn) {
       ui.cat = btn.dataset.cat || 'all';
