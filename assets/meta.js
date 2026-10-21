@@ -765,7 +765,7 @@
         var controls = clone.querySelector('.card-controls');
         if (controls) controls.remove();
         var title = clone.querySelector('.ctitle');
-        if (title) {
+        if (title && !clone.querySelector('.badge-pin')) {
           var badge = document.createElement('span');
           badge.className = 'badge-pin';
           badge.textContent = '置顶';
