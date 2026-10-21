@@ -4,11 +4,13 @@
 
 ## 线上地址
 
-**日常阅读（快）：** https://wentao-hu.github.io/x-mirror/
+**日常阅读（主入口）：** https://x-mirror-af7.pages.dev/
 
-**评分同步 / 备用：** https://x-mirror-af7.pages.dev/
+**备用（GitHub Pages）：** https://wentao-hu.github.io/x-mirror/
 
-GitHub Pages 只托管静态页面；评分与已读在浏览器本机即时生效，并通过 CORS 后台同步到 Cloudflare `/api/meta` 的 KV。Cloudflare 不通时退回本机，联网后自动补传。
+Cloudflare Pages 同时托管静态页面和 `/api/meta`（评分/已读/置顶的 KV 同步）；GitHub Pages 只托管静态页面，其上的评分脚本通过 CORS 调用 Cloudflare 的 API。Cloudflare 不通时退回本机缓存，联网后自动补传。
+
+> 2026-10-21 实测（当前网络）：Cloudflare 的大图吞吐约 150–230 KB/s 且稳定；GitHub Pages 的 Fastly 链路对大文件只有 27–43 KB/s，且波动到 10–16 秒。因此主入口改为 Cloudflare。
 
 仓库：https://github.com/wentao-hu/x-mirror
 
