@@ -2,7 +2,7 @@
  * X Mirror · 评分 / 已读 API
  *
  * GET /api/meta   -> { ok, items: { [slug]: { rating, read, updatedAt } } }
- * PUT /api/meta   -> body { slug, rating?, read?, updatedAt }
+ * PUT /api/meta   -> body { slug, rating?, read?, pinned?, updatedAt }
  *                    按 updatedAt 做 last-write-wins，返回 { ok, applied, item }
  *
  * 全部条目存在单个 KV key `meta:v1`。个人站点、文章数 <1000，读改写足够；
@@ -48,6 +48,7 @@ function normalizeItem(value) {
   return {
     rating: clampRating(item.rating),
     read: item.read === true,
+    pinned: item.pinned === true,
     updatedAt: isValidDate(item.updatedAt) ? new Date(item.updatedAt).toISOString() : null,
   };
 }
@@ -99,8 +100,9 @@ export async function onRequest(context) {
 
     const hasRating = Object.prototype.hasOwnProperty.call(body, 'rating');
     const hasRead = Object.prototype.hasOwnProperty.call(body, 'read');
-    if (!hasRating && !hasRead) {
-      return json({ ok: false, error: 'rating or read is required' }, 400);
+    const hasPinned = Object.prototype.hasOwnProperty.call(body, 'pinned');
+    if (!hasRating && !hasRead && !hasPinned) {
+      return json({ ok: false, error: 'rating, read or pinned is required' }, 400);
     }
 
     let rating;
@@ -120,12 +122,20 @@ export async function onRequest(context) {
       read = body.read;
     }
 
+    let pinned;
+    if (hasPinned) {
+      if (typeof body.pinned !== 'boolean') {
+        return json({ ok: false, error: 'pinned must be a boolean' }, 400);
+      }
+      pinned = body.pinned;
+    }
+
     const updatedAt = isValidDate(body.updatedAt)
       ? new Date(body.updatedAt).toISOString()
       : new Date().toISOString();
 
     const items = await readAll(kv);
-    const prev = items[slug] || { rating: 0, read: false, updatedAt: null };
+    const prev = items[slug] || { rating: 0, read: false, pinned: false, updatedAt: null };
 
     // last-write-wins：比服务器旧的写入直接忽略，返回服务器现值。
     if (prev.updatedAt && parseTime(updatedAt) < parseTime(prev.updatedAt)) {
@@ -135,6 +145,7 @@ export async function onRequest(context) {
     const next = {
       rating: hasRating ? rating : prev.rating,
       read: hasRead ? read : prev.read,
+      pinned: hasPinned ? pinned : prev.pinned,
       updatedAt,
     };
     items[slug] = next;

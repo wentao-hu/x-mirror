@@ -990,6 +990,19 @@ h1.title {
   padding: 4px 11px; font: inherit; font-size: 12.5px; color: var(--muted); cursor: pointer;
 }
 .list-actions button:hover { color: var(--fg); border-color: var(--border-strong); }
+
+/* 目录页置顶区 */
+.pinned { margin: 18px 0 8px; }
+.pinned-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--fg); }
+.pinned-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.pinned-item { display: flex; flex-direction: column; gap: 6px; }
+.pinned-item .card { flex: 1; }
+.pin-remove {
+  align-self: flex-start; border: 1px solid var(--border); background: var(--bg);
+  color: var(--muted); border-radius: 999px; padding: 4px 11px;
+  font: inherit; font-size: 12px; cursor: pointer;
+}
+.pin-remove:hover { color: var(--fg); border-color: var(--border-strong); }
 .footer {
   margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
   color: var(--muted-2); font-size: 12px;
@@ -1013,6 +1026,11 @@ h1.title {
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
+.badge-pin {
+  background: #fff4e5; color: #b45309; font-size: 11px; font-weight: 600;
+  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+}
+.card .ctitle > .badge-pin { margin-left: 6px; vertical-align: middle; display: inline-block; }
 .source-badge {
   display: inline-flex; align-items: center; gap: 4px;
   margin-left: 8px; vertical-align: middle;
@@ -1066,6 +1084,7 @@ h1.title {
 .post-controls .pc-rating-text { color: var(--muted); font-size: 12.5px; min-width: 3.2em; }
 .post-controls .pc-note {
   flex-basis: 100%; color: var(--muted-2); font-size: 12px; line-height: 1.5;
+  border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px;
 }
 .pc-clear {
   border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
@@ -1083,10 +1102,22 @@ h1.title {
 .pc-read.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); font-weight: 600; }
 .pc-read .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .45; }
 .pc-read.on .pc-dot { opacity: 1; }
+.pc-pin {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 999px; padding: 5px 12px; font-size: 13px; font-family: inherit;
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.pc-pin:hover { border-color: var(--border-strong); color: var(--fg); }
+.pc-pin.on { background: #fff4e5; border-color: #f0d3a8; color: #b45309; font-weight: 600; }
+.pc-pin-icon { display: block; width: 13px; height: 13px; flex: none; }
+.card-controls .pc-pin { padding: 4px 11px; font-size: 12.5px; }
 
 /* 手机端：单列、更大触控区、正文不出现横向滚动 */
 @media (max-width: 760px) {
   #list { grid-template-columns: 1fr; }
+  .pinned-list { grid-template-columns: 1fr; }
   .index-wrap { max-width: 700px; }
 }
 @media (max-width: 560px) {
@@ -1118,6 +1149,9 @@ h1.title {
   .card-controls .pc-read { padding: 6px 12px; }
   .card { padding: 15px 16px; }
   .card .cmeta { white-space: normal; }
+  .pinned-title { font-size: 16px; }
+  .pc-pin { padding: 7px 14px; }
+  .card-controls .pc-pin { padding: 6px 12px; }
   .filters button { padding: 8px 14px; font-size: 14px; }
   .filter-row { align-items: flex-start; }
   .filter-row .flabel { flex-basis: 34px; padding-top: 8px; font-size: 12.5px; }
@@ -1345,6 +1379,10 @@ def index_page(posts: list[dict]) -> str:
       <button type="button" id="collapse-all">全部折叠</button>
     </div>
   </div>
+  <section class="pinned" id="pinned" hidden>
+    <h2 class="pinned-title">置顶</h2>
+    <div class="pinned-list" id="pinned-list"></div>
+  </section>
   <div id="list">
 {''.join(sections)}
   </div>

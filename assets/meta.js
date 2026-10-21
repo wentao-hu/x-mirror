@@ -15,7 +15,7 @@
   var SLUG_RE = /^[a-z0-9][a-z0-9-]{0,79}$/;
 
   var state = {
-    map: {},        // slug -> { rating, read, updatedAt }
+    map: {},        // slug -> { rating, read, pinned, updatedAt }
     server: null,   // null=未返回，false=请求失败，true=已同步
     ready: false
   };
@@ -45,6 +45,7 @@
     return {
       rating: clampRating(item.rating),
       read: item.read === true,
+      pinned: item.pinned === true,
       updatedAt: typeof item.updatedAt === 'string' && !isNaN(Date.parse(item.updatedAt))
         ? new Date(item.updatedAt).toISOString()
         : null
@@ -95,11 +96,15 @@
 
   function fetchServer() {
     if (IS_FILE || typeof global.fetch !== 'function') return Promise.resolve(null);
-    return global.fetch(API_URL, {
+    var controller = typeof global.AbortController === 'function' ? new global.AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
+    var opts = {
       method: 'GET',
       headers: { Accept: 'application/json' },
       cache: 'no-store'
-    }).then(function (res) {
+    };
+    if (controller) opts.signal = controller.signal;
+    return global.fetch(API_URL, opts).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
     }).then(function (data) {
@@ -113,19 +118,21 @@
       return out;
     }).catch(function () {
       return null;
+    }).then(function (value) {
+      if (timer) clearTimeout(timer);
+      return value;
     });
   }
 
-  function putServer(slug, item) {
+  function putServer(slug, patch) {
+    var body = { slug: slug, updatedAt: patch.updatedAt };
+    if (Object.prototype.hasOwnProperty.call(patch, 'rating')) body.rating = patch.rating;
+    if (Object.prototype.hasOwnProperty.call(patch, 'read')) body.read = patch.read;
+    if (Object.prototype.hasOwnProperty.call(patch, 'pinned')) body.pinned = patch.pinned;
     return global.fetch(API_URL, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        slug: slug,
-        rating: item.rating,
-        read: item.read,
-        updatedAt: item.updatedAt
-      })
+      body: JSON.stringify(body)
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
@@ -153,6 +160,22 @@
     });
   }
 
+  function applyServer(server) {
+    if (server === null) {
+      state.server = false;
+      state.ready = true;
+      return state.map;
+    }
+    state.server = true;
+    var local = state.map;          // 可能已包含 ready 之前的用户点击
+    var merged = merge(local, server);
+    state.map = merged;
+    saveLocal(merged);
+    state.ready = true;
+    pushNewer(merged, server);
+    return merged;
+  }
+
   var ready = (function () {
     state.map = loadLocal();
     if (IS_FILE) {
@@ -160,22 +183,45 @@
       state.ready = true;
       return Promise.resolve(state.map);
     }
-    return fetchServer().then(function (server) {
-      if (server === null) {
-        state.server = false;
-        state.ready = true;
-        return state.map;
-      }
-      state.server = true;
-      var local = state.map;          // 可能已包含 ready 之前的用户点击
-      var merged = merge(local, server);
-      state.map = merged;
-      saveLocal(merged);
-      state.ready = true;
-      pushNewer(merged, server);
-      return merged;
-    });
+    return fetchServer().then(applyServer);
   })();
+
+  var refreshing = false;
+  var lastRefresh = 0;
+
+  function notifyRefresh() {
+    if (global.document && global.document.dispatchEvent && typeof global.CustomEvent === 'function') {
+      global.document.dispatchEvent(new global.CustomEvent('xm-meta-refreshed'));
+    }
+  }
+
+  /* 切回页面 / 从 bfcache 恢复时再拉一次服务器数据，最多每 5 秒一次。 */
+  function refreshFromServer(force) {
+    if (IS_FILE || typeof global.fetch !== 'function' || refreshing) return Promise.resolve(state.map);
+    var now = Date.now();
+    if (!force && now - lastRefresh < 5000) return Promise.resolve(state.map);
+    lastRefresh = now;
+    refreshing = true;
+    return fetchServer().then(function (server) {
+      var merged = applyServer(server);
+      refreshing = false;
+      notifyRefresh();
+      return merged;
+    }, function () {
+      refreshing = false;
+      notifyRefresh();
+      return state.map;
+    });
+  }
+
+  if (global.document) {
+    global.document.addEventListener('visibilitychange', function () {
+      if (!global.document.hidden) refreshFromServer(false);
+    });
+    global.addEventListener('pageshow', function (e) {
+      if (e.persisted) refreshFromServer(true);
+    });
+  }
 
   function setMeta(slug, patch) {
     slug = String(slug || '');
@@ -185,12 +231,18 @@
     var next = norm({
       rating: patch.rating != null ? patch.rating : cur.rating,
       read: patch.read != null ? patch.read : cur.read,
+      pinned: patch.pinned != null ? patch.pinned : cur.pinned,
       updatedAt: nowISO()
     });
     state.map[slug] = next;
     saveLocal(state.map);
     if (IS_FILE || typeof global.fetch !== 'function') return Promise.resolve(true);
-    return putWithRetry(slug, next, 1).then(function () {
+    // 只上传本次改动的字段，避免用旧的本机状态覆盖另一台设备刚改的其他字段。
+    var wire = { updatedAt: next.updatedAt };
+    if (patch.rating != null) wire.rating = next.rating;
+    if (patch.read != null) wire.read = next.read;
+    if (patch.pinned != null) wire.pinned = next.pinned;
+    return putWithRetry(slug, wire, 1).then(function () {
       return true;
     }, function () {
       return false;   // 本地已落盘，下次加载时 pushNewer 会补传
@@ -231,6 +283,9 @@
     if (mount.dataset.xmBound !== '1') {
       mount.dataset.xmBound = '1';
       bindPostEvents(mount);
+      global.document.addEventListener('xm-meta-refreshed', function () {
+        renderPost(mount, slug);
+      });
     }
     renderPost(mount, slug);
     ready.then(function () { renderPost(mount, slug); });
@@ -238,9 +293,20 @@
 
   function postNote() {
     if (IS_FILE) return '本地文件模式：评分与已读只保存在本机浏览器。';
-    if (state.server === null) return '正在连接 Cloudflare KV…';
-    if (state.server === false) return '暂未连上 Cloudflare，已存本机，联网后自动同步。';
-    return '已保存到本机，并同步 Cloudflare KV。';
+    if (state.server === null) return '正在同步评分…';
+    if (state.server === false) return '未同步：评分只保存在本机，联网后会重试。';
+    return '评分已同步到 Cloudflare KV。';
+  }
+
+  function pinButtonHtml(m) {
+    return '<button type="button" class="pc-pin' + (m.pinned ? ' on' : '') + '" data-act="pin"' +
+      ' aria-pressed="' + (m.pinned ? 'true' : 'false') + '">' +
+      '<svg class="pc-pin-icon" viewBox="0 0 16 16" aria-hidden="true">' +
+        '<path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>' +
+        '<path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '</svg>' +
+      (m.pinned ? '已置顶' : '置顶') +
+    '</button>';
   }
 
   function renderPost(mount, slug) {
@@ -259,6 +325,7 @@
           '<span class="pc-dot" aria-hidden="true"></span>' +
           (m.read ? '已读完' : '标记为已读完') +
         '</button>' +
+        pinButtonHtml(m) +
       '</div>' +
       '<div class="pc-note" data-note>' + postNote() + '</div>';
   }
@@ -275,6 +342,7 @@
           '<span class="pc-dot" aria-hidden="true"></span>' +
           (m.read ? '已读完' : '标记为已读完') +
         '</button>' +
+        pinButtonHtml(m) +
       '</div>';
   }
 
@@ -286,6 +354,9 @@
       if (mount.dataset.xmBound !== '1') {
         mount.dataset.xmBound = '1';
         bindCardEvents(mount);
+        global.document.addEventListener('xm-meta-refreshed', function () {
+          renderCard(mount, slug);
+        });
       }
       renderCard(mount, slug);
       ready.then(function () { renderCard(mount, slug); });
@@ -332,6 +403,8 @@
         applyPatch(mount, slug, { read: !m.read });
       } else if (target.dataset.act === 'clear') {
         applyPatch(mount, slug, { rating: 0 });
+      } else if (target.dataset.act === 'pin') {
+        applyPatch(mount, slug, { pinned: !m.pinned });
       }
     });
 
@@ -366,6 +439,8 @@
         applyPatch(mount, slug, { read: !m.read });
       } else if (target.dataset.act === 'clear') {
         applyPatch(mount, slug, { rating: 0 });
+      } else if (target.dataset.act === 'pin') {
+        applyPatch(mount, slug, { pinned: !m.pinned });
       }
     });
 
@@ -474,6 +549,7 @@
         }
         var m = metaFor(el);
         box.innerHTML = starsHtml(m.rating, false) +
+          (m.pinned ? '<span class="badge-pin">置顶</span>' : '') +
           (m.read ? '<span class="badge-read">已读</span>' : '');
       });
     }
@@ -654,6 +730,11 @@
       apply();
     });
 
+    global.document.addEventListener('xm-meta-refreshed', function () {
+      renderBadges();
+      apply();
+    });
+
     renderBadges();
     apply();
     ready.then(function () {
@@ -662,12 +743,66 @@
     });
   }
 
+  /* ---------- 目录页置顶区 ---------- */
+
+  function initPinnedSection() {
+    var list = document.getElementById('list');
+    var box = document.getElementById('pinned');
+    var mount = document.getElementById('pinned-list');
+    if (!list || !box || !mount || box.dataset.xmPinnedReady === '1') return;
+    box.dataset.xmPinnedReady = '1';
+
+    function render() {
+      var cards = Array.prototype.slice.call(list.querySelectorAll('.card[data-slug]'));
+      var pinned = cards.filter(function (el) { return get(el.dataset.slug).pinned; });
+      mount.innerHTML = '';
+      pinned.forEach(function (card) {
+        var slug = card.dataset.slug;
+        var wrap = document.createElement('div');
+        wrap.className = 'pinned-item';
+        var clone = card.cloneNode(true);
+        clone.classList.add('pinned-card');
+        var controls = clone.querySelector('.card-controls');
+        if (controls) controls.remove();
+        var title = clone.querySelector('.ctitle');
+        if (title) {
+          var badge = document.createElement('span');
+          badge.className = 'badge-pin';
+          badge.textContent = '置顶';
+          title.appendChild(badge);
+        }
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pin-remove';
+        btn.textContent = '取消置顶';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          setMeta(slug, { pinned: false });
+          if (list.dispatchEvent && typeof global.CustomEvent === 'function') {
+            list.dispatchEvent(new global.CustomEvent('xm-meta-change', { bubbles: true }));
+          }
+        });
+        wrap.appendChild(clone);
+        wrap.appendChild(btn);
+        mount.appendChild(wrap);
+      });
+      box.hidden = pinned.length === 0;
+    }
+
+    render();
+    ready.then(render);
+    list.addEventListener('xm-meta-change', render);
+    global.document.addEventListener('xm-meta-refreshed', render);
+  }
+
   /* ---------- 自动初始化 ---------- */
 
   function autoInit() {
     if (document.getElementById('list')) {
       initCardControls();
       if (document.querySelector('#list .card[data-slug]')) initIndexFilters();
+      initPinnedSection();
       return;
     }
     var mount = document.querySelector('[data-meta-mount][data-slug]:not(.card-controls)');
