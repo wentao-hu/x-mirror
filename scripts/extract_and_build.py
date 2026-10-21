@@ -50,6 +50,10 @@ WORKDIRS = {
 
 CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "出海路线图", "SEO基础", "建站教程", "外链推广", "web.cafe 精选"]
 
+# 网站收藏：数据在根目录 sites.json，站点页在 sites.html
+SITES_FILE = ROOT / "sites.json"
+SITE_CATEGORY_ORDER = ["SEO 内容站", "工具站", "域名注册", "支付"]
+
 CATEGORIES = {
     "2110669876482203775": "新词站实战复盘",
     "2112216903150436383": "新词站实战复盘",
@@ -785,11 +789,16 @@ a:focus-visible, button:focus-visible {
 .site-header .brand-mark {
   display: block; width: 26px; height: 26px; border-radius: 6px;
 }
+.site-header nav { display: flex; align-items: center; gap: 2px; }
 .site-header nav a {
-  display: inline-block; margin: 0 -10px 0 4px; padding: 8px 10px;
-  color: var(--muted); font-size: 14px; border-radius: 8px;
+  display: inline-block; padding: 7px 12px;
+  color: var(--muted); font-size: 14px; border-radius: 999px;
+  -webkit-tap-highlight-color: transparent;
 }
 .site-header nav a:hover { color: var(--fg); background: var(--card); text-decoration: none; }
+.site-header nav a.active { background: var(--fg); color: #fff; }
+.site-header nav a.active:hover { background: var(--fg); color: #fff; }
+.site-header nav .gh-link { margin-left: 4px; }
 
 /* 作者与标题 */
 .author { display: flex; gap: 12px; align-items: center; margin: 2px 0 18px; }
@@ -1114,10 +1123,43 @@ h1.title {
 .pc-pin-icon { display: block; width: 13px; height: 13px; flex: none; }
 .card-controls .pc-pin { padding: 4px 11px; font-size: 12.5px; }
 
+/* 网站收藏 */
+#sites { display: block; }
+.site-group { margin: 0 0 26px; }
+.site-group .cat { margin: 0 0 12px; }
+.sites-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.site-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 15px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg); color: inherit;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.site-card:active { background: var(--card); }
+@media (hover: hover) {
+  .site-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 24px rgba(15, 20, 25, .06);
+    text-decoration: none;
+  }
+}
+.site-logo {
+  flex: none; width: 40px; height: 40px; border-radius: 10px;
+  object-fit: contain; background: var(--card);
+}
+.site-logo-fallback {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: var(--muted);
+}
+.site-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.site-title { font-weight: 600; font-size: 15.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.site-host { color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
+
 /* 手机端：单列、更大触控区、正文不出现横向滚动 */
 @media (max-width: 760px) {
   #list { grid-template-columns: 1fr; }
   .pinned-list { grid-template-columns: 1fr; }
+  .sites-grid { grid-template-columns: 1fr; }
   .index-wrap { max-width: 700px; }
 }
 @media (max-width: 560px) {
@@ -1127,6 +1169,8 @@ h1.title {
   .site-header { margin-bottom: 20px; }
   .site-header .brand { font-size: 16.5px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
+  .site-header nav .gh-link { display: none; }
+  .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
   h1.title { font-size: 25px; line-height: 1.36; margin-bottom: 14px; }
   .index-wrap h1.title { font-size: 24px; }
   .author { margin-bottom: 16px; }
@@ -1239,6 +1283,108 @@ SPECULATION_PREFETCH = """<script type="speculationrules">
 </script>"""
 
 
+def header_html(active: str) -> str:
+    """目录页顶部导航：文章 / 网站 两个 tab。active 取 posts 或 sites。"""
+    posts_cls = "tab active" if active == "posts" else "tab"
+    sites_cls = "tab active" if active == "sites" else "tab"
+    posts_aria = ' aria-current="page"' if active == "posts" else ""
+    sites_aria = ' aria-current="page"' if active == "sites" else ""
+    return f"""<header class="site-header">
+    <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="26" height="26" />X Mirror</a>
+    <nav>
+      <a class="{posts_cls}" href="./"{posts_aria}>文章</a>
+      <a class="{sites_cls}" href="sites.html"{sites_aria}>网站</a>
+      <a class="gh-link" href="https://github.com/wentao-hu/x-mirror">GitHub</a>
+    </nav>
+  </header>"""
+
+
+def load_sites() -> list[dict]:
+    if not SITES_FILE.exists():
+        return []
+    raw = json.loads(SITES_FILE.read_text(encoding="utf-8"))
+    return raw.get("sites", [])
+
+
+def site_host(url: str) -> str:
+    host = urllib.parse.urlparse(url).netloc.lower()
+    return host[4:] if host.startswith("www.") else host
+
+
+def site_logo_html(site: dict) -> str:
+    logo = site.get("logo")
+    if logo:
+        return (
+            f'<img class="site-logo" src="{esc(logo)}" alt="" width="40" height="40" '
+            f'loading="lazy" decoding="async" />'
+        )
+    letter = esc((site.get("title") or "?")[:1].upper())
+    return f'<span class="site-logo site-logo-fallback" aria-hidden="true">{letter}</span>'
+
+
+def sites_page(sites: list[dict]) -> str:
+    cats = [c for c in SITE_CATEGORY_ORDER if any(s["category"] == c for s in sites)]
+    for s in sites:
+        if s["category"] not in cats:
+            cats.append(s["category"])
+    groups = []
+    for c in cats:
+        cards = []
+        for s in sites:
+            if s["category"] != c:
+                continue
+            cards.append(
+                f"""<a class="site-card" href="{esc(s['url'])}" target="_blank" rel="noopener noreferrer">
+      {site_logo_html(s)}
+      <span class="site-info">
+        <span class="site-title">{esc(s['title'])}</span>
+        <span class="site-host">{esc(site_host(s['url']))}</span>
+      </span>
+    </a>"""
+            )
+        groups.append(
+            f'<section class="site-group">\n'
+            f'<h2 class="cat is-static"><span class="cat-name">{esc(c)}</span>'
+            f'<span class="cat-count">{len(cards)} 个</span></h2>\n'
+            f'<div class="sites-grid">\n' + "\n".join(cards) + "\n</div>\n</section>"
+        )
+    body = (
+        "\n".join(groups)
+        if groups
+        else '<p class="index-intro">还没有收藏网站，编辑 sites.json 后重新生成。</p>'
+    )
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>网站收藏 · X Mirror</title>
+<meta name="description" content="收藏的有用网站：SEO 内容站、工具站、域名注册、支付等，按用途分类。" />
+<link rel="icon" href="assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="stylesheet" href="assets/site.css?v={asset_version('assets/site.css')}" />
+</head>
+<body>
+<div class="wrap index-wrap">
+  {header_html('sites')}
+  <h1 class="title">网站收藏</h1>
+  <p class="index-intro">
+    收藏的有用网站，按用途分类；点击卡片直达原站。
+  </p>
+  <div id="sites">
+{body}
+  </div>
+  <div class="footer">共 {len(sites)} 个网站 · Personal archive</div>
+</div>
+</body>
+</html>
+"""
+
+
 def index_page(posts: list[dict]) -> str:
     cats = [c for c in CATEGORY_ORDER if any(p["category"] == c for p in posts)]
     for p in posts:
@@ -1300,10 +1446,7 @@ def index_page(posts: list[dict]) -> str:
 </head>
 <body>
 <div class="wrap index-wrap">
-  <header class="site-header">
-    <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="26" height="26" />X Mirror</a>
-    <nav><a href="https://github.com/wentao-hu/x-mirror">GitHub</a></nav>
-  </header>
+  {header_html('posts')}
   <h1 class="title">出海 SEO 收藏镜像</h1>
   <p class="index-intro">
     原文来自 X、web.cafe 与微信公众号，本站做内容完全映射（正文 + 图片本地化），方便在打不开原站时阅读。
@@ -1570,7 +1713,9 @@ def main():
         json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     (ROOT / "index.html").write_text(index_page(posts_meta), encoding="utf-8")
-    print("Wrote index +", len(posts_meta), "posts")
+    sites = load_sites()
+    (ROOT / "sites.html").write_text(sites_page(sites), encoding="utf-8")
+    print("Wrote index +", len(posts_meta), "posts,", len(sites), "sites")
 
 
 if __name__ == "__main__":

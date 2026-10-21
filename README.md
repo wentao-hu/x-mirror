@@ -17,7 +17,9 @@ GitHub Pages 只托管静态页面；评分与已读在浏览器本机即时生�
 ## 结构
 
 ```
-index.html            # 目录页（分类 + 搜索 + 评分/已读筛选）
+index.html            # 文章页（分类 + 搜索 + 评分/已读筛选）
+sites.html            # 网站收藏页（按分类分组，logo + 标题链接）
+sites.json            # 网站收藏清单（标题/链接/分类/logo）
 posts.json            # 清单（标题/作者/分类/来源类型/图片统计，entry_type: mirror | link_only）
 posts/<slug>/
   index.html          # 单篇阅读页（内置评分 + 已读完控件）
@@ -26,6 +28,7 @@ data/<slug>.json      # 抽取后的结构化数据（便于重建）
 assets/
   site.css            # 共享样式（模板以 ?v=<content-hash> 引用）
   meta.js             # 评分/已读共享脚本（KV + localStorage）
+  sites/              # 收藏网站的 logo，全部本地托管
 functions/api/meta.js # Pages Function：GET/PUT 评分与已读
 _headers              # Cloudflare Pages 缓存策略
 wrangler.toml         # Pages 配置 + ARTICLE_META KV 绑定
@@ -106,6 +109,26 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 5. `git push` 后执行 `./scripts/deploy_cloudflare.sh`（或等 Git 绑定自动部署）。
 
 评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css`、补齐 WebP 副本并保留所有文章页的控件。
+
+## 网站收藏
+
+目录页顶部有「文章 / 网站」两个 tab：`index.html` 是文章列表，`sites.html` 是网站收藏。网站页按分类分组，每个网站显示本地 logo、标题（超链接，新窗口打开）和域名。
+
+收藏数据在根目录 `sites.json`，新增一个网站加一条即可：
+
+```json
+{
+  "slug": "stripe",
+  "title": "Stripe",
+  "url": "https://stripe.com/cn",
+  "category": "支付",
+  "logo": "assets/sites/stripe.svg"
+}
+```
+
+- `category` 决定分组。分组顺序由 `scripts/extract_and_build.py` 的 `SITE_CATEGORY_ORDER` 控制，未列出的分类排在后面。
+- `logo` 可省略，省略时显示标题首字母。图片下载到 `assets/sites/`，与文章图片一样本地托管。
+- 改完运行 `python3 scripts/rebuild_from_data.py`，会重新生成 `sites.html`。
 
 ## 内容类型（source_type）
 

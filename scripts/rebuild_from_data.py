@@ -54,3 +54,7 @@ posts_meta.sort(key=lambda p: (order.index(p["category"]) if p["category"] in or
 (ROOT / "posts.json").write_text(json.dumps({"posts": posts_meta}, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "index.html").write_text(mod.index_page(posts_meta), encoding="utf-8")
 print("index ok", len(posts_meta))
+
+sites = mod.load_sites()
+(ROOT / "sites.html").write_text(mod.sites_page(sites), encoding="utf-8")
+print("sites ok", len(sites))

@@ -1,0 +1,25 @@
+{
+  "sites": [
+    {
+      "slug": "aichuhai",
+      "title": "AI 网站出海开发者社区",
+      "url": "https://aichuhai.dev/",
+      "category": "SEO 内容站",
+      "logo": "assets/sites/aichuhai.png"
+    },
+    {
+      "slug": "spaceship",
+      "title": "Spaceship",
+      "url": "https://www.spaceship.com/zh/",
+      "category": "域名注册",
+      "logo": "assets/sites/spaceship.png"
+    },
+    {
+      "slug": "stripe",
+      "title": "Stripe",
+      "url": "https://stripe.com/cn",
+      "category": "支付",
+      "logo": "assets/sites/stripe.svg"
+    }
+  ]
+}
