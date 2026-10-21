@@ -221,6 +221,26 @@
       "blocks_count": 62
     },
     {
+      "id": "wechat-dBN93I2USJduCOlnq68qRQ",
+      "slug": "wechat-ruqun-9-months-10k",
+      "title": "入群九个月，从网站被惩罚到月入万刀",
+      "url": "https://mp.weixin.qq.com/s/dBN93I2USJduCOlnq68qRQ",
+      "author_name": "我是哥飞",
+      "author_username": "哥飞",
+      "published_utc": "2026-01-14T13:49:38.000Z",
+      "published_local": "2026-01-14 21:49",
+      "category": "出海复盘",
+      "description": "哥飞群友复盘入群九个月：AI 批量生成页面拖垮老站后如何调整，最终做到月入万刀。",
+      "source_type": "wechat",
+      "avatar_local": "",
+      "images_total": 2,
+      "images_ok": 2,
+      "api_media_count": 2,
+      "fidelity_note": "微信原文；已删除文末加微信 CTA 与对应截图，保留正文与配图。",
+      "plain_text_len": 1984,
+      "blocks_count": 48
+    },
+    {
       "id": "wechat-yjrpkSH_WzmZgpRerBdGEQ",
       "slug": "xiaoerduo-overseas-web-4w-journey",
       "title": "摸索一年，走上出海web道路月入 4w 刀，万字记录历程，分享实操",
@@ -418,6 +438,26 @@
       "fidelity_note": "全文来自飞书 wiki 抓取包；作者微信联系方式及联系用二维码已按抓取约定剥离。两份嵌入附件 01-项目需求文档.md / 02-部署执行文档.md 未下载（飞书 preview URL 疑似会话绑定），页面以原 wiki 链接作纯文本超链。代码块原样保留。",
       "plain_text_len": 5859,
       "blocks_count": 180
+    },
+    {
+      "id": "wechat-vvIkFL0bSc2o7iRkVB9_RA",
+      "slug": "wechat-traffic-channels",
+      "title": "网站出海分享：从流量平台挖掘异常流量，学习别人的流量渠道打法",
+      "url": "https://mp.weixin.qq.com/s/vvIkFL0bSc2o7iRkVB9_RA",
+      "author_name": "droidHZ",
+      "author_username": "droidHZ",
+      "published_utc": "2026-09-27T23:28:46.000Z",
+      "published_local": "2026-09-28 07:28",
+      "category": "外链推广",
+      "description": "通过 Similarweb 的异常外链占比和出站流量反推竞品渠道，再用 Codex 挖具体引流打法。",
+      "source_type": "wechat",
+      "avatar_local": "",
+      "images_total": 3,
+      "images_ok": 3,
+      "api_media_count": 3,
+      "fidelity_note": "微信原文；已删除文末加微信 CTA、对应截图与公众号合集标签，保留正文与配图。",
+      "plain_text_len": 700,
+      "blocks_count": 11
     },
     {
       "id": "2112061360708403397",
