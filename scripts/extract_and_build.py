@@ -1585,7 +1585,9 @@ def index_page(posts: list[dict]) -> str:
     </div>
   </div>
   <section class="pinned" id="pinned" hidden>
-    <h2 class="pinned-title">置顶</h2>
+    <h2 class="pinned-title is-toggle" id="pinned-toggle" role="button" tabindex="0" aria-expanded="true">
+      <span>置顶</span><span class="cat-chevron" aria-hidden="true">▾</span>
+    </h2>
     <div class="pinned-list" id="pinned-list"></div>
   </section>
   <div id="list">

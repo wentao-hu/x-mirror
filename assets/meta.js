@@ -752,6 +752,38 @@
     if (!list || !box || !mount || box.dataset.xmPinnedReady === '1') return;
     box.dataset.xmPinnedReady = '1';
 
+    /* 置顶区折叠：状态只存本机，不参与评分同步 */
+    var toggle = document.getElementById('pinned-toggle');
+    var PIN_COLLAPSE_KEY = 'x-mirror-pinned-collapsed-v1';
+    var pinnedCollapsed = false;
+    try {
+      pinnedCollapsed = global.localStorage.getItem(PIN_COLLAPSE_KEY) === '1';
+    } catch (e) { /* ignore */ }
+
+    function setPinnedCollapsed(value) {
+      if (!toggle) return;
+      box.classList.toggle('is-collapsed', value);
+      toggle.setAttribute('aria-expanded', value ? 'false' : 'true');
+    }
+    setPinnedCollapsed(pinnedCollapsed);
+
+    if (toggle) {
+      var flipPinned = function () {
+        pinnedCollapsed = !pinnedCollapsed;
+        setPinnedCollapsed(pinnedCollapsed);
+        try {
+          global.localStorage.setItem(PIN_COLLAPSE_KEY, pinnedCollapsed ? '1' : '0');
+        } catch (e) { /* ignore */ }
+      };
+      toggle.addEventListener('click', flipPinned);
+      toggle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          flipPinned();
+        }
+      });
+    }
+
     function render() {
       var cards = Array.prototype.slice.call(list.querySelectorAll('.card[data-slug]'));
       var pinned = cards.filter(function (el) { return get(el.dataset.slug).pinned; });
