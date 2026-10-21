@@ -6,7 +6,11 @@
   'use strict';
 
   var META_KEY = 'x-mirror-meta-v1';
-  var API_URL = '/api/meta';
+  // GitHub Pages 没有 Pages Functions：评分/已读改走 Cloudflare 的同一 API（已开 CORS）。
+  // 其余部署（Cloudflare Pages 及预览域名）继续用同源 /api/meta。
+  var API_URL = /(^|\.)github\.io$/i.test(global.location.hostname)
+    ? 'https://x-mirror-af7.pages.dev/api/meta'
+    : '/api/meta';
   var IS_FILE = global.location && global.location.protocol === 'file:';
   var SLUG_RE = /^[a-z0-9][a-z0-9-]{0,79}$/;
 
