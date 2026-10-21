@@ -83,6 +83,41 @@
     renderAll();
   });
 
+  /* 置顶区折叠：状态存本机，不参与多端同步 */
+  var COLLAPSE_KEY = 'x-mirror-sites-pinned-collapsed-v1';
+  var pinnedBox = doc.getElementById('sites-pinned');
+  var pinnedToggle = doc.getElementById('sites-pinned-toggle');
+
+  function setCollapsed(collapsed) {
+    if (!pinnedBox || !pinnedToggle) return;
+    pinnedBox.classList.toggle('is-collapsed', collapsed);
+    pinnedToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  }
+
+  if (pinnedBox && pinnedToggle) {
+    var collapsed = false;
+    try {
+      collapsed = global.localStorage.getItem(COLLAPSE_KEY) === '1';
+    } catch (e) { /* ignore */ }
+    setCollapsed(collapsed);
+
+    function flipPinned() {
+      collapsed = !collapsed;
+      setCollapsed(collapsed);
+      try {
+        global.localStorage.setItem(COLLAPSE_KEY, collapsed ? '1' : '0');
+      } catch (e) { /* ignore */ }
+    }
+
+    pinnedToggle.addEventListener('click', flipPinned);
+    pinnedToggle.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        flipPinned();
+      }
+    });
+  }
+
   doc.addEventListener('xm-meta-refreshed', renderAll);
   META.ready.then(renderAll);
   renderAll();

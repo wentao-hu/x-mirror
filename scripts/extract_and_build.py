@@ -1025,6 +1025,15 @@ h1.title {
 /* 目录页置顶区 */
 .pinned { margin: 18px 0 8px; }
 .pinned-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--fg); }
+.pinned-title.is-toggle {
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.pinned-title.is-toggle .cat-chevron {
+  color: var(--muted); font-size: 12px; transition: transform .15s ease;
+}
+.pinned.is-collapsed .pinned-title.is-toggle .cat-chevron { transform: rotate(-90deg); }
+.pinned.is-collapsed .pinned-list { display: none; }
 .pinned-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .pinned-item { display: flex; flex-direction: column; gap: 6px; }
 .pinned-item .card { flex: 1; }
@@ -1421,7 +1430,9 @@ def sites_page(sites: list[dict]) -> str:
     收藏的有用网站，按用途分类；点击卡片直达原站。
   </p>
   <section class="pinned" id="sites-pinned" hidden>
-    <h2 class="pinned-title">置顶</h2>
+    <h2 class="pinned-title is-toggle" id="sites-pinned-toggle" role="button" tabindex="0" aria-expanded="true">
+      <span>置顶</span><span class="cat-chevron" aria-hidden="true">▾</span>
+    </h2>
     <div class="pinned-list" id="sites-pinned-list"></div>
   </section>
   <div id="sites">

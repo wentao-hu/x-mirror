@@ -282,6 +282,15 @@ h1.title {
 /* 目录页置顶区 */
 .pinned { margin: 18px 0 8px; }
 .pinned-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--fg); }
+.pinned-title.is-toggle {
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.pinned-title.is-toggle .cat-chevron {
+  color: var(--muted); font-size: 12px; transition: transform .15s ease;
+}
+.pinned.is-collapsed .pinned-title.is-toggle .cat-chevron { transform: rotate(-90deg); }
+.pinned.is-collapsed .pinned-list { display: none; }
 .pinned-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .pinned-item { display: flex; flex-direction: column; gap: 6px; }
 .pinned-item .card { flex: 1; }
