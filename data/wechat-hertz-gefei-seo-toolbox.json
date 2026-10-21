@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "id": "wechat-AvOuEGgZhQ6SaM0Muej53w",
+    "slug": "wechat-hertz-gefei-seo-toolbox",
+    "title": "网站出海每日分享：哥飞老师的SEO神器",
+    "url": "https://mp.weixin.qq.com/s/AvOuEGgZhQ6SaM0Muej53w",
+    "author_name": "赫兹",
+    "author_username": "droidHZ",
+    "published_utc": "2026-07-03T23:56:53.000Z",
+    "published_local": "2026-07-04 07:56",
+    "category": "SEO基础",
+    "description": "赫兹分享哥飞老师的 SEO 工具箱：关键词难度评估、网站起名、KGR 分析、Stripe 引荐流量榜与 SEO 模拟经营游戏。",
+    "source_type": "wechat",
+    "avatar_local": "",
+    "images_total": 6,
+    "images_ok": 6,
+    "api_media_count": 6,
+    "fidelity_note": "微信公众号原文；正文按 content.html 顺序完整保留，6 张正文配图全部本地化。原文文末另有 1 张微信搜索引流截图及付费社群/联系方式 CTA，按镜像规则去除。",
+    "plain_text_len": 582,
+    "blocks_count": 18
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "早上好，朋友们！ 今天去听哥飞老师的年中线下分享会了，今天就来分享下哥飞老师的SEO 工具箱，有部分功能暂时可以非社群用户免费使用的，这些工具都是网站开发神器，我也是会经常用。 地址：seo.web.cafe"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-01.png",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/QicGeWbFV7ZSg13Dial5G9cKrwJcG1KG947F1CNibuSZFmncicOApxDyEic3ToAngrPhicrUqyeknUNxlunRpSFx0SbmVMMSUAIJPpTmF6875AP0A/640?wx_fmt=png&from=appmsg",
+      "alt": "哥飞 SEO 工具箱首页：关键词研究、计算器与数据、SEO 模拟器游戏",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/QicGeWbFV7ZSg13Dial5G9cKrwJcG1KG947F1CNibuSZFmncicOApxDyEic3ToAngrPhicrUqyeknUNxlunRpSFx0SbmVMMSUAIJPpTmF6875AP0A/640?wx_fmt=png&from=appmsg",
+      "local": "img-01.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "关键词难度计算"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个现在已经是我找需求，判断词做不做的一个必备神器了，不只是KD，哥飞老师的工具综合了前10名网站的KD，流量，体验，年龄综合打分。评估更加的全面，更有参考性。"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-02.png",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/QicGeWbFV7ZRv15AibfyWt1O49bzj1xG33KkGKPSIVAPLOpMxDm3UhUIKuL5c2Ac3ibgtmsOSXsWsiaWNu6D7oHEbAxGngaH2BaxPicav7Xp3FYo/640?wx_fmt=png&from=appmsg",
+      "alt": "关键词难度估算工具：输入关键词给出 0-100 难度分与判断原因",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/QicGeWbFV7ZRv15AibfyWt1O49bzj1xG33KkGKPSIVAPLOpMxDm3UhUIKuL5c2Ac3ibgtmsOSXsWsiaWNu6D7oHEbAxGngaH2BaxPicav7Xp3FYo/640?wx_fmt=png&from=appmsg",
+      "local": "img-02.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "网站起名"
+    },
+    {
+      "type": "paragraph",
+      "text": "不知道大家有没有这样的经历，和AI 讨论一大堆之后，找到一个心仪的域名，但是一购买发现已经被注册了，哥飞老师的这个工具除了综合AI建议外，还会真实的去去查询域名是否注册，节约时间。"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-03.png",
+      "orig_url": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZQldzHqpWnYxr84mFw1ibm9HHMVCrPBJicOoEfLPy3534kCavqor0HrrzMWpdNS3pu7x5GryrTC8nVNkibqhRSxPUdQVqYicZakk50/640?wx_fmt=png&from=appmsg",
+      "alt": "网站起名 AI：多模型生成候选并实时核查域名注册状态",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZQldzHqpWnYxr84mFw1ibm9HHMVCrPBJicOoEfLPy3534kCavqor0HrrzMWpdNS3pu7x5GryrTC8nVNkibqhRSxPUdQVqYicZakk50/640?wx_fmt=png&from=appmsg",
+      "local": "img-03.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "关键词分析"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个就是用来计算我们之前说的KGR的，除了KGR 还可以看到EKGR 和 KDROI 的数据，通过这个指标帮你评估关键词的ROI"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-04.png",
+      "orig_url": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZTdddp9uH33aly0Xsuq0Ul73vTTS1Ibz6vLQeRt8SlQTe5ib9t6ZAvcqQhdbKEHE7PTGgdDiaFl9Ywy2sztOtB2PyCY9Vic08BUPY/640?wx_fmt=png&from=appmsg",
+      "alt": "SEO 关键词分析工具：KGR、EKGR 与 KDROI 计算",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZTdddp9uH33aly0Xsuq0Ul73vTTS1Ibz6vLQeRt8SlQTe5ib9t6ZAvcqQhdbKEHE7PTGgdDiaFl9Ywy2sztOtB2PyCY9Vic08BUPY/640?wx_fmt=png&from=appmsg",
+      "local": "img-04.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Stripe 引荐流量排行"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个就是我们之前说的Stripe 收入排行榜的数据，这里不用自己去similarweb 看入站流量，而是直接帮你总结好了，而且有历史的数据可以查看，通过这个榜单去寻找一些需求方向。"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-05.png",
+      "orig_url": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZQKibQm1ib66ccWvyGib1cLxGlUfw9qzYuYPYIegOpnWoV3mb05YPQjZ2SrlqBMTqsgzE9yibrOZHicdFdEJHBIIqx68bY73Fzmv098/640?wx_fmt=png&from=appmsg",
+      "alt": "Checkout.stripe.com 引荐流量排行：2026 年 5 月榜单",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZQKibQm1ib66ccWvyGib1cLxGlUfw9qzYuYPYIegOpnWoV3mb05YPQjZ2SrlqBMTqsgzE9yibrOZHicdFdEJHBIIqx68bY73Fzmv098/640?wx_fmt=png&from=appmsg",
+      "local": "img-05.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "SEO 模拟经营"
+    },
+    {
+      "type": "paragraph",
+      "text": "SEO 大家都知道很慢，所以我们实践学习SEO是一个很长的过程，很难进行理解。哥飞老师的这个SEO模拟经营，可以让体会到SEO 是怎么样的一个流程，了解到怎么布局关键词内容，购买外链。当然玩到最后大家还会体会到日入万刀的快感。非常nice~"
+    },
+    {
+      "type": "image",
+      "src": "assets/img-06.png",
+      "orig_url": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZTia1MOsDTLrgMtaN472WrzWiaJcFPNFfv6ArcTPjNeIF2eAubha0UKjEyPK8g8nBzjNqa51qEp4icg6sHFJ7wlwN0nknm3iaADOjM/640?wx_fmt=png&from=appmsg",
+      "alt": "SEO 模拟经营游戏：从内容、外链到变现的经营决策",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/QicGeWbFV7ZTia1MOsDTLrgMtaN472WrzWiaJcFPNFfv6ArcTPjNeIF2eAubha0UKjEyPK8g8nBzjNqa51qEp4icg6sHFJ7wlwN0nknm3iaADOjM/640?wx_fmt=png&from=appmsg",
+      "local": "img-06.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "我是赫兹，专注网站出海第408天，持续分享网站出海内容。"
+    }
+  ],
+  "plain_text": "早上好，朋友们！ 今天去听哥飞老师的年中线下分享会了，今天就来分享下哥飞老师的SEO 工具箱，有部分功能暂时可以非社群用户免费使用的，这些工具都是网站开发神器，我也是会经常用。 地址：seo.web.cafe\n这个现在已经是我找需求，判断词做不做的一个必备神器了，不只是KD，哥飞老师的工具综合了前10名网站的KD，流量，体验，年龄综合打分。评估更加的全面，更有参考性。\n不知道大家有没有这样的经历，和AI 讨论一大堆之后，找到一个心仪的域名，但是一购买发现已经被注册了，哥飞老师的这个工具除了综合AI建议外，还会真实的去去查询域名是否注册，节约时间。\n这个就是用来计算我们之前说的KGR的，除了KGR 还可以看到EKGR 和 KDROI 的数据，通过这个指标帮你评估关键词的ROI\n这个就是我们之前说的Stripe 收入排行榜的数据，这里不用自己去similarweb 看入站流量，而是直接帮你总结好了，而且有历史的数据可以查看，通过这个榜单去寻找一些需求方向。\nSEO 大家都知道很慢，所以我们实践学习SEO是一个很长的过程，很难进行理解。哥飞老师的这个SEO模拟经营，可以让体会到SEO 是怎么样的一个流程，了解到怎么布局关键词内容，购买外链。当然玩到最后大家还会体会到日入万刀的快感。非常nice~\n我是赫兹，专注网站出海第408天，持续分享网站出海内容。",
+  "entities": {}
+}
