@@ -15,6 +15,13 @@
       "logo": "assets/sites/aichuhai.png"
     },
     {
+      "slug": "wangmazha",
+      "title": "Mazza Blog",
+      "url": "https://wangmazha.com/blog",
+      "category": "SEO 内容站",
+      "logo": "assets/sites/wangmazha.png"
+    },
+    {
       "slug": "cloudflare",
       "title": "Cloudflare Registrar",
       "url": "https://www.cloudflare.com/domains/",

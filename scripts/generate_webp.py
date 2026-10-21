@@ -31,6 +31,9 @@ def iter_sources(root: Path):
             if (directory == root / "assets"
                     and path.name.startswith(("favicon", "icon-", "apple-touch-icon"))):
                 continue
+            # 网站收藏 logo 固定按 40px 显示，HTML 直接引用原图，不生成 WebP
+            if (root / "assets" / "sites") in path.parents:
+                continue
             yield path
 
 
