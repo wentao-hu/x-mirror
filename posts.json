@@ -163,22 +163,22 @@
     {
       "id": "2112570645032886451",
       "slug": "jianyuwu-learn-new-keywords",
-      "title": "新词站复盘：今天学挖新词，玩法散在群友帖子和比赛复盘里",
+      "title": "新词站复盘：带着 4 个问题学挖新词，进度 5/20",
       "url": "https://x.com/iamjianyuwu/status/2112570645032886451",
       "author_name": "Jianyu Wu",
       "author_username": "iamjianyuwu",
       "published_utc": "2026-10-20T15:44:26.000Z",
       "published_local": "2026-10-20 23:44",
       "category": "新词站实战复盘",
-      "description": "建宇新词站复盘：感冒中学习挖新词，发现入门教程多讲老词，新词玩法散在群友帖子和比赛复盘里（4 张配图）",
+      "description": "建宇感冒日挖新词复盘：4 问（新词定义/去哪找/值不值得/做得好不好）、踩坑（上升≠新、曲线新事不新、Ads 勿误投）、工具站 vs 服务站；进度 5/20",
       "source_type": "x_post",
       "avatar_local": "avatar.jpg",
       "images_total": 4,
       "images_ok": 4,
       "api_media_count": 4,
-      "fidelity_note": "原帖为普通推文（非 Article、无 note_tweet，正文即全文），4 张配图已本地化；t.co 链接分别为配图页与引用原帖（已在站内镜像）；标题为镜像站自拟。",
-      "plain_text_len": 139,
-      "blocks_count": 11
+      "fidelity_note": "正文取自 API note_tweet.text 全文（非截断的 text 字段）；普通推文（非 Article）；4 张配图已本地化；文末附引用原帖站内镜像链接；标题为镜像站自拟。",
+      "plain_text_len": 845,
+      "blocks_count": 28
     },
     {
       "id": "2112133884477600141",
