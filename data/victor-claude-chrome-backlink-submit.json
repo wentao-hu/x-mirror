@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "id": "2112684386684645726",
+    "slug": "victor-claude-chrome-backlink-submit",
+    "title": "让 AI 帮你投外链：Claude Code + Claude in Chrome 自动填目录站的 6 个要点",
+    "url": "https://x.com/victor_UWer/status/2112684386684645726",
+    "author_name": "Victor在西雅图",
+    "author_username": "victor_UWer",
+    "published_utc": "2026-10-20T23:16:24.000Z",
+    "published_local": "2026-10-21 07:16",
+    "category": "外链推广",
+    "description": "用 Claude Code + Claude in Chrome 在自己登录的 Chrome 里批量提交目录站外链：SOP、CSV 记状态、成功判定、跳过付费站、验证码手动、Gmail +别名",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 API note_tweet.text 全文（非截断 text）；普通推文（非 Article），无配图/视频，无作者自回复串帖；标题为镜像站自拟。",
+    "plain_text_len": 360,
+    "blocks_count": 11
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "让 AI 帮你投外链：Claude Code + Claude in Chrome 自动填目录站的 6 个要点"
+    },
+    {
+      "type": "paragraph",
+      "text": "卧槽，投外链这种体力活，终于能甩给 AI 了："
+    },
+    {
+      "type": "paragraph",
+      "text": "Claude Code + Claude in Chrome 插件，直接在你自己登录好的 Chrome 里，一个个填目录站的提交表单。"
+    },
+    {
+      "type": "paragraph",
+      "text": "跑了几轮，总结几个关键点："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 一定用自己日常的 Chrome，别用空白的自动化浏览器，Google 登录会直接被拦"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 先给它写一份 SOP，产品介绍、logo、分类、联系邮箱全放进一个文件，每个站照着填"
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 每投一个站记一行 CSV，状态分清楚：已提交、付费跳过、验证码卡住、等邮件验证"
+    },
+    {
+      "type": "paragraph",
+      "text": "4. 看到感谢页或\"审核中\"才算成功，按钮弹个 Success 不算"
+    },
+    {
+      "type": "paragraph",
+      "text": "5. 只有付费通道的站，直接跳过"
+    },
+    {
+      "type": "paragraph",
+      "text": "6. 验证码别让它硬刷，留着自己手动点"
+    },
+    {
+      "type": "paragraph",
+      "text": "邮箱验证链接老被提前点失效？用 Gmail 的 +别名，一个站一个，贼好用。"
+    }
+  ],
+  "plain_text": "卧槽，投外链这种体力活，终于能甩给 AI 了：\n\nClaude Code + Claude in Chrome 插件，直接在你自己登录好的 Chrome 里，一个个填目录站的提交表单。\n\n跑了几轮，总结几个关键点：\n\n1. 一定用自己日常的 Chrome，别用空白的自动化浏览器，Google 登录会直接被拦\n\n2. 先给它写一份 SOP，产品介绍、logo、分类、联系邮箱全放进一个文件，每个站照着填\n\n3. 每投一个站记一行 CSV，状态分清楚：已提交、付费跳过、验证码卡住、等邮件验证\n\n4. 看到感谢页或\"审核中\"才算成功，按钮弹个 Success 不算\n\n5. 只有付费通道的站，直接跳过\n\n6. 验证码别让它硬刷，留着自己手动点\n\n邮箱验证链接老被提前点失效？用 Gmail 的 +别名，一个站一个，贼好用。",
+  "entities": {}
+}
