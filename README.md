@@ -148,6 +148,16 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 构建时卡片会输出 `data-source-type`，`assets/meta.js` 据此与分类、搜索、评分、已读、排序条件叠加过滤；缺失该字段的旧数据按 `entry_type` 回退（链接条目 → `webcafe_link`，其余 → `x_post`）。抽取脚本默认写入 `x_post`，其他类型在 `data/*.json` 中标注。
 
+## 内容标签（tags）
+
+`data/*.json` 的 `meta` 可增加 `tags` 字符串数组。构建后会显示在目录卡片与文章标题下方，并自动纳入目录搜索；标签不参与筛选逻辑。例如：
+
+```json
+{
+  "tags": ["国内身份", "Stripe", "支付风控"]
+}
+```
+
 ## 仅链接条目（web.cafe / 好友 VIP 站）
 
 `new.web.cafe` 是朋友的 VIP 站点，站内文章**永远只做目录条目，不做镜像**：

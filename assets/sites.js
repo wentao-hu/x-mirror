@@ -33,8 +33,13 @@
     var mount = doc.getElementById('sites-pinned-list');
     if (!box || !mount) return;
 
+    /* 最新置顶的排前面；旧数据没有 pinnedAt 时回退到 updatedAt */
     var pinned = cards().filter(function (card) {
       return META.get(card.dataset.slug).pinned;
+    }).sort(function (a, b) {
+      var ma = META.get(a.dataset.slug), mb = META.get(b.dataset.slug);
+      return (Date.parse(mb.pinnedAt || mb.updatedAt || 0) || 0) -
+             (Date.parse(ma.pinnedAt || ma.updatedAt || 0) || 0);
     });
 
     mount.innerHTML = '';

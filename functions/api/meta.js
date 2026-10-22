@@ -49,6 +49,7 @@ function normalizeItem(value) {
     rating: clampRating(item.rating),
     read: item.read === true,
     pinned: item.pinned === true,
+    pinnedAt: isValidDate(item.pinnedAt) ? new Date(item.pinnedAt).toISOString() : null,
     updatedAt: isValidDate(item.updatedAt) ? new Date(item.updatedAt).toISOString() : null,
   };
 }
@@ -135,17 +136,23 @@ export async function onRequest(context) {
       : new Date().toISOString();
 
     const items = await readAll(kv);
-    const prev = items[slug] || { rating: 0, read: false, pinned: false, updatedAt: null };
+    const prev = items[slug] || { rating: 0, read: false, pinned: false, pinnedAt: null, updatedAt: null };
 
     // last-write-wins：比服务器旧的写入直接忽略，返回服务器现值。
     if (prev.updatedAt && parseTime(updatedAt) < parseTime(prev.updatedAt)) {
       return json({ ok: true, applied: false, slug, item: prev });
     }
 
+    // 置顶时间用于置顶区排序；取消置顶时清空
+    const pinnedAt = hasPinned
+      ? (pinned ? (isValidDate(body.pinnedAt) ? new Date(body.pinnedAt).toISOString() : updatedAt) : null)
+      : (prev.pinnedAt || null);
+
     const next = {
       rating: hasRating ? rating : prev.rating,
       read: hasRead ? read : prev.read,
       pinned: hasPinned ? pinned : prev.pinned,
+      pinnedAt,
       updatedAt,
     };
     items[slug] = next;

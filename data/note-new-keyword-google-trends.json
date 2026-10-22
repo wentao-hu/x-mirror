@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "note-2026-10-22-new-keyword-google-trends",
+    "slug": "note-new-keyword-google-trends",
+    "title": "新词值不值得做？Google Trends 三步判断法",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-21T16:00:00.000Z",
+    "published_local": "2026-10-22 00:00",
+    "category": "需求筛选",
+    "description": "用 Google Trends 三步判断一个新词是否值得做：看搜索量是否上升、对比 GPTs 参考词的热度、检查第一页竞争构成。",
+    "source_type": "note",
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 420,
+    "blocks_count": 8
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Q1.5：如何判断一个新词值不值得做？"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Trends 里去查这个词。"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "出现在「搜索量上升」里。",
+        "对比 GPTs 的搜索热度：如果短期内有抬头的趋势，那么是可以尝试做的。zombie ai trend 的搜索量本身就不大，我依然能从中捞个小一千。",
+        "竞争对手比较少：第一页搜索结果不全是 AI 工具站，前排是资讯、YouTube 或者 Reddit 的内容。"
+      ]
+    },
+    {
+      "type": "image",
+      "local": "google-trends.png",
+      "alt": "Google Trends 对比 zombie ai trend、GPTs 与 hotel lobby ai 的搜索趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "注：为什么要用 GPTs 作为参考？"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为这是一个搜索量比较稳定的词，常年都有人查，GPTs 的日常搜索量大致在每天 5000～6000 次。受时间和节假日的影响比较少，所以作为搜索量的参考词。"
+    }
+  ]
+}

@@ -46,6 +46,9 @@
       rating: clampRating(item.rating),
       read: item.read === true,
       pinned: item.pinned === true,
+      pinnedAt: typeof item.pinnedAt === 'string' && !isNaN(Date.parse(item.pinnedAt))
+        ? new Date(item.pinnedAt).toISOString()
+        : null,
       updatedAt: typeof item.updatedAt === 'string' && !isNaN(Date.parse(item.updatedAt))
         ? new Date(item.updatedAt).toISOString()
         : null
@@ -128,7 +131,10 @@
     var body = { slug: slug, updatedAt: patch.updatedAt };
     if (Object.prototype.hasOwnProperty.call(patch, 'rating')) body.rating = patch.rating;
     if (Object.prototype.hasOwnProperty.call(patch, 'read')) body.read = patch.read;
-    if (Object.prototype.hasOwnProperty.call(patch, 'pinned')) body.pinned = patch.pinned;
+    if (Object.prototype.hasOwnProperty.call(patch, 'pinned')) {
+      body.pinned = patch.pinned;
+      if (Object.prototype.hasOwnProperty.call(patch, 'pinnedAt')) body.pinnedAt = patch.pinnedAt;
+    }
     return global.fetch(API_URL, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -228,11 +234,13 @@
     if (!SLUG_RE.test(slug)) return Promise.resolve(false);
     patch = patch || {};
     var cur = get(slug);
+    var ts = nowISO();
     var next = norm({
       rating: patch.rating != null ? patch.rating : cur.rating,
       read: patch.read != null ? patch.read : cur.read,
       pinned: patch.pinned != null ? patch.pinned : cur.pinned,
-      updatedAt: nowISO()
+      pinnedAt: patch.pinned != null ? (patch.pinned ? ts : null) : cur.pinnedAt,
+      updatedAt: ts
     });
     state.map[slug] = next;
     saveLocal(state.map);
@@ -241,7 +249,10 @@
     var wire = { updatedAt: next.updatedAt };
     if (patch.rating != null) wire.rating = next.rating;
     if (patch.read != null) wire.read = next.read;
-    if (patch.pinned != null) wire.pinned = next.pinned;
+    if (patch.pinned != null) {
+      wire.pinned = next.pinned;
+      wire.pinnedAt = next.pinnedAt;
+    }
     return putWithRetry(slug, wire, 1).then(function () {
       return true;
     }, function () {
@@ -788,6 +799,23 @@
       renderBadges();
       apply();
     });
+
+    /* 文章页分类标签：?cat=<分类> 回到目录时展开并定位到该分类 */
+    var targetCat = '';
+    try {
+      var params = new URLSearchParams((global.location && global.location.search) || '');
+      targetCat = params.get('cat') || '';
+    } catch (e) { /* ignore */ }
+    if (targetCat) {
+      var targetHead = catHeads.filter(function (h) {
+        return (h.dataset.cat || '') === targetCat;
+      })[0];
+      if (targetHead) {
+        setCatCollapsed(targetCat, false);
+        apply();
+        targetHead.scrollIntoView({ block: 'start', behavior: 'auto' });
+      }
+    }
   }
 
   /* ---------- 目录页置顶区 ---------- */
@@ -833,7 +861,13 @@
 
     function render() {
       var cards = Array.prototype.slice.call(list.querySelectorAll('.card[data-slug]'));
-      var pinned = cards.filter(function (el) { return get(el.dataset.slug).pinned; });
+      /* 最新置顶的排前面；旧数据没有 pinnedAt 时回退到 updatedAt */
+      var pinned = cards.filter(function (el) {
+        return get(el.dataset.slug).pinned;
+      }).sort(function (a, b) {
+        var ma = get(a.dataset.slug), mb = get(b.dataset.slug);
+        return parseTs(mb.pinnedAt || mb.updatedAt) - parseTs(ma.pinnedAt || ma.updatedAt);
+      });
       mount.innerHTML = '';
       pinned.forEach(function (card) {
         var slug = card.dataset.slug;

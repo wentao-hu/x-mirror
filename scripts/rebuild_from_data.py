@@ -34,10 +34,11 @@ for f in sorted((ROOT / "data").glob("*.json")):
     blocks = raw["blocks"]
     body_blocks = [b for b in blocks if not (b["type"] == "heading" and b.get("level") == 1)]
     post_assets = ROOT / "posts" / meta["slug"] / "assets"
+    toc_html = mod.render_toc_html(body_blocks)
     body_html = mod.render_blocks_html(body_blocks, "assets", post_assets)
     out = post_assets.parent / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(mod.post_page(meta, body_html), encoding="utf-8")
+    out.write_text(mod.post_page(meta, body_html, toc_html), encoding="utf-8")
     posts_meta.append(meta)
     print("rebuilt", meta["slug"])
 
@@ -50,7 +51,9 @@ for item in link_only:
 
 # keep category order stable
 order = mod.CATEGORY_ORDER
-posts_meta.sort(key=lambda p: (order.index(p["category"]) if p["category"] in order else 99, p["published_utc"]), reverse=False)
+# 分类内按发表时间从新到旧：先时间降序，再稳定地按分类顺序分组
+posts_meta.sort(key=lambda p: p["published_utc"], reverse=True)
+posts_meta.sort(key=lambda p: order.index(p["category"]) if p["category"] in order else 99)
 (ROOT / "posts.json").write_text(json.dumps({"posts": posts_meta}, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "index.html").write_text(mod.index_page(posts_meta), encoding="utf-8")
 print("index ok", len(posts_meta))

@@ -497,6 +497,7 @@ SOURCE_TYPE_LABELS = {
     "webcafe": "web.cafe",
     "wechat": "微信",
     "reddit": "Reddit",
+    "note": "自建笔记",
 }
 
 X_ICON = '<span class="src-icon" aria-hidden="true">𝕏</span>'
@@ -526,6 +527,11 @@ REDDIT_ICON = (
     '<path d="M8 3.9V2.5"></path><circle cx="8" cy="2.2" r=".55"></circle>'
     '<path d="M8 2.5 10.2 3"></path></svg>'
 )
+NOTE_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path>'
+    '<path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg>'
+)
 
 
 def source_type_of(meta: dict) -> str:
@@ -548,7 +554,9 @@ ORIGIN_LABELS = {
 
 
 def author_handle(meta: dict) -> str:
-    """作者 handle：Reddit 用 u/，其余用 @。"""
+    """作者 handle：Reddit 用 u/；笔记是站内原创，无 handle；其余用 @。"""
+    if source_type_of(meta) == "note":
+        return ""
     username = esc(meta.get("author_username", ""))
     return f"u/{username}" if source_type_of(meta) == "reddit" else f"@{username}"
 
@@ -570,11 +578,32 @@ def source_badge(meta: dict) -> str:
         "wechat": WECHAT_ICON,
         "web_article": GLOBE_ICON,
         "reddit": REDDIT_ICON,
+        "note": NOTE_ICON,
     }.get(st, X_ICON)
     return (
         f'<span class="source-badge" data-source-type="{esc(st)}">'
         f'{icon}<span class="src-label">{label}</span></span>'
     )
+
+
+def meta_tags(meta: dict) -> list[str]:
+    """返回清洗后的内容标签，忽略空值和非法类型。"""
+    return [
+        tag.strip()
+        for tag in (meta.get("tags") or [])
+        if isinstance(tag, str) and tag.strip()
+    ]
+
+
+def tags_html(meta: dict, *, compact: bool = False, show_label: bool = False) -> str:
+    """渲染可展示、可被目录搜索命中的内容标签。"""
+    tags = meta_tags(meta)
+    if not tags:
+        return ""
+    classes = "tag-list tag-list--compact" if compact else "tag-list"
+    label = '<span class="tag-list__label">内容标签</span>' if show_label else ""
+    badges = "".join(f'<span class="tag-badge">{esc(tag)}</span>' for tag in tags)
+    return f'<div class="{classes}" aria-label="内容标签">{label}{badges}</div>'
 
 
 def linkify(text: str) -> str:
@@ -621,8 +650,8 @@ def linkify(text: str) -> str:
     )
     for key, html in md_links.items():
         s = s.replace(key, html)
-    # preserve newlines as <br> for multi-line paras
-    s = s.replace("\n", "<br>\n")
+    # 不要在 <br> 后再保留源码换行；聊天区使用 pre-wrap，否则同一换行会渲染两次。
+    s = s.replace("\n", "<br>")
     return s
 
 
@@ -674,9 +703,118 @@ def image_html(
     return img
 
 
+def chat_message_html(msg: dict) -> str:
+    """单条聊天消息：元信息（用户名-时间）比正文小、淡，正文保持正常字号。"""
+    return (
+        '<div class="chat-msg">'
+        f'<div class="chat-meta">{esc(msg["user"])}-{esc(msg["time"])}</div>'
+        f'<div class="chat-text">{linkify(msg["text"])}</div>'
+        "</div>"
+    )
+
+
+def render_chat_html(b: dict) -> str:
+    """聊天记录固定展示：首尾消息置顶 + 默认折叠的全量时间线。"""
+    messages = b["messages"]
+    if not messages:
+        return ""
+    first, last = messages[0], messages[-1]
+    people = list(dict.fromkeys(m["user"] for m in messages))
+    raw = b.get("raw_count", len(messages))
+    removed = b.get("removed_count", 0)
+    removed_note = b.get("removed_note", "纯表情")
+    span = f'{first["time"]} 至 {last["time"]}' if first["time"] != last["time"] else first["time"]
+    note = (
+        f'参与者 {len(people)} 人：{esc("、".join(people))} · 时间范围 {esc(span)} · '
+        f"原始 {raw} 条，保留 {len(messages)} 条"
+        + (f"，删除 {removed} 条{esc(removed_note)}" if removed else "")
+    )
+    range_items = [("第一条消息", first), ("最后一条消息", last)] if len(messages) > 1 else [("唯一一条消息", first)]
+    range_html = "".join(
+        f'<div class="chat-range__item"><div class="chat-range__title">{label}</div>'
+        f'<div class="chat-meta">{esc(m["user"])}-{esc(m["time"])}</div>'
+        f'<div class="chat-text">{linkify(m["text"])}</div></div>'
+        for label, m in range_items
+    )
+    log_html = "\n".join(chat_message_html(m) for m in messages)
+    open_attr = " open" if b.get("expanded") else ""
+    return (
+        '<div class="chat-block">'
+        f'<div class="chat-range">{range_html}</div>'
+        f'<details class="chat-appendix"{open_attr}>'
+        f'<summary>全部 {len(messages)} 条消息</summary>'
+        f'<div class="chat-log"><div class="chat-note">{note}</div>{log_html}</div>'
+        "</details></div>"
+    )
+
+
+def assign_heading_ids(blocks: list[dict]) -> None:
+    n = 0
+    for b in blocks:
+        if b["type"] == "heading" and b.get("level") in (2, 3):
+            n += 1
+            b["_id"] = f"sec-{n}"
+
+
+def render_toc_html(blocks: list[dict]) -> str:
+    """右侧目录：h2 为一级、h3 为其下的二级；少于两条标题不生成。"""
+    blocks = [dict(b) for b in blocks]  # 内部 id 不回写到数据
+    assign_heading_ids(blocks)
+    entries = [
+        (b["level"], b["_id"], b["text"])
+        for b in blocks
+        if b["type"] == "heading" and b.get("level") in (2, 3)
+    ]
+    if len(entries) < 2:
+        return ""
+    tree: list[dict] = []
+    for level, hid, text in entries:
+        node = {"level": level, "id": hid, "text": text, "children": []}
+        # 没有 h2 兜底时 h3 也作为一级，不能挂到前一个 h3 下面
+        if level == 3 and tree and tree[-1]["level"] == 2:
+            tree[-1]["children"].append(node)
+        else:
+            tree.append(node)
+
+    def render_nodes(nodes: list[dict], depth: int = 0) -> str:
+        out = []
+        for node in nodes:
+            link = (
+                f'<a class="toc-link toc-l{min(depth, 1) + 1}" '
+                f'href="#{node["id"]}">{esc(node["text"])}</a>'
+            )
+            children = ""
+            if node["children"]:
+                children = (
+                    '<ul class="toc-l2-list">'
+                    + render_nodes(node["children"], depth + 1)
+                    + "</ul>"
+                )
+            out.append(f"<li>{link}{children}</li>")
+        return "".join(out)
+
+    has_children = any(node["children"] for node in tree)
+    fold_btn = (
+        '<button type="button" class="toc-fold" aria-expanded="true">全折叠</button>'
+        if has_children
+        else ""
+    )
+    return (
+        '<aside class="toc" aria-label="文章目录">'
+        '<div class="toc-head"><span class="toc-title">目录</span>'
+        f'{fold_btn}<button type="button" class="toc-close" aria-label="隐藏目录">×</button>'
+        '</div><nav class="toc-nav"><ul class="toc-l1-list">'
+        + render_nodes(tree)
+        + "</ul></nav></aside>"
+        '<button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>'
+    )
+
+
 def render_blocks_html(
     blocks: list[dict], assets_rel: str, assets_dir: Path | None = None
 ) -> str:
+    blocks = [dict(b) for b in blocks]  # 内部 id 不回写到数据
+    assign_heading_ids(blocks)
     parts = []
     for b in blocks:
         t = b["type"]
@@ -684,7 +822,8 @@ def render_blocks_html(
             level = min(max(b.get("level", 2), 1), 4)
             if level == 1:
                 continue  # title rendered in header
-            parts.append(f"<h{level}>{esc(b['text'])}</h{level}>")
+            hid = f' id="{esc(b["_id"])}"' if b.get("_id") else ""
+            parts.append(f"<h{level}{hid}>{esc(b['text'])}</h{level}>")
         elif t == "paragraph":
             parts.append(f"<p>{linkify(b['text'])}</p>")
         elif t == "image":
@@ -727,6 +866,8 @@ def render_blocks_html(
             tag = "ol" if b.get("ordered") else "ul"
             items = "".join(f"<li>{linkify(i)}</li>" for i in b["items"])
             parts.append(f"<{tag}>{items}</{tag}>")
+        elif t == "chat":
+            parts.append(render_chat_html(b))
         elif t == "table":
             rows_html = []
             for ri, row in enumerate(b["rows"]):
@@ -904,6 +1045,88 @@ h1.title {
   overflow-wrap: anywhere;
 }
 .img-missing { color: #f4212e; font-size: 14px; }
+
+/* 右侧目录：宽屏显示，整块可隐藏，可全折叠到只剩一级 */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.toc { display: none; }
+.toc-open { display: none; }
+@media (min-width: 1240px) {
+  .toc {
+    display: block; position: fixed; top: 92px; right: 24px; z-index: 20;
+    width: 216px; max-height: calc(100vh - 130px); overflow-y: auto;
+    padding: 12px; border: 1px solid var(--border); border-radius: 12px;
+    background: rgba(255, 255, 255, .95);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    font-size: 12.5px; line-height: 1.55;
+  }
+  .toc-open {
+    display: inline-flex; position: fixed; top: 92px; right: 0; z-index: 21;
+    padding: 10px 5px;
+    border: 1px solid var(--border); border-right: 0; border-radius: 10px 0 0 10px;
+    background: var(--bg); color: var(--muted);
+    font-size: 12px; letter-spacing: .05em; cursor: pointer;
+    writing-mode: vertical-rl;
+  }
+  .toc-open:hover { color: var(--fg); }
+}
+.toc[hidden], .toc-open[hidden] { display: none; }
+.toc-head { display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+.toc-title { flex: 1; font-weight: 700; color: var(--fg); font-size: 12.5px; }
+.toc-fold, .toc-close {
+  border: 0; background: none; padding: 2px 6px; border-radius: 6px;
+  color: var(--muted); font: inherit; font-size: 11.5px; cursor: pointer;
+}
+.toc-fold:hover, .toc-close:hover { background: var(--card); color: var(--fg); }
+.toc-close { font-size: 15px; line-height: 1; padding: 1px 6px; }
+.toc-nav ul { list-style: none; margin: 0; padding: 0; }
+.toc-nav .toc-l2-list {
+  margin: 2px 0 2px 8px; padding-left: 8px; border-left: 1px solid var(--border);
+}
+.toc-nav a {
+  display: block; padding: 3px 6px; border-radius: 6px;
+  color: var(--muted); text-decoration: none; overflow-wrap: anywhere;
+}
+.toc-nav a:hover { color: var(--fg); background: var(--card); text-decoration: none; }
+.toc-nav .toc-l1 { color: color-mix(in srgb, var(--fg) 84%, var(--link)); font-weight: 600; }
+.toc.is-folded .toc-l2-list { display: none; }
+h2[id], h3[id] { scroll-margin-top: 20px; }
+
+/* 聊天记录：首尾消息置顶，全量时间线默认折叠；元信息小而淡，正文正常字号 */
+.chat-block { margin: 20px 0 24px; }
+.chat-range {
+  margin: 0 0 16px; padding: 18px 20px;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+}
+.chat-range__title {
+  margin: 0 0 6px; color: var(--muted-2);
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+}
+.chat-range__item { margin: 0 0 18px; }
+.chat-range__item:last-child { margin-bottom: 0; }
+.chat-meta { margin-bottom: 3px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.chat-text { color: var(--fg); font-size: 17px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-appendix {
+  border: 1px solid var(--border); border-radius: 12px; background: var(--bg);
+}
+.chat-appendix > summary {
+  cursor: pointer; padding: 12px 16px;
+  color: var(--muted); font-size: 14px; font-weight: 600; line-height: 1.6;
+  list-style: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.chat-appendix > summary::-webkit-details-marker { display: none; }
+.chat-appendix > summary::before { content: "▸ "; color: var(--muted-2); }
+.chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
+.chat-appendix[open] > summary::before { content: "▾ "; }
+.chat-log { padding: 16px; }
+.chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
+.chat-log .chat-msg { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.chat-log .chat-msg:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+@media (max-width: 640px) {
+  .chat-range { padding: 15px 16px; }
+  .chat-log { padding: 14px; }
+}
 
 /* 目录：筛选与排序 */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 20px; }
@@ -1089,6 +1312,32 @@ h1.title {
   color: var(--muted); font-size: 11px; font-weight: 600;
   line-height: 1.7; white-space: nowrap;
 }
+/* 文章页分类标签：与来源徽标同款圆角，点击回目录定位分类 */
+.cat-badge {
+  display: inline-flex; align-items: center;
+  margin-left: 8px; vertical-align: middle;
+  border: 1px solid var(--border); border-radius: 999px; padding: 0 8px;
+  color: var(--muted); font-size: 11px; font-weight: 500;
+  line-height: 1.7; white-space: nowrap;
+}
+.cat-badge:hover { color: var(--link); text-decoration: none; border-color: var(--border-strong); }
+.tag-list {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  margin: 0 0 14px;
+}
+.tag-list--compact { gap: 5px; margin: 9px 0 0; }
+.tag-list__label {
+  color: var(--muted-2); font-size: 12px; font-weight: 600;
+  margin-right: 2px;
+}
+.tag-badge {
+  display: inline-flex; align-items: center;
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 1px 7px; background: #fafbfc;
+  color: var(--muted); font-size: 11.5px; font-weight: 500;
+  line-height: 1.65;
+}
+.tag-list--compact .tag-badge { padding: 0 6px; font-size: 11px; }
 .source-badge .src-icon {
   display: inline-block; width: 12px; height: 12px;
   font-size: 11px; line-height: 1; text-align: center;
@@ -1117,6 +1366,9 @@ h1.title {
   background: #fff0e8; color: #c93a00; border-color: #ffd5c0;
 }
 .source-badge[data-source-type="reddit"] svg.src-icon { color: #ff4500; }
+.source-badge[data-source-type="note"] {
+  background: #fff8e1; color: #9a6700; border-color: #f2e3b3;
+}
 .card-controls {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
   margin-top: 8px; font-size: 13px;
@@ -1263,14 +1515,21 @@ h1.title {
 """
 
 
-def post_page(meta: dict, body_html: str) -> str:
+def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
     post_assets = ROOT / "posts" / meta["slug"] / "assets"
     avatar = meta.get("avatar_local")
-    avatar_html = (
-        image_html(f"assets/{avatar}", "", assets_dir=post_assets)
-        if avatar
-        else '<span class="avatar-empty" aria-hidden="true"></span>'
-    )
+    if source_type_of(meta) == "note":
+        # 自建笔记统一用站主的固定头像
+        avatar_html = (
+            '<img src="../../assets/note-avatar.jpg" alt="" width="46" height="46" '
+            'loading="lazy" decoding="async" />'
+        )
+    else:
+        avatar_html = (
+            image_html(f"assets/{avatar}", "", assets_dir=post_assets)
+            if avatar
+            else '<span class="avatar-empty" aria-hidden="true"></span>'
+        )
     cover = meta.get("cover_local")
     cover_html = (
         f'<figure class="media">'
@@ -1281,6 +1540,35 @@ def post_page(meta: dict, body_html: str) -> str:
         if cover and meta.get("cover_separate")
         else ""
     )
+    handle = author_handle(meta)
+    handle_html = f' <span class="meta">{handle}</span>' if handle else ""
+    orig_link_html = (
+        f'<a class="orig-link" href="{esc(meta["url"])}" target="_blank" rel="noopener">'
+        f'{original_link_text(meta)}</a>'
+        if meta.get("url")
+        else ""
+    )
+    # 分类标签：点击回目录，展开并定位到该分类
+    cat_badge_html = (
+        f'<a class="cat-badge" href="../../?cat={urllib.parse.quote(meta["category"])}" '
+        f'title="返回目录 · {esc(meta["category"])}">{esc(meta["category"])}</a>'
+    )
+    tags_row_html = tags_html(meta, show_label=True)
+    toc_script = (
+        f'<script src="../../assets/toc.js?v={asset_version("assets/toc.js")}" defer></script>'
+        if toc_html
+        else ""
+    )
+    # 原创笔记不是镜像，不显示镜像说明
+    fidelity_html = ""
+    if source_type_of(meta) != "note":
+        fidelity_html = (
+            '<div class="fidelity">\n'
+            '    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。\n'
+            f'    已镜像图片 {meta.get("images_ok",0)}/{meta.get("images_total",0)}。\n'
+            f'    {esc(meta.get("fidelity_note") or "")}\n'
+            '  </div>'
+        )
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1304,25 +1592,24 @@ def post_page(meta: dict, body_html: str) -> str:
   <div class="author">
     {avatar_html}
     <div>
-      <div class="name">{esc(meta['author_name'])} <span class="meta">{author_handle(meta)}</span></div>
-      <div class="meta">{esc(meta['published_local'])} · Asia/Shanghai</div>
+      <div class="name">{esc(meta['author_name'])}{handle_html}</div>
+      <div class="meta">{esc(meta['published_local'])}</div>
     </div>
   </div>
-  <h1 class="title">{esc(meta['title'])}{source_badge(meta)}</h1>
+  <h1 class="title">{esc(meta['title'])}{source_badge(meta)}{cat_badge_html}</h1>
+  {tags_row_html}
   <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
-  <a class="orig-link" href="{esc(meta['url'])}" target="_blank" rel="noopener">{original_link_text(meta)}</a>
+  {orig_link_html}
   {cover_html}
   <article class="article">
 {body_html}
   </article>
-  <div class="fidelity">
-    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
-    已镜像图片 {meta.get('images_ok',0)}/{meta.get('images_total',0)}。
-    {esc(meta.get('fidelity_note') or '')}
-  </div>
+  {fidelity_html}
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
+{toc_html}
 <script src="../../assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+{toc_script}
 </body>
 </html>
 """
@@ -1472,7 +1759,17 @@ def index_page(posts: list[dict]) -> str:
         for p in posts:
             if p["category"] != c:
                 continue
-            q = esc(p['title'] + ' ' + p['author_name'] + ' ' + p['author_username'] + ' ' + p.get('description', ''))
+            q = esc(
+                " ".join(
+                    [
+                        p["title"],
+                        p["author_name"],
+                        p["author_username"],
+                        p.get("description", ""),
+                        *meta_tags(p),
+                    ]
+                )
+            )
             date = esc(p['published_local'][:16])
             if p.get("entry_type") == "link_only":
                 # 仅链接条目：标题直接外链原文，正文/图片一律不镜像
@@ -1483,6 +1780,7 @@ def index_page(posts: list[dict]) -> str:
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
   <div class="cmeta">{cmeta}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
+  {tags_html(p, compact=True)}
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
 </div>"""
                 )
@@ -1492,6 +1790,7 @@ def index_page(posts: list[dict]) -> str:
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
   <div class="cmeta">{esc(p['author_name'])} · {date}</div>
   <div class="cdesc">{esc(p.get('description',''))}</div>
+  {tags_html(p, compact=True)}
 </a>"""
                 )
         sections.append(
@@ -1508,7 +1807,7 @@ def index_page(posts: list[dict]) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
 <title>X Mirror · 出海 SEO 收藏镜像</title>
-<meta name="description" content="出海 SEO 收藏镜像：X、web.cafe 与微信公众号文章本地化，图片全部本地托管" />
+<meta name="description" content="出海 SEO 收藏镜像：X、web.cafe、微信公众号与原创整理笔记本地化，图片全部本地托管" />
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -1522,7 +1821,7 @@ def index_page(posts: list[dict]) -> str:
   {header_html('posts')}
   <h1 class="title">出海 SEO 收藏镜像</h1>
   <p class="index-intro">
-    原文来自 X、web.cafe 与微信公众号，本站做内容完全映射（正文 + 图片本地化），方便在打不开原站时阅读。
+    内容来自 X、web.cafe、微信公众号与萧禹的原创整理笔记，正文与图片全部本地托管，方便在打不开原站时阅读。
   </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
   <div class="filter-bar">
@@ -1545,6 +1844,7 @@ def index_page(posts: list[dict]) -> str:
           <button data-type="webcafe">web.cafe</button>
           <button data-type="wechat">微信</button>
           <button data-type="reddit">Reddit</button>
+          <button data-type="note">自建笔记</button>
         </div>
       </div>
       <div class="filter-row">
@@ -1604,7 +1904,7 @@ def index_page(posts: list[dict]) -> str:
   <div id="list">
 {''.join(sections)}
   </div>
-  <div class="footer">共 {len(posts)} 篇 · Personal archive · Asia/Shanghai</div>
+  <div class="footer">共 {len(posts)} 篇 · 时间均为北京时间（UTC+8） · Personal archive</div>
 </div>
 <script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
 </body>
@@ -1720,6 +2020,7 @@ def process_one(post_api: dict, users: dict) -> dict:
     # If first image is cover duplicated in body, keep it (matches X article layout)
 
     generate_all(ROOT)
+    toc_html = render_toc_html(body_blocks)
     body_html = render_blocks_html(body_blocks, "assets", assets)
 
     published = parse_time(post_api["created_at"])
@@ -1755,7 +2056,7 @@ def process_one(post_api: dict, users: dict) -> dict:
         json.dumps(raw, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    (out_dir / "index.html").write_text(post_page(meta, body_html), encoding="utf-8")
+    (out_dir / "index.html").write_text(post_page(meta, body_html, toc_html), encoding="utf-8")
     print(
         f"[ok] {slug}: images {images_ok}/{images_total} (api media~{api_media_n}), blocks {len(blocks)}"
     )

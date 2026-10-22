@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
 <link rel="manifest" href="../../site.webmanifest" />
-<link rel="stylesheet" href="../../assets/site.css?v=98d37de3" />
+<link rel="stylesheet" href="../../assets/site.css?v=278f6693" />
 </head>
 <body>
 <div class="wrap">
@@ -22,10 +22,11 @@
     <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
     <div>
       <div class="name">SagaSu <span class="meta">@sujingshen</span></div>
-      <div class="meta">2026-10-19 14:00 · Asia/Shanghai</div>
+      <div class="meta">2026-10-19 14:00</div>
     </div>
   </div>
-  <h1 class="title">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程<span class="source-badge" data-source-type="x_article"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">长文</span></span></h1>
+  <h1 class="title">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程<span class="source-badge" data-source-type="x_article"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">长文</span></span><a class="cat-badge" href="../../?cat=%E5%A4%96%E9%93%BE%E6%8E%A8%E5%B9%BF" title="返回目录 · 外链推广">外链推广</a></h1>
+  
   <div class="post-controls" data-meta-mount data-slug="sagasu-grokbot-backlinks"></div>
   <a class="orig-link" href="https://x.com/sujingshen/status/2112061360708403397" target="_blank" rel="noopener">查看原文（X）↗</a>
   
@@ -35,22 +36,17 @@
 <p>by Sagasu · 2026年10月</p>
 <p>给新产品做外链，最磨人的从来不是策略，是体力活：找站、注册、收验证邮件、填表、传 logo、选分类、等审核。一个人一晚上交十几个站就算高效了。</p>
 <p>这次我把这件事整个交给了 Grok Bot。一天之内，它从 4000 多个候选站里筛出 282 个能免费提交的站，按难度分三条线自动提交，自己收验证邮件、自己点确认链接，顺手往 22 个 GitHub awesome 列表开了 PR。我做的事情只有三件：定规则、批例外、点十来封必须我本人点的验证邮件。</p>
-<p>你问我如何注册 grok bot ？找<br>
-<a class="mention" href="https://x.com/app_sail" rel="noopener noreferrer" target="_blank">@app_sail</a><br>
-他的文章有很多这类教程</p>
-<p>推广的产品是 DMtheFounder（<br>
-dmthefounder.com<br>
-），一个免费招聘板：把创业公司创始人在 X 和 Hacker News 上发的早期工程岗汇总到一起，工程师可以直接私信创始人。下面所有数字都来自这一天的提交队列 CSV、脚本日志和对话记录。</p>
+<p>你问我如何注册 grok bot ？找<br><a class="mention" href="https://x.com/app_sail" rel="noopener noreferrer" target="_blank">@app_sail</a><br>他的文章有很多这类教程</p>
+<p>推广的产品是 DMtheFounder（<br>dmthefounder.com<br>），一个免费招聘板：把创业公司创始人在 X 和 Hacker News 上发的早期工程岗汇总到一起，工程师可以直接私信创始人。下面所有数字都来自这一天的提交队列 CSV、脚本日志和对话记录。</p>
 <p>先说结果。当天确认上线 9 个站，另有 10 个发布平台排上了未来几个月的发布日期，还有大约 120 个站已提交、有回执、在等审核。</p>
 <p>上线数看起来不多，原因很明确，而且都是我主动选的：</p>
 <ol><li>不付费。 所有付费档、付费插队、「免费提交但付费才发布」的站一律跳过。</li><li>没做「个人简介 + URL」这类外链。 在社区、论坛、开发者平台注册个人主页、在简介里留网址，是量最大、上线最快的一类，这次完全没碰。</li><li>很多站在排队。 免费档普遍要排队，有的排几周，有的排到明年 2 月，还有一个队列约 174 天。</li></ol>
-<p>上线数是规则拧出来的，不是能力上限。<br>
-规则放宽一点，数字就会变。这篇文章前半部分讲我这次的完整流程，后半部分讲如果你愿意付费、交换、挂徽章、扩大搜索、点赞评论、做个人简介，分别能多拿到什么。</p>
-<h2>一、你会用到 Grok Bot 的哪些能力</h2>
+<p>上线数是规则拧出来的，不是能力上限。<br>规则放宽一点，数字就会变。这篇文章前半部分讲我这次的完整流程，后半部分讲如果你愿意付费、交换、挂徽章、扩大搜索、点赞评论、做个人简介，分别能多拿到什么。</p>
+<h2 id="sec-1">一、你会用到 Grok Bot 的哪些能力</h2>
 <p>这套流程用到的东西不多，都是 Grok Bot 自带的：</p>
 <div class='table-wrap'><table><tr><th>能力</th><th>在流程里干什么</th></tr><tr><td>原生收件箱（ [email protected] ）</td><td>Agent 自己的邮箱，用来批量注册、接收验证邮件</td></tr><tr><td>Workspace + 脚本</td><td>存队列 CSV、日志、logo 和截图，跑探测和提交脚本</td></tr><tr><td>Executor 子任务</td><td>负责「找站 + 筛选」，产出可提交的队列</td></tr><tr><td>computerUse 浏览器</td><td>处理需要登录、上传图片、选发布日期的站</td></tr><tr><td>Routine</td><td>定时盯收件箱，自动点验证链接、传验证码</td></tr><tr><td>GitHub CLI（gh）</td><td>fork 仓库、改列表、开 PR</td></tr></table></div>
 <p>你不需要会写代码。脚本是 Agent 自己写的，我只看它汇报的结果。</p>
-<h2>二、第一步：写规则，再放权</h2>
+<h2 id="sec-2">二、第一步：写规则，再放权</h2>
 <p>Agent 跑起来很快，快到你来不及逐条审批。所以第一步不是找站，是写一条它能自己执行的判断规则。我的原话就一句：</p>
 <blockquote>付费的不管，交换的不管，就找那些能免费排队或者免费提交的外链。</blockquote>
 <p>展开成 Agent 能直接执行的版本：</p>
@@ -58,66 +54,45 @@ dmthefounder.com<br>
 <p>规则写清楚之后，例外才好处理。这次出现了两个例外：FoundrList 要先给几个产品点赞并认真评论才能解锁免费发布，我同意了；Crowdstax 是同类机制，Agent 按同样方式处理。另一个关键授权是 GitHub PR：第一次它问要不要开，我回了一句「发，以后类似的 GitHub PR 都直接发」，之后它就按各个仓库的格式自己开，不再逐条问我。</p>
 <p>还有一种情况 Agent 会主动停下来：Starter Story 的表单要填月收入和融资情况，产品没有这些数据，我回答「没有」，它就跳过了这个站，不会为了上线去编数字。</p>
 <p>Agent 每来问你一次，都说明规则里漏了一种情况。把答案补进规则，下次它就不问了。</p>
-<h2>三、第二步：备好资产包和两条邮箱</h2>
-<h3>资产包：一次备齐，所有站复用</h3>
+<h2 id="sec-3">三、第二步：备好资产包和两条邮箱</h2>
+<h3 id="sec-4">资产包：一次备齐，所有站复用</h3>
 <p>每个目录站的表单都不一样，但翻来覆去就那十几个字段。提前写成一份产品信息模板交给 Agent，它就不会每个站临场发挥一遍描述。我准备的是：</p>
 <div class='table-wrap'><table><tr><th>字段</th><th>准备内容</th></tr><tr><td>名称、网址</td><td>DMtheFounder / https://dmthefounder.com/</td></tr><tr><td>一句话 Tagline</td><td>短版：Early engineering jobs posted by startup founders；另备一个更有营销感的变体，给 Launch 类站用</td></tr><tr><td>描述</td><td>短、中、长三档（约 1 句 / 3 句 / 一段），书签站另备一版带联系方式的长文案</td></tr><tr><td>分类</td><td>Jobs / HR / Recruiting / Business，按站选最接近的</td></tr><tr><td>定价、阶段</td><td>Free;Bootstrapped / Pre-revenue / Launched</td></tr><tr><td>地点、成立年</td><td>London, UK;2026</td></tr><tr><td>创始人信息</td><td>姓名 + X 账号（没有领英就明确写没有，别让 Agent 去猜）</td></tr><tr><td>图片</td><td>Logo 多个尺寸、首页截图、三张 16:9 截图</td></tr></table></div>
 <p>这些文件全放在 workspace 里，Agent 填表时直接取。</p>
-<h3>邮箱：拆成两条线</h3>
-<p>第一条是 Agent 自己的邮箱。<br>
-大部分站的注册和验证都走 Grok Bot 的原生收件箱。我建了一个叫「外链邮件自动处理」的 routine 一直盯着它：收到验证邮件就自动点链接，收到短验证码就立刻传给正在填表的任务。注册密码统一存在 workspace 的一个文件里，对话里只提文件路径，不出现明文。</p>
-<p>第二条是产品域名邮箱<br>
-（<br>
-[email protected]<br>
-）。有些站要求用和网址同域名的邮箱注册，证明你是网站主人，比如 Latka、SaaSHub、StartupInspire。这类站的流程是：Agent 用域名邮箱注册，把需要我点的站列成一张短清单，我点完回一句「点了」，它再登录提交。这一天我亲手点的一共十来封，Shipboard、Entireweb、Idaho Index 都在里面。</p>
+<h3 id="sec-5">邮箱：拆成两条线</h3>
+<p>第一条是 Agent 自己的邮箱。<br>大部分站的注册和验证都走 Grok Bot 的原生收件箱。我建了一个叫「外链邮件自动处理」的 routine 一直盯着它：收到验证邮件就自动点链接，收到短验证码就立刻传给正在填表的任务。注册密码统一存在 workspace 的一个文件里，对话里只提文件路径，不出现明文。</p>
+<p>第二条是产品域名邮箱<br>（<br>[email protected]<br>）。有些站要求用和网址同域名的邮箱注册，证明你是网站主人，比如 Latka、SaaSHub、StartupInspire。这类站的流程是：Agent 用域名邮箱注册，把需要我点的站列成一张短清单，我点完回一句「点了」，它再登录提交。这一天我亲手点的一共十来封，Shipboard、Entireweb、Idaho Index 都在里面。</p>
 <p>让 Agent 处理海量邮件，你只点那几封必须证明身份的。</p>
-<h2>四、第三步：找站和筛选</h2>
+<h2 id="sec-6">四、第三步：找站和筛选</h2>
 <p>这一步交给 Executor 子任务，它做三件事：抓、探、分。</p>
-<p>抓。<br>
-从 GitHub 上的各种 submit 列表、SaaS 目录汇总、公开数据集里大量抓取候选站。我说了一句「扩大搜索，人家都能免费提交几千个」之后，它跑了好几轮：一轮抓取池 4266 个，另一轮 3450 个，再一轮 1996 个（各轮有重叠），一路累计排除了 523 个域名。</p>
-<p>探。<br>
-写脚本逐个访问提交页，看 HTTP 状态、有没有表单、页面上有没有付费或徽章的文案。</p>
-<p>分。<br>
-给每个站打一个状态标签，写进 CSV。最完整的一轮有 1567 个候选，分布如下：</p>
+<p>抓。<br>从 GitHub 上的各种 submit 列表、SaaS 目录汇总、公开数据集里大量抓取候选站。我说了一句「扩大搜索，人家都能免费提交几千个」之后，它跑了好几轮：一轮抓取池 4266 个，另一轮 3450 个，再一轮 1996 个（各轮有重叠），一路累计排除了 523 个域名。</p>
+<p>探。<br>写脚本逐个访问提交页，看 HTTP 状态、有没有表单、页面上有没有付费或徽章的文案。</p>
+<p>分。<br>给每个站打一个状态标签，写进 CSV。最完整的一轮有 1567 个候选，分布如下：</p>
 <div class='table-wrap'><table><tr><th>标签</th><th>数量</th><th>含义</th></tr><tr><td>free</td><td>545</td><td>看起来可以免费提交</td></tr><tr><td>free-queue</td><td>93</td><td>免费但要排队</td></tr><tr><td>unknown</td><td>295</td><td>探测不出来，需要进一步看</td></tr><tr><td>badge-required</td><td>283</td><td>必须挂徽章</td></tr><tr><td>dead</td><td>176</td><td>站已经打不开</td></tr><tr><td>likely-paid</td><td>175</td><td>大概率收费</td></tr></table></div>
 <p>标成 free 或 free-queue 的一共 638 个。再按规则二筛，分五批正式入队：60、60、62、86、14，合计 282 条。最后一批只有 14 条，因为到后期它再去搜，回报说约 3800 个源已经「几乎筛完」了。</p>
 <p>这里有个值得提前知道的经验：网上的「免费提交」列表大多是给 AI 工具准备的。第四批里就混进了大量 AI 工具目录，而 DMtheFounder 是招聘板，交进去要么被拒，要么上了也没有对口的访客。后来我让它改搜通用目录、创业公司目录、招聘相关目录和英国本地目录，命中率明显好了很多。</p>
 <p>列表是别人按别人的产品整理的。先按自己的品类筛一遍，再开始交。</p>
-<h2>五、第四步：分三条线提交</h2>
+<h2 id="sec-7">五、第四步：分三条线提交</h2>
 <p>队列有了，提交按难度分流：</p>
 <figure class="media"><a class="media-link" href="assets/HU-MVB8bgAA5OBA.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVB8bgAA5OBA-640.webp 640w, assets/HU-MVB8bgAA5OBA.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MVB8bgAA5OBA.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
-<p>脚本提交。<br>
-不需要账号的简单表单、同一套模板搭出来的站（大量老式 phpLD 目录、Laravel 书签站），还有开放了 API 的站（比如 Founderhood，调接口直接返回 pending），Agent 写小脚本或用 curl 批量提交，日志落到文件里。这条线最快，适合那些长得一模一样的目录站。</p>
-<p>浏览器批量。<br>
-需要登录、上传图片、选免费档、挑发布日期的站，交给 computerUse 操作真实浏览器。一批 10 到 12 个站，跑完汇报一次再开下一批；批次太大，出错时很难知道断在哪。登录态存在一个 cookies 目录里，这一天攒了约 49 个站的会话，之后回去查审核状态不用重新登录。</p>
-<p>邮件自动验证。<br>
-就是上一节的 routine。它和浏览器线并行：浏览器在某个站填表时触发了验证码，routine 收到邮件后马上传回去。FoundrList、IndieLaunch、IdeaKiln 都用短时效验证码，晚几分钟就过期，所以这条线的关键是快。</p>
+<p>脚本提交。<br>不需要账号的简单表单、同一套模板搭出来的站（大量老式 phpLD 目录、Laravel 书签站），还有开放了 API 的站（比如 Founderhood，调接口直接返回 pending），Agent 写小脚本或用 curl 批量提交，日志落到文件里。这条线最快，适合那些长得一模一样的目录站。</p>
+<p>浏览器批量。<br>需要登录、上传图片、选免费档、挑发布日期的站，交给 computerUse 操作真实浏览器。一批 10 到 12 个站，跑完汇报一次再开下一批；批次太大，出错时很难知道断在哪。登录态存在一个 cookies 目录里，这一天攒了约 49 个站的会话，之后回去查审核状态不用重新登录。</p>
+<p>邮件自动验证。<br>就是上一节的 routine。它和浏览器线并行：浏览器在某个站填表时触发了验证码，routine 收到邮件后马上传回去。FoundrList、IndieLaunch、IdeaKiln 都用短时效验证码，晚几分钟就过期，所以这条线的关键是快。</p>
 <p>给 Agent 的提交指令可以照这个写：</p>
 <blockquote>从 queue-vetted-3.csv 取下一批 12 个站，用 computerUse 逐个提交。统一用产品信息模板里的字段，描述用中档。注册用 bot 邮箱，验证交给邮件 routine。遇到需要域名邮箱的站，记下来最后一起列给我。每个站结束后在 CSV 里更新状态：已上线（附链接）、已提交待审、已排期（附日期）、跳过（附原因）。整批做完再汇报。</blockquote>
-<p>Agent 跑得快不难，难的是跑完之后你还知道它干了什么。<br>
-所以每个站都要落一个状态。</p>
-<h2>六、第五步：GitHub awesome 列表</h2>
+<p>Agent 跑得快不难，难的是跑完之后你还知道它干了什么。<br>所以每个站都要落一个状态。</p>
+<h2 id="sec-8">六、第五步：GitHub awesome 列表</h2>
 <p>这条线不用注册任何账号，只要一个 GitHub 账号。Agent 按每个仓库的 CONTRIBUTING 和列表格式，往招聘、远程工作、求职资源、创业资源、伦敦本地这些主题的 awesome 列表开 PR，说明里写清楚 DMtheFounder 和这个列表的关系。</p>
-<p>这一天一共开了 22 个 PR，已经有 1 个合并（<br>
-Awesome-Job-Search-Resources<br>
-），其余还在等维护者处理，比如<br>
-awesome-hacker-news<br>
-、<br>
-awesome-remote-job<br>
-、<br>
-awesome-london<br>
-。</p>
+<p>这一天一共开了 22 个 PR，已经有 1 个合并（<br>Awesome-Job-Search-Resources<br>），其余还在等维护者处理，比如<br>awesome-hacker-news<br>、<br>awesome-remote-job<br>、<br>awesome-london<br>。</p>
 <p>合并通常很慢，但每一条都经过真人维护者审核，又放在目标用户真的会去翻的页面上。对一个给工程师用的招聘板来说，这条线性价比很高。</p>
 <p>目录站给你一条链接，awesome 列表给你一个被人审过的位置。</p>
-<h2>七、第六步：记录和跟进</h2>
+<h2 id="sec-9">七、第六步：记录和跟进</h2>
 <p>很多站交完不是立刻上线，而是给你一个发布日期。这一天排上期的有 10 个：</p>
 <div class='table-wrap'><table><tr><th>站点</th><th>排期</th><th>页面现状</th></tr><tr><td>findasaas</td><td>10 月 26 日</td><td>无独立链接</td></tr><tr><td>Crowdstax</td><td>11 月 2～8 日发布周</td><td>审核中</td></tr><tr><td>FoundrList</td><td>11 月 16 日</td><td>目前是私密预览页，发布日才公开</td></tr><tr><td>LaunchRanked</td><td>11 月 23～29 日投票周</td><td>已有倒计时页，审核通过后给 followed link</td></tr><tr><td>Pro Launch</td><td>12 月 22 日</td><td>产品页已可访问</td></tr><tr><td>Toolfound</td><td>约 12 月 29 日</td><td>无独立链接，域名验证可选</td></tr><tr><td>What Launched Today</td><td>2027 年 1 月 16 日</td><td>审核前页面打不开</td></tr><tr><td>HUNT0</td><td>2027 年 2 月 8 日那一周</td><td>产品页已可访问，免费队列约第 67 位</td></tr><tr><td>Founderhood</td><td>待审</td><td>接口返回 pending</td></tr><tr><td>Internet Is Beautiful</td><td>队列约 174 天</td><td>无独立链接</td></tr></table></div>
 <p>发布平台的发布日当天往往需要你在场：回复评论、转发拉票。所以这张表要放进日历。</p>
 <p>我这次的记录载体是五个队列 CSV、几份提交日志和对话里的阶段汇报，没有一张「全部结果」总表，这篇文章的数字是事后汇总的。建议你第一天就让 Agent 建一张总表，每个站一行：状态、链接、排期日、到期日、是否 dofollow。之后每周让 routine 回去查一遍待审站的状态，更新这张表。</p>
-<h2>八、一天下来的结果</h2>
-<p>当天确认上线的 9 个站。这 9 个都是<br>
-提交当天页面就已发布、外链当天就在<br>
-，不用等。表里的「约 90 天」说的是有效期：这类书签站和目录站的免费收录大约保留 90 天，到期可能下线，需要续期或重新提交。</p>
+<h2 id="sec-10">八、一天下来的结果</h2>
+<p>当天确认上线的 9 个站。这 9 个都是<br>提交当天页面就已发布、外链当天就在<br>，不用等。表里的「约 90 天」说的是有效期：这类书签站和目录站的免费收录大约保留 90 天，到期可能下线，需要续期或重新提交。</p>
 <div class='table-wrap'><table><tr><th>站点</th><th>类型</th><th>当天状态</th><th>有效期</th></tr><tr><td>Web Directory Listing</td><td>目录站</td><td>已发布</td><td>免费收录约 90 天，nofollow</td></tr><tr><td>Bookmarks Club</td><td>书签站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>Bookmark Spot</td><td>书签站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>B3 Directory</td><td>目录站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>BookmarkWhirl</td><td>书签站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>Choice Bookmarks</td><td>书签站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>TourBR</td><td>书签站</td><td>已发布</td><td>约 90 天</td></tr><tr><td>Startup Europe</td><td>创业公司目录</td><td>已发布</td><td>未注明期限</td></tr><tr><td>Sundir</td><td>目录站</td><td>记录显示已列出，未单独存链接</td><td>未注明期限</td></tr></table></div>
 <p>所以，7 个书签站和目录站大约到明年 1 月中旬会集体到期。建议提交当天就让 Agent 把到期日写进总表，到期前提醒你决定续不续。</p>
 <p>加上已排期的 10 个，整个漏斗是这样：</p>
@@ -125,52 +100,33 @@ awesome-london<br>
 <figure class="media"><a class="media-link" href="assets/HU-MVf3bMAATwRL.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVf3bMAATwRL-640.webp 640w, assets/HU-MVf3bMAATwRL.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MVf3bMAATwRL.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <p>读这张表要注意两点。第一，各层不是严格的子集：282 条入队里有一部分来自这 1567 个之外的研究表，比例只能看量级。第二，这是跑完当天的快照。还有约 120 个站在审核中，接下来几周会陆续出结果，再加上 22 个 PR，最终数字会比现在高。</p>
 <p>回到开头说的三个原因，这个漏斗里每一层的流失都能对上：likely-paid 的 175 个和付费插队的站，是「不付费」挡掉的；badge-required 的 283 个，是「不挂徽章」挡掉的；个人简介类外链根本没进候选池；而已排期的 10 个和待审的约 120 个，就是「在排队」。</p>
-<h2>九、想要更多外链：六个可以拧的旋钮</h2>
+<h2 id="sec-11">九、想要更多外链：六个可以拧的旋钮</h2>
 <p>这一节是这篇教程里最值得挖的部分。我的规则把大部分旋钮都拧到了最低，你可以按自己的预算和底线调。</p>
 <figure class="media"><a class="media-link" href="assets/HU-MV9hawAAQdKZ.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MV9hawAAQdKZ-640.webp 640w, assets/HU-MV9hawAAQdKZ.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MV9hawAAQdKZ.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <div class='table-wrap'><table><tr><th>旋钮</th><th>这次的设置</th><th>拧开后能多拿到什么</th></tr><tr><td>付费</td><td>关</td><td>只有付费档的站、付费插队、付费才发布的站</td></tr><tr><td>交换外链</td><td>关</td><td>要求互链的目录和合作伙伴页</td></tr><tr><td>挂徽章</td><td>关</td><td>第三轮候选里 283 个强制徽章站，加上「挂徽章才给 dofollow」的站</td></tr><tr><td>扩大搜索</td><td>开</td><td>更多候选，但边际收益递减</td></tr><tr><td>点赞评论</td><td>部分开</td><td>「先点赞 N 个才能提交」的 launch 平台</td></tr><tr><td>个人简介 + URL</td><td>关</td><td>社区、论坛、开发者平台的个人主页外链</td></tr></table></div>
-<p>付费。<br>
-这是最直接的一个旋钮。这次跳过的付费站里有 Tiny Startups（69 英镑）、aitoolly（29.99 美元）、BetaList、Microlaunch 等，第三轮候选里标成 likely-paid 的有 175 个。很多 launch 平台的付费档买的其实是时间：免费排几个月，付费下周上线。如果你的产品有明确的发布节点，付费插队是合理的选择。给 Agent 的规则可以写成：「单站 30 美元以内可以付，先列清单给我批，不要自己下单。」把付款这一步留在自己手里。</p>
-<p>交换外链。<br>
-很多目录站要求你在网站上放一个指向它们的链接。可以接受的话，建一个独立的 /links 或 partners 页面集中放，不影响首页。要注意的是，Google 的<br>
-垃圾内容政策<br>
-把「过度的链接交换」列在链接垃圾的例子里，所以量要克制，只换和你品类相关的站。</p>
-<p>挂徽章。<br>
-这是这次挡掉最多站的一条规则：283 个强制徽章站，还有 Smol Launch、SaaSFame、ToolFame、Supa Launch、LetsLaunch 这类「挂徽章才上线或才给 dofollow」的。如果你愿意，可以做一个 /featured 或 /launches 页面，把所有徽章集中放在那里。规则写成：「需要徽章的站可以交，徽章统一放到 /launches 页面，交完把徽章代码汇总给我。」</p>
-<p>扩大搜索。<br>
-这个旋钮我拧到了最大，4266、3450、1996 三轮抓取池，最后一轮只多出 14 条可用的。说明同一类关键词的源很快会被筛完。继续拧的方法是换方向：按品类找（招聘、远程工作、开发者工具），按地区找（英国、欧洲、你产品所在的城市），按语言找（非英语的本地目录），而不是在同一批 submit 列表里反复刷。</p>
-<p>点赞评论。<br>
-很多 launch 平台要求先给别的产品点赞或评论攒积分，才能提交自己的。这次只开了 FoundrList 和 Crowdstax 两个例外，FoundrList 已经排到 11 月 16 日发布。如果放开这条，launch 平台的数量会多一截。关键是评论要真实，Agent 先读懂对方产品再写一两句具体的话，不要群发模板。规则可以写成：「点赞类站可以做，每个站最多点赞 5 个，评论必须针对对方产品的具体功能，交前给我看一眼。」</p>
-<p>个人简介 + URL。<br>
-在开发者社区、问答网站、论坛、作品集平台注册个人主页，在简介和网站字段里留产品网址。这类外链量大、通常不用审核、注册完就在线，这次完全没做。它和产品目录是两套候选池，可以让 Executor 单独抓一份清单。要注意，这类平台对批量注册往往更敏感，建议慢一点，每个资料都认真填，用一个你真的会继续维护的身份。</p>
-<p>还有一个不算旋钮的变量：<br>
-耐心。<br>
-这次已排期的最晚排到明年 2 月。免费的代价就是排队，接受了这一点，「上线数」会随着时间自己往上走。</p>
+<p>付费。<br>这是最直接的一个旋钮。这次跳过的付费站里有 Tiny Startups（69 英镑）、aitoolly（29.99 美元）、BetaList、Microlaunch 等，第三轮候选里标成 likely-paid 的有 175 个。很多 launch 平台的付费档买的其实是时间：免费排几个月，付费下周上线。如果你的产品有明确的发布节点，付费插队是合理的选择。给 Agent 的规则可以写成：「单站 30 美元以内可以付，先列清单给我批，不要自己下单。」把付款这一步留在自己手里。</p>
+<p>交换外链。<br>很多目录站要求你在网站上放一个指向它们的链接。可以接受的话，建一个独立的 /links 或 partners 页面集中放，不影响首页。要注意的是，Google 的<br>垃圾内容政策<br>把「过度的链接交换」列在链接垃圾的例子里，所以量要克制，只换和你品类相关的站。</p>
+<p>挂徽章。<br>这是这次挡掉最多站的一条规则：283 个强制徽章站，还有 Smol Launch、SaaSFame、ToolFame、Supa Launch、LetsLaunch 这类「挂徽章才上线或才给 dofollow」的。如果你愿意，可以做一个 /featured 或 /launches 页面，把所有徽章集中放在那里。规则写成：「需要徽章的站可以交，徽章统一放到 /launches 页面，交完把徽章代码汇总给我。」</p>
+<p>扩大搜索。<br>这个旋钮我拧到了最大，4266、3450、1996 三轮抓取池，最后一轮只多出 14 条可用的。说明同一类关键词的源很快会被筛完。继续拧的方法是换方向：按品类找（招聘、远程工作、开发者工具），按地区找（英国、欧洲、你产品所在的城市），按语言找（非英语的本地目录），而不是在同一批 submit 列表里反复刷。</p>
+<p>点赞评论。<br>很多 launch 平台要求先给别的产品点赞或评论攒积分，才能提交自己的。这次只开了 FoundrList 和 Crowdstax 两个例外，FoundrList 已经排到 11 月 16 日发布。如果放开这条，launch 平台的数量会多一截。关键是评论要真实，Agent 先读懂对方产品再写一两句具体的话，不要群发模板。规则可以写成：「点赞类站可以做，每个站最多点赞 5 个，评论必须针对对方产品的具体功能，交前给我看一眼。」</p>
+<p>个人简介 + URL。<br>在开发者社区、问答网站、论坛、作品集平台注册个人主页，在简介和网站字段里留产品网址。这类外链量大、通常不用审核、注册完就在线，这次完全没做。它和产品目录是两套候选池，可以让 Executor 单独抓一份清单。要注意，这类平台对批量注册往往更敏感，建议慢一点，每个资料都认真填，用一个你真的会继续维护的身份。</p>
+<p>还有一个不算旋钮的变量：<br>耐心。<br>这次已排期的最晚排到明年 2 月。免费的代价就是排队，接受了这一点，「上线数」会随着时间自己往上走。</p>
 <p>旋钮怎么拧，取决于你愿意用什么换：钱、页面空间、时间，还是一点社区参与。</p>
-<h2>十、踩坑表</h2>
+<h2 id="sec-12">十、踩坑表</h2>
 <p>这一天实际撞上的问题和处理办法，照着做大概率会遇到同样的：</p>
 <div class='table-wrap'><table><tr><th>坑</th><th>现象</th><th>处理</th></tr><tr><td>验证码 / Cloudflare</td><td>脚本过不去</td><td>改用浏览器；浏览器也过不去就跳过</td></tr><tr><td>短验证码过期</td><td>邮件到了，表单那边已超时</td><td>routine 即时接力；不行就重发</td></tr><tr><td>routine 和浏览器抢桌面</td><td>两个任务同时控制一个浏览器，整批中断</td><td>只开一个浏览器实例，routine 用独立标签页，错开调度</td></tr><tr><td>两个浏览器任务撞车</td><td>同一批 12 个站被两个任务同时抢</td><td>一次只跑一个浏览器任务，跑完再开下一批</td></tr><tr><td>品类不符</td><td>招聘板交进 AI 工具目录</td><td>筛选阶段就按品类过滤</td></tr><tr><td>「免费」实为付费</td><td>In Links We Trust 交完才说要付费才上线</td><td>不算收录，按规则跳过</td></tr><tr><td>免费队列已满</td><td>Firsto 未来约半年的免费名额满了</td><td>记下来以后再试</td></tr><tr><td>老目录服务器 bug</td><td>phpLD 站报 IPADDRESS Data too long</td><td>对方的问题，直接换站</td></tr><tr><td>重复提交</td><td>Made with React.js 被交了两次；Toolfound 返回 409 已在队列</td><td>对方一般会去重，用同一邮箱查状态</td></tr><tr><td>字段校验</td><td>BestJobBoards 不认 2026 年成立</td><td>改填 2025</td></tr><tr><td>禁止 AI 提交</td><td>JobSearchDB 政策明确禁止 AI Agent</td><td>尊重对方规则，留给人工或跳过</td></tr><tr><td>站已死</td><td>Canadian Directory 域名在卖、BizIndexer 返回 522</td><td>标记 dead，522 的可以过几天重试</td></tr></table></div>
-<h2>十一、动手前的三个检查</h2>
-<p>这是哪种免费？<br>
-「免费」至少有五种：立即免费上线、免费但要排队、免费提交但付费才发布、免费但 nofollow（挂徽章才给 dofollow）、交完才告诉你要付费。让 Agent 在探测阶段就把「排队时长」和「上线条件」记进 CSV。</p>
-<p>上线后能活多久？<br>
-书签站大多是 90 天左右，发布平台的首页曝光是一天或一周，awesome 列表只要不被删就一直在。先看它能给你留下什么，再决定花多少力气。</p>
-<p>品类对不对？<br>
-最好的站，是你的目标用户本来就会去逛的站。</p>
+<h2 id="sec-13">十一、动手前的三个检查</h2>
+<p>这是哪种免费？<br>「免费」至少有五种：立即免费上线、免费但要排队、免费提交但付费才发布、免费但 nofollow（挂徽章才给 dofollow）、交完才告诉你要付费。让 Agent 在探测阶段就把「排队时长」和「上线条件」记进 CSV。</p>
+<p>上线后能活多久？<br>书签站大多是 90 天左右，发布平台的首页曝光是一天或一周，awesome 列表只要不被删就一直在。先看它能给你留下什么，再决定花多少力气。</p>
+<p>品类对不对？<br>最好的站，是你的目标用户本来就会去逛的站。</p>
 <figure class="media"><a class="media-link" href="assets/HU-MWgAbYAAmEGh.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MWgAbYAAmEGh-640.webp 640w, assets/HU-MWgAbYAAmEGh.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MWgAbYAAmEGh.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <p>提交交给 AI，判断留给自己。</p>
-<h2>常见问题</h2>
-<p>需要会写代码吗？<br>
-不需要。探测脚本、提交脚本都是 Agent 自己写、自己跑的。你要做的是写清楚规则，看它的汇报。</p>
-<p>我要花多少时间？<br>
-这一天我做的是：写规则、批两个例外、回答一次 Starter Story 的问题、点十来封域名邮箱的验证邮件。其余都在后台跑。</p>
-<p>自动提交会不会被 Google 当成垃圾外链？<br>
-Google 的垃圾内容政策确实把「用自动化程序创建链接」和「低质量的目录或书签站链接」列为链接垃圾的例子，而且从 2019 年起，Google 把 nofollow 当作一种「提示」，自行决定计不计入排名（<br>
-Google 搜索中心博客<br>
-）。我自己的做法是：只交主动开放提交入口的站，每站只交一次，资料如实填写，重心放在发布平台、垂直目录和 awesome 列表上，书签站当作顺手的一层，不指望它们带排名。</p>
-<p>为什么不直接付钱买外链？<br>
-可以付，见第九节的付费旋钮。不过按 Google 的政策，付费获得的链接如果传递排名，需要标注 sponsored 或 nofollow。花钱更适合买「时间」，比如 launch 平台的插队，而不是买链接本身。</p>
-<h2>写在最后</h2>
+<h2 id="sec-14">常见问题</h2>
+<p>需要会写代码吗？<br>不需要。探测脚本、提交脚本都是 Agent 自己写、自己跑的。你要做的是写清楚规则，看它的汇报。</p>
+<p>我要花多少时间？<br>这一天我做的是：写规则、批两个例外、回答一次 Starter Story 的问题、点十来封域名邮箱的验证邮件。其余都在后台跑。</p>
+<p>自动提交会不会被 Google 当成垃圾外链？<br>Google 的垃圾内容政策确实把「用自动化程序创建链接」和「低质量的目录或书签站链接」列为链接垃圾的例子，而且从 2019 年起，Google 把 nofollow 当作一种「提示」，自行决定计不计入排名（<br>Google 搜索中心博客<br>）。我自己的做法是：只交主动开放提交入口的站，每站只交一次，资料如实填写，重心放在发布平台、垂直目录和 awesome 列表上，书签站当作顺手的一层，不指望它们带排名。</p>
+<p>为什么不直接付钱买外链？<br>可以付，见第九节的付费旋钮。不过按 Google 的政策，付费获得的链接如果传递排名，需要标注 sponsored 或 nofollow。花钱更适合买「时间」，比如 launch 平台的插队，而不是买链接本身。</p>
+<h2 id="sec-15">写在最后</h2>
 <p>开工前我对 Agent 说的是「扩大搜索，人家都能免费提交几千个」。一天跑下来，我对这件事的理解变成了：Agent 能把几千个站的体力活一天做完，最后能拿到多少外链，取决于你把那六个旋钮拧到哪里。</p>
 <p>我这次选了最保守的设置：不付费、不交换、不挂徽章、不做个人简介。得到的是 9 个当天上线、10 个排期、约 120 个待审和 22 个 PR。如果你的预算和底线不一样，同一套流水线可以跑出完全不同的数字。</p>
 <p>等 FoundrList 和 LaunchRanked 的发布周过去，我再来看看这些外链实际带来了多少访问。你会把哪个旋钮拧开？欢迎在评论区说说。</p>
@@ -184,6 +140,8 @@ Google 搜索中心博客<br>
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<script src="../../assets/meta.js?v=3c0e31bd" defer></script>
+<aside class="toc" aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">一、你会用到 Grok Bot 的哪些能力</a></li><li><a class="toc-link toc-l1" href="#sec-2">二、第一步：写规则，再放权</a></li><li><a class="toc-link toc-l1" href="#sec-3">三、第二步：备好资产包和两条邮箱</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-4">资产包：一次备齐，所有站复用</a></li><li><a class="toc-link toc-l2" href="#sec-5">邮箱：拆成两条线</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-6">四、第三步：找站和筛选</a></li><li><a class="toc-link toc-l1" href="#sec-7">五、第四步：分三条线提交</a></li><li><a class="toc-link toc-l1" href="#sec-8">六、第五步：GitHub awesome 列表</a></li><li><a class="toc-link toc-l1" href="#sec-9">七、第六步：记录和跟进</a></li><li><a class="toc-link toc-l1" href="#sec-10">八、一天下来的结果</a></li><li><a class="toc-link toc-l1" href="#sec-11">九、想要更多外链：六个可以拧的旋钮</a></li><li><a class="toc-link toc-l1" href="#sec-12">十、踩坑表</a></li><li><a class="toc-link toc-l1" href="#sec-13">十一、动手前的三个检查</a></li><li><a class="toc-link toc-l1" href="#sec-14">常见问题</a></li><li><a class="toc-link toc-l1" href="#sec-15">写在最后</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>
+<script src="../../assets/meta.js?v=7ef24b4d" defer></script>
+<script src="../../assets/toc.js?v=582e1bfb" defer></script>
 </body>
 </html>
