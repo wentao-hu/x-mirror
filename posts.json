@@ -261,6 +261,26 @@
       "blocks_count": 254
     },
     {
+      "id": "2091446823873654908",
+      "slug": "storycomic-frontend-agent-pm-saas-20usd",
+      "title": "从大厂前端到 Agent 开发 + PM，再到 AI SaaS 日入 $20：我这两年的跨界进化与独立探索",
+      "url": "https://x.com/StoryComicAI/status/2091446823873654908",
+      "author_name": "Gijela",
+      "author_username": "StoryComicAI",
+      "published_utc": "2026-08-23T08:45:54.000Z",
+      "published_local": "2026-08-23 16:45",
+      "category": "出海复盘",
+      "description": "大厂前端借内部 Agent 大赛转岗 Agent 开发兼 PM，业余跟着哥飞思路做 AI SaaS 工具站（Next.js + Stripe），做到日入 $20，目标日入 $100",
+      "source_type": "x_post",
+      "avatar_local": "avatar.jpg",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 1,
+      "fidelity_note": "正文取自 note_tweet.text 全文（非截断 text）；普通推文（非 Article）；1 张配图已本地化；会话中无作者自回复串帖；标题取自原文首行【】标题；原文中文未翻译。",
+      "plain_text_len": 1856,
+      "blocks_count": 30
+    },
+    {
       "id": "2112133884477600141",
       "slug": "sujingshen-manual-first-trade",
       "title": "先别买域名：先手动跑通 1-3 次交易闭环",
