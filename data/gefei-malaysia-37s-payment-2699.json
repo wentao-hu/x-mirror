@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "id": "2113298526935597302",
+    "slug": "gefei-malaysia-37s-payment-2699",
+    "title": "马来西亚用户注册 37 秒付费：首单 $6.99，促销后共付 $26.99",
+    "url": "https://x.com/gefei55/status/2113298526935597302",
+    "author_name": "哥飞",
+    "author_username": "gefei55",
+    "published_utc": "2026-10-22T15:56:46.000Z",
+    "published_local": "2026-10-22 23:56",
+    "category": "出海复盘",
+    "description": "马来西亚谷歌流量用户注册后 37 秒付 $6.99 买一次视频生成，再以 $1/视频促销购 20 次，合计 $26.99 共 21 次生成资格",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 1,
+    "fidelity_note": "正文取自 text 全文（API 无 note_tweet，短帖未截断）；普通推文（非 Article）；文末 t.co 为配图 photo/1 已展开并去掉；1 张配图已本地化；会话中作者仅回复评论者企业微信 webhook 问题，非正文自回复串帖；原文中文未翻译。",
+    "plain_text_len": 124,
+    "blocks_count": 5
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "马来西亚用户注册 37 秒付费：首单 $6.99，促销后共付 $26.99"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是一个马来西亚用户，通过谷歌进来的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "注册后37秒付了第一笔6.99美金，买一次视频生成权限。"
+    },
+    {
+      "type": "paragraph",
+      "text": "之后由于我有一个促销，只要是付过费的用户，就有资格按照1美金一个视频的价格购买20个视频，所以这个用户最终付款26.99美金，买了21个视频生成资格。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVPxzgDaAAAtLYD?format=jpg&name=orig",
+      "orig_url": "https://pbs.twimg.com/media/HVPxzgDaAAAtLYD?format=jpg&name=orig",
+      "alt": "支付截图：马来西亚用户注册后付费记录",
+      "key": "HVPxzgDaAAAtLYD",
+      "local": "HVPxzgDaAAAtLYD.jpg"
+    }
+  ],
+  "plain_text": "这是一个马来西亚用户，通过谷歌进来的。\n注册后37秒付了第一笔6.99美金，买一次视频生成权限。\n之后由于我有一个促销，只要是付过费的用户，就有资格按照1美金一个视频的价格购买20个视频，所以这个用户最终付款26.99美金，买了21个视频生成资格。",
+  "entities": {
+    "urls": []
+  }
+}
