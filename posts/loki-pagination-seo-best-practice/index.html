@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>Pagination 分页 SEO 最佳实践：无限加载也要做 URL 级分页 · X Mirror</title>
+<meta name="description" content="传统分页、Load More、无限加载都要做 URL 级分页，否则谷歌可能只看到首屏渲染的前 N 个条目；附谷歌官方分页文档" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=158ff64a" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
+    <div>
+      <div class="name">Loki Yan SEO <span class="meta">@loki_yan_seo</span></div>
+      <div class="meta">2026-10-22 18:37 · Asia/Shanghai</div>
+    </div>
+  </div>
+  <h1 class="title">Pagination 分页 SEO 最佳实践：无限加载也要做 URL 级分页<span class="source-badge" data-source-type="x_post"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">帖子</span></span></h1>
+  <div class="post-controls" data-meta-mount data-slug="loki-pagination-seo-best-practice"></div>
+  <a class="orig-link" href="https://x.com/loki_yan_seo/status/2113218196060987474" target="_blank" rel="noopener">查看原文（X）↗</a>
+  
+  <article class="article">
+<p>借楼发一个Pagination 分页SEO的最佳实践</p>
+<p>分页有以下几种：<br>1. 传统分页<br>2. 加载 Load More<br>3. 无限加载</p>
+<p>这些都要做URL级别的分页，特别是无限加载，传统的JavaScript框架，包括外面买来的模版都没有做这个事情。</p>
+<p>无限加载的时候你首次渲染读取的东西以外的内容要通过点击按钮或者下滑再触发。</p>
+<p>拿视频网站举例，即便是无限加载，也要做到</p>
+<pre><code>/tag/seovideo/
+/tag/seovideo/page/2
+/tag/seovideo/page/3
+/tage/seovideo/page/n</code></pre>
+<p>举个电商的例子。很多电商的集合页的排名，会取决于SKU的数量。像传统的电商都会把分页做好，那么谷歌只要你这个文件夹（集合）里面到底有多少“产品”。</p>
+<p>如果不做好分页，即便你这个类目（片种）下有1000个item，谷歌可能只看得到前 N 个（首次渲染和数据传输）。</p>
+<p>这个就是谷歌的标准答案，如果你有分页，或者你可以做无限加载，去改代码吧。细节都在里面。</p>
+<p><a href="https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=zh-cn" rel="noopener noreferrer" target="_blank">https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=zh-cn</a></p>
+<blockquote>引用 <a class="mention" href="https://x.com/aronhouyu" rel="noopener noreferrer" target="_blank">@aronhouyu</a>：很挑剔 你懂得 <a href="https://x.com/aronhouyu/status/2113187421328494922" rel="noopener noreferrer" target="_blank">https://x.com/aronhouyu/status/2113187421328494922</a></blockquote>
+<figure class="media"><a class="media-link" href="assets/HVOMpsLbsAARVQo.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HVOMpsLbsAARVQo-640.webp 640w, assets/HVOMpsLbsAARVQo.webp 872w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HVOMpsLbsAARVQo.png" alt="引用帖配图 1" loading="lazy" decoding="async" /></picture></a></figure>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 1/1。
+    正文取自 note_tweet.text 全文（非截断 text）；普通推文（非 Article），引用 @aronhouyu 帖子，1 张配图来自被引用帖并已本地化；无作者自回复串帖；原文中文未翻译。
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+
+<script src="../../assets/meta.js?v=3c0e31bd" defer></script>
+
+</body>
+</html>

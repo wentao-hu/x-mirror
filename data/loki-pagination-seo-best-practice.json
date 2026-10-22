@@ -1,0 +1,93 @@
+{
+ "meta": {
+  "id": "2113218196060987474",
+  "slug": "loki-pagination-seo-best-practice",
+  "title": "Pagination 分页 SEO 最佳实践：无限加载也要做 URL 级分页",
+  "url": "https://x.com/loki_yan_seo/status/2113218196060987474",
+  "author_name": "Loki Yan SEO",
+  "author_username": "loki_yan_seo",
+  "published_utc": "2026-10-22T10:37:34.000Z",
+  "published_local": "2026-10-22 18:37",
+  "category": "SEO基础",
+  "description": "传统分页、Load More、无限加载都要做 URL 级分页，否则谷歌可能只看到首屏渲染的前 N 个条目；附谷歌官方分页文档",
+  "source_type": "x_post",
+  "avatar_local": "avatar.jpg",
+  "images_total": 1,
+  "images_ok": 1,
+  "api_media_count": 1,
+  "fidelity_note": "正文取自 note_tweet.text 全文（非截断 text）；普通推文（非 Article），引用 @aronhouyu 帖子，1 张配图来自被引用帖并已本地化；无作者自回复串帖；原文中文未翻译。",
+  "plain_text_len": 556,
+  "blocks_count": 13
+ },
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 1,
+   "text": "Pagination 分页 SEO 最佳实践：无限加载也要做 URL 级分页"
+  },
+  {
+   "type": "paragraph",
+   "text": "借楼发一个Pagination 分页SEO的最佳实践"
+  },
+  {
+   "type": "paragraph",
+   "text": "分页有以下几种：\n1. 传统分页\n2. 加载 Load More\n3. 无限加载"
+  },
+  {
+   "type": "paragraph",
+   "text": "这些都要做URL级别的分页，特别是无限加载，传统的JavaScript框架，包括外面买来的模版都没有做这个事情。"
+  },
+  {
+   "type": "paragraph",
+   "text": "无限加载的时候你首次渲染读取的东西以外的内容要通过点击按钮或者下滑再触发。"
+  },
+  {
+   "type": "paragraph",
+   "text": "拿视频网站举例，即便是无限加载，也要做到"
+  },
+  {
+   "type": "code",
+   "text": "/tag/seovideo/\n/tag/seovideo/page/2\n/tag/seovideo/page/3\n/tage/seovideo/page/n"
+  },
+  {
+   "type": "paragraph",
+   "text": "举个电商的例子。很多电商的集合页的排名，会取决于SKU的数量。像传统的电商都会把分页做好，那么谷歌只要你这个文件夹（集合）里面到底有多少“产品”。"
+  },
+  {
+   "type": "paragraph",
+   "text": "如果不做好分页，即便你这个类目（片种）下有1000个item，谷歌可能只看得到前 N 个（首次渲染和数据传输）。"
+  },
+  {
+   "type": "paragraph",
+   "text": "这个就是谷歌的标准答案，如果你有分页，或者你可以做无限加载，去改代码吧。细节都在里面。"
+  },
+  {
+   "type": "paragraph",
+   "text": "https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=zh-cn"
+  },
+  {
+   "type": "quote",
+   "text": "引用 @aronhouyu：很挑剔 你懂得 https://x.com/aronhouyu/status/2113187421328494922"
+  },
+  {
+   "type": "image",
+   "src": "https://pbs.twimg.com/media/HVOMpsLbsAARVQo?format=png&name=orig",
+   "orig_url": "https://pbs.twimg.com/media/HVOMpsLbsAARVQo?format=png&name=orig",
+   "alt": "引用帖配图 1",
+   "key": "HVOMpsLbsAARVQo",
+   "local": "HVOMpsLbsAARVQo.png"
+  }
+ ],
+ "plain_text": "借楼发一个Pagination 分页SEO的最佳实践\n\n分页有以下几种：\n1. 传统分页\n2. 加载 Load More\n3. 无限加载\n\n这些都要做URL级别的分页，特别是无限加载，传统的JavaScript框架，包括外面买来的模版都没有做这个事情。\n\n无限加载的时候你首次渲染读取的东西以外的内容要通过点击按钮或者下滑再触发。\n\n拿视频网站举例，即便是无限加载，也要做到\n/tag/seovideo/\n/tag/seovideo/page/2\n/tag/seovideo/page/3\n/tage/seovideo/page/n\n\n举个电商的例子。很多电商的集合页的排名，会取决于SKU的数量。像传统的电商都会把分页做好，那么谷歌只要你这个文件夹（集合）里面到底有多少“产品”。\n\n如果不做好分页，即便你这个类目（片种）下有1000个item，谷歌可能只看得到前 N 个（首次渲染和数据传输）。\n\n这个就是谷歌的标准答案，如果你有分页，或者你可以做无限加载，去改代码吧。细节都在里面。\n\nhttps://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=zh-cn",
+ "entities": {
+  "urls": [
+   {
+    "display_url": "developers.google.com/search/docs/sp…",
+    "end": 469,
+    "expanded_url": "https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=zh-cn",
+    "start": 446,
+    "url": "https://t.co/GoHy5LXmdd"
+   }
+  ]
+ }
+}
