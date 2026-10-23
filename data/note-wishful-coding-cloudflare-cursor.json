@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "id": "note-2026-10-22-wishful-coding",
+    "slug": "note-wishful-coding-cloudflare-cursor",
+    "title": "许愿式编程：Cloudflare + Cursor 把建站门槛打到地板",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-22T12:29:00.000Z",
+    "published_local": "2026-10-22 20:29",
+    "category": "建站教程",
+    "description": "许愿式编程建站：Cloudflare + Cursor Pro，不配 DNS、不买主机、不用开发机，手机也能把网站搭起来或迁移到 Workers。",
+    "source_type": "note",
+    "tags": ["AI编程和视频"],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 320,
+    "blocks_count": 10
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "许愿式编程时代来了"
+    },
+    {
+      "type": "paragraph",
+      "text": "海外做网站的技术门槛可以跌到地板了。不用搞复杂的 DNS 设置，不用买虚拟主机、配网站环境，不用考虑代码移植、数据迁移，低成本一站式方案已经出现，连开发机都不用。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "方案：Cloudflare + Cursor Pro"
+    },
+    {
+      "type": "paragraph",
+      "text": "赛博菩萨 Cloudflare 加 Cursor Pro（20 刀版本，默认的 grok 4.7 high 基座模型足够）打通即可："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Cursor 连通 GitHub，创建一个空项目，或者把以前的网站全部传上去。",
+        "Cursor 安装 Cloudflare 插件，网页弹窗授权给 Cursor。",
+        "Cursor 使用云端编程，手机上就能操作，不用电脑。",
+        "在 Cloudflare 注册或转移域名，然后不用配置，扔在 Cursor 里许愿。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "迁移和新建都能许愿"
+    },
+    {
+      "type": "paragraph",
+      "text": "网站迁移一个小时都用不了，连代码和数据库都会改成 Cloudflare Worker 支持的模式。"
+    },
+    {
+      "type": "paragraph",
+      "text": "做新网站也一样：怎么配域名、配数据库，让 Cursor 和 Cloudflare 自己配合。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "成本"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cloudflare 完全无需付费，除非使用高级能力。"
+    }
+  ]
+}

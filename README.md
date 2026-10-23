@@ -160,14 +160,10 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 ## 仅链接条目（web.cafe / 好友 VIP 站）
 
-`new.web.cafe` 是朋友的 VIP 站点，站内文章**永远只做目录条目，不做镜像**：
+`new.web.cafe` 是朋友的 VIP 站点。**默认只做目录条目；用户点名的单篇可以做完整镜像**（禁止批量）：
 
-- **不抓取正文、不镜像、不下载/存储图片、不自动对该 host 发起任何 HTTP 请求**。
-- 目录里只保留：标题、作者、日期、原文 URL。
-- 卡片标题直接外链原文（`target="_blank" rel="noopener noreferrer"`），并显示徽标 `web.cafe · 仅链接`。
-- 不生成 `posts/<slug>/` 目录，也不生成 `data/<slug>.json`。
-- 评分 1–5★、已读完、筛选/排序都在**目录卡片上**操作，复用同一个 `assets/meta.js` 与 KV slug key。
-- 分类使用 `web.cafe 精选`。
+- 仅链接条目：不抓正文、不镜像、不下载图片；目录里只保留标题、作者、日期、原文 URL；卡片标题直接外链原文（`target="_blank" rel="noopener noreferrer"`），显示 `web.cafe · 仅链接` 徽标；不生成 `posts/<slug>/` 和 `data/<slug>.json`；评分、已读完、筛选都在目录卡片上操作；分类用 `web.cafe 精选`。
+- 用户点名单篇镜像时：抓正文、下载图片与头像到本地，按普通镜像生成 `data/<slug>.json` 与 `posts/<slug>/`，徽标为 `web.cafe`，分类按内容归入现有分类。
 
 `posts.json` 中这类条目标记 `"entry_type": "link_only"`；X 镜像条目默认是 `mirror`（可省略）。
 

@@ -39,6 +39,12 @@ function clampRating(value) {
   return Math.max(0, Math.min(5, Math.round(n)));
 }
 
+function clampImgZoom(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return 1;
+  return Math.min(1.5, Math.max(0.5, Math.round(n * 10) / 10));
+}
+
 function isValidDate(value) {
   return typeof value === 'string' && !Number.isNaN(Date.parse(value));
 }
@@ -50,6 +56,7 @@ function normalizeItem(value) {
     read: item.read === true,
     pinned: item.pinned === true,
     pinnedAt: isValidDate(item.pinnedAt) ? new Date(item.pinnedAt).toISOString() : null,
+    imgZoom: clampImgZoom(item.imgZoom),
     updatedAt: isValidDate(item.updatedAt) ? new Date(item.updatedAt).toISOString() : null,
   };
 }
@@ -102,8 +109,9 @@ export async function onRequest(context) {
     const hasRating = Object.prototype.hasOwnProperty.call(body, 'rating');
     const hasRead = Object.prototype.hasOwnProperty.call(body, 'read');
     const hasPinned = Object.prototype.hasOwnProperty.call(body, 'pinned');
-    if (!hasRating && !hasRead && !hasPinned) {
-      return json({ ok: false, error: 'rating, read or pinned is required' }, 400);
+    const hasImgZoom = Object.prototype.hasOwnProperty.call(body, 'imgZoom');
+    if (!hasRating && !hasRead && !hasPinned && !hasImgZoom) {
+      return json({ ok: false, error: 'rating, read, pinned or imgZoom is required' }, 400);
     }
 
     let rating;
@@ -131,12 +139,20 @@ export async function onRequest(context) {
       pinned = body.pinned;
     }
 
+    let imgZoom;
+    if (hasImgZoom) {
+      if (typeof body.imgZoom !== 'number' || !Number.isFinite(body.imgZoom)) {
+        return json({ ok: false, error: 'imgZoom must be a number' }, 400);
+      }
+      imgZoom = clampImgZoom(body.imgZoom);
+    }
+
     const updatedAt = isValidDate(body.updatedAt)
       ? new Date(body.updatedAt).toISOString()
       : new Date().toISOString();
 
     const items = await readAll(kv);
-    const prev = items[slug] || { rating: 0, read: false, pinned: false, pinnedAt: null, updatedAt: null };
+    const prev = items[slug] || { rating: 0, read: false, pinned: false, pinnedAt: null, imgZoom: 1, updatedAt: null };
 
     // last-write-wins：比服务器旧的写入直接忽略，返回服务器现值。
     if (prev.updatedAt && parseTime(updatedAt) < parseTime(prev.updatedAt)) {
@@ -153,6 +169,7 @@ export async function onRequest(context) {
       read: hasRead ? read : prev.read,
       pinned: hasPinned ? pinned : prev.pinned,
       pinnedAt,
+      imgZoom: hasImgZoom ? imgZoom : prev.imgZoom,
       updatedAt,
     };
     items[slug] = next;

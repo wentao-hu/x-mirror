@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "id": "r1flzbf5st",
+    "slug": "webcafe-r1flzbf5st",
+    "title": "我下次避开这三类词",
+    "url": "https://new.web.cafe/topic/r1flzbf5st",
+    "author_name": "将军令",
+    "author_username": "web.cafe",
+    "published_utc": "2026-10-22T02:12:00.000Z",
+    "published_local": "2026-10-22 10:12",
+    "category": "新词站实战复盘",
+    "description": "2000 注册、70 美元收入的一次建站复盘：域名不续费，以及三类不该选的词。",
+    "source_type": "webcafe",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "web.cafe 全文镜像；正文按原文顺序本地托管；未含评论区。",
+    "plain_text_len": 980,
+    "blocks_count": 19
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "做了一个站总体下来 2000 个注册用户，70$ 的收入，也没有盈利，还浪费了大量精力，现在做下复盘，总结避坑。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一、先把账算清楚：域名不续费是正确的财务决策"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "2000 注册 → $70 收入，人均 ARPU 3.5 美分",
+        "续费 $50 ≈ 这个站整个生命周期收入的 71%",
+        "也就是说，再续一年，你要它再涨 71％ 以上才勉强回本，而这还没算你继续投进去的时间。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "一个 ARPU 只有 3.5 美分的站，续费 $50 买到的不是“机会”，是“再亏一年的许可”。这个决定没有任何可犹豫的地方。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "二、但真正的死因是三重结构性死结"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "① 选的是品牌词/模型词，做这类词吸引来的人本来就不打算付费"
+    },
+    {
+      "type": "paragraph",
+      "text": "自己站的定位有问题，核心词 xxx video generator。"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜这个词的人想找的是官方那个免费工具，不是“来买你的积分包”；他进你的站只是为了找免费入口，看到要付费就会立刻离开。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这类词带来的流量性质，哥飞在 2026-03-18 群里讲观光客时已经说到：“Reddit 过来的本来就不一定是有真实需求的……不付费是正常的。”"
+    },
+    {
+      "type": "paragraph",
+      "text": "换成品牌词也一样：流量再多，意图也和你提供的付费产品不匹配。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "② SERP 上压根没位置"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个盘面是赢不了的。这不是“再优化一下”能解决的问题。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三、社群里的同类复盘：你没有走的路，别人替你走过"
+    },
+    {
+      "type": "paragraph",
+      "text": "袁锐钦（2026-05-17《为什么你越忙越穷》）把这件事讲得最透：“执行问题可以优化；判断问题不能优化，只能止损。大多数人的悲剧在于，把判断问题当执行问题来解决。”"
+    },
+    {
+      "type": "paragraph",
+      "text": "你这站属于判断问题，你在它身上耗的精力，全花在优化一个不该做的方向上了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "子昕（2026-07-06《AI出海半年还没破0-1》）的自我诊断：“练系统设计、自动化、页面生成……我真正该补的是练手工看词，练复核 SERP，练判断竞争，练商业价值，练快速止损。自动化不是判断力。”"
+    },
+    {
+      "type": "paragraph",
+      "text": "这一条对你下个站最直接。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Hx.org（2026-06 新词第 4 名复盘）：“网站做成的概率本来就并不大……每一个网站都需要认真做，认真复盘，有没有成长，这次的经验能不能形成 SKILL、SOP。”"
+    },
+    {
+      "type": "paragraph",
+      "text": "三篇的共同点是：没人把失败归给“不坚持”。大家都把它归给选词和判断。"
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "meta": {
+    "id": "urh3177vi8",
+    "slug": "webcafe-urh3177vi8",
+    "title": "AI 出海半年还没破 0-1，我准备先停下来补这一课",
+    "url": "https://new.web.cafe/topic/urh3177vi8",
+    "author_name": "子昕",
+    "author_username": "web.cafe",
+    "published_utc": "2026-07-06T08:26:00.000Z",
+    "published_local": "2026-07-06 16:26",
+    "category": "出海复盘",
+    "description": "一个程序员半年卡在 0-1 的复盘：先找到鱼再下竿、道法术的顺序，以及为什么自动化放大不了判断力。",
+    "source_type": "webcafe",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "web.cafe 全文镜像；正文按原文顺序本地托管；未含评论区。",
+    "plain_text_len": 3924,
+    "blocks_count": 144
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "大家好，我是子昕。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这篇不是成功经验。更准确地说，是一个还卡在 0-1 的程序员，参加完一次线下分享后，对自己这半年折腾的一次复盘。"
+    },
+    {
+      "type": "paragraph",
+      "text": "今年 1月份，我加入了哥飞的AI出海社群。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当时想得挺简单：我本来就是程序员，现在 AI 编程工具又这么强，如果能找到一个小方向，做个工具站，跑通一点海外流量，应该是有机会的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但半年过去，我发现自己还是卡在 0-1。"
+    },
+    {
+      "type": "paragraph",
+      "text": "工作忙，确实是一方面原因。平时主业占了很多时间，能留给副业的精力本来就不多。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但说实话，这只是一个原因。"
+    },
+    {
+      "type": "paragraph",
+      "text": "另一个更扎心的原因是：我发现自己一直在用程序员最熟悉的方式，逃避一个自己最不熟悉的问题。"
+    },
+    {
+      "type": "quote",
+      "text": "我很擅长写系统、改流程、重构代码、让 AI 帮我自动化.\n但我并没有真正亲手跑通：怎么判断一个需求，怎么判断一个词，怎么判断一个页面值不值得做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "前段时间，我花了大半个月，想做一个关键词挖掘系统。"
+    },
+    {
+      "type": "paragraph",
+      "text": "想自动化找词，自动化分析，自动化打分，最好能直接告诉我哪些方向值得做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "结果呢？"
+    },
+    {
+      "type": "paragraph",
+      "text": "系统重构了好几个版本，AI 也帮我改了很多轮，但我依然不满意。"
+    },
+    {
+      "type": "paragraph",
+      "text": "不是代码不能跑，而是它没有真正解决我的问题。"
+    },
+    {
+      "type": "paragraph",
+      "text": "后来我才意识到，原因很简单: 我自己人工都没跑通0-1，就想让系统替我自动跑通。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个顺序，本身就错了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "简单回头看一下："
+    },
+    {
+      "type": "quote",
+      "text": "1 月 :加入哥飞社群,开始系统学习 AI 出海。"
+    },
+    {
+      "type": "quote",
+      "text": "半年后 ：发现自己还是卡在 0-1，没有真正做出有效结果。"
+    },
+    {
+      "type": "quote",
+      "text": "最近 ：花大半个月做关键词挖掘系统，反复重构，但依然没有解决根本问题。"
+    },
+    {
+      "type": "quote",
+      "text": "周末 ：去深圳参加哥飞线下大会，被几位老师的分享点醒，尤其是 Fiona 老师讲的内容，对我当前阶段帮助很大。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这次线下会有很多老师分享，都很厉害。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但我现在还是纯小白，所以对我来说,Fiona 老师那部分更适合我当前阶段。她已经做到月入万刀，讲的很多东西不是很玄的概念，而是新手如何从 0 到 1 找到机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "下面这些内容，大部分来自Fiona 老师的分享，我结合自己的理解稍微整理了一下。"
+    },
+    {
+      "type": "paragraph",
+      "text": "一方面分享给和我有类似痛点的朋友，另一方面也算给自己做个记录，逼自己接下来真的调整。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "我这次最大的收获：先找到鱼，再下竿"
+    },
+    {
+      "type": "quote",
+      "text": "AI出海SEO 的 0-1，不是先把技术做强，而是先找到一个可下注的局部市场。\n有需求、有搜索、有商业价值、竞争没有锁死，并且你能快速上线验证。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这句话听起来很朴素,但对我这种程序员很重要。"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为我以前的本能是：先把竿做好."
+    },
+    {
+      "type": "paragraph",
+      "text": "关键词系统、数据源、评分模型、页面生成、自动发布、监控面板……这些都像是在做一根越来越复杂的鱼竿。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但问题是，我还没搞清楚哪里有鱼。"
+    },
+    {
+      "type": "paragraph",
+      "text": "找词不是找一个字符串，而是寻找用户需求留下的搜索痕迹."
+    },
+    {
+      "type": "paragraph",
+      "text": "可以粗略拆成这几步："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "找需求 ：从词根、竞品、趋势、广告、榜单、社区里发现信号。",
+        "看SERP ：判断搜索意图、竞争结构、小站机会。",
+        "定页面 ：明确首页、工具页、长尾页或对比页怎么承接。",
+        "快速上 :先上线最小可验证版本，不追求完美。",
+        "复盘 :用收录、点击、排名、转化更新判断。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "词只是入口。"
+    },
+    {
+      "type": "paragraph",
+      "text": "真正要判断的是：谁在搜，为什么搜，当前结果满足得好不好，有没有小站切入机会，做出来之后能不能变现."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "道、法、术：我之前把顺序搞反了"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fiona 老师讲到 AI出海 SEO时,我理解下来可以拆成三层：道、法、术。"
+    },
+    {
+      "type": "paragraph",
+      "text": "道：做什么值得做"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个需求是否真实存在？用户是否有明确任务？竞争是否可承受？是否有变现路径？"
+    },
+    {
+      "type": "paragraph",
+      "text": "法：如何验证"
+    },
+    {
+      "type": "paragraph",
+      "text": "先写一句话假设，看数据预筛，复核Google 前10，最后给出做、观察、放弃的判断。"
+    },
+    {
+      "type": "paragraph",
+      "text": "术：用什么工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "Semrush、Ahrefs、Similarweb、Google Trends、KGR、AI编程、页面生成。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我之前最大的问题，就是从“术”开始。"
+    },
+    {
+      "type": "paragraph",
+      "text": "先想工具，先想自动化，先想系统架构。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但我对“道”的理解不够,对“法”的练习也不够。"
+    },
+    {
+      "type": "quote",
+      "text": "顺序不能反：\n先有判断，再有工具；先有样本，再有自动化;先手工跑通，再规模化放大。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这也是我现在最需要补的课。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "怎么判断哪里有鱼"
+    },
+    {
+      "type": "paragraph",
+      "text": "这里的“鱼”，可以理解成真实需求和可变现机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "判断鱼多，不能只看搜索量，还要看钱的痕迹、供给变化和需求源头。"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 看搜索需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "从词根、相关词、竞品词、模型词、新工具词中找候选。搜索量说明有人在找，但不代表一定值得做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 看花钱痕迹"
+    },
+    {
+      "type": "paragraph",
+      "text": "谁在投广告，谁在买外链，谁接了支付，谁在APP榜单赚钱。这些比搜索量更接近商业价值."
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 看增长迹象"
+    },
+    {
+      "type": "paragraph",
+      "text": "用Google Trends、相关搜索、intitle结果变化、社媒和榜单源头，看一个词是不是正在变多。"
+    },
+    {
+      "type": "paragraph",
+      "text": "4. 看未满足需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "插件差评、Reddit提问、TikTok模板、论坛讨论、AI 导航站请求，都可能是需求池。"
+    },
+    {
+      "type": "paragraph",
+      "text": "5. 看局部市场"
+    },
+    {
+      "type": "paragraph",
+      "text": "大市场不一定适合新手。小语种、版本词、组合词、细分人群词,往往更容易切入。"
+    },
+    {
+      "type": "paragraph",
+      "text": "6. 看可承接性"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果无法在很短时间内做出一个最小页面或工具承接搜索意图，它暂时就不适合作为 0-1起点。"
+    },
+    {
+      "type": "quote",
+      "text": "好词的基本形态：\n有人搜、有人花钱、竞争未锁死、趋势没有明显回落、用户意图清晰、页面能快速做出来。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这部分对我触动很大。"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为我之前很容易把“做得出来”当成“值得做”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但在 AI 编程工具普及之后，做得出来已经不稀缺了.真正稀缺的是,你能不能判断这个东西值不值得做。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "跟大佬学，不是跟大佬抢"
+    },
+    {
+      "type": "paragraph",
+      "text": "还有一个点我觉得很有用：跟大佬学，不是复制页面外观，也不是冲过去抢同一个大词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "真正该学的是它从0 到1 的操盘痕迹."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "观察对象",
+          "怎么看",
+          "能学到什么"
+        ],
+        [
+          "外链",
+          "看反向链接，重点看首次发现和早期来源。",
+          "理解站点早期从哪里拿权重，做过哪些提交和推广。"
+        ],
+        [
+          "内页",
+          "看Sitemap、站内搜索、新增页面。",
+          "判断它最近在押哪些词、哪些子方向、哪些页面类型."
+        ],
+        [
+          "On-Page SEO",
+          "看标题、H1/H2、FAQ、Schema、内链、首屏承诺。",
+          "学习页面怎样匹配搜索意图和建立信任。"
+        ],
+        [
+          "交互",
+          "真实打开网站,点上传、生成、注册、付费流程。",
+          "学习如何延长停留、推动转化。"
+        ],
+        [
+          "付费墙",
+          "观察免费额度、登录要求、价格页、失败态、等待态。",
+          "学习免费体验和付费转化之间的边界。"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "我以前看一个站，更多是在看它功能怎么做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在才意识到，更应该看的是：它为什么做这些页面，为什么押这些词,为什么这样设计转化路径。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新手不要一上来就冲人最多的地方"
+    },
+    {
+      "type": "paragraph",
+      "text": "新手很容易追热点。"
+    },
+    {
+      "type": "paragraph",
+      "text": "哪个词火，就想做哪个。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但一个词被所有人看见的时候，往往已经不再是新手机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "预判组合词"
+    },
+    {
+      "type": "paragraph",
+      "text": "主词火了，可以提前看版本号、场景词、对象词、模板词有没有机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "切小语种"
+    },
+    {
+      "type": "paragraph",
+      "text": "英语主战场最卷，小语种通常慢半拍,可能存在时间差。"
+    },
+    {
+      "type": "paragraph",
+      "text": "打局部市场"
+    },
+    {
+      "type": "paragraph",
+      "text": "目标不是一开始赢所有人，而是在一个窄场景里做到头部。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果一个词已经被大量教程、社群、榜单和大站同时讨论，并且 Google前 10已经出现多个强站，就不要轻易把它当新手机会."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "造势和截流，我现在更应该先练截流"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI出海工具站的流量，大概可以分成两种。"
+    },
+    {
+      "type": "paragraph",
+      "text": "造势"
+    },
+    {
+      "type": "paragraph",
+      "text": "主动创造注意力，让用户因为内容、故事、社媒传播、红人推荐而产生兴趣。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如社媒爆款、Build in public、红人推广、投流。"
+    },
+    {
+      "type": "paragraph",
+      "text": "截流"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户已经有搜索需求，让自己的页面出现在搜索结果前面，承接已经被教育过的流量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如需求词、竞品词、模型词、新工具词."
+    },
+    {
+      "type": "paragraph",
+      "text": "两种方式都有效，但对新手的要求不一样。"
+    },
+    {
+      "type": "paragraph",
+      "text": "造势更考验内容能力、表达能力、传播能力、预算和产品故事。"
+    },
+    {
+      "type": "paragraph",
+      "text": "截流则更适合我现在这个阶段。"
+    },
+    {
+      "type": "quote",
+      "text": "因为搜索用户已经知道自己要什么。\n我不用从零教育他，只要判断他的任务有没有被满足好，再用一个更清楚、更快、更可信的页面去承接."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "赚钱模型也要看清楚"
+    },
+    {
+      "type": "paragraph",
+      "text": "有流量不等于能赚钱。"
+    },
+    {
+      "type": "paragraph",
+      "text": "判断一个方向是否值得做，还要看它赚的是哪类钱。"
+    },
+    {
+      "type": "paragraph",
+      "text": "省时间的钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "把几小时或几天的任务压缩到几分钟。工具站、生成器、转换器、编辑器，很多都属于这一类。"
+    },
+    {
+      "type": "paragraph",
+      "text": "帮赚钱的钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "工具能直接带来收入、获客、转化或效率收益。离钱近，但通常需要更强产品和信任。"
+    },
+    {
+      "type": "paragraph",
+      "text": "让用户爽的钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "娱乐、陪伴、头像、算命、趣味生成。转化可能快，但生命周期和合规要谨慎。"
+    },
+    {
+      "type": "paragraph",
+      "text": "信息差的钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户不知道底层资源、替代方案或真实成本。容易起量，也容易卷和被替代。"
+    },
+    {
+      "type": "paragraph",
+      "text": "市场的钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "大公司用融资和预算亏本买流量，换市场份额。个人开发者不要轻易照搬。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我以前更多关注“这个工具能不能做出来”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在要逼自己多问一句：这个需求离用户的钱、时间、情绪、工作结果有多近？"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "我这次真正被点醒的地方"
+    },
+    {
+      "type": "paragraph",
+      "text": "回头看，我这半年卡住，并不是完全没做事。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我也看资料，也折腾项目，也让 AI写了很多代码。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但我缺少一种刻意练习。"
+    },
+    {
+      "type": "paragraph",
+      "text": "不是练习怎么写代码，而是练习怎么判断机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我之前在练什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "练系统设计，练自动化,练页面生成，练AI 帮我写代码。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我真正该补什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "练手工看词，练复核SERP，练判断竞争,练判断商业价值，练快速止损。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这也是程序员很容易犯的错。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们太习惯用工程化解决问题。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但 AI 出海 0-1这件事，前面最难的不是工程问题，而是判断问题。"
+    },
+    {
+      "type": "quote",
+      "text": "自动化不是判断力。\n自动化只能放大已经存在的判断力。如果我自己还不知道一个好词为什么好，系统给我1000个候选词，我也只会更快迷路。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "接下来我准备怎么调整"
+    },
+    {
+      "type": "paragraph",
+      "text": "这次深圳回来，我准备先把节奏放慢一点。"
+    },
+    {
+      "type": "paragraph",
+      "text": "不是不做系统了，而是先不急着重构系统。"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来我给自己定几个很朴素的动作。"
+    },
+    {
+      "type": "paragraph",
+      "text": "每天认真看一个词"
+    },
+    {
+      "type": "paragraph",
+      "text": "写清楚用户是谁、想完成什么任务、Google前10 是什么结构。"
+    },
+    {
+      "type": "paragraph",
+      "text": "每个词必须给结论"
+    },
+    {
+      "type": "paragraph",
+      "text": "继续做、观察、放弃，三选一。不能停在“感觉还行”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "从继续做里挑一个快速上线"
+    },
+    {
+      "type": "paragraph",
+      "text": "先做最小页面,不追求完美功能。让Google 和真实用户给反馈。"
+    },
+    {
+      "type": "paragraph",
+      "text": "系统只做放大,不做替代"
+    },
+    {
+      "type": "paragraph",
+      "text": "等我知道哪些判断可以沉淀，再把系统接回来，而不是一开始让系统替我判断。"
+    },
+    {
+      "type": "paragraph",
+      "text": "说实话,我现在也不知道自己什么时候能突破 0-1。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但至少这次线下会让我意识到，我之前努力的方向有点偏。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我不是不够努力，而是很多努力都放在了“术”上。"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来要补的是“道”和“法”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "先把人工判断练出来，再用程序员的能力去放大它。"
+    },
+    {
+      "type": "paragraph",
+      "text": "希望自己能早一点突破0-1。"
+    },
+    {
+      "type": "paragraph",
+      "text": "也希望这篇文章，对同样卡在这个阶段的朋友有一点帮助。"
+    }
+  ]
+}

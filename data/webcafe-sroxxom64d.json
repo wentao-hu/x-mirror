@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "id": "sroxxom64d",
+    "slug": "webcafe-sroxxom64d",
+    "title": "AI SaaS 出海，支付收单平台有哪些？怎么选？",
+    "url": "https://new.web.cafe/topic/sroxxom64d",
+    "author_name": "哥飞",
+    "author_username": "web.cafe",
+    "published_utc": "2026-10-14T17:46:00.000Z",
+    "published_local": "2026-10-15 01:46",
+    "category": "海外收款",
+    "description": "哥飞整理：国内个人身份与有公司分别怎么选支付收单平台，一个网站对应一个商户，如何提高付费率，附 8 张对比图。",
+    "source_type": "webcafe",
+    "tags": [
+      "海外支付"
+    ],
+    "avatar_local": "avatar.jpg",
+    "images_total": 8,
+    "images_ok": 8,
+    "api_media_count": 8,
+    "fidelity_note": "web.cafe 全文镜像；正文与 8 张配图本地托管；未含评论区。",
+    "plain_text_len": 752,
+    "blocks_count": 28
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "群里关于收款问得最多：Stripe、PayPal、Creem、Waffo、Paddle……"
+    },
+    {
+      "type": "paragraph",
+      "text": "到底用哪家？把近几个月群里的讨论和哥飞的回复整理成了8 张图。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一句话结论"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "只有国内个人身份：PayPal.cn（注册时选个人卖家）或Waffo.ai；有护照和港卡的，也可以开 Stripe个人户.",
+        "有公司（海外 / 国内公司、个体户）：Stripe或PayPal.cn，也可以走 Subotiz。 Creem现在不推荐了。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一个网站对应一个商户"
+    },
+    {
+      "type": "paragraph",
+      "text": "各平台基本都是一个邮箱注册一个主账户，再在里面按网站添加商户。"
+    },
+    {
+      "type": "paragraph",
+      "text": "千万别多个网站共用一个商户，会被当成 AB 站、恶意使用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Subotiz例外：一个邮箱一个账号，对应一个网站。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "接对收款，付费率更高"
+    },
+    {
+      "type": "paragraph",
+      "text": "一开始接一个就够，后面有空再多接。"
+    },
+    {
+      "type": "paragraph",
+      "text": "欧洲很多人用 PayPal，美国很多人用信用卡，需要接Stripe；"
+    },
+    {
+      "type": "paragraph",
+      "text": "同时接入PayPal和Stripe，付费率一般会上升。"
+    },
+    {
+      "type": "paragraph",
+      "text": "给欧元区用户用欧元计价、调起Stripe 也用欧元，当天就来了第一笔欧元订单。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三条最要紧的"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "别在正式环境自己付款测试，用沙箱。",
+        "拒付率、争议率要控制住。",
+        "至少接两个渠道，一个出问题另一个能救急。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Waffo.ai 哥飞专属优惠"
+    },
+    {
+      "type": "paragraph",
+      "text": "国内个人身份的朋友注册Waffo，用哥飞邀请码：[https://waffo.ai/?ref=GEFEI01](https://waffo.ai/?ref=GEFEI01)"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "1000 USD交易免手续费（2027 年 3月 31日前有效）",
+        "审核绿色通道，1 个工作日内完成初审或反馈",
+        "社群专人客服，有问题随时问",
+        "私聊哥飞拉你进Waffo 群"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "有海外公司的，注册 [https://waffo.com](https://waffo.com)"
+    },
+    {
+      "type": "paragraph",
+      "text": "信息截至 2026年10月，各平台政策常变，以官方为准。欢迎在评论区补充你的经验。"
+    },
+    {
+      "type": "image",
+      "local": "payment-1.png",
+      "alt": "支付收单平台对比图 1"
+    },
+    {
+      "type": "image",
+      "local": "payment-2.png",
+      "alt": "支付收单平台对比图 2"
+    },
+    {
+      "type": "image",
+      "local": "payment-3.png",
+      "alt": "支付收单平台对比图 3"
+    },
+    {
+      "type": "image",
+      "local": "payment-4.png",
+      "alt": "支付收单平台对比图 4"
+    },
+    {
+      "type": "image",
+      "local": "payment-5.png",
+      "alt": "支付收单平台对比图 5"
+    },
+    {
+      "type": "image",
+      "local": "payment-6.png",
+      "alt": "支付收单平台对比图 6"
+    },
+    {
+      "type": "image",
+      "local": "payment-7.png",
+      "alt": "支付收单平台对比图 7"
+    },
+    {
+      "type": "image",
+      "local": "payment-8.png",
+      "alt": "支付收单平台对比图 8"
+    }
+  ]
+}

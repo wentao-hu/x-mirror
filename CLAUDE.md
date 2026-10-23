@@ -14,3 +14,7 @@
 - 日期写创建日期，不用内容里提到的日期。
 - 不填 `url`，页面不显示「查看原文」，也不显示镜像说明。
 - 数据放 `data/<slug>.json`（meta + blocks），图片放 `posts/<slug>/assets/`，然后运行 `python3 scripts/rebuild_from_data.py`。
+
+## 副标题（description）
+
+- 不在页面展示，只用于文章页 `meta description` 和搜索索引；**不要为它单独总结**，留空即可，构建时自动取正文前 80 字。

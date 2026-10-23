@@ -40,6 +40,13 @@
     return n;
   }
 
+  function clampImgZoom(value) {
+    var n = Number(value);
+    if (!isFinite(n)) return 1;
+    n = Math.round(n * 10) / 10;
+    return Math.min(1.5, Math.max(0.5, n));
+  }
+
   function norm(item) {
     item = item && typeof item === 'object' ? item : {};
     return {
@@ -49,6 +56,7 @@
       pinnedAt: typeof item.pinnedAt === 'string' && !isNaN(Date.parse(item.pinnedAt))
         ? new Date(item.pinnedAt).toISOString()
         : null,
+      imgZoom: clampImgZoom(item.imgZoom),
       updatedAt: typeof item.updatedAt === 'string' && !isNaN(Date.parse(item.updatedAt))
         ? new Date(item.updatedAt).toISOString()
         : null
@@ -135,6 +143,7 @@
       body.pinned = patch.pinned;
       if (Object.prototype.hasOwnProperty.call(patch, 'pinnedAt')) body.pinnedAt = patch.pinnedAt;
     }
+    if (Object.prototype.hasOwnProperty.call(patch, 'imgZoom')) body.imgZoom = patch.imgZoom;
     return global.fetch(API_URL, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -240,6 +249,7 @@
       read: patch.read != null ? patch.read : cur.read,
       pinned: patch.pinned != null ? patch.pinned : cur.pinned,
       pinnedAt: patch.pinned != null ? (patch.pinned ? ts : null) : cur.pinnedAt,
+      imgZoom: patch.imgZoom != null ? patch.imgZoom : cur.imgZoom,
       updatedAt: ts
     });
     state.map[slug] = next;
@@ -253,6 +263,7 @@
       wire.pinned = next.pinned;
       wire.pinnedAt = next.pinnedAt;
     }
+    if (patch.imgZoom != null) wire.imgZoom = next.imgZoom;
     return putWithRetry(slug, wire, 1).then(function () {
       return true;
     }, function () {
@@ -311,12 +322,13 @@
 
   function pinButtonHtml(m) {
     return '<button type="button" class="pc-pin' + (m.pinned ? ' on' : '') + '" data-act="pin"' +
-      ' aria-pressed="' + (m.pinned ? 'true' : 'false') + '">' +
+      ' aria-pressed="' + (m.pinned ? 'true' : 'false') + '"' +
+      ' title="' + (m.pinned ? '取消置顶' : '置顶') + '"' +
+      ' aria-label="' + (m.pinned ? '取消置顶' : '置顶') + '">' +
       '<svg class="pc-pin-icon" viewBox="0 0 16 16" aria-hidden="true">' +
         '<path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>' +
         '<path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
       '</svg>' +
-      (m.pinned ? '已置顶' : '置顶') +
     '</button>';
   }
 
@@ -372,6 +384,59 @@
       renderCard(mount, slug);
       ready.then(function () { renderCard(mount, slug); });
     });
+  }
+
+  /* ---------- 目录卡片图钉（右上角置顶 / 取消置顶） ---------- */
+
+  var CARD_PIN_SVG =
+    '<svg class="card-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' +
+      '<path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>' +
+      '<path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+    '</svg>';
+
+  function renderCardPins() {
+    var btns = document.querySelectorAll('.card-pin[data-card-pin]');
+    Array.prototype.forEach.call(btns, function (btn) {
+      var pinned = get(btn.dataset.cardPin).pinned;
+      btn.classList.toggle('on', pinned);
+      btn.setAttribute('aria-pressed', pinned ? 'true' : 'false');
+      btn.title = pinned ? '取消置顶' : '置顶';
+      btn.setAttribute('aria-label', pinned ? '取消置顶' : '置顶');
+    });
+  }
+
+  function initCardPins() {
+    var cards = document.querySelectorAll('#list .card[data-slug]');
+    Array.prototype.forEach.call(cards, function (card) {
+      var slug = String(card.dataset.slug || '');
+      if (!SLUG_RE.test(slug)) return;
+      if (!card.querySelector('.card-pin')) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'card-pin';
+        btn.dataset.cardPin = slug;
+        btn.innerHTML = CARD_PIN_SVG;
+        card.appendChild(btn);
+      }
+    });
+    if (document.body.dataset.xmCardPinsReady !== '1') {
+      document.body.dataset.xmCardPinsReady = '1';
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('.card-pin[data-card-pin]') : null;
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var slug = btn.dataset.cardPin;
+        setMeta(slug, { pinned: !get(slug).pinned });
+        renderCardPins();
+        var list = document.getElementById('list');
+        if (list && list.dispatchEvent && typeof global.CustomEvent === 'function') {
+          list.dispatchEvent(new global.CustomEvent('xm-meta-change', { bubbles: true }));
+        }
+      });
+      document.addEventListener('xm-meta-refreshed', renderCardPins);
+    }
+    renderCardPins();
   }
 
   function renderMetaMount(mount, slug) {
@@ -572,7 +637,6 @@
         }
         var m = metaFor(el);
         box.innerHTML = starsHtml(m.rating, false) +
-          (m.pinned ? '<span class="badge-pin">置顶</span>' : '') +
           (m.read ? '<span class="badge-read">已读</span>' : '');
       });
     }
@@ -870,36 +934,16 @@
       });
       mount.innerHTML = '';
       pinned.forEach(function (card) {
-        var slug = card.dataset.slug;
         var wrap = document.createElement('div');
         wrap.className = 'pinned-item';
         var clone = card.cloneNode(true);
         clone.classList.add('pinned-card');
         var controls = clone.querySelector('.card-controls');
         if (controls) controls.remove();
-        var title = clone.querySelector('.ctitle');
-        if (title && !clone.querySelector('.badge-pin')) {
-          var badge = document.createElement('span');
-          badge.className = 'badge-pin';
-          badge.textContent = '置顶';
-          title.appendChild(badge);
-        }
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'pin-remove';
-        btn.textContent = '取消置顶';
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          setMeta(slug, { pinned: false });
-          if (list.dispatchEvent && typeof global.CustomEvent === 'function') {
-            list.dispatchEvent(new global.CustomEvent('xm-meta-change', { bubbles: true }));
-          }
-        });
         wrap.appendChild(clone);
-        wrap.appendChild(btn);
         mount.appendChild(wrap);
       });
+      renderCardPins();
       box.hidden = pinned.length === 0;
     }
 
@@ -914,6 +958,7 @@
   function autoInit() {
     if (document.getElementById('list')) {
       initCardControls();
+      initCardPins();
       if (document.querySelector('#list .card[data-slug]')) initIndexFilters();
       initPinnedSection();
       return;

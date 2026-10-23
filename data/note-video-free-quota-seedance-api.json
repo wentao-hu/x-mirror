@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "id": "note-2026-10-22-video-free-quota-seedance-api",
+    "slug": "note-video-free-quota-seedance-api",
+    "title": "视频站免费额度与 Seedance 2 API 选型",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-22T12:33:00.000Z",
+    "published_local": "2026-10-22 20:33",
+    "category": "用户运营",
+    "description": "视频站免费额度只给便宜模型试用；Seedance 2 真人素材、Kie 与 SeeAPI 聚合选型，以及按阶段拆分镜的提示词方法。",
+    "source_type": "note",
+    "tags": ["AI编程和视频"],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 260,
+    "blocks_count": 9
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "免费额度：给便宜模型试用"
+    },
+    {
+      "type": "paragraph",
+      "text": "视频站的免费额度，哥飞建议给便宜模型试用，不给高级模型。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Seedance 2 的真人素材"
+    },
+    {
+      "type": "paragraph",
+      "text": "Seedance 2 的海外真人照片可以走 seeapi.com 的 seedance：普通人脸可用，明星、政客等有版权形象的不行。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "视频生成 API 聚合怎么选"
+    },
+    {
+      "type": "paragraph",
+      "text": "可以在 kie 和 seeapi 之间选。有群友表示部分模型便宜一点，加微信 kieapi02 有优惠。"
+    },
+    {
+      "type": "paragraph",
+      "text": "seedance-2-fast 720p 20 秒约 1.86 美元。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "提示词：先拆分镜"
+    },
+    {
+      "type": "paragraph",
+      "text": "提示词可以先拆分镜，按阶段拆清楚，成功率更高。"
+    }
+  ]
+}

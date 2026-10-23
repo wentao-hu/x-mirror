@@ -11,6 +11,7 @@ import subprocess
 import sys
 import urllib.parse
 from datetime import datetime, timezone, timedelta
+from html import unescape
 from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -490,6 +491,14 @@ def esc(s: str) -> str:
     )
 
 
+_HEADING_PATH_CHARS = re.compile(r"[/\\]")
+
+
+def clean_heading_text(text: str) -> str:
+    """标题里去掉 / 和 \\，避免像路径或乱码；替换为空格并合并空白。"""
+    return re.sub(r"\s+", " ", _HEADING_PATH_CHARS.sub(" ", text)).strip()
+
+
 SOURCE_TYPE_LABELS = {
     "x_post": "帖子",
     "x_article": "长文",
@@ -691,7 +700,7 @@ def image_html(
                 if width:
                     candidates.append(f"{webp_path.as_posix()} {width}w")
                 if len(candidates) > 1:
-                    sizes = "(max-width: 760px) calc(100vw - 32px), 660px"
+                    sizes = "(max-width: 760px) calc(100vw - 32px), 835px"
                     return (
                         f'<picture><source srcset="{", ".join(candidates)}" '
                         f'sizes="{sizes}" type="image/webp">{img}</picture>'
@@ -781,7 +790,7 @@ def render_toc_html(blocks: list[dict]) -> str:
         for node in nodes:
             link = (
                 f'<a class="toc-link toc-l{min(depth, 1) + 1}" '
-                f'href="#{node["id"]}">{esc(node["text"])}</a>'
+                f'href="#{node["id"]}">{esc(clean_heading_text(node["text"]))}</a>'
             )
             children = ""
             if node["children"]:
@@ -823,7 +832,7 @@ def render_blocks_html(
             if level == 1:
                 continue  # title rendered in header
             hid = f' id="{esc(b["_id"])}"' if b.get("_id") else ""
-            parts.append(f"<h{level}{hid}>{esc(b['text'])}</h{level}>")
+            parts.append(f"<h{level}{hid}>{esc(clean_heading_text(b['text']))}</h{level}>")
         elif t == "paragraph":
             parts.append(f"<p>{linkify(b['text'])}</p>")
         elif t == "image":
@@ -926,7 +935,7 @@ picture { display: contents; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px;
 }
-.wrap { max-width: 700px; margin: 0 auto; padding: 0 var(--pad-x) 72px; }
+.wrap { max-width: 875px; margin: 0 auto; padding: 0 var(--pad-x) 72px; }
 .index-wrap { max-width: 1000px; }
 
 /* 顶部导航：不吸顶，随页面滚动离开视口 */
@@ -1000,13 +1009,67 @@ h1.title {
 .article ul, .article ol { padding-left: 1.35em; margin: 0 0 1.1em; }
 .article li { margin: 4px 0; }
 .article li::marker { color: var(--muted-2); }
-.article figure.media { margin: 20px 0; }
+.article figure.media { position: relative; margin: 20px 0; }
+.article figure.media .media-link {
+  display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
 .article figure.media img {
-  display: block; width: 100%; height: auto; border-radius: 12px;
+  display: block; width: calc(100% * var(--img-zoom, 1)); max-width: none; height: auto;
+  margin: 0 auto; border-radius: 12px;
   border: 1px solid var(--border); background: var(--card);
 }
 .article img { max-width: 100%; height: auto; }
 .media-link { display: block; }
+/* 正文图片缩放控件：右上角小圆按钮，状态跨设备同步 */
+.img-zoom-controls {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 2px;
+  padding: 2px; border-radius: 999px;
+  background: rgba(15, 20, 25, .58);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.img-zoom-btn {
+  width: 28px; height: 28px; border: 0; border-radius: 50%;
+  background: transparent; color: #fff; font-size: 18px; line-height: 1;
+  font-family: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.img-zoom-btn:hover { background: rgba(255, 255, 255, .18); }
+.img-zoom-value {
+  color: #fff; font-size: 11px; min-width: 34px;
+  text-align: center; font-variant-numeric: tabular-nums;
+}
+/* 正文图片预览：点击图片外的区域关闭 */
+body.img-lightbox-open { overflow: hidden; }
+.img-lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(8, 10, 12, .86);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  opacity: 0; transition: opacity .2s ease;
+}
+.img-lightbox[hidden] { display: none; }
+.img-lightbox.is-open { opacity: 1; }
+.img-lightbox-img {
+  max-width: min(96vw, 1600px); max-height: 88vh;
+  width: auto; height: auto;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+  transform: scale(.96);
+  transition: transform .2s ease;
+  object-fit: contain;
+}
+.img-lightbox.is-open .img-lightbox-img { transform: scale(1); }
+.img-lightbox-close {
+  position: absolute; top: 16px; right: 18px;
+  width: 40px; height: 40px; border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, .14); color: #fff;
+  font-size: 24px; line-height: 1; font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.img-lightbox-close:hover { background: rgba(255, 255, 255, .24); }
 .article pre {
   background: #0f1419; color: #e7e9ea;
   margin: 18px 0; padding: 14px 16px; border-radius: 12px;
@@ -1051,7 +1114,7 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 .toc { display: none; }
 .toc-open { display: none; }
-@media (min-width: 1240px) {
+@media (min-width: 1380px) {
   .toc {
     display: block; position: fixed; top: 92px; right: 24px; z-index: 20;
     width: 216px; max-height: calc(100vh - 130px); overflow-y: auto;
@@ -1208,6 +1271,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 #list .cat { margin-top: 24px; }
 #list .cat:first-child { margin-top: 4px; }
 .card {
+  position: relative;
   display: flex; flex-direction: column;
   padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); color: inherit;
@@ -1224,14 +1288,11 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .card .ctitle {
   font-weight: 700; font-size: 16.5px; line-height: 1.5; margin-bottom: 7px;
   overflow-wrap: anywhere;
+  padding-right: 38px; /* 给右上角图钉留位置 */
 }
 .card .cmeta {
   color: var(--muted); font-size: 12.5px; line-height: 1.5; margin-bottom: 8px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.card .cdesc {
-  color: var(--muted); font-size: 13.5px; line-height: 1.65; flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .list-toolbar {
   display: flex; align-items: center; justify-content: space-between;
@@ -1269,14 +1330,8 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .pinned.is-collapsed .pinned-title.is-toggle .cat-chevron { transform: rotate(-90deg); }
 .pinned.is-collapsed .pinned-list { display: none; }
 .pinned-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.pinned-item { display: flex; flex-direction: column; gap: 6px; }
-.pinned-item .card { flex: 1; }
-.pin-remove {
-  align-self: flex-start; border: 1px solid var(--border); background: var(--bg);
-  color: var(--muted); border-radius: 999px; padding: 4px 11px;
-  font: inherit; font-size: 12px; cursor: pointer;
-}
-.pin-remove:hover { color: var(--fg); border-color: var(--border-strong); }
+.pinned-item { display: block; }
+.pinned-item .card { height: 100%; }
 .footer {
   margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
   color: var(--muted-2); font-size: 12px;
@@ -1300,11 +1355,18 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   background: var(--ok-soft); color: var(--ok); font-size: 11px; font-weight: 600;
   line-height: 1.6; padding: 0 7px; border-radius: 999px;
 }
-.badge-pin {
-  background: #fff4e5; color: #b45309; font-size: 11px; font-weight: 600;
-  line-height: 1.6; padding: 0 7px; border-radius: 999px;
+/* 卡片右上角图钉：未置顶为灰色空心，已置顶仅换橙色，不加底色 */
+.card-pin {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 999px;
+  border: 1px solid transparent; background: transparent; color: var(--muted);
+  cursor: pointer; transition: background .12s ease, color .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-.card .ctitle > .badge-pin { margin-left: 6px; vertical-align: middle; display: inline-block; }
+.card-pin:hover { color: var(--fg); }
+.card-pin.on { color: #b45309; }
+.card-pin-icon { display: block; width: 15px; height: 15px; }
 .source-badge {
   display: inline-flex; align-items: center; gap: 4px;
   margin-left: 8px; vertical-align: middle;
@@ -1312,13 +1374,17 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   color: var(--muted); font-size: 11px; font-weight: 600;
   line-height: 1.7; white-space: nowrap;
 }
-/* 文章页分类标签：与来源徽标同款圆角，点击回目录定位分类 */
+/* 文章页分类标签：与「查看原文」同一行、同字号，点击回目录定位分类 */
+.post-meta-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
+  margin: 2px 0 22px;
+}
+.post-meta-row .orig-link { margin: 0; }
 .cat-badge {
   display: inline-flex; align-items: center;
-  margin-left: 8px; vertical-align: middle;
-  border: 1px solid var(--border); border-radius: 999px; padding: 0 8px;
-  color: var(--muted); font-size: 11px; font-weight: 500;
-  line-height: 1.7; white-space: nowrap;
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px;
+  color: var(--muted); font-size: 13.5px; font-weight: 500;
+  line-height: 1.6; white-space: nowrap;
 }
 .cat-badge:hover { color: var(--link); text-decoration: none; border-color: var(--border-strong); }
 .tag-list {
@@ -1450,7 +1516,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   -webkit-tap-highlight-color: transparent;
 }
 .site-pin:hover { background: var(--card); color: var(--fg); }
-.site-pin.on { background: #fff4e5; border-color: #f0d3a8; color: #b45309; }
+.site-pin.on { color: #b45309; }
 .site-pin-icon { display: block; width: 15px; height: 15px; }
 .site-logo {
   flex: none; width: 40px; height: 40px; border-radius: 10px;
@@ -1516,6 +1582,11 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 
 
 def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
+    # description 只在 meta 标签使用；未填写时自动取正文前 80 字，避免每次人工总结
+    description = (meta.get("description") or "").strip()
+    if not description:
+        text = unescape(re.sub(r"<[^>]+>", " ", body_html))
+        description = re.sub(r"\s+", " ", text).strip()[:80]
     post_assets = ROOT / "posts" / meta["slug"] / "assets"
     avatar = meta.get("avatar_local")
     if source_type_of(meta) == "note":
@@ -1548,16 +1619,20 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
         if meta.get("url")
         else ""
     )
-    # 分类标签：点击回目录，展开并定位到该分类
+    # 分类标签：放在原文链接右侧，点击回目录并定位到该分类
     cat_badge_html = (
         f'<a class="cat-badge" href="../../?cat={urllib.parse.quote(meta["category"])}" '
         f'title="返回目录 · {esc(meta["category"])}">{esc(meta["category"])}</a>'
     )
+    post_links_html = f'<div class="post-meta-row">{orig_link_html}{cat_badge_html}</div>'
     tags_row_html = tags_html(meta, show_label=True)
     toc_script = (
         f'<script src="../../assets/toc.js?v={asset_version("assets/toc.js")}" defer></script>'
         if toc_html
         else ""
+    )
+    zoom_script = (
+        f'<script src="../../assets/image-zoom.js?v={asset_version("assets/image-zoom.js")}" defer></script>'
     )
     # 原创笔记不是镜像，不显示镜像说明
     fidelity_html = ""
@@ -1576,7 +1651,7 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
 <title>{esc(meta['title'])} · X Mirror</title>
-<meta name="description" content="{esc(meta.get('description',''))}" />
+<meta name="description" content="{esc(description)}" />
 <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
@@ -1596,10 +1671,10 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
       <div class="meta">{esc(meta['published_local'])}</div>
     </div>
   </div>
-  <h1 class="title">{esc(meta['title'])}{source_badge(meta)}{cat_badge_html}</h1>
+  <h1 class="title">{esc(clean_heading_text(meta['title']))}{source_badge(meta)}</h1>
   {tags_row_html}
   <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
-  {orig_link_html}
+  {post_links_html}
   {cover_html}
   <article class="article">
 {body_html}
@@ -1609,6 +1684,7 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
 </div>
 {toc_html}
 <script src="../../assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+{zoom_script}
 {toc_script}
 </body>
 </html>
@@ -1723,10 +1799,6 @@ def sites_page(sites: list[dict]) -> str:
 <body>
 <div class="wrap index-wrap">
   {header_html('sites')}
-  <h1 class="title">网站收藏</h1>
-  <p class="index-intro">
-    收藏的有用网站，按用途分类；点击卡片直达原站。
-  </p>
   <section class="pinned" id="sites-pinned" hidden>
     <h2 class="pinned-title is-toggle" id="sites-pinned-toggle" role="button" tabindex="0" aria-expanded="true">
       <span>置顶</span><span class="cat-chevron" aria-hidden="true">▾</span>
@@ -1779,7 +1851,6 @@ def index_page(posts: list[dict]) -> str:
                     f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}">
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
   <div class="cmeta">{cmeta}</div>
-  <div class="cdesc">{esc(p.get('description',''))}</div>
   {tags_html(p, compact=True)}
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
 </div>"""
@@ -1789,7 +1860,6 @@ def index_page(posts: list[dict]) -> str:
                     f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
   <div class="cmeta">{esc(p['author_name'])} · {date}</div>
-  <div class="cdesc">{esc(p.get('description',''))}</div>
   {tags_html(p, compact=True)}
 </a>"""
                 )
@@ -1819,10 +1889,6 @@ def index_page(posts: list[dict]) -> str:
 <body>
 <div class="wrap index-wrap">
   {header_html('posts')}
-  <h1 class="title">出海 SEO 收藏镜像</h1>
-  <p class="index-intro">
-    内容来自 X、web.cafe、微信公众号与萧禹的原创整理笔记，正文与图片全部本地托管，方便在打不开原站时阅读。
-  </p>
   <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
   <div class="filter-bar">
     <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">

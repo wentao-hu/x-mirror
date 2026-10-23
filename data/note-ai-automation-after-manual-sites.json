@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "note-2026-10-22-ai-automation-after-manual-sites",
+    "slug": "note-ai-automation-after-manual-sites",
+    "title": "新手别急着自动化：先手工上几个站",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-22T12:34:00.000Z",
+    "published_local": "2026-10-22 20:34",
+    "category": "建站教程",
+    "description": "卡卡西、Simon Liang 的建议：新手先手工上几个站，能判断 AI 对错、懂术语之后，再谈用 AI 自动化上站。",
+    "source_type": "note",
+    "tags": ["AI自动化上站"],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 120,
+    "blocks_count": 4
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "先手工上几个站"
+    },
+    {
+      "type": "paragraph",
+      "text": "新手想用 AI 自动化上站，卡卡西、Simon Liang 的建议是：先手工上几个站，再谈自动化。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "为什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "自己要先能判断 AI 做得对不对、懂基本术语，之后才能用好 AI。"
+    }
+  ]
+}

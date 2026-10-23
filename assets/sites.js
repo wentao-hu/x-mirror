@@ -44,28 +44,20 @@
 
     mount.innerHTML = '';
     pinned.forEach(function (card) {
-      var slug = card.dataset.slug;
       var wrap = doc.createElement('div');
       wrap.className = 'pinned-item';
 
       var clone = card.cloneNode(true);
       clone.classList.add('pinned-card');
       var pinBtn = clone.querySelector('.site-pin');
-      if (pinBtn) pinBtn.remove();
-
-      var btn = doc.createElement('button');
-      btn.type = 'button';
-      btn.className = 'pin-remove';
-      btn.textContent = '取消置顶';
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        META.setMeta(slug, { pinned: false });
-        renderAll();
-      });
+      if (pinBtn) {
+        pinBtn.classList.add('on');
+        pinBtn.setAttribute('aria-pressed', 'true');
+        pinBtn.title = '取消置顶';
+        pinBtn.setAttribute('aria-label', '取消置顶');
+      }
 
       wrap.appendChild(clone);
-      wrap.appendChild(btn);
       mount.appendChild(wrap);
     });
     box.hidden = pinned.length === 0;

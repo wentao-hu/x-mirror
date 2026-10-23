@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
 <link rel="manifest" href="../../site.webmanifest" />
-<link rel="stylesheet" href="../../assets/site.css?v=278f6693" />
+<link rel="stylesheet" href="../../assets/site.css?v=39bdb4c8" />
 </head>
 <body>
 <div class="wrap">
@@ -25,13 +25,13 @@
       <div class="meta">2026-10-19 14:00</div>
     </div>
   </div>
-  <h1 class="title">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程<span class="source-badge" data-source-type="x_article"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">长文</span></span><a class="cat-badge" href="../../?cat=%E5%A4%96%E9%93%BE%E6%8E%A8%E5%B9%BF" title="返回目录 · 外链推广">外链推广</a></h1>
+  <h1 class="title">用 Grok Bot 自动化提交外链：一天跑完 4000 多个站的完整流程<span class="source-badge" data-source-type="x_article"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">长文</span></span></h1>
   
   <div class="post-controls" data-meta-mount data-slug="sagasu-grokbot-backlinks"></div>
-  <a class="orig-link" href="https://x.com/sujingshen/status/2112061360708403397" target="_blank" rel="noopener">查看原文（X）↗</a>
+  <div class="post-meta-row"><a class="orig-link" href="https://x.com/sujingshen/status/2112061360708403397" target="_blank" rel="noopener">查看原文（X）↗</a><a class="cat-badge" href="../../?cat=%E5%A4%96%E9%93%BE%E6%8E%A8%E5%B9%BF" title="返回目录 · 外链推广">外链推广</a></div>
   
   <article class="article">
-<figure class="media"><a class="media-link" href="assets/HU-MUkMawAAI1sO.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MUkMawAAI1sO-640.webp 640w, assets/HU-MUkMawAAI1sO.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MUkMawAAI1sO.jpg" alt="Article cover image" loading="lazy" decoding="async" /></picture></a></figure>
+<figure class="media"><a class="media-link" href="assets/HU-MUkMawAAI1sO.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MUkMawAAI1sO-640.webp 640w, assets/HU-MUkMawAAI1sO.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/HU-MUkMawAAI1sO.jpg" alt="Article cover image" loading="lazy" decoding="async" /></picture></a></figure>
 <p>规则怎么写、资产怎么备、站怎么筛、表怎么交，以及想要更多外链时可以拧的六个旋钮</p>
 <p>by Sagasu · 2026年10月</p>
 <p>给新产品做外链，最磨人的从来不是策略，是体力活：找站、注册、收验证邮件、填表、传 logo、选分类、等审核。一个人一晚上交十几个站就算高效了。</p>
@@ -74,7 +74,7 @@
 <p>列表是别人按别人的产品整理的。先按自己的品类筛一遍，再开始交。</p>
 <h2 id="sec-7">五、第四步：分三条线提交</h2>
 <p>队列有了，提交按难度分流：</p>
-<figure class="media"><a class="media-link" href="assets/HU-MVB8bgAA5OBA.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVB8bgAA5OBA-640.webp 640w, assets/HU-MVB8bgAA5OBA.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MVB8bgAA5OBA.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
+<figure class="media"><a class="media-link" href="assets/HU-MVB8bgAA5OBA.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVB8bgAA5OBA-640.webp 640w, assets/HU-MVB8bgAA5OBA.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/HU-MVB8bgAA5OBA.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <p>脚本提交。<br>不需要账号的简单表单、同一套模板搭出来的站（大量老式 phpLD 目录、Laravel 书签站），还有开放了 API 的站（比如 Founderhood，调接口直接返回 pending），Agent 写小脚本或用 curl 批量提交，日志落到文件里。这条线最快，适合那些长得一模一样的目录站。</p>
 <p>浏览器批量。<br>需要登录、上传图片、选免费档、挑发布日期的站，交给 computerUse 操作真实浏览器。一批 10 到 12 个站，跑完汇报一次再开下一批；批次太大，出错时很难知道断在哪。登录态存在一个 cookies 目录里，这一天攒了约 49 个站的会话，之后回去查审核状态不用重新登录。</p>
 <p>邮件自动验证。<br>就是上一节的 routine。它和浏览器线并行：浏览器在某个站填表时触发了验证码，routine 收到邮件后马上传回去。FoundrList、IndieLaunch、IdeaKiln 都用短时效验证码，晚几分钟就过期，所以这条线的关键是快。</p>
@@ -97,12 +97,12 @@
 <p>所以，7 个书签站和目录站大约到明年 1 月中旬会集体到期。建议提交当天就让 Agent 把到期日写进总表，到期前提醒你决定续不续。</p>
 <p>加上已排期的 10 个，整个漏斗是这样：</p>
 <div class='table-wrap'><table><tr><th>阶段</th><th>数量</th><th>占候选比例</th></tr><tr><td>候选站</td><td>1567</td><td>100%</td></tr><tr><td>标注免费或免费排队</td><td>638</td><td>40.7%</td></tr><tr><td>正式入队</td><td>282</td><td>18.0%</td></tr><tr><td>已上线或已排期</td><td>19</td><td>1.2%</td></tr><tr><td>已上线</td><td>9</td><td>0.57%</td></tr></table></div>
-<figure class="media"><a class="media-link" href="assets/HU-MVf3bMAATwRL.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVf3bMAATwRL-640.webp 640w, assets/HU-MVf3bMAATwRL.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MVf3bMAATwRL.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
+<figure class="media"><a class="media-link" href="assets/HU-MVf3bMAATwRL.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MVf3bMAATwRL-640.webp 640w, assets/HU-MVf3bMAATwRL.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/HU-MVf3bMAATwRL.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <p>读这张表要注意两点。第一，各层不是严格的子集：282 条入队里有一部分来自这 1567 个之外的研究表，比例只能看量级。第二，这是跑完当天的快照。还有约 120 个站在审核中，接下来几周会陆续出结果，再加上 22 个 PR，最终数字会比现在高。</p>
 <p>回到开头说的三个原因，这个漏斗里每一层的流失都能对上：likely-paid 的 175 个和付费插队的站，是「不付费」挡掉的；badge-required 的 283 个，是「不挂徽章」挡掉的；个人简介类外链根本没进候选池；而已排期的 10 个和待审的约 120 个，就是「在排队」。</p>
 <h2 id="sec-11">九、想要更多外链：六个可以拧的旋钮</h2>
 <p>这一节是这篇教程里最值得挖的部分。我的规则把大部分旋钮都拧到了最低，你可以按自己的预算和底线调。</p>
-<figure class="media"><a class="media-link" href="assets/HU-MV9hawAAQdKZ.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MV9hawAAQdKZ-640.webp 640w, assets/HU-MV9hawAAQdKZ.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MV9hawAAQdKZ.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
+<figure class="media"><a class="media-link" href="assets/HU-MV9hawAAQdKZ.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MV9hawAAQdKZ-640.webp 640w, assets/HU-MV9hawAAQdKZ.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/HU-MV9hawAAQdKZ.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <div class='table-wrap'><table><tr><th>旋钮</th><th>这次的设置</th><th>拧开后能多拿到什么</th></tr><tr><td>付费</td><td>关</td><td>只有付费档的站、付费插队、付费才发布的站</td></tr><tr><td>交换外链</td><td>关</td><td>要求互链的目录和合作伙伴页</td></tr><tr><td>挂徽章</td><td>关</td><td>第三轮候选里 283 个强制徽章站，加上「挂徽章才给 dofollow」的站</td></tr><tr><td>扩大搜索</td><td>开</td><td>更多候选，但边际收益递减</td></tr><tr><td>点赞评论</td><td>部分开</td><td>「先点赞 N 个才能提交」的 launch 平台</td></tr><tr><td>个人简介 + URL</td><td>关</td><td>社区、论坛、开发者平台的个人主页外链</td></tr></table></div>
 <p>付费。<br>这是最直接的一个旋钮。这次跳过的付费站里有 Tiny Startups（69 英镑）、aitoolly（29.99 美元）、BetaList、Microlaunch 等，第三轮候选里标成 likely-paid 的有 175 个。很多 launch 平台的付费档买的其实是时间：免费排几个月，付费下周上线。如果你的产品有明确的发布节点，付费插队是合理的选择。给 Agent 的规则可以写成：「单站 30 美元以内可以付，先列清单给我批，不要自己下单。」把付款这一步留在自己手里。</p>
 <p>交换外链。<br>很多目录站要求你在网站上放一个指向它们的链接。可以接受的话，建一个独立的 /links 或 partners 页面集中放，不影响首页。要注意的是，Google 的<br>垃圾内容政策<br>把「过度的链接交换」列在链接垃圾的例子里，所以量要克制，只换和你品类相关的站。</p>
@@ -119,7 +119,7 @@
 <p>这是哪种免费？<br>「免费」至少有五种：立即免费上线、免费但要排队、免费提交但付费才发布、免费但 nofollow（挂徽章才给 dofollow）、交完才告诉你要付费。让 Agent 在探测阶段就把「排队时长」和「上线条件」记进 CSV。</p>
 <p>上线后能活多久？<br>书签站大多是 90 天左右，发布平台的首页曝光是一天或一周，awesome 列表只要不被删就一直在。先看它能给你留下什么，再决定花多少力气。</p>
 <p>品类对不对？<br>最好的站，是你的目标用户本来就会去逛的站。</p>
-<figure class="media"><a class="media-link" href="assets/HU-MWgAbYAAmEGh.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MWgAbYAAmEGh-640.webp 640w, assets/HU-MWgAbYAAmEGh.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 660px" type="image/webp"><img src="assets/HU-MWgAbYAAmEGh.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
+<figure class="media"><a class="media-link" href="assets/HU-MWgAbYAAmEGh.jpg" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/HU-MWgAbYAAmEGh-640.webp 640w, assets/HU-MWgAbYAAmEGh.webp 800w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/HU-MWgAbYAAmEGh.jpg" alt="" loading="lazy" decoding="async" /></picture></a></figure>
 <p>提交交给 AI，判断留给自己。</p>
 <h2 id="sec-14">常见问题</h2>
 <p>需要会写代码吗？<br>不需要。探测脚本、提交脚本都是 Agent 自己写、自己跑的。你要做的是写清楚规则，看它的汇报。</p>
@@ -141,7 +141,8 @@
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
 <aside class="toc" aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">一、你会用到 Grok Bot 的哪些能力</a></li><li><a class="toc-link toc-l1" href="#sec-2">二、第一步：写规则，再放权</a></li><li><a class="toc-link toc-l1" href="#sec-3">三、第二步：备好资产包和两条邮箱</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-4">资产包：一次备齐，所有站复用</a></li><li><a class="toc-link toc-l2" href="#sec-5">邮箱：拆成两条线</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-6">四、第三步：找站和筛选</a></li><li><a class="toc-link toc-l1" href="#sec-7">五、第四步：分三条线提交</a></li><li><a class="toc-link toc-l1" href="#sec-8">六、第五步：GitHub awesome 列表</a></li><li><a class="toc-link toc-l1" href="#sec-9">七、第六步：记录和跟进</a></li><li><a class="toc-link toc-l1" href="#sec-10">八、一天下来的结果</a></li><li><a class="toc-link toc-l1" href="#sec-11">九、想要更多外链：六个可以拧的旋钮</a></li><li><a class="toc-link toc-l1" href="#sec-12">十、踩坑表</a></li><li><a class="toc-link toc-l1" href="#sec-13">十一、动手前的三个检查</a></li><li><a class="toc-link toc-l1" href="#sec-14">常见问题</a></li><li><a class="toc-link toc-l1" href="#sec-15">写在最后</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>
-<script src="../../assets/meta.js?v=7ef24b4d" defer></script>
+<script src="../../assets/meta.js?v=2cf185e9" defer></script>
+<script src="../../assets/image-zoom.js?v=0933ef6c" defer></script>
 <script src="../../assets/toc.js?v=582e1bfb" defer></script>
 </body>
 </html>

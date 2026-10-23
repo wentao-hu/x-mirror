@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>Waffo Pancake 注册到收款全流程教程 · X Mirror</title>
+<meta name="description" content="Waffo Pancake 从注册、建店、定价、SDK 集成到 Webhook 与提现的完整教程，附与 Stripe、Creem、PayPal 的对比。" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=39bdb4c8" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.png" alt="" /></picture>
+    <div>
+      <div class="name">Lone Ranger <span class="meta">@web.cafe</span></div>
+      <div class="meta">2026-05-01 10:56</div>
+    </div>
+  </div>
+  <h1 class="title">Waffo Pancake 注册到收款全流程教程<span class="source-badge" data-source-type="webcafe"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.2 5.5h7.3v4.2a2.9 2.9 0 0 1-2.9 2.9H6.1a2.9 2.9 0 0 1-2.9-2.9V5.5Z"></path><path d="M10.5 6.6h1.2a1.9 1.9 0 1 1 0 3.8h-1.2"></path><path d="M5.2 2.2c0 .7-.7.7-.7 1.4M7.7 2.2c0 .7-.7.7-.7 1.4"></path></svg><span class="src-label">web.cafe</span></span></h1>
+  <div class="tag-list" aria-label="内容标签"><span class="tag-list__label">内容标签</span><span class="tag-badge">海外支付</span></div>
+  <div class="post-controls" data-meta-mount data-slug="webcafe-te4ey2q2lt"></div>
+  <div class="post-meta-row"><a class="orig-link" href="https://new.web.cafe/topic/te4ey2q2lt" target="_blank" rel="noopener">查看原文（web.cafe）↗</a><a class="cat-badge" href="../../?cat=%E6%B5%B7%E5%A4%96%E6%94%B6%E6%AC%BE" title="返回目录 · 海外收款">海外收款</a></div>
+  
+  <article class="article">
+<p>最近在小红书发现一个叫 Waffo 的支付渠道，由中国团队开发。当时他们正在招募内测用户，我申请并接入了。</p>
+<p>整体使用感受不错，主要有三个特点：</p>
+<p>1. 接入便捷 对个人开发者非常友好，无需注册公司即可申请。官方还提供了完整的集成指南（skill 和 llms-full.txt），可以直接让 AI 辅助对接，省去大量文档阅读时间。</p>
+<p>2. MoR 模式（Merchant of Record） Waffo 作为 Merchant of Record，包揽支付、税务、合规、付款结算等全部中间环节。开发者只需专注于产品本身，不用分心处理全球各地的税务申报。</p>
+<p>3. 国内支付支持（计划中） 面向国内市场的微信和支付宝正在接入中，预计近期上线。</p>
+<p>下面我也让 Chatgpt 去帮忙调研了一下它跟其他一些主流支付渠道的区别：</p>
+<div class='table-wrap'><table><tr><th>维度</th><th>Waffo Pancake</th><th>Stripe</th><th>Creem</th><th>PayPal</th></tr><tr><td>核心定位</td><td>MoR + 全球支付 + 税务/合规 + 订阅/一次性支付；文档明确“Waffo Pancake handles payments, taxes, compliance, payouts”。( Waffo )</td><td>默认是强大的支付基础设施/支付处理器；也有 Stripe Managed Payments 作为 MoR 方案。( Stripe )</td><td>MoR，面向 SaaS / 软件公司，处理税务、退款、chargeback、合规。( Creem )</td><td>支付钱包 + Checkout + 卡支付/Pay Later/Venmo；默认不是 MoR，税务责任通常仍在商家。( PayPal Developer )</td></tr><tr><td>是否 MoR</td><td>是。Waffo 作为 legal seller，处理税务、发票、税务申报。( Waffo )</td><td>默认 Payments 不是；Stripe Tax 也只是自动化税务计算/收取，商家仍可保持 MoR；Managed Payments 是 MoR。( Stripe )</td><td>是。Creem 明确作为 Merchant of Record，负责税务、退款、chargeback 等。( Creem )</td><td>否。PayPal 用户协议写明，商家负责判断、评估、收取、申报和缴纳交易相关税款，PayPal 不负责计算/收取/申报/缴纳交易税。( PayPal )</td></tr><tr><td>典型费率</td><td>Waffo Pancake MoR Beta： 3.9% + $0.50 / successful transaction ；退款 $1；失败授权/3DS 某些情况 $0.30；提现 1%，最低 $10。( Waffo )</td><td>Stripe Payments 美国标准： 2.9% + $0.30 国内卡；Billing PAYG 另收 0.7% ；Tax Basic no-code 0.5% 或 API $0.50/笔 ；Managed Payments 是 额外 3.5% ，叠加 Payments 费用。( Stripe )</td><td>标准： 3.9% + $0.40 / successful transaction ；但 revenue splits、affiliate、abandoned cart recovery 等会产生额外费用，境外提现也可能有费用。( Creem )</td><td>美国商户示例：PayPal/Venmo 3.49% + $0.49 ；Expanded Checkout 卡支付 2.89% + $0.29 ；Pay Later 4.99% + $0.49 ；国际交易通常再加 1.50% 。( PayPal )</td></tr><tr><td>$100 交易粗略成本，不含税/退款/提现</td><td>$4.40；如单独提现还需按提现规则计算。</td><td>Stripe Payments：$3.20；若用 Billing/Tax/Managed Payments 会另加。Managed Payments 约 $6.70 起，按“Payments + 3.5%”估算。</td><td>$4.30；若启用 splits/affiliate/recovery 或境外提现，成本增加。</td><td>PayPal/Venmo $3.98；Expanded Checkout 卡 $3.18；国际交易再加约 $1.50。</td></tr><tr><td>税务与合规</td><td>强项。Waffo 作为 MoR 处理税务注册、税率计算、收取、申报、审计/争议等；文档强调使用普通支付处理器时税务仍由商家承担。( Waffo )</td><td>默认需要自己负责税务与合规，可用 Stripe Tax 自动化部分税务流程；Managed Payments 可转移税务责任到 Stripe。( Stripe )</td><td>强项。Creem 说明 MoR 负责税务合规、VAT/GST/销售税、退款与 chargeback。( Creem )</td><td>弱项。PayPal 明确交易税务判断、收取、申报、缴纳由用户负责。( PayPal )</td></tr><tr><td>支付方式/本地化</td><td>文档列出卡、Apple Pay、Google Pay、部分地区本地支付；官网称 480+ payment methods、162 countries、135 currencies，但这与 Pancake 文档需区分验证。( Waffo )</td><td>非常强。Stripe Pricing 写明 195 countries、135+ currencies、100+ payment methods。( Stripe )</td><td>中等偏强。支持信用卡、Apple Pay、Google Pay、Bancontact、Cartes Bancaires、EPS、iDEAL、Link、MobilePay 等，并按客户位置自动展示。( Creem )</td><td>强在 PayPal 钱包、Venmo、Pay Later 和卡支付；PayPal Checkout 可接受 PayPal、借记/信用卡、Pay Later、Venmo、APM。( PayPal Developer )</td></tr><tr><td>订阅/用量计费能力</td><td>支持一次性、订阅、产品组、trial、动态定价 priceSnapshot 、overage/top-up 等，适合 AI/SaaS。( Waffo )</td><td>极强。Stripe Billing 支持 recurring、usage-based、one-time billing，生态成熟。( Stripe )</td><td>强。文档导航包含订阅、seat-based billing、revenue splits、affiliate、discount、free trials、customer portal、bundles。( Creem )</td><td>有订阅 API，可创建 billing plans 和 subscriptions，也支持固定/阶梯/数量相关计划；但整体 SaaS 账务生态不如 Stripe。( PayPal Developer )</td></tr><tr><td>开发者体验</td><td>REST 写入 + GraphQL 只读查询；RSA-SHA256 API 签名；SDK；webhook；适合代码/AI Agent 集成。( Waffo )</td><td>行业标杆。API、SDK、Checkout、Billing、Tax、Connect、Webhook、Dashboard 生态最成熟。( Stripe )</td><td>有 API、CLI、webhook、AI integration；开发能力不错，但生态规模明显小于 Stripe。( Creem )</td><td>Checkout 集成快，15 分钟 copy-paste 集成；也有 Orders API、Subscriptions API。( PayPal Developer )</td></tr><tr><td>提现/覆盖限制</td><td>文档显示 payout 支持 19 个国家 ，CNY 通过支付宝，其他多为 SWIFT；审核通常 1–3 个工作日。( Waffo )</td><td>全球支付与结算能力强，但具体可开户/提现国家取决于 Stripe 支持地区和产品。</td><td>支持商户 payout 86 个国家 ；本地银行转账 7 EUR/USD 或 1% 取高，Stripe Connect 在 35 个国家无 payout fee；每月 1 日和 15 日结算。( Creem )</td><td>全球知名度高，提现与账户能力取决于各国 PayPal 规则；存在账户风控/hold/limitation 机制。( PayPal )</td></tr><tr><td>最适合</td><td>想快速上线 MoR、卖 SaaS/AI/数字产品、希望少处理税务合规、接受早期产品风险的团队。</td><td>工程能力强、需要最大可控性/扩展性/多产品生态；或用 Stripe Managed Payments 做选择性 MoR。</td><td>Indie SaaS / 软件产品 / 需要 MoR + revenue split + affiliate + payout 覆盖更广的团队。</td><td>需要 PayPal 钱包品牌信任、买家覆盖、快速接入 Checkout，但能自行处理税务合规的商家。</td></tr></table></div>
+<h2 id="sec-1">注册到收款全流程实操</h2>
+<p>下面是从零开始接入 Waffo 的完整步骤，基于官方文档整理。</p>
+<h3 id="sec-2">第一步：注册账号</h3>
+<p>访问 <a href="https://waffo.ai?ref=GEFEI01" rel="noopener noreferrer" target="_blank">pancake.waffo.ai</a>，支持三种方式登录：</p>
+<ul><li>Google OAuth</li><li>GitHub OAuth</li><li>Magic Link（邮箱验证码）</li></ul>
+<p>注册即开通，前 $2,000 交易额免手续费。个人开发者可直接收款，无需注册公司。</p>
+<h3 id="sec-3">第二步：创建商店</h3>
+<p>首次登录后会自动引导创建商店，只需填写商店名称即可。创建完成后你会获得一个 storeId。</p>
+<figure class="media"><a class="media-link" href="assets/waffo-1.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/waffo-1-640.webp 640w, assets/waffo-1-960.webp 960w, assets/waffo-1.webp 976w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/waffo-1.png" alt="image.png" loading="lazy" decoding="async" /></picture></a></figure>
+<h3 id="sec-4">第三步：创建产品并定价</h3>
+<p>路径：控制台 → 产品 → 创建产品</p>
+<p>需要配置：</p>
+<ul><li>产品名称</li><li>计费类型：onetime（一次性）或 subscription（订阅）</li><li>价格：如 USD: { amount: &quot;29.00&quot;, taxCategory: &quot;digital_goods&quot; }</li><li>订阅周期（如选订阅）：周 / 月 / 季 / 年</li></ul>
+<blockquote>动态定价场景：创建一次性产品后，服务端计算金额，通过 priceSnapshot 传入。</blockquote>
+<h3 id="sec-5">第四步：获取 API 密钥</h3>
+<p>路径：Dashboard → Merchant → Integration → API Keys</p>
+<p>记录两个关键值作为环境变量：</p>
+<pre><code>WAFFO_MERCHANT_ID=your-merchant-id
+WAFFO_PRIVATE_KEY=your-rsa-private-key</code></pre>
+<h3 id="sec-6">第五步：集成 SDK</h3>
+<p>安装依赖：</p>
+<pre><code>npm install @waffo/pancake-ts</code></pre>
+<p>初始化客户端：</p>
+<pre><code>import { WaffoPancake } from &quot;@waffo/pancake-ts&quot;;
+
+const client = new WaffoPancake({
+  merchantId: process.env.WAFFO_MERCHANT_ID!,
+  privateKey: process.env.WAFFO_PRIVATE_KEY!,
+});</code></pre>
+<p>创建结账会话（推荐认证式，防止试用滥用）：</p>
+<pre><code>const result = await client.checkout.authenticated.create({
+  productId: &quot;PROD_xxx&quot;,
+  currency: &quot;USD&quot;,
+  buyerIdentity: &quot;userIdInYourSystem&quot;,
+  buyerEmail: &quot;customer@example.com&quot;,
+});
+// 重定向到 result.checkoutUrl</code></pre>
+<p>匿名结账（适合未登录场景）：</p>
+<pre><code>const result = await client.checkout.anonymous.create({
+  productId: &quot;PROD_xxx&quot;,
+  currency: &quot;USD&quot;,
+});</code></pre>
+<h3 id="sec-7">第六步：配置 Webhook</h3>
+<p>1. 准备 HTTPS 端点 服务端点需接受 POST 并返回 200。</p>
+<p>2. 控制台配置 Webhook 路径：控制台输入端点 URL，选择订阅事件。</p>
+<p>3. 签名验证（必须使用原始 body）</p>
+<pre><code>import { verifyWebhook } from &quot;@waffo/pancake-ts&quot;;
+
+app.post(&quot;/webhooks&quot;, express.raw({ type: &quot;application/json&quot; }), (req, res) =&gt; {
+  const event = verifyWebhook(
+    req.body.toString(&quot;utf-8&quot;),
+    req.headers[&quot;x-waffo-signature&quot;] as string,
+  );
+  // event.eventType: order.completed / subscription.activated / ...
+});</code></pre>
+<p>关键事件：</p>
+<div class='table-wrap'><table><tr><th>事件</th><th>触发时机</th></tr><tr><td>order.completed</td><td>一次性订单支付成功</td></tr><tr><td>subscription.activated</td><td>订阅首次支付成功</td></tr><tr><td>subscription.payment_succeeded</td><td>续期成功</td></tr><tr><td>subscription.canceled</td><td>订阅终止</td></tr><tr><td>refund.succeeded</td><td>退款完成</td></tr></table></div>
+<h3 id="sec-8">第七步：测试支付</h3>
+<p>切换测试环境：API 请求头加 -H &quot;X-Environment: test&quot;，或在控制台顶部切换。</p>
+<p>测试卡号：</p>
+<ul><li>成功：4576 7500 0000 0110（Visa）</li><li>拒绝：4576 7500 0000 0220</li></ul>
+<p>验证 Webhook 是否收到 order.completed 事件，确认链路通畅。</p>
+<h3 id="sec-9">第八步：上线（KYB + 收款配置）</h3>
+<p>1. 完成商业认证（KYB） 路径：设置 → 商业详情 提交身份/企业信息，审核通常 1-3 个工作日。</p>
+<p>2. 绑定收款账户 路径：财务 → 付款设置 添加银行账户：</p>
+<ul><li>CNY 通过支付宝到账</li><li>其他货币多为 SWIFT 转账</li><li>支持 19 个国家提现</li></ul>
+<p>3. 发布到生产环境 一键将产品从测试环境发布到生产环境，API 调用时移除 X-Environment: test 请求头。</p>
+<h3 id="sec-10">提现规则</h3>
+<ul><li>提现手续费：1%，最低 $10</li><li>结算周期：通常 1-3 个工作日审核到账</li><li>Waffo 作为 MoR 已代扣税务合规，提现时无需额外处理税务</li></ul>
+<p>Waffo 需求反馈响应很快。相比 Stripe 那种工单-邮件来回的模式，沟通成本低得多，想支持的功能可以直接提。有兴趣的可以访问 <a href="https://waffo.ai?ref=GEFEI01" rel="noopener noreferrer" target="_blank">waffo.ai</a> 申请</p>
+<p>如果你正在做 AI 工具、SaaS 或数字产品，需要一个能快速上手的 MoR 支付方案，Waffo 值得试试。</p>
+<p>附上工作人员的联系方式，有问题可以找她咨询</p>
+<figure class="media"><a class="media-link" href="assets/waffo-2.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/waffo-2.webp" type="image/webp"><img src="assets/waffo-2.png" alt="9df4f4e6a23f17bcf44687f13d1a7df7.png" loading="lazy" decoding="async" /></picture></a></figure>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 2/2。
+    web.cafe 全文镜像；正文与图片按原文顺序本地托管；未含评论区。
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">注册到收款全流程实操</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-2">第一步：注册账号</a></li><li><a class="toc-link toc-l2" href="#sec-3">第二步：创建商店</a></li><li><a class="toc-link toc-l2" href="#sec-4">第三步：创建产品并定价</a></li><li><a class="toc-link toc-l2" href="#sec-5">第四步：获取 API 密钥</a></li><li><a class="toc-link toc-l2" href="#sec-6">第五步：集成 SDK</a></li><li><a class="toc-link toc-l2" href="#sec-7">第六步：配置 Webhook</a></li><li><a class="toc-link toc-l2" href="#sec-8">第七步：测试支付</a></li><li><a class="toc-link toc-l2" href="#sec-9">第八步：上线（KYB + 收款配置）</a></li><li><a class="toc-link toc-l2" href="#sec-10">提现规则</a></li></ul></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>
+<script src="../../assets/meta.js?v=2cf185e9" defer></script>
+<script src="../../assets/image-zoom.js?v=0933ef6c" defer></script>
+<script src="../../assets/toc.js?v=582e1bfb" defer></script>
+</body>
+</html>
