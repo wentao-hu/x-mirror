@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "id": "wechat-BMohKW4KH_gJdhEkHaM8Og",
+    "slug": "heping-kd-kgr-metrics-2",
+    "title": "KD 和 KGR 这两个指标（下）",
+    "url": "https://mp.weixin.qq.com/s/BMohKW4KH_gJdhEkHaM8Og",
+    "author_name": "和平本记",
+    "author_username": "hepingfly_gzh",
+    "published_utc": "2026-09-10T06:50:39.000Z",
+    "published_local": "2026-09-10 14:50",
+    "category": "SEO基础",
+    "description": "",
+    "source_type": "wechat",
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "微信公众号原文（文字帖）；正文按原文顺序完整保留，无配图。",
+    "plain_text_len": 648,
+    "blocks_count": 18
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "上一个帖子提到 KD 用来看竞争者的质量，那 KGR 就是用来看竞争者们的数量。KD 和 KGR 这两个指标（上）（https://mp.weixin.qq.com/s?__biz=MzU4MzkyNTE0OQ==&mid=2247485050&idx=1&sn=93ff748fb1ee504964d074ecd8aa28b6&scene=21#wechat_redirect）"
+    },
+    {
+      "type": "paragraph",
+      "text": "你想要围绕一个关键词去建站，那首先肯定要看一下，现在竞争程度怎么样，这个关键词下面已经有多少个网站提供给用户使用了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果用户搜索一个关键词，谷歌会有海量的网站来满足这个关键词的需求。"
+    },
+    {
+      "type": "paragraph",
+      "text": "那说明这个关键词就是大红海，新人很难竞争。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们就是通过 KGR 这个指标来看网页的供应量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR = intitle 结果数 ÷ 月搜索量"
+    },
+    {
+      "type": "paragraph",
+      "text": "在谷歌搜索框输入 intitle:\"你的关键词\"（注意带引号）"
+    },
+    {
+      "type": "paragraph",
+      "text": "一般为了更好的 SEO 效果，我们都会把关键词写在网页的 title 里面。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以通过谷歌 intitle 这个搜索语法可以看到针对这个关键词的网页供应量是否充足。"
+    },
+    {
+      "type": "paragraph",
+      "text": "intitle 数量很大，说明很多网页标题里直接带了这个词"
+    },
+    {
+      "type": "paragraph",
+      "text": "那我们就可以知道很多网页都在参与这个关键词的竞争。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR = intitle 结果数 ÷ 月搜索量"
+    },
+    {
+      "type": "paragraph",
+      "text": "intitle 结果数可以看成是供给，月搜索量可以看成是需求,两者相除，可以得到一个系数。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR < 0.25，低竞争（黄金词），新站有很大机会。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR 在 0.25 ~ 1.00，中等竞争。可以做，可能不如前者快速见效，但有一定概率获得较好排名。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR > 1，竞争偏大。不推荐新站优先做。专门针对该词的竞争页面过多，新站很难迅速获得自然曝光。"
+    },
+    {
+      "type": "paragraph",
+      "text": "最后，KGR 和 KD 是两个维度的指标，一起看可以交叉验证。"
+    },
+    {
+      "type": "paragraph",
+      "text": "KGR 看竞争者数量，KD 看竞争者质量，最后再人工翻一遍谷歌第一页确认。"
+    }
+  ]
+}

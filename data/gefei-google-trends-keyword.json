@@ -1,0 +1,2015 @@
+{
+  "meta": {
+    "id": "wechat-0LzUpQVt4pye-gzKIqZS7Q",
+    "slug": "gefei-google-trends-keyword",
+    "title": "新词新站赚钱秘诀：用好谷歌趋势 Google Trends",
+    "url": "https://mp.weixin.qq.com/s/0LzUpQVt4pye-gzKIqZS7Q",
+    "author_name": "哥飞",
+    "author_username": "gefei7",
+    "published_utc": "2025-04-12T05:06:25.000Z",
+    "published_local": "2025-04-12 13:06",
+    "category": "需求筛选",
+    "description": "",
+    "source_type": "wechat",
+    "avatar_local": "",
+    "images_total": 40,
+    "images_ok": 40,
+    "api_media_count": 40,
+    "fidelity_note": "微信公众号原文；正文按原文顺序完整保留，40 张正文配图全部本地化。文末引流 CTA 按镜像规则去除。",
+    "plain_text_len": 7153,
+    "blocks_count": 402
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1、Google Trends 介绍",
+      "level": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Trends 是实时抓取全球用户的搜索行为，能捕捉到词汇热度的瞬间变化。我们通过词语搜索量的变化趋势能判断它是否属于新出现的词汇或长期存在的稳定需求。"
+    },
+    {
+      "type": "paragraph",
+      "text": "网址："
+    },
+    {
+      "type": "paragraph",
+      "text": "https://trends.google.com/"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多一线实战派高手都对 Google Trends 青睐有加，比如和平就是因为看到了哥飞老师在生财帖子中介绍这款工具，去深入了解 Google Trends 才有了下面的文章"
+    },
+    {
+      "type": "paragraph",
+      "text": "再比如，出海网站月入万刀的良辰美老师，就是通过 Google Trends 去分析关键词，挖掘需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "下面和平会详细给大家介绍 Google Trends 的使用，enjoy~"
+    },
+    {
+      "type": "paragraph",
+      "text": "如何用 Google Trends 判断词语的新旧？"
+    },
+    {
+      "type": "paragraph",
+      "text": "新词的特征："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "搜索量突然暴增：新词通常因技术突破、社会热点、流行文化或突发事件而诞生，短期内搜索量会急剧上升",
+        "搜索量快速回落：热度消退后，搜索量会逐渐回归日常水平，趋势图呈现「陡升→缓降」的尖峰形态。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "老词的特征："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "搜索量长期稳定：老词通常是技术术语、基础概念或日常需求，搜索量波动平缓，趋势图接近一条水平线。",
+        "季节性/周期性波动：部分老词可能有规律性波动（如“春节”“世界杯”），但整体趋势稳定，无突发性暴涨。"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2、Google Trends 基础使用",
+      "level": 2
+    },
+    {
+      "type": "heading",
+      "text": "2.1 界面及过滤条件",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "我们直接在首页搜索 coffee"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRteXicJR5ibvfyicjScJiaTATOnQGHicl0hxX1t2bA9ODhTRbUicFKc79QqfA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-01.png",
+      "key": "01",
+      "local": "img-01.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来就会来到「探索」页面，你就能看到 coffee 这个词在过去 1 天的搜索趋势"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRWBXeibZmDgE6v4UnBObh8T5wzHTasXmCLFIaqsVqAvNxNEhBqOYXwpA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-02.png",
+      "key": "02",
+      "local": "img-02.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "筛选条件"
+    },
+    {
+      "type": "paragraph",
+      "text": "1）地区筛选"
+    },
+    {
+      "type": "paragraph",
+      "text": "点击下拉框可切换"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "国家/地区：精确到州/省（如「美国-加利福尼亚州」）",
+        "全球范围：选择「全世界」显示全球聚合数据"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2）时间筛选"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "实时数据：过去1小时/4小时",
+        "短期趋势：过去1天/7天（适合热点事件追踪）",
+        "长期趋势：自定义时间段（2004年至今，最长5年跨度）"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3）类别筛选"
+    },
+    {
+      "type": "paragraph",
+      "text": "细化搜索场景"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "电商类：仅显示购物相关搜索（如「coffee maker」）",
+        "新闻类：过滤新闻事件引发的搜索波动",
+        "餐饮类：适用于食品饮料行业分析"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "选择错误类别可能导致数据偏差（如「coffee」选科技类会过滤掉大部分数据）"
+    },
+    {
+      "type": "paragraph",
+      "text": "4）搜索来源"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "网页搜索：默认全网搜索量",
+        "图片搜索：分析视觉内容需求（适合产品设计参考）",
+        "Google News：监测媒体报道热度",
+        "Google Shopping：电商平台搜索趋势",
+        "YouTube：视频内容搜索行为"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2.2 搜索词和搜索主题",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索词 - Search term"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索主题 - Topic"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们在搜索框搜索一个词语的时候，可以选择是搜索词还是搜索主题"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRANYw0fw9QHqraVldMq6bjNmdPIvFCkCzF4eYPC2qKc9f6icyUn4nOcg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-03.png",
+      "key": "03",
+      "local": "img-03.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "Search Terms（搜索词） 和 Search Topics（搜索主题） 是两种不同的数据匹配模式，直接影响结果范围与准确性。"
+    },
+    {
+      "type": "paragraph",
+      "text": "维度"
+    },
+    {
+      "type": "paragraph",
+      "text": "Search Terms（搜索词）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Search Topics（搜索主题）"
+    },
+    {
+      "type": "paragraph",
+      "text": "定义"
+    },
+    {
+      "type": "paragraph",
+      "text": "精确匹配用户输入的关键词（如iPhone 13）"
+    },
+    {
+      "type": "paragraph",
+      "text": "系统智能关联的语义主题（如智能手机涵盖所有相关词汇）"
+    },
+    {
+      "type": "paragraph",
+      "text": "匹配范围"
+    },
+    {
+      "type": "paragraph",
+      "text": "仅包含完全相同的词（包括拼写错误、缩写）"
+    },
+    {
+      "type": "paragraph",
+      "text": "自动扩展至同义词、相关词、多语言变体（如Coffee→咖啡,café）"
+    },
+    {
+      "type": "paragraph",
+      "text": "数据量"
+    },
+    {
+      "type": "paragraph",
+      "text": "可能数据稀疏（尤其长尾词）"
+    },
+    {
+      "type": "paragraph",
+      "text": "数据更丰富（聚合相关搜索）"
+    },
+    {
+      "type": "paragraph",
+      "text": "适用场景"
+    },
+    {
+      "type": "paragraph",
+      "text": "品牌名、精确产品型号、特定短语对比（如Nike vs Adidas）"
+    },
+    {
+      "type": "paragraph",
+      "text": "行业趋势、宽泛话题分析（如新能源汽车）"
+    },
+    {
+      "type": "paragraph",
+      "text": "使用场景举例："
+    },
+    {
+      "type": "paragraph",
+      "text": "比如现在要分析「咖啡」的搜索趋势"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "如果用Search Terms输入coffee"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "仅统计用户直接搜索“coffee”的精确匹配数据，忽略cafe、coffee shop等变体。结果可能低估实际热度（尤其非英语国家用户可能搜索本地语言词）。"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "如果用Search Topics选择Coffee主题："
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "系统自动聚合所有相关词（包括 cappuccino 、 咖啡 、 قهوة 等语言变体），并排除无关词（如人名“Coffee”）。反映整个咖啡品类的真实趋势。"
+    },
+    {
+      "type": "paragraph",
+      "text": "总结："
+    },
+    {
+      "type": "paragraph",
+      "text": "Search Terms = 精准狙击（显微镜视角）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Search Topics = 全局扫描（卫星视角）"
+    },
+    {
+      "type": "heading",
+      "text": "2.3 谷歌热度",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "谷歌趋势反应的是搜索词的热度而不是搜索量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所你没办法知道有多少人搜索了某个特定词语，所有的搜索数据被简化为一个叫搜索兴趣的指标，范围是 0-100，这样可以更好的保护 google 用户的隐私。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以你虽然不能用这个数据来判断多少人搜索了某个特定的词语，但是你能够用它来查看这个词的流行程度，即随着时间的推移发生了什么样的变化。"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRWRQlVX3CyK5T28n0sjibQB1vWbFGelqW6qIVuzt8qtiaQedssa7CFQmg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-04.png",
+      "key": "04",
+      "local": "img-04.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "分析维度"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体说明"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心含义"
+    },
+    {
+      "type": "paragraph",
+      "text": "图表展示某关键词/话题在4月9日16时至4月10日14:32期间的热度变化趋势。"
+    },
+    {
+      "type": "paragraph",
+      "text": "纵轴（热度分数）"
+    },
+    {
+      "type": "paragraph",
+      "text": "范围 0~100分，代表相对热度。 100分=该时段搜索量峰值（如1万次）。 其他数值按比例计算（50分=峰值的一半≈5000次，0分=无数据）。"
+    },
+    {
+      "type": "paragraph",
+      "text": "横轴（时间）"
+    },
+    {
+      "type": "paragraph",
+      "text": "覆盖约 22小时。 趋势：热度从峰值（近100分）快速下降，最终趋稳（25~50分），反映事件从爆发到消退。"
+    },
+    {
+      "type": "paragraph",
+      "text": "评分标准"
+    },
+    {
+      "type": "paragraph",
+      "text": "基于指定区域和时段的相对比较，非绝对搜索量。 示例：75分≈峰值75%的搜索量（若峰值1万次，则75分≈7500次）。"
+    },
+    {
+      "type": "heading",
+      "text": "3、explore/探索的使用",
+      "level": 2
+    },
+    {
+      "type": "heading",
+      "text": "3.1 关键词趋势查看",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "假设你有一家咖啡店，你想了解所在地区用户的喜好。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们在 Google Trends 主页输入 cappuccino（卡布奇诺），然后选择 coffee drink 主题"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRlibgF25ExkBBuhL3cnlouxWlYg9qWxibobNf1881yfmxm1gH1K6cIxAg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-05.png",
+      "key": "05",
+      "local": "img-05.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来就会跳到 explore/探索页面"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRHGZGlXz2vtx9UE8VAmIEI9Xc5j5c3OJDOYZLAh3QYHm34cNXMGo2fg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-06.png",
+      "key": "06",
+      "local": "img-06.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来我们添加对比词，latte（拿铁）和 espresso（浓缩咖啡）"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRhy99X0ibIYExSbhJ5XjtiadibKAibh6vjUzaSAcgyNaYp8CYxKVSW7hYOg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-07.png",
+      "key": "07",
+      "local": "img-07.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "注意，最好是同类比较，因为我们前面 coffee 选择的是 Topic ，那再添加对比词的时候最好对比词也选择 Topic"
+    },
+    {
+      "type": "paragraph",
+      "text": "主题与主题对比"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索词与搜索词对比"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为一个主题可能会包含多个搜索词，将主题与搜索词进行比较可能会产生数据偏差"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRxqJgYS8ibs28OBbHdGVzDStAdGlKOfBzKwn0gMv1X8lHwichib7qBoxIQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-08.png",
+      "key": "08",
+      "local": "img-08.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索页面中有 4 个筛选器，可以帮助你更加有针对性的搜索"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "地区",
+        "比如，你现在正在写一篇关于巴西咖啡消费模式变化的文章，那么我们就可以把区域换成巴西来观察数据趋势",
+        "时间",
+        "如果你对长期趋势感兴趣，你可以选择观察过去 5 年的数据趋势，或者你也可以自定义时间范围",
+        "分类",
+        "你可以探索特定领域中的趋势，比如你可以选择饮食这个分类，来观察咖啡的变化趋势",
+        "来源",
+        "你可以选择搜索来源是 Google 网页、图片、新闻、购物、youtube"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "3.2 留空关键词查看",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "我在 Explore 页面不输入任何关键词，把关键词留空，然后直接选择下面的筛选条件，这样我就可以知道某个位置、某个时间段、某个类别、或者某个平台，常见的搜索主题和搜索词"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRI9BQuFVqjp5ZiayxXE9X1ickg16f8krZMWndJn6icycK56QsicZlBdf4KA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-09.png",
+      "key": "09",
+      "local": "img-09.png"
+    },
+    {
+      "type": "heading",
+      "text": "3.3 怎么去看搜索趋势",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "左边的柱状图"
+    },
+    {
+      "type": "paragraph",
+      "text": "每一条柱状图代表着你的搜索词或者搜索主题，我们对比了 3 个Topic ，所以有 3 条柱状图"
+    },
+    {
+      "type": "paragraph",
+      "text": "它们展示的是各自的平均搜索兴趣，你可以把它理解成一个高层次视角，通过这个视角去判断各个 Topic 的热度谁高谁低"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR6tVEvzucY7bEGicncKTLbUPVkqnInmUTVXX5HdLjQyBTmbOlBbTh0Jw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-10.png",
+      "key": "10",
+      "local": "img-10.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "右边折线图"
+    },
+    {
+      "type": "paragraph",
+      "text": "折线图反映随着时间变化，热度的趋势。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果折线图跌到 0 ，表明你的搜索词没有足够大的样本"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你切换不同时间段，发现折线图很多跌到 0 了，这代表在这个时间段该搜索词的数据量不足，搜索这个词的人太少了。"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRiajx3uH6yamYoGy9bQTuKff9GZNicBt2ciaAhzDJMg0BiaOmXia3Wjte81w/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-11.png",
+      "key": "11",
+      "local": "img-11.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以换一下筛选条件，比如原来地区选的是美国，然后我把地区换成全球，再看看数据"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR5zEpe7aXwgEOQnFC0K6I7gNSghjG1mTdU5Y7NGbsIEzUTX91f3XEsA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-12.png",
+      "key": "12",
+      "local": "img-12.png"
+    },
+    {
+      "type": "heading",
+      "text": "3.4 不同地区的细分数据",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你把区域选成全球，那么这里你就会看到按照国家/地区划分的搜索兴趣"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你的区域选择的是国家/地区，在这里你就会看到按照子区域划分的搜索兴趣"
+    },
+    {
+      "type": "paragraph",
+      "text": "区域的阴影越深，表示搜索兴趣越高"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR96qXAtNy6l4YEY2yicop2Do3icvmWurD74buSajOhQDotU1hVX1j2k0g/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-13.png",
+      "key": "13",
+      "local": "img-13.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "把鼠标放在地图上的某个区域，可以显示这个区域的搜索兴趣"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRpNkw7uQbeevrujSpa28M0uPqgud8o1LgQodFyuTib7l6lw2zd6AwMNg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-14.png",
+      "key": "14",
+      "local": "img-14.png"
+    },
+    {
+      "type": "heading",
+      "text": "3.5 关键词的关联词",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "显示跟你输入的搜索关键词相关的关联词"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRYETfkI6TZCd7kTP3zSJGZpnEZtE3V3ia4ocIjSIWB46zy26icgYDYzicQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-15.png",
+      "key": "15",
+      "local": "img-15.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "指标含义"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rising：根据近期搜索量激增的幅度筛选"
+    },
+    {
+      "type": "paragraph",
+      "text": "百分比：表示特定搜索词在选定时间段内的搜索量增长幅度，"
+    },
+    {
+      "type": "paragraph",
+      "text": "Breakout：在选定时间段内增速超过 5000%的词"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRGicSQYrSZz847kjSib8XbGgSKPvRZgJ0qYSOLKgPRsbtLicJ5ksJCnghg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-16.png",
+      "key": "16",
+      "local": "img-16.png"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRnXP4CqH5rl9FbE9h7eqWRNX0oVUUrSECs7njFNry5atI7FBbbxQuIw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-17.png",
+      "key": "17",
+      "local": "img-17.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "Top：根据搜索兴趣筛选"
+    },
+    {
+      "type": "paragraph",
+      "text": "按照 Top 排序，出来的都是按照搜索兴趣从高到低，但是这些词不一定是增长最快的，但一定是搜索兴趣最高的"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR7C6ia99icvEmWics3NHZmlBbuibzUyOFIkQ00ZamxJW4K2bsFrB5UbbZcA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-18.png",
+      "key": "18",
+      "local": "img-18.png"
+    },
+    {
+      "type": "heading",
+      "text": "3.6 使用注意点",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "1）Google Trends 展示的不是搜索量，而是搜索量的近似值，可以理解成搜索兴趣"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Trends 提供的不是搜索的准确数值，所以应该避免使用「我们的 Google 搜索量增长了 100%」之类的说法"
+    },
+    {
+      "type": "paragraph",
+      "text": "这只是一个近似值，你可以说「搜索兴趣增长了 100%」"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）关键词比较功能"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你想比较两个关键词，直接使用 「Add comparison」"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRHpQ6Ded4YCL1uiawGwMvCCj0ovpB0mFibAXK47mrwiaJx3RbIccHjgO0g/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-19.png",
+      "key": "19",
+      "local": "img-19.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "不要把两个关键词分别都搜索一遍，因为他们的标准化指数不一样，所以这样得到的结果是不准的"
+    },
+    {
+      "type": "heading",
+      "text": "4、高级功能",
+      "level": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "在上面我们介绍了 Search Topic 和 Search terms ，在我们使用 Google Trends 中使用 Topic 搜索比 terms 搜索相对来说会好一点"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为 terms 是精确搜索，Topic 相对来说搜索范围更大"
+    },
+    {
+      "type": "paragraph",
+      "text": "但是如果没有符合你搜索条件的 Topic，你可以使用标点符号来准确找到你需要的内容"
+    },
+    {
+      "type": "heading",
+      "text": "4.1 标点符号",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你搜索 「boat trip」不带任何标点符号，那么搜索结果中，这两个词的顺序就是任意的，结果不会包含任何拼写错误的词、变体以及复数形式"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRbVs2riaggHITwooNj7RwfwGH32LAdkhzC6qRaojzHW2Ozss8xlFFrvw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-20.png",
+      "key": "20",
+      "local": "img-20.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们可以在搜索关键词中使用标点符号，包括"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "引号",
+        "加号",
+        "减号"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "1）引号"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索带引号的 「\"boat trip\"」会显示可能带有前面的单词或者后面的单词"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR05EZUaso1N3ODYacBQIRgrFx6wS0nlsTzCwGqsQ49U5sMst5TEibzsA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-21.png",
+      "key": "21",
+      "local": "img-21.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）减号"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索带减号的 「\"boat -trip\"」结果包含单词 boat 不包含单词 trip"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRylib88MFtQToFUicmscWpD3P6Zr3BD7rRzicZjPbfVLIQR4Oia7vYAOXMg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-22.png",
+      "key": "22",
+      "local": "img-22.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "3）加号"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索带加号的 「\"boat +trip\"」结果包含 boat 和 trip"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR9wIyo2kQMLibicFeYgGvibnZGPjnRAv4KopMZ9NdqSTJxXQuanFH9lVGA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-23.png",
+      "key": "23",
+      "local": "img-23.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "加号的热度始终会高于引号和减号，因为他包含的结果最广泛。"
+    },
+    {
+      "type": "heading",
+      "text": "4.2 高级比较模式",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "同关键词不同时间维度对比"
+    },
+    {
+      "type": "paragraph",
+      "text": "假设你有一家英国旅行社，你想知道用户对 boat trip 是否感兴趣，随着时间推移，用户对 boat trip 的兴趣是怎么样的"
+    },
+    {
+      "type": "paragraph",
+      "text": "1）我们直接查看过去 5 年 「boat trip」的关键词趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "从这张图我们能看出来 「boat trip」有非常强的季节性，英国夏季搜索明显多于冬季"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRb6DiaibhF86syJ7hLRoYLaqSooOUtwwo943euQejhYRHyNth0xYqL6qw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-24.png",
+      "key": "24",
+      "local": "img-24.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）我们来分析逐年的趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "首先把时间筛选，改成过去 12 个月，时间范围也就是，24年4月~25年4月"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRUiaPsFIjE4nRttsQq6WWLxuBZtsqTZrUaKApECE3DM8TibtEicicZr7gBg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-25.png",
+      "key": "25",
+      "local": "img-25.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来我们添加一个一模一样的关键词，只不过把时间范围自定义成 23年4月~24年4月"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR1O4KkQEk5fNDibAicneNAShmI3ugnKZqykoa9J9He1MxRk8CzmLp3WYw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-26.png",
+      "key": "26",
+      "local": "img-26.png"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRD2Zsw1Rahlf57UlniaAQ8GxpDKLuKWgFlPfO3jJx3lG9OgEjWU0ycFQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-27.png",
+      "key": "27",
+      "local": "img-27.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "同样的方法，我们添加同样关键词，时间范围分别是 22年4月~23年4月 21年4月~22年4月 20年4月~21年4月"
+    },
+    {
+      "type": "paragraph",
+      "text": "这样你就可以看到过去 5 年，每一年这个关键词在英国的趋势是什么样的"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRIXWlhVxuktRMAwYtY6dhKFyeXz2490O8f5SEfmPEmLUuxo4XcVe1bw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-28.png",
+      "key": "28",
+      "local": "img-28.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "同关键词不同地区维度对比"
+    },
+    {
+      "type": "paragraph",
+      "text": "假设你现在在英国，你想要把业务拓展至美国，我们还是先看英国过去 5 年 「boat trip」的搜索趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "然后我们添加同样的关键词， 地区选择美国 ，时间也是过去 5 年"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以看到美国的搜索兴趣很低，很显然不适合在美国开展业务"
+    },
+    {
+      "type": "paragraph",
+      "text": "同样的方法，我们可以横向对比 5 个市场"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRibFcsicPDbogeZoia35vd8f4FP2MRmF0yAjZxtG872zz4CGuYESQhrfag/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-29.png",
+      "key": "29",
+      "local": "img-29.png"
+    },
+    {
+      "type": "heading",
+      "text": "4.3 导出分享数据",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "1）链接分享"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你想要把你自己 Google Trends 分析的趋势分享给朋友，只需要复制链接，然后发送给朋友即可。你所做的筛选条件都会在链接的 url 上有所体现，朋友看到的页面和你的页面都是一致的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）网站嵌入"
+    },
+    {
+      "type": "paragraph",
+      "text": "把嵌入代码直接粘贴到 HTML 代码中即可"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRxbAeQcAd0oLkGDew6zkZDgudjorsjicE2SV0Id3vWqPpDhlPdeF1dgg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-30.png",
+      "key": "30",
+      "local": "img-30.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "3）下载 CSV"
+    },
+    {
+      "type": "paragraph",
+      "text": "直接点击下载按钮下载即可。"
+    },
+    {
+      "type": "paragraph",
+      "text": "下载之后就可以针对 csv 文件数据进行分析"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRJzibk816pbr8B9oBNCdko2YtsY6A9CC5anlc3iapib7rhwaJkZ8Y7jQIg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-31.png",
+      "key": "31",
+      "local": "img-31.png"
+    },
+    {
+      "type": "heading",
+      "text": "5、Trending now 使用",
+      "level": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "我们可以查看最新的趋势，从而知道最近流行的话题，以及这些流行词与你目标词的关系。"
+    },
+    {
+      "type": "paragraph",
+      "text": "指标解释："
+    },
+    {
+      "type": "paragraph",
+      "text": "① Trends"
+    },
+    {
+      "type": "paragraph",
+      "text": "当下的流行搜索词,这一列每个词在你选择的时间段内，都是搜索量比较大的词"
+    },
+    {
+      "type": "paragraph",
+      "text": "② Search volume"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索量，过去 24 小时内该关键词的搜索量估算值"
+    },
+    {
+      "type": "paragraph",
+      "text": "③ Started"
+    },
+    {
+      "type": "paragraph",
+      "text": "趋势开始时间，该关键词的搜索量开始显著上升的时间点。例如， 14 hours ago 表示 14 小时前该词条突然进入高热度状态"
+    },
+    {
+      "type": "paragraph",
+      "text": "④Trend Breakdown"
+    },
+    {
+      "type": "paragraph",
+      "text": "趋势细分入口，点击后可查看该关键词的 详细趋势分析"
+    },
+    {
+      "type": "paragraph",
+      "text": "⑤ Past 24 Hours"
+    },
+    {
+      "type": "paragraph",
+      "text": "趋势图表，直观展示该关键词 过去 24 小时的搜索量变化趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "绿色表示这个趋势热度还在持续，灰色表示热度已过"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRicrbHNthwLib8rUZkE50YIkSkNicV3iaphlMscfBfp4Q1ep42AGxJQ6SUg/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-32.png",
+      "key": "32",
+      "local": "img-32.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "⑥ Active"
+    },
+    {
+      "type": "paragraph",
+      "text": "表示搜索量比平时的搜索量要多，目前还处在热度状态"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MR8lIDe3aWjxvZKZkAnKHso2fLYr9tYv8yF1D6TsUuvgA3g3GjC4hv9Q/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-33.png",
+      "key": "33",
+      "local": "img-33.png"
+    },
+    {
+      "type": "heading",
+      "text": "6、Google Trends 应用场景",
+      "level": 2
+    },
+    {
+      "type": "heading",
+      "text": "6.1 验证产品创意是否有市场需求",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "比如说，你现在想要开发一个 「AI 简历生成器」，但是不确定需求是否真实存在。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这时候你可以："
+    },
+    {
+      "type": "paragraph",
+      "text": "1）在 Google Trends 输入关键词 \"AI resume builder\"，查看过去 5 年的搜索趋势。"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRva2bujsol4vHM1LLFLPichWRDIrXpJzmWUBXdmW9ovlVVI7uticsmubQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-34.png",
+      "key": "34",
+      "local": "img-34.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）发现搜索量在 2023 年暴涨，且往后几年都在持续上升 → 验证需求真实存在。"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRXzBdegC85z5NpKvRQUv09PwibmP8DKKlra8BNM1QP5Qic8PicdRCYIEcQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-35.png",
+      "key": "35",
+      "local": "img-35.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "为什么可以得出这个结论呢？"
+    },
+    {
+      "type": "paragraph",
+      "text": "① 主动搜索行为代表问题待解决"
+    },
+    {
+      "type": "paragraph",
+      "text": "当用户主动在搜索引擎输入一个关键词（如 “AI resume builder”），说明他们遇到了某个问题，并希望通过工具、服务或信息来解决它。"
+    },
+    {
+      "type": "paragraph",
+      "text": "② 搜索量暴涨 = 需求集中爆发"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索量短期内激增，意味着大量用户在同一时间段遇到了相同痛点，且现有解决方案可能不足。"
+    },
+    {
+      "type": "paragraph",
+      "text": "③ 排除热点干扰"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果搜索量只是短暂飙升后快速回落（如某明星代言引发的短期流量），可能只是“虚假需求”。如果能持续上升（如3个月以上）表明需求具有延续性，而非昙花一现。"
+    },
+    {
+      "type": "paragraph",
+      "text": "从折线图我们可以看出，过去 5 年趋势一直是在上升。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tips:"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户的搜索词越具体，需求越真实"
+    },
+    {
+      "type": "paragraph",
+      "text": "长尾关键词的搜索量增长（比如带功能描述的词汇），更能反映用户愿意为具体解决方案付费。"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索词类型"
+    },
+    {
+      "type": "paragraph",
+      "text": "需求强度"
+    },
+    {
+      "type": "paragraph",
+      "text": "商业价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "“简历模板”"
+    },
+    {
+      "type": "paragraph",
+      "text": "低"
+    },
+    {
+      "type": "paragraph",
+      "text": "低"
+    },
+    {
+      "type": "paragraph",
+      "text": "“免费简历生成器”"
+    },
+    {
+      "type": "paragraph",
+      "text": "中"
+    },
+    {
+      "type": "paragraph",
+      "text": "中"
+    },
+    {
+      "type": "paragraph",
+      "text": "“AI简历生成器带ATS优化”"
+    },
+    {
+      "type": "paragraph",
+      "text": "高"
+    },
+    {
+      "type": "paragraph",
+      "text": "高"
+    },
+    {
+      "type": "heading",
+      "text": "6.2 分析市场需求",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "我们使用 Google Trends 分析关键词，除了能看到关键词热度折线图，还能看到关联主题（Related topics）和关联查询（Related queries）这两项数据展示"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRb8Aq2qibAqsoURX0x8OSWx9SmI9564G6k7L1MAfNAMIYMIsXUQs8rcQ/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-36.png",
+      "key": "36",
+      "local": "img-36.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "通过这两个功能，我们可以进一步分析："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "需求场景：用户搜索后还会搜什么？",
+        "需求强度：搜索词是否包含 “免费 vs 付费”、“教程 vs 工具” 等关键词？"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "所以我们其实更想知道的是，用户搜索这个关键词背后的意图是什么。"
+    },
+    {
+      "type": "paragraph",
+      "text": "下面我们就使用 Google Trends 的「相关查询」和「关联主题」来分析需求。"
+    },
+    {
+      "type": "paragraph",
+      "text": "什么是「关联查询」和「关联主题」？"
+    },
+    {
+      "type": "paragraph",
+      "text": "在 Google Trends 搜索任意关键词（如 “AI resume builder”），页面下方会出现两类数据："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "相关查询（Related queries）：用户搜索该关键词时，同时或前后搜索的其他关键词。",
+        "例如：搜索 “红烧肉做法” 的人，可能还会搜 “糖色怎么炒”。",
+        "关联主题（Related topics）：与主关键词属于同一类别或场景的其他主题。",
+        "例如：搜索 “AI resume builder” 的关联主题可能是 “ATS”（简历筛选系统）。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "怎么样用这两类数据判断需求场景？"
+    },
+    {
+      "type": "paragraph",
+      "text": "假设你发现关键词 “AI resume builder” 搜索量暴涨，但不确定用户需要什么功能。通过以下步骤分析："
+    },
+    {
+      "type": "paragraph",
+      "text": "步骤1：查看「相关查询」"
+    },
+    {
+      "type": "paragraph",
+      "text": "操作：在 Google Trends 输入 “AI resume builder”，下滑到「相关查询」部分，按「上升」排序（Rising），看到以下结果："
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRF3ScjWJuOtkRntGUAvp0pc0FuaOCf0HgJYZPSNQXib9grcVtG7buU4w/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-37.png",
+      "key": "37",
+      "local": "img-37.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "需求场景分析："
+    },
+    {
+      "type": "paragraph",
+      "text": "1）用户的核心需求是什么？"
+    },
+    {
+      "type": "paragraph",
+      "text": "主关键词：“AI resume builder”（AI简历生成器）"
+    },
+    {
+      "type": "paragraph",
+      "text": "相关查询透露出三类场景："
+    },
+    {
+      "type": "paragraph",
+      "text": "相关查询关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "需求场景分类"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户心理分析"
+    },
+    {
+      "type": "paragraph",
+      "text": "best resume builder"
+    },
+    {
+      "type": "paragraph",
+      "text": "追求工具质量"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户不满足基础功能，愿为“更好用”付费"
+    },
+    {
+      "type": "paragraph",
+      "text": "resume builder for free"
+    },
+    {
+      "type": "paragraph",
+      "text": "预算敏感型需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户希望零成本解决问题，可能拒绝付费"
+    },
+    {
+      "type": "paragraph",
+      "text": "chatgpt resume（builder）"
+    },
+    {
+      "type": "paragraph",
+      "text": "利用现有AI工具自行解决"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户尝试用ChatGPT替代专用工具，需引导"
+    },
+    {
+      "type": "paragraph",
+      "text": "AI CV builder"
+    },
+    {
+      "type": "paragraph",
+      "text": "国际化需求（CV≠Resume）"
+    },
+    {
+      "type": "paragraph",
+      "text": "欧洲等地区用户需要适配本地术语的工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）如何推导需求场景？"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "场景1：工具质量优先的求职者",
+        "证据：关键词 “best resume builder”（搜索量Breakout）",
+        "用户行为链：用户先尝试通用工具 → 效果不佳 → 主动寻找“最好”的解决方案",
+        "需求强度：高（用户愿意为“最好”支付溢价）",
+        "产品方向：突出“专业评测Top 1”“HR推荐”等信任背书，强调差异化功能（如行业定制模板）。",
+        "场景2：零成本解决方案需求",
+        "证据：关键词 “resume builder for free”（搜索量Breakout）",
+        "用户行为链：用户想快速解决问题 → 优先寻找免费工具 → 可能因功能限制转向付费。",
+        "需求强度：中低（需通过免费版引流，再转化付费）",
+        "产品方向：提供免费基础版 + 付费解锁高级功能（如ATS兼容性检测）。",
+        "场景3：ChatGPT替代方案",
+        "证据：关键词 “chatgpt resume” 和 “chatgpt resume builder”（搜索量Breakout）",
+        "用户行为链：用户知道ChatGPT的通用能力 → 尝试用其生成简历 → 发现效果不专业 → 寻找专用工具。",
+        "需求强度：中高（用户已意识到AI的价值，但需要更垂直的解决方案）",
+        "产品方向：开发“ChatGPT+专业简历库”的集成工具，宣传“比直接使用ChatGPT更高效”。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "需求强度分析："
+    },
+    {
+      "type": "paragraph",
+      "text": "关键词中的“强度信号”"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "强需求信号",
+        "“best”：用户进入对比选择阶段，商业价值高。",
+        "“chatgpt resume builder”：用户明确需要AI与工具结合，需求具体。",
+        "弱需求信号",
+        "“free”：用户价格敏感，付费转化难度大。",
+        "无功能描述词：如未出现“ATS”“custom template”等，说明需求尚未细化。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "步骤2：查看「关联主题」"
+    },
+    {
+      "type": "paragraph",
+      "text": "操作：在「关联主题」部分，发现以下高关联度主题"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRub4CeuTmKO8aH30wmia68jMqeFEPuFMnaFBdklOOuySypwzuqtLiaviaA/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-38.png",
+      "key": "38",
+      "local": "img-38.png"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "\"good - Topic\"（Breakout）",
+        "可能是用户搜索 \"good resume builder\" 或 \"good AI tools\" 等短语的泛化归类，反映用户对“优质工具”的筛选需求。",
+        "\"Ai Resume Builder - Software industry\"（Breakout）",
+        "明确指向 “AI简历生成工具” 这一细分赛道，且归类于“软件行业”，说明该工具已被市场认可为专业软件。",
+        "\"Applicant tracking system - Topic\"（Breakout）",
+        "企业招聘系统中的 简历筛选系统（ATS），与简历生成工具强关联，用户需要确保简历能通过机器筛选。",
+        "\"Canva - Software company\"（Breakout）",
+        "用户正在对比 Canva（知名设计工具），说明部分用户尝试用设计工具制作简历，但需更专业的解决方案。",
+        "\"Microsoft Word - System software\"（Breakout）",
+        "传统文档工具 Word 的关联，反映用户从 “手动排版”向“自动化生成” 过渡的需求。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "需求场景分析："
+    },
+    {
+      "type": "paragraph",
+      "text": "1）核心场景，生成符合ATS标准的简历"
+    },
+    {
+      "type": "paragraph",
+      "text": "证据链："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "主关键词 “Ai Resume Builder” + 关联主题 “Applicant tracking system”。",
+        "用户行为逻辑",
+        "用户痛点：简历被企业ATS系统过滤 → 搜索AI生成工具 → 验证工具是否解决ATS兼容性"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "产品方向"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "需强调工具内置 “ATS优化”功能（如关键词匹配、格式标准化）。",
+        "提供 “简历通过率检测”报告，直接解决用户担忧。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2）竞争场景，与传统工具（Word/Canva）争夺用户"
+    },
+    {
+      "type": "paragraph",
+      "text": "证据链："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "关联主题中出现 Canva 和 Microsoft Word，且均为“Breakout”状态。",
+        "用户行为逻辑",
+        "用户习惯：过去用Word写简历 → 发现效率低 → 尝试Canva美化 → 仍不满足 → 转向AI工具"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "产品方向："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "开发 “一键从Word/Canva导入”功能，降低迁移成本。",
+        "宣传 “比Canva更智能，比Word更高效” 的核心优势。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3）质量筛选场景，用户寻找可靠工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "证据链："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "关联主题 “good - Topic”（可能包含“good resume builder”等搜索）。",
+        "用户行为逻辑",
+        "用户不信任普通工具 → 搜索“good”“best”等评测类关键词 → 筛选优质产品"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "产品方向："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "主动发布 第三方评测报告（如“2024最佳AI简历工具Top 5”）。",
+        "在官网突出 “行业认证”“用户案例” 等信任背书。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "需求强度分析："
+    },
+    {
+      "type": "paragraph",
+      "text": "1）从“Breakout”状态判断爆发性需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "Breakout的定义：搜索量增长率超过500%，或从零搜索突然爆发。"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图中所有关联主题均为Breakout，说明："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "整个 “AI简历生成”赛道处于高速增长期；",
+        "用户需求从传统工具（Word/Canva）向AI工具迁移的趋势显著。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "2）需求强度排序"
+    },
+    {
+      "type": "paragraph",
+      "text": "关联主题"
+    },
+    {
+      "type": "paragraph",
+      "text": "强度信号"
+    },
+    {
+      "type": "paragraph",
+      "text": "优先级"
+    },
+    {
+      "type": "paragraph",
+      "text": "Applicant tracking system"
+    },
+    {
+      "type": "paragraph",
+      "text": "直接关联简历通过率，痛点明确且强烈"
+    },
+    {
+      "type": "paragraph",
+      "text": "高"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ai Resume Builder"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心需求，但需差异化竞争（避免同质化）"
+    },
+    {
+      "type": "paragraph",
+      "text": "中高"
+    },
+    {
+      "type": "paragraph",
+      "text": "Canva/Microsoft Word"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户迁移需求，需降低转换成本"
+    },
+    {
+      "type": "paragraph",
+      "text": "中"
+    },
+    {
+      "type": "paragraph",
+      "text": "good - Topic"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户筛选需求，需建立信任"
+    },
+    {
+      "type": "paragraph",
+      "text": "中低"
+    },
+    {
+      "type": "paragraph",
+      "text": "为什么关键词类型能反应需求强度？"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心逻辑：搜索词越具体，付费意愿越强"
+    },
+    {
+      "type": "paragraph",
+      "text": "想象你准备点外卖："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "弱需求场景：你搜“附近有什么吃的”（泛需求，可能随便看看）",
+        "强需求场景：你搜“小龙虾外卖 2人套餐 免配送费”（明确需求，准备下单）"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "同理，用户在搜索工具时的用词，直接暴露了他们的意图阶段："
+    },
+    {
+      "type": "paragraph",
+      "text": "关键词类型"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户阶段"
+    },
+    {
+      "type": "paragraph",
+      "text": "商业价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "类比外卖场景"
+    },
+    {
+      "type": "paragraph",
+      "text": "“best AI resume builder”"
+    },
+    {
+      "type": "paragraph",
+      "text": "对比选择阶段"
+    },
+    {
+      "type": "paragraph",
+      "text": "高"
+    },
+    {
+      "type": "paragraph",
+      "text": "“附近最好吃的小龙虾”"
+    },
+    {
+      "type": "paragraph",
+      "text": "“buy AI resume tool”"
+    },
+    {
+      "type": "paragraph",
+      "text": "准备购买阶段"
+    },
+    {
+      "type": "paragraph",
+      "text": "极高"
+    },
+    {
+      "type": "paragraph",
+      "text": "“小龙虾外卖下单立减20元”"
+    },
+    {
+      "type": "paragraph",
+      "text": "“free AI resume generator”"
+    },
+    {
+      "type": "paragraph",
+      "text": "预算敏感阶段"
+    },
+    {
+      "type": "paragraph",
+      "text": "低"
+    },
+    {
+      "type": "paragraph",
+      "text": "“免费送饮料的外卖”"
+    },
+    {
+      "type": "paragraph",
+      "text": "“how to use ChatGPT for resume”"
+    },
+    {
+      "type": "paragraph",
+      "text": "自行解决阶段"
+    },
+    {
+      "type": "paragraph",
+      "text": "极低"
+    },
+    {
+      "type": "paragraph",
+      "text": "“如何在家做小龙虾”"
+    },
+    {
+      "type": "paragraph",
+      "text": "总结：从关键词到用户画像"
+    },
+    {
+      "type": "paragraph",
+      "text": "通过分析相关查询和关联主题，你可以构建一个用户行为路径图："
+    },
+    {
+      "type": "paragraph",
+      "text": "用户痛点 → 搜索主关键词 → 遇到问题 → 搜索关联词 → 需求升级"
+    },
+    {
+      "type": "paragraph",
+      "text": "例如："
+    },
+    {
+      "type": "paragraph",
+      "text": "求职困难 → 搜索“AI resume builder” → 担心简历被系统过滤 → 搜索“ATS check” → 需要高通过率工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "这种分析方式能帮你："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "✅ 定位用户真实痛点（而不只是表面需求）",
+        "✅ 设计精准功能（如内置ATS检测）",
+        "✅ 制定定价策略（免费引流 + 付费功能）"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "下次看到搜索量暴涨时，记得用「相关查询」和「关联主题」挖出用户的下一层需求，这会让你比竞争对手更懂市场。"
+    },
+    {
+      "type": "heading",
+      "text": "6.3 对比竞品关键词",
+      "level": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "我们可以通过对比竞品关键词的搜索趋势，判断用户需求是“寻找替代方案”（市场存在空白）还是“赛道整体扩张”（需求普涨）"
+    },
+    {
+      "type": "paragraph",
+      "text": "1）为什么要对比竞品关键词？"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心逻辑：用户的注意力是有限的，当某个关键词的搜索量上升时，可能是："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "用户放弃旧方案，转向新方案（替代需求，市场存在空白）；",
+        "用户同时需要新旧方案（赛道扩张，需求普涨）。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "通过对比主关键词和竞品关键词的搜索趋势，可以区分这两种情况。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2）怎么去找竞品关键词？"
+    },
+    {
+      "type": "paragraph",
+      "text": "① 我们在使用 Google Trends 搜索主关键词的时候，在「Related topics」和 「Related queries」里面就容易出现竞品关键词"
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRH8uyjmos6icoqibUfBz9IWbiaNVBF8d4cEjuEk2R6zibTcB70vM23GqYPw/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-39.png",
+      "key": "39",
+      "local": "img-39.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "② 问 AI ，让 AI 帮你总结"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户选择竞品的逻辑是，「如果不用这个产品，他们会用什么？」这个时候你就可以问 AI 和 AI 一起讨论，说清楚需求，让 AI 帮你找竞品关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "替代方案类型"
+    },
+    {
+      "type": "paragraph",
+      "text": "竞品关键词示例"
+    },
+    {
+      "type": "paragraph",
+      "text": "简历设计"
+    },
+    {
+      "type": "paragraph",
+      "text": "设计工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "Canva、Adobe Express、Figma"
+    },
+    {
+      "type": "paragraph",
+      "text": "简历排版"
+    },
+    {
+      "type": "paragraph",
+      "text": "文档工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "Microsoft Word、Google Docs"
+    },
+    {
+      "type": "paragraph",
+      "text": "简历内容生成"
+    },
+    {
+      "type": "paragraph",
+      "text": "通用AI工具"
+    },
+    {
+      "type": "paragraph",
+      "text": "ChatGPT、Gemini、Claude"
+    },
+    {
+      "type": "paragraph",
+      "text": "简历模板下载"
+    },
+    {
+      "type": "paragraph",
+      "text": "模板平台"
+    },
+    {
+      "type": "paragraph",
+      "text": "Etsy、Template.net"
+    },
+    {
+      "type": "paragraph",
+      "text": "简历优化建议"
+    },
+    {
+      "type": "paragraph",
+      "text": "职业社区"
+    },
+    {
+      "type": "paragraph",
+      "text": "LinkedIn、Glassdoor"
+    },
+    {
+      "type": "paragraph",
+      "text": "③ 从用户反馈中提炼竞品词"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户会在评论中无意间暴露竞品，具体操作："
+    },
+    {
+      "type": "paragraph",
+      "text": "分析App Store/Google Play评论"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "搜索简历类工具（如 Canva、ResumeStar），筛选用户评论",
+        "用户吐槽点 → 竞品突破口",
+        "用户对比词 → 竞品关键词",
+        "案例：用户评论 “不如Novoresume好用” → 竞品词 “novoresume”"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "分析社交媒体讨论"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "在 Reddit/Twitter 搜索 “best resume builder”，抓取高频被提及的工具名",
+        "常见竞品词：Zety、ResumeGenius、VisualCV"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "3）分析竞品关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "第一种，主关键词上升，竞品关键词下降 → 替代需求爆发"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "数据表现：",
+        "“AI resume builder”（主关键词） 搜索量 ↑↑",
+        "“Canva resume”（竞品关键词） 搜索量 ↓",
+        "“Microsoft Word resume template” （竞品关键词）搜索量 ↓",
+        "用户行为分析",
+        "用户过去用 Canva（设计工具） 或 Word（文档工具） 制作简历 → 发现效率低或不够专业 → 转向 AI专用工具。",
+        "市场结论",
+        "AI简历生成工具正在抢夺传统工具的市场 → 存在空白机会（用户需要更高效的垂直解决方案）。",
+        "案例验证",
+        "如果它们同时段搜索量下降，而主关键词上升 → 验证替代需求；",
+        "若它们和主关键词同时段均上升 → 可能赛道扩张（见第二种情况）。",
+        "“Canva” 和 “Microsoft Word” 均标记为 Breakout（搜索量激增），但需结合时间范围："
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "第二种，主关键词和竞品关键词均上升 → 赛道整体扩张"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "数据表现：",
+        "“AI resume builder”（主关键词） 搜索量 ↑↑",
+        "“Canva resume”（竞品关键词） 搜索量 ↑",
+        "“Microsoft Word resume template”（竞品关键词） 搜索量 ↑",
+        "用户行为分析",
+        "简历制作需求整体增长 → 用户既尝试AI工具，也继续使用传统工具 → 市场教育期，用户尚未明确偏好。",
+        "市场结论",
+        "简历制作赛道整体热度上升（如求职市场竞争加剧、远程工作普及）",
+        "案例验证",
+        "用户同时探索多种方案 → 需用差异化功能（如AI+ATS优化）抢占市场。",
+        "所有关联主题均为 Breakout（搜索量激增500%+），若竞品关键词也处于上升趋势，说明："
+      ]
+    },
+    {
+      "type": "image",
+      "orig_url": "https://mmbiz.qpic.cn/mmbiz_png/lCtoVKYbOkialjfYBRHNqeccF3dTtia2MRzrQibdoHnt4DlEXe1MBXGj8TJh6qdkQHcGibv5W7ot2YEFt69AtKKB2A/640?wx_fmt=png&from=appmsg",
+      "alt": "img",
+      "src": "assets/img-40.png",
+      "key": "40",
+      "local": "img-40.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "4）制定策略"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们上面的图，是主关键词和竞品关键词搜索量同步上升，说明赛道在扩张。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在我们假设数据结论：替代需求爆发"
+    },
+    {
+      "type": "paragraph",
+      "text": "证据："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "主关键词 “AI resume builder” 搜索量上升；",
+        "竞品 “Canva” 和 “Microsoft Word” 搜索量下降"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "策略："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "攻击竞品弱点：",
+        "开发 “Canva简历一键转AI优化” 功能，降低用户迁移成本；",
+        "宣传 “比Word快10倍！AI生成简历教程”。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "另外一种就是我们图片上这种，赛道扩张"
+    },
+    {
+      "type": "paragraph",
+      "text": "证据："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "主关键词和竞品关键词搜索量同步上升。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "策略："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "借势增长：",
+        "推出 “AI+Canva集成工具”，兼容设计需求与智能生成；",
+        "提供 “Word插件版AI简历助手”，嵌入用户现有工作流。",
+        "差异化定位：",
+        "主打 “AI简历生成+ATS检测”（竞品未覆盖的痛点）；"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "总结：对比竞品关键词的价值"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "用户是否在抛弃旧方案 → 找到市场空白，针对性开发替代功能；",
+        "赛道是否在爆发期 → 决定“快速抢占”或“协同共生”策略；",
+        "竞品动态预判 → 提前布局防御性功能（如Canva若集成AI，你如何应对）。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "最后，感谢哥飞老师，他的帖子帮助了非常多的小白，感谢良辰美老师在航海期间的无私分享，听了他的分享收获很多。"
+    },
+    {
+      "type": "paragraph",
+      "text": "未来希望能跟随着这些前辈高手的脚步一起出海赚美金😀"
+    }
+  ]
+}
