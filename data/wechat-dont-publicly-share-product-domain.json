@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "id": "wechat-8Dy2X-UVrkufFq2NL7FEQw",
+    "slug": "wechat-dont-publicly-share-product-domain",
+    "title": "刚公开域名就被抄成筛子？聊聊为什么出海做站千万别随意公布产品",
+    "url": "https://mp.weixin.qq.com/s/8Dy2X-UVrkufFq2NL7FEQw",
+    "author_name": "浅滩小虾米",
+    "author_username": "浅滩小虾米",
+    "published_utc": "2026-10-25T23:00:00.000Z",
+    "published_local": "2026-10-26 07:00",
+    "category": "实战复盘",
+    "description": "社群虾友因公开产品域名很快被抄出一堆竞品。文章区分被动被搜到与主动被盯上，说明老鸟像素级复刻杀伤力最大，建议没有护城河就不要随意公开产品。",
+    "source_type": "wechat",
+    "avatar_local": "",
+    "images_total": 4,
+    "images_ok": 4,
+    "api_media_count": 4,
+    "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，4 张正文配图（含章节 IP）全部本地化。原文文末往期推荐/关于作者/关注 CTA 已按镜像规则去除。",
+    "plain_text_len": 1239,
+    "blocks_count": 40
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "大家好，今天是 2026 年 10 月 26 日，周一。"
+    },
+    {
+      "type": "paragraph",
+      "text": "昨天最大的瓜来自于我们社群的虾友 L 总，也是最喜欢分享的虾友之一。"
+    },
+    {
+      "type": "paragraph",
+      "text": "他发帖吐槽，**因为如实地分享过自己的产品域名，没过多久就冒出了一堆竞品，现在已经老实了 Orz**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "速度超出他的预期。"
+    },
+    {
+      "type": "paragraph",
+      "text": "他说以前有人劝过他，不要公开自己产品的域名，他没有听，现在已经老实了 Orz。"
+    },
+    {
+      "type": "paragraph",
+      "text": "其实我在早期也有这种想法，想公开自己的产品。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当时 周同学 和 理想是自由 大佬都严肃地阻止过我。"
+    },
+    {
+      "type": "paragraph",
+      "text": "好在我这个人比较听劝，没有 L 大佬这么头铁，我立马就放弃这个念想了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当然，我其实有分享过，群里面最早期的虾友应该知道，然后我最早期做的那几个站就冒出了几个竞品。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当然因为词本身搜索量就比较低，哪怕我现在排名第一也不赚钱，后续就不了了之了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以你看，**没有收益的事情，别人也是懒得抄的，能被抄也算是一种认可吧**，当然这种认可我感觉没多少人喜欢就是了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "大家对这种行为肯定都是深恶痛绝的，因为个人能做的赛道流量上限都不太高。"
+    },
+    {
+      "type": "paragraph",
+      "text": "竞争多了，那分流到你那里的肯定就少了，除非一些天赋异禀的，能在红海中杀出一条血路。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/Ynu1bZMFMibtBg2ox2OE8BSUgBiat64iaXYAaKbnQWmxFKpS0oAW8OujoRGD5jNxnM89P2rT0Iz6FHbYzyiasAc9cgvVbz7fdmloU1ibym0CpKBo/0?wx_fmt=png&from=appmsg",
+      "alt": "章节 IP",
+      "local": "img-01.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "01 被动被搜到 vs 被人盯上：完全是两码事"
+    },
+    {
+      "type": "paragraph",
+      "text": "当然有的朋友可能会疑惑：你产品上线之后，不就是公开的么？大家只要搜索都能搜索到啊。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但是你要想一想，**被动的搜索，和被人盯着搞是完全不一样的**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如我上了一个站，在谷歌这个体系下肯定是完全公开的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但是谷歌这个体系它大啊，全世界每天那么多人使用搜索功能，而且大部分都是正常的用户。"
+    },
+    {
+      "type": "paragraph",
+      "text": "像我们这样的从业者毕竟是少数，大家每天大海捞针，寻找关键词，真能找到和自己做的一模一样的词，概率其实挺低的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当然，新词不算，因为这种其实说白了就是限定了范围和方向了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们现在做的也只是新词的一个方向，比如游戏站，还有最新带火的视频新词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "那有没有其他的新词呢？我相信肯定是有的，如果大家能找到，就可以闷声发大财了。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_jpg/Ynu1bZMFMibuDGibLTa5MBtUvxbGiaAKtmTKxiaVrfUloAA7kIOzDt2TAJLHbSkTwskotbVe24T2JPeoJTdfWZV5J6cNkjGAM5UFxmU9HYibkzick/0?wx_fmt=other&from=appmsg",
+      "alt": "被搜索发现 ≠ 主动公开域名",
+      "local": "img-02.jpg"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/Ynu1bZMFMibvmM17hVibo1N2HJOBp3zggcRAhm54HOoyUjmjq4vhRM93eC6VTckRVa03jJAyQSTXLvSa8zzibHtfvxtanRl9pkakPicgNDDLeMU/0?wx_fmt=png&from=appmsg",
+      "alt": "章节 IP",
+      "local": "img-03.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "02 谁在抄你？像素级复刻的老鸟最具杀伤力"
+    },
+    {
+      "type": "paragraph",
+      "text": "回到前面的话题，主动公开自己的产品，相当于就是把自己的产品放在聚光灯下面。"
+    },
+    {
+      "type": "paragraph",
+      "text": "那么最有可能直接过来抄的有哪些呢？"
+    },
+    {
+      "type": "paragraph",
+      "text": "我觉得有两种："
+    },
+    {
+      "type": "paragraph",
+      "text": "第一种就是完全的小白，新手朋友本来就不知道要做啥，这个时候你告诉他：嗨，我这个产品正在赚钱哦！那不抄你抄谁呢？"
+    },
+    {
+      "type": "paragraph",
+      "text": "还有一种就是**有一定经验的老鸟杀伤力最大，能做到对你进行像素级复刻，从网站、内容、结构甚至外链一比一复刻**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "那你想想，这种抄袭的威力，你能不能扛得住？"
+    },
+    {
+      "type": "paragraph",
+      "text": "新手完全不懂，其实没啥杀伤力的；但是老鸟朋友处于中间层，杀伤力最大。"
+    },
+    {
+      "type": "paragraph",
+      "text": "至于更牛逼的大佬，可能压根就看不上，所以也就不存在抄与不抄了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "看到这里，我相信大家对于为什么不公开产品信息就有一定理解了。"
+    },
+    {
+      "type": "quote",
+      "text": "是否要公开自己的产品，需要结合自身情况，慎重决定。如果没有一定的护城河和专业壁垒，我觉得就不要随意公开啦。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_jpg/Ynu1bZMFMibuBwOficAAM7xtLNwvOmlSfCbGicLXCZodM0drYoPN7VLrj4KHDom7cQ7mAVtCZhb4AumIrHBDF5Uw0yBOaJVwX5L50gzP4TwIQg/0?wx_fmt=other&from=appmsg",
+      "alt": "有经验的复刻可能复制哪些：网站、内容、结构、外链",
+      "local": "img-04.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "今天话有点收不住，一下子讲了这么多。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**以后如果还有不懂的小伙伴上来就问你域名，你就可以把这篇文章丢出来了，能节省大家的时间**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "好咯，今天就到这里啦，我们明天见。"
+    }
+  ],
+  "plain_text": "大家好，今天是 2026 年 10 月 26 日，周一。\n昨天最大的瓜来自于我们社群的虾友 L 总，也是最喜欢分享的虾友之一。\n他发帖吐槽，因为如实地分享过自己的产品域名，没过多久就冒出了一堆竞品，现在已经老实了 Orz。\n速度超出他的预期。\n他说以前有人劝过他，不要公开自己产品的域名，他没有听，现在已经老实了 Orz。\n其实我在早期也有这种想法，想公开自己的产品。\n当时 周同学 和 理想是自由 大佬都严肃地阻止过我。\n好在我这个人比较听劝，没有 L 大佬这么头铁，我立马就放弃这个念想了。\n当然，我其实有分享过，群里面最早期的虾友应该知道，然后我最早期做的那几个站就冒出了几个竞品。\n当然因为词本身搜索量就比较低，哪怕我现在排名第一也不赚钱，后续就不了了之了。\n所以你看，没有收益的事情，别人也是懒得抄的，能被抄也算是一种认可吧，当然这种认可我感觉没多少人喜欢就是了。\n大家对这种行为肯定都是深恶痛绝的，因为个人能做的赛道流量上限都不太高。\n竞争多了，那分流到你那里的肯定就少了，除非一些天赋异禀的，能在红海中杀出一条血路。\n01 被动被搜到 vs 被人盯上：完全是两码事\n当然有的朋友可能会疑惑：你产品上线之后，不就是公开的么？大家只要搜索都能搜索到啊。\n但是你要想一想，被动的搜索，和被人盯着搞是完全不一样的。\n比如我上了一个站，在谷歌这个体系下肯定是完全公开的。\n但是谷歌这个体系它大啊，全世界每天那么多人使用搜索功能，而且大部分都是正常的用户。\n像我们这样的从业者毕竟是少数，大家每天大海捞针，寻找关键词，真能找到和自己做的一模一样的词，概率其实挺低的。\n当然，新词不算，因为这种其实说白了就是限定了范围和方向了。\n我们现在做的也只是新词的一个方向，比如游戏站，还有最新带火的视频新词。\n那有没有其他的新词呢？我相信肯定是有的，如果大家能找到，就可以闷声发大财了。\n02 谁在抄你？像素级复刻的老鸟最具杀伤力\n回到前面的话题，主动公开自己的产品，相当于就是把自己的产品放在聚光灯下面。\n那么最有可能直接过来抄的有哪些呢？\n我觉得有两种：\n第一种就是完全的小白，新手朋友本来就不知道要做啥，这个时候你告诉他：嗨，我这个产品正在赚钱哦！那不抄你抄谁呢？\n还有一种就是有一定经验的老鸟杀伤力最大，能做到对你进行像素级复刻，从网站、内容、结构甚至外链一比一复刻。\n那你想想，这种抄袭的威力，你能不能扛得住？\n新手完全不懂，其实没啥杀伤力的；但是老鸟朋友处于中间层，杀伤力最大。\n至于更牛逼的大佬，可能压根就看不上，所以也就不存在抄与不抄了。\n看到这里，我相信大家对于为什么不公开产品信息就有一定理解了。\n是否要公开自己的产品，需要结合自身情况，慎重决定。如果没有一定的护城河和专业壁垒，我觉得就不要随意公开啦。\n今天话有点收不住，一下子讲了这么多。\n以后如果还有不懂的小伙伴上来就问你域名，你就可以把这篇文章丢出来了，能节省大家的时间。\n好咯，今天就到这里啦，我们明天见。",
+  "entities": {}
+}
