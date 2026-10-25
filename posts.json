@@ -717,6 +717,26 @@
       "blocks_count": 57
     },
     {
+      "id": "wechat-lD3GfV5aFzftaN88c2EgmQ",
+      "slug": "wechat-new-site-chrome-dangerous-gsc-review",
+      "title": "【哥飞SEO教程】新网站被浏览器提示危险，该怎么检查和申诉？",
+      "url": "https://mp.weixin.qq.com/s/lD3GfV5aFzftaN88c2EgmQ",
+      "author_name": "哥飞",
+      "author_username": "哥飞",
+      "published_utc": "2026-10-25T14:07:07.000Z",
+      "published_local": "2026-10-25 22:07",
+      "category": "SEO基础",
+      "description": "新站被 Chrome 标成危险网站时，多半是域名和页面太像已收录站点，被 Google 判成欺骗性网页。文章说明如何在 Search Console 里核对安全问题、改掉易混淆内容，并撰写审核说明申请复审。",
+      "source_type": "wechat",
+      "avatar_local": "",
+      "images_total": 6,
+      "images_ok": 6,
+      "api_media_count": 6,
+      "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，6 张正文配图全部本地化。原文文末加微信二维码及社群引流 CTA 已按镜像规则去除。",
+      "plain_text_len": 1809,
+      "blocks_count": 44
+    },
+    {
       "id": "2113218196060987474",
       "slug": "loki-pagination-seo-best-practice",
       "title": "Pagination 分页 SEO 最佳实践：无限加载也要做 URL 级分页",

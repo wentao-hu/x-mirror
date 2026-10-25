@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "id": "wechat-lD3GfV5aFzftaN88c2EgmQ",
+    "slug": "wechat-new-site-chrome-dangerous-gsc-review",
+    "title": "【哥飞SEO教程】新网站被浏览器提示危险，该怎么检查和申诉？",
+    "url": "https://mp.weixin.qq.com/s/lD3GfV5aFzftaN88c2EgmQ",
+    "author_name": "哥飞",
+    "author_username": "哥飞",
+    "published_utc": "2026-10-25T14:07:07.000Z",
+    "published_local": "2026-10-25 22:07",
+    "category": "SEO基础",
+    "description": "新站被 Chrome 标成危险网站时，多半是域名和页面太像已收录站点，被 Google 判成欺骗性网页。文章说明如何在 Search Console 里核对安全问题、改掉易混淆内容，并撰写审核说明申请复审。",
+    "source_type": "wechat",
+    "avatar_local": "",
+    "images_total": 6,
+    "images_ok": 6,
+    "api_media_count": 6,
+    "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，6 张正文配图全部本地化。原文文末加微信二维码及社群引流 CTA 已按镜像规则去除。",
+    "plain_text_len": 1809,
+    "blocks_count": 44
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/lv8zoLgTIicKV257AWWXq4WBYEqXQdUR1NcxmqibteGBOXXQneJIl7GeHiaGWNJX8ED3rJIVDP5iaRN0EL7hctyiao3BUtK6VhSSjHcOKU3WNhT8/640?wx_fmt=png&from=appmsg",
+      "alt": "新网站提示危险：检查、修正与申请审核",
+      "local": "img-01.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "大家好，我是哥飞。"
+    },
+    {
+      "type": "paragraph",
+      "text": "最近一年多，时不时就有群友来问：新站刚上线一两天，用 Chrome 一打开，整页红色警告，“危险网站”。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/lv8zoLgTIicJh7DlG1zzc9icVbtV81u1Czr8xS5xUjfFic3RflLIENF9xSU2ibicp4mAWdc3qrXhpNG9Y03XEv73vQJHu5FicrEqJhLETO97DpNMc/640?wx_fmt=png&from=appmsg",
+      "alt": "Chrome“危险网站”警告示例",
+      "local": "img-02.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "网站能打开，功能也正常，用户却被浏览器挡在了外面。"
+    },
+    {
+      "type": "paragraph",
+      "text": "先别慌。这种情况，大多数是误判，而且有一个很常见的原因。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "先确认：Google 到底报了什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "浏览器的红色警告有两种，要先分清。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果写的是“您的连接不是私密连接”，那是证书或 HTTPS 的问题，去查证书配置就行，和这篇说的不是一回事。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果写的是“危险网站”，就打开 Google Search Console，选中这个网站，在左侧进入“安全问题和人工处置措施”里的“安全问题”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "群友遇到的，大多是下面这种：“欺骗性网页”。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/lv8zoLgTIicLme1aOiaaia72XL1E9Z2yTyhMFgPSia1ZtgnGVtkJcBAYW92mdObI7GibeHwUb1HXCAqayynRGy1gSXnOpQaHAS9hKEQfqib4HibCmw/640?wx_fmt=png&from=appmsg",
+      "alt": "Google Search Console：“欺骗性网页”问题报告",
+      "local": "img-03.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "意思是，Google 认为你的网页可能在骗用户，比如诱导他们输入账号密码、透露个人信息。"
+    },
+    {
+      "type": "paragraph",
+      "text": "可你明明只是做了个正常的工具站，怎么就成了“骗子”？"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "最常见的原因：你的站，长得太像别人了"
+    },
+    {
+      "type": "paragraph",
+      "text": "我总结过，最有可能的情况是这样的："
+    },
+    {
+      "type": "paragraph",
+      "text": "你的新站（叫它 A）用的域名，和一个已经被 Google 收录的老站（叫它 B）很像。比如名字一样只是后缀不同，或者后缀一样、只差一两个字母。"
+    },
+    {
+      "type": "paragraph",
+      "text": "光是域名像，还不一定会被提示。如果你的网站标题、页面内容也和 B 很接近，就很容易被判了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为在 Google 看来，A 很可能是照着 B 做的钓鱼网站，目的就是让 B 的用户认错，在 A 上输入账号密码。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这件事对做工具站的朋友特别常见。我们经常是按一个关键词去注册域名、做网站，同一个关键词，别人早就做过了。域名自然很像，页面功能和标题也差不多，于是就撞上了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以上新站之前，可以先留意两点："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "注册域名时，搜一下有没有已经做起来的同名站，尤其是只差后缀或一两个字母的；",
+        "标题、首屏、Logo 要清楚写出你自己的品牌名，不要沿用模板里别人的名字和标志。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "如果是误判，直接申诉就好"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你的站确实只是因为做了同一个词、域名像而被提示，没关系，去 GSC 申诉就行。"
+    },
+    {
+      "type": "paragraph",
+      "text": "申诉前，先把容易让人认错的地方改掉：模板里残留的别家品牌名、相似的 Logo、看起来像别人家的登录页。"
+    },
+    {
+      "type": "paragraph",
+      "text": "然后回到“安全问题”，点“申请审核”。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/lv8zoLgTIicKjxVWTcUIHSA8Aw7gvBaxbAXJyIJ8cullgw46zJ1aY3ufE6GKibia1THwV451zuRMfNVNRubVmwgAXUyW1BfHZkvicUv0uq3a9NY/640?wx_fmt=png&from=appmsg",
+      "alt": "Google Search Console：“申请审核”入口局部",
+      "local": "img-04.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "审核说明不用长，把三件事说清楚：你的网站是做什么的，你检查和修改了什么，为什么你不是在仿冒别人。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/lv8zoLgTIicK0Hgxhc0qeKkoEY3iaSv0dgeCQicCmNV2SGBrea1HmRl2KVglWo9cC1dtpGKLukEs33ngxwHJDABCfNQ3m2VGK1qJbqE2D4jhmg/640?wx_fmt=png&from=appmsg",
+      "alt": "Google官方帮助：审核请求要说明问题、措施与结果",
+      "local": "img-05.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如你的站是做图片压缩的，检查后发现首页还留着模板里别家的品牌名，就可以这样写："
+    },
+    {
+      "type": "paragraph",
+      "text": "**网站提供图片压缩服务。我们检查了首页、登录页和付款页，发现首页仍保留了模板中的另一品牌名称，现已替换为本站名称，并删除了容易造成误认的标志。本站与该品牌无任何关联，无意模仿，请重新审核。**"
+    },
+    {
+      "type": "paragraph",
+      "text": "提交之后是人工审核，Google 官方说可能要几天到几周。等待期间不要重复提交。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "如果不是撞名，再查这些"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你的域名和别人一点都不像，那就要认真查一下网站本身了。重点看这几处："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "按钮点下去，是不是跳到了意想不到的页面；",
+        "页面引用的广告、第三方脚本，有没有带来异常弹窗或跳转；",
+        "有没有来路不明的下载。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "问题如果出在共用的模板或脚本里，所有用到它的页面都要改，不要只改报告里列出来的那一个网址。报告里的“示例网址”有时也会显示“不适用”，这时候更要把整站走一遍。"
+    },
+    {
+      "type": "paragraph",
+      "text": "另外，也可以去 Google 安全浏览网站状态查询 看一下。不过我试过，**太新的网站在这里往往查不到**，可能是数据还没同步，查不到不代表没问题。如果 GSC 里没有报问题，浏览器却一直警告，可以通过安全浏览误判反馈入口提交网址和说明。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "审核通过后，再确认一遍"
+    },
+    {
+      "type": "paragraph",
+      "text": "审核通过后，“安全问题”会回到正常状态。"
+    },
+    {
+      "type": "image",
+      "key": "https://mmbiz.qpic.cn/mmbiz_png/lv8zoLgTIicKFTKhVkNJZqWIjF3YJ2oqjJpmIS3XMLCibYgT0iaPYFNKnZj2j1uCRGOkD15hI4pL3ibYOKpFyBYk1ZGSMlNTXrbYvzwCkPicP4kc/640?wx_fmt=png&from=appmsg",
+      "alt": "Google Search Console：“未检测到任何问题”的正常状态示例",
+      "local": "img-06.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "这时候再用 Chrome 打开原来被拦的网址，确认红色警告已经没了，这件事才算处理完。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果没通过，就看反馈里说的是什么，把相关页面改了再提交，不要只改一段说明、页面原样不动地再交一次。"
+    },
+    {
+      "type": "paragraph",
+      "text": "想进一步了解 Google 是怎么读懂一个网页的，可以看我之前写的[《如何制作出 SEO 友好的网页？先从学习 Google 是如何理解我们网页开始》](https://mp.weixin.qq.com/s?__biz=MjM5OTIzMzYyMA==&mid=2650082745&idx=1&sn=9578688a319e308528efb5bd2f90a405&scene=21#wechat_redirect)。"
+    },
+    {
+      "type": "paragraph",
+      "text": "新站上线后遇到的这类具体问题，也是我和社群朋友们平时经常一起研究和解决的事情。"
+    }
+  ],
+  "plain_text": "大家好，我是哥飞。\n最近一年多，时不时就有群友来问：新站刚上线一两天，用 Chrome 一打开，整页红色警告，“危险网站”。\n网站能打开，功能也正常，用户却被浏览器挡在了外面。\n先别慌。这种情况，大多数是误判，而且有一个很常见的原因。\n先确认：Google 到底报了什么\n浏览器的红色警告有两种，要先分清。\n如果写的是“您的连接不是私密连接”，那是证书或 HTTPS 的问题，去查证书配置就行，和这篇说的不是一回事。\n如果写的是“危险网站”，就打开 Google Search Console，选中这个网站，在左侧进入“安全问题和人工处置措施”里的“安全问题”。\n群友遇到的，大多是下面这种：“欺骗性网页”。\n意思是，Google 认为你的网页可能在骗用户，比如诱导他们输入账号密码、透露个人信息。\n可你明明只是做了个正常的工具站，怎么就成了“骗子”？\n最常见的原因：你的站，长得太像别人了\n我总结过，最有可能的情况是这样的：\n你的新站（叫它 A）用的域名，和一个已经被 Google 收录的老站（叫它 B）很像。比如名字一样只是后缀不同，或者后缀一样、只差一两个字母。\n光是域名像，还不一定会被提示。如果你的网站标题、页面内容也和 B 很接近，就很容易被判了。\n因为在 Google 看来，A 很可能是照着 B 做的钓鱼网站，目的就是让 B 的用户认错，在 A 上输入账号密码。\n这件事对做工具站的朋友特别常见。我们经常是按一个关键词去注册域名、做网站，同一个关键词，别人早就做过了。域名自然很像，页面功能和标题也差不多，于是就撞上了。\n所以上新站之前，可以先留意两点：\n注册域名时，搜一下有没有已经做起来的同名站，尤其是只差后缀或一两个字母的；\n标题、首屏、Logo 要清楚写出你自己的品牌名，不要沿用模板里别人的名字和标志。\n如果是误判，直接申诉就好\n如果你的站确实只是因为做了同一个词、域名像而被提示，没关系，去 GSC 申诉就行。\n申诉前，先把容易让人认错的地方改掉：模板里残留的别家品牌名、相似的 Logo、看起来像别人家的登录页。\n然后回到“安全问题”，点“申请审核”。\n审核说明不用长，把三件事说清楚：你的网站是做什么的，你检查和修改了什么，为什么你不是在仿冒别人。\n比如你的站是做图片压缩的，检查后发现首页还留着模板里别家的品牌名，就可以这样写：\n**网站提供图片压缩服务。我们检查了首页、登录页和付款页，发现首页仍保留了模板中的另一品牌名称，现已替换为本站名称，并删除了容易造成误认的标志。本站与该品牌无任何关联，无意模仿，请重新审核。**\n提交之后是人工审核，Google 官方说可能要几天到几周。等待期间不要重复提交。\n如果不是撞名，再查这些\n如果你的域名和别人一点都不像，那就要认真查一下网站本身了。重点看这几处：\n按钮点下去，是不是跳到了意想不到的页面；\n页面引用的广告、第三方脚本，有没有带来异常弹窗或跳转；\n有没有来路不明的下载。\n问题如果出在共用的模板或脚本里，所有用到它的页面都要改，不要只改报告里列出来的那一个网址。报告里的“示例网址”有时也会显示“不适用”，这时候更要把整站走一遍。\n另外，也可以去 Google 安全浏览网站状态查询 看一下。不过我试过，**太新的网站在这里往往查不到**，可能是数据还没同步，查不到不代表没问题。如果 GSC 里没有报问题，浏览器却一直警告，可以通过安全浏览误判反馈入口提交网址和说明。\n审核通过后，再确认一遍\n审核通过后，“安全问题”会回到正常状态。\n这时候再用 Chrome 打开原来被拦的网址，确认红色警告已经没了，这件事才算处理完。\n如果没通过，就看反馈里说的是什么，把相关页面改了再提交，不要只改一段说明、页面原样不动地再交一次。\n想进一步了解 Google 是怎么读懂一个网页的，可以看我之前写的[《如何制作出 SEO 友好的网页？先从学习 Google 是如何理解我们网页开始》](https://mp.weixin.qq.com/s?__biz=MjM5OTIzMzYyMA==&mid=2650082745&idx=1&sn=9578688a319e308528efb5bd2f90a405&scene=21#wechat_redirect)。\n新站上线后遇到的这类具体问题，也是我和社群朋友们平时经常一起研究和解决的事情。",
+  "entities": {}
+}
