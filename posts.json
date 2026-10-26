@@ -76,12 +76,12 @@
       "description": "社群虾友因公开产品域名很快被抄出一堆竞品。文章区分被动被搜到与主动被盯上，说明老鸟像素级复刻杀伤力最大，建议没有护城河就不要随意公开产品。",
       "source_type": "wechat",
       "avatar_local": "",
-      "images_total": 4,
-      "images_ok": 4,
+      "images_total": 2,
+      "images_ok": 2,
       "api_media_count": 4,
-      "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，4 张正文配图（含章节 IP）全部本地化。原文文末往期推荐/关于作者/关注 CTA 已按镜像规则去除。",
+      "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，2 张正文配图全部本地化；2 张章节 IP 装饰头像（128×128）不纳入正文。原文文末往期推荐/关于作者/关注 CTA 已按镜像规则去除。",
       "plain_text_len": 1239,
-      "blocks_count": 40
+      "blocks_count": 38
     },
     {
       "id": "2114137034105491456",

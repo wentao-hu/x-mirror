@@ -12,12 +12,12 @@
     "description": "社群虾友因公开产品域名很快被抄出一堆竞品。文章区分被动被搜到与主动被盯上，说明老鸟像素级复刻杀伤力最大，建议没有护城河就不要随意公开产品。",
     "source_type": "wechat",
     "avatar_local": "",
-    "images_total": 4,
-    "images_ok": 4,
+    "images_total": 2,
+    "images_ok": 2,
     "api_media_count": 4,
-    "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，4 张正文配图（含章节 IP）全部本地化。原文文末往期推荐/关于作者/关注 CTA 已按镜像规则去除。",
+    "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，2 张正文配图全部本地化；2 张章节 IP 装饰头像（128×128）不纳入正文。原文文末往期推荐/关于作者/关注 CTA 已按镜像规则去除。",
     "plain_text_len": 1239,
-    "blocks_count": 40
+    "blocks_count": 38
   },
   "blocks": [
     {
@@ -73,12 +73,6 @@
       "text": "竞争多了，那分流到你那里的肯定就少了，除非一些天赋异禀的，能在红海中杀出一条血路。"
     },
     {
-      "type": "image",
-      "key": "https://mmbiz.qpic.cn/sz_mmbiz_png/Ynu1bZMFMibtBg2ox2OE8BSUgBiat64iaXYAaKbnQWmxFKpS0oAW8OujoRGD5jNxnM89P2rT0Iz6FHbYzyiasAc9cgvVbz7fdmloU1ibym0CpKBo/0?wx_fmt=png&from=appmsg",
-      "alt": "章节 IP",
-      "local": "img-01.png"
-    },
-    {
       "type": "heading",
       "level": 2,
       "text": "01 被动被搜到 vs 被人盯上：完全是两码事"
@@ -120,12 +114,6 @@
       "key": "https://mmbiz.qpic.cn/mmbiz_jpg/Ynu1bZMFMibuDGibLTa5MBtUvxbGiaAKtmTKxiaVrfUloAA7kIOzDt2TAJLHbSkTwskotbVe24T2JPeoJTdfWZV5J6cNkjGAM5UFxmU9HYibkzick/0?wx_fmt=other&from=appmsg",
       "alt": "被搜索发现 ≠ 主动公开域名",
       "local": "img-02.jpg"
-    },
-    {
-      "type": "image",
-      "key": "https://mmbiz.qpic.cn/mmbiz_png/Ynu1bZMFMibvmM17hVibo1N2HJOBp3zggcRAhm54HOoyUjmjq4vhRM93eC6VTckRVa03jJAyQSTXLvSa8zzibHtfvxtanRl9pkakPicgNDDLeMU/0?wx_fmt=png&from=appmsg",
-      "alt": "章节 IP",
-      "local": "img-03.png"
     },
     {
       "type": "heading",
