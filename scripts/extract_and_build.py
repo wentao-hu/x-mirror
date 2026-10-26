@@ -966,6 +966,19 @@ def render_blocks_html(
             parts.append(f"<pre><code>{esc(b['text'])}</code></pre>")
         elif t == "quote":
             parts.append(f"<blockquote>{linkify(b['text'])}</blockquote>")
+        elif t == "callout":
+            title_html = (
+                f'<div class="callout__title">{esc(b["title"])}</div>'
+                if b.get("title")
+                else ""
+            )
+            items_html = "".join(
+                f"<li>{linkify(i)}</li>" for i in b.get("items", [])
+            )
+            text_html = f"<p>{linkify(b['text'])}</p>" if b.get("text") else ""
+            parts.append(
+                f'<aside class="callout">{title_html}<ul>{items_html}</ul>{text_html}</aside>'
+            )
         elif t == "list":
             tag = "ol" if b.get("ordered") else "ul"
             items = "".join(f"<li>{linkify(i)}</li>" for i in b["items"])
@@ -1201,6 +1214,21 @@ body.img-lightbox-open { overflow: hidden; }
   border-left: 3px solid var(--border-strong);
   color: var(--muted);
 }
+.article .callout {
+  margin: 22px 0; padding: 18px 20px;
+  background: #f1f8fe;
+  border: 1px solid #d5e8f8;
+  border-left: 4px solid var(--link);
+  border-radius: 12px;
+}
+.callout__title {
+  margin-bottom: 10px;
+  font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  color: var(--link);
+}
+.article .callout ul { margin: 0; padding-left: 20px; }
+.article .callout li { margin: 6px 0; line-height: 1.75; }
+.article .callout p { margin: 8px 0 0; }
 .table-wrap {
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   margin: 18px 0 22px;

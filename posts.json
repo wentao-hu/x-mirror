@@ -1677,6 +1677,36 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-10-26-ai-new-keyword-criteria",
+      "slug": "note-ai-new-keyword-criteria",
+      "title": "新词别查 SemRush 和 Ahrefs：先看 Google Trends，再让 GPT 调研同行",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-26T02:17:00.000Z",
+      "published_local": "2026-10-26 10:17",
+      "category": "需求研究",
+      "category_reason": "主要交付是判断新词需求的正确数据源与提问方法；排除 SEO获客，因为不涉及关键词布局、收录、排名或外链执行。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "新词",
+        "Google Trends",
+        "SemRush",
+        "Ahrefs",
+        "ChatGPT",
+        "需求判断",
+        "AI 提问"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 23 条消息，保留 22 条，删除 1 条纯表情。",
+      "plain_text_len": 2065,
+      "blocks_count": 22
+    },
+    {
       "id": "note-2026-10-25-users-before-product",
       "slug": "note-users-before-product",
       "title": "先找用户，再做产品：技术出身的商业验证顺序",
