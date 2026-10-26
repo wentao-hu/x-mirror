@@ -10,6 +10,15 @@ spec = importlib.util.spec_from_file_location("build", ROOT / "scripts" / "extra
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
+raw_posts = []
+for f in sorted((ROOT / "data").glob("*.json")):
+    raw = json.loads(f.read_text(encoding="utf-8"))
+    meta = raw["meta"]
+    mod.validate_post_meta(meta, f.name)
+    raw_posts.append(raw)
+
+mod.write_category_names_module()
+
 # keep the shared stylesheet in sync with the template CSS
 (ROOT / "assets").mkdir(exist_ok=True)
 (ROOT / "assets" / "site.css").write_text(mod.CSS, encoding="utf-8")
@@ -28,8 +37,7 @@ if posts_path.exists():
     link_only = [p for p in old.get("posts", []) if p.get("entry_type") == "link_only"]
 
 posts_meta = []
-for f in sorted((ROOT / "data").glob("*.json")):
-    raw = json.loads(f.read_text(encoding="utf-8"))
+for raw in raw_posts:
     meta = raw["meta"]
     blocks = raw["blocks"]
     body_blocks = [b for b in blocks if not (b["type"] == "heading" and b.get("level") == 1)]
@@ -53,7 +61,11 @@ for item in link_only:
 order = mod.CATEGORY_ORDER
 # 分类内按发表时间从新到旧：先时间降序，再稳定地按分类顺序分组
 posts_meta.sort(key=lambda p: p["published_utc"], reverse=True)
-posts_meta.sort(key=lambda p: order.index(p["category"]) if p["category"] in order else 99)
+posts_meta.sort(
+    key=lambda p: order.index(p["category"])
+    if p.get("entry_type") != "link_only" and p["category"] in order
+    else len(order)
+)
 (ROOT / "posts.json").write_text(json.dumps({"posts": posts_meta}, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "index.html").write_text(mod.index_page(posts_meta), encoding="utf-8")
 print("index ok", len(posts_meta))

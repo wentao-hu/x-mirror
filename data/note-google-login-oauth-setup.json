@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "id": "note-2026-10-23-google-login-oauth-setup",
+    "slug": "note-google-login-oauth-setup",
+    "title": "Google 登录接入：OAuth 原理、每个设置项的作用与常见错误",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-23T13:50:00.000Z",
+    "published_local": "2026-10-23 21:50",
+    "category": "建站开发",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "Google 登录",
+      "OAuth",
+      "Google Cloud",
+      "OAuth 同意屏幕",
+      "重定向 URI",
+      "Client ID",
+      "建站教程"
+    ],
+    "avatar_local": "",
+    "images_total": 4,
+    "images_ok": 4,
+    "api_media_count": 0,
+    "fidelity_note": "由离线配置说明转写，4 张配置截图已本地化；部署阻塞项一节按要求移除。",
+    "plain_text_len": 2669,
+    "blocks_count": 35
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "这套 Google Cloud 配置只有一个目的：让用户能在你的网站上用 Google 账号登录。它不负责托管网站、不存你的数据、不收款，也不影响 SEO；它只做身份验证——用户点登录后由 Google 确认身份，再把邮箱和头像交给你的站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google 登录的本质是「让 Google 证明这个人是谁」，你的网站不保存任何密码。用户点登录后跳到 Google，由 Google 完成身份验证，再把一个一次性的授权码送回你的服务器；服务器用这个码换到用户的邮箱、姓名和头像，然后在本站建账号或登录。整个过程你的站看不到、也拿不到用户的 Google 密码。"
+    },
+    {
+      "type": "paragraph",
+      "text": "配置的核心只有两样：一对客户端凭据（Client ID 和 Client Secret），以及一个精确到路径的回调地址。同意屏幕、受众类型、发布状态、授权网域这些设置，都是围绕这两样做安全边界和合规声明——告诉用户「谁在请求什么」，也告诉 Google「只允许把用户送回这个地址」。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "为什么要把登录交给 Google"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果网站自己做账号系统，就要处理密码存储、找回密码、邮箱验证、撞库防护和泄露风险。用 Google 登录把这些全部外包出去：本站只信任 Google 签发的身份，账号以 Google 的用户 ID 为准，同一邮箱换了 Google 账号会被拒绝登录。代价是用户必须有 Google 账号，这对欧美用户不是问题。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "一次 Google 登录发生了什么"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "用户点「使用 Google 登录」。",
+        "页面跳转到 Google 同意屏幕，用户确认要授权的信息。",
+        "Google 带着一次性的授权码（code）回到登记过的回调地址。",
+        "服务端用 code 换取 token，并读取用户的邮箱、姓名和头像。",
+        "站点按 Google 用户 ID 建号或登录，用户进入网站。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "整条链路里，Google 负责确认身份，你的服务端只负责接住授权码并换 token。同意屏幕决定用户看到什么，回调地址决定授权码能送到哪里，凭据决定你的站能否换到身份信息。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "每个设置项的作用"
+    },
+    {
+      "type": "paragraph",
+      "text": "下面这些值是按这个项目实际填写的。换成别的网站时，结构和含义相同，值要跟着换。"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "设置项",
+          "你填的值",
+          "为什么需要"
+        ],
+        [
+          "Google Cloud 项目",
+          "hit-the-road-dude",
+          "把 OAuth 凭据、配额和日志隔离在一个项目里"
+        ],
+        [
+          "OAuth 同意屏幕",
+          "已创建",
+          "用户登录时看到的「谁在请求什么」页面"
+        ],
+        [
+          "受众类型",
+          "外部",
+          "允许任何 Google 账号登录，不只组织内部"
+        ],
+        [
+          "发布状态",
+          "正式版",
+          "测试版只有测试账号能登录，正式版对所有用户开放"
+        ],
+        [
+          "用户上限 100",
+          "不受影响",
+          "只对敏感或受限权限生效；本站只用基础权限"
+        ],
+        [
+          "客户端类型",
+          "Web 应用",
+          "本站由服务端完成授权码交换，不是手机或桌面应用"
+        ],
+        [
+          "JavaScript 来源",
+          "https://hittheroaddudeai.fun",
+          "限制哪些网页可以发起 Google 登录请求"
+        ],
+        [
+          "重定向 URI",
+          "/api/auth/google/callback",
+          "Google 只把授权码送回这个精确地址"
+        ],
+        [
+          "Client ID",
+          "270694665379-…",
+          "公开身份，写进页面配置，谁看到都无所谓"
+        ],
+        [
+          "Client Secret",
+          "已填入 .dev.vars",
+          "服务端换 token 的私钥，泄露等于别人能冒充你的站"
+        ],
+        [
+          "数据访问范围",
+          "openid email profile",
+          "只要身份信息，不碰 Gmail、Drive 等敏感数据"
+        ],
+        [
+          "授权网域",
+          "hittheroaddudeai.fun",
+          "声明 OAuth 可以使用的域名"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "操作步骤：按顺序点完这几步"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "发布到正式版"
+    },
+    {
+      "type": "paragraph",
+      "text": "同意屏幕建好后默认是「测试」，只有你手动添加的测试账号能登录。点「发布应用」切到正式版，外部用户才能用。基础权限不需要 Google 人工验证。"
+    },
+    {
+      "type": "image",
+      "local": "01-audience.png",
+      "alt": "Google Auth Platform 受众页面，显示正式版、外部用户类型和 100 用户上限"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图里可以看到：状态为「正式版」，用户类型为「外部」。0/100 的用户上限只对敏感或受限权限生效，本站只用基础权限，不受影响。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "创建 Web 应用客户端"
+    },
+    {
+      "type": "paragraph",
+      "text": "应用类型选「Web 应用」，名称只是给你自己在控制台里识别用的，不会显示给用户。JavaScript 来源填正式域名，注意不要带路径和末尾斜杠。"
+    },
+    {
+      "type": "image",
+      "local": "02-create-client.png",
+      "alt": "创建 OAuth 客户端 ID 表单，应用类型为 Web 应用，名称 hit-the-road-dude-web"
+    },
+    {
+      "type": "paragraph",
+      "text": "创建客户端时填的名称是 hit-the-road-dude-web，JavaScript 来源为 https://hittheroaddudeai.fun。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "填重定向地址，不要勾 AI Agent"
+    },
+    {
+      "type": "paragraph",
+      "text": "重定向 URI 是整套配置里最容易出错的一项。它必须和代码里的回调地址完全一致，包括协议、路径和大小写，不能有末尾斜杠。底部的「Use this client for an AI-powered agent」不要勾，本站是普通 Web 登录，不是 AI 代理。"
+    },
+    {
+      "type": "image",
+      "local": "03-redirect-uri.png",
+      "alt": "重定向 URI 填写框，内容为 https://hittheroaddudeai.fun/api/auth/google/callback，下方 AI agent 选项未勾选"
+    },
+    {
+      "type": "paragraph",
+      "text": "重定向 URI 填的是 https://hittheroaddudeai.fun/api/auth/google/callback，下方的 AI-powered agent 选项保持不勾。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "品牌页：现在先不传徽标"
+    },
+    {
+      "type": "paragraph",
+      "text": "品牌页的应用首页、隐私政策、服务条款链接可以等站点部署后再填。徽标上传后会触发 Google 验证，而验证要求这些链接可访问，所以现在传会卡住。徽标本身随时可以换，不影响 Client ID 和 Secret。"
+    },
+    {
+      "type": "image",
+      "local": "04-branding.png",
+      "alt": "Google OAuth 品牌页面，包含徽标上传、应用首页、隐私政策和服务条款链接字段"
+    },
+    {
+      "type": "paragraph",
+      "text": "品牌页里徽标先留空；三个链接等 hittheroaddudeai.fun 部署后再填并提交验证。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "项目里已经填好的值"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "项目",
+          "值",
+          "位置"
+        ],
+        [
+          "Client ID",
+          "`270694665379-t26k6i6ueo6dpjn3ipton4p04ot1njet.apps.googleusercontent.com`",
+          "`wrangler.jsonc` 的 GOOGLE_CLIENT_ID"
+        ],
+        [
+          "Client Secret",
+          "已填写，不显示",
+          "`.dev.vars` 的 GOOGLE_CLIENT_SECRET"
+        ],
+        [
+          "回调地址",
+          "`https://hittheroaddudeai.fun/api/auth/google/callback`",
+          "Google 控制台与代码共用"
+        ],
+        [
+          "登录范围",
+          "`openid email profile`",
+          "`src/server/google.ts`"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "常见错误对照"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "现象",
+          "原因",
+          "处理"
+        ],
+        [
+          "redirect_uri_mismatch",
+          "回调地址不完全一致",
+          "逐字符核对协议、路径、斜杠"
+        ],
+        [
+          "只有测试账号能登录",
+          "应用还在测试状态",
+          "在受众页面点「发布应用」"
+        ],
+        [
+          "登录后回到错误页面",
+          "Client ID 或 Secret 填错",
+          "重新复制，注意 Secret 不要带空格"
+        ],
+        [
+          "提示应用未验证",
+          "上传了徽标但未验证",
+          "先移除徽标，或等站点上线后提交验证"
+        ],
+        [
+          "本地登录跳正式域名",
+          "本地用正式 SITE_URL",
+          "本地改用开发登录即可"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "这套配置的边界"
+    },
+    {
+      "type": "paragraph",
+      "text": "这套配置只解决「用户是谁」的问题，不解决部署、存储和支付。站点部署、对象存储、域名解析仍是另外的环节；Google 登录要等站点部署后才能真正测试。"
+    },
+    {
+      "type": "paragraph",
+      "text": "截至 2026 年 10 月 23 日：Google OAuth 客户端已创建，Client ID 与 Secret 已写入项目；站点尚未部署，因此登录流程还未做过端到端测试。"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>Stripe 提现银行怎么选：先分清商业收款与个人账户 · X Mirror</title>
+<meta name="description" content="这段 2026年10月24日的群聊表面上在问“Stripe 该用哪家银行提现”，实际得到的最有价值结论是先分清三件事：平台是否支持该银行、账户是否被允许承接商业" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <img src="../../assets/note-avatar.jpg" alt="" width="46" height="46" loading="lazy" decoding="async" />
+    <div>
+      <div class="name">萧禹</div>
+      <div class="meta">2026-10-24 15:37</div>
+    </div>
+  </div>
+  <h1 class="title">Stripe 提现银行怎么选：先分清商业收款与个人账户</h1>
+  <div class="post-meta-row"><span class="source-badge" data-source-type="note"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg><span class="src-label">自建笔记</span></span><a class="cat-badge" href="../../?cat=%E6%B5%B7%E5%A4%96%E6%94%B6%E6%AC%BE" title="返回目录 · 海外收款">海外收款</a></div>
+  <div class="tag-list" aria-label="关键词"><span class="tag-list__label">关键词</span><span class="tag-badge" data-tag="Stripe">Stripe</span><span class="tag-badge" data-tag="PayPal">PayPal</span><span class="tag-badge" data-tag="ZA Bank">ZA Bank</span><span class="tag-badge" data-tag="汇丰银行">汇丰银行</span><span class="tag-badge" data-tag="中银香港">中银香港</span><span class="tag-badge" data-tag="Wise">Wise</span><span class="tag-badge" data-tag="香港银行">香港银行</span><span class="tag-badge" data-tag="个人账户">个人账户</span><span class="tag-badge" data-tag="企业账户">企业账户</span><span class="tag-badge" data-tag="跨境收款">跨境收款</span></div>
+  <div class="post-controls" data-meta-mount data-slug="note-stripe-paypal-hk-payout-accounts"></div>
+  
+  <article class="article">
+<p>这段 2026年10月24日的群聊表面上在问“Stripe 该用哪家银行提现”，实际得到的最有价值结论是先分清三件事：平台是否支持该银行、账户是否被允许承接商业收款、以及一次风控会不会连带影响主要资金账户。群友给出的银行名单只能作为经验线索，不能替代银行条款、平台支持和当期开户政策。</p>
+<h2 id="sec-1">结论：不要只问哪家银行能用</h2>
+<p>同一家银行可能同时出现在两种完全不同的讨论里：有人用汇丰或中银香港做日常存款，有人则提醒不要用个人账户承接商业收款。两者并不矛盾。开户成功不等于可以直接用于 Stripe 或 PayPal 的商业结算，更不等于长期大量收款不会触发核验。</p>
+<div class='table-wrap'><table><tr><th>判断项</th><th>群聊中的经验</th><th>落地时怎么处理</th></tr><tr><td>平台是否支持</td><td>Stripe 下拉列表里按名称没看到汇丰，改按数字或银行编号后找到了</td><td>先用银行名称、银行编号和账户所在地交叉确认；不要因一次名称搜索无结果就判定不支持</td></tr><tr><td>账户是否适配</td><td>群友认为个人账户承接商业活动有封户风险，企业账户相对稳</td><td>核对开户主体、账户用途和银行合同；优先让收款账户与业务主体一致</td></tr><tr><td>是否要分散风险</td><td>有人建议同时开 ZA Bank、汇丰和中银香港，避免主要账户出问题</td><td>可以分散用途，但不要为了优惠频繁来回转账；每增加一次资金流都要核对条款与合规性</td></tr><tr><td>Wise 怎么用</td><td>有人反馈个人 Wise 收款容易封，企业 Wise 使用情况相对正常</td><td>只视为个人经验；开立前确认账户类型、经营主体和 Stripe/PayPal 对 Wise 账户的支持要求</td></tr><tr><td>PayPal 多站</td><td>一个身份对应一个账号，账号里可以添加多个网站</td><td>这是群友说法；聊天没有解决 PayPal.cn 与 PayPal.com 的具体入口，也没有回答多站审核问题</td></tr></table></div>
+<h2 id="sec-2">Stripe 找不到汇丰：先按银行编号核对</h2>
+<p>发起者最初说 Stripe 的提现银行列表中连香港上海汇丰都没有。刘岩回答“有的，看看数字序列号”，随后发起者表示用数字找到了。这里的可执行启示不是记住某个搜索词，而是：银行名称可能有不同写法，列表也可能按地区、币种或银行代码筛选。先确认账户所在地区与结算币种，再用银行编号核对，比只看中文名称更可靠。</p>
+<p>原聊天附了一张银行列表截图，但这次 ZIP 只包含文本，没有附带该图片。因此截图中的具体银行、地区选项和字段无法再次核验；笔记只在原始对话里保留“[图片] 微信图片_202610241537_1.jpg”占位，不猜测截图内容。</p>
+<h2 id="sec-3">个人账户与商业收款：风险边界比银行品牌更重要</h2>
+<p>baird 的观点是“别用汇丰银行收款，会封号”，并建议使用 ZA Bank；随后又区分了个人 Wise 与企业 Wise，称个人账户不能用于商业活动。这里真正值得带走的是账户用途必须与收款性质一致，而不是简单把所有个人汇丰账户都判为不可用。</p>
+<p>群友还提到，如果主要使用的汇丰或中银香港账户被封，代价会很高。这说明选择提现账户时，除了看到账速度和费率，还应评估一次风控造成的业务中断。用专门的收款账户隔离风险，通常比把长期主账户直接暴露在商业收款链路中更容易管理。</p>
+<blockquote>银行品牌只是一个变量；账户主体、资金用途、交易频率和平台支持，才决定这条收款链路能否长期成立。</blockquote>
+<h2 id="sec-4">ZA Bank、汇丰与中银香港：群里存在不同用法</h2>
+<ul><li>ZA Bank（众安银行）被多人提到为较方便的选择；聊天称到香港后可下载注册，审核可能很快，但当前开户条件与所需材料仍需按银行最新要求核验。</li><li>汇丰被 baird 明确用于“不要承接商业收款”的提醒，但 SAI 又建议把汇丰作为香港账户组合之一。前者谈收款用途，后者谈账户配置，不能把两条建议混成同一结论。</li><li>中银香港同样被提到新资金美元定存利率较高，但这属于存款与促销场景，不能据此推导它一定适合 Stripe 商业提现。</li><li>永隆是否可用在聊天中没有答案；未得到验证的银行不应因为群里提过名字就直接列入可用清单。</li><li>聊天还提到在汇丰与中银香港之间来回转账以刷新新资金优惠。这类操作依赖当期活动条款，也可能涉及反洗钱、账户用途和促销资格，不能当作通用套利方法。</li></ul>
+<h2 id="sec-5">PayPal 多站收款：只有账号层经验，入口仍未确认</h2>
+<p>SAI 问 PayPal.cn 能否开多个产品。哥飞回答一个身份一个账号，账号内可以添加多个网站。SAI 随后表示自己在 PayPal.cn 没找到添加多个网站的入口，并追问是否要转到 PayPal.com。群里没有再给出操作步骤，也没有回答第二个网站是否要做内容审核。</p>
+<p>因此这段对话只能确认一种账号结构经验：一个主体先对应一个 PayPal 账号，再在账号内管理多个站点；不能据此断定 PayPal.cn 当前一定提供该入口。真正操作前，应在同一账号的设置中确认网站管理位置，并核对不同站点的商品、内容和地区是否触发额外审核。</p>
+<h2 id="sec-6">上线前的最小核查清单</h2>
+<ol><li>先确定收款主体：个人、香港公司还是其他地区公司，并让 Stripe/PayPal 账号、银行账户和业务资料保持一致。</li><li>在 Stripe 中同时按银行名称、银行编号、账户地区和结算币种查找提现账户，确认后再做小额到账测试。</li><li>核对银行账户允许的用途，区分日常储蓄、个人收款与商业经营收款，不把群友个案当成银行正式规则。</li><li>先验证 Wise、ZA Bank 等账户是否被当前收款平台接受，再决定是否把它设为主要提现路径。</li><li>给商业收款设置独立资金账户，避免主要生活账户或长期存款账户因一次风控同时受影响。</li><li>保存平台条款、银行开户文件和交易凭证；账户被要求补充资料时，能说明业务模式、客户来源与资金来源。</li><li>不要为了新资金定存优惠反复转账，除非已确认活动规则、账户用途和潜在合规要求。</li></ol>
+<h2 id="sec-7">尚未解决的争议</h2>
+<ul><li>个人汇丰是否会对所有商业收款封户，聊天只有群友经验，没有银行书面规则或样本统计。</li><li>ZA Bank 对 Stripe/PayPal 收款的支持范围、账户类型与限额，聊天没有提供当期证据。</li><li>企业 Wise 是否在具体业务、地区和交易规模下都稳定，仍需要按实际主体核验。</li><li>PayPal.cn 如何添加多个网站、是否需要转到 PayPal.com，以及多站内容审核规则，均未得到答案。</li><li>永隆等其他银行能否用于提现，聊天没有结论。</li><li>截图缺失，无法复核发起者当时看到的银行列表、地区选项和字段。</li></ul>
+<h2 id="sec-8">原始对话</h2>
+<p>以下按时间顺序保留 2026年10月24日 15:37 至 16:36 的全部 46 条消息。参与者 10 人；没有删除消息，纯表情符号只从原句中去掉，图片消息保留原文件名占位。</p>
+<div class="chat-block"><details class="chat-range"><summary>首尾消息</summary><div class="chat-range__body"><div class="chat-range__item"><div class="chat-range__title">第一条消息</div><div class="chat-meta">Key (All in AI版)-2026年10月24日 15:37</div><div class="chat-text">大佬们，你们 Stripe 的收款银行用的什么？我发现这里面连香港上海汇丰都没有</div></div><div class="chat-range__item"><div class="chat-range__title">最后一条消息</div><div class="chat-meta">石穿空-2026年10月24日 16:36</div><div class="chat-text">OK</div></div></div></details><details class="chat-appendix"><summary>全部 46 条消息</summary><div class="chat-log"><div class="chat-note">参与者 10 人：Key (All in AI版)、刘岩、SAI、哥飞、askuy、baird、宽、Leovyx、ponywen、石穿空 · 时间范围 2026年10月24日 15:37 至 2026年10月24日 16:36 · 原始 46 条，保留 46 条</div><div class="chat-msg"><div class="chat-meta">Key (All in AI版)-2026年10月24日 15:37</div><div class="chat-text">大佬们，你们 Stripe 的收款银行用的什么？我发现这里面连香港上海汇丰都没有</div></div>
+<div class="chat-msg"><div class="chat-meta">Key (All in AI版)-2026年10月24日 15:37</div><div class="chat-text">[图片] 微信图片_202610241537_1.jpg</div></div>
+<div class="chat-msg"><div class="chat-meta">Key (All in AI版)-2026年10月24日 15:38</div><div class="chat-text">提现银行</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 15:40</div><div class="chat-text">有的，看看 数字序列号</div></div>
+<div class="chat-msg"><div class="chat-meta">Key (All in AI版)-2026年10月24日 15:43</div><div class="chat-text">用数字找到了，谢谢</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 15:43</div><div class="chat-text">客气</div></div>
+<div class="chat-msg"><div class="chat-meta">SAI-2026年10月24日 15:52</div><div class="chat-text">paypal.cn可以开多个产品吗</div></div>
+<div class="chat-msg"><div class="chat-meta">哥飞-2026年10月24日 15:56</div><div class="chat-text">可以的</div></div>
+<div class="chat-msg"><div class="chat-meta">哥飞-2026年10月24日 15:56</div><div class="chat-text">一个身份一个账号，里边可以添加多个网站</div></div>
+<div class="chat-msg"><div class="chat-meta">askuy-2026年10月24日 15:58</div><div class="chat-text">reddit有么有啥经验的</div></div>
+<div class="chat-msg"><div class="chat-meta">SAI-2026年10月24日 15:58</div><div class="chat-text">我研究研究，我在.cn里没看到能添加多个网站。 是转到.com里加吗</div></div>
+<div class="chat-msg"><div class="chat-meta">SAI-2026年10月24日 16:09</div><div class="chat-text">第二个网站paypal不做内容审核吗 @</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:11</div><div class="chat-text">别用汇丰银行收款，会封号</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:11</div><div class="chat-text">可以 zabank</div></div>
+<div class="chat-msg"><div class="chat-meta">宽-2026年10月24日 16:12</div><div class="chat-text">永隆可以吗</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:12</div><div class="chat-text">永隆不知道</div></div>
+<div class="chat-msg"><div class="chat-meta">Leovyx-2026年10月24日 16:13</div><div class="chat-text">指的封银行卡还是 Stripe</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:13</div><div class="chat-text">银行</div></div>
+<div class="chat-msg"><div class="chat-meta">Leovyx-2026年10月24日 16:14</div><div class="chat-text">了解 我之前也是用得 za bank</div></div>
+<div class="chat-msg"><div class="chat-meta">ponywen-2026年10月24日 16:27</div><div class="chat-text">我去年办的港卡刚好还注册了汇丰银行和中国银行，看样子是不是都用不了</div></div>
+<div class="chat-msg"><div class="chat-meta">Leovyx-2026年10月24日 16:29</div><div class="chat-text">用数字银行（众安、大象银行）或 wise 收款吧。<br><br>如果汇丰或中行被封了 代价还挺大的其实</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:29</div><div class="chat-text">个人 wise 用来收款也容易封</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:30</div><div class="chat-text">会封嘛 我这边注册企业的，没事啊 难道针对个人？</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:30</div><div class="chat-text">个人会封</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:30</div><div class="chat-text">封号是啥原理</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:30</div><div class="chat-text">企业没问题</div></div>
+<div class="chat-msg"><div class="chat-meta">Leovyx-2026年10月24日 16:30</div><div class="chat-text">好吧 最近老看到有人在发 wise 快速收款</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:30</div><div class="chat-text">那business稳了</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:31</div><div class="chat-text">个人银行不能用来商业活动</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:31</div><div class="chat-text">是要在香港有企业的吗？</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:31</div><div class="chat-text">香港的公司还是美国的</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:31</div><div class="chat-text">体量小还好</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:31</div><div class="chat-text">我没开美国公司</div></div>
+<div class="chat-msg"><div class="chat-meta">baird-2026年10月24日 16:31</div><div class="chat-text">用 zabank 就行</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:31</div><div class="chat-text">Zabank好用</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:31</div><div class="chat-text">到香港就开了</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:32</div><div class="chat-text">我收藏了</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:32</div><div class="chat-text">抽空去hk</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:33</div><div class="chat-text">拿好身份证</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:33</div><div class="chat-text">Hk的网络</div></div>
+<div class="chat-msg"><div class="chat-meta">SAI-2026年10月24日 16:33</div><div class="chat-text">hk 会疯 bochk这三家都搞一下比较好</div></div>
+<div class="chat-msg"><div class="chat-meta">刘岩-2026年10月24日 16:33</div><div class="chat-text">下载后注册 几分钟审核或者秒审</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:34</div><div class="chat-text">行，我收藏了</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:34</div><div class="chat-text">都是攻略</div></div>
+<div class="chat-msg"><div class="chat-meta">SAI-2026年10月24日 16:34</div><div class="chat-text">bochk和会疯新资金美元定存利率高， 可以bochk和会疯来回倒手刷新资金</div></div>
+<div class="chat-msg"><div class="chat-meta">石穿空-2026年10月24日 16:36</div><div class="chat-text">OK</div></div></div></details></div>
+  </article>
+  
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">结论：不要只问哪家银行能用</a></li><li><a class="toc-link toc-l1" href="#sec-2">Stripe 找不到汇丰：先按银行编号核对</a></li><li><a class="toc-link toc-l1" href="#sec-3">个人账户与商业收款：风险边界比银行品牌更重要</a></li><li><a class="toc-link toc-l1" href="#sec-4">ZA Bank、汇丰与中银香港：群里存在不同用法</a></li><li><a class="toc-link toc-l1" href="#sec-5">PayPal 多站收款：只有账号层经验，入口仍未确认</a></li><li><a class="toc-link toc-l1" href="#sec-6">上线前的最小核查清单</a></li><li><a class="toc-link toc-l1" href="#sec-7">尚未解决的争议</a></li><li><a class="toc-link toc-l1" href="#sec-8">原始对话</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=eb986118" defer></script>
+<script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

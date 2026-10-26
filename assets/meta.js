@@ -1,16 +1,19 @@
-/* X Mirror · 评分与已读
+/* X Mirror · 评分、已读与分类顺序
  * 数据源：Cloudflare Pages Function + KV（ARTICLE_META），localStorage 作为即时缓存。
- * 合并规则：按每条 slug 的 updatedAt（ISO）做 last-write-wins。
+ * 合并规则：评分按分项、分类顺序按整体 updatedAt（ISO）做 last-write-wins。
  */
 (function (global) {
   'use strict';
 
   var META_KEY = 'x-mirror-meta-v1';
+  var CATEGORY_ORDER_KEY = 'x-mirror-category-order-v1';
   // GitHub Pages 没有 Pages Functions：评分/已读改走 Cloudflare 的同一 API（已开 CORS）。
   // 其余部署（Cloudflare Pages 及预览域名）继续用同源 /api/meta。
-  var API_URL = /(^|\.)github\.io$/i.test(global.location.hostname)
-    ? 'https://x-mirror-af7.pages.dev/api/meta'
-    : '/api/meta';
+  var API_BASE = /(^|\.)github\.io$/i.test(global.location.hostname)
+    ? 'https://x-mirror-af7.pages.dev/api'
+    : '/api';
+  var API_URL = API_BASE + '/meta';
+  var CATEGORY_ORDER_API_URL = API_BASE + '/category-order';
   var IS_FILE = global.location && global.location.protocol === 'file:';
   var SLUG_RE = /^[a-z0-9][a-z0-9-]{0,79}$/;
 
@@ -313,13 +316,6 @@
     ready.then(function () { renderPost(mount, slug); });
   }
 
-  function postNote() {
-    if (IS_FILE) return '本地文件模式：评分与已读只保存在本机浏览器。';
-    if (state.server === null) return '正在同步评分…';
-    if (state.server === false) return '未同步：评分只保存在本机，联网后会重试。';
-    return '评分已同步到 Cloudflare KV。';
-  }
-
   function pinButtonHtml(m) {
     return '<button type="button" class="pc-pin' + (m.pinned ? ' on' : '') + '" data-act="pin"' +
       ' aria-pressed="' + (m.pinned ? 'true' : 'false') + '"' +
@@ -340,17 +336,13 @@
         '<span class="pc-label">我的评分</span>' +
         starsHtml(m.rating, true) +
         '<span class="pc-rating-text">' + ratingText + '</span>' +
-        (m.rating ? '<button type="button" class="pc-clear" data-act="clear">清除</button>' : '') +
-      '</div>' +
-      '<div class="pc-row">' +
         '<button type="button" class="pc-read' + (m.read ? ' on' : '') + '" data-act="read"' +
           ' aria-pressed="' + (m.read ? 'true' : 'false') + '">' +
           '<span class="pc-dot" aria-hidden="true"></span>' +
           (m.read ? '已读完' : '标记为已读完') +
         '</button>' +
         pinButtonHtml(m) +
-      '</div>' +
-      '<div class="pc-note" data-note>' + postNote() + '</div>';
+      '</div>';
   }
 
   /* ---------- 目录卡片控件（link_only 无详情页） ---------- */
@@ -452,18 +444,11 @@
   }
 
   function applyPatch(mount, slug, patch) {
-    var done = setMeta(slug, patch);  // 同步更新内存 + localStorage
+    setMeta(slug, patch);             // 同步更新内存 + localStorage
     renderMetaMount(mount, slug);     // 立即按新值重绘（乐观 UI）
     if (mount.dispatchEvent && typeof global.CustomEvent === 'function') {
       mount.dispatchEvent(new global.CustomEvent('xm-meta-change', { bubbles: true }));
     }
-    done.then(function (ok) {
-      var note = mount.querySelector('[data-note]');
-      if (!note || IS_FILE) return;
-      note.textContent = ok
-        ? '已保存到本机，并同步 Cloudflare KV。'
-        : '已存本机；同步失败，联网后会补同步。';
-    });
   }
 
   function bindPostEvents(mount) {
@@ -477,8 +462,6 @@
         applyPatch(mount, slug, { rating: v === m.rating ? 0 : v }); // 再点当前分数 = 清除
       } else if (target.dataset.act === 'read') {
         applyPatch(mount, slug, { read: !m.read });
-      } else if (target.dataset.act === 'clear') {
-        applyPatch(mount, slug, { rating: 0 });
       } else if (target.dataset.act === 'pin') {
         applyPatch(mount, slug, { pinned: !m.pinned });
       }
@@ -513,8 +496,6 @@
         applyPatch(mount, slug, { rating: v === m.rating ? 0 : v }); // 再点当前分数 = 清除
       } else if (target.dataset.act === 'read') {
         applyPatch(mount, slug, { read: !m.read });
-      } else if (target.dataset.act === 'clear') {
-        applyPatch(mount, slug, { rating: 0 });
       } else if (target.dataset.act === 'pin') {
         applyPatch(mount, slug, { pinned: !m.pinned });
       }
@@ -546,18 +527,45 @@
 
     var COLLAPSED_KEY = 'x-mirror-collapsed-v1';
     var FILTER_OPEN_KEY = 'x-mirror-filter-open-v1';
-    var TIME_WINDOWS = { '7d': 7 * 864e5, '30d': 30 * 864e5, '90d': 90 * 864e5 };
+    var TIME_WINDOWS = {
+      '1d': 864e5, '3d': 3 * 864e5, '30d': 30 * 864e5, '90d': 90 * 864e5
+    };
 
-    var snapshot = Array.prototype.slice.call(list.children); // 原始顺序（含分类标题）
     var catHeads = Array.prototype.slice.call(list.querySelectorAll('.cat[data-cat]'));
-    var statusEl = document.getElementById('meta-status');
+    var initialCategoryOrder = catHeads.map(function (h) { return h.dataset.cat || ''; });
+    var currentCategoryOrder = initialCategoryOrder.slice();
+    var headByCat = {};
+    var cardsByCat = {};
+    var snapshot = [];
     var countEl = document.getElementById('meta-count');
     var summaryEl = document.getElementById('filter-summary');
     var panel = document.getElementById('filter-panel');
     var toggle = document.getElementById('filter-toggle');
+    var filterBar = document.getElementById('filters');
     var listActions = document.getElementById('list-actions');
+    var catOrderHint = document.querySelector('.cat-order-hint');
     var listCountEl = document.querySelector('.list-count');
     var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', time: 'all', sort: 'default' };
+
+    catHeads.forEach(function (h) {
+      var cat = h.dataset.cat || '';
+      headByCat[cat] = h;
+      cardsByCat[cat] = [];
+      var node = h.nextElementSibling;
+      while (node && node.classList && node.classList.contains('card')) {
+        cardsByCat[cat].push(node);
+        node = node.nextElementSibling;
+      }
+    });
+
+    function rebuildSnapshot() {
+      snapshot = [];
+      currentCategoryOrder.forEach(function (cat) {
+        if (headByCat[cat]) snapshot.push(headByCat[cat]);
+        (cardsByCat[cat] || []).forEach(function (card) { snapshot.push(card); });
+      });
+    }
+    rebuildSnapshot();
 
     var emptyEl = document.getElementById('xm-empty');
     if (!emptyEl) {
@@ -587,6 +595,197 @@
       try { global.localStorage.setItem(key, value ? '1' : '0'); } catch (e) { /* ignore */ }
     }
 
+    function sameOrder(a, b) {
+      if (!a || !b || a.length !== b.length) return false;
+      for (var i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false;
+      }
+      return true;
+    }
+
+    function normalizeCategoryOrder(order) {
+      var out = [];
+      var seen = {};
+      (Array.isArray(order) ? order : []).forEach(function (cat) {
+        cat = String(cat || '').trim();
+        if (!cat || seen[cat] || !headByCat[cat]) return;
+        seen[cat] = true;
+        out.push(cat);
+      });
+      initialCategoryOrder.forEach(function (cat) {
+        if (!seen[cat]) out.push(cat);
+      });
+      return out;
+    }
+
+    function readLocalCategoryOrder() {
+      try {
+        var raw = global.localStorage.getItem(CATEGORY_ORDER_KEY);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          return { order: normalizeCategoryOrder(parsed), updatedAt: null };
+        }
+        if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.order)) return null;
+        return {
+          order: normalizeCategoryOrder(parsed.order),
+          updatedAt: typeof parsed.updatedAt === 'string' && !isNaN(Date.parse(parsed.updatedAt))
+            ? new Date(parsed.updatedAt).toISOString()
+            : null
+        };
+      } catch (e) { return null; }
+    }
+
+    function writeLocalCategoryOrder(order, updatedAt) {
+      try {
+        global.localStorage.setItem(CATEGORY_ORDER_KEY, JSON.stringify({
+          order: normalizeCategoryOrder(order),
+          updatedAt: updatedAt || null
+        }));
+      } catch (e) { /* localStorage 不可用时只保留当前页面顺序 */ }
+    }
+
+    function fetchCategoryOrder() {
+      if (IS_FILE || typeof global.fetch !== 'function') return Promise.resolve(null);
+      var controller = typeof global.AbortController === 'function' ? new global.AbortController() : null;
+      var timer = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
+      var opts = {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+        cache: 'no-store'
+      };
+      if (controller) opts.signal = controller.signal;
+      return global.fetch(CATEGORY_ORDER_API_URL, opts).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function (data) {
+        if (!data || data.ok !== true || !Array.isArray(data.order)) throw new Error('bad payload');
+        return {
+          order: normalizeCategoryOrder(data.order),
+          updatedAt: typeof data.updatedAt === 'string' && !isNaN(Date.parse(data.updatedAt))
+            ? new Date(data.updatedAt).toISOString()
+            : null
+        };
+      }).catch(function () {
+        return null;
+      }).then(function (value) {
+        if (timer) clearTimeout(timer);
+        return value;
+      });
+    }
+
+    function putCategoryOrder(order, updatedAt) {
+      return global.fetch(CATEGORY_ORDER_API_URL, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          order: normalizeCategoryOrder(order),
+          updatedAt: updatedAt
+        })
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      });
+    }
+
+    function putCategoryOrderWithRetry(order, updatedAt, retries) {
+      return putCategoryOrder(order, updatedAt).catch(function (err) {
+        if (retries <= 0) throw err;
+        return new Promise(function (resolve) { setTimeout(resolve, 1200); })
+          .then(function () { return putCategoryOrderWithRetry(order, updatedAt, retries - 1); });
+      });
+    }
+
+    function reorderCategoryButtons(order) {
+      if (!filterBar) return;
+      var allBtn = filterBar.querySelector('button[data-cat="all"]');
+      var byCat = {};
+      Array.prototype.forEach.call(filterBar.querySelectorAll('button[data-cat]'), function (btn) {
+        var cat = btn.dataset.cat || '';
+        if (cat !== 'all') byCat[cat] = btn;
+      });
+      if (allBtn) filterBar.appendChild(allBtn);
+      order.forEach(function (cat) {
+        if (byCat[cat]) filterBar.appendChild(byCat[cat]);
+      });
+    }
+
+    function applyCategoryOrder(order, persist) {
+      var next = normalizeCategoryOrder(order);
+      var changed = !sameOrder(currentCategoryOrder, next);
+      currentCategoryOrder = next;
+      rebuildSnapshot();
+      reorderCategoryButtons(currentCategoryOrder);
+
+      if (ui.sort === 'default') {
+        snapshot.forEach(function (node) { list.appendChild(node); });
+      }
+      if (changed || persist) apply();
+      if (persist) persistCategoryOrder();
+      return changed;
+    }
+
+    function persistCategoryOrder() {
+      var updatedAt = nowISO();
+      writeLocalCategoryOrder(currentCategoryOrder, updatedAt);
+      if (IS_FILE || typeof global.fetch !== 'function') return Promise.resolve(true);
+      return putCategoryOrderWithRetry(currentCategoryOrder, updatedAt, 1).then(function (data) {
+        if (!data || data.ok !== true) return false;
+        if (data.applied === false && Array.isArray(data.order)) {
+          var serverOrder = normalizeCategoryOrder(data.order);
+          writeLocalCategoryOrder(serverOrder, data.updatedAt || null);
+          applyCategoryOrder(serverOrder, false);
+        }
+        return true;
+      }).catch(function () {
+        return false; // 本地已保存，下次打开或恢复页面时再补传
+      });
+    }
+
+    var localCategoryOrder = readLocalCategoryOrder();
+    if (localCategoryOrder) {
+      currentCategoryOrder = normalizeCategoryOrder(localCategoryOrder.order);
+      rebuildSnapshot();
+      reorderCategoryButtons(currentCategoryOrder);
+    }
+
+    var categoryOrderRefreshing = false;
+    var lastCategoryOrderRefresh = 0;
+
+    function refreshCategoryOrder(force) {
+      if (IS_FILE || typeof global.fetch !== 'function' || categoryOrderRefreshing) {
+        return Promise.resolve(currentCategoryOrder);
+      }
+      var now = Date.now();
+      if (!force && now - lastCategoryOrderRefresh < 5000) {
+        return Promise.resolve(currentCategoryOrder);
+      }
+      lastCategoryOrderRefresh = now;
+      categoryOrderRefreshing = true;
+      return fetchCategoryOrder().then(function (remote) {
+        categoryOrderRefreshing = false;
+        if (!remote) return currentCategoryOrder;
+        var local = readLocalCategoryOrder();
+        var remoteHasOrder = remote.order.length > 0;
+        var remoteIsNewer = remoteHasOrder && (
+          !local || !local.updatedAt || !remote.updatedAt ||
+          parseTs(remote.updatedAt) >= parseTs(local.updatedAt)
+        );
+
+        if (remoteIsNewer) {
+          writeLocalCategoryOrder(remote.order, remote.updatedAt);
+          applyCategoryOrder(remote.order, false);
+        } else if (local && local.updatedAt &&
+                   (!remote.updatedAt || parseTs(local.updatedAt) > parseTs(remote.updatedAt))) {
+          putCategoryOrderWithRetry(local.order, local.updatedAt, 0).catch(function () { /* 下次再补传 */ });
+        }
+        return currentCategoryOrder;
+      }, function () {
+        categoryOrderRefreshing = false;
+        return currentCategoryOrder;
+      });
+    }
+
     var collapsed = readJSON(COLLAPSED_KEY);
 
     function metaFor(el) { return get(el.dataset.slug); }
@@ -603,6 +802,124 @@
     function setCatCollapsed(cat, value) {
       collapsed[cat] = !!value;
       writeJSON(COLLAPSED_KEY, collapsed);
+    }
+
+    function canReorderCategories() {
+      return ui.sort === 'default' && !filteringNow();
+    }
+
+    function draggedOrderAt(dragCat, clientY) {
+      var targetCat = null;
+      var placeAfter = false;
+      for (var i = 0; i < currentCategoryOrder.length; i++) {
+        var cat = currentCategoryOrder[i];
+        if (cat === dragCat) continue;
+        var rect = headByCat[cat].getBoundingClientRect();
+        if (clientY < rect.top + rect.height / 2) {
+          targetCat = cat;
+          placeAfter = false;
+          break;
+        }
+        targetCat = cat;
+        placeAfter = true;
+      }
+      if (!targetCat) return currentCategoryOrder.slice();
+
+      var next = currentCategoryOrder.filter(function (cat) { return cat !== dragCat; });
+      var targetIndex = next.indexOf(targetCat);
+      if (targetIndex < 0) return currentCategoryOrder.slice();
+      next.splice(targetIndex + (placeAfter ? 1 : 0), 0, dragCat);
+      return next;
+    }
+
+    function bindCategoryDrag(head) {
+      var handle = head.querySelector('.cat-drag');
+      if (!handle) return;
+      var drag = null;
+
+      function cleanup() {
+        if (!drag) return;
+        global.document.removeEventListener('pointermove', onMove, true);
+        global.document.removeEventListener('pointerup', onEnd, true);
+        global.document.removeEventListener('pointercancel', onCancel, true);
+        var source = headByCat[drag.cat];
+        if (source) source.classList.remove('is-dragging');
+        drag = null;
+      }
+
+      function onMove(e) {
+        if (!drag || e.pointerId !== drag.pointerId) return;
+        if (!canReorderCategories()) {
+          cleanup();
+          return;
+        }
+        if (!drag.moved) {
+          var dx = e.clientX - drag.startX;
+          var dy = e.clientY - drag.startY;
+          if ((dx * dx) + (dy * dy) < 36) return;
+          drag.moved = true;
+        }
+        e.preventDefault();
+        var source = headByCat[drag.cat];
+        if (source) source.classList.add('is-dragging');
+        var next = draggedOrderAt(drag.cat, e.clientY);
+        if (!sameOrder(currentCategoryOrder, next)) {
+          applyCategoryOrder(next, false);
+          source = headByCat[drag.cat];
+          if (source) source.classList.add('is-dragging');
+        }
+      }
+
+      function onEnd(e) {
+        if (!drag || e.pointerId !== drag.pointerId) return;
+        var moved = drag.moved;
+        cleanup();
+        if (moved) {
+          persistCategoryOrder();
+          handle.focus();
+        }
+      }
+
+      function onCancel(e) {
+        if (!drag || e.pointerId !== drag.pointerId) return;
+        cleanup();
+      }
+
+      handle.addEventListener('pointerdown', function (e) {
+        if (!canReorderCategories()) return;
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        e.preventDefault();
+        e.stopPropagation();
+        drag = {
+          cat: head.dataset.cat || '',
+          pointerId: e.pointerId,
+          startX: e.clientX,
+          startY: e.clientY,
+          moved: false
+        };
+        global.document.addEventListener('pointermove', onMove, true);
+        global.document.addEventListener('pointerup', onEnd, true);
+        global.document.addEventListener('pointercancel', onCancel, true);
+      });
+
+      handle.addEventListener('keydown', function (e) {
+        if (!canReorderCategories()) return;
+        var delta = 0;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') delta = -1;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') delta = 1;
+        if (!delta) return;
+        e.preventDefault();
+        var cat = head.dataset.cat || '';
+        var next = currentCategoryOrder.slice();
+        var from = next.indexOf(cat);
+        var to = from + delta;
+        if (from < 0 || to < 0 || to >= next.length) return;
+        next.splice(from, 1);
+        next.splice(to, 0, cat);
+        applyCategoryOrder(next, false);
+        persistCategoryOrder();
+        headByCat[cat].querySelector('.cat-drag').focus();
+      });
     }
 
     function updateFilterSummary() {
@@ -725,9 +1042,12 @@
       catHeads.forEach(function (h) {
         var cat = h.dataset.cat || '';
         var folded = ui.sort === 'default' && !filtering && !!collapsed[cat];
+        var toggleButton = h.querySelector('.cat-toggle');
+        var dragButton = h.querySelector('.cat-drag');
         h.classList.toggle('is-collapsed', folded);
-        h.classList.toggle('is-static', filtering);
-        h.setAttribute('aria-expanded', folded ? 'false' : 'true');
+        h.classList.toggle('is-static', filtering || ui.sort !== 'default');
+        if (toggleButton) toggleButton.setAttribute('aria-expanded', folded ? 'false' : 'true');
+        if (dragButton) dragButton.setAttribute('aria-disabled', canReorderCategories() ? 'false' : 'true');
 
         if (ui.sort !== 'default') { h.style.display = 'none'; return; }
         if (ui.cat !== 'all' && cat !== ui.cat) { h.style.display = 'none'; return; }
@@ -745,17 +1065,14 @@
       });
 
       if (listActions) listActions.style.display = (ui.sort === 'default' && !filtering) ? '' : 'none';
+      if (catOrderHint) catOrderHint.style.display = canReorderCategories() ? '' : 'none';
       if (countEl) {
         countEl.textContent = filtering ? '· 筛选命中 ' + shown + ' / ' + cards.length + ' 篇' : '';
       }
-      if (statusEl) {
-        statusEl.textContent = IS_FILE
-          ? '本地文件模式：只读取本机浏览器里的评分与已读。'
-          : (state.server === false
-            ? '离线：正在使用本机缓存，联网后会自动同步。'
-            : '评分与已读已从 Cloudflare KV 同步。');
-      }
       updateFilterSummary();
+      if (list.dispatchEvent && typeof global.CustomEvent === 'function') {
+        list.dispatchEvent(new global.CustomEvent('xm-filter-change', { bubbles: true }));
+      }
     }
 
     function bindBar(bar, onPick) {
@@ -815,19 +1132,15 @@
     }
 
     catHeads.forEach(function (h) {
+      var toggleButton = h.querySelector('.cat-toggle');
       function flip() {
         if (filteringNow()) return;
         var cat = h.dataset.cat || '';
         setCatCollapsed(cat, !collapsed[cat]);
         apply();
       }
-      h.addEventListener('click', flip);
-      h.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-          e.preventDefault();
-          flip();
-        }
-      });
+      if (toggleButton) toggleButton.addEventListener('click', flip);
+      bindCategoryDrag(h);
     });
 
     var expandAll = document.getElementById('expand-all');
@@ -862,6 +1175,13 @@
     ready.then(function () {
       renderBadges();
       apply();
+    });
+    refreshCategoryOrder(true);
+    global.document.addEventListener('visibilitychange', function () {
+      if (!global.document.hidden) refreshCategoryOrder(false);
+    });
+    global.addEventListener('pageshow', function (e) {
+      if (e.persisted) refreshCategoryOrder(true);
     });
 
     /* 文章页分类标签：?cat=<分类> 回到目录时展开并定位到该分类 */
@@ -925,9 +1245,9 @@
 
     function render() {
       var cards = Array.prototype.slice.call(list.querySelectorAll('.card[data-slug]'));
-      /* 最新置顶的排前面；旧数据没有 pinnedAt 时回退到 updatedAt */
+      /* 只显示当前搜索/筛选命中的置顶项；最新置顶的排前面 */
       var pinned = cards.filter(function (el) {
-        return get(el.dataset.slug).pinned;
+        return get(el.dataset.slug).pinned && el._xmPass !== false;
       }).sort(function (a, b) {
         var ma = get(a.dataset.slug), mb = get(b.dataset.slug);
         return parseTs(mb.pinnedAt || mb.updatedAt) - parseTs(ma.pinnedAt || ma.updatedAt);
@@ -938,6 +1258,8 @@
         wrap.className = 'pinned-item';
         var clone = card.cloneNode(true);
         clone.classList.add('pinned-card');
+        clone.style.display = '';
+        clone.hidden = false;
         var controls = clone.querySelector('.card-controls');
         if (controls) controls.remove();
         wrap.appendChild(clone);
@@ -950,6 +1272,7 @@
     render();
     ready.then(render);
     list.addEventListener('xm-meta-change', render);
+    list.addEventListener('xm-filter-change', render);
     global.document.addEventListener('xm-meta-refreshed', render);
   }
 
@@ -969,6 +1292,8 @@
 
   global.XMirrorMeta = {
     META_KEY: META_KEY,
+    CATEGORY_ORDER_KEY: CATEGORY_ORDER_KEY,
+    CATEGORY_ORDER_API_URL: CATEGORY_ORDER_API_URL,
     ready: ready,
     loadLocal: loadLocal,
     saveLocal: saveLocal,

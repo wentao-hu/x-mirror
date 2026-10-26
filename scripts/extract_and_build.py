@@ -16,6 +16,13 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 
+from category_taxonomy import (
+    CategoryTaxonomyError,
+    definitions,
+    load_taxonomy,
+    official_names,
+    validate_post_category,
+)
 from generate_webp import generate_all, image_width
 
 
@@ -37,6 +44,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 POSTS = ROOT / "posts"
 TZ8 = timezone(timedelta(hours=8))
+CATEGORY_TAXONOMY = load_taxonomy()
+CATEGORY_ORDER = official_names(CATEGORY_TAXONOMY)
+CATEGORY_DEFINITIONS = definitions(CATEGORY_TAXONOMY)
 
 # workdir -> post id
 WORKDIRS = {
@@ -49,21 +59,54 @@ WORKDIRS = {
     "2109883678897909932": "/tmp/webpage-work7",
 }
 
-CATEGORY_ORDER = ["新词站实战复盘", "出海复盘", "海外收款", "SEO基础", "建站教程", "外链推广"]
-
 # 网站收藏：数据在根目录 sites.json，站点页在 sites.html
 SITES_FILE = ROOT / "sites.json"
 SITE_CATEGORY_ORDER = ["SEO 内容站", "工具站", "域名注册", "支付"]
 
 CATEGORIES = {
-    "2110669876482203775": "新词站实战复盘",
-    "2112216903150436383": "新词站实战复盘",
-    "2112129349071831259": "新词站实战复盘",
-    "2111826068017717314": "新词站实战复盘",
-    "2111268767342997847": "SEO基础",
-    "2109883678897909932": "建站教程",
-    "2112061360708403397": "外链推广",
+    "2110669876482203775": "实战复盘",
+    "2112216903150436383": "实战复盘",
+    "2112129349071831259": "实战复盘",
+    "2111826068017717314": "实战复盘",
+    "2111268767342997847": "SEO获客",
+    "2109883678897909932": "建站开发",
+    "2112061360708403397": "SEO获客",
 }
+
+_legacy_unknown_categories = sorted(set(CATEGORIES.values()) - set(CATEGORY_ORDER))
+if _legacy_unknown_categories:
+    raise CategoryTaxonomyError(
+        "旧抽取流程包含未知分类: " + ", ".join(_legacy_unknown_categories)
+    )
+
+CATEGORY_NAMES_MODULE = ROOT / "functions" / "_lib" / "category-names.js"
+
+
+def validate_post_meta(meta: dict, source: str = "post") -> str:
+    return validate_post_category(meta, CATEGORY_TAXONOMY, source=source)
+
+
+def render_category_names_module() -> str:
+    aliases = {}
+    for category in CATEGORY_TAXONOMY["categories"]:
+        for alias in category["aliases"]:
+            aliases[alias] = category["name"]
+    names_json = json.dumps(CATEGORY_ORDER, ensure_ascii=False, indent=2)
+    aliases_json = json.dumps(aliases, ensure_ascii=False, indent=2)
+    return (
+        "/**\n"
+        " * 由 category-taxonomy.json 自动生成，请勿手工编辑。\n"
+        " * 生成命令：python3 scripts/rebuild_from_data.py\n"
+        " */\n"
+        f"export const CATEGORY_NAMES = Object.freeze({names_json});\n\n"
+        f"export const CATEGORY_ALIASES = Object.freeze({aliases_json});\n"
+    )
+
+
+def write_category_names_module() -> None:
+    CATEGORY_NAMES_MODULE.parent.mkdir(parents=True, exist_ok=True)
+    CATEGORY_NAMES_MODULE.write_text(render_category_names_module(), encoding="utf-8")
+
 
 SLUGS = {
     "2110669876482203775": "echo99-ai-site-5days-1500",
@@ -492,11 +535,23 @@ def esc(s: str) -> str:
 
 
 _HEADING_PATH_CHARS = re.compile(r"[/\\]")
+_MARKDOWN_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 
 
 def clean_heading_text(text: str) -> str:
     """标题里去掉 / 和 \\，避免像路径或乱码；替换为空格并合并空白。"""
     return re.sub(r"\s+", " ", _HEADING_PATH_CHARS.sub(" ", text)).strip()
+
+
+def plain_heading_text(text: str) -> str:
+    """目录标题只保留链接文字，避免嵌套 <a>。"""
+    return clean_heading_text(_MARKDOWN_LINK.sub(r"\1", text).replace("**", ""))
+
+
+def render_heading_text(text: str) -> str:
+    """渲染标题内的链接和强调；无链接时仍清理路径字符。"""
+    safe = re.sub(r"\s+", " ", text).strip() if _MARKDOWN_LINK.search(text) else clean_heading_text(text)
+    return linkify(safe)
 
 
 SOURCE_TYPE_LABELS = {
@@ -596,7 +651,7 @@ def source_badge(meta: dict) -> str:
 
 
 def meta_tags(meta: dict) -> list[str]:
-    """返回清洗后的内容标签，忽略空值和非法类型。"""
+    """返回清洗后的相关关键词，忽略空值和非法类型。"""
     return [
         tag.strip()
         for tag in (meta.get("tags") or [])
@@ -605,19 +660,50 @@ def meta_tags(meta: dict) -> list[str]:
 
 
 def tags_html(meta: dict, *, compact: bool = False, show_label: bool = False) -> str:
-    """渲染可展示、可被目录搜索命中的内容标签。"""
+    """渲染相关关键词，并让目录搜索继续命中这些文本。"""
     tags = meta_tags(meta)
     if not tags:
         return ""
     classes = "tag-list tag-list--compact" if compact else "tag-list"
-    label = '<span class="tag-list__label">内容标签</span>' if show_label else ""
-    badges = "".join(f'<span class="tag-badge">{esc(tag)}</span>' for tag in tags)
-    return f'<div class="{classes}" aria-label="内容标签">{label}{badges}</div>'
+    label = '<span class="tag-list__label">关键词</span>' if show_label else ""
+    badges = "".join(
+        f'<span class="tag-badge" data-tag="{esc(tag)}">{esc(tag)}</span>'
+        for tag in tags
+    )
+    return f'<div class="{classes}" aria-label="关键词">{label}{badges}</div>'
+
+
+_INLINE_CODE_RE = re.compile(r"(?<!`)`([^`\n]+)`(?!`)")
+
+
+def protect_inline_code(s: str, code_spans: dict[str, str]) -> str:
+    """把行内代码替换为占位符，避免后续链接和强调规则改写代码内容。"""
+
+    def repl(match: re.Match) -> str:
+        key = f"\x00code{len(code_spans)}\x00"
+        code_spans[key] = f'<code class="inline-code">{match.group(1)}</code>'
+        return key
+
+    return _INLINE_CODE_RE.sub(repl, s)
+
+
+def restore_inline_code(s: str, code_spans: dict[str, str]) -> str:
+    for key, html in code_spans.items():
+        s = s.replace(key, html)
+    return s
+
+
+def render_inline_text(text: str) -> str:
+    """渲染不自动链接的行内 Markdown，目前用于标题和表格。"""
+    code_spans: dict[str, str] = {}
+    s = protect_inline_code(esc(text), code_spans)
+    return restore_inline_code(s, code_spans)
 
 
 def linkify(text: str) -> str:
-    """Escape then linkify markdown links, bare URLs and @handles lightly."""
-    s = esc(text)
+    """Escape then render inline code, links, emphasis, URLs and @handles."""
+    code_spans: dict[str, str] = {}
+    s = protect_inline_code(esc(text), code_spans)
 
     # 《标题》 + 同段唯一裸 URL → 标题本身成为链接，不再显示一行裸网址。
     # 典型：微信文末「《某篇标题》\nhttps://mp.weixin.qq.com/s?…」
@@ -659,6 +745,7 @@ def linkify(text: str) -> str:
     )
     for key, html in md_links.items():
         s = s.replace(key, html)
+    s = restore_inline_code(s, code_spans)
     # 不要在 <br> 后再保留源码换行；聊天区使用 pre-wrap，否则同一换行会渲染两次。
     s = s.replace("\n", "<br>")
     return s
@@ -723,7 +810,7 @@ def chat_message_html(msg: dict) -> str:
 
 
 def render_chat_html(b: dict) -> str:
-    """聊天记录固定展示：首尾消息置顶 + 默认折叠的全量时间线。"""
+    """聊天记录固定为两个默认折叠区：首尾消息 + 全量时间线。"""
     messages = b["messages"]
     if not messages:
         return ""
@@ -746,11 +833,13 @@ def render_chat_html(b: dict) -> str:
         for label, m in range_items
     )
     log_html = "\n".join(chat_message_html(m) for m in messages)
-    open_attr = " open" if b.get("expanded") else ""
     return (
         '<div class="chat-block">'
-        f'<div class="chat-range">{range_html}</div>'
-        f'<details class="chat-appendix"{open_attr}>'
+        '<details class="chat-range">'
+        '<summary>首尾消息</summary>'
+        f'<div class="chat-range__body">{range_html}</div>'
+        '</details>'
+        '<details class="chat-appendix">'
         f'<summary>全部 {len(messages)} 条消息</summary>'
         f'<div class="chat-log"><div class="chat-note">{note}</div>{log_html}</div>'
         "</details></div>"
@@ -790,7 +879,7 @@ def render_toc_html(blocks: list[dict]) -> str:
         for node in nodes:
             link = (
                 f'<a class="toc-link toc-l{min(depth, 1) + 1}" '
-                f'href="#{node["id"]}">{esc(clean_heading_text(node["text"]))}</a>'
+                f'href="#{node["id"]}">{render_inline_text(plain_heading_text(node["text"]))}</a>'
             )
             children = ""
             if node["children"]:
@@ -809,13 +898,17 @@ def render_toc_html(blocks: list[dict]) -> str:
         else ""
     )
     return (
-        '<aside class="toc" aria-label="文章目录">'
+        '<aside class="toc" id="toc-panel" hidden aria-label="文章目录">'
         '<div class="toc-head"><span class="toc-title">目录</span>'
         f'{fold_btn}<button type="button" class="toc-close" aria-label="隐藏目录">×</button>'
         '</div><nav class="toc-nav"><ul class="toc-l1-list">'
         + render_nodes(tree)
         + "</ul></nav></aside>"
-        '<button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>'
+        '<button type="button" class="toc-open" aria-label="展开目录" title="目录" '
+        'aria-controls="toc-panel" hidden>'
+        '<svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+        '<path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/>'
+        "</svg></button>"
     )
 
 
@@ -832,7 +925,9 @@ def render_blocks_html(
             if level == 1:
                 continue  # title rendered in header
             hid = f' id="{esc(b["_id"])}"' if b.get("_id") else ""
-            parts.append(f"<h{level}{hid}>{esc(clean_heading_text(b['text']))}</h{level}>")
+            parts.append(
+                f"<h{level}{hid}>{render_heading_text(b['text'])}</h{level}>"
+            )
         elif t == "paragraph":
             parts.append(f"<p>{linkify(b['text'])}</p>")
         elif t == "image":
@@ -881,7 +976,7 @@ def render_blocks_html(
             rows_html = []
             for ri, row in enumerate(b["rows"]):
                 cells = "".join(
-                    f"<{'th' if ri==0 else 'td'}>{esc(c)}</{'th' if ri==0 else 'td'}>"
+                    f"<{'th' if ri==0 else 'td'}>{linkify(c)}</{'th' if ri==0 else 'td'}>"
                     for c in row
                 )
                 rows_html.append(f"<tr>{cells}</tr>")
@@ -986,7 +1081,7 @@ h1.title {
   font-size: clamp(26px, 4vw, 32px);
   line-height: 1.32; font-weight: 800; letter-spacing: -.012em;
   margin: 4px 0 16px;
-  text-wrap: balance;
+  text-wrap: wrap;
   overflow-wrap: anywhere;
 }
 
@@ -1020,13 +1115,20 @@ h1.title {
 }
 .article img { max-width: 100%; height: auto; }
 .media-link { display: block; }
-/* 正文图片缩放控件：右上角小圆按钮，状态跨设备同步 */
+/* 正文图片缩放控件：按需出现在右下角，状态跨设备同步 */
 .img-zoom-controls {
-  position: absolute; top: 8px; right: 8px; z-index: 2;
+  position: absolute; right: 8px; bottom: 8px; z-index: 2;
   display: inline-flex; align-items: center; gap: 2px;
   padding: 2px; border-radius: 999px;
   background: rgba(15, 20, 25, .58);
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(4px) scale(.97);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
+}
+.img-zoom-controls.is-visible {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateY(0) scale(1);
 }
 .img-zoom-btn {
   width: 28px; height: 28px; border: 0; border-radius: 50%;
@@ -1035,6 +1137,8 @@ h1.title {
   -webkit-tap-highlight-color: transparent;
 }
 .img-zoom-btn:hover { background: rgba(255, 255, 255, .18); }
+.img-zoom-btn:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+.img-zoom-preview { font-size: 15px; }
 .img-zoom-value {
   color: #fff; font-size: 11px; min-width: 34px;
   text-align: center; font-variant-numeric: tabular-nums;
@@ -1078,6 +1182,20 @@ body.img-lightbox-open { overflow: hidden; }
   font-size: 13px; line-height: 1.6;
 }
 .article pre code { font: inherit; color: inherit; }
+.inline-code {
+  padding: .1em .34em;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: #f6f8fa;
+  color: #24364b;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .88em;
+  line-height: 1.45;
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 .article blockquote {
   margin: 18px 0; padding: 2px 0 2px 16px;
   border-left: 3px solid var(--border-strong);
@@ -1111,27 +1229,34 @@ body.img-lightbox-open { overflow: hidden; }
 
 /* 右侧目录：宽屏显示，整块可隐藏，可全折叠到只剩一级 */
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-.toc { display: none; }
-.toc-open { display: none; }
-@media (min-width: 1380px) {
-  .toc {
-    display: block; position: fixed; top: 92px; right: 24px; z-index: 20;
-    width: 216px; max-height: calc(100vh - 130px); overflow-y: auto;
-    padding: 12px; border: 1px solid var(--border); border-radius: 12px;
-    background: rgba(255, 255, 255, .95);
-    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-    font-size: 12.5px; line-height: 1.55;
-  }
-  .toc-open {
-    display: inline-flex; position: fixed; top: 92px; right: 0; z-index: 21;
-    padding: 10px 5px;
-    border: 1px solid var(--border); border-right: 0; border-radius: 10px 0 0 10px;
-    background: var(--bg); color: var(--muted);
-    font-size: 12px; letter-spacing: .05em; cursor: pointer;
-    writing-mode: vertical-rl;
-  }
-  .toc-open:hover { color: var(--fg); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .img-zoom-controls { transition: none; }
+}
+/* 目录：宽屏固定侧栏；窄屏默认折叠，点「目录」按钮展开浮层 */
+.toc {
+  position: fixed; top: 92px; right: 16px; z-index: 20;
+  width: 200px; max-width: 82vw; max-height: calc(100vh - 130px); overflow-y: auto;
+  padding: 12px; border: 1px solid var(--border); border-radius: 12px;
+  background: rgba(255, 255, 255, .95);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font-size: 12.5px; line-height: 1.55;
+}
+.toc-open {
+  position: fixed; top: 92px; right: 16px; z-index: 21;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; padding: 0;
+  border: 0; background: transparent; color: var(--muted);
+  cursor: grab; touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none; user-select: none;
+}
+.toc-open:hover { color: var(--fg); }
+.toc-open.is-dragging { cursor: grabbing; opacity: .7; }
+.toc-open-icon {
+  width: 20px; height: 20px; pointer-events: none;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
 }
 .toc[hidden], .toc-open[hidden] { display: none; }
 .toc-head { display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
@@ -1155,12 +1280,13 @@ html { scroll-behavior: smooth; }
 .toc.is-folded .toc-l2-list { display: none; }
 h2[id], h3[id] { scroll-margin-top: 20px; }
 
-/* 聊天记录：首尾消息置顶，全量时间线默认折叠；元信息小而淡，正文正常字号 */
-.chat-block { margin: 20px 0 24px; }
-.chat-range {
-  margin: 0 0 16px; padding: 18px 20px;
+/* 聊天记录：首尾消息与全量时间线均为默认折叠区；元信息小而淡，正文正常字号 */
+.chat-block { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 24px; }
+.chat-range,
+.chat-appendix {
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
 }
+.chat-range__body { padding: 16px 20px; }
 .chat-range__title {
   margin: 0 0 6px; color: var(--muted-2);
   font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
@@ -1169,25 +1295,27 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .chat-range__item:last-child { margin-bottom: 0; }
 .chat-meta { margin-bottom: 3px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .chat-text { color: var(--fg); font-size: 17px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
-.chat-appendix {
-  border: 1px solid var(--border); border-radius: 12px; background: var(--bg);
-}
+.chat-range > summary,
 .chat-appendix > summary {
   cursor: pointer; padding: 12px 16px;
   color: var(--muted); font-size: 14px; font-weight: 600; line-height: 1.6;
   list-style: none; user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+.chat-range > summary::-webkit-details-marker,
 .chat-appendix > summary::-webkit-details-marker { display: none; }
+.chat-range > summary::before,
 .chat-appendix > summary::before { content: "▸ "; color: var(--muted-2); }
+.chat-range[open] > summary,
 .chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
+.chat-range[open] > summary::before,
 .chat-appendix[open] > summary::before { content: "▾ "; }
 .chat-log { padding: 16px; }
 .chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
 .chat-log .chat-msg { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
 .chat-log .chat-msg:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 @media (max-width: 640px) {
-  .chat-range { padding: 15px 16px; }
+  .chat-range__body { padding: 15px 16px; }
   .chat-log { padding: 14px; }
 }
 
@@ -1253,20 +1381,45 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   border: 1px solid transparent; border-radius: 10px;
   background: var(--card);
   color: color-mix(in srgb, var(--fg) 80%, var(--link));
-  font-size: 17px; font-weight: 700; cursor: pointer; user-select: none;
+  font-size: 17px; font-weight: 700; user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 .cat:hover { background: var(--card-hover); }
-.cat:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.cat .cat-toggle {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px;
+  border: 0; padding: 0; background: transparent; color: inherit;
+  font: inherit; text-align: left; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cat .cat-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
 .cat .cat-name { flex: 1; min-width: 0; }
 .cat .cat-count {
   color: var(--muted); font-size: 12px; font-weight: 600; background: var(--bg);
   border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap;
 }
 .cat .cat-chevron { color: var(--muted); font-size: 12px; transition: transform .15s ease; }
+.cat .cat-drag {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0;
+  border: 0; border-radius: 7px; background: transparent;
+  color: var(--muted-2); cursor: grab; touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.cat .cat-drag:hover { background: var(--bg); color: var(--fg); }
+.cat .cat-drag:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
+.cat .cat-drag[aria-disabled="true"] {
+  opacity: .32; cursor: default; pointer-events: none;
+}
+.cat .cat-drag-icon { width: 15px; height: 15px; fill: currentColor; }
+.cat.is-dragging {
+  border-color: var(--link);
+  box-shadow: 0 10px 30px rgba(15, 20, 25, .12);
+  opacity: .76;
+}
 .cat.is-collapsed .cat-chevron { transform: rotate(-90deg); }
 .cat.is-collapsed { background: transparent; }
-.cat.is-static, .cat.is-static:hover { cursor: default; background: var(--card); }
+.cat.is-static, .cat.is-static:hover { background: var(--card); }
+.cat.is-static .cat-toggle { cursor: default; }
 #list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 #list .cat { margin-top: 24px; }
 #list .cat:first-child { margin-top: 4px; }
@@ -1296,9 +1449,10 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .list-toolbar {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 12px; margin: 2px 0 4px;
+  flex-wrap: wrap; gap: 8px 12px; margin: 2px 0 4px;
 }
 .list-count { color: var(--muted); font-size: 13px; }
+.cat-order-hint { color: var(--muted-2); font-size: 12px; }
 .empty-state {
   margin: 28px 0; padding: 32px 20px; text-align: center;
   border: 1px dashed var(--border-strong); border-radius: var(--radius);
@@ -1377,16 +1531,18 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 /* 文章页分类标签：与「查看原文」同一行、同字号，点击回目录定位分类 */
 .post-meta-row {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
-  margin: 2px 0 22px;
+  margin: 0 0 12px;
 }
 .post-meta-row .orig-link { margin: 0; }
+.post-meta-row .source-badge { margin-left: 0; }
 .cat-badge {
   display: inline-flex; align-items: center;
-  border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px;
-  color: var(--muted); font-size: 13.5px; font-weight: 500;
+  border: 0; padding: 0;
+  color: var(--muted-2); font-size: 13px; font-weight: 500;
   line-height: 1.6; white-space: nowrap;
 }
-.cat-badge:hover { color: var(--link); text-decoration: none; border-color: var(--border-strong); }
+.cat-badge::before { content: "分类："; color: var(--muted-2); }
+.cat-badge:hover { color: var(--link); text-decoration: none; }
 .tag-list {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
   margin: 0 0 14px;
@@ -1443,23 +1599,30 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .card-controls .xr-star { font-size: 19px; padding: 4px 3px; }
 .card-controls .pc-read { padding: 4px 11px; font-size: 12.5px; }
 .post-controls {
+  --post-rating-size: 13.5px;
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
-  margin: 0 0 14px; padding: 12px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  margin: 0 0 12px; padding: 0;
+  background: transparent; border: 0; border-radius: 0;
   font-size: 14px;
 }
-.post-controls .pc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.post-controls .pc-label { color: var(--muted); font-size: 13.5px; }
-.post-controls .pc-rating-text { color: var(--muted); font-size: 12.5px; min-width: 3.2em; }
-.post-controls .pc-note {
-  flex-basis: 100%; color: var(--muted-2); font-size: 12px; line-height: 1.5;
-  border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px;
+.post-controls .pc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.post-controls .pc-label { color: var(--muted); font-size: var(--post-rating-size); }
+.post-controls .xr-star {
+  padding: 1px; font-size: var(--post-rating-size); line-height: 1;
 }
-.pc-clear {
-  border: 0; background: none; color: var(--muted); font-size: 12px; font-family: inherit;
-  cursor: pointer; padding: 3px 5px; text-decoration: underline; text-underline-offset: 2px;
+.post-controls .pc-rating-text { color: var(--muted); font-size: 12.5px; }
+.post-controls .pc-read {
+  border: 0; background: transparent; padding: 3px 0;
 }
-.pc-clear:hover { color: var(--fg); }
+.post-controls .pc-read:hover { color: var(--fg); text-decoration: underline; }
+.post-controls .pc-read.on {
+  background: transparent; border: 0; color: var(--ok);
+}
+.post-controls .pc-pin {
+  width: 28px; height: 28px; padding: 0; justify-content: center;
+  border: 0; background: transparent;
+}
+.post-controls .pc-pin.on { background: transparent; color: #b45309; }
 .pc-read {
   display: inline-flex; align-items: center; gap: 6px;
   border: 1px solid var(--border); background: var(--bg); color: var(--muted);
@@ -1561,8 +1724,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .article figure.media { margin: 18px -4px; }
   .article table { font-size: 13.5px; }
   .article th, .article td { padding: 8px 10px; }
-  .post-controls { padding: 12px 12px; gap: 8px 12px; }
-  .post-controls .xr-star { font-size: 27px; padding: 4px 2px; }
+  .post-controls { gap: 8px 12px; }
   .card-controls .xr-star { font-size: 22px; padding: 5px 3px; }
   .pc-read { padding: 7px 14px; }
   .card-controls .pc-read { padding: 6px 12px; }
@@ -1624,7 +1786,9 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
         f'<a class="cat-badge" href="../../?cat={urllib.parse.quote(meta["category"])}" '
         f'title="返回目录 · {esc(meta["category"])}">{esc(meta["category"])}</a>'
     )
-    post_links_html = f'<div class="post-meta-row">{orig_link_html}{cat_badge_html}</div>'
+    post_links_html = (
+        f'<div class="post-meta-row">{orig_link_html}{source_badge(meta)}{cat_badge_html}</div>'
+    )
     tags_row_html = tags_html(meta, show_label=True)
     toc_script = (
         f'<script src="../../assets/toc.js?v={asset_version("assets/toc.js")}" defer></script>'
@@ -1671,10 +1835,10 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
       <div class="meta">{esc(meta['published_local'])}</div>
     </div>
   </div>
-  <h1 class="title">{esc(clean_heading_text(meta['title']))}{source_badge(meta)}</h1>
+  <h1 class="title">{render_inline_text(clean_heading_text(meta['title']))}</h1>
+  {post_links_html}
   {tags_row_html}
   <div class="post-controls" data-meta-mount data-slug="{esc(meta['slug'])}"></div>
-  {post_links_html}
   {cover_html}
   <article class="article">
 {body_html}
@@ -1818,12 +1982,25 @@ def sites_page(sites: list[dict]) -> str:
 
 
 def index_page(posts: list[dict]) -> str:
+    unknown = sorted({
+        p.get("category", "")
+        for p in posts
+        if p.get("entry_type") != "link_only"
+        and p.get("category") not in CATEGORY_ORDER
+    })
+    if unknown:
+        raise CategoryTaxonomyError(
+            "目录中存在未知文章分类: "
+            + ", ".join(repr(value) for value in unknown)
+            + f"；允许值: {', '.join(CATEGORY_ORDER)}"
+        )
     cats = [c for c in CATEGORY_ORDER if any(p["category"] == c for p in posts)]
     for p in posts:
-        if p["category"] not in cats:
+        if p.get("entry_type") == "link_only" and p["category"] not in cats:
             cats.append(p["category"])
     filter_btns = ['<button class="active" data-cat="all">全部</button>'] + [
-        f'<button data-cat="{esc(c)}">{esc(c)}</button>' for c in cats
+        f'<button data-cat="{esc(c)}" title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
+        f'{esc(c)}</button>' for c in cats
     ]
     sections = []
     for c in cats:
@@ -1850,8 +2027,7 @@ def index_page(posts: list[dict]) -> str:
                 cards.append(
                     f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}">
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
-  <div class="cmeta">{cmeta}</div>
-  {tags_html(p, compact=True)}
+  <div class="cmeta">{cmeta}</div>{tags_html(p, compact=True)}
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
 </div>"""
                 )
@@ -1859,15 +2035,26 @@ def index_page(posts: list[dict]) -> str:
                 cards.append(
                     f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
-  <div class="cmeta">{esc(p['author_name'])} · {date}</div>
-  {tags_html(p, compact=True)}
+  <div class="cmeta">{esc(p['author_name'])} · {date}</div>{tags_html(p, compact=True)}
 </a>"""
                 )
         sections.append(
-            f'<h2 class="cat" data-cat="{esc(c)}" role="button" tabindex="0" aria-expanded="true">'
+            f'<h2 class="cat" data-cat="{esc(c)}" '
+            f'title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
+            f'<button type="button" class="cat-toggle" aria-expanded="true" '
+            f'title="展开或折叠 {esc(c)}">'
             f'<span class="cat-name">{esc(c)}</span>'
             f'<span class="cat-count">{len(cards)} 篇</span>'
-            f'<span class="cat-chevron" aria-hidden="true">▾</span></h2>\n'
+            f'<span class="cat-chevron" aria-hidden="true">▾</span>'
+            f'</button>'
+            f'<button type="button" class="cat-drag" '
+            f'aria-label="拖动调整 {esc(c)} 分类顺序" '
+            f'title="拖动调整分类顺序；聚焦后可用方向键">'
+            f'<svg class="cat-drag-icon" viewBox="0 0 16 16" aria-hidden="true">'
+            f'<circle cx="5" cy="4" r="1.2"/><circle cx="11" cy="4" r="1.2"/>'
+            f'<circle cx="5" cy="8" r="1.2"/><circle cx="11" cy="8" r="1.2"/>'
+            f'<circle cx="5" cy="12" r="1.2"/><circle cx="11" cy="12" r="1.2"/>'
+            f'</svg></button></h2>\n'
             + "\n".join(cards)
         )
     return f"""<!DOCTYPE html>
@@ -1937,7 +2124,8 @@ def index_page(posts: list[dict]) -> str:
         <span class="flabel">时间</span>
         <div class="filters" data-meta-filter="time">
           <button data-time="all" class="active">全部</button>
-          <button data-time="7d">最近 7 天</button>
+          <button data-time="1d">最近 1 天</button>
+          <button data-time="3d">最近 3 天</button>
           <button data-time="30d">最近 1 个月</button>
           <button data-time="90d">最近 3 个月</button>
         </div>
@@ -1953,9 +2141,10 @@ def index_page(posts: list[dict]) -> str:
       </div>
     </div>
   </div>
-  <div class="meta-status"><span id="meta-status"></span><span id="meta-count"></span></div>
+  <div class="meta-status"><span id="meta-count"></span></div>
   <div class="list-toolbar">
     <span class="list-count">共 {len(posts)} 篇</span>
+    <span class="cat-order-hint">拖动分类右侧手柄排序，聚焦后也可用方向键</span>
     <div class="list-actions" id="list-actions">
       <button type="button" id="expand-all">全部展开</button>
       <button type="button" id="collapse-all">全部折叠</button>

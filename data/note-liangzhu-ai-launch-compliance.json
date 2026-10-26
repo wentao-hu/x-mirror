@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "id": "note-2026-10-25-liangzhu-ai-launch-compliance",
+    "slug": "note-liangzhu-ai-launch-compliance",
+    "title": "AI 应用出海前，先审计 6 类法律风险",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-24T16:29:00.000Z",
+    "published_local": "2026-10-25 00:29",
+    "category": "建站开发",
+    "category_reason": "主要交付是把 COPPA、字体加载、会话重放、邮件退订、续订条款和 DMCA 等合规要求落实到网站上线前的技术与流程改造；AI 只是促成应用的背景，因此不归 AI工具，也不是一次具体实践的成败复盘。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "AI应用",
+      "出海合规",
+      "COPPA",
+      "GoogleFonts",
+      "DMCA"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "根据用户提供的 X 截图自建；截图已本地托管，正文按图中可见文字转录。",
+    "blocks_count": 12
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "这张截图给独立开发者的提醒很直接：能快速把应用做出来，不代表就能直接上线。图片把年龄验证、字体托管、会话重放、营销邮件退订、续订条款和 DMCA 代理列为出海产品上线前需要审计的 6 类法律风险。"
+    },
+    {
+      "type": "image",
+      "local": "liangzhu-ai-launch-compliance.png",
+      "alt": "良竹 @liangzhu_AI 的 X 帖子截图：AI 应用出海前需要排查 6 类法律风险，包括 COPPA 年龄验证、Google Fonts 远程加载、会话重放、邮件退订与邮政地址、续订条款和 DMCA 代理"
+    },
+    {
+      "type": "paragraph",
+      "text": "原图为良竹（@liangzhu_AI）的 X 截图，截图标注发布时间为 2026年10月24日 3:26 PM。以下按图中可见正文转录；金额、判例与补救方案均保留原帖表述，未作独立法律核验。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "图片原文"
+    },
+    {
+      "type": "paragraph",
+      "text": "用 AI 快速写出的应用还没卖出一单，可能先吃一张 10 万美元的海外律师函。"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多人做独立开发出海，光顾着 Vibe Coding 狂飙功能，完全忽视了上线前的合规死穴。"
+    },
+    {
+      "type": "paragraph",
+      "text": "海外有 2 个极其致命但常被忽略的法律陷阱："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "注册页不询问年龄：一旦有 13 岁以下儿童注册，直接踩中 COPPA 红线，每人最高罚款 5.3 万美元；",
+        "网页字体远程直连：从谷歌官方服务器直接拉取 Google Fonts，在欧盟属于非法传输用户 IP，早已有被判赔偿的判例。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "做产品出海，上线前必须做好两件事：加上年龄验证门槛，把所有第三方字体和脚本全部转为本地静态托管。\n建议出海开发者存好这份避坑清单，别让合规漏洞吞掉所有利润。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Suraj Sharma 给的解决方案：将此粘贴到Claude 👇"
+    },
+    {
+      "type": "quote",
+      "text": "“审计我的应用，排查这6个法律风险并修复：为注册添加年龄验证，自行托管字体，关闭会话重放（或添加同意机制+输入屏蔽），为每封营销邮件添加退订链接和邮政地址，在订阅按钮旁直接显示续订条款，并指导我注册 DMCA 代理。”"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图页脚：3:26 PM · Oct 24, 2026 · 7,166 Views"
+    }
+  ]
+}

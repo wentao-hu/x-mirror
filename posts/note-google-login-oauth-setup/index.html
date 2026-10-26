@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>Google 登录接入：OAuth 原理、每个设置项的作用与常见错误 · X Mirror</title>
+<meta name="description" content="这套 Google Cloud 配置只有一个目的：让用户能在你的网站上用 Google 账号登录。它不负责托管网站、不存你的数据、不收款，也不影响 SEO；它只" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <img src="../../assets/note-avatar.jpg" alt="" width="46" height="46" loading="lazy" decoding="async" />
+    <div>
+      <div class="name">萧禹</div>
+      <div class="meta">2026-10-23 21:50</div>
+    </div>
+  </div>
+  <h1 class="title">Google 登录接入：OAuth 原理、每个设置项的作用与常见错误</h1>
+  <div class="post-meta-row"><span class="source-badge" data-source-type="note"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg><span class="src-label">自建笔记</span></span><a class="cat-badge" href="../../?cat=%E5%BB%BA%E7%AB%99%E5%BC%80%E5%8F%91" title="返回目录 · 建站开发">建站开发</a></div>
+  <div class="tag-list" aria-label="关键词"><span class="tag-list__label">关键词</span><span class="tag-badge" data-tag="Google 登录">Google 登录</span><span class="tag-badge" data-tag="OAuth">OAuth</span><span class="tag-badge" data-tag="Google Cloud">Google Cloud</span><span class="tag-badge" data-tag="OAuth 同意屏幕">OAuth 同意屏幕</span><span class="tag-badge" data-tag="重定向 URI">重定向 URI</span><span class="tag-badge" data-tag="Client ID">Client ID</span><span class="tag-badge" data-tag="建站教程">建站教程</span></div>
+  <div class="post-controls" data-meta-mount data-slug="note-google-login-oauth-setup"></div>
+  
+  <article class="article">
+<p>这套 Google Cloud 配置只有一个目的：让用户能在你的网站上用 Google 账号登录。它不负责托管网站、不存你的数据、不收款，也不影响 SEO；它只做身份验证——用户点登录后由 Google 确认身份，再把邮箱和头像交给你的站。</p>
+<p>Google 登录的本质是「让 Google 证明这个人是谁」，你的网站不保存任何密码。用户点登录后跳到 Google，由 Google 完成身份验证，再把一个一次性的授权码送回你的服务器；服务器用这个码换到用户的邮箱、姓名和头像，然后在本站建账号或登录。整个过程你的站看不到、也拿不到用户的 Google 密码。</p>
+<p>配置的核心只有两样：一对客户端凭据（Client ID 和 Client Secret），以及一个精确到路径的回调地址。同意屏幕、受众类型、发布状态、授权网域这些设置，都是围绕这两样做安全边界和合规声明——告诉用户「谁在请求什么」，也告诉 Google「只允许把用户送回这个地址」。</p>
+<h2 id="sec-1">为什么要把登录交给 Google</h2>
+<p>如果网站自己做账号系统，就要处理密码存储、找回密码、邮箱验证、撞库防护和泄露风险。用 Google 登录把这些全部外包出去：本站只信任 Google 签发的身份，账号以 Google 的用户 ID 为准，同一邮箱换了 Google 账号会被拒绝登录。代价是用户必须有 Google 账号，这对欧美用户不是问题。</p>
+<h3 id="sec-2">一次 Google 登录发生了什么</h3>
+<ol><li>用户点「使用 Google 登录」。</li><li>页面跳转到 Google 同意屏幕，用户确认要授权的信息。</li><li>Google 带着一次性的授权码（code）回到登记过的回调地址。</li><li>服务端用 code 换取 token，并读取用户的邮箱、姓名和头像。</li><li>站点按 Google 用户 ID 建号或登录，用户进入网站。</li></ol>
+<p>整条链路里，Google 负责确认身份，你的服务端只负责接住授权码并换 token。同意屏幕决定用户看到什么，回调地址决定授权码能送到哪里，凭据决定你的站能否换到身份信息。</p>
+<h2 id="sec-3">每个设置项的作用</h2>
+<p>下面这些值是按这个项目实际填写的。换成别的网站时，结构和含义相同，值要跟着换。</p>
+<div class='table-wrap'><table><tr><th>设置项</th><th>你填的值</th><th>为什么需要</th></tr><tr><td>Google Cloud 项目</td><td>hit-the-road-dude</td><td>把 OAuth 凭据、配额和日志隔离在一个项目里</td></tr><tr><td>OAuth 同意屏幕</td><td>已创建</td><td>用户登录时看到的「谁在请求什么」页面</td></tr><tr><td>受众类型</td><td>外部</td><td>允许任何 Google 账号登录，不只组织内部</td></tr><tr><td>发布状态</td><td>正式版</td><td>测试版只有测试账号能登录，正式版对所有用户开放</td></tr><tr><td>用户上限 100</td><td>不受影响</td><td>只对敏感或受限权限生效；本站只用基础权限</td></tr><tr><td>客户端类型</td><td>Web 应用</td><td>本站由服务端完成授权码交换，不是手机或桌面应用</td></tr><tr><td>JavaScript 来源</td><td><a href="https://hittheroaddudeai.fun" rel="noopener noreferrer" target="_blank">https://hittheroaddudeai.fun</a></td><td>限制哪些网页可以发起 Google 登录请求</td></tr><tr><td>重定向 URI</td><td>/api/auth/google/callback</td><td>Google 只把授权码送回这个精确地址</td></tr><tr><td>Client ID</td><td>270694665379-…</td><td>公开身份，写进页面配置，谁看到都无所谓</td></tr><tr><td>Client Secret</td><td>已填入 .dev.vars</td><td>服务端换 token 的私钥，泄露等于别人能冒充你的站</td></tr><tr><td>数据访问范围</td><td>openid email profile</td><td>只要身份信息，不碰 Gmail、Drive 等敏感数据</td></tr><tr><td>授权网域</td><td>hittheroaddudeai.fun</td><td>声明 OAuth 可以使用的域名</td></tr></table></div>
+<h2 id="sec-4">操作步骤：按顺序点完这几步</h2>
+<h3 id="sec-5">发布到正式版</h3>
+<p>同意屏幕建好后默认是「测试」，只有你手动添加的测试账号能登录。点「发布应用」切到正式版，外部用户才能用。基础权限不需要 Google 人工验证。</p>
+<figure class="media"><a class="media-link" href="assets/01-audience.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/01-audience-640.webp 640w, assets/01-audience-960.webp 960w, assets/01-audience-1280.webp 1280w, assets/01-audience.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/01-audience.png" alt="Google Auth Platform 受众页面，显示正式版、外部用户类型和 100 用户上限" loading="lazy" decoding="async" /></picture></a></figure>
+<p>截图里可以看到：状态为「正式版」，用户类型为「外部」。0/100 的用户上限只对敏感或受限权限生效，本站只用基础权限，不受影响。</p>
+<h3 id="sec-6">创建 Web 应用客户端</h3>
+<p>应用类型选「Web 应用」，名称只是给你自己在控制台里识别用的，不会显示给用户。JavaScript 来源填正式域名，注意不要带路径和末尾斜杠。</p>
+<figure class="media"><a class="media-link" href="assets/02-create-client.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/02-create-client-640.webp 640w, assets/02-create-client-960.webp 960w, assets/02-create-client-1280.webp 1280w, assets/02-create-client.webp 1874w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/02-create-client.png" alt="创建 OAuth 客户端 ID 表单，应用类型为 Web 应用，名称 hit-the-road-dude-web" loading="lazy" decoding="async" /></picture></a></figure>
+<p>创建客户端时填的名称是 hit-the-road-dude-web，JavaScript 来源为 <a href="https://hittheroaddudeai.fun。" rel="noopener noreferrer" target="_blank">https://hittheroaddudeai.fun。</a></p>
+<h3 id="sec-7">填重定向地址，不要勾 AI Agent</h3>
+<p>重定向 URI 是整套配置里最容易出错的一项。它必须和代码里的回调地址完全一致，包括协议、路径和大小写，不能有末尾斜杠。底部的「Use this client for an AI-powered agent」不要勾，本站是普通 Web 登录，不是 AI 代理。</p>
+<figure class="media"><a class="media-link" href="assets/03-redirect-uri.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/03-redirect-uri-640.webp 640w, assets/03-redirect-uri-960.webp 960w, assets/03-redirect-uri.webp 1170w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/03-redirect-uri.png" alt="重定向 URI 填写框，内容为 https://hittheroaddudeai.fun/api/auth/google/callback，下方 AI agent 选项未勾选" loading="lazy" decoding="async" /></picture></a></figure>
+<p>重定向 URI 填的是 <a href="https://hittheroaddudeai.fun/api/auth/google/callback，下方的" rel="noopener noreferrer" target="_blank">https://hittheroaddudeai.fun/api/auth/google/callback，下方的</a> AI-powered agent 选项保持不勾。</p>
+<h3 id="sec-8">品牌页：现在先不传徽标</h3>
+<p>品牌页的应用首页、隐私政策、服务条款链接可以等站点部署后再填。徽标上传后会触发 Google 验证，而验证要求这些链接可访问，所以现在传会卡住。徽标本身随时可以换，不影响 Client ID 和 Secret。</p>
+<figure class="media"><a class="media-link" href="assets/04-branding.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/04-branding-640.webp 640w, assets/04-branding-960.webp 960w, assets/04-branding-1280.webp 1280w, assets/04-branding.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/04-branding.png" alt="Google OAuth 品牌页面，包含徽标上传、应用首页、隐私政策和服务条款链接字段" loading="lazy" decoding="async" /></picture></a></figure>
+<p>品牌页里徽标先留空；三个链接等 hittheroaddudeai.fun 部署后再填并提交验证。</p>
+<h2 id="sec-9">项目里已经填好的值</h2>
+<div class='table-wrap'><table><tr><th>项目</th><th>值</th><th>位置</th></tr><tr><td>Client ID</td><td><code class="inline-code">270694665379-t26k6i6ueo6dpjn3ipton4p04ot1njet.apps.googleusercontent.com</code></td><td><code class="inline-code">wrangler.jsonc</code> 的 GOOGLE_CLIENT_ID</td></tr><tr><td>Client Secret</td><td>已填写，不显示</td><td><code class="inline-code">.dev.vars</code> 的 GOOGLE_CLIENT_SECRET</td></tr><tr><td>回调地址</td><td><code class="inline-code">https://hittheroaddudeai.fun/api/auth/google/callback</code></td><td>Google 控制台与代码共用</td></tr><tr><td>登录范围</td><td><code class="inline-code">openid email profile</code></td><td><code class="inline-code">src/server/google.ts</code></td></tr></table></div>
+<h2 id="sec-10">常见错误对照</h2>
+<div class='table-wrap'><table><tr><th>现象</th><th>原因</th><th>处理</th></tr><tr><td>redirect_uri_mismatch</td><td>回调地址不完全一致</td><td>逐字符核对协议、路径、斜杠</td></tr><tr><td>只有测试账号能登录</td><td>应用还在测试状态</td><td>在受众页面点「发布应用」</td></tr><tr><td>登录后回到错误页面</td><td>Client ID 或 Secret 填错</td><td>重新复制，注意 Secret 不要带空格</td></tr><tr><td>提示应用未验证</td><td>上传了徽标但未验证</td><td>先移除徽标，或等站点上线后提交验证</td></tr><tr><td>本地登录跳正式域名</td><td>本地用正式 SITE_URL</td><td>本地改用开发登录即可</td></tr></table></div>
+<h2 id="sec-11">这套配置的边界</h2>
+<p>这套配置只解决「用户是谁」的问题，不解决部署、存储和支付。站点部署、对象存储、域名解析仍是另外的环节；Google 登录要等站点部署后才能真正测试。</p>
+<p>截至 2026 年 10 月 23 日：Google OAuth 客户端已创建，Client ID 与 Secret 已写入项目；站点尚未部署，因此登录流程还未做过端到端测试。</p>
+  </article>
+  
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">为什么要把登录交给 Google</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-2">一次 Google 登录发生了什么</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-3">每个设置项的作用</a></li><li><a class="toc-link toc-l1" href="#sec-4">操作步骤：按顺序点完这几步</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-5">发布到正式版</a></li><li><a class="toc-link toc-l2" href="#sec-6">创建 Web 应用客户端</a></li><li><a class="toc-link toc-l2" href="#sec-7">填重定向地址，不要勾 AI Agent</a></li><li><a class="toc-link toc-l2" href="#sec-8">品牌页：现在先不传徽标</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-9">项目里已经填好的值</a></li><li><a class="toc-link toc-l1" href="#sec-10">常见错误对照</a></li><li><a class="toc-link toc-l1" href="#sec-11">这套配置的边界</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=eb986118" defer></script>
+<script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

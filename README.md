@@ -23,21 +23,27 @@ index.html            # 文章页（分类 + 搜索 + 评分/已读筛选）
 sites.html            # 网站收藏页（按分类分组，logo + 标题链接）
 sites.json            # 网站收藏清单（标题/链接/分类/logo）
 posts.json            # 清单（标题/作者/分类/来源类型/图片统计，entry_type: mirror | link_only）
+category-taxonomy.json # 分类唯一事实源：名称、边界、别名、长度策略
+CATEGORY_GUIDE.md     # 分类映射、新分类准入和迁移流程
 posts/<slug>/
   index.html          # 单篇阅读页（内置评分 + 已读完控件）
   assets/             # 该篇头像 + 正文图片（本地文件）
 data/<slug>.json      # 抽取后的结构化数据（便于重建）
 assets/
   site.css            # 共享样式（模板以 ?v=<content-hash> 引用）
-  meta.js             # 评分/已读/置顶共享脚本（KV + localStorage）
+  meta.js             # 评分/已读/置顶/分类顺序（KV + localStorage）
   sites.js            # 网站收藏置顶（复用 meta.js 的同步链路）
   sites/              # 收藏网站的 logo，全部本地托管
 functions/api/meta.js # Pages Function：GET/PUT 评分与已读
+functions/api/category-order.js # Pages Function：分类顺序跨端同步
+functions/_lib/category-names.js # 由 taxonomy 自动生成，禁止手改
 _headers              # Cloudflare Pages 缓存策略
 wrangler.toml         # Pages 配置 + ARTICLE_META KV 绑定
 scripts/
   extract_and_build.py  # 从已抓取的 page.html + API JSON 构建
   rebuild_from_data.py  # 仅用 data/*.json + 已有 assets 重建 HTML
+  category_taxonomy.py  # taxonomy 加载、规范化、名称和帖子分类校验
+  category_tool.py      # validate / check-post / propose 分类治理命令
   generate_webp.py      # 为 jpg/jpeg/png 生成同名 WebP 副本
   deploy_cloudflare.sh  # 用 wrangler 部署到 Cloudflare Pages
 ```
@@ -135,6 +141,24 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 - 每张卡片右侧有置顶按钮，置顶状态复用 `meta.js` 的 Cloudflare KV（slug 前缀 `site-`），多端自动同步；置顶的网站会出现在页面顶部「置顶」区。
 - 改完运行 `python3 scripts/rebuild_from_data.py`，会重新生成 `sites.html`。
 
+## 文章分类（category）
+
+分类的唯一事实源是 `category-taxonomy.json`，完整映射规则见 `CATEGORY_GUIDE.md`。每篇文章只有一个主分类，判断标准是“读者读完后主要能够完成什么”，不能把 `tags` 当作分类。
+
+- 分类名只允许中文、ASCII 字母和数字。
+- 名称最多 6 个 Unicode 码点、8 个估算显示单位。
+- 不允许新帖子继续写历史 alias。
+- 未知分类会中止构建，不再自动追加。
+- 新增或改分类时，帖子要填写 `category_reason`。
+- 新分类默认需要至少 3 篇独立真实样本，并由用户明确批准。
+- 目录页分类标题右侧的拖动手柄可调整显示顺序，顺序会保存到 Cloudflare KV 并跨端同步。
+
+```bash
+python3 scripts/category_tool.py validate
+python3 scripts/category_tool.py check-post data/<slug>.json --new
+python3 scripts/category_tool.py propose <新分类名>
+```
+
 ## 内容类型（source_type）
 
 `data/*.json` 的 `meta` 与 `posts.json` 的每条记录都带 `source_type`，用于目录卡片/文章页标题旁的徽标和目录页「类型」筛选：
@@ -148,9 +172,9 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 构建时卡片会输出 `data-source-type`，`assets/meta.js` 据此与分类、搜索、评分、已读、排序条件叠加过滤；缺失该字段的旧数据按 `entry_type` 回退（链接条目 → `webcafe_link`，其余 → `x_post`）。抽取脚本默认写入 `x_post`，其他类型在 `data/*.json` 中标注。
 
-## 内容标签（tags）
+## 相关关键词（tags）
 
-`data/*.json` 的 `meta` 可增加 `tags` 字符串数组。构建后会显示在目录卡片与文章标题下方，并自动纳入目录搜索；标签不参与筛选逻辑。例如：
+`data/*.json` 的 `meta` 可增加 `tags` 字符串数组，用于补充相关关键词。构建后会显示在目录卡片与文章标题下方，并自动纳入目录搜索；关键词不参与分类筛选。内容属于哪个分类，只看单一 `category` 字段。例如：
 
 ```json
 {
@@ -202,11 +226,8 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 
 ## 分类
 
-- 新词站实战复盘
-- SEO基础
-- 建站教程
-- 外链推广
-- web.cafe 精选（仅链接）
+- 文章分类以 `category-taxonomy.json` 为唯一事实源，映射规则见 `CATEGORY_GUIDE.md`。
+- `web.cafe 精选` 只用于 `entry_type: link_only` 目录条目，不进入文章 taxonomy。
 
 ## 说明
 

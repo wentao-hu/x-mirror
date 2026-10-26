@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "id": "rs_2MPpuEzNjyIRsSsUpaQ",
+    "slug": "wechat-jev-seo-72h",
+    "title": "逐渐有人发现Jev+SEO真的恐怖！",
+    "url": "https://mp.weixin.qq.com/s/rs_2MPpuEzNjyIRsSsUpaQ",
+    "author_name": "想要变壮的will",
+    "author_username": "想要变壮的will",
+    "published_utc": "2026-10-07T16:00:00.000Z",
+    "published_local": "2026-10-08",
+    "category": "AI工具",
+    "description": "",
+    "source_type": "wechat",
+    "avatar_local": "avatar.png",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "微信原文；正文已镜像，未含图片与评论。",
+    "plain_text_len": 893,
+    "blocks_count": 20
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "最近SEO圈子里在聊一个新东西：Jev。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们帮一个做宠物用品的品牌测试了一下。"
+    },
+    {
+      "type": "paragraph",
+      "text": "原本核心词还在第二页，72小时后直接进了首页第一。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当我们再去问ChatGPT相关产品的问题时，它已经开始把这个品牌放进推荐里。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jev是TypeSafe AI发布的System One决策模型，它不生成任何文本，只输出类型化决策。"
+    },
+    {
+      "type": "paragraph",
+      "text": "从技术底层拆解：Jev在SEO和GEO优化中的核心价值，以及如何用它实现72小时谷歌首页排名。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第一件事：用Jev给全站做了一次“GEO体检”。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jev和ChatGPT不一样。ChatGPT帮你写内容，Jev帮你判断内容行不行。它不生成一个字，只输出Choice、Score、Probability三种类型的判断结果，每个判断附带置信度。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我们让Jev扫了全站58个页面。它输出的不是“建议优化”，而是精确到具体页面的具体问题：第7页的FAQ第一句话不是结论，第23页的产品参数没有加Schema标记，第41页的标题承诺在首段没有兑现。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第二件事：用Jev做SEO、AEO、GEO三维评分"
+    },
+    {
+      "type": "paragraph",
+      "text": "一个页面现在有三个任务。SEO让谷歌排名靠前。AEO让答案框和语音搜索能直接抓取你的内容。GEO让ChatGPT、Gemini、Perplexity在回答问题时引用你。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jev对每个页面分别打分。有的页面SEO分高但GEO分低，说明它能在谷歌排上去，但AI读不懂。有的页面GEO分高但AEO分低，说明AI能引用，但答案框抓不到。"
+    },
+    {
+      "type": "paragraph",
+      "text": "把三个分数放在一起看，该改什么一目了然。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第三件事：按评分修复，重新部署。"
+    },
+    {
+      "type": "paragraph",
+      "text": "FAQ加FAQPage Schema，首段改成结论先行，产品参数加Product Schema，改完提交Search Console。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第四件事：72小时后双轨验收"
+    },
+    {
+      "type": "paragraph",
+      "text": "在Google搜核心长尾词看排名变化，在ChatGPT和Gemini搜同一批词看推荐列表。"
+    },
+    {
+      "type": "paragraph",
+      "text": "它的核心价值不是替代SEO工具，是把判断成本降到几乎为零。以前做一次全站审计要三天，现在几分钟。以前靠猜，现在靠概率。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当判断不再是瓶颈，优化速度就上来了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "#SEO #GEO #Jev #AI搜索 #生成式引擎优化 #geo优化 #品牌出海 #跨境电商"
+    }
+  ]
+}

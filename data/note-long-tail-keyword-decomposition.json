@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "id": "note-2026-10-23-long-tail-keyword-decomposition",
+    "slug": "note-long-tail-keyword-decomposition",
+    "title": "长尾词不是长域名：按“公司、产品、功能”拆出可做页面",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-23T07:53:00.000Z",
+    "published_local": "2026-10-23 15:53",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "长尾关键词",
+      "拆词",
+      "SEO选题",
+      "建站需求",
+      "页面结构",
+      "游戏站",
+      "DeepInfer"
+    ],
+    "avatar_local": "",
+    "images_total": 3,
+    "images_ok": 3,
+    "api_media_count": 0,
+    "fidelity_note": "聊天中的 3 张关键词库截图已本地化；原始对话 6 条全部保留。",
+    "plain_text_len": 2791,
+    "blocks_count": 26
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "一串长关键词，往往不是一个新的搜索需求，而是多个已知实体叠在一起。处理顺序应是先拆实体，再找核心词，最后映射到现有站点的信息架构；不要一看到长词就先注册整串域名。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "拆词时先回答四个问题"
+    },
+    {
+      "type": "paragraph",
+      "text": "面对长词，不要直接判断“能不能做”，先把它还原成可以辨认的对象和需求。一个实用的检查顺序是：谁提供的、在说哪个产品、具体发生了什么、去掉这些修饰后，用户真正想查什么。"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "原始长词",
+          "品牌 / 公司",
+          "产品",
+          "功能 / 阶段",
+          "主需求"
+        ],
+        [
+          "bungie destiny 2 unvaulting update",
+          "Bungie",
+          "Destiny 2",
+          "unvaulting update",
+          "Destiny 2 的回归更新"
+        ],
+        [
+          "scs software american truck simulator beta",
+          "SCS Software",
+          "American Truck Simulator",
+          "beta",
+          "美国卡车模拟测试版更新"
+        ],
+        [
+          "deepinfer deepseek",
+          "DeepSeek",
+          "DeepInfer",
+          "—",
+          "DeepInfer 推理框架"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "示例 1：Bungie 是公司，Destiny 2 是产品"
+    },
+    {
+      "type": "paragraph",
+      "text": "`bungie` 是美国游戏公司，`destiny 2` 是它旗下的游戏，`unvaulting update` 描述的是把过去从游戏中移除的内容重新放回。这里的主需求不是 Bungie，也不是 Destiny 2 本身，而是 Destiny 2 的 unvaulting update。"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Vaulting” 是 Bungie 使用的术语，指为了控制游戏体积、降低维护负担，把一部分内容从游戏中移除。理解这层背景后，才能知道用户后续会追问哪些内容会回归、何时上线、以什么方式参与。"
+    },
+    {
+      "type": "image",
+      "local": "bungie-destiny-2-unvaulting-update.jpg",
+      "alt": "关键词库截图：bungie destiny 2 unvaulting update，黄色标出 Bungie，红色标出 Destiny 2，绿色标出 unvaulting update，并展示用户需求与页面建议"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个例子适合说明拆词，不适合照搬成域名。更适合的落点是 Destiny 2 产品下的更新说明、时间线或指南页；分享者也明确提醒，不要注册这整串词去上站。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "示例 2：SCS Software + American Truck Simulator + beta"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个长词可以拆成三段：SCS Software 是捷克游戏开发商，American Truck Simulator 是具体游戏，beta 指最近开放的测试版。每一层都对应不同的信息，因此一个游戏 Wiki 完全可以拆成多个页面，而不是把整串词塞进一个标题。"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "开发商页：收录 SCS Software 及其产品线。",
+        "游戏主页：围绕 American Truck Simulator 组织版本、指南与新闻。",
+        "Beta 聚合页：集中列出各款游戏、各时间段的测试版。",
+        "版本详情页：承接某个 Beta 的新内容、参与方式与已知问题。"
+      ]
+    },
+    {
+      "type": "image",
+      "local": "scs-software-american-truck-simulator-beta.jpg",
+      "alt": "关键词库截图：scs software american truck simulator beta，分别标出开发商、游戏与 beta 三个阶段，并建议用更新说明或参与教程内页承接"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "示例 3：DeepSeek 是限定词，DeepInfer 才是核心"
+    },
+    {
+      "type": "paragraph",
+      "text": "`deepinfer deepseek` 里，DeepSeek 说明所属生态，DeepInfer 才是要检索的对象。若已经运营大模型相关网站，合适的做法是增加 DeepInfer 栏目或内页，围绕版本、部署、性能与对比持续整理，而不是因为前面多了一个品牌名就另起一个新站。"
+    },
+    {
+      "type": "image",
+      "local": "deepinfer-deepseek.jpg",
+      "alt": "关键词库截图：deepinfer deepseek，页面将 DeepInfer 定义为 DeepSeek 开源推理框架，并建议用部署教程或框架对比内页承接"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "从关键词映射到页面结构"
+    },
+    {
+      "type": "paragraph",
+      "text": "拆完词以后，先把它放到已有站点的哪个层级，再讨论要不要新建品牌。多数长尾词对应的是内页，而不是新域名。"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "词层",
+          "典型页面",
+          "落点判断"
+        ],
+        [
+          "公司 / 开发商",
+          "公司介绍、产品线、历史与项目索引",
+          "已有垂直站可设实体页，通常不单独为一家公司建站"
+        ],
+        [
+          "产品 / 游戏 / 工具",
+          "产品主页、文档、教程、对比与替代品",
+          "只有当产品及周边问题足够多时，才值得成为独立站点核心"
+        ],
+        [
+          "功能 / 版本 / 事件",
+          "更新说明、时间线、参与指南、问题排查",
+          "优先作为产品下的内页，用于承接短期或阶段性需求"
+        ],
+        [
+          "完整长词",
+          "自然语言标题、查询变体、专题聚合",
+          "不要机械注册整串域名；把自然语言长词作为页面标题或内容切面"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "什么情况下才值得独立上站"
+    },
+    {
+      "type": "paragraph",
+      "text": "判断标准不是关键词有多长，而是核心实体能否持续产生一组相关问题。可以先过下面五关；任何一关不过，都应优先考虑现有站点的内页。"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "核心实体可以单独命名，并且不是只由多个已知品牌拼成的一句话。",
+        "除了当前这次更新，还有版本、教程、对比、使用场景等相邻需求。",
+        "能持续找到可核验的一手资料，并有能力做结构化整理。",
+        "商标、授权、内容搬运和域名混淆风险可以控制。",
+        "真实搜索需求与竞争程度经过数据验证，而不是只凭词看起来“很具体”。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "可直接复用的拆词清单"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "圈出品牌或公司名，确认它只是来源，还是同时也是核心需求。",
+        "圈出产品名，判断是否需要独立主页或实体页。",
+        "圈出功能、版本、事件词，确认它应当挂在哪个产品下面。",
+        "删掉修饰词，找出用户真正搜索的主语，并补全其上下文。",
+        "把主需求映射到现有目录；只有形成持续的问题簇时，再评估新站与新域名。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 6,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:28",
+          "text": "跟大家分享下，怎么拆词。\n有群友拿到这种长关键词，不知道怎么办，以为要去注册这么长的域名。\n\n实际上，bungie destiny 2 unvaulting update 这个词里，\nbungie 是美国的一家游戏公司\ndestiny 2 命运 2 是他们的一款游戏\nunvaulting update 说的是把过去几年从《命运2》里移除的内容重新放回游戏\n\n这里有一个背景信息，“Vaulting” 是 Bungie 的术语，指把内容从《命运2》中移除，以减小游戏体积、降低开发负担。\n\n所以这个词 bungie destiny 2 unvaulting update 的核心是 unvaulting update，是什么的 unvaulting update 呢？是 destiny 2 的 unvaulting update。\n\n注意啊，我拿这个词举例，是因为这个词不适合上站，所以刚好可以拿来举例，别去注册域名上站了。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:28",
+          "text": "[图片] 微信图片_202610231528_1.jpg"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:33",
+          "text": "类似的，scs software american truck simulator beta 这个词，可以拆分成下面几部分：\nscs software 是捷克的一家游戏开发商\namerican truck simulator 美国卡车模拟器是他们开发的一款游戏\nbeta 指的是最近测试版更新\n\n假设你做了一个电子游戏wiki 网站，会收录很多游戏，那么可以收录开发商 scs software，也可以收录游戏 american truck simulator，还可以做一个 beta 页面，列出所有的各个测试版。\n同时还可以围绕着 american truck simulator 这个词做更多的页面。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:33",
+          "text": "[图片] 微信图片_202610231533_2.jpg"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:37",
+          "text": "deepinfer deepseek 这个词的核心其实是 deepinfer，这是 DeepSeek 开源的推理框架。\n你如果有做大模型相关的网站，可以加一个内页，或者栏目，专门收集整理 deepinfer 相关的信息。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月23日 15:37",
+          "text": "[图片] 微信图片_202610231537_3.jpg"
+        }
+      ]
+    }
+  ]
+}

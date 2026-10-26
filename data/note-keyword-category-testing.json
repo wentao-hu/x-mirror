@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "id": "note-2026-10-24-keyword-category-testing",
+    "slug": "note-keyword-category-testing",
+    "title": "关键词分类测试，先练出选词体感",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-24T15:29:00.000Z",
+    "published_local": "2026-10-24 23:29",
+    "category": "SEO获客",
+    "category_reason": "主要交付是通过关键词分类与测试判断哪些词能带来效果，归 SEO获客；不归需求研究，因为聊天讨论的是独立站关键词的组织和验证方法。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "关键词测试",
+      "关键词分类",
+      "独立站长尾词",
+      "选词体感",
+      "SEO实验"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "原始对话 4 条全部保留，去除纯表情或空消息 0 条。",
+    "plain_text_len": 443,
+    "blocks_count": 6
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "这段聊天讨论的不是某个关键词能不能做，而是如何通过持续练习、分类和测试，逐步形成判断关键词商业价值的体感。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "核心方法"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "持续研究不同类型的词，积累“看到词就能大致判断能不能赚钱”的选词体感。",
+        "不要在一个站同时尝试所有方向；先给关键词分类，再分别测试效果。",
+        "分类维度可以按效果、节日、难度或长尾词组织，关键是分类后再测，才能看出哪类词有效。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "小龙也明确说明，这只是他的个人经验，不保证适用于所有项目；可迁移的部分是持续练习、先分类再测试的工作方法。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 4,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "小龙",
+          "time": "2026年10月24日 23:29",
+          "text": "多做各种的词，形成一个体感，后面看到这个词，大概就知道能不能赚钱了"
+        },
+        {
+          "user": "小龙",
+          "time": "2026年10月24日 23:31",
+          "text": "我说的也不一定对哈，在我来看，就是不断的练习，就熟练了"
+        },
+        {
+          "user": "小龙",
+          "time": "2026年10月24日 23:45",
+          "text": "不要一个站什么都尝试，效果肯定不好，把关键词分类，按效果也行，按节日也可以，按难易度也可以，或者都做长尾词，然后再去测，才能测出来效果的"
+        },
+        {
+          "user": "Glight😄",
+          "time": "2026年10月24日 23:59",
+          "text": "学到了"
+        }
+      ]
+    }
+  ]
+}

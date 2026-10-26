@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "id": "note-2026-10-24-cloudflare-domain-account-separation",
+    "slug": "note-cloudflare-domain-account-separation",
+    "title": "Cloudflare 买域名方便，但账号风险会连坐域名",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-24T02:51:00.000Z",
+    "published_local": "2026-10-24 10:51",
+    "category": "建站开发",
+    "category_reason": "主要交付是判断域名注册与 Cloudflare DNS 是否放在同一账号，以及如何降低封号导致域名服务连带失效的风险；属于网站基础设施与运维，不归实战复盘。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "Cloudflare",
+      "域名注册",
+      "DNS",
+      "账号风险",
+      "风险分散"
+    ],
+    "avatar_local": "",
+    "images_total": 2,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "原始对话 12 条全部保留，去除纯表情或空消息 0 条；ZIP 只包含 2 张图片的文件名占位，未包含图片文件。",
+    "plain_text_len": 1089,
+    "blocks_count": 10
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Cloudflare 买域名并托管解析更方便，但账号风险会和域名服务绑定在一起；群内更稳妥的意见是，在独立注册商买域名，再把 DNS 放到 Cloudflare。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "两种做法怎么选"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "方案",
+          "主要优点",
+          "主要风险",
+          "群内倾向"
+        ],
+        [
+          "独立注册商买域名 + Cloudflare 解析",
+          "注册与 DNS 解耦，账号风险相对分散",
+          "需要管理两个平台",
+          "更稳妥"
+        ],
+        [
+          "直接在 Cloudflare 买域名",
+          "操作集中、方便，群友认为价格有吸引力",
+          "若 Cloudflare 账号被限制，域名与解析可能一起受影响",
+          "方便，但要单独评估账号风险"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "讨论中的分歧"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "SAI 认为两种方式没区别。",
+        "村长建议分开，理由是风险分散；Thor 认为 Cloudflare 封号可能导致域名服务一起中断。",
+        "宽提出多备几个 Cloudflare 账号，但群聊没有验证这是否符合平台规则，也没有证明能降低风险。",
+        "404 not found 将封号原因归为“投诉”；刘岩继续追问原因，但聊天没有给出更具体的规则或证据。",
+        "宽认为直接封号过于严厉、应该允许申诉，但这一判断没有形成结论。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这些内容属于群友经验，不是 Cloudflare 官方规则；具体封号触发条件、申诉流程和多账号做法仍需查官方条款并单独验证。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "资料完整性"
+    },
+    {
+      "type": "paragraph",
+      "text": "原始聊天包含 2 张图片，但提供的 ZIP 只有图片文件名占位，没有图片文件；本机微信缓存中也未找到对应原图。两条图片消息已按原文保留文件名，没有用示意图替代。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 12,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "Shen",
+          "time": "2026年10月24日 10:51",
+          "text": "请问，在独立注册商购买域名再加CF解析，和直接在cloudflare上购买域名有什么区别吗？感觉直接在Cloudflare上买域名很方便，也挺便宜的。"
+        },
+        {
+          "user": "Shen",
+          "time": "2026年10月24日 10:51",
+          "text": "[图片] 微信图片_202610241051_1.jpg"
+        },
+        {
+          "user": "SAI",
+          "time": "2026年10月24日 10:52",
+          "text": "没区别吧"
+        },
+        {
+          "user": "村长",
+          "time": "2026年10月24日 10:54",
+          "text": "建议分开 风险分散"
+        },
+        {
+          "user": "Shen",
+          "time": "2026年10月24日 10:56",
+          "text": "可能会有啥风险？"
+        },
+        {
+          "user": "Thor",
+          "time": "2026年10月24日 10:58",
+          "text": "CF 封号呗"
+        },
+        {
+          "user": "Thor",
+          "time": "2026年10月24日 10:58",
+          "text": "域名服务一锅端"
+        },
+        {
+          "user": "宽",
+          "time": "2026年10月24日 11:02",
+          "text": "CF还能封号👀 😂 我感觉要备多几个CF账号"
+        },
+        {
+          "user": "刘岩",
+          "time": "2026年10月24日 11:03",
+          "text": "Cf封号是因为什么原因"
+        },
+        {
+          "user": "404 not found",
+          "time": "2026年10月24日 11:03",
+          "text": "投诉"
+        },
+        {
+          "user": "宽",
+          "time": "2026年10月24日 11:04",
+          "text": "申诉就下站不行么，封号太绝了吧"
+        },
+        {
+          "user": "Shen",
+          "time": "2026年10月24日 11:06",
+          "text": "[图片] 微信图片_202610241106_2.jpg"
+        }
+      ]
+    }
+  ]
+}

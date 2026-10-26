@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
 <link rel="manifest" href="../../site.webmanifest" />
-<link rel="stylesheet" href="../../assets/site.css?v=39bdb4c8" />
+<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
 </head>
 <body>
 <div class="wrap">
@@ -25,10 +25,10 @@
       <div class="meta">2026-08-30 23:43</div>
     </div>
   </div>
-  <h1 class="title">从 0 到 1 做出海游戏攻略站，怎么做靠 Google 广告赚钱的游戏攻略站？我把整条流水线开源了，<span class="source-badge" data-source-type="webcafe"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.2 5.5h7.3v4.2a2.9 2.9 0 0 1-2.9 2.9H6.1a2.9 2.9 0 0 1-2.9-2.9V5.5Z"></path><path d="M10.5 6.6h1.2a1.9 1.9 0 1 1 0 3.8h-1.2"></path><path d="M5.2 2.2c0 .7-.7.7-.7 1.4M7.7 2.2c0 .7-.7.7-.7 1.4"></path></svg><span class="src-label">web.cafe</span></span></h1>
+  <h1 class="title">从 0 到 1 做出海游戏攻略站，怎么做靠 Google 广告赚钱的游戏攻略站？我把整条流水线开源了，</h1>
+  <div class="post-meta-row"><a class="orig-link" href="https://new.web.cafe/topic/6eb3qa65ym" target="_blank" rel="noopener">查看原文（web.cafe）↗</a><span class="source-badge" data-source-type="webcafe"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.2 5.5h7.3v4.2a2.9 2.9 0 0 1-2.9 2.9H6.1a2.9 2.9 0 0 1-2.9-2.9V5.5Z"></path><path d="M10.5 6.6h1.2a1.9 1.9 0 1 1 0 3.8h-1.2"></path><path d="M5.2 2.2c0 .7-.7.7-.7 1.4M7.7 2.2c0 .7-.7.7-.7 1.4"></path></svg><span class="src-label">web.cafe</span></span><a class="cat-badge" href="../../?cat=%E5%BB%BA%E7%AB%99%E5%BC%80%E5%8F%91" title="返回目录 · 建站开发">建站开发</a></div>
   
   <div class="post-controls" data-meta-mount data-slug="webcafe-6eb3qa65ym"></div>
-  <div class="post-meta-row"><a class="orig-link" href="https://new.web.cafe/topic/6eb3qa65ym" target="_blank" rel="noopener">查看原文（web.cafe）↗</a><a class="cat-badge" href="../../?cat=%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B" title="返回目录 · 建站教程">建站教程</a></div>
   
   <article class="article">
 <blockquote>先交代身份:我是袁锐钦.高中毕业，当过 5 年兵，退伍后开奶茶店亏了30 万,教过插画，管理过2万+学生，现在开着白墨打印工厂。2024 年才开始接触 AI编程——到今天,我也写不了一个完整的React组件。<br>但我最近做了一件之前想都不敢想的事：把我自己建游戏攻略站用的模板，重写成开源项目放到了GitHub上（github.com/PNGTRID/AnvilWiki，MIT 协议）。这篇帖子把「从0到 1」的完整流程摊开讲，目标是：一个只会用浏览器的人,照着做，能把站立起来并接到第一笔广告费。<br>全文6000 字左右,读15分钟。第一节先花 5 分钟搞清楚「游戏站到底有哪几种」——很多人死在这一步都没意识到。不承诺收益,只给结构：这个生意的收入上限取决于你选的品，不取决于我。</blockquote>
@@ -166,9 +166,9 @@ git add . &amp;&amp; git commit -m &quot;Apply my game&quot; &amp;&amp; git push
   </div>
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<aside class="toc" aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">一、先花5 分钟，搞清楚游戏站到底有哪几种</a></li><li><a class="toc-link toc-l1" href="#sec-2">二、这门生意的逻辑：钱从哪来,赚多少</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-3">链条就四步</a></li><li><a class="toc-link toc-l2" href="#sec-4">收入参考（先泼冷水，再给数据）</a></li><li><a class="toc-link toc-l2" href="#sec-5">这个生意的概率属性</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-6">三、三个最容易死掉的认知（我见过太多人栽在这）</a></li><li><a class="toc-link toc-l1" href="#sec-7">四、一条主线：选对需求 → 快速上线 → 数据迭代</a></li><li><a class="toc-link toc-l1" href="#sec-8">五、从0 到 1七步实操</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-9">第1 步：选游戏——用四层漏斗，从 100 个候选里漏出1个</a></li><li><a class="toc-link toc-l2" href="#sec-10">第 2 步：买域名（3 分钟,三条规则）</a></li><li><a class="toc-link toc-l2" href="#sec-11">第 3步:2 小时把站立起来</a></li><li><a class="toc-link toc-l2" href="#sec-12">第 4步:首日10 页——黄金窗口的黄金 24小时</a></li><li><a class="toc-link toc-l2" href="#sec-13">第5步:上线 + 收录三件事</a></li><li><a class="toc-link toc-l2" href="#sec-14">第6 步：上线2-3 天，做一次诊断</a></li><li><a class="toc-link toc-l2" href="#sec-15">第7 步：接广告——晚开一两天少赚几十块，开早了赔进去整个站</a></li><li><a class="toc-link toc-l2" href="#sec-16">第 8 步：每周30分钟 + 把复盘喂回模板</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-17">六、我踩过的坑，帮你提前排掉</a></li><li><a class="toc-link toc-l1" href="#sec-18">七、为什么开源？</a></li><li><a class="toc-link toc-l1" href="#sec-19">八、适合谁、别做谁</a></li><li><a class="toc-link toc-l1" href="#sec-20">九、今晚就能做的三件事</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" hidden>目录</button>
-<script src="../../assets/meta.js?v=2cf185e9" defer></script>
-<script src="../../assets/image-zoom.js?v=0933ef6c" defer></script>
-<script src="../../assets/toc.js?v=582e1bfb" defer></script>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">一、先花5 分钟，搞清楚游戏站到底有哪几种</a></li><li><a class="toc-link toc-l1" href="#sec-2">二、这门生意的逻辑：钱从哪来,赚多少</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-3">链条就四步</a></li><li><a class="toc-link toc-l2" href="#sec-4">收入参考（先泼冷水，再给数据）</a></li><li><a class="toc-link toc-l2" href="#sec-5">这个生意的概率属性</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-6">三、三个最容易死掉的认知（我见过太多人栽在这）</a></li><li><a class="toc-link toc-l1" href="#sec-7">四、一条主线：选对需求 → 快速上线 → 数据迭代</a></li><li><a class="toc-link toc-l1" href="#sec-8">五、从0 到 1七步实操</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-9">第1 步：选游戏——用四层漏斗，从 100 个候选里漏出1个</a></li><li><a class="toc-link toc-l2" href="#sec-10">第 2 步：买域名（3 分钟,三条规则）</a></li><li><a class="toc-link toc-l2" href="#sec-11">第 3步:2 小时把站立起来</a></li><li><a class="toc-link toc-l2" href="#sec-12">第 4步:首日10 页——黄金窗口的黄金 24小时</a></li><li><a class="toc-link toc-l2" href="#sec-13">第5步:上线 + 收录三件事</a></li><li><a class="toc-link toc-l2" href="#sec-14">第6 步：上线2-3 天，做一次诊断</a></li><li><a class="toc-link toc-l2" href="#sec-15">第7 步：接广告——晚开一两天少赚几十块，开早了赔进去整个站</a></li><li><a class="toc-link toc-l2" href="#sec-16">第 8 步：每周30分钟 + 把复盘喂回模板</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-17">六、我踩过的坑，帮你提前排掉</a></li><li><a class="toc-link toc-l1" href="#sec-18">七、为什么开源？</a></li><li><a class="toc-link toc-l1" href="#sec-19">八、适合谁、别做谁</a></li><li><a class="toc-link toc-l1" href="#sec-20">九、今晚就能做的三件事</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=eb986118" defer></script>
+<script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
 </body>
 </html>

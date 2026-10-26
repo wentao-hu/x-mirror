@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>两套零成本的SEO分析方案：大厂工具及开源项目推荐 · X Mirror</title>
+<meta name="description" content="先说清楚：这里的“0 成本”指不新增工具订阅费，不代表域名、主机、时间和维护成本为零。域名和网站本来就需要；免费额度也可能变化。但如果你的网站已经上线，下面两套" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <img src="../../assets/note-avatar.jpg" alt="" width="46" height="46" loading="lazy" decoding="async" />
+    <div>
+      <div class="name">萧禹</div>
+      <div class="meta">2026-10-25 23:49</div>
+    </div>
+  </div>
+  <h1 class="title">两套零成本的SEO分析方案：大厂工具及开源项目推荐</h1>
+  <div class="post-meta-row"><span class="source-badge" data-source-type="note"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg><span class="src-label">自建笔记</span></span><a class="cat-badge" href="../../?cat=SEO%E8%8E%B7%E5%AE%A2" title="返回目录 · SEO获客">SEO获客</a></div>
+  <div class="tag-list" aria-label="关键词"><span class="tag-list__label">关键词</span><span class="tag-badge" data-tag="SEO分析">SEO分析</span><span class="tag-badge" data-tag="Google Search Console">Google Search Console</span><span class="tag-badge" data-tag="Cloudflare Web Analytics">Cloudflare Web Analytics</span><span class="tag-badge" data-tag="Microsoft Clarity">Microsoft Clarity</span><span class="tag-badge" data-tag="Umami">Umami</span><span class="tag-badge" data-tag="Plausible平替">Plausible平替</span></div>
+  <div class="post-controls" data-meta-mount data-slug="note-zero-cost-seo-analytics-stack"></div>
+  
+  <article class="article">
+<p>先说清楚：这里的“0 成本”指不新增工具订阅费，不代表域名、主机、时间和维护成本为零。域名和网站本来就需要；免费额度也可能变化。但如果你的网站已经上线，下面两套方案都能把新增现金成本压到 0。</p>
+<p>Plausible 官方 Starter 目前是 <strong>$9/月</strong>，包含每月 1 万 pageview。它很好用，但自建会更重，<a href="https://plausible.io/self-hosted-web-analytics" rel="noopener noreferrer" target="_blank">Plausible 的自建架构</a>仍需要 PostgreSQL 和 ClickHouse。对没有服务器、只想把 SEO 数据和用户行为看明白的人，没必要一开始就上这套基础设施。</p>
+<p>更实用的顺序是：</p>
+<ol><li>先用大厂全免费组合把 SEO 的底层数据补齐。</li><li>再用 Umami 把网站访问和关键事件收进一个轻量面板。</li></ol>
+<p>注意先后顺序。GSC 回答“用户在搜什么、你有没有曝光、页面有没有被收录”，Umami 回答“来了多少人、从哪里来、做了什么”。两套不是互相替代。下面故意按 <strong>2 → 1</strong> 的顺序展开：先讲最值得优先落地的大厂三件套，再讲 Umami。</p>
+<h2 id="sec-1">先看结论：两套方案分别解决什么</h2>
+<div class='table-wrap'><table><tr><th>方案</th><th>适合谁</th><th>新增订阅费</th><th>主要价值</th><th>最大限制</th></tr><tr><td>2. GSC + Cloudflare Web Analytics + Microsoft Clarity</td><td>想让 SEO 尽快可测量的人</td><td>$0</td><td>搜索曝光、收录、访问、CWV、点击与录屏</td><td>数据分散在三个后台</td></tr><tr><td>1. Umami Cloud 或自建</td><td>想要统一、轻量的网站分析面板</td><td>$0 起</td><td>页面访问、来源、事件、UTM、目标</td><td>不能替代 GSC 的搜索与索引数据</td></tr></table></div>
+<p>如果只能先做一件事，先做第 2 套。它不需要服务器，能直接回答 SEO 最关键的问题。第 1 套是在此基础上补齐“网站分析”体验。</p>
+<h2 id="sec-2">2. 先搭大厂全免费 SEO 三件套</h2>
+<p>这套组合的重点不是“免费”，而是三个工具各自回答不同问题：</p>
+<div class='table-wrap'><table><tr><th>工具</th><th>它回答的问题</th><th>它不负责回答</th></tr><tr><td>Google Search Console</td><td>哪些查询带来曝光和点击？页面收录了吗？</td><td>站内点击、滚动、录屏</td></tr><tr><td>Cloudflare Web Analytics</td><td>哪些页面有人访问？来自哪里？CWV 怎么样？</td><td>关键词曝光、搜索排名</td></tr><tr><td>Microsoft Clarity</td><td>用户到底点了哪、滑到哪、卡在哪？</td><td>作为 SEO 排名的权威数据源</td></tr></table></div>
+<h3 id="sec-3">2.1 Google Search Console：先建立搜索基线</h3>
+<p>GSC 是这套组合里最重要的工具。它直接来自 Google，提供搜索曝光、点击、CTR、平均排名、页面收录和站点健康信息。</p>
+<p><strong>第一步：添加资源（property）</strong></p>
+<ol><li>登录 <a href="https://search.google.com/search-console/" rel="noopener noreferrer" target="_blank">Google Search Console</a>。</li><li>点击左上角资源选择器，再点“添加资源”。</li><li>优先选择“域名”资源，输入根域名，例如 <code class="inline-code">example.com</code>，不要带 <code class="inline-code">https://</code>，也不要在根域名前加 <code class="inline-code">www</code>。</li><li>按向导复制 DNS TXT 验证记录，添加到域名服务商。</li><li>回到 GSC 点击验证。DNS 记录可能需要一段时间生效，最长可能要到两三天。</li><li>验证成功后不要删除 TXT 记录，否则之后可能失去验证。</li></ol>
+<p>域名资源覆盖该域名下的 <code class="inline-code">http</code>、<code class="inline-code">https</code> 和所有子域名，适合绝大多数独立站。如果你完全不能改 DNS，也可以改用“网址前缀”资源，再用 HTML 标签或 HTML 文件验证。不要把两种资源理解成两种账号，它们只是覆盖范围不同。</p>
+<p><strong>第二步：提交 sitemap</strong></p>
+<ol><li>打开 GSC 左侧“索引”下的“站点地图”。</li><li>确认你的 sitemap 能在浏览器无登录访问，例如 <code class="inline-code">https://example.com/sitemap.xml</code>。</li><li>在“添加新站点地图”里输入完整 URL，点击提交。</li><li>回到报告确认状态。常见状态包括“成功”“无法获取”“存在错误”。</li><li>新站不要只等数据。用顶部“网址检查”检查首页和最重要的落地页，确认“网页可编入索引”。</li></ol>
+<p>提交 sitemap 只是告诉 Google 去哪里找，不保证每个 URL 都会被抓取和收录。这个区别很重要。</p>
+<p><strong>第三步：每周只看四个视图</strong></p>
+<div class='table-wrap'><table><tr><th>视图</th><th>怎么看</th><th>用来做什么</th></tr><tr><td>查询</td><td>曝光、点击、CTR、平均排名</td><td>找高曝光低点击、低排名但有需求的词</td></tr><tr><td>网页</td><td>按 URL 看表现</td><td>找“有曝光但不被点”的页面</td></tr><tr><td>页面索引</td><td>已编入索引、未编入索引及原因</td><td>判断问题在收录还是内容</td></tr><tr><td>网址检查</td><td>单页抓取、规范链接、可索引性</td><td>新页上线和异常页排查</td></tr></table></div>
+<p>建议固定看 <strong>最近 28 天对比前 28 天</strong>，不要每天盯着曲线。GSC 最新数据可能是临时数据，通常会继续变化；做判断时优先看已经完整的日子。</p>
+<p>一个很实用的检查顺序是：</p>
+<ol><li>有曝光、没有点击：先改标题和描述，再看页面是否匹配搜索意图。</li><li>有收录、没有曝光：可能关键词太窄，也可能是页面还没有足够竞争力。</li><li>没收录：先看页面索引报告和网址检查，再检查 <code class="inline-code">robots.txt</code>、规范链接、登录限制和页面质量。</li><li>排名很差：先补内容深度和内部链接，不要只改 meta 标签。</li></ol>
+<p>GSC 不提供所有查询词，部分查询会被匿名化或截断；它也可能和站内分析工具的访问数不一致。这不是谁“算错了”，而是两套系统的统计口径不同。</p>
+<h3 id="sec-4">2.2 Cloudflare Web Analytics：看全站访问和真实 CWV</h3>
+<p>Cloudflare Web Analytics 是隐私优先的 RUM（真实用户监测）工具，不需要 Cookie 或 <code class="inline-code">localStorage</code>。它能看到页面访问、访客、来源、路径、国家和浏览器，也能看到 LCP、INP、CLS 三项 Core Web Vitals。</p>
+<p><strong>如果你的网站托管在 Cloudflare Pages</strong></p>
+<ol><li>进入 Cloudflare 控制台的“Workers 和 Pages”。</li><li>打开对应的 Pages 项目。</li><li>进入“指标”，在 Web Analytics 下点击启用。</li><li>下一次部署时，Cloudflare 会自动注入脚本。</li><li>发布后访问任意页面，几分钟后回到后台看数据。</li></ol>
+<p><strong>如果域名已经通过 Cloudflare 代理</strong></p>
+<ol><li>进入 Cloudflare 控制台的“Web Analytics”。</li><li>点击“添加站点”，选择已有的 Cloudflare 主机名。</li><li>完成后确认自动设置已开启。</li><li>在“管理站点”里可以选择 EU 访客排除、手动脚本或关闭。</li></ol>
+<p><strong>如果站点没有走 Cloudflare 代理</strong></p>
+<ol><li>在 Web Analytics 页面点击“添加站点”。</li><li>输入主机名，例如 <code class="inline-code">example.com</code>，不要带协议和路径。</li><li>复制 JS snippet。</li><li>把它放在网站所有页面 <code class="inline-code">&lt;/body&gt;</code> 之前。</li><li>重新部署，并确认页面源码里能看到脚本。</li></ol>
+<p>非代理站点目前最多可以跟踪 10 个主机名，代理站点通常没有这个数量限制。免费并不等于无限资源，但个人站和中小站基本够用。</p>
+<p><strong>每周重点看什么</strong></p>
+<ol><li>先看 7 天和 28 天的页面访问趋势，再看具体路径。</li><li>对比来源域名，判断流量是搜索、外链还是直接访问。</li><li>打开 Core Web Vitals，先解决 P75 表现最差的 LCP、INP 或 CLS，而不是只做一次 Lighthouse 截图。</li><li>新版本上线后按同一 URL 对比改动前后，不要混入整站平均值的波动。</li></ol>
+<p>Cloudflare 的优势是真实用户性能数据，但它不会告诉你“用户搜了什么”。关键词层面的判断仍然要回到 GSC。</p>
+<h3 id="sec-5">2.3 Microsoft Clarity：看用户进站后的真实行为</h3>
+<p>Clarity 提供录屏和热力图，适合判断“用户看到了什么、点了什么、在哪里卡住”。官方当前说明是免费、无流量上限；录屏数据保留 30 天，热力图数据保留 9 个月。它适合行为诊断，不适合当作财报级的访问统计。</p>
+<p><strong>安装</strong></p>
+<ol><li>创建 Clarity 账户，新建项目并填写站点信息。</li><li>进入项目设置里的 Setup。</li><li>选择手动安装，复制 tracking code。</li><li>把代码放到全站 <code class="inline-code">&lt;head&gt;</code> 中，或通过 Google Tag Manager、站点后台提供的集成方式安装。</li><li>用无痕窗口访问网站，在开发者工具 Network 里确认有发往 <code class="inline-code">https://www.clarity.ms/collect</code> 的 POST 请求。</li><li>回到 Clarity 控制台，看到 current live users 或 recording 后，再去热力图页面。</li></ol>
+<p><strong>怎么用才不浪费时间</strong></p>
+<p>先只检查三种页面：</p>
+<ol><li>有流量但没有转化的落地页：看点击热力图和录屏，确认 CTA 是否被忽略、表单是否难用。</li><li>跳出率高的文章页：看滚动深度和用户在哪里停止阅读。</li><li>新上线页面：找真实用户的首次使用问题，而不是凭自己反复点击判断。</li></ol>
+<p><strong>隐私和合规必须先做</strong></p>
+<p>Clarity 默认会屏蔽敏感内容，但它仍然是使用 Cookie 的行为分析工具，不是无 Cookie 的访问计数器。你需要：</p>
+<ol><li>在隐私政策中披露 Clarity 及其 Cookie。</li><li>按适用法律配置同意提示或 Consent API，尤其是 EEA、英国和瑞士访客。</li><li>不要把密码、支付信息、身份证件等敏感内容送入录屏。</li><li>不要把 Clarity 用在面向 18 岁以下用户的网站或应用上，这是官方明确的限制。</li></ol>
+<p>如果你要做的是 B2B 或隐私敏感业务，先做隐私评估，再决定是否安装。免费不代表可以跳过用户告知。</p>
+<h3 id="sec-6">2.4 三个工具怎么串起来</h3>
+<p>不需要每天打开三个后台，按问题走就够了：</p>
+<div class='table-wrap'><table><tr><th>你看到的现象</th><th>先打开</th><th>下一步</th></tr><tr><td>搜索曝光上升，点击不涨</td><td>GSC</td><td>看查询 CTR、页面标题和搜索意图</td></tr><tr><td>页面有访问，但转化没变化</td><td>Clarity</td><td>看 CTA 热力图、表单录屏和滚动深度</td></tr><tr><td>访问正常，但 LCP/INP/CLS 很差</td><td>Cloudflare</td><td>先定位最差的元素和页面，再优化资源加载</td></tr><tr><td>新页面没有数据</td><td>GSC + Cloudflare</td><td>先查网址收录，再查访问脚本是否漏装</td></tr><tr><td>某篇文章突然有访问</td><td>GSC + Cloudflare</td><td>看是新查询带来的，还是外部来源带来的</td></tr></table></div>
+<p>这也说明为什么 Clarity 不能代替 GSC：它能告诉你用户进站后做了什么，但不能告诉你用户在 Google 搜了什么。</p>
+<h3 id="sec-7">2.5 一次上线检查清单</h3>
+<ul><li>域名资源已验证，TXT 记录保留。</li><li><code class="inline-code">sitemap.xml</code> 可以无登录访问，并已在 GSC 提交。</li><li>首页和最重要的几个落地页已用网址检查确认可索引。</li><li>Cloudflare Web Analytics 只安装一次，没有重复 snippet。</li><li>Clarity 脚本放在 <code class="inline-code">&lt;head&gt;</code>，且全站生效。</li><li>Clarity 已配置敏感内容遮蔽、隐私披露和适用地区的同意机制。</li><li>GSC 基线固定看 28 天，不把临时数据当成最终结果。</li><li>Cloudflare 和 Clarity 的数据没有混在一起当作“访客数唯一真相”。</li></ul>
+<p>这套三件套做完，SEO 已经可以开始闭环：<strong>GSC 找需求，Cloudflare 看到达与性能，Clarity 查页面卡点。</strong></p>
+<h2 id="sec-8">1. 再上 Umami：把网站分析收进一个面板</h2>
+<p>Umami 是开源、无 Cookie、界面极简的网站分析工具。它很像 Plausible，但底层只需要 PostgreSQL，不用自己维护 ClickHouse。当前有两条路线：</p>
+<div class='table-wrap'><table><tr><th>路线</th><th>新增现金成本</th><th>维护成本</th><th>适合谁</th></tr><tr><td>Umami Cloud 免费档</td><td>$0</td><td>最低</td><td>1 个网站、每月不超过 10 万 events、快速上线</td></tr><tr><td>Vercel + Neon/Supabase 自建</td><td>$0 起</td><td>中</td><td>想自己掌控数据、愿意处理数据库和部署</td></tr><tr><td>单服务器 Docker 自建</td><td>服务器可能收费</td><td>高</td><td>已有服务器、懂运维的人</td></tr></table></div>
+<p>官方 Cloud 免费档当前是 <strong>每月 10 万 events、1 个网站、6 个月数据保留</strong>。自建则没有 Umami 自己的订阅费，但受 Vercel 和数据库免费额度约束。</p>
+<h3 id="sec-9">1.1 最省事：Umami Cloud</h3>
+<p>如果你只有一个网站，优先走这条。它的真正优势不是“免费”，而是你不用维护数据库、迁移和升级。</p>
+<ol><li>打开 <a href="https://cloud.umami.is/signup" rel="noopener noreferrer" target="_blank">Umami Cloud 注册页</a>，创建账户。</li><li>登录后进入 Websites，点击 Add website。</li><li>填写名称和真实域名，保存。</li><li>点该网站的 Edit，在 Tracking code 里复制脚本。</li><li>把脚本放进网站 <code class="inline-code">&lt;head&gt;</code>，或通过模板的统一 head 配置注入。</li><li>访问网站，在浏览器开发者工具里确认脚本和发送请求都成功，再回面板看实时数据。</li></ol>
+<p>Cloud 的脚本形式大致如下，<code class="inline-code">data-website-id</code> 必须换成你自己的 ID：</p>
+<pre><code>&lt;script
+  defer
+  src=&quot;https://cloud.umami.is/script.js&quot;
+  data-website-id=&quot;YOUR_WEBSITE_ID&quot;
+&gt;&lt;/script&gt;</code></pre>
+<p>如果你要记录站内自定义事件，再用 <code class="inline-code">umami.track()</code> 标记按钮点击、表单提交、注册完成等动作。不要一上来就埋十几个事件，先定义 2 到 3 个真正能指导决策的事件。</p>
+<h3 id="sec-10">1.2 0 订阅自建：Vercel + Neon 或 Supabase</h3>
+<p>这条路可行，官方目前仍然提供 Vercel、Neon 和 Supabase 的独立指南。关键不是“把代码扔上 Vercel”，而是把数据库连接分对：运行时走连接池，迁移走直连。</p>
+<p>先选数据库：</p>
+<div class='table-wrap'><table><tr><th>免费数据库</th><th>当前免费额度</th><th>使用时要注意</th></tr><tr><td>Neon</td><td>1 GB 存储、100 CU-hours/项目、5 GB 公网传输、计算空闲 5 分钟自动挂起</td><td>低流量站更省心，休眠后按请求恢复</td></tr><tr><td>Supabase</td><td>500 MB 数据库、5 GB egress、最多 2 个活跃项目</td><td>免费项目连续 7 天无活动会暂停</td></tr></table></div>
+<p>如果你没有既有偏好，优先选 Neon。它更适合低流量、偶发访问的 analytics 服务；如果你已经在用 Supabase，继续用也可以，但要使用池化连接和直连两套地址。</p>
+<p><strong>部署步骤</strong></p>
+<ol><li>在 GitHub 上 fork <a href="https://github.com/umami-software/umami" rel="noopener noreferrer" target="_blank">Umami 仓库</a>。</li><li>在 Neon 或 Supabase 创建项目，区域尽量靠近 Vercel 部署区域。</li><li>在数据库后台分别复制 pooled connection string 和 direct connection string。</li><li>在 Vercel 导入 fork，框架通常会自动识别 Next.js。如果没有识别，Build Command 填 <code class="inline-code">pnpm build</code>，Output Directory 填 <code class="inline-code">.next</code>。</li><li>在 Vercel 项目的 Environment Variables 里添加下面三项。</li><li>执行部署，等待构建和数据库迁移完成。</li><li>打开部署域名，使用初始账号 <code class="inline-code">admin</code>、密码 <code class="inline-code">umami</code> 登录，并立刻修改密码。</li><li>添加网站、复制 tracking code，放回你自己的站点验证数据。</li></ol>
+<p>环境变量示例。下面以 Supabase 的池化/直连形式为例：</p>
+<pre><code>DATABASE_URL=postgresql://USER:PASSWORD@HOST:6543/DB?pgbouncer=true&amp;connection_limit=1
+DIRECT_DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DB
+APP_SECRET=用-openssl-rand-hex-32-生成</code></pre>
+<p>不同数据库的连接串不一样，不要机械照抄端口和参数：</p>
+<ul><li><strong>Supabase</strong>：池化连接通常走 <code class="inline-code">6543</code>，直连走 <code class="inline-code">5432</code>；池化串加 <code class="inline-code">pgbouncer=true&amp;connection_limit=1</code>。</li><li><strong>Neon</strong>：使用池化串作为 <code class="inline-code">DATABASE_URL</code>，再加 <code class="inline-code">pgbouncer=true&amp;connect_timeout=10</code>；直连串作为 <code class="inline-code">DIRECT_DATABASE_URL</code>。</li><li><strong>Umami 版本</strong>：<code class="inline-code">DIRECT_DATABASE_URL</code> 从 v3.2.0 起支持，尽量使用当前稳定版本，不要拿旧版脚本硬套新指南。</li></ul>
+<p><code class="inline-code">APP_SECRET</code> 用下面命令生成一次，不要提交到 Git：</p>
+<pre><code>openssl rand -hex 32</code></pre>
+<p>部署成功后，自建站点的追踪脚本改成你自己的域名：</p>
+<pre><code>&lt;script
+  defer
+  src=&quot;https://YOUR-UMAMI-DOMAIN/script.js&quot;
+  data-website-id=&quot;YOUR_WEBSITE_ID&quot;
+&gt;&lt;/script&gt;</code></pre>
+<p>如果页面能打开但数据不来，按下面顺序排：</p>
+<div class='table-wrap'><table><tr><th>现象</th><th>先检查</th></tr><tr><td>登录页正常，网站访问不上报</td><td>脚本域名、<code class="inline-code">data-website-id</code>、Network 里的 <code class="inline-code">/api/send</code> 请求</td></tr><tr><td>构建时报数据库连接错误</td><td>是否同时配置了池化 <code class="inline-code">DATABASE_URL</code> 和直连 <code class="inline-code">DIRECT_DATABASE_URL</code></td></tr><tr><td>Vercel 日志出现连接数耗尽</td><td>是否真的使用 pooled URL，是否误用了直连串作为运行时连接</td></tr><tr><td>部署后数据库没有表</td><td>确认当前版本不低于 v3.2.0，并检查构建日志里的 migration 是否成功</td></tr><tr><td>本地能跑、Vercel 不能跑</td><td>检查环境变量是否只加到了 Preview 或 Local，而没有加到 Production</td></tr></table></div>
+<h3 id="sec-11">1.3 自建不是“零维护”</h3>
+<p>Umami 帮你省掉的是 Plausible 的 ClickHouse 负担，不是所有运维工作。自建后你仍然需要：</p>
+<ol><li>关注 Umami 更新和数据库迁移。</li><li>定期确认免费数据库额度、休眠和恢复策略。</li><li>备份重要事件数据，至少保留导出记录。</li><li>给默认账号改密码，不要长期使用 <code class="inline-code">admin/umami</code>。</li><li>定期检查脚本是否被主题或模板升级覆盖。</li></ol>
+<p>这也是为什么我把 Umami Cloud 放在自建前面。对只有一个网站的人，省下的时间通常比每月 $9 更值钱；自建更适合需要多站、数据控制或想学习完整部署链路的人。</p>
+<h2 id="sec-12">最后一个选择建议</h2>
+<p><strong>先做第 2 套，不要先折腾第 1 套。</strong> GSC、Cloudflare Web Analytics、Clarity 都不需要服务器，一天内就能上线，而且能立刻建立 SEO 的搜索、性能和用户行为基线。</p>
+<p>然后按这个顺序加 Umami：</p>
+<ol><li>只有一个网站，先上 Umami Cloud 免费档。</li><li>需要自己的域名、数据控制或多个网站，再走 Vercel + Neon/Supabase。</li><li>只为了省 $9 而从头维护数据库，通常不划算。</li></ol>
+<p>还有一个必须明确的边界：Vercel Hobby 免费计划目前只允许非商业的个人使用。商业网站不能把“Vercel 免费档 + 免费数据库”当作合规的 0 成本方案。商业站可以先用 Umami Cloud 的免费档，或把托管费用正式纳入预算。</p>
+<p>总之：</p>
+<ul><li><strong>只看 SEO 搜索表现</strong>：GSC 必须有。</li><li><strong>看全站访问和性能</strong>：Cloudflare Web Analytics 足够轻。</li><li><strong>看用户点击、滚动和录屏</strong>：Clarity 最直接，但先做隐私配置。</li><li><strong>想要统一网站分析面板</strong>：Umami 是最顺滑的 Plausible 平替。</li><li><strong>想绝对 0 现金且不维护</strong>：优先免费云额度，不要为了“自建”而自建。</li></ul>
+<h2 id="sec-13">官方资料</h2>
+<p>以下信息核对时间为 <strong>2026 年 10 月 25 日</strong>。免费额度和套餐限制可能变化，正式上线前请重新确认官方页面。</p>
+<ul><li><a href="https://support.google.com/webmasters/answer/34592?hl=en" rel="noopener noreferrer" target="_blank">Google Search Console：添加资源</a></li><li><a href="https://support.google.com/webmasters/answer/9008080?hl=en" rel="noopener noreferrer" target="_blank">Google Search Console：验证网站所有权</a></li><li><a href="https://support.google.com/webmasters/answer/7451001?hl=en" rel="noopener noreferrer" target="_blank">Google Search Console：站点地图报告</a></li><li><a href="https://support.google.com/webmasters/answer/7576553?hl=en" rel="noopener noreferrer" target="_blank">Google Search Console：搜索效果报告</a></li><li><a href="https://plausible.io/#pricing" rel="noopener noreferrer" target="_blank">Plausible：定价</a></li><li><a href="https://plausible.io/self-hosted-web-analytics" rel="noopener noreferrer" target="_blank">Plausible：自建架构说明</a></li><li><a href="https://developers.cloudflare.com/web-analytics/get-started/" rel="noopener noreferrer" target="_blank">Cloudflare Web Analytics：入门</a></li><li><a href="https://developers.cloudflare.com/web-analytics/data-metrics/core-web-vitals/" rel="noopener noreferrer" target="_blank">Cloudflare Web Analytics：Core Web Vitals</a></li><li><a href="https://developers.cloudflare.com/web-analytics/limits/" rel="noopener noreferrer" target="_blank">Cloudflare Web Analytics：限额</a></li><li><a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup" rel="noopener noreferrer" target="_blank">Microsoft Clarity：安装</a></li><li><a href="https://learn.microsoft.com/en-us/clarity/faq" rel="noopener noreferrer" target="_blank">Microsoft Clarity：常见问题与免费额度</a></li><li><a href="https://umami.is/pricing" rel="noopener noreferrer" target="_blank">Umami：价格与免费档</a></li><li><a href="https://umami.is/docs/guides/running-on-vercel" rel="noopener noreferrer" target="_blank">Umami：Vercel 部署</a></li><li><a href="https://umami.is/docs/guides/running-on-supabase" rel="noopener noreferrer" target="_blank">Umami：Supabase 数据库</a></li><li><a href="https://umami.is/docs/guides/running-on-neon" rel="noopener noreferrer" target="_blank">Umami：Neon 数据库</a></li><li><a href="https://umami.is/docs/environment-variables" rel="noopener noreferrer" target="_blank">Umami：环境变量</a></li><li><a href="https://vercel.com/docs/plans/hobby" rel="noopener noreferrer" target="_blank">Vercel Hobby：免费计划与使用限制</a></li><li><a href="https://neon.com/pricing" rel="noopener noreferrer" target="_blank">Neon：免费计划</a></li><li><a href="https://supabase.com/pricing" rel="noopener noreferrer" target="_blank">Supabase：免费计划</a></li></ul>
+  </article>
+  
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">先看结论：两套方案分别解决什么</a></li><li><a class="toc-link toc-l1" href="#sec-2">2. 先搭大厂全免费 SEO 三件套</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-3">2.1 Google Search Console：先建立搜索基线</a></li><li><a class="toc-link toc-l2" href="#sec-4">2.2 Cloudflare Web Analytics：看全站访问和真实 CWV</a></li><li><a class="toc-link toc-l2" href="#sec-5">2.3 Microsoft Clarity：看用户进站后的真实行为</a></li><li><a class="toc-link toc-l2" href="#sec-6">2.4 三个工具怎么串起来</a></li><li><a class="toc-link toc-l2" href="#sec-7">2.5 一次上线检查清单</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-8">1. 再上 Umami：把网站分析收进一个面板</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-9">1.1 最省事：Umami Cloud</a></li><li><a class="toc-link toc-l2" href="#sec-10">1.2 0 订阅自建：Vercel + Neon 或 Supabase</a></li><li><a class="toc-link toc-l2" href="#sec-11">1.3 自建不是“零维护”</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-12">最后一个选择建议</a></li><li><a class="toc-link toc-l1" href="#sec-13">官方资料</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=eb986118" defer></script>
+<script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

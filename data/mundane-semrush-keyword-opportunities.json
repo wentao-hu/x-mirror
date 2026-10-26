@@ -1,0 +1,657 @@
+{
+  "meta": {
+    "id": "dreamfree-how-to-use-semrush-to-find-opportunities",
+    "slug": "mundane-semrush-keyword-opportunities",
+    "title": "出海基本功之如何使用semrush寻找关键词机会",
+    "url": "https://dreamfree.xyz/other/how-to-use-semrush-to-find-opportunities",
+    "author_name": "理想是自由",
+    "author_username": "mundane799699",
+    "published_utc": "2024-08-31T16:00:00.000Z",
+    "published_local": "2024-09-01",
+    "category": "需求研究",
+    "category_reason": "主要交付是用 Semrush 判断关键词是否有真实需求、竞争是否可打，从而决定是否值得做工具站；不是优化已选定网站的关键词排名，因此排除 SEO获客。",
+    "description": "实测用 Semrush 的 Keyword Magic Tool 与 Keyword Gap，按意图、搜索量、趋势、KD、CPC 和 SERP 筛选低竞争关键词，再用 Page AS 与反链数量判断超越机会。",
+    "source_type": "web_article",
+    "avatar_local": "avatar.jpg",
+    "tags": [
+      "Semrush",
+      "关键词研究",
+      "搜索意图",
+      "KD",
+      "CPC",
+      "SERP",
+      "工具站"
+    ],
+    "images_total": 37,
+    "images_ok": 37,
+    "api_media_count": 37,
+    "fidelity_note": "原文为中文 VitePress 页面；37 张截图全部从 cdn.mundane.ink 下载并以原图及 WebP 本地托管。原文未显式标注发布时间，目录中的 2024-09-01 按正文最晚截图日期推定，并非站方精确发布时间；零宽标题锚点已清理，行内链接保留。",
+    "plain_text_len": 2853,
+    "blocks_count": 113
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "出海基本功之如何使用semrush寻找关键词机会"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "起因"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为已经决定做出海工具站挣美刀，所以需要学习流量工具的使用。通过流量工具来找到一个新词，根据用户搜索这个词的意图来做工具站，以满足用户的需求来赚钱，这是基本逻辑。"
+    },
+    {
+      "type": "paragraph",
+      "text": "而 semrush 就是一个最常用的工具，可以说是必学的工具。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[教程我是看的 B 站视频](https://www.bilibili.com/video/BV1nb421v7gy)"
+    },
+    {
+      "type": "paragraph",
+      "text": "是从油管搬运过来的。"
+    },
+    {
+      "type": "paragraph",
+      "text": "[感谢这个 up 主](https://space.bilibili.com/223357914)"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408232343312.jpg",
+      "orig_url": "https://cdn.mundane.ink/202408232343312.jpg",
+      "alt": "Semrush 操作截图 01",
+      "key": "01",
+      "local": "01.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "时间 40 分钟，看下来感觉收获很多，并且这个博主举的例子也是以 ai tools 这个词来找新词，非常符合我现在的需求。接下来我会自己总结一遍以加深记忆"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "semrush 注册"
+    },
+    {
+      "type": "paragraph",
+      "text": "semrush 可以淘宝去买，比较便宜，也可以直接试用。我这里选择了注册试用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "semrush 注册后提供 7 天试用，但是如果用这个油管博主的优惠链接去注册，可以有 14 天。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408232359455.png",
+      "orig_url": "https://cdn.mundane.ink/202408232359455.png",
+      "alt": "Semrush 操作截图 02",
+      "key": "02",
+      "local": "02.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "[Semrush 14 天试用优惠链接](https://meticsmedia.com/semrush)"
+    },
+    {
+      "type": "paragraph",
+      "text": "在这个[油管原视频](https://www.youtube.com/watch?v=q1lTuX0i-68)的简介里"
+    },
+    {
+      "type": "paragraph",
+      "text": "需要注意的是要绑定信用卡，然后在 14 天到期之前记得取消，不然会扣费。可以先好好耍一耍，学习一下这个工具的使用，学习完之后直接取消就行了。注册和使用的时候不要随意改变\"魔法\"的 ip，我就经历了一次封号，后面邮件申诉了以后才解除。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是我的试用界面："
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011323963.png",
+      "orig_url": "https://cdn.mundane.ink/202409011323963.png",
+      "alt": "Semrush 操作截图 03",
+      "key": "03",
+      "local": "03.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408240004383.png",
+      "orig_url": "https://cdn.mundane.ink/202408240004383.png",
+      "alt": "Semrush 操作截图 04",
+      "key": "04",
+      "local": "04.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "如何使用 semrush"
+    },
+    {
+      "type": "paragraph",
+      "text": "点击左侧侧边栏的 Keyword Magic Tool，然后输入种子关键词"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241545549.png",
+      "orig_url": "https://cdn.mundane.ink/202408241545549.png",
+      "alt": "Semrush 操作截图 05",
+      "key": "05",
+      "local": "05.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如我这里使用的种子关键词是“ai tools”"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241547209.png",
+      "orig_url": "https://cdn.mundane.ink/202408241547209.png",
+      "alt": "Semrush 操作截图 06",
+      "key": "06",
+      "local": "06.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "各列指标的含义"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来解释一下各个指标列的含义。"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "意图"
+    },
+    {
+      "type": "paragraph",
+      "text": "意图表示这个人搜索这个词的目标是什么"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241550108.png",
+      "orig_url": "https://cdn.mundane.ink/202408241550108.png",
+      "alt": "Semrush 操作截图 07",
+      "key": "07",
+      "local": "07.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "semrush 一般把意图分为 NICT4 种，如下："
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241555649.png",
+      "orig_url": "https://cdn.mundane.ink/202408241555649.png",
+      "alt": "Semrush 操作截图 08",
+      "key": "08",
+      "local": "08.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241552447.png",
+      "orig_url": "https://cdn.mundane.ink/202408241552447.png",
+      "alt": "Semrush 操作截图 09",
+      "key": "09",
+      "local": "09.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241552892.png",
+      "orig_url": "https://cdn.mundane.ink/202408241552892.png",
+      "alt": "Semrush 操作截图 10",
+      "key": "10",
+      "local": "10.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241551241.png",
+      "orig_url": "https://cdn.mundane.ink/202408241551241.png",
+      "alt": "Semrush 操作截图 11",
+      "key": "11",
+      "local": "11.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241553111.png",
+      "orig_url": "https://cdn.mundane.ink/202408241553111.png",
+      "alt": "Semrush 操作截图 12",
+      "key": "12",
+      "local": "12.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "其中 ICT 是我们需要关注的，而 T 是最有价值的，这批人更容易转换成客户"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "搜索量"
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索量表示 12 月内每个月的平均搜索量，越高越好，但通常难度也越大"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241602096.png",
+      "orig_url": "https://cdn.mundane.ink/202408241602096.png",
+      "alt": "Semrush 操作截图 13",
+      "key": "13",
+      "local": "13.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "表示搜索的趋势"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241606565.png",
+      "orig_url": "https://cdn.mundane.ink/202408241606565.png",
+      "alt": "Semrush 操作截图 14",
+      "key": "14",
+      "local": "14.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "一般来说有上升型，波动型，尖峰型。上升型表示这个词的热度越来越高，波动型表示这个词流量比较稳定，而尖峰型可能表示这个词的流量只是昙花一现，可能过了这段时间以后就没什么流量了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如有个词叫 draggan ai tool，现在搜索量很低。别看它的平均搜索量是 1900，但是它现在的搜索量可能只有一百左右甚至更低。所以找词看指标要结合起来看，不能只看一个指标。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241611886.png",
+      "orig_url": "https://cdn.mundane.ink/202408241611886.png",
+      "alt": "Semrush 操作截图 15",
+      "key": "15",
+      "local": "15.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "对比起来，像这个 ai writing tools 的流量就比较稳定"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241615439.png",
+      "orig_url": "https://cdn.mundane.ink/202408241615439.png",
+      "alt": "Semrush 操作截图 16",
+      "key": "16",
+      "local": "16.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "关键词竞争度"
+    },
+    {
+      "type": "paragraph",
+      "text": "表示做这个词的难度。这里说的做，意思就是我希望人们输入这个关键词搜索，在搜索结果的前几名就能看到我的网站。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241617971.png",
+      "orig_url": "https://cdn.mundane.ink/202408241617971.png",
+      "alt": "Semrush 操作截图 17",
+      "key": "17",
+      "local": "17.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "数字越大，难度越大。所以我们需要过滤掉这些难度大的词。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241619088.png",
+      "orig_url": "https://cdn.mundane.ink/202408241619088.png",
+      "alt": "Semrush 操作截图 18",
+      "key": "18",
+      "local": "18.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241620197.png",
+      "orig_url": "https://cdn.mundane.ink/202408241620197.png",
+      "alt": "Semrush 操作截图 19",
+      "key": "19",
+      "local": "19.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "CPC"
+    },
+    {
+      "type": "paragraph",
+      "text": "广告商愿意为每次点击支付多少费用，cpc 越高说明越有利可图，显示了该关键词的价值。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241625563.png",
+      "orig_url": "https://cdn.mundane.ink/202408241625563.png",
+      "alt": "Semrush 操作截图 20",
+      "key": "20",
+      "local": "20.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "广告词竞争激烈程度"
+    },
+    {
+      "type": "paragraph",
+      "text": "数字越大，广告商越多。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241629833.png",
+      "orig_url": "https://cdn.mundane.ink/202408241629833.png",
+      "alt": "Semrush 操作截图 21",
+      "key": "21",
+      "local": "21.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "SERP"
+    },
+    {
+      "type": "paragraph",
+      "text": "serp 结果越多，搜索结果页面上的空间越少，从而让排名变得困难，所以越小越好。但其实这个点并不太重要，可以忽略吧。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241631451.png",
+      "orig_url": "https://cdn.mundane.ink/202408241631451.png",
+      "alt": "Semrush 操作截图 22",
+      "key": "22",
+      "local": "22.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "已更新"
+    },
+    {
+      "type": "paragraph",
+      "text": "semrush 数据的更新时间"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202408241635184.png",
+      "orig_url": "https://cdn.mundane.ink/202408241635184.png",
+      "alt": "Semrush 操作截图 23",
+      "key": "23",
+      "local": "23.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "如何寻找新词"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "设置过滤器"
+    },
+    {
+      "type": "paragraph",
+      "text": "设置过滤器，从非常容易开始"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011051439.png",
+      "orig_url": "https://cdn.mundane.ink/202409011051439.png",
+      "alt": "Semrush 操作截图 24",
+      "key": "24",
+      "local": "24.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "意图这里过滤掉导航，因为导航是找特定的页面或网站"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011054666.png",
+      "orig_url": "https://cdn.mundane.ink/202409011054666.png",
+      "alt": "Semrush 操作截图 25",
+      "key": "25",
+      "local": "25.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "避免色情词汇"
+    },
+    {
+      "type": "paragraph",
+      "text": "像这个\"ai remove clothes tool\"，意思就是 ai 脱衣。看上去很容易，趋势也很好，但是在国内做这种业务有很大的法律风险。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011057883.png",
+      "orig_url": "https://cdn.mundane.ink/202409011057883.png",
+      "alt": "Semrush 操作截图 26",
+      "key": "26",
+      "local": "26.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "收藏到列表"
+    },
+    {
+      "type": "paragraph",
+      "text": "找到合适的词以后点击前面的+号可以把词收藏起来"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011102716.png",
+      "orig_url": "https://cdn.mundane.ink/202409011102716.png",
+      "alt": "Semrush 操作截图 27",
+      "key": "27",
+      "local": "27.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以在 Keyword Strategy Builder 里找到你的列表"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011135113.png",
+      "orig_url": "https://cdn.mundane.ink/202409011135113.png",
+      "alt": "Semrush 操作截图 28",
+      "key": "28",
+      "local": "28.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "修改设置"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果在 KD 为非常容易的范围里找到好的关键词很难，可以将范围改为简单"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011108678.png",
+      "orig_url": "https://cdn.mundane.ink/202409011108678.png",
+      "alt": "Semrush 操作截图 29",
+      "key": "29",
+      "local": "29.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "你也可以改变顶部的种子关键词，来获取更多不同类型的关键词。一种方法就是在 google 查找相关搜索，然后把 google 提供的关键词作为种子关键词，接着重新搜索。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011111267.png",
+      "orig_url": "https://cdn.mundane.ink/202409011111267.png",
+      "alt": "Semrush 操作截图 30",
+      "key": "30",
+      "local": "30.png"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "其他"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Keyword Gap"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个工具用于找到你的网站和竞争对手之间的差距。在这里输入你的网站和一些做的好的网站，比较你们之前的差距。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011123529.png",
+      "orig_url": "https://cdn.mundane.ink/202409011123529.png",
+      "alt": "Semrush 操作截图 31",
+      "key": "31",
+      "local": "31.png"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011128444.png",
+      "orig_url": "https://cdn.mundane.ink/202409011128444.png",
+      "alt": "Semrush 操作截图 32",
+      "key": "32",
+      "local": "32.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果想找到更多的竞争对手，可以在自然搜索研究里输入你的域名，然后点击竞争对手"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011126744.png",
+      "orig_url": "https://cdn.mundane.ink/202409011126744.png",
+      "alt": "Semrush 操作截图 33",
+      "key": "33",
+      "local": "33.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "进一步研究你的关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "在你的列表里点击你收藏的关键词，可以看到更详细的数据"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011139267.png",
+      "orig_url": "https://cdn.mundane.ink/202409011139267.png",
+      "alt": "Semrush 操作截图 34",
+      "key": "34",
+      "local": "34.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "在下面的 SERP 分析中我们能看到在 google 搜索这个词时展示的结果。Page AS 是一个网站权威性的指标。可以看到第一名也只有 16，说明我们完全有希望超越他，下面甚至还有为 0 的。在 Ref. Domains 这一列你也可以看到这个网站有多少个反向链接指向了它，目前第一名只有两个。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011140609.png",
+      "orig_url": "https://cdn.mundane.ink/202409011140609.png",
+      "alt": "Semrush 操作截图 35",
+      "key": "35",
+      "local": "35.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "你也可以打开一个无痕模式的窗口，输入你的关键词，看 google 具体是怎么显示的，哪些网站会排在前面"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011156207.png",
+      "orig_url": "https://cdn.mundane.ink/202409011156207.png",
+      "alt": "Semrush 操作截图 36",
+      "key": "36",
+      "local": "36.png"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "关键词优化"
+    },
+    {
+      "type": "paragraph",
+      "text": "semrush 还有一些关键词优化的工具，比如 SEO Content Template。这个工具能够根据你的关键词提供一些建议例如一篇博客要多少长度比较合适，找到那些可以提供反向链接的网站等，也是很有用的。但是今天我就不在这里展开了。"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mundane.ink/202409011211651.png",
+      "orig_url": "https://cdn.mundane.ink/202409011211651.png",
+      "alt": "Semrush 操作截图 37",
+      "key": "37",
+      "local": "37.png"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "延伸阅读"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞："
+    },
+    {
+      "type": "paragraph",
+      "text": "[利用 Semrush 找有一定搜索量且竞争小的关键词时容易遇到的一些陷阱](https://mp.weixin.qq.com/s/r0H48GssICrKbP8YePIuqw)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[养网站防老第 1 步，挖掘出第 1 个需求](https://mp.weixin.qq.com/s/V35KGuSqMHhhgr4x1Bzw6Q)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[养网站防老第 1.5 步：用一个公式来判断关键词是否值得做，让你选择关键词不再犹豫](https://mp.weixin.qq.com/s/CJNigdIt8VkfQDangR8Bcg)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[养网站防老第 2 步：分析搜索意图](https://mp.weixin.qq.com/s/0l-1EVPJWAJK6z9w8Bn-FQ)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[人人都能学会的发掘 web 产品需求方法入门](https://mp.weixin.qq.com/s/rzqgRubYO8Em3xuWRGufuw)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[人人都能学会的挖掘 web 产品需求之从出站域名发现新需求新产品](https://mp.weixin.qq.com/s/D77kXZ9_RCifP9iil6fGxQ)"
+    },
+    {
+      "type": "paragraph",
+      "text": "[web.cafe](https://web.cafe/)"
+    },
+    {
+      "type": "paragraph",
+      "text": "注意：我这里列举的只是一部分，并不完整，更多更完整的请去哥飞公众号中浏览。链接在下方："
+    },
+    {
+      "type": "paragraph",
+      "text": "[哥飞公众号文章合集](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5OTIzMzYyMA==&action=getalbum&album_id=3147861706030465026#wechat_redirect)"
+    },
+    {
+      "type": "paragraph",
+      "text": "最后说一句吧，想赚钱，必须主动亲身实践和行动起来，而不是等别人把饭喂到嘴里。"
+    }
+  ]
+}
