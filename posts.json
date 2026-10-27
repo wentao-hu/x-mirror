@@ -1898,9 +1898,9 @@
       "images_total": 3,
       "images_ok": 3,
       "api_media_count": 3,
-      "fidelity_note": "正文取自 note_tweet.text 全文（含步骤 3 与 Semrush KD/CPC 数据，非截断 text）；普通推文（非 Article）；3 张配图已本地化；34 条会话评论按原文收录为默认折叠聊天气泡（英文评论已译中文，@ 提及与 X 状态链接不展示）；作者回复均为回复他人，非自回复串帖；标题为镜像站自拟。",
-      "plain_text_len": 2195,
-      "blocks_count": 16
+      "fidelity_note": "正文取自 note_tweet.text 全文（含步骤 3 与 Semrush KD/CPC 数据，非截断 text）；普通推文（非 Article）；3 张配图已本地化；评论未收录（默认规则）；作者回复均为回复他人，非自回复串帖；标题为镜像站自拟。",
+      "plain_text_len": 371,
+      "blocks_count": 14
     },
     {
       "id": "note-2026-10-26-ai-new-keyword-criteria",
