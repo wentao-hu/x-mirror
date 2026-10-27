@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>GA4和GSC配置教程 · X Mirror</title>
+<meta name="description" content="从零完成出海新站的 Google Analytics 4（GA4） 与 Google Search Console（GSC） 全套配置：创建 GA4 账号与数据" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <img src="../../assets/note-avatar.jpg" alt="" width="46" height="46" loading="lazy" decoding="async" />
+    <div>
+      <div class="name">萧禹</div>
+      <div class="meta">2026-10-26 23:10</div>
+    </div>
+  </div>
+  <h1 class="title">GA4和GSC配置教程</h1>
+  <div class="post-meta-row"><span class="source-badge" data-source-type="note"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg><span class="src-label">自建笔记</span></span><a class="cat-badge" href="../../?cat=%E5%BB%BA%E7%AB%99%E5%BC%80%E5%8F%91" title="返回目录 · 建站开发">建站开发</a></div>
+  <div class="tag-list" aria-label="关键词"><span class="tag-list__label">关键词</span><span class="tag-badge" data-tag="GA4">GA4</span><span class="tag-badge" data-tag="Google Search Console">Google Search Console</span><span class="tag-badge" data-tag="GSC">GSC</span><span class="tag-badge" data-tag="Cloudflare">Cloudflare</span><span class="tag-badge" data-tag="Sitemap">Sitemap</span><span class="tag-badge" data-tag="网站统计">网站统计</span><span class="tag-badge" data-tag="建站教程">建站教程</span></div>
+  <div class="post-controls" data-meta-mount data-slug="note-ga4-gsc-setup-guide"></div>
+  
+  <article class="article">
+<p>从零完成出海新站的 <strong>Google Analytics 4（GA4）</strong> 与 <strong>Google Search Console（GSC）</strong> 全套配置：创建 GA4 账号与数据流、将 <code class="inline-code">G-</code> 衡量 ID 写入站点代码并部署、无痕窗口触发 Cookie 同意与实时报表验证、将留存期延长至 14 个月、通过 Cloudflare 一键授权验证 GSC 域名所有权、提交 <code class="inline-code">sitemap.xml</code>，最后将 GSC 与 GA4 双向关联。</p>
+<p><strong>核心原则：代码接入只需要 <code class="inline-code">G-</code> 开头的衡量 ID（如 <code class="inline-code">G-BL3MDRQG5G</code>），不要贴整段 gtag 代码，也不要装 Google Tag Manager。</strong> 站点模板已内置 Consent Mode v2 隐私横幅，仅在访客点击 <code class="inline-code">Accept</code> 后才加载 <code class="inline-code">gtag.js</code> 并发送 <code class="inline-code">collect</code> 请求（返回 <code class="inline-code">204</code>）。</p>
+<p><strong>完成标准（6 项全部打勾才算跑通）：</strong> ① <code class="inline-code">site.ts</code> 填入 <code class="inline-code">ga4Id</code> 并完成 <code class="inline-code">npm run deploy</code>；② 无痕窗口点 <code class="inline-code">Accept</code> 后 Network 出现 <code class="inline-code">collect?v=2...</code>（状态码 <code class="inline-code">204</code>）；③ GA4「实时概览 / 页面实时浏览情况」能看到活跃用户 <code class="inline-code">1</code>；④ GA4 事件与用户数据保留期均改为 <strong>14 个月</strong>并保存；⑤ GSC 通过 Cloudflare 一键授权验证网域并提交 <code class="inline-code">sitemap.xml</code>；⑥ GA4「产品关联 → Search Console 关联」显示绿色的<strong>链接已创建</strong>。</p>
+<h2 id="sec-1">1. 创建 GA4 账号与媒体资源（向导第 1–4 步）</h2>
+<p>打开 <code class="inline-code">analytics.google.com</code> 进入创建向导。前四步依次配置顶层账号、站点媒体资源、商家画像与业务目标。</p>
+<h3 id="sec-2">1.1 账号名称：填品牌名，不要填个人邮箱</h3>
+<p>账号是顶层容器（一个账号下可挂多个站点的媒体资源）。建议填品牌名（如 <code class="inline-code">Hit The Road Dude AI</code>），不要填个人 Gmail 邮箱，也不要留默认占位文字。</p>
+<figure class="media"><a class="media-link" href="assets/01-ga4-create-account.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/01-ga4-create-account-640.webp 640w, assets/01-ga4-create-account-960.webp 960w, assets/01-ga4-create-account-1280.webp 1280w, assets/01-ga4-create-account.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/01-ga4-create-account.png" alt="GA4 创建账号页面，账号名称输入框填写品牌名" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：创建账号页：账号名称填品牌名（如 Hit The Road Dude AI），下方数据共享设置保持默认即可。</p>
+<div class='table-wrap'><table><tr><th>字段</th><th>建议填写值</th><th>为什么这样填</th></tr><tr><td>账号名称</td><td>Hit The Road Dude AI</td><td>顶层容器名称，不对外公开；切勿填个人邮箱</td></tr><tr><td>媒体资源名称</td><td>hittheroaddudeai.fun</td><td>直接填域名，多站切换时一眼能认出</td></tr><tr><td>报告时区</td><td>美国 - 洛杉矶时间 (GMT-07:00)</td><td>主受众在北美，按美西时间切自然日</td></tr><tr><td>币种</td><td>美元 (USD - $)</td><td>必须与积分包/订阅定价币种一致，否则收入金额会被换算错</td></tr></table></div>
+<h3 id="sec-3">1.2 媒体资源：填裸域名、选美西时区与美元（USD）</h3>
+<p>媒体资源对应单个网站。名称直接填域名 <code class="inline-code">hittheroaddudeai.fun</code>，报告时区选美国洛杉矶，币种务必选 <strong>美元 (USD)</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/02-ga4-create-property.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/02-ga4-create-property-640.webp 640w, assets/02-ga4-create-property-960.webp 960w, assets/02-ga4-create-property-1280.webp 1280w, assets/02-ga4-create-property.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/02-ga4-create-property.png" alt="GA4 创建媒体资源页面：名称为 hittheroaddudeai.fun，报告时区为美国洛杉矶，币种为美元" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：创建媒体资源页：名称填域名，时区选美国洛杉矶，币种选美元（USD）。</p>
+<h3 id="sec-4">1.3 商家详情：选行业与规模</h3>
+<p>行业类别选「艺术与娱乐」或「技术」，商家规模选「小型 - 1 至 10 名员工」。这里只影响默认报表模板，不影响任何数据采集。</p>
+<figure class="media"><a class="media-link" href="assets/03-ga4-business-details.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/03-ga4-business-details-640.webp 640w, assets/03-ga4-business-details-960.webp 960w, assets/03-ga4-business-details-1280.webp 1280w, assets/03-ga4-business-details.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/03-ga4-business-details.png" alt="GA4 商家详情页面：行业类别为艺术与娱乐，业务规模为小型 1 至 10 名员工" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：商家详情页：选「艺术与娱乐」与「小型 - 1 至 10 名员工」。</p>
+<h3 id="sec-5">1.4 业务目标：勾选核心转化目标</h3>
+<p>业务目标决定左侧导航默认生成哪些预设报表。推荐勾选「发掘潜在客户」与「提高销售额」（即使四个全勾也不会报错，保持现状即可，无需回头修改）。</p>
+<figure class="media"><a class="media-link" href="assets/04-ga4-business-objectives.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/04-ga4-business-objectives-640.webp 640w, assets/04-ga4-business-objectives-960.webp 960w, assets/04-ga4-business-objectives-1280.webp 1280w, assets/04-ga4-business-objectives.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/04-ga4-business-objectives.png" alt="GA4 业务目标选择页面" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：业务目标页：决定左侧菜单预设模板，不影响底层事件采集。</p>
+<h3 id="sec-6">1.5 接受服务条款与 GDPR 数据处理条款</h3>
+<p>弹窗中勾选「按照 GDPR 的要求，我也接受《数据处理条款》」，点击 <strong>我接受</strong> 进入数据流配置。</p>
+<figure class="media"><a class="media-link" href="assets/05-ga4-terms-of-service.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/05-ga4-terms-of-service-640.webp 640w, assets/05-ga4-terms-of-service-960.webp 960w, assets/05-ga4-terms-of-service-1280.webp 1280w, assets/05-ga4-terms-of-service.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/05-ga4-terms-of-service.png" alt="Google Analytics 服务条款弹窗，勾选 GDPR 条款后点我接受" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：服务条款弹窗：勾选 GDPR 数据处理条款并点「我接受」。</p>
+<h2 id="sec-7">2. 配置网站数据流与增强衡量（向导第 5 步）</h2>
+<p>平台类型选择 <strong>网站（Web）</strong>，输入正式域名 <code class="inline-code">hittheroaddudeai.fun</code>，数据流名称填 <code class="inline-code">Web — hittheroaddudeai.fun</code>，保持「增强型衡量」开启。</p>
+<figure class="media"><a class="media-link" href="assets/06-ga4-web-stream-setup.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/06-ga4-web-stream-setup-640.webp 640w, assets/06-ga4-web-stream-setup-960.webp 960w, assets/06-ga4-web-stream-setup-1280.webp 1280w, assets/06-ga4-web-stream-setup.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/06-ga4-web-stream-setup.png" alt="GA4 设置网站数据流页面：网址 https://hittheroaddudeai.fun，数据流名称 Web — hittheroaddudeai.fun" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：设置网站数据流：填好正式域名与数据流名称，点击右侧齿轮可查看增强型衡量项。</p>
+<h3 id="sec-8">2.1 增强型衡量：千万不要关掉第一项「网页浏览量」</h3>
+<p>点开增强型衡量齿轮可以看到 7 个开关。第一项 <strong>网页浏览量（Page views）</strong> 置灰且圆点在右侧，代表它是默认常开的基础项（SPA 路由跳转全靠它统计 <code class="inline-code">page_view</code>）。如果没有站内搜索框，可以把「网站搜索」关掉，其余保持默认开启即可。</p>
+<figure class="media"><a class="media-link" href="assets/07-ga4-enhanced-measurement.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/07-ga4-enhanced-measurement-640.webp 640w, assets/07-ga4-enhanced-measurement-960.webp 960w, assets/07-ga4-enhanced-measurement-1280.webp 1280w, assets/07-ga4-enhanced-measurement.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/07-ga4-enhanced-measurement.png" alt="GA4 增强衡量设置面板：网页浏览量为默认常开基础项，其余六项可按需开关" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：增强型衡量面板：第一项「网页浏览量」圆点在右代表已开启；无站内搜索时可关掉「网站搜索」。</p>
+<h3 id="sec-9">2.2 复制 G- 开头的衡量 ID（忽略顶部黄色警告）</h3>
+<p>创建完数据流后，详情页会同时展示「数据流 ID（纯数字）」和「衡量 ID（<code class="inline-code">G-</code> 开头）」。<strong>我们只需要复制 <code class="inline-code">G-BL3MDRQG5G</code> 这个衡量 ID</strong>。不要点「查看代码说明」去装 Google Tag Manager，此时顶部提示「您的网站尚未启用数据收集功能」属于完全正常的初始状态。</p>
+<figure class="media"><a class="media-link" href="assets/08-ga4-stream-measurement-id.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/08-ga4-stream-measurement-id-640.webp 640w, assets/08-ga4-stream-measurement-id-960.webp 960w, assets/08-ga4-stream-measurement-id-1280.webp 1280w, assets/08-ga4-stream-measurement-id.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/08-ga4-stream-measurement-id.png" alt="GA4 网站数据流详情页：衡量 ID 为 G-BL3MDRQG5G，顶部显示尚未启用数据收集的黄色提示" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：网站数据流详情页：只需复制右上角 G- 开头的衡量 ID（G-BL3MDRQG5G）；顶部黄色提示在站点接入收到数据后会自动消失。</p>
+<h2 id="sec-10">3. 站点代码接入与线上实时验证</h2>
+<p>拿到 <code class="inline-code">G-</code> 衡量 ID 后，回到站点仓库修改 <code class="inline-code">src/config/site.ts</code> 中的 <code class="inline-code">analytics.ga4Id</code>，然后执行部署：</p>
+<pre><code>// src/config/site.ts
+analytics: {
+  ga4Id: 'G-BL3MDRQG5G',
+  cfBeaconToken: '',
+},
+
+# 终端运行校验并发布上线
+npm run typecheck &amp;&amp; npm test
+npm run deploy</code></pre>
+<h3 id="sec-11">3.1 无痕窗口打开网站并点击 Accept</h3>
+<p>部署完成后，用浏览器打开<strong>无痕窗口</strong>访问 <code class="inline-code">https://hittheroaddudeai.fun</code>。此时页面底部会自动弹出 <code class="inline-code">Analytics cookies</code> 隐私同意横幅。<strong>必须点击 <code class="inline-code">Accept</code> 按钮</strong>——因为站点遵循 Consent Mode v2，在访客点同意前不会加载 <code class="inline-code">gtag.js</code>。</p>
+<figure class="media"><a class="media-link" href="assets/09-cookie-consent-banner.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/09-cookie-consent-banner-640.webp 640w, assets/09-cookie-consent-banner-960.webp 960w, assets/09-cookie-consent-banner-1280.webp 1280w, assets/09-cookie-consent-banner.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/09-cookie-consent-banner.png" alt="线上首页底部弹出的 Analytics cookies 同意横幅，包含 Reject 和 Accept 按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：无痕窗口访问首页自动弹出 Analytics cookies 横幅，点击 Accept 才会加载 GA4 脚本。</p>
+<h3 id="sec-12">3.2 检查浏览器 Network 面板确认 204 上报成功</h3>
+<p>按 <code class="inline-code">F12</code>（或右键检查）切到 <strong>Network（网络）</strong> 面板，在过滤框输入 <code class="inline-code">G-BL3MDRQG5G</code>。只要看到两条记录：① <code class="inline-code">js?id=G-BL3MDRQG5G</code> 状态码 <code class="inline-code">200</code>（脚本加载成功）；② <code class="inline-code">collect?v=2&amp;tid=G-BL3M...</code> 状态码 <code class="inline-code">204</code>（数据已成功送达 Google 服务器），就证明前端上报已经 100% 跑通。</p>
+<figure class="media"><a class="media-link" href="assets/10-devtools-network-collect.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/10-devtools-network-collect-640.webp 640w, assets/10-devtools-network-collect-960.webp 960w, assets/10-devtools-network-collect-1280.webp 1280w, assets/10-devtools-network-collect.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/10-devtools-network-collect.png" alt="Chrome DevTools Network 面板搜索 G-BL3MDRQG5G，显示 js 脚本 200 和 collect 请求 204" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：Network 面板出现 js?id=G-BL3MDRQG5G (200) 与 collect?v=2... (204)，代表浏览器已将访问事件发给 Google。</p>
+<h3 id="sec-13">3.3 为什么点完 Accept 却在 GA4「报告概况」里看不到数据？</h3>
+<p><strong>实操高频误区：</strong> 很多时候看 Network 明明已经有 <code class="inline-code">204</code> 请求了，但切回 GA4 点左侧「报告」却只看到下图「创建报告概况（选择模板）」，以为没收到数据。其实是因为当前停在了「报告概况」（非实时汇总报表需要 24–48 小时才会出数），还没点进它下方的<strong>实时概览</strong>或<strong>页面实时浏览情况</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/11-ga4-reports-snapshot-template.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/11-ga4-reports-snapshot-template-640.webp 640w, assets/11-ga4-reports-snapshot-template-960.webp 960w, assets/11-ga4-reports-snapshot-template-1280.webp 1280w, assets/11-ga4-reports-snapshot-template.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/11-ga4-reports-snapshot-template.png" alt="GA4 报告概况页面显示创建报告概况模板选择界面，左侧菜单下方有实时概览和页面实时浏览情况" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：停在「报告概况」看不到实时访问（这里顺手点左侧「用户行为 → 选择此模板」即可）；看实时数据要点左侧菜单第二项「实时概览」或第三项「页面实时浏览情况」。</p>
+<h3 id="sec-14">3.4 切到「页面实时浏览情况」确认活跃用户为 1</h3>
+<p>点击左侧菜单的 <strong>实时概览</strong> 或 <strong>页面实时浏览情况</strong>，立刻就能看到「活跃用户 <code class="inline-code">1</code>、浏览次数 <code class="inline-code">1</code>」以及受访路径 <code class="inline-code">/</code>。看到这个画面，说明 GA4 从网页端到 Google 后台已经彻底调通。</p>
+<figure class="media"><a class="media-link" href="assets/12-ga4-realtime-pages.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/12-ga4-realtime-pages-640.webp 640w, assets/12-ga4-realtime-pages-960.webp 960w, assets/12-ga4-realtime-pages-1280.webp 1280w, assets/12-ga4-realtime-pages.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/12-ga4-realtime-pages.png" alt="GA4 页面实时浏览情况面板，显示活跃用户 1、浏览次数 1，网页路径为 /" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：切换到「页面实时浏览情况」后，立即可见活跃用户 1 和首页浏览记录，确认 GA4 彻底跑通。</p>
+<h2 id="sec-15">4. GA4 后台收尾：数据保留期改为 14 个月</h2>
+<p>GA4 默认只保留 2 个月的明细数据。调通实时数据后，顺手点击左下角齿轮 <strong>管理 → 数据收集和修改 → 数据保留</strong>，把「事件数据」和「用户数据」的保留期限全部从 2 个月改成 <strong>14 个月</strong>，保持「有新的用户活动时重置」开启，最后点击左下角蓝色的 <strong>保存</strong> 按钮。</p>
+<figure class="media"><a class="media-link" href="assets/13-ga4-data-retention-14m.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/13-ga4-data-retention-14m-640.webp 640w, assets/13-ga4-data-retention-14m-960.webp 960w, assets/13-ga4-data-retention-14m-1280.webp 1280w, assets/13-ga4-data-retention-14m.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/13-ga4-data-retention-14m.png" alt="GA4 数据保留设置页面：事件数据和用户数据保留期限均设为 14 个月，底部有蓝色保存按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：将事件数据与用户数据保留期限均改为「14 个月」，改完务必点左下角蓝色的「保存」按钮使其生效。</p>
+<p>至于 <code class="inline-code">sign_up</code>（注册）、<code class="inline-code">generate_video</code>（生成视频）、<code class="inline-code">purchase</code>（购买）这三个核心转化事件，等后续站内真实触发过一次后，再去「管理 → 数据显示 → 事件 / 关键事件」里把它们勾为关键事件即可；Google Signals 与广告关联现阶段保持不开启。</p>
+<h2 id="sec-16">5. 配置 Google Search Console（GSC）并提交站点地图</h2>
+<p>GA4 负责统计站内用户行为，Google Search Console（GSC）则负责监控网站在 Google 搜索结果里的收录、曝光词和点击量。GA4 调通后紧接着配置 GSC。</p>
+<h3 id="sec-17">5.1 添加「网域」资源（涵盖全部子域与协议）</h3>
+<p>打开 <code class="inline-code">search.google.com/search-console</code>，在「请选择资源类型」弹窗中选择左侧的 <strong>网域（Domain）</strong>，输入裸域名 <code class="inline-code">hittheroaddudeai.fun</code>（不带 <code class="inline-code">https://</code> 和斜杠），点击 <strong>继续</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/14-gsc-add-domain-property.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/14-gsc-add-domain-property-640.webp 640w, assets/14-gsc-add-domain-property-960.webp 960w, assets/14-gsc-add-domain-property-1280.webp 1280w, assets/14-gsc-add-domain-property.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/14-gsc-add-domain-property.png" alt="Google Search Console 选择资源类型弹窗，左侧网域输入框填写 hittheroaddudeai.fun" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：选择左侧「网域」资源类型，输入裸域名 hittheroaddudeai.fun 后点继续。</p>
+<h3 id="sec-18">5.2 跳转 Cloudflare 点击 Authorize 一键写入 TXT 记录</h3>
+<p>点击开始验证后，GSC 会自动识别域名托管在 Cloudflare 并跳转到 Cloudflare 授权页（<code class="inline-code">Authorize DNS records from Google</code>）。<strong>直接点击蓝色的 <code class="inline-code">Authorize</code> 按钮即可</strong>——它会自动帮你把 <code class="inline-code">google-site-verification=...</code> 的 TXT 记录写进 DNS，省去手动复制粘贴。</p>
+<figure class="media"><a class="media-link" href="assets/15-cloudflare-authorize-dns.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/15-cloudflare-authorize-dns-640.webp 640w, assets/15-cloudflare-authorize-dns-960.webp 960w, assets/15-cloudflare-authorize-dns-1280.webp 1280w, assets/15-cloudflare-authorize-dns.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/15-cloudflare-authorize-dns.png" alt="Cloudflare 授权页面显示 Google 将为 hittheroaddudeai.fun 添加一条 google-site-verification TXT 记录，下方有蓝色 Authorize 按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：跳转到 Cloudflare 后直接点蓝色的 Authorize，自动完成 DNS TXT 验证记录写入。</p>
+<h3 id="sec-19">5.3 完成所有权验证并进入资源页面</h3>
+<p>点完 <code class="inline-code">Authorize</code> 后会自动跳回 GSC，弹出绿色的「已完成所有权验证」，点击右下角 <strong>前往资源页面</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/16-gsc-ownership-verified.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/16-gsc-ownership-verified-640.webp 640w, assets/16-gsc-ownership-verified-960.webp 960w, assets/16-gsc-ownership-verified-1280.webp 1280w, assets/16-gsc-ownership-verified.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/16-gsc-ownership-verified.png" alt="GSC 绿色弹窗显示已完成所有权验证，验证方法为域名提供商，右下角有前往资源页面按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：所有权验证通过，点击「前往资源页面」进入 GSC 控制台。</p>
+<h3 id="sec-20">5.4 提交 Sitemap 站点地图</h3>
+<p>在 GSC 左侧菜单点击 <strong>编制索引 → 站点地图（Sitemaps）</strong>，在「添加新的站点地图」输入框填入完整地址 <code class="inline-code">https://hittheroaddudeai.fun/sitemap.xml</code>，直接点击右侧蓝色的 <strong>提交</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/17-gsc-submit-sitemap.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/17-gsc-submit-sitemap-640.webp 640w, assets/17-gsc-submit-sitemap-960.webp 960w, assets/17-gsc-submit-sitemap-1280.webp 1280w, assets/17-gsc-submit-sitemap.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/17-gsc-submit-sitemap.png" alt="GSC 站点地图页面，添加新的站点地图输入框填入 https://hittheroaddudeai.fun/sitemap.xml，右侧有蓝色提交按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：在「站点地图」页填入 <a href="https://hittheroaddudeai.fun/sitemap.xml" rel="noopener noreferrer" target="_blank">https://hittheroaddudeai.fun/sitemap.xml</a> 并点「提交」。</p>
+<h3 id="sec-21">5.5 提交成功后的「无法抓取」假报错说明</h3>
+<p>提交后会弹出「已成功提交站点地图」。注意看弹窗背后表格里有时会瞬间显示红色的「无法抓取」——<strong>这是 GSC 对刚验证新站的常见瞬时显示延迟</strong>（后台第一秒还没拉取完）。关掉弹窗后<strong>刷新一下浏览器页面</strong>（或再点一次提交），状态就会变成绿色的「成功」。</p>
+<figure class="media"><a class="media-link" href="assets/18-gsc-sitemap-submitted.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/18-gsc-sitemap-submitted-640.webp 640w, assets/18-gsc-sitemap-submitted-960.webp 960w, assets/18-gsc-sitemap-submitted-1280.webp 1280w, assets/18-gsc-sitemap-submitted.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/18-gsc-sitemap-submitted.png" alt="GSC 弹出已成功提交站点地图提示框" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：站点地图提交成功；若背景列表刚提交时显示红色「无法抓取」，关闭弹窗刷新页面即恢复正常。</p>
+<h2 id="sec-22">6. 将 Search Console 关联回 GA4（打通自然搜索报表）</h2>
+<p>最后一步是把刚建好的 GSC 关联到 GA4，这样在 GA4 里也能直接查看自然搜索词与落地页表现。回到 GA4 左下角 <strong>管理 → 产品关联 → Search Console 关联</strong>，点击右上角蓝色的 <strong>关联</strong>。</p>
+<h3 id="sec-23">6.1 第 1 步：选择刚验证的 Search Console 媒体资源</h3>
+<p>点击「选择账号」，勾选刚才验证通过的 <code class="inline-code">hittheroaddudeai.fun</code>（资源类型为「域」），点击右上角蓝色的 <strong>确认</strong>，然后点「下一步」。</p>
+<figure class="media"><a class="media-link" href="assets/19-ga4-gsc-link-select-property.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/19-ga4-gsc-link-select-property-640.webp 640w, assets/19-ga4-gsc-link-select-property-960.webp 960w, assets/19-ga4-gsc-link-select-property-1280.webp 1280w, assets/19-ga4-gsc-link-select-property.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/19-ga4-gsc-link-select-property.png" alt="GA4 关联 Search Console 抽屉，勾选 hittheroaddudeai.fun 域资源后点右上角确认" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：第 1 步：勾选 hittheroaddudeai.fun 域资源，点右上角「确认」。</p>
+<h3 id="sec-24">6.2 第 2 步：选择对应的网站数据流</h3>
+<p>点击「选择」选中 <code class="inline-code">Web — hittheroaddudeai.fun</code> 数据流，然后点击蓝色的 <strong>下一步</strong>。</p>
+<figure class="media"><a class="media-link" href="assets/20-ga4-gsc-link-select-stream.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/20-ga4-gsc-link-select-stream-640.webp 640w, assets/20-ga4-gsc-link-select-stream-960.webp 960w, assets/20-ga4-gsc-link-select-stream-1280.webp 1280w, assets/20-ga4-gsc-link-select-stream.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/20-ga4-gsc-link-select-stream.png" alt="GA4 建立与 Search Console 的关联第 2 步：已选择网站数据流 Web — hittheroaddudeai.fun，下方有蓝色下一步按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：第 2 步：选中网站数据流 Web — hittheroaddudeai.fun 后点「下一步」。</p>
+<h3 id="sec-25">6.3 第 3 步：检查并点击「提交」</h3>
+<p>进入第 3 步「检查并提交」预览画面后，核对上下两项均为当前站点，<strong>务必再点一次底部的蓝色「提交」按钮</strong>才算真正落盘。</p>
+<figure class="media"><a class="media-link" href="assets/21-ga4-gsc-link-review-submit.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/21-ga4-gsc-link-review-submit-640.webp 640w, assets/21-ga4-gsc-link-review-submit-960.webp 960w, assets/21-ga4-gsc-link-review-submit-1280.webp 1280w, assets/21-ga4-gsc-link-review-submit.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/21-ga4-gsc-link-review-submit.png" alt="GA4 建立与 Search Console 的关联第 3 步：检查并提交页面，底部有蓝色提交按钮" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：第 3 步：核对媒体资源与数据流无误后，点击底部的「提交」按钮。</p>
+<h3 id="sec-26">6.4 确认显示绿色的「链接已创建」</h3>
+<p>提交完成后，页面右侧显示绿底标签 <strong>链接已创建</strong>，至此 GA4 与 Google Search Console 的全套配置与双向关联就 100% 搞定了。</p>
+<figure class="media"><a class="media-link" href="assets/22-ga4-gsc-link-created.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/22-ga4-gsc-link-created-640.webp 640w, assets/22-ga4-gsc-link-created-960.webp 960w, assets/22-ga4-gsc-link-created-1280.webp 1280w, assets/22-ga4-gsc-link-created.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/22-ga4-gsc-link-created.png" alt="GA4 建立与 Search Console 的关联结果页，右侧显示绿色的链接已创建标签" loading="lazy" decoding="async" /></picture></a></figure>
+<p>图注：看到绿色的「链接已创建」，代表 GA4 与 GSC 已全部配置完成并打通。</p>
+<h2 id="sec-27">7. 实操高频问题速查表</h2>
+<div class='table-wrap'><table><tr><th>遇到的现象 / 疑问</th><th>真实原因</th><th>正确处理方式</th></tr><tr><td>需要复制整段 gtag 代码或装 Google Tag Manager 吗？</td><td>不需要，项目已内置带 Cookie 同意控制的注入逻辑</td><td>只需把 <code class="inline-code">G-</code> 开头的衡量 ID 填入 <code class="inline-code">src/config/site.ts</code> 的 <code class="inline-code">analytics.ga4Id</code> 并 <code class="inline-code">npm run deploy</code></td></tr><tr><td>无痕窗口点了 Accept、Network 也有 204，为什么「报告概况」没数？</td><td>当前停在非实时的「报告概况」（汇总表需 24–48 小时），没点进实时页</td><td>点左侧菜单的 <strong>实时概览</strong> 或 <strong>页面实时浏览情况</strong>，立刻能看到活跃用户 <code class="inline-code">1</code></td></tr><tr><td>增强型衡量第一个「网页浏览量」是灰色的，是不是没开？</td><td>不是，圆点在右侧代表它是默认常开的基础项</td><td>保持原样不要动；关掉会导致 SPA 路由切换丢 <code class="inline-code">page_view</code></td></tr><tr><td>数据流顶部提示「网站未启用数据收集功能」怎么办？</td><td>新建数据流尚未收到线上上报时的默认提示</td><td>不用管；站点部署并触发一次 <code class="inline-code">Accept</code> 后，实时报表先出数，黄条会在 48 小时内自动消失</td></tr><tr><td>GSC 点开始验证后跳到 Cloudflare，直接点 Authorize 吗？</td><td>Google 识别到 Cloudflare DNS 后提供的一键 OAuth 授权</td><td>直接点蓝色的 <strong>Authorize</strong>，它会自动添加 <code class="inline-code">TXT</code> 验证记录，无需手动复制粘贴</td></tr><tr><td>GSC 提交 sitemap.xml 后弹窗底下显示红色「无法抓取」？</td><td>GSC 对刚提交第一秒的新站常见瞬时假报错</td><td>线上 <code class="inline-code">sitemap.xml</code> 实测 <code class="inline-code">200 OK</code>；关掉弹窗刷新一下页面就会变成绿色的「成功」</td></tr><tr><td>Cloudflare 2.5k 访问、后台 44 会话、GA4 数字为什么对不上？</td><td>三者统计口径不同：Cloudflare 含爬虫与边缘请求，后台计站内业务会话，GA4 只计点过 Accept 且未开广告拦截的浏览器</td><td>各司其职：看收入订单用后台，看真人渠道趋势用 GA4，看总请求与爬虫用 Cloudflare，看搜索词收录用 GSC</td></tr></table></div>
+  </article>
+  
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">1. 创建 GA4 账号与媒体资源（向导第 1–4 步）</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-2">1.1 账号名称：填品牌名，不要填个人邮箱</a></li><li><a class="toc-link toc-l2" href="#sec-3">1.2 媒体资源：填裸域名、选美西时区与美元（USD）</a></li><li><a class="toc-link toc-l2" href="#sec-4">1.3 商家详情：选行业与规模</a></li><li><a class="toc-link toc-l2" href="#sec-5">1.4 业务目标：勾选核心转化目标</a></li><li><a class="toc-link toc-l2" href="#sec-6">1.5 接受服务条款与 GDPR 数据处理条款</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-7">2. 配置网站数据流与增强衡量（向导第 5 步）</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-8">2.1 增强型衡量：千万不要关掉第一项「网页浏览量」</a></li><li><a class="toc-link toc-l2" href="#sec-9">2.2 复制 G- 开头的衡量 ID（忽略顶部黄色警告）</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-10">3. 站点代码接入与线上实时验证</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-11">3.1 无痕窗口打开网站并点击 Accept</a></li><li><a class="toc-link toc-l2" href="#sec-12">3.2 检查浏览器 Network 面板确认 204 上报成功</a></li><li><a class="toc-link toc-l2" href="#sec-13">3.3 为什么点完 Accept 却在 GA4「报告概况」里看不到数据？</a></li><li><a class="toc-link toc-l2" href="#sec-14">3.4 切到「页面实时浏览情况」确认活跃用户为 1</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-15">4. GA4 后台收尾：数据保留期改为 14 个月</a></li><li><a class="toc-link toc-l1" href="#sec-16">5. 配置 Google Search Console（GSC）并提交站点地图</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-17">5.1 添加「网域」资源（涵盖全部子域与协议）</a></li><li><a class="toc-link toc-l2" href="#sec-18">5.2 跳转 Cloudflare 点击 Authorize 一键写入 TXT 记录</a></li><li><a class="toc-link toc-l2" href="#sec-19">5.3 完成所有权验证并进入资源页面</a></li><li><a class="toc-link toc-l2" href="#sec-20">5.4 提交 Sitemap 站点地图</a></li><li><a class="toc-link toc-l2" href="#sec-21">5.5 提交成功后的「无法抓取」假报错说明</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-22">6. 将 Search Console 关联回 GA4（打通自然搜索报表）</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-23">6.1 第 1 步：选择刚验证的 Search Console 媒体资源</a></li><li><a class="toc-link toc-l2" href="#sec-24">6.2 第 2 步：选择对应的网站数据流</a></li><li><a class="toc-link toc-l2" href="#sec-25">6.3 第 3 步：检查并点击「提交」</a></li><li><a class="toc-link toc-l2" href="#sec-26">6.4 确认显示绿色的「链接已创建」</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-27">7. 实操高频问题速查表</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=eb986118" defer></script>
+<script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

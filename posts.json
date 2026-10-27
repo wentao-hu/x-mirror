@@ -706,6 +706,36 @@
       "blocks_count": 59
     },
     {
+      "id": "note-2026-10-27-waffo-payment-kyb-tutorial",
+      "slug": "note-waffo-payment-kyb-tutorial",
+      "title": "Waffo支付打通与12步KYB店铺审核全流程图文教程",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-26T18:10:00.000Z",
+      "published_local": "2026-10-27 02:10",
+      "category": "海外收款",
+      "category_reason": "完整记录出海独立站接入 Waffo 跨境收款、客服邮箱路由、AIGC 合规审查、沙盒测试支付、12 步 KYB 店铺资质审核与收款账户绑定的实操全流程，核心主题是解决跨境收款与支付资质审核，故归入海外收款。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "Waffo",
+        "海外收款",
+        "KYB审核",
+        "Cloudflare",
+        "Email Routing",
+        "独立站支付",
+        "AIGC合规"
+      ],
+      "avatar_local": "",
+      "images_total": 38,
+      "images_ok": 38,
+      "api_media_count": 0,
+      "fidelity_note": "收录从 Cloudflare Email Routing、OpenAI 内容审核密钥、Waffo 沙盒测试支付、多站点独立店铺配置到 12 步 KYB 审核与提款方式选择的全部 38 张实操截图（严格剔除涉及个人身份证号与银行卡号的敏感信息）。",
+      "plain_text_len": 10290,
+      "blocks_count": 126
+    },
+    {
       "id": "note-2026-10-25-individual-overseas-payment-onboarding",
       "slug": "note-individual-overseas-payment-onboarding",
       "title": "个人做海外收款：先过平台审核，再补公司主体与 Stripe 账户结构",
@@ -1431,6 +1461,36 @@
       "blocks_count": 67
     },
     {
+      "id": "note-2026-10-26-ga4-gsc-setup-guide",
+      "slug": "note-ga4-gsc-setup-guide",
+      "title": "GA4和GSC配置教程",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-26T15:10:00.000Z",
+      "published_local": "2026-10-26 23:10",
+      "category": "建站开发",
+      "category_reason": "主要交付是完成新站 GA4 与 Google Search Console 的后台配置、代码接入、验证与关联；属于网站基础设施配置操作，非搜索策略本身，故归建站开发。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "GA4",
+        "Google Search Console",
+        "GSC",
+        "Cloudflare",
+        "Sitemap",
+        "网站统计",
+        "建站教程"
+      ],
+      "avatar_local": "",
+      "images_total": 22,
+      "images_ok": 22,
+      "api_media_count": 0,
+      "fidelity_note": "完整保留 HTML 第二部分起的全部 8 张 GA4 配置截图与实操对话中的全部 14 张验证、GSC 及关联截图（共 22 张）。",
+      "plain_text_len": 3890,
+      "blocks_count": 78
+    },
+    {
       "id": "note-2026-10-25-new-keyword-site-auth-antispam",
       "slug": "note-new-keyword-site-auth-antispam",
       "title": "新词站登录：先用 Google 登录与免验证邮箱降摩擦，再靠权益门槛防刷",
@@ -1539,8 +1599,8 @@
       "images_ok": 17,
       "api_media_count": 0,
       "fidelity_note": "",
-      "plain_text_len": 5905,
-      "blocks_count": 108
+      "plain_text_len": 6580,
+      "blocks_count": 114
     },
     {
       "id": "note-2026-10-23-google-login-oauth-setup",
@@ -1567,9 +1627,9 @@
       "images_total": 4,
       "images_ok": 4,
       "api_media_count": 0,
-      "fidelity_note": "由离线配置说明转写，4 张配置截图已本地化；部署阻塞项一节按要求移除。",
-      "plain_text_len": 2669,
-      "blocks_count": 35
+      "fidelity_note": "由离线配置说明转写并经多站点实操复核，4 张配置截图已本地化。",
+      "plain_text_len": 3120,
+      "blocks_count": 37
     },
     {
       "id": "note-2026-10-22-ai-automation-after-manual-sites",

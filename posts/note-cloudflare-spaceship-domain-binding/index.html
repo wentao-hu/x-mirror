@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
 <title>Cloudflare 与 Spaceship 域名绑定教程 · X Mirror</title>
-<meta name="description" content="从零把 hittheroaddudeai.fun 接到 Cloudflare Worker：添加站点、处理 DNS、修改 NS、验证生效、绑定域名。 域名绑定分" />
+<meta name="description" content="从零把 Spaceship 购买的新域名（以 hittheroaddudeai.fun / glowupai.tech 为例）接到 Cloudflare Wor" />
 <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
@@ -31,126 +31,120 @@
   <div class="post-controls" data-meta-mount data-slug="note-cloudflare-spaceship-domain-binding"></div>
   
   <article class="article">
-<p>从零把 hittheroaddudeai.fun 接到 Cloudflare Worker：添加站点、处理 DNS、修改 NS、验证生效、绑定域名。</p>
-<p><strong>域名绑定分成两段，顺序不能反：先让 Cloudflare 接管域名的 DNS，再把 Worker 绑定到这个域名。</strong> 第一段在 Cloudflare 和 Spaceship 两边操作，第二段由部署命令自动完成。NS 没生效之前，绑定一定会失败。</p>
-<p><strong>整个流程有四个容易卡住的地方：进错入口、DNS 记录为空导致无法激活、NS 还没生效就部署、部署时没有 workers.dev 子域名。</strong> 这份教程按实际操作顺序写，每一步都标了正确入口和判断标准，照着走可以一次通过。</p>
-<p><strong>全部完成后，判断成功的标准只有两个：</strong> 运行 <code class="inline-code">dig +short NS hittheroaddudeai.fun</code> 返回两个 <code class="inline-code">*.ns.cloudflare.com</code>，以及 <code class="inline-code">curl -I https://hittheroaddudeai.fun</code> 返回 HTTP 200。</p>
-<p><strong>完整流程：从添加站点到域名可访问。</strong> Cloudflare 添加站点 → 加占位记录 → Continue to activation → 复制 NS → Spaceship 改 NS → 等待生效 → Cloudflare Active → 部署 → 绑定 Worker → 验证 → HTTPS 200。</p>
+<p>从零把 Spaceship 购买的新域名（以 <code class="inline-code">hittheroaddudeai.fun</code> / <code class="inline-code">glowupai.tech</code> 为例）接到 Cloudflare Worker：添加站点、清理停放 DNS、修改 NS、绑定自定义域名、开启强制 HTTPS，并完成浏览器端到端验收。</p>
+<p><strong>域名绑定分成两段，顺序不能反：先让 Cloudflare 接管域名的 DNS，再把 Worker 绑定到这个域名。</strong> 第一段在 Cloudflare 和 Spaceship 两边操作，第二段由部署命令自动完成。NS 没生效之前，绑定自定义域名一定会失败。</p>
+<p><strong>整个流程有五个高频卡点：① 进错 Registrations 入口；② 删完停放记录后 DNS 为空无法激活；③ 切 NS 前提前访问或 <code class="inline-code">curl</code> 新域名，导致本机/内网 DNS 把「空 A 记录」负缓存 1 小时（切完后只剩 IPv6，浏览器打开黑屏转圈）；④ 占位 A 记录未删导致 Worker 绑定冲突；⑤ 账号未注册 <code class="inline-code">workers.dev</code> 子域名。</strong> 照着下面顺序走可以一次通过。</p>
+<p><strong>全部完成后，判断成功的硬标准有三条（缺一不可）：</strong> ① <code class="inline-code">dig @223.5.5.5 +short NS &lt;domain&gt;</code> 返回两个 <code class="inline-code">*.ns.cloudflare.com</code>，且 <code class="inline-code">dig +short A &lt;domain&gt;</code> 返回<strong>两个 Cloudflare IPv4 地址</strong>（不能只有 AAAA）；② <code class="inline-code">curl -I http://&lt;domain&gt;</code> 返回 <code class="inline-code">301</code> 跳 <code class="inline-code">https</code> 且 <code class="inline-code">curl -I https://&lt;domain&gt;</code> 返回 <code class="inline-code">HTTP/2 200</code>；③ <strong>在浏览器真实打开 <code class="inline-code">/sign-in</code> 走完一次 Google 登录跳回 <code class="inline-code">/dashboard</code> 水合完成（不卡转圈）</strong>。</p>
+<p><strong>完整最短流水线：</strong> Cloudflare Add a site → 删停放记录并加 <code class="inline-code">192.0.2.1</code> 占位记录 → Continue to activation 拿两个 NS → Spaceship 改自定义 NS → 开启 Always Use HTTPS 并删掉 <code class="inline-code">192.0.2.1</code> → Cloudflare 变 Active → <code class="inline-code">wrangler.jsonc</code> 配 <code class="inline-code">custom_domain</code> 并部署 → 浏览器实测登录验收。</p>
 <h2 id="sec-1">1. 在 Cloudflare 添加站点（不是 Registrations）</h2>
-<p>最容易走错的入口是左侧「Domains → Registrations」，那是 Cloudflare 卖域名的页面，和托管无关。正确入口是首页的「Add a site」，或者直接打开账户的 add-site 地址。</p>
+<p>最容易走错的入口是左侧「Domains → Registrations」，那是 Cloudflare 卖域名的页面，和 DNS 托管无关。正确入口是 <strong>Domains → Overview</strong> 右上角的「Add domain / Add a site」，或者直接打开 <code class="inline-code">https://dash.cloudflare.com/&lt;账户ID&gt;/add-site</code>。</p>
 <figure class="media"><a class="media-link" href="assets/01-wrong-entry.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/01-wrong-entry-640.webp 640w, assets/01-wrong-entry-960.webp 960w, assets/01-wrong-entry-1280.webp 1280w, assets/01-wrong-entry.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/01-wrong-entry.png" alt="Cloudflare Registrations 页面，显示 No domains registered with Cloudflare yet" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：错误入口：Registrations 是域名注册页面，不要在这里操作。</p>
-<p>正确做法：打开 <code class="inline-code">https://dash.cloudflare.com/&lt;账户ID&gt;/add-site</code>，或者左侧 <strong>Domains → Overview</strong> 右上角的「Add a site」，输入 <code class="inline-code">hittheroaddudeai.fun</code>，选 Free 计划。</p>
+<p>图注：错误入口：Registrations 是买域名的页面，不要在这里操作。</p>
+<p>正确做法：打开 <code class="inline-code">https://dash.cloudflare.com/&lt;账户ID&gt;/add-site</code> → 点 <strong>Connect a domain</strong> → 输入新域名（如 <code class="inline-code">hittheroaddudeai.fun</code>），点 Continue 后选最左侧的 <strong>Free ($0)</strong> 计划。</p>
 <h3 id="sec-2">1.1 AI 爬虫策略怎么选</h3>
-<p>添加站点时会让你配置 AI training 与 search policies。Search 必须允许，否则搜索引擎无法收录；Agent 建议允许；Training 可以阻止，不影响 SEO。最上面的广告变现选项当前不要勾。</p>
+<p>输入域名展开 Additional configuration 时会看到 AI training &amp; search policies：<strong>Search 必须选 Allow</strong>（否则搜索引擎无法收录）；<strong>Agent 选 Allow</strong>；Training 可选 Block 或保持默认。最上面的「I monetize pages that serve ads」不要勾。</p>
 <figure class="media"><a class="media-link" href="assets/02-ai-policies.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/02-ai-policies-640.webp 640w, assets/02-ai-policies-960.webp 960w, assets/02-ai-policies-1280.webp 1280w, assets/02-ai-policies.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/02-ai-policies.png" alt="Cloudflare 添加站点时的 AI training 与 search policies 配置界面" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：AI 策略：Search 选 Allow；Agent 选 Allow；Training 可选 Block；广告变现选项不勾。</p>
+<p>图注：AI 策略：Search 选 Allow；Agent 选 Allow；广告变现选项不勾。</p>
 <h2 id="sec-3">2. 处理 DNS 记录：删掉停放记录，加一条占位记录</h2>
 <figure class="media"><a class="media-link" href="assets/03-dns-overview.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/03-dns-overview-640.webp 640w, assets/03-dns-overview-960.webp 960w, assets/03-dns-overview-1280.webp 1280w, assets/03-dns-overview.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/03-dns-overview.png" alt="Cloudflare DNS 管理页面，顶部有 MX 记录和 www 子域名提示，下方是 DNS 记录列表" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：DNS 管理页：顶部的 MX 和 www 提示当前都不用处理；下方列表才是要清理的记录。</p>
-<p>Cloudflare 扫描域名时会带出原注册商的记录。Spaceship 默认会挂两条指向停放页的 A 记录，它们不是你的服务器，必须删掉。删完后又会出现一个「没有记录无法激活」的拦截，所以还要加一条中性的占位记录。</p>
-<h3 id="sec-4">2.1 删除 Spaceship 的停放 A 记录</h3>
-<p>这两条记录的 IP 属于 AWS，指向 Spaceship 的域名停放页。逐条点右侧 Delete 删除，不要勾选复选框。左侧的橙色警告图标提示这条记录可能不是你想要的。</p>
+<p>图注：DNS 审核页：顶部的 MX 和 www 提示不用处理；下方列表才是要清理的记录。</p>
+<p>Cloudflare 扫描域名时会带出 Spaceship 默认挂的两条停放页 A 记录（指向 AWS IP <code class="inline-code">54.149.79.189</code> 和 <code class="inline-code">34.216.117.25</code>），必须全部删掉。但删空后 Cloudflare 会拦截激活，所以紧接着要加一条 <code class="inline-code">192.0.2.1</code> 占位记录过审。</p>
+<h3 id="sec-4">2.1 删除 Spaceship 的两条停放 A 记录</h3>
+<p>逐条点击右侧 <strong>Delete</strong> 并在弹窗点确认删除。左侧的橙色感叹号也在提示这两条停放记录需要清理。</p>
 <figure class="media"><a class="media-link" href="assets/04-parking-records.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/04-parking-records-640.webp 640w, assets/04-parking-records-960.webp 960w, assets/04-parking-records-1280.webp 1280w, assets/04-parking-records.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/04-parking-records.png" alt="DNS 记录列表中有两条指向 54.149.79.189 和 34.216.117.25 的 A 记录" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：停放记录：两条 A 记录分别指向 54.149.79.189 和 34.216.117.25，删除它们。</p>
+<p>图注：停放记录：两条 A 记录分别指向 54.149.79.189 和 34.216.117.25，逐条 Delete 删除。</p>
 <h3 id="sec-5">2.2 空记录状态是正常的</h3>
-<p>删完之后显示 No DNS records。这是干净的起始状态，Worker 绑定域名时会自动创建需要的记录。</p>
+<p>删完之后列表显示 <code class="inline-code">No DNS records</code>，这是干净的起始状态。</p>
 <figure class="media"><a class="media-link" href="assets/05-no-records.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/05-no-records-640.webp 640w, assets/05-no-records-960.webp 960w, assets/05-no-records-1280.webp 1280w, assets/05-no-records.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/05-no-records.png" alt="DNS 记录列表为空，显示 No DNS records" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：删除后的状态：No DNS records，属于正常现象。</p>
 <h3 id="sec-6">2.3 加一条占位 A 记录才能激活</h3>
-<p>点 Continue 会弹出「Add records later」警告：没有 DNS 记录，Cloudflare 无法激活站点。不要点 Confirm 跳过，点 Cancel，然后添加一条占位记录。</p>
+<p>如果空着记录直接点 Continue，会弹出「Add records later」拦截框。此时点 <strong>Cancel</strong> 回到列表，点 <strong>Add record</strong> 添加一条占位记录。</p>
 <figure class="media"><a class="media-link" href="assets/06-add-records-later.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/06-add-records-later-640.webp 640w, assets/06-add-records-later-960.webp 960w, assets/06-add-records-later-1280.webp 1280w, assets/06-add-records-later.webp 1384w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/06-add-records-later.png" alt="Add records later 弹窗，提示没有 DNS 记录无法激活站点" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：拦截弹窗：没有 DNS 记录无法激活。点 Cancel，回去添加占位记录。</p>
-<p>添加一条 A 记录：Name 填 <code class="inline-code">@</code>，IPv4 填 <code class="inline-code">192.0.2.1</code>，Proxy 保持 Proxied，TTL 选 Auto。这个地址是保留的文档示例地址，不会指向真实服务器，只用于满足激活条件。</p>
+<p>添加一条 A 记录：Name 填 <code class="inline-code">@</code>，IPv4 address 填 <code class="inline-code">192.0.2.1</code>（RFC 5737 保留的文档示例地址，不指向真实服务器），Proxy 保持 Proxied，点 <strong>Save</strong>。</p>
 <figure class="media"><a class="media-link" href="assets/07-placeholder-record.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/07-placeholder-record-640.webp 640w, assets/07-placeholder-record-960.webp 960w, assets/07-placeholder-record-1280.webp 1280w, assets/07-placeholder-record.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/07-placeholder-record.png" alt="DNS 记录列表新增一条 A 记录，Name 为主域名，内容为 192.0.2.1，状态 Proxied" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：占位记录：A @ 192.0.2.1，Proxied。激活后绑定 Worker 时会被替换。</p>
+<p>图注：占位记录：A @ 192.0.2.1，Proxied。仅用于通过激活步骤，后面绑定 Worker 前会删掉。</p>
 <h2 id="sec-7">3. 获取 Cloudflare 的 nameserver</h2>
-<p>点 Continue to activation 后，Cloudflare 会给出两个分配给你的 nameserver，并列出需要删除的旧 nameserver。这两个地址每个账号不同，不要照抄别人的。</p>
+<p>点 <strong>Continue to activation</strong> 后，Cloudflare 会给出分配给你的两个 nameserver（同一账号下通常是 <code class="inline-code">keira.ns.cloudflare.com</code> 和 <code class="inline-code">sri.ns.cloudflare.com</code>），并列出需要替换掉的 <code class="inline-code">launch1.spaceship.net</code> / <code class="inline-code">launch2.spaceship.net</code>。</p>
 <figure class="media"><a class="media-link" href="assets/08-nameservers.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/08-nameservers-640.webp 640w, assets/08-nameservers-960.webp 960w, assets/08-nameservers-1280.webp 1280w, assets/08-nameservers.webp 1784w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/08-nameservers.png" alt="Cloudflare 显示两个 nameserver：keira.ns.cloudflare.com 和 sri.ns.cloudflare.com" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：示例：keira.ns.cloudflare.com 和 sri.ns.cloudflare.com；旧 NS 是 launch1/launch2.spaceship.net。</p>
+<p>图注：复制分配给你的两个 Cloudflare nameserver（如 keira.ns.cloudflare.com 和 sri.ns.cloudflare.com）。</p>
 <h2 id="sec-8">4. 在 Spaceship 修改 nameserver</h2>
-<p>进入 Spaceship 的域名管理，选择 DNS Tools，点「自定义名称服务器」下面的「选择」。不要选「手动为您的域创建 DNS 记录」，那是自己管 DNS，不是换 NS。</p>
+<p>打开 Spaceship 域名管理器（<code class="inline-code">https://www.spaceship.com/zh/application/domain-list-application/</code>），点击目标域名 → 右侧面板点「名称服务器和DNS」→ 点「Spaceship名称服务器」旁的「更改」（或在 DNS Tools 向导里点「自定义名称服务器」下的「选择」）。</p>
 <figure class="media"><a class="media-link" href="assets/09-spaceship-tools.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/09-spaceship-tools-640.webp 640w, assets/09-spaceship-tools-960.webp 960w, assets/09-spaceship-tools-1280.webp 1280w, assets/09-spaceship-tools.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/09-spaceship-tools.png" alt="Spaceship DNS Tools 页面，有自定义名称服务器和手动创建 DNS 记录两个选项" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：Spaceship：选「自定义名称服务器」，不要选手动创建 DNS 记录。</p>
-<p>删除 Spaceship 默认的两个 nameserver，填入 Cloudflare 给的两个地址。</p>
+<p>切换到「自定义名称服务器」后，填入 Cloudflare 给的两个地址（<code class="inline-code">keira.ns.cloudflare.com</code> 和 <code class="inline-code">sri.ns.cloudflare.com</code>），保存设置。</p>
 <figure class="media"><a class="media-link" href="assets/10-spaceship-ns.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/10-spaceship-ns-640.webp 640w, assets/10-spaceship-ns-960.webp 960w, assets/10-spaceship-ns-1280.webp 1280w, assets/10-spaceship-ns.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/10-spaceship-ns.png" alt="Spaceship 名称服务器设置页，填入 keira.ns.cloudflare.com 和 sri.ns.cloudflare.com" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：填入两个 Cloudflare nameserver，替换 Spaceship 的默认值。</p>
-<p>点「继续」进入检查页，确认配置无误后点「完成配置」。</p>
+<p>若走的是 Unbox 向导，点「继续」进入检查页，确认无误后点「完成配置」→「我完成了」关闭向导；最后回到 Cloudflare 点击 <strong>I updated my nameservers</strong>。</p>
 <figure class="media"><a class="media-link" href="assets/11-spaceship-check.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/11-spaceship-check-640.webp 640w, assets/11-spaceship-check-960.webp 960w, assets/11-spaceship-check-1280.webp 1280w, assets/11-spaceship-check.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/11-spaceship-check.png" alt="Spaceship 检查页面，显示自定义名称服务器为两个 Cloudflare 地址" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：检查页：确认两个 nameserver 都是 Cloudflare 的，点「完成配置」。</p>
-<p>最后点「我完成了」关闭向导。旁边那个「在域名管理器中打开」只是跳转，不影响配置。</p>
 <figure class="media"><a class="media-link" href="assets/12-spaceship-done.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/12-spaceship-done-640.webp 640w, assets/12-spaceship-done-960.webp 960w, assets/12-spaceship-done-1280.webp 1280w, assets/12-spaceship-done.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/12-spaceship-done.png" alt="Spaceship Unbox 完成页面，底部有我完成了按钮" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：完成页：点「我完成了」；NS 变更已经提交给注册局。</p>
-<h2 id="sec-9">5. 等待生效并验证</h2>
-<p>NS 变更通常 5 分钟到几小时，最长 24 小时。刚提交时查到旧 nameserver 是正常的，不要反复改配置。</p>
-<p>先查本地解析：</p>
-<pre><code>dig +short NS hittheroaddudeai.fun</code></pre>
-<p>如果还是旧值，换公共 DNS 绕过本地缓存：</p>
-<pre><code>dig @1.1.1.1 NS hittheroaddudeai.fun +short
-dig @8.8.8.8 NS hittheroaddudeai.fun +short</code></pre>
-<p>查注册局记录，这是最权威的：</p>
-<pre><code>whois hittheroaddudeai.fun | grep -i &quot;name server&quot;</code></pre>
-<p>同时看 Cloudflare 后台的站点状态：Overview 页显示 Pending Nameserver Update 表示还在等待，变成 Active 就完成了。</p>
-<h3 id="sec-10">5.1 Cloudflare 显示 Active，但 dig 还是旧值</h3>
-<p>这是实际遇到的第一个新问题：Cloudflare 的 Domains 页面已经显示 <strong>Active</strong>，但本机运行 <code class="inline-code">dig +short NS</code> 仍然返回 <code class="inline-code">launch1.spaceship.net</code>。原因不是 NS 没切成功，而是你本机使用的递归解析器缓存了旧记录，TTL 可能还有几小时。</p>
+<p>图注：完成页：点「我完成了」；NS 变更已提交给注册局。</p>
+<h2 id="sec-9">5. 等待生效与两个 DNS 缓存大坑</h2>
+<p>NS 变更在注册局通常 1～5 分钟内生效。<strong>关键纪律：在 Cloudflare 状态变成 Active 且 Worker 部署完成之前，绝对不要在浏览器里提前打开或用本机 <code class="inline-code">curl</code> 裸域名！</strong> 否则本机/公司内网递归 DNS 会把切 NS 期间的「0 条 A 记录（SOA 负缓存 3600 秒）」缓存整整 1 小时。</p>
+<p>验证 NS 时直接指定公共 DNS（绕过本机/内网 DNS 缓存）：</p>
+<pre><code>dig @223.5.5.5 NS hittheroaddudeai.fun +short
+dig @1.1.1.1 NS hittheroaddudeai.fun +short</code></pre>
+<p>同时看 Cloudflare 后台 <strong>Domains → Overview</strong>：状态从 <code class="inline-code">Pending Nameserver Update</code> 变成 <strong>Active</strong> 即代表注册局切换完成。</p>
+<h3 id="sec-10">5.1 坑一：Cloudflare 已显示 Active，但本机 dig NS 还是旧值</h3>
+<p>Cloudflare 的 Domains 页面已经显示 <strong>Active</strong>，但本机不带 <code class="inline-code">@</code> 直接跑 <code class="inline-code">dig +short NS</code> 仍返回 <code class="inline-code">launch1.spaceship.net</code>。原因是你本机网络（例如公司内网 DNS <code class="inline-code">11.11.11.11</code>）缓存了旧 NS 记录。</p>
 <figure class="media"><a class="media-link" href="assets/36.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/36-640.webp 640w, assets/36-960.webp 960w, assets/36-1280.webp 1280w, assets/36.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/36.png" alt="Cloudflare Domains 页面显示 hittheroaddudeai.fun 状态为 Active" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：Cloudflare 已经显示 Active，说明注册局的 NS 切换已经完成。</p>
-<p>用公共 DNS 复核：</p>
-<pre><code>dig @1.1.1.1 NS hittheroaddudeai.fun +short
-dig @8.8.8.8 NS hittheroaddudeai.fun +short</code></pre>
-<p>两个公共 DNS 都返回 <code class="inline-code">keira.ns.cloudflare.com</code> 和 <code class="inline-code">sri.ns.cloudflare.com</code>，就说明已经生效，可以继续部署。判断顺序是：<strong>Cloudflare 状态 Active + 公共 DNS 正确 = 已生效</strong>，本机缓存不影响部署。</p>
-<h3 id="sec-11">5.2 部署时会遇到的两个账号级设置</h3>
-<p>NS 生效后第一次执行 <code class="inline-code">npm run deploy</code>，可能同时报两个错误。它们都不是代码问题，是 Cloudflare 账号的设置。</p>
-<h4>错误一：Hostname already has externally managed DNS records</h4>
-<p>原因：激活站点时添加的占位 A 记录 <code class="inline-code">192.0.2.1</code> 还在，Worker 绑定自定义域名时发现记录冲突。</p>
-<p>处理：Cloudflare → 域名 → DNS → Records，删除 <code class="inline-code">A @ 192.0.2.1</code>，再重新部署。</p>
-<h4>错误二：You need a workers.dev subdomain in order to proceed</h4>
-<p>原因：Cron 定时任务和 Queue 消费者要求账号注册过 workers.dev 子域名，即使你把 <code class="inline-code">workers_dev</code> 设为 false、不对外使用它。</p>
-<p>入口在新版 Cloudflare 里不太显眼：左侧 <strong>Compute → Workers &amp; Pages</strong>，不是单独的顶栏菜单。</p>
+<p><strong>判断准则：Cloudflare 状态 Active + 公共 DNS（<code class="inline-code">@223.5.5.5</code> / <code class="inline-code">@1.1.1.1</code>）返回 Cloudflare NS = 已生效</strong>，可以直接继续部署 Worker。</p>
+<h3 id="sec-11">5.2 坑二：提前访问导致「只有 IPv6、没有 IPv4」，浏览器打开奇慢或卡在转圈黑屏</h3>
+<p>如果切 NS 前本机已经查过一次该域名，切完并部署 Worker 后你会遇到一个诡异现象：<code class="inline-code">curl -I</code> 看似能通，但浏览器打开网站奇慢，或者在 <code class="inline-code">/sign-in</code>、<code class="inline-code">/dashboard</code> 一直卡在转圈黑屏。运行下面两条命令即可锁定根因：</p>
+<pre><code>dig A glowupai.tech
+dig +short AAAA glowupai.tech</code></pre>
+<p>如果 <code class="inline-code">dig A</code> 返回 <code class="inline-code">ANSWER: 0</code> 且 <code class="inline-code">AUTHORITY</code> 还是 <code class="inline-code">SOA launch1.spaceship.net</code>（带几百秒倒计时），而 <code class="inline-code">dig +short AAAA</code> 却返回了两条 <code class="inline-code">2606:4700:...</code> 的 Cloudflare IPv6 地址——说明内网 DNS 缓存了旧的「无 IPv4 记录（负缓存）」，浏览器只能去连 IPv6，而在国内网络直连 Cloudflare IPv6 往往连接超时，导致前端水合 JS 和 <code class="inline-code">/api/me</code> 挂起！</p>
+<p><strong>立即解法（二选一）：</strong> ① 等 <code class="inline-code">SOA</code> 倒计时（最多几十分钟）自然过期，直到 <code class="inline-code">dig +short A &lt;domain&gt;</code> 正常返回两条 Cloudflare IPv4（如 <code class="inline-code">104.21.x.x</code>、<code class="inline-code">172.67.x.x</code>）；② 在 Chrome 设置 → 隐私设置和安全性 → 安全 → 开启「使用安全 DNS（DoH）」并选 Cloudflare（<code class="inline-code">1.1.1.1</code>），立即绕过内网 DNS 负缓存。</p>
+<h3 id="sec-12">5.3 部署前必须处理的两个 Cloudflare 设置</h3>
+<h4>设置一：删除 192.0.2.1 占位 A 记录（防 Hostname already has externally managed DNS records）</h4>
+<p>激活站点时添加的占位记录 <code class="inline-code">A @ 192.0.2.1</code> 如果还在，执行 <code class="inline-code">wrangler deploy</code> 绑定自定义域名时会报 <code class="inline-code">Hostname already has externally managed DNS records</code>。<strong>处理：</strong> 在 Cloudflare 站点进入 <strong>DNS → Records</strong>，点 <code class="inline-code">192.0.2.1</code> 右侧的 <strong>Edit → Delete</strong> 删掉它，然后再跑部署。</p>
+<h4>设置二：首次使用需注册账号级 workers.dev 子域名（防 You need a workers.dev subdomain）</h4>
+<p>Cron 定时任务和 Queue 消费者要求 Cloudflare 账号注册过一次 <code class="inline-code">workers.dev</code> 子域名（一个账号只需注册一次，后续新站无需重复操作）。入口在左侧 <strong>Compute → Workers &amp; Pages</strong>。</p>
 <figure class="media"><a class="media-link" href="assets/37.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/37-640.webp 640w, assets/37-960.webp 960w, assets/37-1280.webp 1280w, assets/37.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/37.png" alt="Cloudflare 左侧菜单 Domains 页面，Workers 入口不在此处" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：找不到 Workers &amp; Pages 时：它在新版的 Compute 分组下，不在 Domains 里。</p>
-<p>打开 Workers &amp; Pages 后，列表里的 <code class="inline-code">x-mirror</code>、<code class="inline-code">econradar-sync</code> 是 Pages 项目，使用的是 <code class="inline-code">pages.dev</code> 子域名，不能替代 workers.dev。首次进入或打开 onboarding 链接时会提示创建 workers.dev 子域名。</p>
+<p>图注：Workers &amp; Pages 在新版左侧的 Compute 分组下，不在 Domains 里。</p>
 <figure class="media"><a class="media-link" href="assets/39.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/39-640.webp 640w, assets/39-960.webp 960w, assets/39-1280.webp 1280w, assets/39.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/39.png" alt="Cloudflare Workers &amp; Pages 列表，显示多个 Pages 项目和 hit-the-road-dude Worker" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：Workers &amp; Pages 列表：Pages 项目用 pages.dev，不等于 Workers 需要的 workers.dev 子域名。</p>
-<p>创建后，进入 Worker 详情 → <strong>Domains</strong> 标签。Worker URL 区域会出现 <code class="inline-code">hit-the-road-dude.stevenhwt.workers.dev</code>，说明子域名已经注册。Production 和 Preview 两个开关<strong>都不要打开</strong>，因为配置里已经设了 <code class="inline-code">workers_dev: false</code>，它们只用于临时调试。</p>
+<p>图注：Workers &amp; Pages 列表：Pages 项目的 pages.dev 不能替代 Workers 需要的 workers.dev 子域名。</p>
+<p>注册后，Worker 详情 → <strong>Domains</strong> 标签下 <code class="inline-code">workers.dev</code> 和 <code class="inline-code">Preview URLs</code> 两个开关保持关闭（代码里已设 <code class="inline-code">workers_dev: false</code>），Custom Domains 会在部署后自动挂载。</p>
 <figure class="media"><a class="media-link" href="assets/40.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/40-640.webp 640w, assets/40-960.webp 960w, assets/40-1280.webp 1280w, assets/40.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/40.png" alt="Worker 详情 Domains 页面，包含 Worker URL 的 Production 与 Preview 开关，以及 Custom Domains and Routes 区域" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：Worker → Domains：Production/Preview 开关保持关闭；Custom Domains 在部署成功后会自动出现。</p>
-<h2 id="sec-12">6. 绑定 Worker 自定义域名</h2>
-<p>NS 生效后，在项目的 <code class="inline-code">wrangler.jsonc</code> 里加自定义域名，并关闭默认的 workers.dev 地址。推荐配置：</p>
-<p><code class="inline-code">wrangler.jsonc</code> 的域名与开关配置：</p>
+<h2 id="sec-13">6. 绑定 Worker 自定义域名并部署</h2>
+<p>删掉 <code class="inline-code">192.0.2.1</code> 占位记录且站点处于 Active 后，在项目的 <code class="inline-code">wrangler.jsonc</code> 里配置 <code class="inline-code">routes</code> 并关闭 <code class="inline-code">workers_dev</code> 与 <code class="inline-code">preview_urls</code>：</p>
 <pre><code>&quot;routes&quot;: [
   { &quot;pattern&quot;: &quot;hittheroaddudeai.fun&quot;, &quot;custom_domain&quot;: true }
 ],
 &quot;workers_dev&quot;: false,
 &quot;preview_urls&quot;: false</code></pre>
-<p>然后重新部署：</p>
-<pre><code>npm run deploy</code></pre>
-<p>部署成功时，输出里会出现四类绑定：<code class="inline-code">hittheroaddudeai.fun (custom domain)</code>、Cron 的 <code class="inline-code">schedule: */5 * * * *</code>、队列的生产者和两个消费者。看到这些就说明域名、定时任务和队列都已接上。</p>
-<p>如果部署报「记录冲突」，先删占位 A 记录；报「需要 workers.dev 子域名」，按 5.2 注册后再部署。</p>
-<h2 id="sec-13">7. 确认域名绑定生效</h2>
-<p>部署完成后依次检查：</p>
-<pre><code>dig +short hittheroaddudeai.fun
-curl -I https://hittheroaddudeai.fun</code></pre>
-<p>判断标准：<code class="inline-code">dig</code> 返回 Cloudflare 的 IP（例如 <code class="inline-code">172.67.141.63</code>、<code class="inline-code">104.21.71.3</code>）；<code class="inline-code">curl -I</code> 返回 <code class="inline-code">HTTP/2 200</code>。本项目实际验证时，首页、<code class="inline-code">/zh</code>、<code class="inline-code">/pricing</code>、<code class="inline-code">/guides</code>、两篇文章和 <code class="inline-code">/sign-in</code> 全部返回 200，Google 登录入口返回 302 并正确跳转到 accounts.google.com。</p>
-<h2 id="sec-14">8. 开启 Always Use HTTPS（强制 HTTPS 跳转）</h2>
-<p><strong>Always Use HTTPS 是 Cloudflare 的强制跳转开关：访客输入 <code class="inline-code">http://hittheroaddudeai.fun</code>，或者点到 http 链接时，自动 301 跳到 https。</strong> 没开之前 http 直接返回 200，同一份内容有两个地址：浏览器会标「不安全」，搜索引擎会当成重复入口。站点审计也是被这一条卡在 60 分。</p>
-<p>入口：打开 <code class="inline-code">dash.cloudflare.com</code> → 选中域名 <code class="inline-code">hittheroaddudeai.fun</code> → 左侧 <strong>SSL/TLS → Edge Certificates</strong> → 找到 <strong>Always Use HTTPS</strong>，把开关打开。免费、立即生效。同一页下方的 HSTS 是另一项独立策略，本教程不需要改动。</p>
+<p>然后构建并部署（若处于公司内网 VPN 导致 <code class="inline-code">dash.cloudflare.com</code> DNS 超时，可在前面加公共 DNS 注入）：</p>
+<pre><code>npm run build &amp;&amp; npx wrangler deploy</code></pre>
+<p>部署成功时，终端会输出四类触发器：<code class="inline-code">hittheroaddudeai.fun (custom domain)</code>、<code class="inline-code">schedule: */5 * * * *</code>、<code class="inline-code">Producer for ...-jobs</code> 和两个 <code class="inline-code">Consumer</code>。此时 Cloudflare 已自动为该域名生成 Worker 专属的 IPv4（A）和 IPv6（AAAA）记录并签发边缘证书。</p>
+<h2 id="sec-14">7. 开启 Always Use HTTPS（强制 HTTPS 301 跳转）</h2>
+<p><strong>Always Use HTTPS 是必开项：访客输入 <code class="inline-code">http://&lt;domain&gt;</code> 时自动 301 跳到 <code class="inline-code">https://&lt;domain&gt;</code>。</strong> 没开之前 <code class="inline-code">http</code> 直接返回 200，浏览器会标「不安全」，SEO 审计也会因重复入口扣分。</p>
+<p>入口：Cloudflare 选中该域名 → 左侧 <strong>SSL/TLS → Edge Certificates</strong> → 往下滚动找到 <strong>Always Use HTTPS</strong>，把开关打开（立即生效，下方 HSTS 保持默认即可）。</p>
 <figure class="media"><a class="media-link" href="assets/41.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/41-640.webp 640w, assets/41-960.webp 960w, assets/41-1280.webp 1280w, assets/41.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/41.png" alt="Cloudflare SSL/TLS Edge Certificates 页面，Always Use HTTPS 开关已开启，下方是 HTTP Strict Transport Security 设置" loading="lazy" decoding="async" /></picture></a></figure>
-<p>图注：Edge Certificates 页：Always Use HTTPS 打开后，所有 http 请求都会被 301 到 https；下方 HSTS 保持默认。</p>
-<p>验证：</p>
-<pre><code>curl -I http://hittheroaddudeai.fun</code></pre>
-<p>判断标准：返回 <code class="inline-code">HTTP/1.1 301 Moved Permanently</code>，并带有 <code class="inline-code">Location: https://hittheroaddudeai.fun/</code>。2026 年 10 月 24 日实测已返回 301，同一域名的 https 请求返回 <code class="inline-code">HTTP/2 200</code>。</p>
-<p>注意：如果源站自己也强制 HTTPS 跳转，两边同时开启会形成重定向循环（<code class="inline-code">ERR_TOO_MANY_REDIRECTS</code>），这时要关掉源站一侧的跳转。</p>
-<h2 id="sec-15">9. 常见问题</h2>
-<div class='table-wrap'><table><tr><th>现象</th><th>原因</th><th>处理</th></tr><tr><td>dig 仍显示 spaceship</td><td>本地解析器缓存旧 NS</td><td>换 1.1.1.1 查询；以 Cloudflare Active 为准</td></tr><tr><td>部署提示已有 DNS 记录</td><td>占位 A 记录还在</td><td>删除 A @ 192.0.2.1</td></tr><tr><td>找不到 Workers &amp; Pages</td><td>新版菜单收进 Compute</td><td>左侧 Compute → Workers &amp; Pages</td></tr><tr><td>无法激活站点</td><td>DNS 记录为空</td><td>添加 A @ 192.0.2.1</td></tr><tr><td>部署报 workers.dev 子域名</td><td>没注册默认域名</td><td>先绑自定义域名，或注册子域</td></tr><tr><td>访问返回 522/502</td><td>Worker 没部署或路由不对</td><td>检查 routes 后重新部署</td></tr><tr><td>证书一直 pending</td><td>Cloudflare 正在签发</td><td>等待几分钟到几小时</td></tr><tr><td>页面指向停放页</td><td>Spaceship 的 A 记录没删</td><td>删除旧 A 记录</td></tr></table></div>
-<h2 id="sec-16">10. 一次性检查清单</h2>
-<ol><li>Cloudflare 里已添加站点，状态最终为 Active。</li><li>Spaceship 的停放 A 记录已删除。</li><li>至少有一条占位记录让站点完成激活。</li><li>Spaceship 的 nameserver 已改成 Cloudflare 的两个地址。</li><li><code class="inline-code">dig +short NS</code> 或用 <code class="inline-code">@1.1.1.1</code> 查询，返回两个 <code class="inline-code">*.ns.cloudflare.com</code>。</li><li>占位 A 记录 192.0.2.1 已删除。</li><li>账号已注册 workers.dev 子域名（Cron 和队列需要）。</li><li><code class="inline-code">wrangler.jsonc</code> 已配置 custom_domain，并关闭 workers_dev。</li><li>已执行 <code class="inline-code">npm run deploy</code>。</li><li>已在 SSL/TLS → Edge Certificates 开启 Always Use HTTPS。</li><li><code class="inline-code">curl -I http://hittheroaddudeai.fun</code> 返回 301 并跳到 https。</li><li><code class="inline-code">curl -I https://hittheroaddudeai.fun</code> 返回 200。</li></ol>
-<p>截至 2026 年 10 月 24 日：域名已绑定成功，<a href="https://hittheroaddudeai.fun" rel="noopener noreferrer" target="_blank">https://hittheroaddudeai.fun</a> 返回 200；Cloudflare 状态 Active，公共 DNS 已返回 keira/sri.ns.cloudflare.com；部署时修正了占位记录冲突并注册了 workers.dev 子域名；已在 SSL/TLS → Edge Certificates 开启 Always Use HTTPS，http 请求返回 301 并跳转到 https。</p>
+<p>图注：Edge Certificates 页：Always Use HTTPS 打开后，所有 http 请求都会被 301 到 https。</p>
+<h2 id="sec-15">8. 三步终极验收（命令行 + 浏览器真机登录）</h2>
+<p><strong>光看 <code class="inline-code">curl -I</code> 返回 200 不算上线成功！</strong> 必须按顺序跑完下面三步验收：</p>
+<pre><code># 1. 验证 A 记录必须返回 2 个 Cloudflare IPv4 地址（不能只有 AAAA）
+dig +short A hittheroaddudeai.fun
+
+# 2. 验证 HTTP 强制 301 跳 HTTPS，且核心页面全部返回 HTTP/2 200，Google 登录入口返回 302
+curl -sI http://hittheroaddudeai.fun | head -5
+for p in &quot;&quot; &quot;/zh&quot; &quot;/pricing&quot; &quot;/guides&quot; &quot;/sign-in&quot; &quot;/api/auth/google/start&quot;; do
+  printf &quot;%s -&gt; &quot; &quot;https://hittheroaddudeai.fun$p&quot;
+  curl -sI &quot;https://hittheroaddudeai.fun$p&quot; | head -1
+done</code></pre>
+<p><strong>第 3 步（浏览器视觉与水合验收）：</strong> 在浏览器打开 <code class="inline-code">https://&lt;domain&gt;/sign-in</code>，确认页面为丝绸白亮色主题、没有一直停留在转圈 <code class="inline-code">&lt;Spinner /&gt;</code>，勾选 18+ 条款后点击 <strong>Continue with Google</strong>，选择 Google 账号并确认同意屏幕，验证能顺利跳回 <code class="inline-code">https://&lt;domain&gt;/dashboard</code> 并显示赠送的初始积分。</p>
+<h2 id="sec-16">9. 常见问题速查表</h2>
+<div class='table-wrap'><table><tr><th>现象</th><th>原因</th><th>处理</th></tr><tr><td>打开网页奇慢，或 /sign-in、/dashboard 卡在转圈黑屏</td><td>切 NS 前提前访问过域名，内网 DNS 缓存了 1 小时空 A 记录（只剩 IPv6）</td><td>跑 <code class="inline-code">dig +short A &lt;domain&gt;</code> 核对；开 Chrome 安全 DNS (1.1.1.1) 或等 SOA 倒计时结束</td></tr><tr><td>wrangler deploy 报 auth token refresh unreachable</td><td>公司内网 VPN 的 DNS (11.11.11.11) 解析 dash.cloudflare.com 超时或优先走了不通的 IPv6</td><td>使用公共 DNS <code class="inline-code">223.5.5.5</code> + <code class="inline-code">--no-network-family-autoselection</code> 重新执行 deploy</td></tr><tr><td>dig NS 仍显示 spaceship</td><td>本地解析器缓存旧 NS</td><td>换 <code class="inline-code">dig @223.5.5.5 NS &lt;domain&gt; +short</code>；以 Cloudflare Active 为准</td></tr><tr><td>部署报 Hostname already has externally managed DNS records</td><td>激活站点时加的占位记录 <code class="inline-code">A @ 192.0.2.1</code> 还没删</td><td>在 Cloudflare → DNS → Records 删除 <code class="inline-code">192.0.2.1</code> 后重新 deploy</td></tr><tr><td>无法激活站点（Add records later 弹窗）</td><td>删掉停放记录后 DNS 记录为空</td><td>点 Cancel，添加一条 <code class="inline-code">A @ 192.0.2.1</code> 占位记录</td></tr><tr><td>部署报 You need a workers.dev subdomain</td><td>账号首次使用 Workers 还没注册默认子域</td><td>左侧 Compute → Workers &amp; Pages 注册一次子域</td></tr><tr><td>http 请求返回 200 而不是 301</td><td>未开启 Always Use HTTPS</td><td>SSL/TLS → Edge Certificates 打开 Always Use HTTPS</td></tr></table></div>
+<h2 id="sec-17">10. 一次性上线检查清单</h2>
+<ol><li>Cloudflare 已添加站点（Free 计划），Search 与 Agent 爬虫策略设为 Allow。</li><li>Spaceship 的两条停放 A 记录（54.149.79.189 / 34.216.117.25）已删除，并用 <code class="inline-code">A @ 192.0.2.1</code> 占位记录完成激活向导。</li><li>Spaceship 的名称服务器已改为 Cloudflare 分配的两个 NS 地址。</li><li>已在 SSL/TLS → Edge Certificates 开启 <strong>Always Use HTTPS</strong>，且已在 DNS → Records 删除 <code class="inline-code">192.0.2.1</code> 占位记录。</li><li>Cloudflare 站点状态已变为 <strong>Active</strong>（期间未提前访问裸域名污染本机 A 记录缓存）。</li><li>已创建 D1、R2（含生命周期与模板图）、KV、Queues，已同步 <code class="inline-code">SESSION_SECRET</code> 与 <code class="inline-code">GOOGLE_CLIENT_SECRET</code>。</li><li><code class="inline-code">wrangler.jsonc</code> 已配置 <code class="inline-code">routes</code>（<code class="inline-code">custom_domain: true</code>）并设 <code class="inline-code">workers_dev: false</code>、<code class="inline-code">preview_urls: false</code>，已删除模板遗留的 <code class="inline-code">wrangler.staging.jsonc</code>。</li><li>已执行 <code class="inline-code">npm run build &amp;&amp; npx wrangler deploy</code>，输出包含 <code class="inline-code">&lt;domain&gt; (custom domain)</code>。</li><li><code class="inline-code">dig +short A &lt;domain&gt;</code> 返回两个 Cloudflare IPv4 地址，<code class="inline-code">http</code> 返回 301，<code class="inline-code">https</code> 返回 200。</li><li>已在浏览器实测打开 <code class="inline-code">/sign-in</code> 完成一次 Google 登录并正常渲染 <code class="inline-code">/dashboard</code>。</li></ol>
   </article>
   
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
 </div>
-<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">1. 在 Cloudflare 添加站点（不是 Registrations）</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-2">1.1 AI 爬虫策略怎么选</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-3">2. 处理 DNS 记录：删掉停放记录，加一条占位记录</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-4">2.1 删除 Spaceship 的停放 A 记录</a></li><li><a class="toc-link toc-l2" href="#sec-5">2.2 空记录状态是正常的</a></li><li><a class="toc-link toc-l2" href="#sec-6">2.3 加一条占位 A 记录才能激活</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-7">3. 获取 Cloudflare 的 nameserver</a></li><li><a class="toc-link toc-l1" href="#sec-8">4. 在 Spaceship 修改 nameserver</a></li><li><a class="toc-link toc-l1" href="#sec-9">5. 等待生效并验证</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-10">5.1 Cloudflare 显示 Active，但 dig 还是旧值</a></li><li><a class="toc-link toc-l2" href="#sec-11">5.2 部署时会遇到的两个账号级设置</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-12">6. 绑定 Worker 自定义域名</a></li><li><a class="toc-link toc-l1" href="#sec-13">7. 确认域名绑定生效</a></li><li><a class="toc-link toc-l1" href="#sec-14">8. 开启 Always Use HTTPS（强制 HTTPS 跳转）</a></li><li><a class="toc-link toc-l1" href="#sec-15">9. 常见问题</a></li><li><a class="toc-link toc-l1" href="#sec-16">10. 一次性检查清单</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-fold" aria-expanded="true">全折叠</button><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">1. 在 Cloudflare 添加站点（不是 Registrations）</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-2">1.1 AI 爬虫策略怎么选</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-3">2. 处理 DNS 记录：删掉停放记录，加一条占位记录</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-4">2.1 删除 Spaceship 的两条停放 A 记录</a></li><li><a class="toc-link toc-l2" href="#sec-5">2.2 空记录状态是正常的</a></li><li><a class="toc-link toc-l2" href="#sec-6">2.3 加一条占位 A 记录才能激活</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-7">3. 获取 Cloudflare 的 nameserver</a></li><li><a class="toc-link toc-l1" href="#sec-8">4. 在 Spaceship 修改 nameserver</a></li><li><a class="toc-link toc-l1" href="#sec-9">5. 等待生效与两个 DNS 缓存大坑</a><ul class="toc-l2-list"><li><a class="toc-link toc-l2" href="#sec-10">5.1 坑一：Cloudflare 已显示 Active，但本机 dig NS 还是旧值</a></li><li><a class="toc-link toc-l2" href="#sec-11">5.2 坑二：提前访问导致「只有 IPv6、没有 IPv4」，浏览器打开奇慢或卡在转圈黑屏</a></li><li><a class="toc-link toc-l2" href="#sec-12">5.3 部署前必须处理的两个 Cloudflare 设置</a></li></ul></li><li><a class="toc-link toc-l1" href="#sec-13">6. 绑定 Worker 自定义域名并部署</a></li><li><a class="toc-link toc-l1" href="#sec-14">7. 开启 Always Use HTTPS（强制 HTTPS 301 跳转）</a></li><li><a class="toc-link toc-l1" href="#sec-15">8. 三步终极验收（命令行 + 浏览器真机登录）</a></li><li><a class="toc-link toc-l1" href="#sec-16">9. 常见问题速查表</a></li><li><a class="toc-link toc-l1" href="#sec-17">10. 一次性上线检查清单</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
 <script src="../../assets/meta.js?v=eb986118" defer></script>
 <script src="../../assets/image-zoom.js?v=8ecbe7f4" defer></script>
 <script src="../../assets/toc.js?v=5db93ee5" defer></script>
