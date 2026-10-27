@@ -147,7 +147,6 @@
     },
     {
       "type": "chat",
-      "expanded": true,
       "raw_count": 17,
       "removed_count": 1,
       "removed_note": "空消息",

@@ -883,11 +883,10 @@ def render_chat_html(
     assets_rel: str = "assets",
     assets_dir: Path | None = None,
 ) -> str:
-    """Render long chat logs collapsed and short threads fully expanded."""
+    """Render a chat log as one collapsed, expandable bubble list."""
     messages = b["messages"]
     if not messages:
         return ""
-    first, last = messages[0], messages[-1]
     people = list(dict.fromkeys(str(m.get("user") or "匿名") for m in messages))
     raw = b.get("raw_count", len(messages))
     removed = b.get("removed_count", 0)
@@ -905,42 +904,15 @@ def render_chat_html(
         + (f"，删除 {removed} 条{esc(removed_note)}" if removed else "")
     )
     note = " · ".join(note_parts)
-    range_items = (
-        [("第一条消息", first), ("最后一条消息", last)]
-        if len(messages) > 1
-        else [("唯一一条消息", first)]
-    )
-    range_html = "".join(
-        f'<div class="chat-range__item"><div class="chat-range__title">{label}</div>'
-        f"{chat_message_html(m, assets_rel, assets_dir)}</div>"
-        for label, m in range_items
-    )
     log_html = "\n".join(
         chat_message_html(m, assets_rel, assets_dir) for m in messages
     )
-    variant = b.get("variant")
-    is_expanded = bool(b.get("expanded")) or variant == "thread"
-    note_html = (
-        ""
-        if variant == "thread"
-        else f'<div class="chat-note">{note}</div>'
-    )
-    if is_expanded:
-        variant_class = " chat-block--thread" if variant == "thread" else ""
-        return (
-            f'<div class="chat-block{variant_class}">'
-            f'<div class="chat-log chat-log--expanded" role="list">'
-            f"{note_html}{log_html}</div></div>"
-        )
     return (
         '<div class="chat-block">'
-        '<details class="chat-range">'
-        '<summary>首尾消息</summary>'
-        f'<div class="chat-range__body">{range_html}</div>'
-        '</details>'
         '<details class="chat-appendix">'
-        f'<summary>全部 {len(messages)} 条消息</summary>'
-        f'<div class="chat-log" role="list">{note_html}{log_html}</div>'
+        f'<summary>聊天记录（{len(messages)} 条）</summary>'
+        f'<div class="chat-note">{note}</div>'
+        f'<div class="chat-log" role="list">{log_html}</div>'
         "</details></div>"
     )
 
@@ -1407,29 +1379,16 @@ html { scroll-behavior: smooth; }
 .toc.is-folded .toc-l2-list { display: none; }
 h2[id], h3[id] { scroll-margin-top: 20px; }
 
-/* 聊天记录：微信式左头像气泡；长日志保留折叠，短评论串默认展开 */
+/* 聊天记录：微信式左头像气泡；整块默认折叠，点击 summary 展开 */
 .chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
-.chat-block--thread {
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: linear-gradient(180deg, #fbfcfb 0%, #f7f9f7 100%);
-}
-.chat-range,
 .chat-appendix {
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
   overflow: hidden;
-}
-.chat-range__body { display: flex; flex-direction: column; gap: 18px; padding: 18px 20px; }
-.chat-range__title {
-  margin: 0 0 8px; color: var(--muted-2);
-  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
 }
 .chat-log {
   display: flex; flex-direction: column; gap: 18px;
   padding: 18px 20px;
 }
-.chat-log--expanded { padding: 0; }
 .chat-msg {
   display: grid; grid-template-columns: 38px minmax(0, 1fr);
   align-items: start; gap: 10px; min-width: 0;
@@ -1468,26 +1427,23 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   color: var(--fg); font-size: 16px; line-height: 1.7;
   white-space: pre-wrap; overflow-wrap: anywhere;
 }
-.chat-range > summary,
 .chat-appendix > summary {
   cursor: pointer; padding: 12px 16px;
   color: var(--muted); font-size: 14px; font-weight: 600; line-height: 1.6;
   list-style: none; user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.chat-range > summary::-webkit-details-marker,
 .chat-appendix > summary::-webkit-details-marker { display: none; }
-.chat-range > summary::before,
 .chat-appendix > summary::before { content: "▸ "; color: var(--muted-2); }
-.chat-range[open] > summary,
 .chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
-.chat-range[open] > summary::before,
 .chat-appendix[open] > summary::before { content: "▾ "; }
-.chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
+.chat-note {
+  padding: 14px 20px 0; color: var(--muted-2);
+  font-size: 13px; line-height: 1.65;
+}
 @media (max-width: 640px) {
-  .chat-block--thread { padding: 15px 13px; }
-  .chat-range__body { padding: 15px 16px; }
   .chat-log { padding: 14px; }
+  .chat-note { padding: 12px 14px 0; }
   .chat-msg { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
   .chat-avatar { width: 34px; height: 34px; }
   .chat-avatar__initial { font-size: 14px; }
@@ -1925,6 +1881,9 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
         snippet = BeautifulSoup(body_html, "html.parser")
         for avatar in snippet.select(".chat-avatar"):
             avatar.decompose()
+        for chat in snippet.select(".chat-appendix"):
+            for label in chat.select("summary, .chat-note"):
+                label.decompose()
         description = re.sub(r"\s+", " ", snippet.get_text(" ", strip=True)).strip()[:80]
     post_assets = ROOT / "posts" / meta["slug"] / "assets"
     avatar = meta.get("avatar_local")

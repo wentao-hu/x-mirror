@@ -42,25 +42,28 @@ class ChatNewlineRenderingTest(unittest.TestCase):
 
 
 class ChatCollapseRenderingTest(unittest.TestCase):
-    def test_long_log_keeps_collapsed_details_with_bubble_messages(self):
+    def test_chat_log_uses_one_collapsed_details_with_bubble_messages(self):
         rendered = builder.render_chat_html(
             {
+                "expanded": True,
+                "variant": "thread",
                 "messages": [
                     {"user": "甲", "time": "2026年10月23日 10:00", "text": "第一条"},
                     {"user": "乙", "time": "2026年10月23日 10:01", "text": "最后一条"},
                 ],
             }
         )
-        self.assertIn('<details class="chat-range">', rendered)
-        self.assertIn("<summary>首尾消息</summary>", rendered)
         self.assertIn('<details class="chat-appendix">', rendered)
-        self.assertIn("<summary>全部 2 条消息</summary>", rendered)
+        self.assertIn("<summary>聊天记录（2 条）</summary>", rendered)
         self.assertNotIn(" open", rendered)
         soup = BeautifulSoup(rendered, "html.parser")
-        self.assertEqual(len(soup.select(".chat-msg")), 4)
-        self.assertEqual(len(soup.select(".chat-bubble")), 4)
+        self.assertEqual(len(soup.select("details")), 1)
+        self.assertEqual(len(soup.select(".chat-msg")), 2)
+        self.assertEqual(len(soup.select(".chat-bubble")), 2)
+        self.assertEqual(len(soup.select(".chat-user")), 2)
+        self.assertEqual(len(soup.select(".chat-time")), 2)
 
-    def test_expanded_thread_skips_range_and_cleans_links(self):
+    def test_legacy_expanded_thread_stays_collapsed_and_cleans_links(self):
         rendered = builder.render_chat_html(
             {
                 "expanded": True,
@@ -80,8 +83,9 @@ class ChatCollapseRenderingTest(unittest.TestCase):
             }
         )
         soup = BeautifulSoup(rendered, "html.parser")
-        self.assertIsNotNone(soup.select_one(".chat-block--thread"))
-        self.assertIsNone(soup.select_one("details"))
+        self.assertIsNotNone(soup.select_one(".chat-block"))
+        self.assertIsNotNone(soup.select_one("details.chat-appendix"))
+        self.assertIsNone(soup.select_one("details[open]"))
         self.assertEqual(len(soup.select(".chat-msg")), 2)
         self.assertEqual(len(soup.select(".chat-bubble")), 2)
         self.assertIsNotNone(soup.select_one(".chat-avatar__initial"))
@@ -158,12 +162,16 @@ class PostPresentationTest(unittest.TestCase):
         self.assertIsNotNone(meta_row.select_one(".cat-badge"))
 
     def test_chat_avatar_initial_is_not_part_of_meta_description(self):
+        chat_html = builder.render_chat_html(
+            {
+                "messages": [
+                    {"user": "Marvin", "text": "验证需求"},
+                ],
+            }
+        )
         html = builder.post_page(
             self.make_meta(),
-            '<div class="chat-block"><div class="chat-msg">'
-            '<span class="chat-avatar"><span>M</span></span>'
-            '<div class="chat-user">Marvin</div><div>验证需求</div>'
-            "</div></div>",
+            chat_html,
         )
         soup = BeautifulSoup(html, "html.parser")
         description = soup.select_one('meta[name="description"]')["content"]
@@ -299,19 +307,27 @@ class TargetPostDataTest(unittest.TestCase):
     def load_data(self, filename):
         return json.loads((ROOT / "data" / filename).read_text(encoding="utf-8"))
 
-    def test_airobert_comments_are_an_expanded_chat_without_status_urls(self):
+    def test_airobert_comments_are_collapsed_chat_without_status_urls(self):
         data = self.load_data("airobert-precise-demand-near-money.json")
         chat_blocks = [block for block in data["blocks"] if block["type"] == "chat"]
         self.assertEqual(len(chat_blocks), 1)
         chat = chat_blocks[0]
-        self.assertTrue(chat["expanded"])
-        self.assertEqual(chat["variant"], "thread")
+        self.assertNotIn("expanded", chat)
+        self.assertNotIn("variant", chat)
         self.assertEqual(len(chat["messages"]), 14)
         self.assertTrue(all(message.get("username") for message in chat["messages"]))
         self.assertNotIn("status/", json.dumps(chat, ensure_ascii=False))
         self.assertNotIn("https://x.com/", data["plain_text"])
         self.assertEqual(data["meta"]["blocks_count"], len(data["blocks"]))
         self.assertEqual(data["meta"]["plain_text_len"], len(data["plain_text"]))
+
+    def test_no_chat_block_forces_expansion(self):
+        for path in (ROOT / "data").glob("*.json"):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            for block in data["blocks"]:
+                if block["type"] == "chat":
+                    self.assertNotIn("expanded", block, path.name)
+                    self.assertNotIn("variant", block, path.name)
 
     def test_liangzhu_page_keeps_five_items_and_shows_the_fidelity_note(self):
         data = self.load_data("liangzhu-seo-launch-checklist.json")

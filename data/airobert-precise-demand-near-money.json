@@ -44,8 +44,6 @@
     },
     {
       "type": "chat",
-      "expanded": true,
-      "variant": "thread",
       "messages": [
         {
           "user": "Marvin",

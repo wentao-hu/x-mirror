@@ -307,29 +307,16 @@ html { scroll-behavior: smooth; }
 .toc.is-folded .toc-l2-list { display: none; }
 h2[id], h3[id] { scroll-margin-top: 20px; }
 
-/* 聊天记录：微信式左头像气泡；长日志保留折叠，短评论串默认展开 */
+/* 聊天记录：微信式左头像气泡；整块默认折叠，点击 summary 展开 */
 .chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
-.chat-block--thread {
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: linear-gradient(180deg, #fbfcfb 0%, #f7f9f7 100%);
-}
-.chat-range,
 .chat-appendix {
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
   overflow: hidden;
-}
-.chat-range__body { display: flex; flex-direction: column; gap: 18px; padding: 18px 20px; }
-.chat-range__title {
-  margin: 0 0 8px; color: var(--muted-2);
-  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
 }
 .chat-log {
   display: flex; flex-direction: column; gap: 18px;
   padding: 18px 20px;
 }
-.chat-log--expanded { padding: 0; }
 .chat-msg {
   display: grid; grid-template-columns: 38px minmax(0, 1fr);
   align-items: start; gap: 10px; min-width: 0;
@@ -368,26 +355,23 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   color: var(--fg); font-size: 16px; line-height: 1.7;
   white-space: pre-wrap; overflow-wrap: anywhere;
 }
-.chat-range > summary,
 .chat-appendix > summary {
   cursor: pointer; padding: 12px 16px;
   color: var(--muted); font-size: 14px; font-weight: 600; line-height: 1.6;
   list-style: none; user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.chat-range > summary::-webkit-details-marker,
 .chat-appendix > summary::-webkit-details-marker { display: none; }
-.chat-range > summary::before,
 .chat-appendix > summary::before { content: "▸ "; color: var(--muted-2); }
-.chat-range[open] > summary,
 .chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
-.chat-range[open] > summary::before,
 .chat-appendix[open] > summary::before { content: "▾ "; }
-.chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
+.chat-note {
+  padding: 14px 20px 0; color: var(--muted-2);
+  font-size: 13px; line-height: 1.65;
+}
 @media (max-width: 640px) {
-  .chat-block--thread { padding: 15px 13px; }
-  .chat-range__body { padding: 15px 16px; }
   .chat-log { padding: 14px; }
+  .chat-note { padding: 12px 14px 0; }
   .chat-msg { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
   .chat-avatar { width: 34px; height: 34px; }
   .chat-avatar__initial { font-size: 14px; }
