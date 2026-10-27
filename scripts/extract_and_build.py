@@ -11,7 +11,6 @@ import subprocess
 import sys
 import urllib.parse
 from datetime import datetime, timezone, timedelta
-from html import unescape
 from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -700,7 +699,7 @@ def render_inline_text(text: str) -> str:
     return restore_inline_code(s, code_spans)
 
 
-def linkify(text: str) -> str:
+def linkify(text: str, *, link_mentions: bool = True) -> str:
     """Escape then render inline code, links, emphasis, URLs and @handles."""
     code_spans: dict[str, str] = {}
     s = protect_inline_code(esc(text), code_spans)
@@ -738,11 +737,12 @@ def linkify(text: str) -> str:
         return f'<a href="{u}" rel="noopener noreferrer" target="_blank">{u}</a>'
 
     s = re.sub(r"https?://[^\s<>\"']+", repl_url, s)
-    s = re.sub(
-        r"(?<!\w)@([A-Za-z0-9_]{1,15})",
-        r'<a class="mention" href="https://x.com/\1" rel="noopener noreferrer" target="_blank">@\1</a>',
-        s,
-    )
+    if link_mentions:
+        s = re.sub(
+            r"(?<!\w)@([A-Za-z0-9_]{1,15})",
+            r'<a class="mention" href="https://x.com/\1" rel="noopener noreferrer" target="_blank">@\1</a>',
+            s,
+        )
     for key, html in md_links.items():
         s = s.replace(key, html)
     s = restore_inline_code(s, code_spans)
@@ -799,40 +799,139 @@ def image_html(
     return img
 
 
-def chat_message_html(msg: dict) -> str:
-    """单条聊天消息：元信息（用户名-时间）比正文小、淡，正文保持正常字号。"""
+_X_STATUS_URL_RE = re.compile(
+    r"https?://(?:www\.|mobile\.)?(?:x|twitter)\.com/"
+    r"[^\s<>\"']+/status/\d+(?:\?[^\s<>\"']*)?",
+    re.I,
+)
+_CHAT_AVATAR_COLORS = (
+    "#2f855a",
+    "#2b6cb0",
+    "#c05621",
+    "#975a16",
+    "#9b2c2c",
+    "#6b46c1",
+    "#2c7a7b",
+    "#4a5568",
+)
+
+
+def clean_chat_text(text: str) -> str:
+    """Remove X status URLs that would otherwise dominate a chat bubble."""
+    cleaned = _X_STATUS_URL_RE.sub("", text)
+    cleaned = re.sub(r"[ \t]+\n", "\n", cleaned)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    return cleaned.strip()
+
+
+def chat_avatar_html(
+    msg: dict,
+    assets_rel: str,
+    assets_dir: Path | None,
+) -> str:
+    """Render a local avatar when present, otherwise a stable initial."""
+    user = str(msg.get("user") or "").strip()
+    avatar = str(msg.get("avatar") or "").strip()
+    if avatar:
+        if re.match(r"^https?://", avatar):
+            inner = (
+                f'<img src="{esc(avatar)}" alt="" loading="lazy" decoding="async" />'
+            )
+        else:
+            rel = avatar.lstrip("/")
+            src = rel if rel.startswith(f"{assets_rel}/") else f"{assets_rel}/{rel}"
+            inner = image_html(src, "", assets_dir=assets_dir, lazy=True)
+    else:
+        initial = user[:1].upper() if user else "?"
+        color = _CHAT_AVATAR_COLORS[
+            sum(ord(char) for char in user) % len(_CHAT_AVATAR_COLORS)
+        ]
+        inner = (
+            '<span class="chat-avatar__initial" '
+            f'style="--chat-avatar-bg:{color}">{esc(initial)}</span>'
+        )
+    return f'<span class="chat-avatar" aria-hidden="true">{inner}</span>'
+
+
+def chat_message_html(
+    msg: dict,
+    assets_rel: str = "assets",
+    assets_dir: Path | None = None,
+) -> str:
+    """Render one left-aligned WeChat-style message."""
+    user = str(msg.get("user") or "匿名").strip()
+    sent_at = str(msg.get("time") or "").strip()
+    time_html = (
+        f'<span class="chat-time">{esc(sent_at)}</span>' if sent_at else ""
+    )
+    text = clean_chat_text(str(msg.get("text") or ""))
     return (
-        '<div class="chat-msg">'
-        f'<div class="chat-meta">{esc(msg["user"])}-{esc(msg["time"])}</div>'
-        f'<div class="chat-text">{linkify(msg["text"])}</div>'
+        '<div class="chat-msg" role="listitem">'
+        f'{chat_avatar_html(msg, assets_rel, assets_dir)}'
+        '<div class="chat-message">'
+        '<div class="chat-meta">'
+        f'<span class="chat-user">{esc(user)}</span>{time_html}'
+        '</div>'
+        f'<div class="chat-bubble"><div class="chat-text">{linkify(text, link_mentions=False)}</div></div>'
+        "</div>"
         "</div>"
     )
 
 
-def render_chat_html(b: dict) -> str:
-    """聊天记录固定为两个默认折叠区：首尾消息 + 全量时间线。"""
+def render_chat_html(
+    b: dict,
+    assets_rel: str = "assets",
+    assets_dir: Path | None = None,
+) -> str:
+    """Render long chat logs collapsed and short threads fully expanded."""
     messages = b["messages"]
     if not messages:
         return ""
     first, last = messages[0], messages[-1]
-    people = list(dict.fromkeys(m["user"] for m in messages))
+    people = list(dict.fromkeys(str(m.get("user") or "匿名") for m in messages))
     raw = b.get("raw_count", len(messages))
     removed = b.get("removed_count", 0)
     removed_note = b.get("removed_note", "纯表情")
-    span = f'{first["time"]} 至 {last["time"]}' if first["time"] != last["time"] else first["time"]
-    note = (
-        f'参与者 {len(people)} 人：{esc("、".join(people))} · 时间范围 {esc(span)} · '
+    times = [str(m.get("time") or "").strip() for m in messages]
+    times = [value for value in times if value]
+    span = ""
+    if times:
+        span = f"{times[0]} 至 {times[-1]}" if times[0] != times[-1] else times[0]
+    note_parts = [f"参与者 {len(people)} 人：{esc('、'.join(people))}"]
+    if span:
+        note_parts.append(f"时间范围 {esc(span)}")
+    note_parts.append(
         f"原始 {raw} 条，保留 {len(messages)} 条"
         + (f"，删除 {removed} 条{esc(removed_note)}" if removed else "")
     )
-    range_items = [("第一条消息", first), ("最后一条消息", last)] if len(messages) > 1 else [("唯一一条消息", first)]
+    note = " · ".join(note_parts)
+    range_items = (
+        [("第一条消息", first), ("最后一条消息", last)]
+        if len(messages) > 1
+        else [("唯一一条消息", first)]
+    )
     range_html = "".join(
         f'<div class="chat-range__item"><div class="chat-range__title">{label}</div>'
-        f'<div class="chat-meta">{esc(m["user"])}-{esc(m["time"])}</div>'
-        f'<div class="chat-text">{linkify(m["text"])}</div></div>'
+        f"{chat_message_html(m, assets_rel, assets_dir)}</div>"
         for label, m in range_items
     )
-    log_html = "\n".join(chat_message_html(m) for m in messages)
+    log_html = "\n".join(
+        chat_message_html(m, assets_rel, assets_dir) for m in messages
+    )
+    variant = b.get("variant")
+    is_expanded = bool(b.get("expanded")) or variant == "thread"
+    note_html = (
+        ""
+        if variant == "thread"
+        else f'<div class="chat-note">{note}</div>'
+    )
+    if is_expanded:
+        variant_class = " chat-block--thread" if variant == "thread" else ""
+        return (
+            f'<div class="chat-block{variant_class}">'
+            f'<div class="chat-log chat-log--expanded" role="list">'
+            f"{note_html}{log_html}</div></div>"
+        )
     return (
         '<div class="chat-block">'
         '<details class="chat-range">'
@@ -841,7 +940,7 @@ def render_chat_html(b: dict) -> str:
         '</details>'
         '<details class="chat-appendix">'
         f'<summary>全部 {len(messages)} 条消息</summary>'
-        f'<div class="chat-log"><div class="chat-note">{note}</div>{log_html}</div>'
+        f'<div class="chat-log" role="list">{note_html}{log_html}</div>'
         "</details></div>"
     )
 
@@ -984,7 +1083,7 @@ def render_blocks_html(
             items = "".join(f"<li>{linkify(i)}</li>" for i in b["items"])
             parts.append(f"<{tag}>{items}</{tag}>")
         elif t == "chat":
-            parts.append(render_chat_html(b))
+            parts.append(render_chat_html(b, assets_rel, assets_dir))
         elif t == "table":
             rows_html = []
             for ri, row in enumerate(b["rows"]):
@@ -1308,21 +1407,67 @@ html { scroll-behavior: smooth; }
 .toc.is-folded .toc-l2-list { display: none; }
 h2[id], h3[id] { scroll-margin-top: 20px; }
 
-/* 聊天记录：首尾消息与全量时间线均为默认折叠区；元信息小而淡，正文正常字号 */
-.chat-block { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 24px; }
+/* 聊天记录：微信式左头像气泡；长日志保留折叠，短评论串默认展开 */
+.chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
+.chat-block--thread {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbfcfb 0%, #f7f9f7 100%);
+}
 .chat-range,
 .chat-appendix {
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+  overflow: hidden;
 }
-.chat-range__body { padding: 16px 20px; }
+.chat-range__body { display: flex; flex-direction: column; gap: 18px; padding: 18px 20px; }
 .chat-range__title {
-  margin: 0 0 6px; color: var(--muted-2);
+  margin: 0 0 8px; color: var(--muted-2);
   font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
 }
-.chat-range__item { margin: 0 0 18px; }
-.chat-range__item:last-child { margin-bottom: 0; }
-.chat-meta { margin-bottom: 3px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-.chat-text { color: var(--fg); font-size: 17px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-log {
+  display: flex; flex-direction: column; gap: 18px;
+  padding: 18px 20px;
+}
+.chat-log--expanded { padding: 0; }
+.chat-msg {
+  display: grid; grid-template-columns: 38px minmax(0, 1fr);
+  align-items: start; gap: 10px; min-width: 0;
+}
+.chat-avatar {
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+  background: var(--card); box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
+}
+.chat-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.chat-avatar__initial {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%; background: var(--chat-avatar-bg, #4a5568);
+  color: #fff; font-size: 15px; font-weight: 750; line-height: 1;
+}
+.chat-message { min-width: 0; }
+.chat-meta {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px;
+  margin: 0 0 5px; color: var(--muted); font-size: 13px; line-height: 1.45;
+}
+.chat-user { color: color-mix(in srgb, var(--fg) 84%, var(--muted)); font-weight: 700; }
+.chat-time { color: var(--muted-2); font-size: 11.5px; font-weight: 400; }
+.chat-bubble {
+  position: relative; display: inline-block;
+  max-width: min(100%, 680px); padding: 10px 14px;
+  border: 1px solid #e0e9e2; border-radius: 4px 14px 14px 14px;
+  background: #f1f7f2;
+}
+.chat-bubble::before {
+  content: ""; position: absolute; top: 13px; left: -5px;
+  width: 9px; height: 9px; border-left: 1px solid #e0e9e2;
+  border-bottom: 1px solid #e0e9e2; background: #f1f7f2;
+  transform: rotate(45deg);
+}
+.chat-text {
+  color: var(--fg); font-size: 16px; line-height: 1.7;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
 .chat-range > summary,
 .chat-appendix > summary {
   cursor: pointer; padding: 12px 16px;
@@ -1338,13 +1483,15 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
 .chat-range[open] > summary::before,
 .chat-appendix[open] > summary::before { content: "▾ "; }
-.chat-log { padding: 16px; }
 .chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
-.chat-log .chat-msg { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-.chat-log .chat-msg:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 @media (max-width: 640px) {
+  .chat-block--thread { padding: 15px 13px; }
   .chat-range__body { padding: 15px 16px; }
   .chat-log { padding: 14px; }
+  .chat-msg { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
+  .chat-avatar { width: 34px; height: 34px; }
+  .chat-avatar__initial { font-size: 14px; }
+  .chat-text { font-size: 15.5px; }
 }
 
 /* 目录：筛选与排序 */
@@ -1775,8 +1922,10 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
     # description 只在 meta 标签使用；未填写时自动取正文前 80 字，避免每次人工总结
     description = (meta.get("description") or "").strip()
     if not description:
-        text = unescape(re.sub(r"<[^>]+>", " ", body_html))
-        description = re.sub(r"\s+", " ", text).strip()[:80]
+        snippet = BeautifulSoup(body_html, "html.parser")
+        for avatar in snippet.select(".chat-avatar"):
+            avatar.decompose()
+        description = re.sub(r"\s+", " ", snippet.get_text(" ", strip=True)).strip()[:80]
     post_assets = ROOT / "posts" / meta["slug"] / "assets"
     avatar = meta.get("avatar_local")
     if source_type_of(meta) == "note":

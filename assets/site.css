@@ -307,21 +307,67 @@ html { scroll-behavior: smooth; }
 .toc.is-folded .toc-l2-list { display: none; }
 h2[id], h3[id] { scroll-margin-top: 20px; }
 
-/* 聊天记录：首尾消息与全量时间线均为默认折叠区；元信息小而淡，正文正常字号 */
-.chat-block { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 24px; }
+/* 聊天记录：微信式左头像气泡；长日志保留折叠，短评论串默认展开 */
+.chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
+.chat-block--thread {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbfcfb 0%, #f7f9f7 100%);
+}
 .chat-range,
 .chat-appendix {
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+  overflow: hidden;
 }
-.chat-range__body { padding: 16px 20px; }
+.chat-range__body { display: flex; flex-direction: column; gap: 18px; padding: 18px 20px; }
 .chat-range__title {
-  margin: 0 0 6px; color: var(--muted-2);
+  margin: 0 0 8px; color: var(--muted-2);
   font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
 }
-.chat-range__item { margin: 0 0 18px; }
-.chat-range__item:last-child { margin-bottom: 0; }
-.chat-meta { margin-bottom: 3px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-.chat-text { color: var(--fg); font-size: 17px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-log {
+  display: flex; flex-direction: column; gap: 18px;
+  padding: 18px 20px;
+}
+.chat-log--expanded { padding: 0; }
+.chat-msg {
+  display: grid; grid-template-columns: 38px minmax(0, 1fr);
+  align-items: start; gap: 10px; min-width: 0;
+}
+.chat-avatar {
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+  background: var(--card); box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
+}
+.chat-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.chat-avatar__initial {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%; background: var(--chat-avatar-bg, #4a5568);
+  color: #fff; font-size: 15px; font-weight: 750; line-height: 1;
+}
+.chat-message { min-width: 0; }
+.chat-meta {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px;
+  margin: 0 0 5px; color: var(--muted); font-size: 13px; line-height: 1.45;
+}
+.chat-user { color: color-mix(in srgb, var(--fg) 84%, var(--muted)); font-weight: 700; }
+.chat-time { color: var(--muted-2); font-size: 11.5px; font-weight: 400; }
+.chat-bubble {
+  position: relative; display: inline-block;
+  max-width: min(100%, 680px); padding: 10px 14px;
+  border: 1px solid #e0e9e2; border-radius: 4px 14px 14px 14px;
+  background: #f1f7f2;
+}
+.chat-bubble::before {
+  content: ""; position: absolute; top: 13px; left: -5px;
+  width: 9px; height: 9px; border-left: 1px solid #e0e9e2;
+  border-bottom: 1px solid #e0e9e2; background: #f1f7f2;
+  transform: rotate(45deg);
+}
+.chat-text {
+  color: var(--fg); font-size: 16px; line-height: 1.7;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
 .chat-range > summary,
 .chat-appendix > summary {
   cursor: pointer; padding: 12px 16px;
@@ -337,13 +383,15 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .chat-appendix[open] > summary { border-bottom: 1px solid var(--border); }
 .chat-range[open] > summary::before,
 .chat-appendix[open] > summary::before { content: "▾ "; }
-.chat-log { padding: 16px; }
 .chat-note { margin-bottom: 18px; color: var(--muted-2); font-size: 13px; line-height: 1.65; }
-.chat-log .chat-msg { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-.chat-log .chat-msg:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 @media (max-width: 640px) {
+  .chat-block--thread { padding: 15px 13px; }
   .chat-range__body { padding: 15px 16px; }
   .chat-log { padding: 14px; }
+  .chat-msg { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
+  .chat-avatar { width: 34px; height: 34px; }
+  .chat-avatar__initial { font-size: 14px; }
+  .chat-text { font-size: 15.5px; }
 }
 
 /* 目录：筛选与排序 */

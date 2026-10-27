@@ -1026,9 +1026,9 @@
       "images_total": 0,
       "images_ok": 0,
       "api_media_count": 0,
-      "fidelity_note": "正文取自 note_tweet.text 全文（fxtwitter；非截断 text）；普通推文（非 Article）；无配图；原文自称「7 项」但清单只列 1–5，忠实保留不补写；评论未收录；标题为镜像站自拟。",
-      "plain_text_len": 428,
-      "blocks_count": 5
+      "fidelity_note": "正文取自 note_tweet.text 全文（fxtwitter；非截断 text）；普通推文（非 Article）；无配图；原文自称「7 项」但清单只列 1–5，页面已显式说明并忠实保留，不补写；评论未收录；标题为镜像站自拟。",
+      "plain_text_len": 469,
+      "blocks_count": 6
     },
     {
       "id": "note-2026-10-25-new-site-ranking-page-level-competition",
@@ -1862,9 +1862,9 @@
       "images_total": 0,
       "images_ok": 0,
       "api_media_count": 0,
-      "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；同主题评论 14 条按原文收录（作者、原文与原链，非摘要、非改写）；抓包中无纯表情回复可跳过。",
-      "plain_text_len": 1758,
-      "blocks_count": 19
+      "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；同主题评论 14 条按原文收录（作者与正文，非摘要、非改写；X 状态链接不展示）；抓包中无纯表情回复可跳过。",
+      "plain_text_len": 994,
+      "blocks_count": 6
     },
     {
       "id": "note-2026-10-25-users-before-product",

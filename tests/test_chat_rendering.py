@@ -42,10 +42,9 @@ class ChatNewlineRenderingTest(unittest.TestCase):
 
 
 class ChatCollapseRenderingTest(unittest.TestCase):
-    def test_first_last_and_full_log_are_collapsed_details(self):
+    def test_long_log_keeps_collapsed_details_with_bubble_messages(self):
         rendered = builder.render_chat_html(
             {
-                "expanded": True,
                 "messages": [
                     {"user": "甲", "time": "2026年10月23日 10:00", "text": "第一条"},
                     {"user": "乙", "time": "2026年10月23日 10:01", "text": "最后一条"},
@@ -57,6 +56,41 @@ class ChatCollapseRenderingTest(unittest.TestCase):
         self.assertIn('<details class="chat-appendix">', rendered)
         self.assertIn("<summary>全部 2 条消息</summary>", rendered)
         self.assertNotIn(" open", rendered)
+        soup = BeautifulSoup(rendered, "html.parser")
+        self.assertEqual(len(soup.select(".chat-msg")), 4)
+        self.assertEqual(len(soup.select(".chat-bubble")), 4)
+
+    def test_expanded_thread_skips_range_and_cleans_links(self):
+        rendered = builder.render_chat_html(
+            {
+                "expanded": True,
+                "variant": "thread",
+                "messages": [
+                    {
+                        "user": "甲",
+                        "username": "alpha",
+                        "text": "问 @beta\nhttps://x.com/beta/status/1234567890",
+                    },
+                    {
+                        "user": "乙",
+                        "avatar": "avatar.jpg",
+                        "text": "收到",
+                    },
+                ],
+            }
+        )
+        soup = BeautifulSoup(rendered, "html.parser")
+        self.assertIsNotNone(soup.select_one(".chat-block--thread"))
+        self.assertIsNone(soup.select_one("details"))
+        self.assertEqual(len(soup.select(".chat-msg")), 2)
+        self.assertEqual(len(soup.select(".chat-bubble")), 2)
+        self.assertIsNotNone(soup.select_one(".chat-avatar__initial"))
+        self.assertEqual(
+            soup.select_one(".chat-msg:nth-of-type(2) img").get("src"),
+            "assets/avatar.jpg",
+        )
+        self.assertNotIn("@beta", [a.get_text(strip=True) for a in soup.select("a")])
+        self.assertNotIn("status/", rendered)
 
 
 class InlineCodeRenderingTest(unittest.TestCase):
@@ -122,6 +156,18 @@ class PostPresentationTest(unittest.TestCase):
         meta_row = soup.select_one(".post-meta-row")
         self.assertIsNotNone(meta_row.select_one(".source-badge"))
         self.assertIsNotNone(meta_row.select_one(".cat-badge"))
+
+    def test_chat_avatar_initial_is_not_part_of_meta_description(self):
+        html = builder.post_page(
+            self.make_meta(),
+            '<div class="chat-block"><div class="chat-msg">'
+            '<span class="chat-avatar"><span>M</span></span>'
+            '<div class="chat-user">Marvin</div><div>验证需求</div>'
+            "</div></div>",
+        )
+        soup = BeautifulSoup(html, "html.parser")
+        description = soup.select_one('meta[name="description"]')["content"]
+        self.assertEqual(description, "Marvin 验证需求")
 
     def test_original_link_source_badge_and_category_order(self):
         html = builder.post_page(self.make_meta(), "<p>正文</p>")
@@ -247,6 +293,41 @@ class ImageZoomInteractionTest(unittest.TestCase):
         self.assertIn("bottom: 8px", builder.CSS)
         self.assertIn("opacity: 0; visibility: hidden; pointer-events: none;", builder.CSS)
         self.assertNotIn("position: absolute; top: 8px; right: 8px;", builder.CSS)
+
+
+class TargetPostDataTest(unittest.TestCase):
+    def load_data(self, filename):
+        return json.loads((ROOT / "data" / filename).read_text(encoding="utf-8"))
+
+    def test_airobert_comments_are_an_expanded_chat_without_status_urls(self):
+        data = self.load_data("airobert-precise-demand-near-money.json")
+        chat_blocks = [block for block in data["blocks"] if block["type"] == "chat"]
+        self.assertEqual(len(chat_blocks), 1)
+        chat = chat_blocks[0]
+        self.assertTrue(chat["expanded"])
+        self.assertEqual(chat["variant"], "thread")
+        self.assertEqual(len(chat["messages"]), 14)
+        self.assertTrue(all(message.get("username") for message in chat["messages"]))
+        self.assertNotIn("status/", json.dumps(chat, ensure_ascii=False))
+        self.assertNotIn("https://x.com/", data["plain_text"])
+        self.assertEqual(data["meta"]["blocks_count"], len(data["blocks"]))
+        self.assertEqual(data["meta"]["plain_text_len"], len(data["plain_text"]))
+
+    def test_liangzhu_page_keeps_five_items_and_shows_the_fidelity_note(self):
+        data = self.load_data("liangzhu-seo-launch-checklist.json")
+        text = "\n".join(
+            block["text"]
+            for block in data["blocks"]
+            if block["type"] == "paragraph"
+        )
+        self.assertIn("1. 检查是不是纯客户端渲染", text)
+        self.assertIn("5. 清除多重重定向死链", text)
+        self.assertNotIn("\n6. ", text)
+        note = "说明：原文自称「这 7 项」，但清单只列到第 5 项，此处按原文保留，未补写。"
+        self.assertIn(note, text)
+        self.assertIn("页面已显式说明", data["meta"]["fidelity_note"])
+        self.assertEqual(data["meta"]["blocks_count"], len(data["blocks"]))
+        self.assertEqual(data["meta"]["plain_text_len"], len(data["plain_text"]))
 
 
 if __name__ == "__main__":
