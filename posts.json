@@ -950,6 +950,36 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-10-27-lagging-keyword-brand-site",
+      "slug": "note-lagging-keyword-brand-site",
+      "title": "工具词滞后也能打，现金流靠多类别组合",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T13:44:00.000Z",
+      "published_local": "2026-10-27 21:44",
+      "category": "SEO获客",
+      "category_reason": "主要交付是判断工具查出的滞后词还能不能做，以及品牌站、单页站按曲线决定加页节奏；排除需求研究，因为不涉及发现或验证新的用户需求与产品机会。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "关键词研究",
+        "SemRush",
+        "Similarweb",
+        "品牌站",
+        "单页站",
+        "现金流",
+        "Google Trends"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 6 条消息，保留 6 条，无删除；仅去除 1 处无信息表情文字。",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "note-2026-10-27-old-site-backlink-new-site",
       "slug": "note-old-site-backlink-new-site",
       "title": "哥飞群聊：新站冷启动、新词练手与视频站积分成本",
