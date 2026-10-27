@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "id": "2114658543110398160",
+    "slug": "victor-keyword-loss-cpc-filter",
+    "title": "出海选词筛子：没解决会损失什么 + CPC 验证",
+    "url": "https://x.com/victor_UWer/status/2114658543110398160",
+    "author_name": "Victor在西雅图",
+    "author_username": "victor_UWer",
+    "published_utc": "2026-10-26T10:00:59.000Z",
+    "published_local": "2026-10-26 18:00",
+    "category": "需求研究",
+    "category_reason": "核心是用「没解决会损失什么」筛愿付费需求，再用 CPC/定价页/广告位验证；Semrush 只是验证手段，落点在需求判断，故归需求研究而非 SEO获客。",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 note_tweet 全文（含 CPC/发票生成器对比段落，非截断 text）；普通推文（非 Article）；无配图；评论 4 条按原文收录（可折叠聊天气泡）；标题为镜像站自拟。",
+    "plain_text_len": 430,
+    "blocks_count": 13
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "出海选词筛子：没解决会损失什么 + CPC 验证"
+    },
+    {
+      "type": "paragraph",
+      "text": "出海选词，我现在先过一道筛子："
+    },
+    {
+      "type": "paragraph",
+      "text": "这个用户今天要是没解决这个问题，会损失什么？"
+    },
+    {
+      "type": "paragraph",
+      "text": "啥也不损失，只是图个新鲜，基本别指望他掏钱。"
+    },
+    {
+      "type": "paragraph",
+      "text": "会丢客户、丢订单、被罚款，这种词才值得往下查。"
+    },
+    {
+      "type": "paragraph",
+      "text": "查法很简单："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 把词丢进 Semrush，看 CPC。广告主愿意出高价抢的词，背后一定有人在为这个需求花钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 搜一下这个词，翻前十名，看有没有人明目张胆挂月付定价页"
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 看搜索结果顶部的广告位是不是满的"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如\"随机昵称生成器\"和\"发票生成器\"，搜索量可能差不多，CPC 能差出好几倍。"
+    },
+    {
+      "type": "paragraph",
+      "text": "前者用户来了就走，后者用户是真要开票。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "评论与补充"
+    },
+    {
+      "type": "chat",
+      "messages": [
+        {
+          "user": "Meepo",
+          "username": "meepodev",
+          "time": "2026-10-26 18:38",
+          "text": "你每天的干货是真多啊"
+        },
+        {
+          "user": "Victor在西雅图",
+          "username": "victor_UWer",
+          "time": "2026-10-27 00:25",
+          "text": "过奖过奖 我一般不等哈哈 干着干着想起来就发",
+          "avatar": "avatar.jpg"
+        },
+        {
+          "user": "Marvin",
+          "username": "growaiskills",
+          "time": "2026-10-27 06:53",
+          "text": "高 CPC 可以先列入候选，再拆用户愿意付钱的那一步：批量处理、导出，还是团队协作。具体到这一步，才好决定页面做什么。"
+        },
+        {
+          "user": "Feng言峰语",
+          "username": "xiaofengc1989",
+          "time": "2026-10-27 17:21",
+          "text": "这种词稳定，一般也是老词"
+        }
+      ]
+    }
+  ],
+  "plain_text": "出海选词筛子：没解决会损失什么 + CPC 验证\n\n出海选词，我现在先过一道筛子：\n这个用户今天要是没解决这个问题，会损失什么？\n啥也不损失，只是图个新鲜，基本别指望他掏钱。\n会丢客户、丢订单、被罚款，这种词才值得往下查。\n查法很简单：\n1. 把词丢进 Semrush，看 CPC。广告主愿意出高价抢的词，背后一定有人在为这个需求花钱\n2. 搜一下这个词，翻前十名，看有没有人明目张胆挂月付定价页\n3. 看搜索结果顶部的广告位是不是满的\n比如\"随机昵称生成器\"和\"发票生成器\"，搜索量可能差不多，CPC 能差出好几倍。\n前者用户来了就走，后者用户是真要开票。\n\n评论与补充\n\nMeepo: 你每天的干货是真多啊\nVictor在西雅图: 过奖过奖 我一般不等哈哈 干着干着想起来就发\nMarvin: 高 CPC 可以先列入候选，再拆用户愿意付钱的那一步：批量处理、导出，还是团队协作。具体到这一步，才好决定页面做什么。\nFeng言峰语: 这种词稳定，一般也是老词",
+  "entities": {}
+}
