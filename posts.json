@@ -2436,6 +2436,33 @@
       "blocks_count": 12
     },
     {
+      "id": "60wmnukjzg",
+      "slug": "webcafe-60wmnukjzg",
+      "title": "哥飞找词思路汇总（截止20250625）",
+      "url": "https://new.web.cafe/topic/60wmnukjzg",
+      "author_name": "梦梦.Gu",
+      "author_username": "web.cafe",
+      "published_utc": "2025-06-25T12:23:23.821Z",
+      "published_local": "2025-06-25 20:23",
+      "category": "需求研究",
+      "category_reason": "主要交付是汇总哥飞分享过的找词与需求挖掘方法，帮助判断值得做的关键词和产品机会；属于发现与验证需求，排除 SEO获客与实战复盘。",
+      "description": "",
+      "source_type": "webcafe",
+      "tags": [
+        "找词",
+        "需求挖掘",
+        "关键词研究",
+        "SEO"
+      ],
+      "avatar_local": "avatar.png",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "web.cafe 全文镜像；正文按原文顺序并保留站内链接；原文无配图；未含评论区。",
+      "plain_text_len": 16473,
+      "blocks_count": 128
+    },
+    {
       "id": "wechat-0LzUpQVt4pye-gzKIqZS7Q",
       "slug": "gefei-google-trends-keyword",
       "title": "新词新站赚钱秘诀：用好谷歌趋势 Google Trends",
@@ -2484,6 +2511,35 @@
       "fidelity_note": "原文为中文 VitePress 页面；37 张截图全部从 cdn.mundane.ink 下载并以原图及 WebP 本地托管。原文未显式标注发布时间，目录中的 2024-09-01 按正文最晚截图日期推定，并非站方精确发布时间；零宽标题锚点已清理，行内链接保留。",
       "plain_text_len": 2853,
       "blocks_count": 113
+    },
+    {
+      "id": "gz96vzpif7dW65iFcHDbTY",
+      "slug": "webcafe-gz96vzpif7dW65iFcHDbTY",
+      "title": "【5000字长文】海外工具从需求挖掘到网站制作全流程让你一篇文章学会",
+      "url": "https://new.web.cafe/tutorial/detail/gz96vzpif7dW65iFcHDbTY",
+      "author_name": "哥飞",
+      "author_username": "web.cafe",
+      "published_utc": "2024-08-13T03:23:22.112Z",
+      "published_local": "2024-08-13 11:23",
+      "category": "需求研究",
+      "category_reason": "主要交付是掌握用 Similarweb、Semrush、Google Trends、Ahrefs 挖掘并判断值得做的工具站需求；建站部分只是选定方向后的实现建议，因此归需求研究，排除建站开发与 SEO获客。",
+      "description": "",
+      "source_type": "webcafe",
+      "tags": [
+        "需求挖掘",
+        "Similarweb",
+        "Semrush",
+        "Google Trends",
+        "Ahrefs",
+        "建站"
+      ],
+      "avatar_local": "avatar.jpg",
+      "images_total": 29,
+      "images_ok": 29,
+      "api_media_count": 29,
+      "fidelity_note": "web.cafe 全文镜像；正文与 29 张配图按原文顺序本地托管；未含评论区。",
+      "plain_text_len": 6190,
+      "blocks_count": 146
     },
     {
       "id": "note-2026-10-26-tool-site-payment-rate-20pct",
