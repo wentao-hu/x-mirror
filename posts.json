@@ -1716,6 +1716,34 @@
       "blocks_count": 67
     },
     {
+      "id": "note-2026-10-28-first-site-run-process",
+      "slug": "note-first-site-run-process",
+      "title": "第一个站不求出单：上线、提交 GSC、被收录就算完成",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T16:08:00.000Z",
+      "published_local": "2026-10-28 00:08",
+      "category": "建站开发",
+      "category_reason": "主要交付是理解第一个站的目标设定与完成任务的标准：把网站上线、提交 GSC、被各个收录的流程走完，而不是出单赚钱；属于建站流程与目标判断，不涉及搜索获客方法或需求判断，因此归建站开发。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "第一个站",
+        "GSC",
+        "收录",
+        "完美主义",
+        "心态"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 3 条消息，全部保留，无删除；ZIP 内仅有聊天记录.txt。",
+      "plain_text_len": 128,
+      "blocks_count": 9
+    },
+    {
       "id": "note-2026-10-27-spaceship-promo-codes",
       "slug": "note-spaceship-promo-codes",
       "title": "Spaceship 优惠码使用指南",
