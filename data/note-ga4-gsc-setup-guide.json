@@ -40,16 +40,16 @@
     },
     {
       "type": "paragraph",
-      "text": "**完成标准（6 项全部打勾才算跑通）：** ① `site.ts` 填入 `ga4Id` 并完成 `npm run deploy`；② 无痕窗口点 `Accept` 后 Network 出现 `collect?v=2...`（状态码 `204`）；③ GA4「实时概览 / 页面实时浏览情况」能看到活跃用户 `1`；④ GA4 事件与用户数据保留期均改为 **14 个月**并保存；⑤ GSC 通过 Cloudflare 一键授权验证网域并提交 `sitemap.xml`；⑥ GA4「产品关联 → Search Console 关联」显示绿色的**链接已创建**。"
+      "text": "**完成标准（6 项全部打勾才算跑通）：** ① `site.ts` 填入 `ga4Id` 并完成 `npm run build && npx wrangler deploy`；② 无痕窗口（确保未启用 AdBlock/uBlock 扩展）点 `Accept` 后 Network 出现 `collect?v=2...`（状态码 `204`）；③ GA4「实时概览 / 页面实时浏览情况」能看到活跃用户 `≥ 1`；④ GA4 事件与用户数据保留期均改为 **14 个月**并保存；⑤ GSC 通过 Cloudflare 一键授权验证网域并提交 `sitemap.xml`；⑥ GA4「产品关联 → Search Console 关联」显示绿色的**链接已创建**。"
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "1. 创建 GA4 账号与媒体资源（向导第 1–4 步）"
+      "text": "1. 创建 GA4 账号与媒体资源（已有主账号直接新建「媒体资源」）"
     },
     {
       "type": "paragraph",
-      "text": "打开 `analytics.google.com` 进入创建向导。前四步依次配置顶层账号、站点媒体资源、商家画像与业务目标。"
+      "text": "打开 `analytics.google.com`。**多网站重要原则：** 如果你的 Google 账号下已经有 GA4 顶层账号（如 `Hit The Road Dude AI` 主账号），做第 2、第 3 个新网站时**不要每次都新建顶层账号**，而是直接点左下角齿轮 **管理（Admin） → 左上角 `+ 创建` → 选择「媒体资源（Property）」** 跳到 1.2 节即可。只有当你第一次用 GA4、名下还没有任何账号时，才从 1.1 节的创建账号开始："
     },
     {
       "type": "heading",
@@ -210,11 +210,11 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "2.2 复制 G- 开头的衡量 ID（忽略顶部黄色警告）"
+      "text": "2.2 关掉顶层代码抽屉、复制 G- 开头的衡量 ID（忽略顶部黄色警告）"
     },
     {
       "type": "paragraph",
-      "text": "创建完数据流后，详情页会同时展示「数据流 ID（纯数字）」和「衡量 ID（`G-` 开头）」。**我们只需要复制 `G-BL3MDRQG5G` 这个衡量 ID**。不要点「查看代码说明」去装 Google Tag Manager，此时顶部提示「您的网站尚未启用数据收集功能」属于完全正常的初始状态。"
+      "text": "点击「创建并继续」后，页面往往会**连续弹出两层抽屉**：最上面第一层是「设置 Google 代码（含手动安装 / GTM 说明）」抽屉，直接点它左上角的 **`×`** 关掉；关掉后露出的第二层就是下图的「网站数据流详情」抽屉，里面同时展示「数据流 ID（纯数字）」和「衡量 ID（`G-` 开头）」。**我们只需要复制右上角 `G-BL3MDRQG5G` 这个衡量 ID**，然后再点左上角 `×` 关掉这层抽屉，就能点到底部的「下一步 → 继续前往首页」。此时顶部提示「您的网站尚未启用数据收集功能」属于完全正常的初始状态。"
     },
     {
       "type": "image",
@@ -236,16 +236,16 @@
     },
     {
       "type": "code",
-      "text": "// src/config/site.ts\nanalytics: {\n  ga4Id: 'G-BL3MDRQG5G',\n  cfBeaconToken: '',\n},\n\n# 终端运行校验并发布上线\nnpm run typecheck && npm test\nnpm run deploy"
+      "text": "// src/config/site.ts\nanalytics: {\n  ga4Id: 'G-BL3MDRQG5G',\n  cfBeaconToken: '',\n},\n\n# 终端运行校验并构建发布上线\nnpm run typecheck && npm test\nnpm run build && npx wrangler deploy"
     },
     {
       "type": "heading",
       "level": 3,
-      "text": "3.1 无痕窗口打开网站并点击 Accept"
+      "text": "3.1 无痕窗口打开网站并点击 Accept（避开 uBlock / AdBlock 拦截坑）"
     },
     {
       "type": "paragraph",
-      "text": "部署完成后，用浏览器打开**无痕窗口**访问 `https://hittheroaddudeai.fun`。此时页面底部会自动弹出 `Analytics cookies` 隐私同意横幅。**必须点击 `Accept` 按钮**——因为站点遵循 Consent Mode v2，在访客点同意前不会加载 `gtag.js`。"
+      "text": "部署完成后，用未安装广告拦截插件的纯净浏览器打开**无痕窗口**访问 `https://hittheroaddudeai.fun`（**重点避坑：** 切勿使用带 `uBlock Origin` / `AdBlock` 的浏览器如 Ego Browser 去测 GA4 上报，因为拦截插件会把 `gtag/js` 静默替换为空函数桩，导致点了 `Accept` 也发不出任何 `collect` 请求）。此时页面底部会自动弹出 `Analytics cookies` 隐私同意横幅，**必须点击 `Accept` 按钮**——站点遵循 Consent Mode v2，在访客点同意前不会加载 `gtag.js`。"
     },
     {
       "type": "image",
@@ -528,7 +528,12 @@
         [
           "需要复制整段 gtag 代码或装 Google Tag Manager 吗？",
           "不需要，项目已内置带 Cookie 同意控制的注入逻辑",
-          "只需把 `G-` 开头的衡量 ID 填入 `src/config/site.ts` 的 `analytics.ga4Id` 并 `npm run deploy`"
+          "只需把 `G-` 开头的衡量 ID 填入 `src/config/site.ts` 的 `analytics.ga4Id` 并运行 `npm run build && npx wrangler deploy`"
+        ],
+        [
+          "点了 Accept 之后，为什么 Network 里既没有 gtag/js 也没有 collect (204) 请求？",
+          "当前浏览器装了 `uBlock Origin` / `AdBlock` 扩展（如 Ego Browser 内置 uBlock），把 `gtag/js` 静默替换成了空函数",
+          "换用未开广告拦截的纯净 Chrome 无痕窗口测试；若用 Playwright 自动化测试，需去掉 `HeadlessChrome` UA 标识以免被 GA4 当成机器人过滤"
         ],
         [
           "无痕窗口点了 Accept、Network 也有 204，为什么「报告概况」没数？",

@@ -36,7 +36,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**全流程 6 大阶段总览：** ① 在 Cloudflare 开启 Email Routing 将 `support@你的域名` 转发至个人 Gmail；② 配置 OpenAI 内容审核密钥与 `/terms-of-service` 六类 AIGC 禁令条款；③ 一键同步 Waffo 沙盒商品并用测试卡完成首笔支付验证；④ 遵循「一个商户账号、每个网站新建一个独立店铺（Store）」原则配置英文品牌名、Logo、客服邮箱与域名验证；⑤ 逐项填完 12 步 KYB 商业信息并通过 Beta 网站自检；⑥ 绑定国内人民币银行卡提款账户，等待 1–3 个工作日审核通过后切入生产环境。"
+      "text": "**全流程 6 大阶段总览：** ① 在 Cloudflare 开启 Email Routing 将 `support@你的域名` 转发至个人 Gmail；② 配置 OpenAI 内容审核密钥与 `/terms-of-service` 六类 AIGC 禁令条款；③ 登录 **Waffo Pancake 商户后台（`https://pancake.waffo.ai/`，注意不要输错成无法访问的 `dashboard.waffo.ai`）**，一键同步 Waffo 沙盒商品（含积分包与订阅套餐）并用官方测试卡完成首笔支付与站内积分入账验证；④ 遵循「一个商户账号、每个网站新建一个独立店铺（Store）」原则配置英文品牌名、Logo、客服邮箱与域名验证；⑤ 逐项填完 12 步 KYB 商业信息并通过 Beta 网站自检；⑥ 绑定国内人民币银行卡提款账户（同商户账号只需绑定一次，后续新店自动继承），等待审核通过后切入生产环境。"
     },
     {
       "type": "heading",
@@ -169,7 +169,7 @@
     },
     {
       "type": "paragraph",
-      "text": "打开 `platform.openai.com/api-keys` 点击创建新密钥：名称填 `<站点名>-moderation`，**有效期选择「永不过期」**（避免线上运行几个月后密钥过期导致全站上传报错），权限保持 `All`，生成后将 `sk-...` 写入项目的 `.dev.vars` 与 `.dev.vars.production`，并执行 `npm run secrets:sync -- --from .dev.vars.production` 同步到 Cloudflare Worker。"
+      "text": "打开 `platform.openai.com/api-keys` 点击创建新密钥：名称填 `<站点名>-moderation`，**有效期选择「永不过期」**（避免线上运行几个月后密钥过期导致全站上传报错），权限保持 `All`。生成后将 `OPENAI_API_KEY=sk-...` 以及 Waffo 的 `WAFFO_MERCHANT_ID`、`WAFFO_PRIVATE_KEY` 一起写入项目的 `.dev.vars` 与 `.dev.vars.production`，并执行 `node scripts/sync-secrets.mjs --apply` 同步到 Cloudflare Worker。"
     },
     {
       "type": "image",
@@ -187,15 +187,15 @@
     },
     {
       "type": "paragraph",
-      "text": "Waffo 新手引导要求在提交 KYB 前必须完成 **4 项前置条件**：① 创建第一个产品；② 设置 API 密钥；③ 设置 Webhook；④ 完成一笔测试支付。在项目根目录运行脚本即可自动建好沙盒商品、配好 Webhook 并把 `PROD_xxx` 写回 `wrangler.jsonc`："
+      "text": "Waffo 新手引导要求在提交 KYB 前必须完成 **4 项前置条件**：① 创建第一个产品；② 设置 API 密钥；③ 设置 Webhook；④ 完成一笔测试支付。在项目根目录运行脚本即可自动建好沙盒商品（含一次性积分包与订阅套餐）、配好 Webhook，并自动写回 `.dev.vars`，再将输出的 `WAFFO_PRODUCTS` 与 `WAFFO_STORE_ID` 填入 `wrangler.jsonc`："
     },
     {
       "type": "code",
-      "text": "# 自动读取 src/config/site.ts 里的积分包，在 Waffo 测试环境创建商品并绑定 Webhook\nnode scripts/waffo-setup.mjs --store STO_你的店铺ID --apply --webhook https://你的域名/api/webhooks/waffo\n\n# 重新部署让线上加载最新的 WAFFO_PRODUCTS\nnpm run deploy"
+      "text": "# 1. 自动读取 src/config/site.ts 里的积分包与订阅套餐，在 Waffo 测试环境创建商品并绑定 Webhook\nnode scripts/waffo-setup.mjs --store STO_你的店铺ID --apply --write-dev-vars --webhook https://你的域名/api/webhooks/waffo\n\n# 2. 将输出的 WAFFO_PRODUCTS 与 WAFFO_STORE_ID 填入 wrangler.jsonc（PAYMENT_PROVIDER=\"waffo\", MODERATION_PROVIDER=\"openai\"）后部署上线\nnpm run build && npx wrangler deploy"
     },
     {
       "type": "paragraph",
-      "text": "部署完成后，登录线上网站点击任意套餐进入 Waffo 测试收银台，点击右上角测试卡片的 **Visa「成功」** 按钮（或手动填入测试卡号 `4576 7500 0000 0110`、有效期 `12/30`、CVC `123`、持卡人姓名 `wentao hu`），点击 **支付**。"
+      "text": "部署完成后，登录线上网站点击任意套餐进入 Waffo 测试收银台（第一页确认邮箱后点「继续」跳转至 `checkout-sandbox.waffo.com`），选择或手动填入官方成功测试卡号 **`4576 7500 0000 0110`**（有效期 **`12/30`**、CVV **`123`**、持卡人 **`Wentao Hu`**），点击 **支付**。看到绿色「支付成功」后，**务必点击收银台底部的「完成（Done）」按钮跳回你的网站**，确认页面显示 `Payment received` 且右上角积分余额已实时增加，此时 Waffo 后台新手引导的「集成测试 2/2」才会点亮绿勾。"
     },
     {
       "type": "image",
@@ -252,7 +252,7 @@
     },
     {
       "type": "paragraph",
-      "text": "进入 Waffo 左侧菜单 **设置 → 通用**。默认店铺名称可能是中文（如 `萧禹的商店`），面向欧美用户的收银台如果显示中文店名会严重降低信任感。点击 **店铺名称** 右侧的「编辑」将其改为与网站完全一致的英文品牌名（如 `Hit The Road Dude AI`），并上传一张 ≥200×200 的方形站点 Logo。"
+      "text": "进入 Waffo 左侧菜单 **设置 → 通用**（后台地址：`https://pancake.waffo.ai/`；做第 2 个网站时也可直接访问 `https://pancake.waffo.ai/merchant/dashboard/stores/new` 新建店铺）。默认店铺名称可能是中文（如 `萧禹的商店`），面向欧美用户的收银台如果显示中文店名会严重降低信任感。点击 **店铺名称** 右侧的「编辑」将其改为与网站完全一致的英文品牌名（如 `Hit The Road Dude AI` 或 `Glow Up AI`），并上传一张 **≥200×200 的方形站点 Logo**（注意：如果项目里 `public/apple-touch-icon.png` 默认是 180×180，先在终端用 `sips -z 512 512 public/apple-touch-icon.png --out /tmp/logo-512.png` 放大到 512×512 再上传）。"
     },
     {
       "type": "image",
@@ -280,7 +280,7 @@
     },
     {
       "type": "paragraph",
-      "text": "往下滚动到 **客服邮箱** 与 **网站** 区域：① 在客服邮箱填入刚刚在 Cloudflare 配好的 `support@hittheroaddudeai.fun`，点击 **立即验证邮箱**，去个人 Gmail 查收转发过来的 6 位验证码填入即可；② 在网站填入 `https://hittheroaddudeai.fun`，点击 **立即验证域名**——**因为客服邮箱的域名与网站域名完全一致，Waffo 会直接秒过域名所有权验证，无需再配 DNS！**"
+      "text": "往下滚动到 **客服邮箱** 与 **网站** 区域（**注意先后顺序，先验邮箱再验域名可免配 DNS**）：① 先在客服邮箱填入刚刚在 Cloudflare 配好的 `support@你的域名`，点击 **立即验证邮箱 / 发送验证码**，去个人 Gmail 查收转发过来的 `Your verification code: XXXXXX` 邮件，把 6 位验证码填回验证；② 邮箱显示绿色「已验证」后，在下方网站填入 `https://你的域名`，点击 **立即验证域名**——**因为客服邮箱的域名与网站域名完全一致，Waffo 会直接秒过域名所有权验证，完全不需要再去配 DNS TXT 记录！**"
     },
     {
       "type": "image",
@@ -389,7 +389,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**高频踩坑提醒：** 看到底部小字写着「此姓名将用于打款收款，需与您绑定的银行账户持有人完全一致」，很多人第一反应会像下图一样填中文汉字 `胡文涛`。**注意看页面上方的规则：「仅使用拉丁字母 (A-Z)，错误示范：非拉丁字母」！** 因此这里必须填**名在前、姓在后、中间带空格的英文拼音**：**`Wentao Hu`**（首字母大写即可，无需全大写；后续在「提款设置」绑国内人民币银行卡时，会单独让你填中文汉字姓名和身份证，两边由 Waffo 跨境结算网关自动映射）。"
+      "text": "**高频踩坑提醒：** 看到底部小字写着「此姓名将用于打款收款，需与您绑定的银行账户持有人完全一致」，很多人第一反应会像下图一样填中文汉字 `胡文涛`，或者纠结是不是必须按护照顺序填 `HU WENTAO`。**实战已验证结论：** ① 页面规则强制要求 **「仅使用拉丁字母 (A-Z)」**，绝对不能填中文汉字；② 填 **`Wentao Hu`**（官方正确示范的名在前、姓在后，中间带空格）完全没问题，已实测通过审核并成功绑定国内招商银行人民币储蓄卡（跨境结算网关会自动将拉丁拼音词元映射至后续「提款设置」里单独填写的中文汉字姓名「胡文涛」+ 18 位身份证号，因此 `Wentao Hu` 与 `HU WENTAO` 均不影响银行卡打款）。"
     },
     {
       "type": "image",
@@ -483,7 +483,7 @@
     },
     {
       "type": "paragraph",
-      "text": "第 9 步要求覆盖 4 个得分点：**专业背景和经验、GitHub/社交主页、为什么要构建这个产品、仅销售纯数字产品声明**。下次新站只需把下面模板里的站名、域名和玩法改掉即可直接粘贴："
+      "text": "第 9 步要求覆盖 4 个得分点：**专业背景和经验、GitHub/社交主页、为什么要构建这个产品、仅销售纯数字产品声明**（中英文填写均可，推荐用结构化英文方便国际风控审核员秒看懂）。下次新站（无论是 AI 视频站还是 AI 图片变美站）只需把下面模板里的站名、域名和玩法改掉即可直接粘贴："
     },
     {
       "type": "image",
@@ -492,7 +492,7 @@
     },
     {
       "type": "code",
-      "text": "我是全栈软件工程师与 AI 应用独立开发者（GitHub: https://github.com/huwentao04），长期从事 Web 全栈开发、多模态大模型应用与生成式 AI 工具工程化落地。\n\n构建 Hit The Road Dude AI（https://hittheroaddudeai.fun）的原因：针对海外社交媒体流行的“Hit the Road, Dude”角色动画短视频趋势，普通创作者和宠物主人缺乏零门槛的制作工具。我基于 Cloudflare Workers 与两步 AI 管线（OpenAI gpt-image-2 场景合成 + Kling v2.6 Motion Control 角色动作迁移，配合 OpenAI omni-moderation-latest 内容安全审核）开发了这款在线 SaaS Web 应用，让用户上传一张宠物、卡通形象或授权人像照片即可在约 90 秒内生成 5 秒 720p 的动画短视频。\n\n本项目仅销售纯数字积分包（一次性购买 Go / Plus / Pro 积分包，按生成次数扣减，无实体商品）。"
+      "text": "【通用英文版模板（图片站 / 视频站通用，替换站名与域名即可）】\n1. Who I am & Portfolio:\nI am Wentao Hu, an independent full-stack software developer specializing in consumer web applications and AI-powered creative tools. My GitHub profile is https://github.com/huwentao04 and our live product website is https://glowupai.tech .\n\n2. Why I built this product:\nI built Glow Up AI (glowupai.tech) to give everyday creators, social media users, and beauty enthusiasts an easy, fun, and affordable browser-based AI personal styling tool to preview realistic hairstyle, makeup, and outfit glow-up makeovers on their own selfie while strictly preserving their natural facial geometry and identity.\n\n3. How it works & Tech Stack:\nOur platform is built on Cloudflare Workers, React, TypeScript, Cloudflare D1, and R2 storage, powered by commercial AI generation APIs (fal.ai) and automated upload safety moderation (OpenAI omni-moderation-latest). We only sell digital prepaid credit packs and digital monthly/yearly credit subscriptions used directly on our web app—no physical goods and no adult/NSFW content.\n\n----------------------------------------\n【中文版示例（以 Hit The Road Dude AI 短视频站为例）】\n我是全栈软件工程师与 AI 应用独立开发者（GitHub: https://github.com/huwentao04），长期从事 Web 全栈开发、多模态大模型应用与生成式 AI 工具工程化落地。\n\n构建 Hit The Road Dude AI（https://hittheroaddudeai.fun）的原因：针对海外社交媒体流行的“Hit the Road, Dude”角色动画短视频趋势，普通创作者和宠物主人缺乏零门槛的制作工具。我基于 Cloudflare Workers 与两步 AI 管线（OpenAI gpt-image-2 场景合成 + Kling v2.6 Motion Control 角色动作迁移，配合 OpenAI omni-moderation-latest 内容安全审核）开发了这款在线 SaaS Web 应用，让用户上传一张宠物、卡通形象或授权人像照片即可在约 90 秒内生成 5 秒 720p 的动画短视频。\n\n本项目仅销售纯数字积分包（一次性购买积分包或订阅套餐，按生成次数扣减，无实体商品）。"
     },
     {
       "type": "heading",
@@ -501,7 +501,7 @@
     },
     {
       "type": "paragraph",
-      "text": "第 10 步要求写清 **功能描述、具体定价层级、目标客户与用例**。**重要技巧：** 很多时候上线后会做促销打折、跟随竞品降价或调整套餐价格。为了后续改价无需重新审核，我们在第 2 段末尾专门加上一句 **「在 $1.99–$49.99 USD 区间内动态调整价格与限时折扣」** 的报备说明："
+      "text": "第 10 步要求写清 **功能描述、具体定价层级（需与线上 `/pricing` 页面展示的积分包及订阅套餐完全一致）、目标客户与用例**。**重要技巧：** 上线后经常会做促销打折、跟随竞品降价或调整套餐规格。为了后续改价无需重新触发 KYB 审核，我们在第 2 段末尾专门加上一句 **「在 $1.99–$99.00 USD 区间内动态调整价格与限时折扣」** 的报备说明："
     },
     {
       "type": "image",
@@ -510,7 +510,7 @@
     },
     {
       "type": "code",
-      "text": "1. 产品描述与关键功能：\nHit The Road Dude AI（https://hittheroaddudeai.fun）是一款在线 AI 角色动画短视频生成 Web 应用。用户只需上传一张宠物、原创卡通角色或已获授权的成年人照片（支持 JPG/PNG/WebP），系统首先通过 OpenAI omni-moderation-latest 进行内容安全审核，随后使用 OpenAI gpt-image-2 生成 9:16 场景合成图，并通过 Kling v2.6 Motion Control 将动作、表情与原声迁移至角色身上，在约 90 秒内输出 720p 的 MP4 短视频（支持 10 秒、15 秒、30 秒三种时长档位），可直接下载发布至 TikTok、Instagram Reels 和 YouTube Shorts。生成失败系统会自动原路退还积分。\n\n2. 定价模式与具体层级（一次性购买数字积分包，购买积分永不过期）：\n按生成视频秒数计费（1 积分 = 1 秒视频，即 10 秒消耗 10 积分、15 秒消耗 15 积分、30 秒消耗 30 积分）。当前首发标准定价层级如下：\n- Go 套餐：$6.99 USD（一次性付款），含 15 积分（可制作 1 条 15 秒标准短视频）\n- Plus 套餐：$16.99 USD（一次性付款），含 45 积分（可制作 3 条 15 秒短视频或 1 条 30 秒 + 1 条 15 秒视频）\n- Pro 套餐：$24.99 USD（一次性付款），含 75 积分（可制作 5 条 15 秒短视频）\n（注：后续可能会根据市场竞争、节假日促销折扣或运营策略，在 $1.99–$49.99 USD 区间内动态调整积分包价格、推出限时折扣或新增不同积分规格的商品包。）\n\n3. 目标客户与典型用例：\n主要面向欧美地区的短视频创作者（TikTok / Reels / Shorts 博主）、宠物主人、插画师与动漫角色创作者，用于将自己的宠物或原创角色一键制作成热门的趣味短视频。"
+      "text": "【通用英文版模板（同时包含一次性积分包 + 月付/年付订阅 + 动态调价声明）】\n1. Features & Functionality:\nGlow Up AI (https://glowupai.tech) is a browser-based AI personal styling and portrait makeover generator. Users sign in with Google OAuth, upload a portrait selfie (screened automatically by OpenAI omni-moderation-latest for safety compliance), choose from three styling directions—Natural (2 credits), Soft Glam (3 credits), or Golden Hour (3 credits)—and receive a high-resolution, watermark-free JPG portrait makeover in 10–40 seconds while keeping 100% of their original facial geometry. If any render fails, spent credits are automatically refunded to the user's account balance.\n\n2. Pricing Model (One-Time Credit Packs, Subscriptions & Dynamic Pricing Flexibility):\nWe offer both one-time prepaid credit packs (purchased credits never expire) and optional monthly/yearly subscriptions (60 credits granted per month, expiring at the end of each month; cancel anytime in Billing):\n- Starter Pack: $4.99 USD one-time (20 credits, ~6–10 glow-up portraits)\n- Glow Pack: $9.99 USD one-time (60 credits, ~20–30 glow-up portraits)\n- Studio Pack: $19.99 USD one-time (150 credits, ~50–75 glow-up portraits)\n- Monthly Plan: $9.99 USD / month (60 credits per month)\n- Yearly Plan: $99.00 USD / year (60 credits granted every month)\nNote on Promotional & Future Pricing Adjustments: To adapt to market competition and seasonal campaigns, we may offer promotional discounts, introductory starter packs, or updated credit bundle tiers ranging between $1.99 USD and $99.00 USD. All prices and credit amounts are clearly displayed on the website before checkout.\n\n3. Target Audience:\nEveryday social media creators (TikTok, Instagram, LinkedIn, dating app profiles), beauty and fashion enthusiasts, and consumers in North America, Europe, and globally.\n\n----------------------------------------\n【中文版示例（仅积分包模式，以 Hit The Road Dude AI 为例）】\n1. 产品描述与关键功能：\nHit The Road Dude AI（https://hittheroaddudeai.fun）是一款在线 AI 角色动画短视频生成 Web 应用。用户只需上传一张宠物、原创卡通角色或已获授权的成年人照片（支持 JPG/PNG/WebP），系统首先通过 OpenAI omni-moderation-latest 进行内容安全审核，随后使用 OpenAI gpt-image-2 生成 9:16 场景合成图，并通过 Kling v2.6 Motion Control 将动作、表情与原声迁移至角色身上，在约 90 秒内输出 720p 的 MP4 短视频（支持 10 秒、15 秒、30 秒三种时长档位），可直接下载发布至 TikTok、Instagram Reels 和 YouTube Shorts。生成失败系统会自动原路退还积分。\n\n2. 定价模式与具体层级（一次性购买数字积分包，购买积分永不过期）：\n按生成视频秒数计费（1 积分 = 1 秒视频，即 10 秒消耗 10 积分、15 秒消耗 15 积分、30 秒消耗 30 积分）。当前首发标准定价层级如下：\n- Go 套餐：$6.99 USD（一次性付款），含 15 积分（可制作 1 条 15 秒标准短视频）\n- Plus 套餐：$16.99 USD（一次性付款），含 45 积分（可制作 3 条 15 秒短视频或 1 条 30 秒 + 1 条 15 秒视频）\n- Pro 套餐：$24.99 USD（一次性付款），含 75 积分（可制作 5 条 15 秒短视频）\n（注：后续可能会根据市场竞争、节假日促销折扣或运营策略，在 $1.99–$49.99 USD 区间内动态调整积分包价格、推出限时折扣或新增不同积分规格的商品包。）\n\n3. 目标客户与典型用例：\n主要面向欧美地区的短视频创作者（TikTok / Reels / Shorts 博主）、宠物主人、插画师与动漫角色创作者，用于将自己的宠物或原创角色一键制作成热门的趣味短视频。"
     },
     {
       "type": "heading",
@@ -537,7 +537,7 @@
     },
     {
       "type": "paragraph",
-      "text": "最后一步展示 Waffo Pancake 的成功交易费率（每笔 **`3.9% + $0.50`**，无月费、无接入费）。勾选底部的 **「我已阅读并同意 Waffo Pancake 的费率结构」**，点击右上角绿色的 **`提交`** 按钮。"
+      "text": "最后一步展示 Waffo Pancake 的成功交易费率（每笔 **`3.9% + $0.50`**，无月费、无接入费）。勾选底部的 **「我已阅读并同意 Waffo Pancake 的费率结构」**。**注意（人工把关红线）：由于一旦被拒审会有 7 天（1 周）冷却期无法重提，如果是让 AI Agent（`waffo-kyb-onboarding` Skill）帮你自动填表，Agent 会严格停在这一步并生成包含全部 18 张截图的桌面 HTML 验证报告，绝不会代你点提交；请你先对照验证报告检查第 1–12 步无误（若想修改某一步，点右上角 `< 上一步` 或顶部进度圆点即可无损退回修改），再亲手点击右上角绿色的 `提交` 按钮。**"
     },
     {
       "type": "image",
@@ -555,7 +555,7 @@
     },
     {
       "type": "paragraph",
-      "text": "点击提交后，页面立刻切换为 **「审核中（您的业务信息已提交，目前正在审核中，1–3 个工作日）」**。等待审核期间，可以顺手把 **设置提款账户** 一步到位办妥。"
+      "text": "点击提交后，页面立刻切换为 **「审核中（您的业务信息已提交，目前正在审核中，1–3 个工作日）」**。**省心提示（多店铺自动共享提款卡）：** 如果这是你同一个 Waffo 商户主账号下的第 2、第 3 个网站（如 `Glow Up AI`），因为第 1 个店铺已经绑过国内人民币银行卡，新店铺的 **「提款设置 (1/1)」会自动直接亮绿灯**，无需重复绑定！只有首次注册的第 1 个店铺，才需要按下面步骤顺手把 **设置提款账户** 办妥："
     },
     {
       "type": "image",
@@ -614,7 +614,7 @@
     },
     {
       "type": "code",
-      "text": "# 1. 在 Waffo 后台切换为「生产模式」，复制生产环境的 API Key、Merchant ID、公钥与平台公钥填入 .dev.vars.production，然后同步到 Cloudflare：\nnpm run secrets:sync -- --from .dev.vars.production\n\n# 2. 一键在 Waffo 生产环境创建 Go / Plus / Pro 三个正式商品并绑定生产 Webhook，自动写回 wrangler.jsonc：\nnode scripts/waffo-setup.mjs --prod --store STO_你的店铺ID --apply --webhook https://你的域名/api/webhooks/waffo\n\n# 3. 将 wrangler.jsonc 中的 WAFFO_ENVIRONMENT 改为 \"production\"，然后发布上线：\nnpm run deploy"
+      "text": "# 1. 在 Waffo 后台（https://pancake.waffo.ai/）切换为「生产模式」，复制生产环境的 WAFFO_MERCHANT_ID 与 WAFFO_PRIVATE_KEY 填入 .dev.vars.production，然后同步到 Cloudflare Worker：\nnode scripts/sync-secrets.mjs --apply --overwrite\n\n# 2. 一键在 Waffo 生产环境创建正式商品（含积分包与订阅套餐）并绑定生产 Webhook：\nnode scripts/waffo-setup.mjs --prod --store STO_你的店铺ID --apply --write-dev-vars --webhook https://你的域名/api/webhooks/waffo\n\n# 3. 将输出的 WAFFO_PRODUCTS 更新到 wrangler.jsonc，并将 WAFFO_ENVIRONMENT 改为 \"production\"，然后构建发布上线：\nnpm run build && npx wrangler deploy"
     }
   ]
 }

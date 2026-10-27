@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
 <link rel="manifest" href="../../site.webmanifest" />
-<link rel="stylesheet" href="../../assets/site.css?v=a8fa641a" />
+<link rel="stylesheet" href="../../assets/site.css?v=586f155d" />
 </head>
 <body>
 <div class="wrap">
@@ -32,7 +32,7 @@
   
   <article class="article">
 <p>这是一份可以直接照着抄作业的 <strong>Waffo（Waffo Pancake）跨境支付打通与 12 步 KYB 店铺审核保姆级实操手册</strong>。涵盖从 Cloudflare 免费配置 <code class="inline-code">support@域名</code> 客服邮箱转发、OpenAI 上传图片安全审核、Waffo 沙盒测试卡跑通首笔订单、多网站「一网一店」防关联配置，一直到 Waffo 12 步商业信息（KYB）填写话术模板与网站自检秒过技巧。</p>
-<p><strong>全流程 6 大阶段总览：</strong> ① 在 Cloudflare 开启 Email Routing 将 <code class="inline-code">support@你的域名</code> 转发至个人 Gmail；② 配置 OpenAI 内容审核密钥与 <code class="inline-code">/terms-of-service</code> 六类 AIGC 禁令条款；③ 一键同步 Waffo 沙盒商品并用测试卡完成首笔支付验证；④ 遵循「一个商户账号、每个网站新建一个独立店铺（Store）」原则配置英文品牌名、Logo、客服邮箱与域名验证；⑤ 逐项填完 12 步 KYB 商业信息并通过 Beta 网站自检；⑥ 绑定国内人民币银行卡提款账户，等待 1–3 个工作日审核通过后切入生产环境。</p>
+<p><strong>全流程 6 大阶段总览：</strong> ① 在 Cloudflare 开启 Email Routing 将 <code class="inline-code">support@你的域名</code> 转发至个人 Gmail；② 配置 OpenAI 内容审核密钥与 <code class="inline-code">/terms-of-service</code> 六类 AIGC 禁令条款；③ 登录 <strong>Waffo Pancake 商户后台（<code class="inline-code">https://pancake.waffo.ai/</code>，注意不要输错成无法访问的 <code class="inline-code">dashboard.waffo.ai</code>）</strong>，一键同步 Waffo 沙盒商品（含积分包与订阅套餐）并用官方测试卡完成首笔支付与站内积分入账验证；④ 遵循「一个商户账号、每个网站新建一个独立店铺（Store）」原则配置英文品牌名、Logo、客服邮箱与域名验证；⑤ 逐项填完 12 步 KYB 商业信息并通过 Beta 网站自检；⑥ 绑定国内人民币银行卡提款账户（同商户账号只需绑定一次，后续新店自动继承），等待审核通过后切入生产环境。</p>
 <h2 id="sec-1">1. 第一阶段：Cloudflare 开启 Email Routing（免费配置 support@域名 客服邮箱）</h2>
 <p>Waffo 店铺审核强制要求提供与网站同域名的客服邮箱（如 <code class="inline-code">support@hittheroaddudeai.fun</code>）并接收验证码。利用 Cloudflare 自带的 <strong>Email Routing（电子邮件路由）</strong>，零成本即可把发往 <code class="inline-code">support@你的域名</code> 的邮件自动转发到个人 Gmail。</p>
 <h3 id="sec-2">1.1 进入 Email Routing 并点击 Onboard Domain</h3>
@@ -61,17 +61,17 @@
 <h2 id="sec-6">2. 第二阶段：配置 OpenAI 图片安全审核与 Waffo 沙盒测试支付</h2>
 <p>Waffo 对生成式 AI（AIGC）产品有严格的内容安全要求：上传图片或提示词必须在生成前经过合规扫描。站点代码已内置 <code class="inline-code">MODERATION_PROVIDER = &quot;openai&quot;</code>（调用免费的 <code class="inline-code">omni-moderation-latest</code> 接口），只需配好 <code class="inline-code">OPENAI_API_KEY</code> 即可生效。</p>
 <h3 id="sec-7">2.1 创建永不过期的 OpenAI API Key 并写入环境变量</h3>
-<p>打开 <code class="inline-code">platform.openai.com/api-keys</code> 点击创建新密钥：名称填 <code class="inline-code">&lt;站点名&gt;-moderation</code>，<strong>有效期选择「永不过期」</strong>（避免线上运行几个月后密钥过期导致全站上传报错），权限保持 <code class="inline-code">All</code>，生成后将 <code class="inline-code">sk-...</code> 写入项目的 <code class="inline-code">.dev.vars</code> 与 <code class="inline-code">.dev.vars.production</code>，并执行 <code class="inline-code">npm run secrets:sync -- --from .dev.vars.production</code> 同步到 Cloudflare Worker。</p>
+<p>打开 <code class="inline-code">platform.openai.com/api-keys</code> 点击创建新密钥：名称填 <code class="inline-code">&lt;站点名&gt;-moderation</code>，<strong>有效期选择「永不过期」</strong>（避免线上运行几个月后密钥过期导致全站上传报错），权限保持 <code class="inline-code">All</code>。生成后将 <code class="inline-code">OPENAI_API_KEY=sk-...</code> 以及 Waffo 的 <code class="inline-code">WAFFO_MERCHANT_ID</code>、<code class="inline-code">WAFFO_PRIVATE_KEY</code> 一起写入项目的 <code class="inline-code">.dev.vars</code> 与 <code class="inline-code">.dev.vars.production</code>，并执行 <code class="inline-code">node scripts/sync-secrets.mjs --apply</code> 同步到 Cloudflare Worker。</p>
 <figure class="media"><a class="media-link" href="assets/11-openai-create-api-key.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/11-openai-create-api-key-640.webp 640w, assets/11-openai-create-api-key-960.webp 960w, assets/11-openai-create-api-key-1280.webp 1280w, assets/11-openai-create-api-key.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/11-openai-create-api-key.png" alt="OpenAI 创建 API 密钥弹窗：名称 hittheroad-moderation，有效期选永不过期，权限选 All" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：在 OpenAI 后台创建内容审核专用 API Key，有效期务必选「永不过期」。</p>
 <h3 id="sec-8">2.2 一键创建 Waffo 沙盒商品并用测试卡完成首笔支付</h3>
-<p>Waffo 新手引导要求在提交 KYB 前必须完成 <strong>4 项前置条件</strong>：① 创建第一个产品；② 设置 API 密钥；③ 设置 Webhook；④ 完成一笔测试支付。在项目根目录运行脚本即可自动建好沙盒商品、配好 Webhook 并把 <code class="inline-code">PROD_xxx</code> 写回 <code class="inline-code">wrangler.jsonc</code>：</p>
-<pre><code># 自动读取 src/config/site.ts 里的积分包，在 Waffo 测试环境创建商品并绑定 Webhook
-node scripts/waffo-setup.mjs --store STO_你的店铺ID --apply --webhook https://你的域名/api/webhooks/waffo
+<p>Waffo 新手引导要求在提交 KYB 前必须完成 <strong>4 项前置条件</strong>：① 创建第一个产品；② 设置 API 密钥；③ 设置 Webhook；④ 完成一笔测试支付。在项目根目录运行脚本即可自动建好沙盒商品（含一次性积分包与订阅套餐）、配好 Webhook，并自动写回 <code class="inline-code">.dev.vars</code>，再将输出的 <code class="inline-code">WAFFO_PRODUCTS</code> 与 <code class="inline-code">WAFFO_STORE_ID</code> 填入 <code class="inline-code">wrangler.jsonc</code>：</p>
+<pre><code># 1. 自动读取 src/config/site.ts 里的积分包与订阅套餐，在 Waffo 测试环境创建商品并绑定 Webhook
+node scripts/waffo-setup.mjs --store STO_你的店铺ID --apply --write-dev-vars --webhook https://你的域名/api/webhooks/waffo
 
-# 重新部署让线上加载最新的 WAFFO_PRODUCTS
-npm run deploy</code></pre>
-<p>部署完成后，登录线上网站点击任意套餐进入 Waffo 测试收银台，点击右上角测试卡片的 <strong>Visa「成功」</strong> 按钮（或手动填入测试卡号 <code class="inline-code">4576 7500 0000 0110</code>、有效期 <code class="inline-code">12/30</code>、CVC <code class="inline-code">123</code>、持卡人姓名 <code class="inline-code">wentao hu</code>），点击 <strong>支付</strong>。</p>
+# 2. 将输出的 WAFFO_PRODUCTS 与 WAFFO_STORE_ID 填入 wrangler.jsonc（PAYMENT_PROVIDER=&quot;waffo&quot;, MODERATION_PROVIDER=&quot;openai&quot;）后部署上线
+npm run build &amp;&amp; npx wrangler deploy</code></pre>
+<p>部署完成后，登录线上网站点击任意套餐进入 Waffo 测试收银台（第一页确认邮箱后点「继续」跳转至 <code class="inline-code">checkout-sandbox.waffo.com</code>），选择或手动填入官方成功测试卡号 <strong><code class="inline-code">4576 7500 0000 0110</code></strong>（有效期 <strong><code class="inline-code">12/30</code></strong>、CVV <strong><code class="inline-code">123</code></strong>、持卡人 <strong><code class="inline-code">Wentao Hu</code></strong>），点击 <strong>支付</strong>。看到绿色「支付成功」后，<strong>务必点击收银台底部的「完成（Done）」按钮跳回你的网站</strong>，确认页面显示 <code class="inline-code">Payment received</code> 且右上角积分余额已实时增加，此时 Waffo 后台新手引导的「集成测试 2/2」才会点亮绿勾。</p>
 <figure class="media"><a class="media-link" href="assets/12-waffo-test-checkout-card.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/12-waffo-test-checkout-card-640.webp 640w, assets/12-waffo-test-checkout-card-960.webp 960w, assets/12-waffo-test-checkout-card-1280.webp 1280w, assets/12-waffo-test-checkout-card.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/12-waffo-test-checkout-card.png" alt="Waffo 测试收银台，填入 Visa 测试卡号 4576 7500 0000 0110、12/30、123、wentao hu" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/13-waffo-test-checkout-pay.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/13-waffo-test-checkout-pay-640.webp 640w, assets/13-waffo-test-checkout-pay-960.webp 960w, assets/13-waffo-test-checkout-pay-1280.webp 1280w, assets/13-waffo-test-checkout-pay.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/13-waffo-test-checkout-pay.png" alt="Waffo 测试收银台左侧显示订单金额与商品名，右侧点击底部黑色支付按钮" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/14-waffo-test-payment-success.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/14-waffo-test-payment-success-640.webp 640w, assets/14-waffo-test-payment-success-960.webp 960w, assets/14-waffo-test-payment-success-1280.webp 1280w, assets/14-waffo-test-payment-success.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/14-waffo-test-payment-success.png" alt="Waffo 测试收银台显示绿色对勾支付成功，展示订单号与交易时间" loading="lazy" decoding="async" /></picture></a></figure>
@@ -80,13 +80,13 @@ npm run deploy</code></pre>
 <p><strong>多站点防关联核心原则（极其重要）：</strong> 当你手里有多个独立站（如 <code class="inline-code">Hit The Road Dude AI</code>、<code class="inline-code">Glow Up AI</code> 等）时，<strong>所有网站共用右上角同一个 Waffo 商户主账号（共用你的个人实名与同一张提款银行卡），但每个网站必须在左下角单独新建一个店铺（Store）！</strong> 千万不要让两个不同域名的网站共用同一个 <code class="inline-code">STO_xxx</code> 店铺，否则收银台品牌名对不上，还会被支付风控判定为高风险 AB 站 / 套壳站。</p>
 <div class='table-wrap'><table><tr><th>层级</th><th>对应概念</th><th>多网站怎么配</th></tr><tr><td>顶层：商户账号（Merchant）</td><td>右上角你的 Waffo 登录账号与收款主体</td><td>所有网站<strong>共用同一个账号</strong>，提款银行卡只需绑定一次</td></tr><tr><td>下层：店铺（Store，<code class="inline-code">STO_xxx</code>）</td><td>左下角切换器里的具体店铺，对应单个独立站</td><td><strong>一网一店</strong>：站点 A 用店铺 1，后续做站点 B 就点左下角 <code class="inline-code">+ 新建店铺</code> 建店铺 2</td></tr></table></div>
 <h3 id="sec-10">3.1 修改店铺英文名称与上传方形 Logo（忽略中文店铺别名）</h3>
-<p>进入 Waffo 左侧菜单 <strong>设置 → 通用</strong>。默认店铺名称可能是中文（如 <code class="inline-code">萧禹的商店</code>），面向欧美用户的收银台如果显示中文店名会严重降低信任感。点击 <strong>店铺名称</strong> 右侧的「编辑」将其改为与网站完全一致的英文品牌名（如 <code class="inline-code">Hit The Road Dude AI</code>），并上传一张 ≥200×200 的方形站点 Logo。</p>
+<p>进入 Waffo 左侧菜单 <strong>设置 → 通用</strong>（后台地址：<code class="inline-code">https://pancake.waffo.ai/</code>；做第 2 个网站时也可直接访问 <code class="inline-code">https://pancake.waffo.ai/merchant/dashboard/stores/new</code> 新建店铺）。默认店铺名称可能是中文（如 <code class="inline-code">萧禹的商店</code>），面向欧美用户的收银台如果显示中文店名会严重降低信任感。点击 <strong>店铺名称</strong> 右侧的「编辑」将其改为与网站完全一致的英文品牌名（如 <code class="inline-code">Hit The Road Dude AI</code> 或 <code class="inline-code">Glow Up AI</code>），并上传一张 <strong>≥200×200 的方形站点 Logo</strong>（注意：如果项目里 <code class="inline-code">public/apple-touch-icon.png</code> 默认是 180×180，先在终端用 <code class="inline-code">sips -z 512 512 public/apple-touch-icon.png --out /tmp/logo-512.png</code> 放大到 512×512 再上传）。</p>
 <figure class="media"><a class="media-link" href="assets/15-waffo-store-default-name.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/15-waffo-store-default-name-640.webp 640w, assets/15-waffo-store-default-name-960.webp 960w, assets/15-waffo-store-default-name-1280.webp 1280w, assets/15-waffo-store-default-name.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/15-waffo-store-default-name.png" alt="Waffo 设置页面展示店铺 ID、店铺别名和店铺资料" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/16-waffo-multi-store-switcher.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/16-waffo-multi-store-switcher-640.webp 640w, assets/16-waffo-multi-store-switcher-960.webp 960w, assets/16-waffo-multi-store-switcher-1280.webp 1280w, assets/16-waffo-multi-store-switcher.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/16-waffo-multi-store-switcher.png" alt="点击左下角店铺切换器，弹出当前店铺与 + 新建店铺 按钮" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/17-waffo-store-logo-and-name.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/17-waffo-store-logo-and-name-640.webp 640w, assets/17-waffo-store-logo-and-name-960.webp 960w, assets/17-waffo-store-logo-and-name-1280.webp 1280w, assets/17-waffo-store-logo-and-name.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/17-waffo-store-logo-and-name.png" alt="上传方形橘猫 Logo 并将店铺名称改为 Hit The Road Dude AI" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：在左下角可随时点击 <code class="inline-code">+ 新建店铺</code> 扩展第 2、第 3 个网站；将当前店铺名称改为 <code class="inline-code">Hit The Road Dude AI</code> 并上传 Logo。<strong>注：上方的「店铺别名（如 <code class="inline-code">萧禹的商店-oaycrp3v</code>）」仅作后台内部 URL 标识，后续提交 KYB 后会自动同步为英文，包含中文完全不影响客户收银台展示，也不用重跑测试支付。</strong></p>
 <h3 id="sec-11">3.2 验证客服邮箱（support@域名）与自动验证网站域名</h3>
-<p>往下滚动到 <strong>客服邮箱</strong> 与 <strong>网站</strong> 区域：① 在客服邮箱填入刚刚在 Cloudflare 配好的 <code class="inline-code">support@hittheroaddudeai.fun</code>，点击 <strong>立即验证邮箱</strong>，去个人 Gmail 查收转发过来的 6 位验证码填入即可；② 在网站填入 <code class="inline-code">https://hittheroaddudeai.fun</code>，点击 <strong>立即验证域名</strong>——<strong>因为客服邮箱的域名与网站域名完全一致，Waffo 会直接秒过域名所有权验证，无需再配 DNS！</strong></p>
+<p>往下滚动到 <strong>客服邮箱</strong> 与 <strong>网站</strong> 区域（<strong>注意先后顺序，先验邮箱再验域名可免配 DNS</strong>）：① 先在客服邮箱填入刚刚在 Cloudflare 配好的 <code class="inline-code">support@你的域名</code>，点击 <strong>立即验证邮箱 / 发送验证码</strong>，去个人 Gmail 查收转发过来的 <code class="inline-code">Your verification code: XXXXXX</code> 邮件，把 6 位验证码填回验证；② 邮箱显示绿色「已验证」后，在下方网站填入 <code class="inline-code">https://你的域名</code>，点击 <strong>立即验证域名</strong>——<strong>因为客服邮箱的域名与网站域名完全一致，Waffo 会直接秒过域名所有权验证，完全不需要再去配 DNS TXT 记录！</strong></p>
 <figure class="media"><a class="media-link" href="assets/18-waffo-store-email-domain-inputs.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/18-waffo-store-email-domain-inputs-640.webp 640w, assets/18-waffo-store-email-domain-inputs-960.webp 960w, assets/18-waffo-store-email-domain-inputs-1280.webp 1280w, assets/18-waffo-store-email-domain-inputs.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/18-waffo-store-email-domain-inputs.png" alt="客服邮箱和网站输入框初始界面，带立即验证邮箱和立即验证域名按钮" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/19-waffo-store-email-domain-verified.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/19-waffo-store-email-domain-verified-640.webp 640w, assets/19-waffo-store-email-domain-verified-960.webp 960w, assets/19-waffo-store-email-domain-verified-1280.webp 1280w, assets/19-waffo-store-email-domain-verified.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/19-waffo-store-email-domain-verified.png" alt="support@hittheroaddudeai.fun 邮箱验证显示绿色已验证，https://hittheroaddudeai.fun 域名验证也自动变为绿色已验证" loading="lazy" decoding="async" /></picture></a></figure>
 <figure class="media"><a class="media-link" href="assets/20-waffo-onboarding-checklist-kyb.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/20-waffo-onboarding-checklist-kyb-640.webp 640w, assets/20-waffo-onboarding-checklist-kyb-960.webp 960w, assets/20-waffo-onboarding-checklist-kyb-1280.webp 1280w, assets/20-waffo-onboarding-checklist-kyb.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/20-waffo-onboarding-checklist-kyb.png" alt="右下角新手引导浮窗显示完善商店信息已打勾，下一步高亮指向提交商业信息 (KYB)" loading="lazy" decoding="async" /></picture></a></figure>
@@ -110,7 +110,7 @@ npm run deploy</code></pre>
 <figure class="media"><a class="media-link" href="assets/24-kyb-step04-existing-customers.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/24-kyb-step04-existing-customers-640.webp 640w, assets/24-kyb-step04-existing-customers-960.webp 960w, assets/24-kyb-step04-existing-customers-1280.webp 1280w, assets/24-kyb-step04-existing-customers.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/24-kyb-step04-existing-customers.png" alt="KYB 第 4/12 步现有客户：选择没有，我刚刚起步" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：第 4/12 步：新站直接选「没有，我刚刚起步」。</p>
 <h3 id="sec-17">4.5 第 5 12 步：全名（避坑：必须填英文拼音，不能填汉字！）</h3>
-<p><strong>高频踩坑提醒：</strong> 看到底部小字写着「此姓名将用于打款收款，需与您绑定的银行账户持有人完全一致」，很多人第一反应会像下图一样填中文汉字 <code class="inline-code">胡文涛</code>。<strong>注意看页面上方的规则：「仅使用拉丁字母 (A-Z)，错误示范：非拉丁字母」！</strong> 因此这里必须填<strong>名在前、姓在后、中间带空格的英文拼音</strong>：<strong><code class="inline-code">Wentao Hu</code></strong>（首字母大写即可，无需全大写；后续在「提款设置」绑国内人民币银行卡时，会单独让你填中文汉字姓名和身份证，两边由 Waffo 跨境结算网关自动映射）。</p>
+<p><strong>高频踩坑提醒：</strong> 看到底部小字写着「此姓名将用于打款收款，需与您绑定的银行账户持有人完全一致」，很多人第一反应会像下图一样填中文汉字 <code class="inline-code">胡文涛</code>，或者纠结是不是必须按护照顺序填 <code class="inline-code">HU WENTAO</code>。<strong>实战已验证结论：</strong> ① 页面规则强制要求 <strong>「仅使用拉丁字母 (A-Z)」</strong>，绝对不能填中文汉字；② 填 <strong><code class="inline-code">Wentao Hu</code></strong>（官方正确示范的名在前、姓在后，中间带空格）完全没问题，已实测通过审核并成功绑定国内招商银行人民币储蓄卡（跨境结算网关会自动将拉丁拼音词元映射至后续「提款设置」里单独填写的中文汉字姓名「胡文涛」+ 18 位身份证号，因此 <code class="inline-code">Wentao Hu</code> 与 <code class="inline-code">HU WENTAO</code> 均不影响银行卡打款）。</p>
 <figure class="media"><a class="media-link" href="assets/25-kyb-step05-full-name-wrong-demo.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/25-kyb-step05-full-name-wrong-demo-640.webp 640w, assets/25-kyb-step05-full-name-wrong-demo-960.webp 960w, assets/25-kyb-step05-full-name-wrong-demo-1280.webp 1280w, assets/25-kyb-step05-full-name-wrong-demo.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/25-kyb-step05-full-name-wrong-demo.png" alt="KYB 第 5/12 步全名页面，展示必须使用拉丁字母 A-Z 的规则说明" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：第 5/12 步：切勿保留图中的中文汉字！必须按「仅使用拉丁字母 (A-Z)」要求改成英文拼音 <code class="inline-code">Wentao Hu</code> 再点下一步。</p>
 <h3 id="sec-18">4.6 第 6 12 步：商家名称（填站点英文品牌名）</h3>
@@ -131,17 +131,47 @@ npm run deploy</code></pre>
 <figure class="media"><a class="media-link" href="assets/30-kyb-step08-self-check-passed.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/30-kyb-step08-self-check-passed-640.webp 640w, assets/30-kyb-step08-self-check-passed-960.webp 960w, assets/30-kyb-step08-self-check-passed-1280.webp 1280w, assets/30-kyb-step08-self-check-passed.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/30-kyb-step08-self-check-passed.png" alt="网站自检通过：显示绿色对勾未发现明显问题，你的网站看起来可以提交了" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：补齐六类 AIGC 禁令与审核/举报机制后重新检查，显示绿字「未发现明显问题」即可点下一步。</p>
 <h3 id="sec-21">4.9 第 9 12 步：关于您或您的业务（可直接复制的满分模板）</h3>
-<p>第 9 步要求覆盖 4 个得分点：<strong>专业背景和经验、GitHub/社交主页、为什么要构建这个产品、仅销售纯数字产品声明</strong>。下次新站只需把下面模板里的站名、域名和玩法改掉即可直接粘贴：</p>
+<p>第 9 步要求覆盖 4 个得分点：<strong>专业背景和经验、GitHub/社交主页、为什么要构建这个产品、仅销售纯数字产品声明</strong>（中英文填写均可，推荐用结构化英文方便国际风控审核员秒看懂）。下次新站（无论是 AI 视频站还是 AI 图片变美站）只需把下面模板里的站名、域名和玩法改掉即可直接粘贴：</p>
 <figure class="media"><a class="media-link" href="assets/31-kyb-step09-about-business.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/31-kyb-step09-about-business-640.webp 640w, assets/31-kyb-step09-about-business-960.webp 960w, assets/31-kyb-step09-about-business-1280.webp 1280w, assets/31-kyb-step09-about-business.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/31-kyb-step09-about-business.png" alt="KYB 第 9/12 步关于您或您的业务输入界面" loading="lazy" decoding="async" /></picture></a></figure>
-<pre><code>我是全栈软件工程师与 AI 应用独立开发者（GitHub: https://github.com/huwentao04），长期从事 Web 全栈开发、多模态大模型应用与生成式 AI 工具工程化落地。
+<pre><code>【通用英文版模板（图片站 / 视频站通用，替换站名与域名即可）】
+1. Who I am &amp; Portfolio:
+I am Wentao Hu, an independent full-stack software developer specializing in consumer web applications and AI-powered creative tools. My GitHub profile is https://github.com/huwentao04 and our live product website is https://glowupai.tech .
+
+2. Why I built this product:
+I built Glow Up AI (glowupai.tech) to give everyday creators, social media users, and beauty enthusiasts an easy, fun, and affordable browser-based AI personal styling tool to preview realistic hairstyle, makeup, and outfit glow-up makeovers on their own selfie while strictly preserving their natural facial geometry and identity.
+
+3. How it works &amp; Tech Stack:
+Our platform is built on Cloudflare Workers, React, TypeScript, Cloudflare D1, and R2 storage, powered by commercial AI generation APIs (fal.ai) and automated upload safety moderation (OpenAI omni-moderation-latest). We only sell digital prepaid credit packs and digital monthly/yearly credit subscriptions used directly on our web app—no physical goods and no adult/NSFW content.
+
+----------------------------------------
+【中文版示例（以 Hit The Road Dude AI 短视频站为例）】
+我是全栈软件工程师与 AI 应用独立开发者（GitHub: https://github.com/huwentao04），长期从事 Web 全栈开发、多模态大模型应用与生成式 AI 工具工程化落地。
 
 构建 Hit The Road Dude AI（https://hittheroaddudeai.fun）的原因：针对海外社交媒体流行的“Hit the Road, Dude”角色动画短视频趋势，普通创作者和宠物主人缺乏零门槛的制作工具。我基于 Cloudflare Workers 与两步 AI 管线（OpenAI gpt-image-2 场景合成 + Kling v2.6 Motion Control 角色动作迁移，配合 OpenAI omni-moderation-latest 内容安全审核）开发了这款在线 SaaS Web 应用，让用户上传一张宠物、卡通形象或授权人像照片即可在约 90 秒内生成 5 秒 720p 的动画短视频。
 
-本项目仅销售纯数字积分包（一次性购买 Go / Plus / Pro 积分包，按生成次数扣减，无实体商品）。</code></pre>
+本项目仅销售纯数字积分包（一次性购买积分包或订阅套餐，按生成次数扣减，无实体商品）。</code></pre>
 <h3 id="sec-22">4.10 第 10 12 步：产品和平台详情（含动态调价与促销报备声明）</h3>
-<p>第 10 步要求写清 <strong>功能描述、具体定价层级、目标客户与用例</strong>。<strong>重要技巧：</strong> 很多时候上线后会做促销打折、跟随竞品降价或调整套餐价格。为了后续改价无需重新审核，我们在第 2 段末尾专门加上一句 <strong>「在 $1.99–$49.99 USD 区间内动态调整价格与限时折扣」</strong> 的报备说明：</p>
+<p>第 10 步要求写清 <strong>功能描述、具体定价层级（需与线上 <code class="inline-code">/pricing</code> 页面展示的积分包及订阅套餐完全一致）、目标客户与用例</strong>。<strong>重要技巧：</strong> 上线后经常会做促销打折、跟随竞品降价或调整套餐规格。为了后续改价无需重新触发 KYB 审核，我们在第 2 段末尾专门加上一句 <strong>「在 $1.99–$99.00 USD 区间内动态调整价格与限时折扣」</strong> 的报备说明：</p>
 <figure class="media"><a class="media-link" href="assets/32-kyb-step10-product-and-pricing.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/32-kyb-step10-product-and-pricing-640.webp 640w, assets/32-kyb-step10-product-and-pricing-960.webp 960w, assets/32-kyb-step10-product-and-pricing-1280.webp 1280w, assets/32-kyb-step10-product-and-pricing.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/32-kyb-step10-product-and-pricing.png" alt="KYB 第 10/12 步产品和平台详情输入界面" loading="lazy" decoding="async" /></picture></a></figure>
-<pre><code>1. 产品描述与关键功能：
+<pre><code>【通用英文版模板（同时包含一次性积分包 + 月付/年付订阅 + 动态调价声明）】
+1. Features &amp; Functionality:
+Glow Up AI (https://glowupai.tech) is a browser-based AI personal styling and portrait makeover generator. Users sign in with Google OAuth, upload a portrait selfie (screened automatically by OpenAI omni-moderation-latest for safety compliance), choose from three styling directions—Natural (2 credits), Soft Glam (3 credits), or Golden Hour (3 credits)—and receive a high-resolution, watermark-free JPG portrait makeover in 10–40 seconds while keeping 100% of their original facial geometry. If any render fails, spent credits are automatically refunded to the user's account balance.
+
+2. Pricing Model (One-Time Credit Packs, Subscriptions &amp; Dynamic Pricing Flexibility):
+We offer both one-time prepaid credit packs (purchased credits never expire) and optional monthly/yearly subscriptions (60 credits granted per month, expiring at the end of each month; cancel anytime in Billing):
+- Starter Pack: $4.99 USD one-time (20 credits, ~6–10 glow-up portraits)
+- Glow Pack: $9.99 USD one-time (60 credits, ~20–30 glow-up portraits)
+- Studio Pack: $19.99 USD one-time (150 credits, ~50–75 glow-up portraits)
+- Monthly Plan: $9.99 USD / month (60 credits per month)
+- Yearly Plan: $99.00 USD / year (60 credits granted every month)
+Note on Promotional &amp; Future Pricing Adjustments: To adapt to market competition and seasonal campaigns, we may offer promotional discounts, introductory starter packs, or updated credit bundle tiers ranging between $1.99 USD and $99.00 USD. All prices and credit amounts are clearly displayed on the website before checkout.
+
+3. Target Audience:
+Everyday social media creators (TikTok, Instagram, LinkedIn, dating app profiles), beauty and fashion enthusiasts, and consumers in North America, Europe, and globally.
+
+----------------------------------------
+【中文版示例（仅积分包模式，以 Hit The Road Dude AI 为例）】
+1. 产品描述与关键功能：
 Hit The Road Dude AI（https://hittheroaddudeai.fun）是一款在线 AI 角色动画短视频生成 Web 应用。用户只需上传一张宠物、原创卡通角色或已获授权的成年人照片（支持 JPG/PNG/WebP），系统首先通过 OpenAI omni-moderation-latest 进行内容安全审核，随后使用 OpenAI gpt-image-2 生成 9:16 场景合成图，并通过 Kling v2.6 Motion Control 将动作、表情与原声迁移至角色身上，在约 90 秒内输出 720p 的 MP4 短视频（支持 10 秒、15 秒、30 秒三种时长档位），可直接下载发布至 TikTok、Instagram Reels 和 YouTube Shorts。生成失败系统会自动原路退还积分。
 
 2. 定价模式与具体层级（一次性购买数字积分包，购买积分永不过期）：
@@ -158,11 +188,11 @@ Hit The Road Dude AI（https://hittheroaddudeai.fun）是一款在线 AI 角色�
 <figure class="media"><a class="media-link" href="assets/33-kyb-step11-product-compliance.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/33-kyb-step11-product-compliance-640.webp 640w, assets/33-kyb-step11-product-compliance-960.webp 960w, assets/33-kyb-step11-product-compliance-1280.webp 1280w, assets/33-kyb-step11-product-compliance.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/33-kyb-step11-product-compliance.png" alt="KYB 第 11/12 步产品合规性和透明度：三个复选框全部勾选" loading="lazy" decoding="async" /></picture></a></figure>
 <p>图注：第 11/12 步：3 个合规复选框全部勾选（底部 AIGC 扫描要求我们已在上传接口接入 OpenAI Moderation，无需点击）。</p>
 <h3 id="sec-24">4.12 第 12 12 步：手续费与定价确认（3.9% + $0.50）并点击「提交」</h3>
-<p>最后一步展示 Waffo Pancake 的成功交易费率（每笔 <strong><code class="inline-code">3.9% + $0.50</code></strong>，无月费、无接入费）。勾选底部的 <strong>「我已阅读并同意 Waffo Pancake 的费率结构」</strong>，点击右上角绿色的 <strong><code class="inline-code">提交</code></strong> 按钮。</p>
+<p>最后一步展示 Waffo Pancake 的成功交易费率（每笔 <strong><code class="inline-code">3.9% + $0.50</code></strong>，无月费、无接入费）。勾选底部的 <strong>「我已阅读并同意 Waffo Pancake 的费率结构」</strong>。<strong>注意（人工把关红线）：由于一旦被拒审会有 7 天（1 周）冷却期无法重提，如果是让 AI Agent（<code class="inline-code">waffo-kyb-onboarding</code> Skill）帮你自动填表，Agent 会严格停在这一步并生成包含全部 18 张截图的桌面 HTML 验证报告，绝不会代你点提交；请你先对照验证报告检查第 1–12 步无误（若想修改某一步，点右上角 <code class="inline-code">&lt; 上一步</code> 或顶部进度圆点即可无损退回修改），再亲手点击右上角绿色的 <code class="inline-code">提交</code> 按钮。</strong></p>
 <figure class="media"><a class="media-link" href="assets/34-kyb-step12-fees-and-pricing.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/34-kyb-step12-fees-and-pricing-640.webp 640w, assets/34-kyb-step12-fees-and-pricing-960.webp 960w, assets/34-kyb-step12-fees-and-pricing-1280.webp 1280w, assets/34-kyb-step12-fees-and-pricing.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/34-kyb-step12-fees-and-pricing.png" alt="KYB 第 12/12 步手续费与定价：展示 3.9% + $0.50 费率，勾选同意后点击右上角提交" loading="lazy" decoding="async" /></picture></a></figure>
 <p><strong>关于手续费与利润测算：</strong> 以 <code class="inline-code">$6.99</code> 的 Go 套餐为例，Waffo 扣掉 <code class="inline-code">$6.99 × 3.9% + $0.50 ≈ $0.77</code> 后净到手约 <code class="inline-code">$6.22</code>；调用一次 AI 生成视频成本约 <code class="inline-code">$0.40–$0.50</code>，毛利率仍在 <strong>80% 以上</strong>。而且审核通过后，随时可以改 <code class="inline-code">src/config/site.ts</code> 里的价格并跑 <code class="inline-code">node scripts/waffo-setup.mjs --prod --apply</code> 同步新商品，完全不需要重审。</p>
 <h2 id="sec-25">5. 第五阶段：提交进入「审核中」与绑定人民币银行卡提款账户</h2>
-<p>点击提交后，页面立刻切换为 <strong>「审核中（您的业务信息已提交，目前正在审核中，1–3 个工作日）」</strong>。等待审核期间，可以顺手把 <strong>设置提款账户</strong> 一步到位办妥。</p>
+<p>点击提交后，页面立刻切换为 <strong>「审核中（您的业务信息已提交，目前正在审核中，1–3 个工作日）」</strong>。<strong>省心提示（多店铺自动共享提款卡）：</strong> 如果这是你同一个 Waffo 商户主账号下的第 2、第 3 个网站（如 <code class="inline-code">Glow Up AI</code>），因为第 1 个店铺已经绑过国内人民币银行卡，新店铺的 <strong>「提款设置 (1/1)」会自动直接亮绿灯</strong>，无需重复绑定！只有首次注册的第 1 个店铺，才需要按下面步骤顺手把 <strong>设置提款账户</strong> 办妥：</p>
 <figure class="media"><a class="media-link" href="assets/35-kyb-submitted-under-review.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/35-kyb-submitted-under-review-640.webp 640w, assets/35-kyb-submitted-under-review-960.webp 960w, assets/35-kyb-submitted-under-review-1280.webp 1280w, assets/35-kyb-submitted-under-review.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/35-kyb-submitted-under-review.png" alt="提交成功后显示审核中状态，下方待办列表仅剩设置提款账户和自定义收银台" loading="lazy" decoding="async" /></picture></a></figure>
 <h3 id="sec-26">5.1 选择「中国 CNY 人民币 银行转账」（避开支付宝补材料坑）</h3>
 <p>点击「设置提款账户」后：<br>1. <strong>个人实名信息弹窗</strong>：全部如实填中文信息（姓填中文姓、名填中文名、选中国身份证并填 18 位身份证号、填出生日期与手机号）。<br>2. <strong>选择提款方式弹窗（如下图）</strong>：国家和地区选 <strong><code class="inline-code">中国 CHN</code></strong>，币种选 <strong><code class="inline-code">CNY 人民币</code></strong>，提款方式强烈推荐选 <strong><code class="inline-code">银行转账</code></strong>（页面底部黄字明确提示：支付宝渠道经常会触发补交申报材料导致提款失败或延迟，直接绑本人国内储蓄卡一劳永逸）。<br>3. <strong>银行卡详情弹窗</strong>：银行名称选你的储蓄卡开户行（如招商银行），填入本人储蓄卡号并核对无误后点击保存。</p>
@@ -175,14 +205,14 @@ Hit The Road Dude AI（https://hittheroaddudeai.fun）是一款在线 AI 角色�
 <p>图注：所有配置与提款设置全部亮绿灯，只需等待 1–3 个工作日收到 Waffo 审核通过邮件。</p>
 <h2 id="sec-28">6. 附录：收到「审核通过」邮件后的 3 分钟上线收尾命令</h2>
 <p>当你的 Gmail 收到 Waffo 审核通过通知后，只需要按顺序执行以下 3 步即可正式开张收美元：</p>
-<pre><code># 1. 在 Waffo 后台切换为「生产模式」，复制生产环境的 API Key、Merchant ID、公钥与平台公钥填入 .dev.vars.production，然后同步到 Cloudflare：
-npm run secrets:sync -- --from .dev.vars.production
+<pre><code># 1. 在 Waffo 后台（https://pancake.waffo.ai/）切换为「生产模式」，复制生产环境的 WAFFO_MERCHANT_ID 与 WAFFO_PRIVATE_KEY 填入 .dev.vars.production，然后同步到 Cloudflare Worker：
+node scripts/sync-secrets.mjs --apply --overwrite
 
-# 2. 一键在 Waffo 生产环境创建 Go / Plus / Pro 三个正式商品并绑定生产 Webhook，自动写回 wrangler.jsonc：
-node scripts/waffo-setup.mjs --prod --store STO_你的店铺ID --apply --webhook https://你的域名/api/webhooks/waffo
+# 2. 一键在 Waffo 生产环境创建正式商品（含积分包与订阅套餐）并绑定生产 Webhook：
+node scripts/waffo-setup.mjs --prod --store STO_你的店铺ID --apply --write-dev-vars --webhook https://你的域名/api/webhooks/waffo
 
-# 3. 将 wrangler.jsonc 中的 WAFFO_ENVIRONMENT 改为 &quot;production&quot;，然后发布上线：
-npm run deploy</code></pre>
+# 3. 将输出的 WAFFO_PRODUCTS 更新到 wrangler.jsonc，并将 WAFFO_ENVIRONMENT 改为 &quot;production&quot;，然后构建发布上线：
+npm run build &amp;&amp; npx wrangler deploy</code></pre>
   </article>
   
   <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>

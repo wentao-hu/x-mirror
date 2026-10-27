@@ -46,7 +46,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**完整最短流水线：** Cloudflare Add a site → 删停放记录并加 `192.0.2.1` 占位记录 → Continue to activation 拿两个 NS → Spaceship 改自定义 NS → 开启 Always Use HTTPS 并删掉 `192.0.2.1` → Cloudflare 变 Active → `wrangler.jsonc` 配 `custom_domain` 并部署 → 浏览器实测登录验收。"
+      "text": "**完整最短流水线（含并行提速技巧）：** Cloudflare Add a site → 删停放记录并加 `192.0.2.1` 占位记录 → Continue to activation 拿两个 NS → Spaceship 改自定义 NS → 开启 Always Use HTTPS 并删掉 `192.0.2.1` → **趁等 NS 生效的 1–5 分钟空窗期，顺手去 Google Cloud 配好 OAuth（先填品牌页 3 个链接且徽标留空，再点发布应用变正式版）并去 GA4 拿到 `G-` 衡量 ID 写进 `site.ts`** → Cloudflare 变 Active 后一次性跑 `npm run build && npx wrangler deploy` → 浏览器实测登录验收。"
     },
     {
       "type": "heading",
@@ -198,7 +198,7 @@
     },
     {
       "type": "paragraph",
-      "text": "打开 Spaceship 域名管理器（`https://www.spaceship.com/zh/application/domain-list-application/`），点击目标域名 → 右侧面板点「名称服务器和DNS」→ 点「Spaceship名称服务器」旁的「更改」（或在 DNS Tools 向导里点「自定义名称服务器」下的「选择」）。"
+      "text": "打开 Spaceship 域名管理器（`https://www.spaceship.com/zh/application/domain-list-application/`），点击目标域名 → 右侧面板点「名称服务器和DNS」→ 点「Spaceship名称服务器」旁的「更改」；**或者直接一步直达高级 DNS 页：`https://www.spaceship.com/zh/application/advanced-dns-application/manage/<你的域名>`**，在「名称服务器」点「更改」→ 选「自定义名称服务器」。"
     },
     {
       "type": "image",
@@ -369,7 +369,7 @@
     },
     {
       "type": "paragraph",
-      "text": "删掉 `192.0.2.1` 占位记录且站点处于 Active 后，在项目的 `wrangler.jsonc` 里配置 `routes` 并关闭 `workers_dev` 与 `preview_urls`："
+      "text": "删掉 `192.0.2.1` 占位记录且站点处于 Active 后，先检查两项上线前置细节：① `src/routes/__root.tsx` 的 `THEME_SCRIPT` 首次访问默认回退为 `'light'`（亮色画布优先），且 `public/demo/*.jpg` 展示图单张不超过 150 KB（避免大图阻塞首屏水合）；② Google Cloud OAuth 已按「一词一项目」先填齐品牌页 3 个链接（首页、`/privacy-policy`、`/terms-of-service`，**应用徽标留空免审**）并在「目标对象」点击「发布应用」推至**正式版（In production）**。然后在项目的 `wrangler.jsonc` 里配置 `routes` 并关闭 `workers_dev` 与 `preview_urls`："
     },
     {
       "type": "code",
