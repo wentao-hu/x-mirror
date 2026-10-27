@@ -1225,10 +1225,23 @@ h1.title {
 .img-zoom-btn:hover { background: rgba(255, 255, 255, .18); }
 .img-zoom-btn:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
 .img-zoom-preview { font-size: 15px; }
-.img-zoom-value {
-  color: #fff; font-size: 11px; min-width: 34px;
-  text-align: center; font-variant-numeric: tabular-nums;
+.img-zoom-field {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 24px; padding: 0 5px; border-radius: 999px;
+  transition: background .15s ease, box-shadow .15s ease;
 }
+.img-zoom-field:focus-within {
+  background: rgba(255, 255, 255, .18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55);
+}
+.img-zoom-input {
+  width: 27px; padding: 0; border: 0; background: transparent;
+  color: #fff; font-size: 11px; font-family: inherit; font-weight: 500;
+  text-align: right; font-variant-numeric: tabular-nums; caret-color: #fff;
+  -webkit-appearance: none; appearance: none;
+}
+.img-zoom-input:focus { outline: none; }
+.img-zoom-pct { color: #fff; font-size: 11px; line-height: 1; }
 /* 正文图片预览：点击图片外的区域关闭 */
 body.img-lightbox-open { overflow: hidden; }
 .img-lightbox {

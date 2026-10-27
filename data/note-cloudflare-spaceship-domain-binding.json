@@ -20,8 +20,8 @@
       "Worker"
     ],
     "avatar_local": "",
-    "images_total": 17,
-    "images_ok": 17,
+    "images_total": 21,
+    "images_ok": 21,
     "api_media_count": 0,
     "fidelity_note": "",
     "plain_text_len": 6580,
@@ -46,7 +46,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**完整最短流水线（含并行提速技巧）：** Cloudflare Add a site → 删停放记录并加 `192.0.2.1` 占位记录 → Continue to activation 拿两个 NS → Spaceship 改自定义 NS → 开启 Always Use HTTPS 并删掉 `192.0.2.1` → **趁等 NS 生效的 1–5 分钟空窗期，顺手去 Google Cloud 配好 OAuth（先填品牌页 3 个链接且徽标留空，再点发布应用变正式版）并去 GA4 拿到 `G-` 衡量 ID 写进 `site.ts`** → Cloudflare 变 Active 后一次性跑 `npm run build && npx wrangler deploy` → 浏览器实测登录验收。"
+      "text": "**完整最短流水线（含并行提速技巧）：** Cloudflare Add a site → 删停放记录并加 `192.0.2.1` 占位记录 → Continue to activation 拿两个 NS → Spaceship 改自定义 NS → 开启 Always Use HTTPS、删掉 `192.0.2.1` 并配好 `www` 子域名 301 跳转（`AAAA www 100::` + `Redirect from WWW to root` 勾选 `Preserve query string`） → **趁等 NS 生效的 1–5 分钟空窗期，顺手去 Google Cloud 配好 OAuth（先填品牌页 3 个链接且徽标留空，再点发布应用变正式版）并去 GA4 拿到 `G-` 衡量 ID 写进 `site.ts`** → Cloudflare 变 Active 后一次性跑 `npm run build && npx wrangler deploy` → 浏览器实测登录验收。"
     },
     {
       "type": "heading",
@@ -412,7 +412,78 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "8. 三步终极验收（命令行 + 浏览器真机登录）"
+      "text": "8. 配置 www 子域名 301 跳转到主域名（DNS 占位 + Redirect Rule）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Worker 自定义域名默认只挂载在裸域名（如 `hittheroaddudeai.fun`）上。如果不配 `www` 子域名，访客手动输入 `https://www.hittheroaddudeai.fun` 时会直接报无法连接（DNS_PROBE_FINISHED_NXDOMAIN）。只需在 Cloudflare 配两步（1 分钟搞定），即可把所有 `www` 流量一步 301 永久重定向到主域名："
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "8.1 第 1 步：添加 www 的 AAAA 100:: 占位 DNS 记录"
+    },
+    {
+      "type": "paragraph",
+      "text": "进入左侧 **DNS → Records**，点击 **Add record**：**Type** 选 `AAAA`，**Name** 填 `www`，**IPv6 address** 填 `100::`（Cloudflare 官方标准的纯重定向占位地址），**Proxy status** 保持开启橙色云朵 **Proxied**，点击 **Save**。"
+    },
+    {
+      "type": "image",
+      "local": "42-www-aaaa-record.png",
+      "alt": "Cloudflare Add record 弹窗：Type 为 AAAA，Name 为 www，IPv6 address 为 100::，Proxy status 为 Proxied"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：第 1 步：添加 AAAA 记录 www -> 100::，务必开启橙色云朵 Proxied，点 Save 保存。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "8.2 第 2 步：创建 Redirect from WWW to root 的 301 重定向规则"
+    },
+    {
+      "type": "paragraph",
+      "text": "进入左侧 **Rules → Overview**（或 **Redirect Rules**）。最省事的做法是直接点击页面中间 **Redirect from WWW to root** 模板卡片上的 **Create from template** 按钮（会自动填好全部参数）。"
+    },
+    {
+      "type": "image",
+      "local": "43-rules-overview-template.png",
+      "alt": "Cloudflare Rules Overview 页面，中间有 Redirect from WWW to root 模板卡片"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：Rules → Overview 页：直接点中间「Redirect from WWW to root」卡片下的 Create from template 最快。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果点击右上角 **+ Create rule → Redirect Rule** 手动配置，按下面参数填写：顶部 **Rule name** 填 `www to root`；匹配条件选 **Custom filter expression**，Field 选 `Hostname`、Operator 选 `equals`、Value 填 `www.hittheroaddudeai.fun`；下方 **Then... (URL redirect)** 的 Type 选 `Dynamic`，Expression 填 `concat(\"https://hittheroaddudeai.fun\", http.request.uri.path)`，Status code 选 `301 - Permanent Redirect`，**并勾选底部的 `Preserve query string`（保留网址 `?` 后面的推广参数如 `?utm_source=tiktok`，防止渠道归因丢失）**，最后点击右下角 **Deploy**。"
+    },
+    {
+      "type": "image",
+      "local": "44-redirect-rule-form.png",
+      "alt": "Cloudflare Redirect Rules 配置表单：Hostname equals www.hittheroaddudeai.fun，Dynamic 表达式 concat(\"https://hittheroaddudeai.fun\", http.request.uri.path)，301 状态码与 Preserve query string"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：手动填写 Redirect Rule 的完整参数；底部的 Preserve query string 务必勾选以保留 URL 查询参数。"
+    },
+    {
+      "type": "paragraph",
+      "text": "部署后在 **Redirect Rules** 列表中看到 `www to root` 状态为绿色 **Enabled** 即立刻生效。"
+    },
+    {
+      "type": "image",
+      "local": "45-redirect-rule-enabled.png",
+      "alt": "Cloudflare Single Redirects 列表显示 www to root 规则处于绿色 Enabled 状态"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：Single Redirects 列表显示 www to root 为 Enabled，此时访问 www 会一步 301 跳到主域名。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9. 三步终极验收（命令行 + 浏览器真机登录）"
     },
     {
       "type": "paragraph",
@@ -420,7 +491,7 @@
     },
     {
       "type": "code",
-      "text": "# 1. 验证 A 记录必须返回 2 个 Cloudflare IPv4 地址（不能只有 AAAA）\ndig +short A hittheroaddudeai.fun\n\n# 2. 验证 HTTP 强制 301 跳 HTTPS，且核心页面全部返回 HTTP/2 200，Google 登录入口返回 302\ncurl -sI http://hittheroaddudeai.fun | head -5\nfor p in \"\" \"/zh\" \"/pricing\" \"/guides\" \"/sign-in\" \"/api/auth/google/start\"; do\n  printf \"%s -> \" \"https://hittheroaddudeai.fun$p\"\n  curl -sI \"https://hittheroaddudeai.fun$p\" | head -1\ndone"
+      "text": "# 1. 验证 A 记录必须返回 2 个 Cloudflare IPv4 地址（不能只有 AAAA）\ndig +short A hittheroaddudeai.fun\n\n# 2. 验证 HTTP 强跳 HTTPS、www 301 强跳主域名（保留参数），且核心页面全部返回 HTTP/2 200\ncurl -sI http://hittheroaddudeai.fun | head -5\ncurl -sI \"https://www.hittheroaddudeai.fun/pricing?utm_source=test\" | head -5\nfor p in \"\" \"/zh\" \"/pricing\" \"/guides\" \"/sign-in\" \"/api/auth/google/start\"; do\n  printf \"%s -> \" \"https://hittheroaddudeai.fun$p\"\n  curl -sI \"https://hittheroaddudeai.fun$p\" | head -1\ndone"
     },
     {
       "type": "paragraph",
@@ -429,7 +500,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "9. 常见问题速查表"
+      "text": "10. 常见问题速查表"
     },
     {
       "type": "table",
@@ -473,13 +544,18 @@
           "http 请求返回 200 而不是 301",
           "未开启 Always Use HTTPS",
           "SSL/TLS → Edge Certificates 打开 Always Use HTTPS"
+        ],
+        [
+          "访问 www.<domain> 报无法连接（NXDOMAIN）",
+          "Worker 自定义域名只绑了裸域名，未配 www DNS 记录与跳转",
+          "DNS 加 `AAAA www 100::`（Proxied），再到 Rules → Redirect Rules 配 `www to root` 301 跳转并勾选 `Preserve query string`"
         ]
       ]
     },
     {
       "type": "heading",
       "level": 2,
-      "text": "10. 一次性上线检查清单"
+      "text": "11. 一次性上线检查清单"
     },
     {
       "type": "list",
@@ -489,6 +565,7 @@
         "Spaceship 的两条停放 A 记录（54.149.79.189 / 34.216.117.25）已删除，并用 `A @ 192.0.2.1` 占位记录完成激活向导。",
         "Spaceship 的名称服务器已改为 Cloudflare 分配的两个 NS 地址。",
         "已在 SSL/TLS → Edge Certificates 开启 **Always Use HTTPS**，且已在 DNS → Records 删除 `192.0.2.1` 占位记录。",
+        "已在 DNS → Records 添加 `AAAA www 100::`（Proxied），并在 Rules → Redirect Rules 部署 `www to root` 301 重定向规则（勾选 `Preserve query string`）。",
         "Cloudflare 站点状态已变为 **Active**（期间未提前访问裸域名污染本机 A 记录缓存）。",
         "已创建 D1、R2（含生命周期与模板图）、KV、Queues，已同步 `SESSION_SECRET` 与 `GOOGLE_CLIENT_SECRET`。",
         "`wrangler.jsonc` 已配置 `routes`（`custom_domain: true`）并设 `workers_dev: false`、`preview_urls: false`，已删除模板遗留的 `wrangler.staging.jsonc`。",

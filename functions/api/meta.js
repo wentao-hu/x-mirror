@@ -42,7 +42,7 @@ function clampRating(value) {
 function clampImgZoom(value) {
   const n = Number(value);
   if (!Number.isFinite(n)) return 1;
-  return Math.min(1.5, Math.max(0.5, Math.round(n * 10) / 10));
+  return Math.min(2, Math.max(0.2, Math.round(n * 100) / 100));
 }
 
 function isValidDate(value) {

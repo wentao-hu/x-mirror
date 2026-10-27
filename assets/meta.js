@@ -46,8 +46,8 @@
   function clampImgZoom(value) {
     var n = Number(value);
     if (!isFinite(n)) return 1;
-    n = Math.round(n * 10) / 10;
-    return Math.min(1.5, Math.max(0.5, n));
+    n = Math.round(n * 100) / 100;
+    return Math.min(2, Math.max(0.2, n));
   }
 
   function norm(item) {

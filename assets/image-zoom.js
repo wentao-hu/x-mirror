@@ -16,13 +16,13 @@
   var slug = mount.dataset.slug;
   if (!slug) return;
 
-  var MIN = 0.5, MAX = 1.5, STEP = 0.1;
+  var MIN = 0.2, MAX = 2, STEP = 0.1;
   var SHOW_DELAY = 400, HIDE_DELAY = 600;
 
   function clamp(value) {
     var n = Number(value);
     if (!isFinite(n)) return 1;
-    n = Math.round(n * 10) / 10;
+    n = Math.round(n * 100) / 100;
     return Math.min(MAX, Math.max(MIN, n));
   }
 
@@ -93,8 +93,10 @@
 
   function paint() {
     article.style.setProperty('--img-zoom', zoom);
-    Array.prototype.forEach.call(article.querySelectorAll('.img-zoom-value'), function (el) {
-      el.textContent = Math.round(zoom * 100) + '%';
+    var pct = String(Math.round(zoom * 100));
+    Array.prototype.forEach.call(article.querySelectorAll('.img-zoom-input'), function (el) {
+      if (doc.activeElement === el) return;
+      el.value = pct;
     });
   }
 
@@ -115,10 +117,41 @@
     box.setAttribute('aria-hidden', 'true');
     box.innerHTML =
       '<button type="button" class="img-zoom-btn" data-img-action="zoom" data-zoom="-1" aria-label="缩小图片" title="缩小">−</button>' +
-      '<span class="img-zoom-value" aria-live="polite">100%</span>' +
+      '<span class="img-zoom-field">' +
+        '<input class="img-zoom-input" type="text" inputmode="numeric" pattern="[0-9]*" value="100"' +
+          ' aria-label="缩放百分比，20 到 200，输入数字后按回车" title="输入 20–200 后回车">' +
+        '<span class="img-zoom-pct" aria-hidden="true">%</span>' +
+      '</span>' +
       '<button type="button" class="img-zoom-btn" data-img-action="zoom" data-zoom="1" aria-label="放大图片" title="放大">+</button>' +
       '<button type="button" class="img-zoom-btn img-zoom-preview" data-img-action="preview" aria-label="预览图片" title="预览">↗</button>';
     fig.appendChild(box);
+
+    var input = box.querySelector('.img-zoom-input');
+    input.addEventListener('focus', function () {
+      requestAnimationFrame(function () { input.select(); });
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        input.blur();
+        return;
+      }
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        e.stopPropagation();
+        input.value = String(Math.round(zoom * 100));
+        input.blur();
+      }
+    });
+    input.addEventListener('blur', function () {
+      var raw = parseFloat(String(input.value).replace(/[^0-9.]/g, ''));
+      if (isFinite(raw) && raw > 0 && Math.abs(raw / 100 - zoom) > 1e-9) {
+        zoom = clamp(raw / 100);
+        META.setMeta(slug, { imgZoom: zoom });
+      }
+      input.value = String(Math.round(zoom * 100));
+      paint();
+    });
   });
 
   figures.forEach(function (fig) {
