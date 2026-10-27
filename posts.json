@@ -64,6 +64,34 @@
       "blocks_count": 20
     },
     {
+      "id": "note-2026-10-27-quick-release-no-big-moves",
+      "slug": "note-quick-release-no-big-moves",
+      "title": "别憋大招：快速发布，快速迭代",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T15:31:00.000Z",
+      "published_local": "2026-10-27 23:31",
+      "category": "实战复盘",
+      "category_reason": "主要交付是理解「憋大招导致难产」的因果与可迁移经验——快速发布、快速迭代；不涉及具体建站实现、需求判断或已有用户运营，因此不归建站开发、需求研究或用户运营。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "快速迭代",
+        "快速发布",
+        "憋大招",
+        "产品节奏",
+        "创业效率"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 13 条消息，全部保留，无删除。",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "note-2026-10-27-2k-uv-zero-sale",
       "slug": "note-2k-uv-zero-sale",
       "title": "2K UV 零付费：产品形态与流量意图错配的复盘",
