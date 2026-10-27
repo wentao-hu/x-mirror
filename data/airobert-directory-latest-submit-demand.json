@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "2113946292099612995",
+    "slug": "airobert-directory-latest-submit-demand",
+    "title": "出海野路子：从导航站最新提交找新需求",
+    "url": "https://x.com/aiRobertDaily/status/2113946292099612995",
+    "author_name": "AIRobert",
+    "author_username": "aiRobertDaily",
+    "published_utc": "2026-10-24T10:50:45.000Z",
+    "published_local": "2026-10-24 18:50",
+    "category": "需求研究",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 3,
+    "images_ok": 3,
+    "api_media_count": 3,
+    "fidelity_note": "正文取自 note_tweet.text 全文（fxtwitter+search 补全；非截断 text）；普通推文（非 Article）；3 张配图已本地化；作者回复均为回复他人，非自回复串帖，未收录；标题为镜像站自拟。",
+    "plain_text_len": 389,
+    "blocks_count": 16
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "出海野路子：从导航站最新提交找新需求"
+    },
+    {
+      "type": "paragraph",
+      "text": "出海野路子，又更新了！这次如何通过外链，找到需求。"
+    },
+    {
+      "type": "paragraph",
+      "text": "原来是，新站上线第一件事，会去导航站交外链。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以，导航站的「最新提交」页，就是别人刚抢到的新需求。😄"
+    },
+    {
+      "type": "paragraph",
+      "text": "步骤贼简单，下面演示 👇"
+    },
+    {
+      "type": "paragraph",
+      "text": "1、打开导航站的「最新提交」页"
+    },
+    {
+      "type": "paragraph",
+      "text": "选只看最近48小时新收录的站，平时无聊刷也能找到灵感。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2、查域名注册时间\n例如，这个 [http://gscmate.com](http://gscmate.com)，域名10月12日注册的，不到两周就上线，也交外链了"
+    },
+    {
+      "type": "paragraph",
+      "text": "3、进官网，看它在做什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "它做的，其实就是把 Google Search Console接进Claude，ChatGPT，用 AI 直接问自己网站的SEO数据。"
+    },
+    {
+      "type": "paragraph",
+      "text": "4、查 Google Trends\n把核心词丢进查，search console mcp 这类词，曲线刚起来、竞争页面又少。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这时候，懂了吧，值得关注更进了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "数据都是公开的，仅供参考，希望对你有帮助！"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVY-ekIaUAEv07Q?format=jpg&name=orig",
+      "orig_url": "https://pbs.twimg.com/media/HVY-ekIaUAEv07Q?format=jpg&name=orig",
+      "alt": "帖子配图 1",
+      "key": "HVY-ekIaUAEv07Q",
+      "local": "HVY-ekIaUAEv07Q.jpg"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVY-hcJaQAA5gQw?format=jpg&name=orig",
+      "orig_url": "https://pbs.twimg.com/media/HVY-hcJaQAA5gQw?format=jpg&name=orig",
+      "alt": "帖子配图 2",
+      "key": "HVY-hcJaQAA5gQw",
+      "local": "HVY-hcJaQAA5gQw.jpg"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVY-jndaUAAI7ox?format=jpg&name=orig",
+      "orig_url": "https://pbs.twimg.com/media/HVY-jndaUAAI7ox?format=jpg&name=orig",
+      "alt": "帖子配图 3",
+      "key": "HVY-jndaUAAI7ox",
+      "local": "HVY-jndaUAAI7ox.jpg"
+    }
+  ],
+  "plain_text": "出海野路子，又更新了！这次如何通过外链，找到需求。\n\n原来是，新站上线第一件事，会去导航站交外链。\n\n所以，导航站的「最新提交」页，就是别人刚抢到的新需求。😄\n\n步骤贼简单，下面演示 👇\n\n1、打开导航站的「最新提交」页\n\n选只看最近48小时新收录的站，平时无聊刷也能找到灵感。\n\n2、查域名注册时间\n例如，这个 http://gscmate.com，域名10月12日注册的，不到两周就上线，也交外链了\n\n3、进官网，看它在做什么\n\n它做的，其实就是把 Google Search Console接进Claude，ChatGPT，用 AI 直接问自己网站的SEO数据。\n\n4、查 Google Trends\n把核心词丢进查，search console mcp 这类词，曲线刚起来、竞争页面又少。\n\n这时候，懂了吧，值得关注更进了。\n\n数据都是公开的，仅供参考，希望对你有帮助！",
+  "entities": {}
+}
