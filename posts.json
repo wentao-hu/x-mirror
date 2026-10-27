@@ -2337,6 +2337,36 @@
       "blocks_count": 113
     },
     {
+      "id": "note-2026-10-26-tool-site-payment-rate-20pct",
+      "slug": "note-tool-site-payment-rate-20pct",
+      "title": "日 UV 100 的工具站，付费率从 1.3% 提到 20%",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-26T05:01:00.000Z",
+      "published_local": "2026-10-26 13:01",
+      "category": "用户运营",
+      "category_reason": "主要交付是改善已有工具站用户的付费转化；聊天没有交代具体站点与改动内容，缺少决策、取舍和成败归因的解释，因此不归实战复盘。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "付费率",
+        "付费转化",
+        "工具站",
+        "AB测试",
+        "小步迭代",
+        "AI辅助",
+        "产品直觉"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始 6 条消息保留 5 条，删除 1 条空消息，无图片与链接。",
+      "plain_text_len": 939,
+      "blocks_count": 12
+    },
+    {
       "id": "wechat-KDcUC0j3kV5ygE2Ls5FtaQ",
       "slug": "wechat-hertz-email-recall-266",
       "title": "网站出海分享：分享一些邮件召回小技巧，成功召回266美金付款",
