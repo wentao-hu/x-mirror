@@ -2447,6 +2447,35 @@
       "fidelity_note": "微信公众号原文；正文按原文顺序完整保留，2 张正文配图全部本地化。文末引流 CTA（关注哥飞老师、微信搜索 361079）及公众号二维码图按镜像规则去除，保留作者身份介绍。",
       "plain_text_len": 778,
       "blocks_count": 16
+    },
+    {
+      "id": "talk-longmen-s01e03-keyword-model",
+      "slug": "talk-longmen-s01e03-keyword-model",
+      "title": "出海找词模型与一年实战复盘：一个人 90+ 个站的找词与取舍",
+      "url": "https://r.qq.com/wetype/voicerecorder?share_token=shr-456LJQgUSFE05FRKd6MoQ2N8gl2WXoGSDoKdSEYVaBpwYD1ApeTGZy35tkTqqc3wx",
+      "author_name": "张队（Sunday）",
+      "author_username": "",
+      "published_utc": "2026-10-27T12:00:00.000Z",
+      "published_local": "2026-10-27 20:00",
+      "category": "演讲展示",
+      "category_reason": "主要交付是理解一场出海分享的完整观点与方法论——找词模型、八种思维、选词标准、上站与取舍；不是单次实践的成败复盘，也不属于具体建站/SEO 操作教程，因此归入新建的「演讲展示」。",
+      "description": "",
+      "source_type": "web_article",
+      "tags": [
+        "找词模型",
+        "关键词研究",
+        "独立站出海",
+        "SEO",
+        "演讲实录",
+        "龙门客栈"
+      ],
+      "avatar_local": "",
+      "images_total": 30,
+      "images_ok": 30,
+      "api_media_count": 0,
+      "fidelity_note": "据腾讯录音笔分享页文字稿与嘉宾 PPT 截图整理；原件共 32 页，提供的截图从第 03 页开始，已收录第 03—32 页共 30 张不重复幻灯片；重复截图（03、17、22、29 页各一张）已去重。",
+      "plain_text_len": 5026,
+      "blocks_count": 131
     }
   ]
 }

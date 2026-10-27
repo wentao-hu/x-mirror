@@ -47,6 +47,21 @@ CATEGORY_TAXONOMY = load_taxonomy()
 CATEGORY_ORDER = official_names(CATEGORY_TAXONOMY)
 CATEGORY_DEFINITIONS = definitions(CATEGORY_TAXONOMY)
 
+# 分类标签配图：目前只有「演讲展示」有专属标记，其余分类保持纯文字
+CATEGORY_LOGOS = {
+    "演讲展示": "cat-talk.svg",
+}
+
+
+def category_logo_html(name: str, prefix: str = "") -> str:
+    logo = CATEGORY_LOGOS.get(name)
+    if not logo:
+        return ""
+    return (
+        f'<img class="cat-logo" src="{prefix}assets/{logo}" alt="" '
+        f'width="18" height="18" loading="lazy" decoding="async" />'
+    )
+
 # workdir -> post id
 WORKDIRS = {
     "2110669876482203775": "/tmp/webpage-work",
@@ -1541,6 +1556,8 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .cat .cat-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
 .cat .cat-name { flex: 1; min-width: 0; }
+.cat .cat-logo { width: 18px; height: 18px; flex: none; }
+.filters button .cat-logo { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; }
 .cat .cat-count {
   color: var(--muted); font-size: 12px; font-weight: 600; background: var(--bg);
   border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap;
@@ -1690,6 +1707,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   line-height: 1.6; white-space: nowrap;
 }
 .cat-badge::before { content: "分类："; color: var(--muted-2); }
+.cat-badge .cat-logo { width: 14px; height: 14px; margin-right: 4px; }
 .cat-badge:hover { color: var(--link); text-decoration: none; }
 .tag-list {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
@@ -1937,7 +1955,8 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
     # 分类标签：放在原文链接右侧，点击回目录并定位到该分类
     cat_badge_html = (
         f'<a class="cat-badge" href="../../?cat={urllib.parse.quote(meta["category"])}" '
-        f'title="返回目录 · {esc(meta["category"])}">{esc(meta["category"])}</a>'
+        f'title="返回目录 · {esc(meta["category"])}">'
+        f'{category_logo_html(meta["category"], "../../")}{esc(meta["category"])}</a>'
     )
     post_links_html = (
         f'<div class="post-meta-row">{orig_link_html}{source_badge(meta)}{cat_badge_html}</div>'
@@ -2153,7 +2172,7 @@ def index_page(posts: list[dict]) -> str:
             cats.append(p["category"])
     filter_btns = ['<button class="active" data-cat="all">全部</button>'] + [
         f'<button data-cat="{esc(c)}" title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
-        f'{esc(c)}</button>' for c in cats
+        f'{category_logo_html(c)}{esc(c)}</button>' for c in cats
     ]
     sections = []
     for c in cats:
@@ -2196,6 +2215,7 @@ def index_page(posts: list[dict]) -> str:
             f'title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
             f'<button type="button" class="cat-toggle" aria-expanded="true" '
             f'title="展开或折叠 {esc(c)}">'
+            f'{category_logo_html(c)}'
             f'<span class="cat-name">{esc(c)}</span>'
             f'<span class="cat-count">{len(cards)} 篇</span>'
             f'<span class="cat-chevron" aria-hidden="true">▾</span>'
