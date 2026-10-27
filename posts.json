@@ -1882,6 +1882,27 @@
       "blocks_count": 26
     },
     {
+      "id": "2114925454486577427",
+      "slug": "airobert-reddit-i-would-pay-for",
+      "title": "出海野路子：Reddit 搜「I would pay for」找愿付费需求",
+      "url": "https://x.com/aiRobertDaily/status/2114925454486577427",
+      "author_name": "AI Robert",
+      "author_username": "aiRobertDaily",
+      "published_utc": "2026-10-27T03:41:36.000Z",
+      "published_local": "2026-10-27 11:41",
+      "category": "需求研究",
+      "category_reason": "主要交付是发现并验证用户亲口说愿意付钱的需求，再用搜索量与 KD/CPC 判断这个需求是否值得做，落点在需求判断；Semrush 只是验证手段，因此不归 SEO获客。",
+      "description": "",
+      "source_type": "x_post",
+      "avatar_local": "avatar.jpg",
+      "images_total": 3,
+      "images_ok": 3,
+      "api_media_count": 3,
+      "fidelity_note": "正文取自 note_tweet.text 全文（含步骤 3 与 Semrush KD/CPC 数据，非截断 text）；普通推文（非 Article）；3 张配图已本地化；34 条会话评论按原文收录为默认折叠聊天气泡（英文评论已译中文，@ 提及与 X 状态链接不展示）；作者回复均为回复他人，非自回复串帖；标题为镜像站自拟。",
+      "plain_text_len": 2195,
+      "blocks_count": 16
+    },
+    {
       "id": "note-2026-10-26-ai-new-keyword-criteria",
       "slug": "note-ai-new-keyword-criteria",
       "title": "新词别查 SemRush 和 Ahrefs：先看 Google Trends，再让 GPT 调研同行",
