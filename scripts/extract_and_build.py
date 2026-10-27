@@ -659,7 +659,7 @@ def meta_tags(meta: dict) -> list[str]:
 
 
 def tags_html(meta: dict, *, compact: bool = False, show_label: bool = False) -> str:
-    """渲染相关关键词，并让目录搜索继续命中这些文本。"""
+    """关键词徽章（页面 UI 已停用；保留函数供必要时内部复用）。目录搜索仍可用 meta_tags。"""
     tags = meta_tags(meta)
     if not tags:
         return ""
@@ -1925,7 +1925,7 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
     post_links_html = (
         f'<div class="post-meta-row">{orig_link_html}{source_badge(meta)}{cat_badge_html}</div>'
     )
-    tags_row_html = tags_html(meta, show_label=True)
+    tags_row_html = ""  # 网页不再展示关键词，只保留分类 Category
     toc_script = (
         f'<script src="../../assets/toc.js?v={asset_version("assets/toc.js")}" defer></script>'
         if toc_html
@@ -2163,7 +2163,7 @@ def index_page(posts: list[dict]) -> str:
                 cards.append(
                     f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}">
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
-  <div class="cmeta">{cmeta}</div>{tags_html(p, compact=True)}
+  <div class="cmeta">{cmeta}</div>
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
 </div>"""
                 )
@@ -2171,7 +2171,7 @@ def index_page(posts: list[dict]) -> str:
                 cards.append(
                     f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
-  <div class="cmeta">{esc(p['author_name'])} · {date}</div>{tags_html(p, compact=True)}
+  <div class="cmeta">{esc(p['author_name'])} · {date}</div>
 </a>"""
                 )
         sections.append(
