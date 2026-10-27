@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "id": "note-2026-10-26-pc-qrcode-phone-upload",
+    "slug": "note-pc-qrcode-phone-upload",
+    "title": "PC 端上传旁加二维码：让用户扫码把手机里的照片传上来",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-26T04:40:00.000Z",
+    "published_local": "2026-10-26 12:40",
+    "category": "建站开发",
+    "category_reason": "主要交付是在 PC 端表单上传组件旁实现一个手机扫码传图的交互入口；虽然目的是提升转化，但内容给的是功能实现思路，不是用户运营方法，因此归建站开发，不归用户运营。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "上传组件",
+      "二维码",
+      "跨设备传图",
+      "转化优化",
+      "交互设计",
+      "哥飞"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "2026年10月26日群聊整理；原始 2 条消息全部保留，其中 1 张配图已本地化并按原位置插入正文。",
+    "plain_text_len": 900,
+    "blocks_count": 10
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "哥飞在群里分享了一个交互：PC 端表单的上传组件旁边，增加「从手机传图」按钮，点击后弹出二维码，用户用手机扫码上传图片，照片直接回填到 PC 端的表单里。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "为什么加这个按钮"
+    },
+    {
+      "type": "paragraph",
+      "text": "起因是让 AI 分析「PC 端转化不好」的原因。AI 给出的判断之一是：用户的照片一般存在手机里，而在 PC 端要求上传时，用户得先把照片从手机搬到电脑。与其让用户自己搬运，不如在上传入口处直接提供手机通道。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "交互长什么样"
+    },
+    {
+      "type": "image",
+      "local": "phone-upload-qr.jpg",
+      "alt": "扫码传图弹窗截图：标题 Scan to add photos from your phone，提示用手机相机扫码并在手机上挑选照片，几秒后会出现在这里；中间是二维码，底部是 Waiting for the photos 等待状态，背景是 PC 端图片生成表单"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图里的弹窗把这套流程说得很直白：标题是「Scan to add photos from your phone」，正文提示用户用手机相机扫码、在手机上挑选照片，「几秒后会出现在这里」；二维码下方是「Waiting for the photos...」的等待状态。也就是说，手机端选完图后，PC 端不需要再操作一次，照片会直接进入上传区。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "可迁移的点"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "上传组件默认按「文件在电脑上」设计，但头像、证件、商品图、装修或宠物照这类素材，本来大多在用户手机里。",
+        "与其优化 PC 端的文件选择流程，不如在入口处直接开一条手机扫码通道，省掉跨设备搬运这一步。",
+        "这个判断来自 AI 对转化数据的分析，是否真的提升转化，仍要用自己站点的数据验证。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 2,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "哥飞",
+          "time": "2026年10月26日 12:40",
+          "text": "我有好的交互，都想着大家的。\n这次给大家推荐，当用户在 PC 端时，表单上传组件旁边增加从手机传图按钮，点击后弹出二维码，用户手机扫码上传图片，给 PC 端使用。\n这是我让 AI 分析，为什么 PC 端转化不好时，他说可能的原因是用户的照片一般在手机里，于是我让他增加了二维码传图组件。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月26日 12:40",
+          "text": "[图片] 微信图片_202610261240_1.jpg"
+        }
+      ]
+    }
+  ]
+}

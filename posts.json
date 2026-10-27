@@ -1604,6 +1604,35 @@
       "blocks_count": 78
     },
     {
+      "id": "note-2026-10-26-pc-qrcode-phone-upload",
+      "slug": "note-pc-qrcode-phone-upload",
+      "title": "PC 端上传旁加二维码：让用户扫码把手机里的照片传上来",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-26T04:40:00.000Z",
+      "published_local": "2026-10-26 12:40",
+      "category": "建站开发",
+      "category_reason": "主要交付是在 PC 端表单上传组件旁实现一个手机扫码传图的交互入口；虽然目的是提升转化，但内容给的是功能实现思路，不是用户运营方法，因此归建站开发，不归用户运营。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "上传组件",
+        "二维码",
+        "跨设备传图",
+        "转化优化",
+        "交互设计",
+        "哥飞"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "2026年10月26日群聊整理；原始 2 条消息全部保留，其中 1 张配图已本地化并按原位置插入正文。",
+      "plain_text_len": 900,
+      "blocks_count": 10
+    },
+    {
       "id": "note-2026-10-25-new-keyword-site-auth-antispam",
       "slug": "note-new-keyword-site-auth-antispam",
       "title": "新词站登录：先用 Google 登录与免验证邮箱降摩擦，再靠权益门槛防刷",
