@@ -1516,6 +1516,34 @@
       "blocks_count": 67
     },
     {
+      "id": "note-2026-10-27-spaceship-promo-codes",
+      "slug": "note-spaceship-promo-codes",
+      "title": "Spaceship 优惠码使用指南",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T11:09:47.000Z",
+      "published_local": "2026-10-27 19:09",
+      "category": "建站开发",
+      "category_reason": "主要交付是在 Spaceship 注册或转入域名时正确使用优惠码省钱，属于建站流程中的域名采购环节；不涉及工具选型、搜索获客或支付账户，因此排除 AI工具、SEO获客、海外收款。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "Spaceship",
+        "优惠码",
+        "域名注册",
+        "域名转入",
+        "域名续费"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "",
+      "plain_text_len": 319,
+      "blocks_count": 15
+    },
+    {
       "id": "note-2026-10-26-ga4-gsc-setup-guide",
       "slug": "note-ga4-gsc-setup-guide",
       "title": "GA4和GSC配置教程",
