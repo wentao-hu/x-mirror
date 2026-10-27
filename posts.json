@@ -2088,6 +2088,33 @@
       "blocks_count": 14
     },
     {
+      "id": "note-2026-10-27-traffic-source-payment-willingness",
+      "slug": "note-traffic-source-payment-willingness",
+      "title": "GPT 流量付费率高但不认高价，搜索流量更接受高价",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T03:07:00.000Z",
+      "published_local": "2026-10-27 11:07",
+      "category": "需求研究",
+      "category_reason": "主要交付是理解不同流量来源用户的付费意愿与价格接受度差异，用于判断渠道用户价值与定价；不归 SEO获客，因为聊天重点不是如何获得搜索流量，而是付费意愿本身的差异。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "付费意愿",
+        "流量来源",
+        "定价",
+        "转化率"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原文共 4 条消息，全部保留，未含图片或链接。",
+      "plain_text_len": 960,
+      "blocks_count": 9
+    },
+    {
       "id": "2114658543110398160",
       "slug": "victor-keyword-loss-cpc-filter",
       "title": "出海选词筛子：没解决会损失什么 + CPC 验证",
@@ -2534,12 +2561,12 @@
         "建站"
       ],
       "avatar_local": "avatar.jpg",
-      "images_total": 29,
-      "images_ok": 29,
-      "api_media_count": 29,
-      "fidelity_note": "web.cafe 全文镜像；正文与 29 张配图按原文顺序本地托管；未含评论区。",
+      "images_total": 28,
+      "images_ok": 28,
+      "api_media_count": 28,
+      "fidelity_note": "web.cafe 全文镜像；正文与 28 张配图按原文顺序本地托管；首张无信息量的黄色封面图按用户要求不展示；未含评论区。",
       "plain_text_len": 6190,
-      "blocks_count": 146
+      "blocks_count": 145
     },
     {
       "id": "note-2026-10-26-tool-site-payment-rate-20pct",
