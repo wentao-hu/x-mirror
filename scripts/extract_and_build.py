@@ -1400,6 +1400,8 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   border: 1px solid var(--border); border-radius: 12px; background: var(--card);
   overflow: hidden;
 }
+/* 作者样式里的 display 会盖过浏览器对 details 的默认隐藏，这里显式收起 */
+.chat-appendix:not([open]) > :not(summary) { display: none; }
 .chat-log {
   display: flex; flex-direction: column; gap: 18px;
   padding: 18px 20px;
