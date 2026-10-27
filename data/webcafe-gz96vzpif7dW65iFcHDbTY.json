@@ -21,19 +21,14 @@
       "建站"
     ],
     "avatar_local": "avatar.jpg",
-    "images_total": 29,
-    "images_ok": 29,
-    "api_media_count": 29,
-    "fidelity_note": "web.cafe 全文镜像；正文与 29 张配图按原文顺序本地托管；未含评论区。",
+    "images_total": 28,
+    "images_ok": 28,
+    "api_media_count": 28,
+    "fidelity_note": "web.cafe 全文镜像；正文与 28 张配图按原文顺序本地托管；首张无信息量的黄色封面图按用户要求不展示；未含评论区。",
     "plain_text_len": 6190,
-    "blocks_count": 146
+    "blocks_count": 145
   },
   "blocks": [
-    {
-      "type": "image",
-      "local": "img-01.jpg",
-      "alt": ""
-    },
     {
       "type": "paragraph",
       "text": "大家好,我是哥飞，微信号 qiayue，今天给大家聊聊一个出海工具网站，如何从需求挖掘到网站制作全流程，让你一篇文章学会。"
