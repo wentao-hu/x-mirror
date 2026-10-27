@@ -1747,6 +1747,26 @@
       "blocks_count": 22
     },
     {
+      "id": "2114355186181570686",
+      "slug": "airobert-8-demand-sources",
+      "title": "出海找需求：8 个来源收集",
+      "url": "https://x.com/aiRobertDaily/status/2114355186181570686",
+      "author_name": "AIRobert",
+      "author_username": "aiRobertDaily",
+      "published_utc": "2026-10-25T13:55:33.000Z",
+      "published_local": "2026-10-25 21:55",
+      "category": "需求研究",
+      "description": "",
+      "source_type": "x_post",
+      "avatar_local": "avatar.jpg",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "正文取自 note_tweet.text 全文（search_posts_all 补全；非截断 text）；普通推文（非 Article）；无配图；作者回复均为回复他人，非自回复串帖，未收录；标题为镜像站自拟。",
+      "plain_text_len": 184,
+      "blocks_count": 11
+    },
+    {
       "id": "note-2026-10-25-users-before-product",
       "slug": "note-users-before-product",
       "title": "先找用户，再做产品：技术出身的商业验证顺序",
