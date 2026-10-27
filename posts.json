@@ -994,7 +994,7 @@
       "images_total": 0,
       "images_ok": 0,
       "api_media_count": 0,
-      "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；引用 SEO 日课 001 链到 GitHub Pages 镜像；评论 3 条按原文收录，可折叠聊天气泡；标题为镜像站自拟。",
+      "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；引用 SEO 日课 001 链到站内镜像；评论未收录（默认规则）；标题为镜像站自拟。",
       "plain_text_len": 364,
       "blocks_count": 9
     },
@@ -1015,7 +1015,7 @@
       "images_total": 16,
       "images_ok": 16,
       "api_media_count": 16,
-      "fidelity_note": "Full X Article from box scrape (article_text.md + 16 local images); cover+15 inline; 11 comments as collapsed chat; no videos.",
+      "fidelity_note": "Full X Article from box scrape（article_text.md + 16 local images）；cover+15 inline；评论未收录（默认规则）；no videos。",
       "plain_text_len": 3497,
       "blocks_count": 67
     },
@@ -2046,7 +2046,7 @@
       "images_total": 0,
       "images_ok": 0,
       "api_media_count": 0,
-      "fidelity_note": "正文取自 note_tweet 全文（含 CPC/发票生成器对比段落，非截断 text）；普通推文（非 Article）；无配图；评论 4 条按原文收录（可折叠聊天气泡）；标题为镜像站自拟。",
+      "fidelity_note": "正文取自 note_tweet 全文（含 CPC/发票生成器对比段落，非截断 text）；普通推文（非 Article）；无配图；评论未收录（默认规则）；标题为镜像站自拟。",
       "plain_text_len": 430,
       "blocks_count": 13
     },

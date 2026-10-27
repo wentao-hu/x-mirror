@@ -16,7 +16,7 @@
     "images_total": 16,
     "images_ok": 16,
     "api_media_count": 16,
-    "fidelity_note": "Full X Article from box scrape (article_text.md + 16 local images); cover+15 inline; 11 comments as collapsed chat; no videos.",
+    "fidelity_note": "Full X Article from box scrape（article_text.md + 16 local images）；cover+15 inline；评论未收录（默认规则）；no videos。",
     "plain_text_len": 3497,
     "blocks_count": 67
   },
@@ -356,69 +356,6 @@
     {
       "type": "paragraph",
       "text": "这种有点难做，需要数据库，并且涉及官方竞争，而且 YMYL，不过算是个有意思的机会。"
-    },
-    {
-      "type": "chat",
-      "raw_count": 11,
-      "removed_count": 0,
-      "removed_note": "",
-      "messages": [
-        {
-          "user": "百年 AI×出海",
-          "time": "2026年10月27日 13:21",
-          "text": "日课的形式就是这样，里面会有我有意无意泄露的各种trick，比如这篇就有，我可能会点出来也可能不会"
-        },
-        {
-          "user": "一只会说话的狗",
-          "time": "2026年10月27日 13:22",
-          "text": "这种“藏私货”的日课才是真宝藏，能不能发现全看悟性了哈哈。已关注，跟着慢慢挖trick～"
-        },
-        {
-          "user": "O MO",
-          "time": "2026年10月27日 14:08",
-          "text": "光看还不太懂，跟着操作一遍"
-        },
-        {
-          "user": "百年 AI×出海",
-          "time": "2026年10月27日 14:13",
-          "text": "现在信息应该刷新了不太一样了，我做日课的目的是长期积累隐含知识，熟悉serp熟悉网站数据\n不过我的整体这块做到尽可能容易上手尽可能轻了，确实可以跟着做一做"
-        },
-        {
-          "user": "O MO",
-          "time": "2026年10月27日 14:29",
-          "text": "🫡"
-        },
-        {
-          "user": "想风",
-          "time": "2026年10月27日 14:37",
-          "text": "那我得每天追着看了"
-        },
-        {
-          "user": "SeriousInfo",
-          "time": "2026年10月27日 15:40",
-          "text": "seo 课"
-        },
-        {
-          "user": "百年 AI×出海",
-          "time": "2026年10月27日 15:51",
-          "text": "我个人没做，日课是我每日功课的意思，分享出来是觉得有价值有帮助；想学习的话推荐哥飞社群，可以自己搜"
-        },
-        {
-          "user": "Haosen",
-          "time": "2026年10月27日 17:01",
-          "text": "sort code checker 挺典型：美国库780、全球119K，单一地区库筛词会系统性漏掉区域需求。KD低在金融词上容易误判，对手是官方免费工具，不算内容站竞争。能做的或许是官方没覆盖的支付场景长尾。"
-        },
-        {
-          "user": "余电 Zero",
-          "time": "2026年10月27日 17:23",
-          "text": "感谢分享"
-        },
-        {
-          "user": "跑步最快的程序员指挥Ai Agent",
-          "time": "2026年10月27日 21:59",
-          "text": "这个流程很对：先用 Trends 扫词根，再拿 SERP 和 Ahrefs 核一遍，比只看搜索量靠谱得多。好奇问一句：像 MLA 生成器这种量不小但 KD 67 的词，你一般是直接放弃，还是会先看有没有能绕开正面竞争的长尾切口？"
-        }
-      ]
     }
   ],
   "plain_text": "SEO 日课 001｜从 Downloader 到 Checker\n\n2026 年 10 月 27 日，第一次日课。\n\n今天打开 Google Trends，先扫几个常见词根，碰到有意思的词，就往下看曲线、地区和 SERP，再到 Ahrefs 里查一下。前后大约 38 分钟。\n\n先看这几个词根：Downloader、Tier List、Roblox Codes、Wiki、Demo。\n\n01. Downloader：从 Slideshare 看到 Firefox 扩展\n\nDownloader 里暂时没什么想法，不过 Slideshare 看起来有点意思，去看看。\n\n相关搜索里有 slideshare ppt downloader、slideshare downloader，还有一个更具体的词：scribd downloader extension firefox。\n\n先点开 slideshare downloader，把时间拉到三个月，和 gpts 放在一起比较。不算是新词，看起来是第三世界国家的长期需求。\n\n再看 Scribd 的 Firefox 扩展词，这个倒是有点意思，是一个爆发需求。三个月的曲线前面只有几个零散尖峰，后面开始出现连续的热度。\n\n不过再看地区分布，排在前面的是印尼、埃塞俄比亚、马来西亚，还是分布国家的问题。\n\n又切到过去七天，和 gpts 放在同一张图里比较，看起来就不太行了。\n\n02. Tier List：Azeroth Survivors 看起来不错，域名却没了\n\n接着看 Tier List。在相关搜索里看到了 azeroth survivors tier list，点进去看过去 30 天的趋势，比较不错，比较新的爆发。\n\n地区列表里有丹麦、捷克、德国、保加利亚、瑞典，国家看起来也好。再和 gpts 比一下，也是有一些量。\n\n往下看相关搜索，除了 Tier List，还有 Build、Best Class、Mage Build。这已经不只是一个榜单词了，整体看起来也有很多额外需求，我们看下主词。\n\n拿 azeroth survivors 和 pdf to img 放在一起，过去 30 天的图里，主词末段的增长很明显。主词是新词而且大热。\n\n顺手查了一下域名，azerothsurvivors.com 已经被注册了。看起来被人捷足先登了，可惜。再试 azeroth-survivors.wiki，也是已注册。\n\n连字符的都没有了，按照我们的习惯这个就是不做了。\n\n03. Generator：MLA 的需求不小，但看起来很难打\n\n看完这一组，换成 Generator、Codes、Calculator、Checker、Converter，是很标准的一组词根。\n\nGenerator 的相关搜索里出现了 mla format 和 mla format generator。感觉 MLA 可以看下，可能有新需求。拉到三个月再看，不算是新需求，但是看起来在抬头的样子。\n\n感觉有些意思，看下 SERP。\n\n从搜索结果看到关键词数据\n\n搜 mla format generator，前面有 MyBib、Citation Machine、Scribbr、EasyBib，还有 Purdue OWL。基本都是老词内页，不过 BibGuru 在拿首页打。\n\n再往第二页翻，又找到了 ChatGPT 专门的内页，看起来这个词不太容易打。\n\n顺手问了一下 ChatGPT，理解下来，用户可能是在生成 MLA 引用，也可能想把整篇论文按 MLA 格式排好。可能是一个工具站的稳定需求。\n\n然后到 Ahrefs 里查，选的是美国数据库：月搜索量 50K，KD 67，CPC 3.5 美金。\n\n67 KD，果然很难。前面也确实没看到什么新站，而且 CPC 3.5 美金，属于很好的词了。\n\n再看看几个独立站混得怎么样\n\n接着查下 ChatGPT 给的这几个网站，看看混得怎么样：\n\nmlaformatgenerators.com：Ahrefs 自然搜索流量估算为 0。\n\nmla-format-generator.com：68。\n\nmla-formatter.com：82。\n\n这几个看起来混得都不太行。\n\n再回到 Google Trends，翻 Generator 的相关搜索，又看到了 mla format、mla citation generator、work cited generator、citation generator、chicago citation generator。\n\n看见了多种类似的表达方法和形式，MLA 这个词群今天在爆发。于是又搜了 chicago citation generator，不过无一例外的是前排都没什么新站，显然很难。\n\n04. Calculator：一组 Desmos 的品牌词\n\n继续看 Calculator。这里也有一个词群在爆发，主词是 Desmos，相关的表达有 desmos calculator、desmos graphing calculator、desmos graphing。\n\n搜了一下 desmos calculator，截图最前面的三条都是 Desmos 自己的页面：科学计算器、图形计算器和首页。\n\n不过看起来是品牌词，而且很大。这个和泛用的 Calculator 需求不太一样，用户已经知道自己在找 Desmos 了。\n\n05. Checker：几个词放在一起，英国的需求冒了出来\n\n最后看 Checker，感觉今天刷出来的机会都比较有意思。相关搜索里有 commodity code checker、kra pin checker、vat number checker、eori checker、vat checker，不像前面的计算器、生成器那么熟悉。\n\n组团查一下。把七个词一起放到 Ahrefs 里，感觉确实出来了一些有意思的机会，KD 在 30 以下的都是可以试试的。\n\n这是当天保存的 Ahrefs 数据。当时选的是美国数据库，全球量单列；— 表示 N/A，不是 0。\n\n七个词的美国月搜索量合计只有 780，界面显示的全球合计却有约 119K。很多需求并不在美国，于是先点开 sort code checker，看看它的地区分布。\n\n这个词在英国量不小的。全球月搜索量 36K，其中英国 32K，占了 88%；美国只有 300。\n\n再查这个词是干什么的，原来 Sort Code 是英国银行体系里的六位银行识别代码。用户查的是银行信息，以及这个代码是否支持某些支付方式。\n\n是一个金融体系里的词，可能涉及 YMYL，不过也解释了 CPC 为什么还可以。\n\n再看具体工具，Pay.UK 自己就有 Sort Code Checker。做到这一步，感觉不只是写个输入框，还涉及数据和官方工具的竞争。\n\n这种有点难做，需要数据库，并且涉及官方竞争，而且 YMYL，不过算是个有意思的机会。\n\n百年 AI×出海: 日课的形式就是这样，里面会有我有意无意泄露的各种trick，比如这篇就有，我可能会点出来也可能不会\n\n一只会说话的狗: 这种“藏私货”的日课才是真宝藏，能不能发现全看悟性了哈哈。已关注，跟着慢慢挖trick～\n\nO MO: 光看还不太懂，跟着操作一遍\n\n百年 AI×出海: 现在信息应该刷新了不太一样了，我做日课的目的是长期积累隐含知识，熟悉serp熟悉网站数据\n不过我的整体这块做到尽可能容易上手尽可能轻了，确实可以跟着做一做\n\nO MO: 🫡\n\n想风: 那我得每天追着看了\n\nSeriousInfo: seo 课\n\n百年 AI×出海: 我个人没做，日课是我每日功课的意思，分享出来是觉得有价值有帮助；想学习的话推荐哥飞社群，可以自己搜\n\nHaosen: sort code checker 挺典型：美国库780、全球119K，单一地区库筛词会系统性漏掉区域需求。KD低在金融词上容易误判，对手是官方免费工具，不算内容站竞争。能做的或许是官方没覆盖的支付场景长尾。\n\n余电 Zero: 感谢分享\n\n跑步最快的程序员指挥Ai Agent: 这个流程很对：先用 Trends 扫词根，再拿 SERP 和 Ahrefs 核一遍，比只看搜索量靠谱得多。好奇问一句：像 MLA 生成器这种量不小但 KD 67 的词，你一般是直接放弃，还是会先看有没有能绕开正面竞争的长尾切口？",

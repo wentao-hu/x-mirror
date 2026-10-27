@@ -15,7 +15,7 @@
     "images_total": 0,
     "images_ok": 0,
     "api_media_count": 0,
-    "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；引用 SEO 日课 001 链到 GitHub Pages 镜像；评论 3 条按原文收录，可折叠聊天气泡；标题为镜像站自拟。",
+    "fidelity_note": "主帖全文（短帖无 note_tweet）；无配图；引用 SEO 日课 001 链到站内镜像；评论未收录（默认规则）；标题为镜像站自拟。",
     "plain_text_len": 364,
     "blocks_count": 9
   },
@@ -53,31 +53,6 @@
       "type": "heading",
       "level": 2,
       "text": "评论与补充"
-    },
-    {
-      "type": "chat",
-      "raw_count": 3,
-      "removed_count": 0,
-      "messages": [
-        {
-          "user": "马承风",
-          "username": "mcf0310",
-          "time": "2026-10-27 15:36",
-          "text": "换成pdf to img，这尺子词更稳"
-        },
-        {
-          "user": "RepoRadar",
-          "username": "KaiyuanDesk",
-          "time": "2026-10-27 15:57",
-          "text": "工具词受搜索习惯影响，最好再备一个交叉验证"
-        },
-        {
-          "user": "0✖️嘎吱哥",
-          "username": "gazhige577",
-          "time": "2026-10-27 18:29",
-          "text": "尺子词不稳定这个坑踩过的人都懂，参照物一飘，后面所有对比全乱套。换个稳定的新尺子词，数据才有可比性。"
-        }
-      ]
     }
   ],
   "plain_text": "举个例子，这里我就无意泄露了一个trick\n\n近期由于 gpts 这个尺子词很不稳定，把它作为参照来衡量谷歌趋势热度会出问题，基本是已经到了必须换的程度了\n\n我自用的新尺子词是 pdf to img\n\n和老的gpts差不多，而且稳定\n\n引用帖：SEO 日课 001｜从 Downloader 到 Checker（https://wentao-hu.github.io/x-mirror/posts/bainian-seo-daily-001-downloader-to-checker/）\n\n马承风: 换成pdf to img，这尺子词更稳\n\nRepoRadar: 工具词受搜索习惯影响，最好再备一个交叉验证\n\n0✖️嘎吱哥: 尺子词不稳定这个坑踩过的人都懂，参照物一飘，后面所有对比全乱套。换个稳定的新尺子词，数据才有可比性。",
