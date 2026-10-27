@@ -1405,6 +1405,34 @@
       "blocks_count": 18
     },
     {
+      "id": "google-seo-starter-guide",
+      "slug": "google-seo-starter-guide",
+      "title": "谷歌官方SEO入门指南",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh_CN",
+      "author_name": "Google 搜索中心",
+      "author_username": "",
+      "published_utc": "2025-12-18T00:00:00.000Z",
+      "published_local": "2025-12-18 08:00",
+      "category": "SEO获客",
+      "category_reason": "主要交付是 Google 官方给出的搜索优化入门方法（抓取、索引、站点结构、内容、标题与摘要、图片视频、推广），读者读完能直接改进网站的搜索表现；不归需求研究，因为文章不判断产品机会；不归建站实现，因为不涉及具体建站技术。",
+      "description": "",
+      "source_type": "web_article",
+      "tags": [
+        "SEO入门",
+        "Google搜索",
+        "抓取与索引",
+        "站点结构",
+        "标题与摘要",
+        "图片优化"
+      ],
+      "images_total": 7,
+      "images_ok": 7,
+      "api_media_count": 0,
+      "fidelity_note": "Google 搜索中心官方中文文档全文镜像；正文 4 张 PNG 按原图下载，3 张内联 SVG 示意图（网址元素、标题链接、摘要）连同背景图与中文标注经无头浏览器渲染为本地 PNG，无热链；正文内链全部指向 Google 官方文档对应页面；原文最后更新于 2025-12-18 UTC。",
+      "plain_text_len": 5910,
+      "blocks_count": 96
+    },
+    {
       "id": "ecomools-seo-keyword-research",
       "slug": "ecomools-seo-keyword-research",
       "title": "谷歌SEO关键词挖掘、研究和优化：如何选对关键字、提升流量和转化？",
@@ -1595,8 +1623,8 @@
         "Worker"
       ],
       "avatar_local": "",
-      "images_total": 17,
-      "images_ok": 17,
+      "images_total": 21,
+      "images_ok": 21,
       "api_media_count": 0,
       "fidelity_note": "",
       "plain_text_len": 6580,

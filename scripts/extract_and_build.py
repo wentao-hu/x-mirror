@@ -621,6 +621,8 @@ def author_handle(meta: dict) -> str:
     if source_type_of(meta) == "note":
         return ""
     username = esc(meta.get("author_username", ""))
+    if not username:
+        return ""
     return f"u/{username}" if source_type_of(meta) == "reddit" else f"@{username}"
 
 
