@@ -9,8 +9,7 @@ export const CATEGORY_NAMES = Object.freeze([
   "SEO获客",
   "建站开发",
   "需求研究",
-  "用户运营",
-  "演讲展示"
+  "用户运营"
 ]);
 
 export const CATEGORY_ALIASES = Object.freeze({

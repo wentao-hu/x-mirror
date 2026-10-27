@@ -8,10 +8,10 @@
     "author_username": "",
     "published_utc": "2026-10-27T12:00:00.000Z",
     "published_local": "2026-10-27 20:00",
-    "category": "演讲展示",
-    "category_reason": "主要交付是理解一场出海分享的完整观点与方法论——找词模型、八种思维、选词标准、上站与取舍；不是单次实践的成败复盘，也不属于具体建站/SEO 操作教程，因此归入新建的「演讲展示」。",
+    "category": "需求研究",
+    "category_reason": "主要交付是发现并判断值得做的关键词与需求机会：扩散循环找词、三维度筛选、异常值与竞品对标；上站和外链只是执行背景。归需求研究，不归 SEO获客（其 excludes 明确排除「判断需求是否值得做」），也不归实战复盘（主体不是单次实践的成败归因）。",
     "description": "",
-    "source_type": "web_article",
+    "source_type": "talk",
     "tags": [
       "找词模型",
       "关键词研究",

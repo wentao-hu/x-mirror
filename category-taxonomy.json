@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "taxonomy_revision": 2,
+  "taxonomy_revision": 1,
   "name_policy": {
     "max_codepoints": 6,
     "max_display_units": 8
@@ -100,19 +100,6 @@
       ],
       "excludes": [
         "验证产品机会、获取陌生搜索流量、支付基础设施接入"
-      ],
-      "aliases": []
-    },
-    {
-      "name": "演讲展示",
-      "definition": "主要交付是理解一场演讲、分享会或圆桌的观点、论证与可迁移结论。",
-      "includes": [
-        "演讲、分享会、直播、圆桌的实录整理与观点提炼",
-        "以讲者主线展开的方法论、案例、问答与个人经验"
-      ],
-      "excludes": [
-        "以单次实践的结果和成败归因作为主体的复盘",
-        "具体工具、搜索、建站或收款的操作教程"
       ],
       "aliases": []
     }

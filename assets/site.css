@@ -467,8 +467,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .cat .cat-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
 .cat .cat-name { flex: 1; min-width: 0; }
-.cat .cat-logo { width: 18px; height: 18px; flex: none; }
-.filters button .cat-logo { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; }
 .cat .cat-count {
   color: var(--muted); font-size: 12px; font-weight: 600; background: var(--bg);
   border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap;
@@ -618,7 +616,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   line-height: 1.6; white-space: nowrap;
 }
 .cat-badge::before { content: "分类："; color: var(--muted-2); }
-.cat-badge .cat-logo { width: 14px; height: 14px; margin-right: 4px; }
 .cat-badge:hover { color: var(--link); text-decoration: none; }
 .tag-list {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
@@ -654,6 +651,9 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .source-badge[data-source-type="web_article"] {
   background: #e9f2f1; color: #1f5f5b; border-color: #d2e3e1;
+}
+.source-badge[data-source-type="talk"] {
+  background: #e8f4ff; color: #0b63a8; border-color: #cfe6fa;
 }
 .source-badge[data-source-type="webcafe"] {
   background: #eef4ff; color: #1d4ed8; border-color: #dbe7ff;

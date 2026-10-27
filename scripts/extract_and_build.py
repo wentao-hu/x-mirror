@@ -47,21 +47,6 @@ CATEGORY_TAXONOMY = load_taxonomy()
 CATEGORY_ORDER = official_names(CATEGORY_TAXONOMY)
 CATEGORY_DEFINITIONS = definitions(CATEGORY_TAXONOMY)
 
-# 分类标签配图：目前只有「演讲展示」有专属标记，其余分类保持纯文字
-CATEGORY_LOGOS = {
-    "演讲展示": "cat-talk.svg",
-}
-
-
-def category_logo_html(name: str, prefix: str = "") -> str:
-    logo = CATEGORY_LOGOS.get(name)
-    if not logo:
-        return ""
-    return (
-        f'<img class="cat-logo" src="{prefix}assets/{logo}" alt="" '
-        f'width="18" height="18" loading="lazy" decoding="async" />'
-    )
-
 # workdir -> post id
 WORKDIRS = {
     "2110669876482203775": "/tmp/webpage-work",
@@ -571,6 +556,7 @@ def render_heading_text(text: str) -> str:
 SOURCE_TYPE_LABELS = {
     "x_post": "帖子",
     "x_article": "长文",
+    "talk": "演讲展示",
     "web_article": "网页",
     "webcafe": "web.cafe",
     "wechat": "微信",
@@ -610,6 +596,12 @@ NOTE_ICON = (
     '<path d="M4 2.5h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"></path>'
     '<path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"></path></svg>'
 )
+TALK_ICON = (
+    '<svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
+    '<rect x="2" y="2.8" width="12" height="7.8" rx="1.3"></rect>'
+    '<path d="M8 10.6v2.2M5.6 13.4h4.8"></path>'
+    '<path d="M4.8 5.2h6.4M4.8 7.2h4.2"></path></svg>'
+)
 
 
 def source_type_of(meta: dict) -> str:
@@ -628,6 +620,7 @@ ORIGIN_LABELS = {
     "wechat": "微信公众号",
     "web_article": "网页",
     "reddit": "Reddit",
+    "talk": "演讲",
 }
 
 
@@ -659,6 +652,7 @@ def source_badge(meta: dict) -> str:
         "web_article": GLOBE_ICON,
         "reddit": REDDIT_ICON,
         "note": NOTE_ICON,
+        "talk": TALK_ICON,
     }.get(st, X_ICON)
     return (
         f'<span class="source-badge" data-source-type="{esc(st)}">'
@@ -1556,8 +1550,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .cat .cat-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
 .cat .cat-name { flex: 1; min-width: 0; }
-.cat .cat-logo { width: 18px; height: 18px; flex: none; }
-.filters button .cat-logo { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; }
 .cat .cat-count {
   color: var(--muted); font-size: 12px; font-weight: 600; background: var(--bg);
   border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap;
@@ -1707,7 +1699,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   line-height: 1.6; white-space: nowrap;
 }
 .cat-badge::before { content: "分类："; color: var(--muted-2); }
-.cat-badge .cat-logo { width: 14px; height: 14px; margin-right: 4px; }
 .cat-badge:hover { color: var(--link); text-decoration: none; }
 .tag-list {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
@@ -1743,6 +1734,9 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .source-badge[data-source-type="web_article"] {
   background: #e9f2f1; color: #1f5f5b; border-color: #d2e3e1;
+}
+.source-badge[data-source-type="talk"] {
+  background: #e8f4ff; color: #0b63a8; border-color: #cfe6fa;
 }
 .source-badge[data-source-type="webcafe"] {
   background: #eef4ff; color: #1d4ed8; border-color: #dbe7ff;
@@ -1955,8 +1949,7 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
     # 分类标签：放在原文链接右侧，点击回目录并定位到该分类
     cat_badge_html = (
         f'<a class="cat-badge" href="../../?cat={urllib.parse.quote(meta["category"])}" '
-        f'title="返回目录 · {esc(meta["category"])}">'
-        f'{category_logo_html(meta["category"], "../../")}{esc(meta["category"])}</a>'
+        f'title="返回目录 · {esc(meta["category"])}">{esc(meta["category"])}</a>'
     )
     post_links_html = (
         f'<div class="post-meta-row">{orig_link_html}{source_badge(meta)}{cat_badge_html}</div>'
@@ -2172,7 +2165,7 @@ def index_page(posts: list[dict]) -> str:
             cats.append(p["category"])
     filter_btns = ['<button class="active" data-cat="all">全部</button>'] + [
         f'<button data-cat="{esc(c)}" title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
-        f'{category_logo_html(c)}{esc(c)}</button>' for c in cats
+        f'{esc(c)}</button>' for c in cats
     ]
     sections = []
     for c in cats:
@@ -2215,7 +2208,6 @@ def index_page(posts: list[dict]) -> str:
             f'title="{esc(CATEGORY_DEFINITIONS.get(c, "文章分类"))}">'
             f'<button type="button" class="cat-toggle" aria-expanded="true" '
             f'title="展开或折叠 {esc(c)}">'
-            f'{category_logo_html(c)}'
             f'<span class="cat-name">{esc(c)}</span>'
             f'<span class="cat-count">{len(cards)} 篇</span>'
             f'<span class="cat-chevron" aria-hidden="true">▾</span>'
@@ -2266,6 +2258,7 @@ def index_page(posts: list[dict]) -> str:
           <button data-type="all" class="active">全部</button>
           <button data-type="x_post">帖子</button>
           <button data-type="x_article">长文</button>
+          <button data-type="talk">演讲展示</button>
           <button data-type="web_article">网页</button>
           <button data-type="webcafe">web.cafe</button>
           <button data-type="wechat">微信</button>
