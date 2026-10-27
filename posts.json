@@ -1008,6 +1008,35 @@
       "blocks_count": 0
     },
     {
+      "id": "note-2026-10-27-google-spam-backlink",
+      "slug": "note-google-spam-backlink",
+      "title": "垃圾外链默认被谷歌忽略，占比过高才会处理",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-27T09:51:00.000Z",
+      "published_local": "2026-10-27 17:51",
+      "category": "SEO获客",
+      "category_reason": "主要交付是判断垃圾外链对 Google 排名的影响以及要不要处置，属于外链与排名范畴；排除实战复盘，因为这段对话不是一次完整实践复盘，村长的个案只是佐证。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "垃圾外链",
+        "外链",
+        "Google排名",
+        "GSC",
+        "disavow",
+        "负面SEO"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 29 条消息全部保留；已去除 [撇嘴]、[偷笑] 等表情文字。",
+      "plain_text_len": 2838,
+      "blocks_count": 24
+    },
+    {
       "id": "note-2026-10-27-old-site-backlink-new-site",
       "slug": "note-old-site-backlink-new-site",
       "title": "哥飞群聊：新站冷启动、新词练手与视频站积分成本",
