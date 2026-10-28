@@ -1098,6 +1098,10 @@ CSS = r"""
   --radius: 14px;
   --pad-x: 20px;
   --header-h: 56px;
+  /* 阅读设置：读者可调的正文缩放（1 = 默认） */
+  --reader-fs: 1;
+  --reader-lh: 1;
+  --reader-w: 1;
 }
 * { box-sizing: border-box; }
 html {
@@ -1127,6 +1131,8 @@ a:focus-visible, button:focus-visible {
 }
 .wrap { max-width: 875px; margin: 0 auto; padding: 0 var(--pad-x) 72px; }
 .index-wrap { max-width: 1000px; }
+/* 行宽只在桌面生效：移动端视口本身比 875px 窄，max-width 不起作用 */
+.post-page .wrap { max-width: calc(875px * var(--reader-w)); }
 
 /* 顶部导航：不吸顶，随页面滚动离开视口 */
 .site-header {
@@ -1161,6 +1167,53 @@ a:focus-visible, button:focus-visible {
 .site-header nav a.active { background: var(--fg); color: #fff; }
 .site-header nav a.active:hover { background: var(--fg); color: #fff; }
 .site-header nav .gh-link { margin-left: 4px; }
+/* 阅读设置入口：Aa 小按钮，视觉上不抢正文 */
+.reader-settings { position: relative; display: inline-flex; align-items: center; }
+.post-header .reader-settings { margin-left: auto; }
+.reader-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 34px; height: 30px; padding: 0 8px;
+  border: 0; border-radius: 999px; background: transparent;
+  color: var(--muted); font-family: inherit; font-size: 13.5px; font-weight: 700;
+  letter-spacing: .01em; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.reader-toggle:hover, .reader-toggle[aria-expanded="true"] {
+  color: var(--fg); background: var(--card);
+}
+.reader-panel {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 30;
+  width: min(268px, calc(100vw - 32px));
+  padding: 12px 16px;
+  background: var(--bg); border: 1px solid var(--border-strong);
+  border-radius: 12px; box-shadow: 0 12px 32px rgba(15, 20, 25, .12);
+}
+.reader-panel[hidden] { display: none; }
+.reader-panel-title {
+  margin: 0 0 6px; font-size: 11.5px; font-weight: 700;
+  letter-spacing: .05em; color: var(--muted-2);
+}
+.reader-field {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 6px 0; font-size: 13.5px; color: var(--fg);
+}
+.reader-field input {
+  width: 82px; padding: 5px 8px;
+  border: 1px solid var(--border-strong); border-radius: 8px;
+  background: var(--bg); color: var(--fg);
+  font: inherit; font-size: 13px; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.reader-field input:focus {
+  outline: 2px solid var(--link); outline-offset: 1px; border-color: transparent;
+}
+.reader-reset {
+  width: 100%; margin-top: 8px; padding: 7px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card); color: var(--muted);
+  font: inherit; font-size: 12.5px; cursor: pointer;
+}
+.reader-reset:hover { background: var(--card-hover); color: var(--fg); }
 
 /* 作者与标题 */
 .author { display: flex; gap: 12px; align-items: center; margin: 2px 0 18px; }
@@ -1181,7 +1234,11 @@ h1.title {
 }
 
 /* 正文：中文阅读以行高和段距为主，链接加淡淡下划线便于识别 */
-.article { overflow-wrap: anywhere; }
+.article {
+  overflow-wrap: anywhere;
+  font-size: calc(17px * var(--reader-fs));
+  line-height: calc(1.75 * var(--reader-lh));
+}
 .article p { margin: 0 0 1.1em; white-space: normal; }
 .article a {
   text-decoration: underline;
@@ -1191,11 +1248,11 @@ h1.title {
 }
 .article a:hover { text-decoration-color: currentColor; }
 .article h2 {
-  font-size: 23px; line-height: 1.4; margin: 38px 0 14px;
+  font-size: calc(23px * var(--reader-fs)); line-height: 1.4; margin: 38px 0 14px;
   font-weight: 800; letter-spacing: -.008em;
 }
-.article h3 { font-size: 19.5px; line-height: 1.45; margin: 30px 0 10px; font-weight: 700; }
-.article h4 { font-size: 17px; line-height: 1.5; margin: 24px 0 8px; font-weight: 700; }
+.article h3 { font-size: calc(19.5px * var(--reader-fs)); line-height: 1.45; margin: 30px 0 10px; font-weight: 700; }
+.article h4 { font-size: calc(17px * var(--reader-fs)); line-height: 1.5; margin: 24px 0 8px; font-weight: 700; }
 .article ul, .article ol { padding-left: 1.35em; margin: 0 0 1.1em; }
 .article li { margin: 4px 0; }
 .article li::marker { color: var(--muted-2); }
@@ -1287,7 +1344,7 @@ body.img-lightbox-open { overflow: hidden; }
   margin: 18px 0; padding: 14px 16px; border-radius: 12px;
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 13px; line-height: 1.6;
+  font-size: calc(13px * var(--reader-fs)); line-height: 1.6;
 }
 .article pre code { font: inherit; color: inherit; }
 .inline-code {
@@ -1322,13 +1379,13 @@ body.img-lightbox-open { overflow: hidden; }
   color: var(--link);
 }
 .article .callout ul { margin: 0; padding-left: 20px; }
-.article .callout li { margin: 6px 0; line-height: 1.75; }
+.article .callout li { margin: 6px 0; line-height: inherit; }
 .article .callout p { margin: 8px 0 0; }
 .table-wrap {
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   margin: 18px 0 22px;
 }
-.article table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.55; }
+.article table { border-collapse: collapse; width: 100%; font-size: calc(14px * var(--reader-fs)); line-height: 1.55; }
 .article th, .article td {
   border: 1px solid var(--border); padding: 9px 12px;
   text-align: left; vertical-align: top;
@@ -1450,7 +1507,9 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   transform: rotate(45deg);
 }
 .chat-text {
-  color: var(--fg); font-size: 16px; line-height: 1.7;
+  color: var(--fg);
+  font-size: calc(16px * var(--reader-fs));
+  line-height: calc(1.7 * var(--reader-lh));
   white-space: pre-wrap; overflow-wrap: anywhere;
 }
 .chat-appendix > summary {
@@ -1473,7 +1532,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .chat-msg { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
   .chat-avatar { width: 34px; height: 34px; }
   .chat-avatar__initial { font-size: 14px; }
-  .chat-text { font-size: 15.5px; }
+  .chat-text { font-size: calc(15.5px * var(--reader-fs)); }
 }
 
 /* 目录：筛选与排序 */
@@ -1869,20 +1928,22 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
   .site-header nav .gh-link { display: none; }
   .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
+  /* 行宽只对桌面有意义，移动端不显示这一项 */
+  .reader-field--width { display: none; }
   h1.title { font-size: 25px; line-height: 1.36; margin-bottom: 14px; }
   .index-wrap h1.title { font-size: 24px; }
   .author { margin-bottom: 16px; }
   .author img, .author .avatar-empty { width: 42px; height: 42px; }
-  .article { line-height: 1.85; }
-  .article h2 { font-size: 21px; margin: 32px 0 12px; }
-  .article h3 { font-size: 18.5px; margin: 26px 0 9px; }
-  .article h4 { font-size: 16.5px; margin: 22px 0 8px; }
+  .article { line-height: calc(1.85 * var(--reader-lh)); }
+  .article h2 { font-size: calc(21px * var(--reader-fs)); margin: 32px 0 12px; }
+  .article h3 { font-size: calc(18.5px * var(--reader-fs)); margin: 26px 0 9px; }
+  .article h4 { font-size: calc(16.5px * var(--reader-fs)); margin: 22px 0 8px; }
   .article pre {
     white-space: pre-wrap; overflow-wrap: anywhere;
-    font-size: 12.5px; padding: 12px 14px;
+    font-size: calc(12.5px * var(--reader-fs)); padding: 12px 14px;
   }
   .article figure.media { margin: 18px -4px; }
-  .article table { font-size: 13.5px; }
+  .article table { font-size: calc(13.5px * var(--reader-fs)); }
   .article th, .article td { padding: 8px 10px; }
   .post-controls { gap: 8px 12px; }
   .card-controls .xr-star { font-size: 22px; padding: 5px 3px; }
@@ -1988,10 +2049,13 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
 <link rel="manifest" href="../../site.webmanifest" />
 <link rel="stylesheet" href="../../assets/site.css?v={asset_version('assets/site.css')}" />
 </head>
-<body>
+<body class="post-page">
 <div class="wrap">
   <header class="site-header post-header">
     <a class="back-link" href="../../">← 目录</a>
+    <div class="reader-settings">
+      <button type="button" class="reader-toggle" aria-label="阅读设置" aria-expanded="false" aria-controls="reader-panel" data-reader-toggle>Aa</button>
+    </div>
   </header>
   <div class="author">
     {avatar_html}
@@ -2013,6 +2077,7 @@ def post_page(meta: dict, body_html: str, toc_html: str = "") -> str:
 </div>
 {toc_html}
 <script src="../../assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+<script src="../../assets/reader-settings.js?v={asset_version('assets/reader-settings.js')}" defer></script>
 {zoom_script}
 {toc_script}
 </body>
@@ -2043,6 +2108,9 @@ def header_html(active: str) -> str:
     <nav>
       <a class="{posts_cls}" href="./"{posts_aria}>文章</a>
       <a class="{sites_cls}" href="sites.html"{sites_aria}>网站</a>
+      <div class="reader-settings">
+        <button type="button" class="reader-toggle" aria-label="阅读设置" aria-expanded="false" aria-controls="reader-panel" data-reader-toggle>Aa</button>
+      </div>
       <a class="gh-link" href="https://github.com/wentao-hu/x-mirror">GitHub</a>
     </nav>
   </header>"""
@@ -2141,6 +2209,7 @@ def sites_page(sites: list[dict]) -> str:
 </div>
 <script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
 <script src="assets/sites.js?v={asset_version('assets/sites.js')}" defer></script>
+<script src="assets/reader-settings.js?v={asset_version('assets/reader-settings.js')}" defer></script>
 </body>
 </html>
 """
@@ -2328,6 +2397,7 @@ def index_page(posts: list[dict]) -> str:
   <div class="footer">共 {len(posts)} 篇 · 时间均为北京时间（UTC+8） · Personal archive</div>
 </div>
 <script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+<script src="assets/reader-settings.js?v={asset_version('assets/reader-settings.js')}" defer></script>
 </body>
 </html>
 """
