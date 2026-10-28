@@ -999,6 +999,27 @@
       "blocks_count": 57
     },
     {
+      "id": "2115284312991879168",
+      "slug": "bainian-seo-daily-003-php-font-checker",
+      "title": "SEO 日课 003｜从 PHP Version Checker 追到 Font Checker：一页吃下全站 78% 搜索流量",
+      "url": "https://x.com/bainianAI/status/2115285071347454403",
+      "article_url": "https://x.com/i/article/2115284312991879168",
+      "author_name": "百年 AI×出海",
+      "author_username": "bainianAI",
+      "published_utc": "2026-10-28T03:30:35.000Z",
+      "published_local": "2026-10-28 11:30",
+      "category": "SEO获客",
+      "description": "",
+      "source_type": "x_article",
+      "avatar_local": "avatar.jpg",
+      "images_total": 16,
+      "images_ok": 16,
+      "api_media_count": 16,
+      "fidelity_note": "Full X Article from box scrape（article_text.md + 16 local images）；cover+15 inline；评论未收录（默认规则）；no videos。",
+      "plain_text_len": 5437,
+      "blocks_count": 78
+    },
+    {
       "id": "2115280166868156919",
       "slug": "airobert-cpc-judge-keyword-worth",
       "title": "用 CPC 判断一个词值不值钱：同月搜 1.8 万，$4.49 vs $1.45",
