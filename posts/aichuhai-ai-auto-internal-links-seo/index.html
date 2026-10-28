@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>用 AI 自动加内链做 SEO（爱出海改版工程书） · X Mirror</title>
+<meta name="description" content="老外分享了一个用 AI 自动加内链做 SEO 的方法。我把它改成了自己的版本，英文工程书直接丢在原帖评论区了 👇 它能做什么： ▸ 每天盯每个关键词的前三名，记" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=b0ca2c0f" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+  </header>
+  <div class="author">
+    <picture><source srcset="assets/avatar.webp" type="image/webp"><img src="assets/avatar.jpg" alt="" /></picture>
+    <div>
+      <div class="name">爱出海 <span class="meta">@ai_chuhai</span></div>
+      <div class="meta">2026-10-28 08:25</div>
+    </div>
+  </div>
+  <h1 class="title">用 AI 自动加内链做 SEO（爱出海改版工程书）</h1>
+  <div class="post-meta-row"><a class="orig-link" href="https://x.com/ai_chuhai/status/2115238394452115752" target="_blank" rel="noopener">查看原文（X）↗</a><span class="source-badge" data-source-type="x_post"><span class="src-icon" aria-hidden="true">𝕏</span><span class="src-label">帖子</span></span><a class="cat-badge" href="../../?cat=SEO%E8%8E%B7%E5%AE%A2" title="返回目录 · SEO获客">SEO获客</a></div>
+  
+  <div class="post-controls" data-meta-mount data-slug="aichuhai-ai-auto-internal-links-seo"></div>
+  
+  <article class="article">
+<p>老外分享了一个用 AI 自动加内链做 SEO 的方法。我把它改成了自己的版本，英文工程书直接丢在原帖评论区了 👇</p>
+<p>它能做什么：<br>▸ 每天盯每个关键词的前三名，记下它们改了内容、结构、内链、更新日期、外链里的哪些<br>▸ 排名一变，先排除谷歌大盘更新，再查是哪家做对了、哪家做错了<br>▸ 谁是第一就盯谁，第一一换，马上研究新第一过去 28 天做对了什么<br>▸ 自动给自己网站加内链：第一次只出改动清单等你点头，之后自动改、自动验收，出错自动回滚<br>▸ 平时不打扰，只有异常才推送，每周固定一份周报</p>
+<p>我优化了什么：<br>▸ 原方法只看自己的数据，我改成每天拿排名前三当样本学<br>▸ 不猜阈值：正常波动和异常的界线，全部从每个词自己的历史数据里算出来<br>▸ 归因只认证据，对不上就写“原因不明”，不编理由<br>▸ 缺权限不卡住，用户点一下同意，AI 自己接上继续干<br>▸ 底层是 iLang 判断层：AI 自己判断什么时候做、什么时候问、什么时候停</p>
+<p>⚡ Grok Bot 用户：整帖丢给它，说「按这个跑我的网站」<br>其他 Agent（Claude Code、Codex、Cursor、Manus…）：复制评论里的代码块就能用</p>
+<blockquote>引用 <a class="mention" href="https://x.com/asaio87" rel="noopener noreferrer" target="_blank">@asaio87</a>：Internal linking will greatly help your SEO.<br>原文：<a href="https://x.com/asaio87/status/2114404441181044789" rel="noopener noreferrer" target="_blank">https://x.com/asaio87/status/2114404441181044789</a></blockquote>
+<blockquote>Internal linking will greatly help your SEO.<br>Here is how I do it with Claude (or manually):</blockquote>
+<blockquote>1/ either download GSC export or use an MCP for it</blockquote>
+<blockquote>2/ put that into claude</blockquote>
+<blockquote>3/ make sure your website has an mcp (i use wordpress and i have a custom mcp plugin which lets claude make changes to the website)</blockquote>
+<blockquote>there are mcp connectors for all sorts of blogging frameworks</blockquote>
+<blockquote>4/ ask claude to automatically do the internal linking based on the queries that rank best (have great positions for each article)</blockquote>
+<blockquote>this is a prompt I use:</blockquote>
+<blockquote>I've attached my Google Search Console export (or: pull it from the GSC connector) for the last 3 months. My website is connected through the [site name] MCP.</blockquote>
+<blockquote>1. For each article, find the queries where it ranks best (position 1–10, decent impressions). Those are its target anchors.<br>2. Go through every published post. Wherever the text naturally mentions another article's top query (or a close variant), turn that phrase into a link to that article.<br>3. Rules:<br>   - Max 3–5 new internal links per post, spread through the body (no headings, intro sentence, or existing links)<br>   - Never link a post to itself, and only link each target once per post<br>   - Anchor text must read naturally. Don't rewrite sentences just to force a keyword in<br>   - Prioritize sending links to pages ranking 4–15 (they gain the most)<br>4. Before changing anything, show me a table: source post → anchor text → target URL → target's query and position. Wait for my OK.<br>5. After I approve, make the edits through the MCP, then give me a changelog so I can revert if needed.</blockquote>
+<blockquote>5/ leave the website alone for a few days</blockquote>
+<blockquote>6/ repeat this every week and see your rankings go up</blockquote>
+<blockquote>7/ do not forget to build backlinks and explore new content opportunities</blockquote>
+<blockquote>thats pretty much it</blockquote>
+<blockquote>this process can be done manually too</blockquote>
+<blockquote>i am doing the same process on my websites and my customer websites</blockquote>
+<figure class="media"><a class="media-link" href="assets/01.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/01.webp" type="image/webp"><img src="assets/01.png" alt="引用帖配图" loading="lazy" decoding="async" /></picture></a></figure>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 1/1。
+    评论未收录（默认规则）
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+
+<script src="../../assets/meta.js?v=f8b6ff32" defer></script>
+<script src="../../assets/image-zoom.js?v=3e236b3e" defer></script>
+
+</body>
+</html>

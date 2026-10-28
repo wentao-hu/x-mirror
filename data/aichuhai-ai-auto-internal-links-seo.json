@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "id": "2115238394452115752",
+    "slug": "aichuhai-ai-auto-internal-links-seo",
+    "title": "用 AI 自动加内链做 SEO（爱出海改版工程书）",
+    "url": "https://x.com/ai_chuhai/status/2115238394452115752",
+    "author_name": "爱出海",
+    "author_username": "ai_chuhai",
+    "published_utc": "2026-10-28T00:25:07.000Z",
+    "published_local": "2026-10-28 08:25",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 1,
+    "fidelity_note": "评论未收录（默认规则）",
+    "plain_text_len": 2487,
+    "blocks_count": 22
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "用 AI 自动加内链做 SEO（爱出海改版工程书）"
+    },
+    {
+      "type": "paragraph",
+      "text": "老外分享了一个用 AI 自动加内链做 SEO 的方法。我把它改成了自己的版本，英文工程书直接丢在原帖评论区了 👇"
+    },
+    {
+      "type": "paragraph",
+      "text": "它能做什么：\n▸ 每天盯每个关键词的前三名，记下它们改了内容、结构、内链、更新日期、外链里的哪些\n▸ 排名一变，先排除谷歌大盘更新，再查是哪家做对了、哪家做错了\n▸ 谁是第一就盯谁，第一一换，马上研究新第一过去 28 天做对了什么\n▸ 自动给自己网站加内链：第一次只出改动清单等你点头，之后自动改、自动验收，出错自动回滚\n▸ 平时不打扰，只有异常才推送，每周固定一份周报"
+    },
+    {
+      "type": "paragraph",
+      "text": "我优化了什么：\n▸ 原方法只看自己的数据，我改成每天拿排名前三当样本学\n▸ 不猜阈值：正常波动和异常的界线，全部从每个词自己的历史数据里算出来\n▸ 归因只认证据，对不上就写“原因不明”，不编理由\n▸ 缺权限不卡住，用户点一下同意，AI 自己接上继续干\n▸ 底层是 iLang 判断层：AI 自己判断什么时候做、什么时候问、什么时候停"
+    },
+    {
+      "type": "paragraph",
+      "text": "⚡ Grok Bot 用户：整帖丢给它，说「按这个跑我的网站」\n其他 Agent（Claude Code、Codex、Cursor、Manus…）：复制评论里的代码块就能用"
+    },
+    {
+      "type": "quote",
+      "text": "引用 @asaio87：Internal linking will greatly help your SEO.\n原文：https://x.com/asaio87/status/2114404441181044789"
+    },
+    {
+      "type": "quote",
+      "text": "Internal linking will greatly help your SEO.\nHere is how I do it with Claude (or manually):"
+    },
+    {
+      "type": "quote",
+      "text": "1/ either download GSC export or use an MCP for it"
+    },
+    {
+      "type": "quote",
+      "text": "2/ put that into claude"
+    },
+    {
+      "type": "quote",
+      "text": "3/ make sure your website has an mcp (i use wordpress and i have a custom mcp plugin which lets claude make changes to the website)"
+    },
+    {
+      "type": "quote",
+      "text": "there are mcp connectors for all sorts of blogging frameworks"
+    },
+    {
+      "type": "quote",
+      "text": "4/ ask claude to automatically do the internal linking based on the queries that rank best (have great positions for each article)"
+    },
+    {
+      "type": "quote",
+      "text": "this is a prompt I use:"
+    },
+    {
+      "type": "quote",
+      "text": "I've attached my Google Search Console export (or: pull it from the GSC connector) for the last 3 months. My website is connected through the [site name] MCP."
+    },
+    {
+      "type": "quote",
+      "text": "1. For each article, find the queries where it ranks best (position 1–10, decent impressions). Those are its target anchors.\n2. Go through every published post. Wherever the text naturally mentions another article's top query (or a close variant), turn that phrase into a link to that article.\n3. Rules:\n   - Max 3–5 new internal links per post, spread through the body (no headings, intro sentence, or existing links)\n   - Never link a post to itself, and only link each target once per post\n   - Anchor text must read naturally. Don't rewrite sentences just to force a keyword in\n   - Prioritize sending links to pages ranking 4–15 (they gain the most)\n4. Before changing anything, show me a table: source post → anchor text → target URL → target's query and position. Wait for my OK.\n5. After I approve, make the edits through the MCP, then give me a changelog so I can revert if needed."
+    },
+    {
+      "type": "quote",
+      "text": "5/ leave the website alone for a few days"
+    },
+    {
+      "type": "quote",
+      "text": "6/ repeat this every week and see your rankings go up"
+    },
+    {
+      "type": "quote",
+      "text": "7/ do not forget to build backlinks and explore new content opportunities"
+    },
+    {
+      "type": "quote",
+      "text": "thats pretty much it"
+    },
+    {
+      "type": "quote",
+      "text": "this process can be done manually too"
+    },
+    {
+      "type": "quote",
+      "text": "i am doing the same process on my websites and my customer websites"
+    },
+    {
+      "type": "image",
+      "local": "01.png",
+      "orig_url": "https://pbs.twimg.com/media/HVfcpsoXsAEKMSl.png?name=orig",
+      "alt": "引用帖配图",
+      "key": "HVfcpsoXsAEKMSl"
+    }
+  ],
+  "plain_text": "老外分享了一个用 AI 自动加内链做 SEO 的方法。我把它改成了自己的版本，英文工程书直接丢在原帖评论区了 👇\n\n它能做什么：\n▸ 每天盯每个关键词的前三名，记下它们改了内容、结构、内链、更新日期、外链里的哪些\n▸ 排名一变，先排除谷歌大盘更新，再查是哪家做对了、哪家做错了\n▸ 谁是第一就盯谁，第一一换，马上研究新第一过去 28 天做对了什么\n▸ 自动给自己网站加内链：第一次只出改动清单等你点头，之后自动改、自动验收，出错自动回滚\n▸ 平时不打扰，只有异常才推送，每周固定一份周报\n\n我优化了什么：\n▸ 原方法只看自己的数据，我改成每天拿排名前三当样本学\n▸ 不猜阈值：正常波动和异常的界线，全部从每个词自己的历史数据里算出来\n▸ 归因只认证据，对不上就写“原因不明”，不编理由\n▸ 缺权限不卡住，用户点一下同意，AI 自己接上继续干\n▸ 底层是 iLang 判断层：AI 自己判断什么时候做、什么时候问、什么时候停\n\n⚡ Grok Bot 用户：整帖丢给它，说「按这个跑我的网站」\n其他 Agent（Claude Code、Codex、Cursor、Manus…）：复制评论里的代码块就能用\n\n引用 @asaio87：Internal linking will greatly help your SEO.\n原文：https://x.com/asaio87/status/2114404441181044789\n\nInternal linking will greatly help your SEO.\nHere is how I do it with Claude (or manually):\n\n1/ either download GSC export or use an MCP for it\n\n2/ put that into claude\n\n3/ make sure your website has an mcp (i use wordpress and i have a custom mcp plugin which lets claude make changes to the website)\n\nthere are mcp connectors for all sorts of blogging frameworks\n\n4/ ask claude to automatically do the internal linking based on the queries that rank best (have great positions for each article)\n\nthis is a prompt I use:\n\nI've attached my Google Search Console export (or: pull it from the GSC connector) for the last 3 months. My website is connected through the [site name] MCP.\n\n1. For each article, find the queries where it ranks best (position 1–10, decent impressions). Those are its target anchors.\n2. Go through every published post. Wherever the text naturally mentions another article's top query (or a close variant), turn that phrase into a link to that article.\n3. Rules:\n   - Max 3–5 new internal links per post, spread through the body (no headings, intro sentence, or existing links)\n   - Never link a post to itself, and only link each target once per post\n   - Anchor text must read naturally. Don't rewrite sentences just to force a keyword in\n   - Prioritize sending links to pages ranking 4–15 (they gain the most)\n4. Before changing anything, show me a table: source post → anchor text → target URL → target's query and position. Wait for my OK.\n5. After I approve, make the edits through the MCP, then give me a changelog so I can revert if needed.\n\n5/ leave the website alone for a few days\n\n6/ repeat this every week and see your rankings go up\n\n7/ do not forget to build backlinks and explore new content opportunities\n\nthats pretty much it\n\nthis process can be done manually too\n\ni am doing the same process on my websites and my customer websites",
+  "entities": {}
+}
