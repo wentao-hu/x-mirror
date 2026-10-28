@@ -98,6 +98,11 @@ a:focus-visible, button:focus-visible {
 .reader-toggle:hover, .reader-toggle[aria-expanded="true"] {
   color: var(--fg); background: var(--card);
 }
+/* 目录页导航全是文字 tab，这里跟随导航的字号与内边距，避免视觉突兀 */
+.site-header nav .reader-toggle {
+  height: auto; padding: 7px 12px; line-height: 1.75;
+  font-size: 14px; font-weight: 400; letter-spacing: 0;
+}
 .reader-panel {
   position: absolute; top: calc(100% + 8px); right: 0; z-index: 30;
   width: min(268px, calc(100vw - 32px));
@@ -845,6 +850,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
   .site-header nav .gh-link { display: none; }
   .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
+  .site-header nav .reader-toggle { padding: 6px 10px; font-size: 13.5px; }
   /* 行宽只对桌面有意义，移动端不显示这一项 */
   .reader-field--width { display: none; }
   h1.title { font-size: 25px; line-height: 1.36; margin-bottom: 14px; }
