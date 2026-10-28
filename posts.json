@@ -2707,7 +2707,7 @@
       "images_ok": 1,
       "api_media_count": 1,
       "fidelity_note": "正文取自 note_tweet 全文（article_text.md，非截断 text）；普通推文（非 Article）；1 张配图已本地化；评论未收录（默认规则）；标题为镜像站自拟。",
-      "plain_text_len": 286,
+      "plain_text_len": 254,
       "blocks_count": 8
     },
     {
