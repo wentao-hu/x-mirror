@@ -2,37 +2,39 @@
   "meta": {
     "id": "note-2026-10-26-ga4-gsc-setup-guide",
     "slug": "note-ga4-gsc-setup-guide",
-    "title": "GA4和GSC配置教程",
+    "title": "GA4、GSC 和 Bing 配置教程",
     "url": "",
     "author_name": "萧禹",
     "author_username": "",
     "published_utc": "2026-10-26T15:10:00.000Z",
     "published_local": "2026-10-26 23:10",
     "category": "建站开发",
-    "category_reason": "主要交付是完成新站 GA4 与 Google Search Console 的后台配置、代码接入、验证与关联；属于网站基础设施配置操作，非搜索策略本身，故归建站开发。",
+    "category_reason": "主要交付是完成新站 GA4、Google Search Console（GSC）与 Bing Webmaster Tools 的后台配置、代码接入、验证、关联与 Sitemap 提交；属于网站基础设施配置操作，非搜索策略本身，故归建站开发。",
     "description": "",
     "source_type": "note",
     "tags": [
       "GA4",
       "Google Search Console",
       "GSC",
+      "Bing",
+      "Bing Webmaster Tools",
       "Cloudflare",
       "Sitemap",
       "网站统计",
       "建站教程"
     ],
     "avatar_local": "",
-    "images_total": 22,
-    "images_ok": 22,
+    "images_total": 27,
+    "images_ok": 27,
     "api_media_count": 0,
-    "fidelity_note": "完整保留 HTML 第二部分起的全部 8 张 GA4 配置截图与实操对话中的全部 14 张验证、GSC 及关联截图（共 22 张）。",
-    "plain_text_len": 3890,
-    "blocks_count": 78
+    "fidelity_note": "完整保留 8 张 GA4 配置截图、14 张验证/GSC/关联截图，以及 5 张 Bing Webmaster Tools 从 GSC 一键导入并补交 Sitemap 的实操截图（共 27 张）。",
+    "plain_text_len": 4850,
+    "blocks_count": 96
   },
   "blocks": [
     {
       "type": "paragraph",
-      "text": "从零完成出海新站的 **Google Analytics 4（GA4）** 与 **Google Search Console（GSC）** 全套配置：创建 GA4 账号与数据流、将 `G-` 衡量 ID 写入站点代码并部署、无痕窗口触发 Cookie 同意与实时报表验证、将留存期延长至 14 个月、通过 Cloudflare 一键授权验证 GSC 域名所有权、提交 `sitemap.xml`，最后将 GSC 与 GA4 双向关联。"
+      "text": "从零完成出海新站的 **Google Analytics 4（GA4）**、**Google Search Console（GSC）** 与 **Bing Webmaster Tools（必应站长工具）** 全套配置：创建 GA4 账号与数据流、将 `G-` 衡量 ID 写入站点代码并部署、无痕窗口触发 Cookie 同意与实时报表验证、将留存期延长至 14 个月、通过 Cloudflare 一键授权验证 GSC 域名所有权、提交 `sitemap.xml`、将 GSC 与 GA4 双向关联，最后在 Bing Webmaster Tools 直接从 GSC 一键导入站点并补交 `sitemap.xml`。"
     },
     {
       "type": "paragraph",
@@ -40,7 +42,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**完成标准（6 项全部打勾才算跑通）：** ① `site.ts` 填入 `ga4Id` 并完成 `npm run build && npx wrangler deploy`；② 无痕窗口（确保未启用 AdBlock/uBlock 扩展）点 `Accept` 后 Network 出现 `collect?v=2...`（状态码 `204`）；③ GA4「实时概览 / 页面实时浏览情况」能看到活跃用户 `≥ 1`；④ GA4 事件与用户数据保留期均改为 **14 个月**并保存；⑤ GSC 通过 Cloudflare 一键授权验证网域并提交 `sitemap.xml`；⑥ GA4「产品关联 → Search Console 关联」显示绿色的**链接已创建**。"
+      "text": "**完成标准（7 项全部打勾才算跑通）：** ① `site.ts` 填入 `ga4Id` 并完成 `npm run build && npx wrangler deploy`；② 无痕窗口（确保未启用 AdBlock/uBlock 扩展）点 `Accept` 后 Network 出现 `collect?v=2...`（状态码 `204`）；③ GA4「实时概览 / 页面实时浏览情况」能看到活跃用户 `≥ 1`；④ GA4 事件与用户数据保留期均改为 **14 个月**并保存；⑤ GSC 通过 Cloudflare 一键授权验证网域并提交 `sitemap.xml`；⑥ GA4「产品关联 → Search Console 关联」显示绿色的**链接已创建**；⑦ Bing Webmaster Tools 从 GSC 一键导入站点，并在 Sitemaps 页面手动补交 `https://<domain>/sitemap.xml` 直至状态显示绿色的 **Success**。"
     },
     {
       "type": "heading",
@@ -515,7 +517,106 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "7. 实操高频问题速查表"
+      "text": "7. 配置 Bing Webmaster Tools（从 GSC 一键导入 + 手动补交 Sitemap）"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Search Console 配好后，顺手把 **Bing Webmaster Tools（必应站长工具）** 也一起开通。Bing 不仅带来必应搜索流量，也是 **ChatGPT Search、Microsoft Copilot、DuckDuckGo** 等 AI 搜索引擎的核心底层索引源。因为站点已经在 GSC 验证过，**千万不要选右侧手动添加（不用再配一次 DNS TXT）**，直接复用 GSC 验证结果一键导入最快。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7.1 打开 Bing Webmaster Tools，点击左侧「Import from GSC」"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开 `www.bing.com/webmasters` 并登录微软账号（或 Google 账号）。如果是第一次进入，会看到下图左右两栏欢迎页，**直接点击左侧 Google Search Console 卡片下方的蓝色 `Import` 按钮**；如果之前已经添加过其他站点，则点击左上角站点切换下拉框最底部的 **Add a site（添加站点）**，同样选择从 GSC 导入。"
+    },
+    {
+      "type": "image",
+      "local": "23-bing-welcome-import-gsc.png",
+      "alt": "Bing Webmaster Tools 欢迎页，左侧为从 Google Search Console 导入（Import），右侧为手动添加站点"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：欢迎页直接点左侧「Import your sites from GSC」下方的蓝色 Import 按钮，免去重复做 DNS 验证。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7.2 授权 Google 账号并勾选要导入的站点"
+    },
+    {
+      "type": "paragraph",
+      "text": "在弹出的 Google 授权窗口中选择你刚配置 GSC 的同一个 Google 账号并允许读取权限。随后右侧滑出「Import from Google Search Console」抽屉，列出你名下已验证的全部 GSC 站点，勾选目标站点后点击右下角蓝色的 **Import** 按钮即可秒级完成导入。**重点避坑：** 注意看表格里的 `Sitemaps Count` 一栏经常显示为 **`0`**——这是因为 GSC 里刚提交、还处于异步排队初始态的 Sitemap 不会被 Bing 自动同步过来，所以导入完成后**必须手动去补交一次 Sitemap**。"
+    },
+    {
+      "type": "image",
+      "local": "24-bing-select-gsc-sites.png",
+      "alt": "Bing 从 Google Search Console 导入站点抽屉，勾选两个站点但 Sitemaps Count 显示为 0，右下角有蓝色 Import 按钮"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：勾选要导入的站点并点右下角 Import；注意 Sitemaps Count 显示为 0，说明站点地图未自动带入，稍后需手动补交。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7.3 导入成功后进入左侧 Sitemaps 页面"
+    },
+    {
+      "type": "paragraph",
+      "text": "导入完成后进入 Bing 站点控制台首页，顶部横幅同样提示 `meanwhile, to speed up the indexing process, please submit your sitemap by using the Sitemaps feature`。先在左上角下拉框确认当前选中的站点（若有多个站点，需逐个切换操作），然后点击左侧菜单的 **Sitemaps**（或首页中间的 **Sitemaps** 卡片）。"
+    },
+    {
+      "type": "image",
+      "local": "25-bing-home-after-import.png",
+      "alt": "Bing Webmaster Tools 导入站点后的首页，顶部提示提交 Sitemap 加速收录，左侧导航有 Sitemaps 菜单"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：导入后的控制台首页：左上角可切换不同站点，点击左侧 Sitemaps 进入站点地图管理页。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7.4 点击 Submit sitemap 填入完整站点地图地址"
+    },
+    {
+      "type": "paragraph",
+      "text": "在 Sitemaps 页面点击右上角蓝色的 **Submit sitemap** 按钮，在弹窗输入框中填入完整 URL（例如 `https://glowupai.tech/sitemap.xml` 或 `https://hittheroaddudeai.fun/sitemap.xml`，注意必须带 `https://` 且与左上角当前选中的域名严格一致），点击蓝色的 **Submit**。"
+    },
+    {
+      "type": "image",
+      "local": "26-bing-submit-sitemap-modal.png",
+      "alt": "Bing Webmaster Tools 的 Submit sitemap 弹窗，输入框提示填写完整 sitemap.xml 地址"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：点击右上角 Submit sitemap，在弹窗中输入 https://<你的域名>/sitemap.xml 并点击 Submit。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7.5 确认 Sitemap 状态变为绿色的 Success 并发现 URL"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bing 抓取 Sitemap 的速度比 GSC 快得多，通常提交后几秒内（刷新一下页面），Status 就会从 `Processing` 变成绿色的 **Success**，同时上方统计卡片会立刻显示 `Known sitemaps: 1`、`Sitemaps with errors: 0` 以及实际解析出的页面数量（如 `Total URLs discovered: 11`）。如果有多个站点，在左上角下拉框切换到下一个站点，重复 7.4 节补交它的 `sitemap.xml` 即可。"
+    },
+    {
+      "type": "image",
+      "local": "27-bing-sitemap-success.png",
+      "alt": "Bing Webmaster Tools Sitemaps 页面显示 Status 为绿色 Success，Total URLs discovered 为 11"
+    },
+    {
+      "type": "paragraph",
+      "text": "图注：提交后数秒即显示绿色 Success 与 Total URLs discovered: 11，代表必应站长工具与 Sitemap 收录配置 100% 完成。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "8. 实操高频问题速查表"
     },
     {
       "type": "table",
@@ -561,9 +662,14 @@
           "在 GSC 顶部网址检查框输入 `https://<domain>/sitemap.xml` 点「测试实际网址」，返回绿色「网址可编入 Google 索引」即确认正常，等后台队列排到自动变绿"
         ],
         [
+          "Bing 从 GSC 一键导入站点时显示 Sitemaps Count 为 0，还需要手动提交吗？",
+          "GSC 里刚提交的 Sitemap 处于异步排队初始态，Bing 导入接口拿不到未完成首次抓取的 Sitemap",
+          "导入完成后点左侧 **Sitemaps → 右上角 Submit sitemap**，手动填入 `https://<domain>/sitemap.xml` 提交，几秒内即变绿 **Success**"
+        ],
+        [
           "Cloudflare 2.5k 访问、后台 44 会话、GA4 数字为什么对不上？",
           "三者统计口径不同：Cloudflare 含爬虫与边缘请求，后台计站内业务会话，GA4 只计点过 Accept 且未开广告拦截的浏览器",
-          "各司其职：看收入订单用后台，看真人渠道趋势用 GA4，看总请求与爬虫用 Cloudflare，看搜索词收录用 GSC"
+          "各司其职：看收入订单用后台，看真人渠道趋势用 GA4，看总请求与爬虫用 Cloudflare，看搜索词收录用 GSC / Bing"
         ]
       ]
     }
