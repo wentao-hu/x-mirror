@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "id": "2115078563246305447",
+    "slug": "heizol-reddit-soft-launch-post-template",
+    "title": "Reddit 软启动发帖模板：隐去品牌、坦白约束、结构化提问",
+    "url": "https://x.com/heizolshao/status/2115078563246305447",
+    "author_name": "左海",
+    "author_username": "heizolshao",
+    "published_utc": "2026-10-27T13:50:00.000Z",
+    "published_local": "2026-10-27 21:50",
+    "category": "用户运营",
+    "category_reason": "主要交付是一份 Reddit 社区软启动发帖结构：隐去品牌、坦白约束、用结构化提问换讨论；落点在社群互动方式，不是获取搜索流量，因此不归 SEO获客。",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 1,
+    "fidelity_note": "正文取自 note_tweet 全文（article_text.md，非截断 text）；普通推文（非 Article）；1 张配图已本地化；评论未收录（默认规则）；标题为镜像站自拟。",
+    "plain_text_len": 286,
+    "blocks_count": 8
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Reddit 软启动发帖模板：隐去品牌、坦白约束、结构化提问"
+    },
+    {
+      "type": "paragraph",
+      "text": "做海外软件工具的开发者，我强烈建议你们把这图里的 Reddit 发帖方式存下来当模板。"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多开发者在 Reddit 发帖被喷推广，核心原因是：把产品当主角，把社区当流量池。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这篇帖子虽然互动不多，但内容结构堪称教科书级的“软启动”："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 隐去品牌，只抛业务真问题。不求大家试用，只讨论“早期订阅制如何让分销觉得划算。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 坦白约束，建立信任感。直接说明我们没预算付保底预付费，只有 30% 分成，真诚且不画饼。"
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 结构化提问，降低回答门槛。文末把问题拆成两个具体的选择题探讨，让大家能接话。"
+    },
+    {
+      "type": "image",
+      "local": "HVo8agPa4AAu7ZO.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVo8agPa4AAu7ZO.jpg",
+      "alt": "Reddit 帖截图（u/Logical_Situation_61）：双语提问早期订阅应用如何让联盟分成对创作者划算；正文写明提供完整产品权限和 12 个月 30% 订阅分成、暂无预付预算，并列出结构化问题征求实操建议。",
+      "key": "HVo8agPa4AAu7ZO"
+    }
+  ],
+  "plain_text": "Reddit 软启动发帖模板：隐去品牌、坦白约束、结构化提问\n\n做海外软件工具的开发者，我强烈建议你们把这图里的 Reddit 发帖方式存下来当模板。\n\n很多开发者在 Reddit 发帖被喷推广，核心原因是：把产品当主角，把社区当流量池。\n\n这篇帖子虽然互动不多，但内容结构堪称教科书级的“软启动”：\n\n1. 隐去品牌，只抛业务真问题。不求大家试用，只讨论“早期订阅制如何让分销觉得划算。\n\n2. 坦白约束，建立信任感。直接说明我们没预算付保底预付费，只有 30% 分成，真诚且不画饼。\n\n3. 结构化提问，降低回答门槛。文末把问题拆成两个具体的选择题探讨，让大家能接话。",
+  "entities": {}
+}

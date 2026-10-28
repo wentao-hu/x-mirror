@@ -2690,6 +2690,27 @@
       "blocks_count": 145
     },
     {
+      "id": "2115078563246305447",
+      "slug": "heizol-reddit-soft-launch-post-template",
+      "title": "Reddit 软启动发帖模板：隐去品牌、坦白约束、结构化提问",
+      "url": "https://x.com/heizolshao/status/2115078563246305447",
+      "author_name": "左海",
+      "author_username": "heizolshao",
+      "published_utc": "2026-10-27T13:50:00.000Z",
+      "published_local": "2026-10-27 21:50",
+      "category": "用户运营",
+      "category_reason": "主要交付是一份 Reddit 社区软启动发帖结构：隐去品牌、坦白约束、用结构化提问换讨论；落点在社群互动方式，不是获取搜索流量，因此不归 SEO获客。",
+      "description": "",
+      "source_type": "x_post",
+      "avatar_local": "avatar.jpg",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 1,
+      "fidelity_note": "正文取自 note_tweet 全文（article_text.md，非截断 text）；普通推文（非 Article）；1 张配图已本地化；评论未收录（默认规则）；标题为镜像站自拟。",
+      "plain_text_len": 286,
+      "blocks_count": 8
+    },
+    {
       "id": "note-2026-10-26-tool-site-payment-rate-20pct",
       "slug": "note-tool-site-payment-rate-20pct",
       "title": "日 UV 100 的工具站，付费率从 1.3% 提到 20%",
