@@ -64,6 +64,27 @@
       "blocks_count": 20
     },
     {
+      "id": "2115251581998563837",
+      "slug": "yihui-monthly-10k-two-things-before-vibe-coding",
+      "title": "月入万刀的人都是先想明白两件事，最后才 Vibe Coding的",
+      "url": "https://x.com/yihui_indie/status/2115251581998563837",
+      "article_url": "https://x.com/i/article/2115249518509998080",
+      "author_name": "Yihui",
+      "author_username": "yihui_indie",
+      "published_utc": "2026-10-28T01:17:31.000Z",
+      "published_local": "2026-10-28 09:17",
+      "category": "实战复盘",
+      "description": "",
+      "source_type": "x_article",
+      "avatar_local": "avatar.jpg",
+      "images_total": 9,
+      "images_ok": 9,
+      "api_media_count": 9,
+      "fidelity_note": "Full X Article from box scrape（article_text.md + 9 local images）；cover+8 inline；评论未收录（默认规则）；no videos。",
+      "plain_text_len": 4808,
+      "blocks_count": 61
+    },
+    {
       "id": "note-2026-10-27-quick-release-no-big-moves",
       "slug": "note-quick-release-no-big-moves",
       "title": "别憋大招：快速发布，快速迭代",
