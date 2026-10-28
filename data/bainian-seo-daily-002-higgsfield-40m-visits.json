@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "id": "2115110083281735680",
+    "slug": "bainian-seo-daily-002-higgsfield-40m-visits",
+    "title": "SEO 日课 002｜拆 Higgsfield：从 4000 万访问到 8800 个投稿页（上）",
+    "url": "https://x.com/bainianAI/status/2115110523981406394",
+    "article_url": "https://x.com/i/article/2115110083281735680",
+    "author_name": "百年 AI×出海",
+    "author_username": "bainianAI",
+    "published_utc": "2026-10-27T15:57:00.000Z",
+    "published_local": "2026-10-27 23:57",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "x_article",
+    "avatar_local": "avatar.jpg",
+    "images_total": 21,
+    "images_ok": 21,
+    "api_media_count": 21,
+    "fidelity_note": "Full X Article from box scrape（article_text.md + 21 local images）；cover+20 inline；评论未收录（默认规则）；no videos。",
+    "plain_text_len": 2884,
+    "blocks_count": 72
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "SEO 日课 002｜拆 Higgsfield：从 4000 万访问到 8800 个投稿页（上）"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbVOasAAA_rK.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbVOasAAA_rK.jpg?name=orig",
+      "alt": "Article cover image",
+      "key": "HVphbVOasAAA_rK",
+      "local": "img-01.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "2026 年 10 月 27 日 · 今天的第二轮日课"
+    },
+    {
+      "type": "paragraph",
+      "text": "今天第二轮日课，拆一个大站：[higgsfield.ai](https://higgsfield.ai/)。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是一个 2023 年注册的域名，工具预估月访问量四千多万。一个这么年轻的站，怎么做到这个体量的？我先看它在卖什么，再顺着流量、关键词和外链往下拆。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一、先看生意，再拆流量"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开定价页，Genjutsu、Nano Banana 2、AI Influencer，很多重要的词都在这里。初步判断，这是一个大型 AI 创作平台，视频、图片、人物创作都装在一套订阅里。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Starter 年付折算 15 美元/月，Plus 年付折算 39 美元/月。它不缺流量进来之后的产品承接。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbVYbYAAntQ5.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbVYbYAAntQ5.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbVYbYAAntQ5",
+      "local": "img-02.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "再看历史曲线，增长很迅猛。2025 年下半年开始加速，到 2026 年 9 月，月访问量已经达到 40.56M。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**它一定做对了什么，而且是在过去的一年中持续做对。**"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbVIaYAA_N1d.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbVIaYAA_N1d.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbVIaYAA_N1d",
+      "local": "img-03.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "地域分布也很健康、值钱：美国 15.54%，印度 12.60%，后面是韩国、英国、德国。"
+    },
+    {
+      "type": "paragraph",
+      "text": "继续把渠道拆开，窗口是 2025 年 7 月至 2026 年 9 月，全球所有流量："
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphdQTagAAC-VE.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphdQTagAAC-VE.jpg?name=orig",
+      "alt": "",
+      "key": "HVphdQTagAAC-VE",
+      "local": "img-04.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "直接访问已经超过六成。我更关注自然搜索、外链带来的引荐和自然社媒，这几个都是可以尝试复制的打法。"
+    },
+    {
+      "type": "paragraph",
+      "text": "另外几个小渠道也有意思：生成式 AI 1.95%，电子邮件 0.93%，联盟合作方 0.53%。放在四千万月访问量的站上，这些数字一点都不小，可能是平时我们忽略的。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbVQaUAEL9k4.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbVQaUAEL9k4.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbVQaUAEL9k4",
+      "local": "img-05.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "接着看自然搜索词，它吃到了很多大词，包括 **ai video generator** 和 **ai image generator** 这两个超级重量级。关键词表里的点击量分别是 63.9K 和 42.1K。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbrZaAAA8lP9.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbrZaAAA8lP9.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbrZaAAA8lP9",
+      "local": "img-06.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "**face swap** 竟然也吃到了一些，胆子有点大。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "二、Earn、工具页，还有 Face Swap 的收款问题"
+    },
+    {
+      "type": "paragraph",
+      "text": "顺着产品继续逛，看到 [Higgsfield Earn](https://higgsfield.ai/earn)，第一眼很像一个 aff 页面。有点感兴趣，拉上 ChatGPT 一起往下挖。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbxQaMAA_U8O.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbxQaMAA_U8O.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbxQaMAA_U8O",
+      "local": "img-07.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "这套机制是：平台推出 AI 视频功能或推广活动，创作者领取任务、制作内容，再发到 YouTube、Instagram、X 等平台，获得基础报酬和表现奖励。"
+    },
+    {
+      "type": "paragraph",
+      "text": "用户不只在平台里生成内容，还把内容带到外面传播。观众看到作品，认识 Higgsfield，再搜索品牌、直接访问或者注册。产品、创作者奖励和获客连在一起了。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphbrza4AAr0q9.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphbrza4AAr0q9.jpg?name=orig",
+      "alt": "",
+      "key": "HVphbrza4AAr0q9",
+      "local": "img-08.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "Apps 那边也有很多工具：Skin Enhancer、AI Stylist、Relight、Outfit Swap、Face Swap……这些工具都能吃词，一个工具一个词。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphb08aYAAVshK.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphb08aYAAVshK.jpg?name=orig",
+      "alt": "",
+      "key": "HVphb08aYAAVshK",
+      "local": "img-09.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "Face Swap 还让我想到另一个问题：它怎么解决收款？这类功能在支付审核上很敏感，我很好奇它用的是哪套方案。"
+    },
+    {
+      "type": "paragraph",
+      "text": "查下来用的是 Stripe，而且 Stripe 自己就有 Higgsfield 的合作案例，涉及全球收款、订阅、风控和创作者结算。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcEWaAAAVi5W.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcEWaAAAVi5W.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcEWaAAAVi5W",
+      "local": "img-10.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "那就更有意思了：是某种合作政策，还是大平台单开的合同？"
+    },
+    {
+      "type": "paragraph",
+      "text": "继续看它的条款，Face Swap、Lip Sync、Avatar、Soul ID 被放进 Protected Features，授权、同意、投诉删除、API 审核都有单独的规则。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我的判断是，它应该和 Stripe 有单独条款，可能经过了专项审批。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcQZawAAUAmF.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcQZawAAUAmF.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcQZawAAUAmF",
+      "local": "img-11.jpg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三、一个锚文本，362 条 Best Links"
+    },
+    {
+      "type": "paragraph",
+      "text": "接下来查 Ahrefs。DR 82，引荐域名约 1.58 万，是巨无霸级别的站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "根据外链曲线，持续快速增长应该是 2025 年年中的事情，2024 年还只是在普通运营。2025 年 5 月 30 日，引荐域名是 537 个，后来一路上到万级。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcE3agAApscp.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcE3agAApscp.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcE3agAApscp",
+      "local": "img-12.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "再看锚文本，**AI Video Generator** 和 **ai image generator** 很突出。我的感觉，这些应该是它买的，或者自己做的外链。"
+    },
+    {
+      "type": "paragraph",
+      "text": "里面还有一个很奇怪的锚文本："
+    },
+    {
+      "type": "paragraph",
+      "text": "**Premium Link Building Services to Help higgsfield.com Websites Rank Higher**"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个我猜是黑帽注入，黑帽在大站上给自己打广告。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcaRacAAtBhh.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcaRacAAtBhh.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcaRacAAtBhh",
+      "local": "img-13.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "把 **AI Video Generator** 单独筛出来，再选 Best Links，直接有 **362 条**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有点令人羡慕啊，一个锚文本，362 个 Best Links。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphc0HaYAAeBz-.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphc0HaYAAeBz-.jpg?name=orig",
+      "alt": "",
+      "key": "HVphc0HaYAAeBz-",
+      "local": "img-14.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "抽出 50 条简单研究，DR 基本都高得吓人：中位数约 70，25 条来自 DR ≥ 70 的站，49 条指向同一个 **/ai-video** 页面。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcbIbsAAjcEp.png",
+      "orig_url": "https://pbs.twimg.com/media/HVphcbIbsAAjcEp.png?name=orig",
+      "alt": "",
+      "key": "HVphcbIbsAAjcEp",
+      "local": "img-15.png"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体看来源，手法更好玩。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Visme 那篇文章最早发布于 2021 年 11 月，讲的是怎么做宣传视频；到了当前正文里，动画视频制作的段落出现了 Higgsfield 的 AI Video Generator，链接到 **/ai-video**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Peliqan 的文章讲数据仓库架构。它在 AI 和机器学习集成的章节里，先讨论数据仓库引入 AI，再转到用 AI 视频生成工具向团队传达分析结果。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个位置找得很巧：借 AI/ML 的话题，把视频生成工具嵌进原本不专门讲视频的文章。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcxAboAAn52F.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcxAboAAn52F.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcxAboAAn52F",
+      "local": "img-16.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "HR Cloud 则是一篇员工入职培训文章，在“增加视频和培训课程”一节推荐 Higgsfield，锚文本还是 **AI Video Generator**。这个场景更自然，培训本来就需要视频。"
+    },
+    {
+      "type": "paragraph",
+      "text": "三个案例放在一起，思路很清楚：不用只找 AI 视频行业的网站，而是给不同主题的文章找到一个能接上 AI 视频生成的场景，再把商业关键词指向同一个功能页。"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多都是老文章插入链接。**我基本判断，这是有组织的外链建设，其中有购买的链接。**"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcb4b0AAZW70.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcb4b0AAZW70.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcb4b0AAZW70",
+      "local": "img-17.jpg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "四、GEO 子域名、公开 Skill，还有小游戏"
+    },
+    {
+      "type": "paragraph",
+      "text": "外链查着查着，又看到一个好玩的手法：[geo.higgsfield.ai](https://geo.higgsfield.ai/)。它自己做了一个 GEO 子域名，里面放了很多 QA 式的页面。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphdLSbcAAgAkn.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphdLSbcAAgAkn.jpg?name=orig",
+      "alt": "",
+      "key": "HVphdLSbcAAgAkn",
+      "local": "img-18.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "这些页面用完整的用户问题做 H1，第一段直接给出 Higgsfield 是最佳选择，再往下放 Introduction、Key Takeaways、适用理由、能力、证据、购买考虑和 FAQ。"
+    },
+    {
+      "type": "paragraph",
+      "text": "正文还不断引用自己的产品页。这是一套很明确的问答内容模板。"
+    },
+    {
+      "type": "paragraph",
+      "text": "效果好像也有。第三方 Parse 的 AI 搜索可见性报告分析了 472 次 AI 回答，**geo.higgsfield.ai** 已经出现在引用来源里，引用覆盖指标约 2%。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphcybbMAEXDXU.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphcybbMAEXDXU.jpg?name=orig",
+      "alt": "",
+      "key": "HVphcybbMAEXDXU",
+      "local": "img-19.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "更有意思的是，它还有一个公开的 **seo.md**，把建站里的 SEO 规则写成了 Skill。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Meta、canonical、sitemap、结构化数据、GEO、发布检查，都有具体要求。里面肯定是有东西的。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphc17bIAA-ri2.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphc17bIAA-ri2.jpg?name=orig",
+      "alt": "",
+      "key": "HVphc17bIAA-ri2",
+      "local": "img-20.jpg"
+    },
+    {
+      "type": "paragraph",
+      "text": "接着又点到 [Higgsfield Playable](https://higgsfield.ai/playable)：描述游戏想法、上传素材，通过 Higgsfield MCP 在 Claude 里生成可以玩的内容。"
+    },
+    {
+      "type": "paragraph",
+      "text": "它开始做小游戏生成了，抢 Roblox 的生意了。"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HVphdQEawAA1qw-.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HVphdQEawAA1qw-.jpg?name=orig",
+      "alt": "",
+      "key": "HVphdQEawAA1qw-",
+      "local": "img-21.jpg"
+    }
+  ],
+  "plain_text": "SEO 日课 002｜拆 Higgsfield：从 4000 万访问到 8800 个投稿页（上）\n\n2026 年 10 月 27 日 · 今天的第二轮日课\n\n今天第二轮日课，拆一个大站：higgsfield.ai。\n\n这是一个 2023 年注册的域名，工具预估月访问量四千多万。一个这么年轻的站，怎么做到这个体量的？我先看它在卖什么，再顺着流量、关键词和外链往下拆。\n\n一、先看生意，再拆流量\n\n打开定价页，Genjutsu、Nano Banana 2、AI Influencer，很多重要的词都在这里。初步判断，这是一个大型 AI 创作平台，视频、图片、人物创作都装在一套订阅里。\n\nStarter 年付折算 15 美元/月，Plus 年付折算 39 美元/月。它不缺流量进来之后的产品承接。\n\n再看历史曲线，增长很迅猛。2025 年下半年开始加速，到 2026 年 9 月，月访问量已经达到 40.56M。\n\n它一定做对了什么，而且是在过去的一年中持续做对。\n\n地域分布也很健康、值钱：美国 15.54%，印度 12.60%，后面是韩国、英国、德国。\n\n继续把渠道拆开，窗口是 2025 年 7 月至 2026 年 9 月，全球所有流量：\n\n直接访问已经超过六成。我更关注自然搜索、外链带来的引荐和自然社媒，这几个都是可以尝试复制的打法。\n\n另外几个小渠道也有意思：生成式 AI 1.95%，电子邮件 0.93%，联盟合作方 0.53%。放在四千万月访问量的站上，这些数字一点都不小，可能是平时我们忽略的。\n\n接着看自然搜索词，它吃到了很多大词，包括 ai video generator 和 ai image generator 这两个超级重量级。关键词表里的点击量分别是 63.9K 和 42.1K。\n\nface swap 竟然也吃到了一些，胆子有点大。\n\n二、Earn、工具页，还有 Face Swap 的收款问题\n\n顺着产品继续逛，看到 Higgsfield Earn，第一眼很像一个 aff 页面。有点感兴趣，拉上 ChatGPT 一起往下挖。\n\n这套机制是：平台推出 AI 视频功能或推广活动，创作者领取任务、制作内容，再发到 YouTube、Instagram、X 等平台，获得基础报酬和表现奖励。\n\n用户不只在平台里生成内容，还把内容带到外面传播。观众看到作品，认识 Higgsfield，再搜索品牌、直接访问或者注册。产品、创作者奖励和获客连在一起了。\n\nApps 那边也有很多工具：Skin Enhancer、AI Stylist、Relight、Outfit Swap、Face Swap……这些工具都能吃词，一个工具一个词。\n\nFace Swap 还让我想到另一个问题：它怎么解决收款？这类功能在支付审核上很敏感，我很好奇它用的是哪套方案。\n\n查下来用的是 Stripe，而且 Stripe 自己就有 Higgsfield 的合作案例，涉及全球收款、订阅、风控和创作者结算。\n\n那就更有意思了：是某种合作政策，还是大平台单开的合同？\n\n继续看它的条款，Face Swap、Lip Sync、Avatar、Soul ID 被放进 Protected Features，授权、同意、投诉删除、API 审核都有单独的规则。\n\n我的判断是，它应该和 Stripe 有单独条款，可能经过了专项审批。\n\n三、一个锚文本，362 条 Best Links\n\n接下来查 Ahrefs。DR 82，引荐域名约 1.58 万，是巨无霸级别的站。\n\n根据外链曲线，持续快速增长应该是 2025 年年中的事情，2024 年还只是在普通运营。2025 年 5 月 30 日，引荐域名是 537 个，后来一路上到万级。\n\n再看锚文本，AI Video Generator 和 ai image generator 很突出。我的感觉，这些应该是它买的，或者自己做的外链。\n\n里面还有一个很奇怪的锚文本：\n\nPremium Link Building Services to Help higgsfield.com Websites Rank Higher\n\n这个我猜是黑帽注入，黑帽在大站上给自己打广告。\n\n把 AI Video Generator 单独筛出来，再选 Best Links，直接有 362 条。\n\n有点令人羡慕啊，一个锚文本，362 个 Best Links。\n\n抽出 50 条简单研究，DR 基本都高得吓人：中位数约 70，25 条来自 DR ≥ 70 的站，49 条指向同一个 /ai-video 页面。\n\n具体看来源，手法更好玩。\n\nVisme 那篇文章最早发布于 2021 年 11 月，讲的是怎么做宣传视频；到了当前正文里，动画视频制作的段落出现了 Higgsfield 的 AI Video Generator，链接到 /ai-video。\n\nPeliqan 的文章讲数据仓库架构。它在 AI 和机器学习集成的章节里，先讨论数据仓库引入 AI，再转到用 AI 视频生成工具向团队传达分析结果。\n\n这个位置找得很巧：借 AI/ML 的话题，把视频生成工具嵌进原本不专门讲视频的文章。\n\nHR Cloud 则是一篇员工入职培训文章，在“增加视频和培训课程”一节推荐 Higgsfield，锚文本还是 AI Video Generator。这个场景更自然，培训本来就需要视频。\n\n三个案例放在一起，思路很清楚：不用只找 AI 视频行业的网站，而是给不同主题的文章找到一个能接上 AI 视频生成的场景，再把商业关键词指向同一个功能页。\n\n很多都是老文章插入链接。我基本判断，这是有组织的外链建设，其中有购买的链接。\n\n四、GEO 子域名、公开 Skill，还有小游戏\n\n外链查着查着，又看到一个好玩的手法：geo.higgsfield.ai。它自己做了一个 GEO 子域名，里面放了很多 QA 式的页面。\n\n这些页面用完整的用户问题做 H1，第一段直接给出 Higgsfield 是最佳选择，再往下放 Introduction、Key Takeaways、适用理由、能力、证据、购买考虑和 FAQ。\n\n正文还不断引用自己的产品页。这是一套很明确的问答内容模板。\n\n效果好像也有。第三方 Parse 的 AI 搜索可见性报告分析了 472 次 AI 回答，geo.higgsfield.ai 已经出现在引用来源里，引用覆盖指标约 2%。\n\n更有意思的是，它还有一个公开的 seo.md，把建站里的 SEO 规则写成了 Skill。\n\nMeta、canonical、sitemap、结构化数据、GEO、发布检查，都有具体要求。里面肯定是有东西的。\n\n接着又点到 Higgsfield Playable：描述游戏想法、上传素材，通过 Higgsfield MCP 在 Claude 里生成可以玩的内容。\n\n它开始做小游戏生成了，抢 Roblox 的生意了。",
+  "entities": {}
+}
