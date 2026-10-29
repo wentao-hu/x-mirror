@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "id": "2115642281504153633",
+    "slug": "jasonzeyuan-boothie-mrr-53k-ccd-filter",
+    "title": "4 个月做出 Boothie：CCD 复古自拍滤镜 App 做到 MRR 5.3 万美元",
+    "url": "https://x.com/jasonzeyuan818/status/2115642281504153633",
+    "author_name": "Jason泽源",
+    "author_username": "jasonzeyuan818",
+    "published_utc": "2026-10-29T03:10:01.000Z",
+    "published_local": "2026-10-29 11:10",
+    "category": "实战复盘",
+    "category_reason": "主要交付是 Boothie 四个月做到 MRR 约 5.3 万美元的结果、收费方式和归因（踩中 CCD 复古审美）；不是滤镜实现教程或搜索获客方法，因此不归建站开发或 SEO获客。",
+    "description": "Boothie 把 CCD 卡片机复古风做成三步自拍滤镜；TrustMRR 核验 MRR 约 5.3 万美元；土耳其独立开发者；挂售约 150 万美元；本质是提示词+风格库+踩准审美趋势",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 2,
+    "images_ok": 2,
+    "api_media_count": 2,
+    "fidelity_note": "正文取自 API note_tweet.text 全文；2 张配图已本地化；评论未收录（默认规则）。",
+    "plain_text_len": 722,
+    "blocks_count": 19
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4 个月做出 Boothie：CCD 复古自拍滤镜 App 做到 MRR 5.3 万美元"
+    },
+    {
+      "type": "paragraph",
+      "text": "4 个月做出的 App 产品 Boothie 现在 MRR 5.3 万美元"
+    },
+    {
+      "type": "paragraph",
+      "text": "产品干的事只有一件：选一个风格，传一张自拍，几秒钟后出一张同一张脸、同一身衣服，但像 2004 年用卡片机拍的照片。"
+    },
+    {
+      "type": "paragraph",
+      "text": "风格有 Canon G7X 卡片机闪光、Kodak Gold 胶片、复古大头贴、夜间闪光、逆光。不用注册账号，目标用户是在 TikTok 和 Instagram 发图的年轻女生。"
+    },
+    {
+      "type": "paragraph",
+      "text": "它为什么火，我觉得很好理解。CCD 卡片机的复古风正在流行，但真买一台旧卡片机又贵又不会拍。Boothie 把这件事变成三步，用户付钱只因为一个理由：好看，能发。"
+    },
+    {
+      "type": "paragraph",
+      "text": "TrustMRR 上的数据（RevenueCat 核验，10 月 29 日更新）："
+    },
+    {
+      "type": "paragraph",
+      "text": "MRR 53,112 美元"
+    },
+    {
+      "type": "paragraph",
+      "text": "2,235 个活跃订阅"
+    },
+    {
+      "type": "paragraph",
+      "text": "近 30 天收入 51,941 美元，比上一周期涨了 19%"
+    },
+    {
+      "type": "paragraph",
+      "text": "累计收入 170,015 美元"
+    },
+    {
+      "type": "image",
+      "local": "01.jpg",
+      "alt": "TrustMRR 上 Boothie 的收入看板：MRR 53,112 美元，2235 个活跃订阅，挂售要价 150 万美元",
+      "key": "01"
+    },
+    {
+      "type": "image",
+      "local": "02.jpg",
+      "alt": "Boothie 官网：一张自拍几秒变成卡片机复古风，可在 App Store 与 Google Play 下载",
+      "key": "02"
+    },
+    {
+      "type": "paragraph",
+      "text": "收费方式是免费本地滤镜拉新，AI 生成按周订阅，另外卖积分包。"
+    },
+    {
+      "type": "paragraph",
+      "text": "创始人是土耳其的独立开发者，2026 年 6 月才上线 iOS，9 月上了 Google Play。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有一点要说清楚：TrustMRR 上这个项目挂着出售，页面写要价 150 万美元，原价是 200 万美元。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我自己的判断，它本质上就是一个提示词加一个风格库，加上一个非常准的趋势。技术上没什么门槛，门槛是你有没有踩中大家正想要的那个\"感觉\"。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我觉得现在不用等到有粉丝才能做产品，选对一个正在火的审美，一个人做一个月就可能有结果。"
+    },
+    {
+      "type": "paragraph",
+      "text": "App官网在这里：https://boothieapp.com/"
+    },
+    {
+      "type": "paragraph",
+      "text": "TrustMRR：https://trustmrr.com/startup/boothie"
+    }
+  ],
+  "plain_text": "4 个月做出的 App 产品 Boothie 现在 MRR 5.3 万美元\n\n产品干的事只有一件：选一个风格，传一张自拍，几秒钟后出一张同一张脸、同一身衣服，但像 2004 年用卡片机拍的照片。\n\n风格有 Canon G7X 卡片机闪光、Kodak Gold 胶片、复古大头贴、夜间闪光、逆光。不用注册账号，目标用户是在 TikTok 和 Instagram 发图的年轻女生。\n\n它为什么火，我觉得很好理解。CCD 卡片机的复古风正在流行，但真买一台旧卡片机又贵又不会拍。Boothie 把这件事变成三步，用户付钱只因为一个理由：好看，能发。\n\nTrustMRR 上的数据（RevenueCat 核验，10 月 29 日更新）：\n\nMRR 53,112 美元\n2,235 个活跃订阅\n近 30 天收入 51,941 美元，比上一周期涨了 19%\n累计收入 170,015 美元\n\n收费方式是免费本地滤镜拉新，AI 生成按周订阅，另外卖积分包。\n\n创始人是土耳其的独立开发者，2026 年 6 月才上线 iOS，9 月上了 Google Play。\n\n有一点要说清楚：TrustMRR 上这个项目挂着出售，页面写要价 150 万美元，原价是 200 万美元。\n\n我自己的判断，它本质上就是一个提示词加一个风格库，加上一个非常准的趋势。技术上没什么门槛，门槛是你有没有踩中大家正想要的那个\"感觉\"。\n\n我觉得现在不用等到有粉丝才能做产品，选对一个正在火的审美，一个人做一个月就可能有结果。\n\nApp官网在这里：https://boothieapp.com/\nTrustMRR：https://trustmrr.com/startup/boothie",
+  "entities": {}
+}
