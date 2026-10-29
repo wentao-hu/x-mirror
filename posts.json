@@ -2433,6 +2433,35 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-10-29-ai-new-term-inner-page-vs-standalone-site",
+      "slug": "note-ai-new-term-inner-page-vs-standalone-site",
+      "title": "新词做聚合站内页还是独立站：两个一起做，热度不降就做",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-29T04:36:00.000Z",
+      "published_local": "2026-10-29 12:36",
+      "category": "需求研究",
+      "category_reason": "主要交付是判断一个新词值不值得入场、用聚合站内页还是独立站承接，属于需求与机会判断；排除「SEO获客」，因为对话没有给出具体排名打法，讨论的是要不要做以及做成什么形态；排除「建站开发」，未涉及实现与部署。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "AI新词",
+        "聚合站",
+        "独立站",
+        "谷歌趋势",
+        "选题判断",
+        "bulin 47"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "",
+      "plain_text_len": 976,
+      "blocks_count": 16
+    },
+    {
       "id": "talk-longmen-s01e03-keyword-model",
       "slug": "talk-longmen-s01e03-keyword-model",
       "title": "出海找词模型与一年实战复盘：一个人 90+ 个站的找词与取舍",
