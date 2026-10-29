@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>从零做一个图片工具站：开发、SEO 和上线记录 · X Mirror</title>
+<meta name="description" content="最近做了一个在线图片处理工具,趁流程还记得清楚，记录几件对我最有帮助的事。这里只聊方法，不放项目链接。 一、先让核心功能真正好用 第一版最重要的是用户能顺利完成" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=7ef7e718" />
+</head>
+<body class="post-page">
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+    <div class="reader-settings">
+      <button type="button" class="reader-toggle" aria-label="阅读设置" aria-expanded="false" aria-controls="reader-panel" data-reader-toggle>Aa</button>
+    </div>
+  </header>
+  <div class="author">
+    <img src="assets/avatar.jpg" alt="" />
+    <div>
+      <div class="name">白晓锦 <span class="meta">@web.cafe</span></div>
+      <div class="meta">2026-10-29 15:11</div>
+    </div>
+  </div>
+  <h1 class="title">从零做一个图片工具站：开发、SEO 和上线记录</h1>
+  <div class="post-meta-row"><a class="orig-link" href="https://new.web.cafe/topic/ylgpst6t3q" target="_blank" rel="noopener">查看原文（web.cafe）↗</a><span class="source-badge" data-source-type="webcafe"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.2 5.5h7.3v4.2a2.9 2.9 0 0 1-2.9 2.9H6.1a2.9 2.9 0 0 1-2.9-2.9V5.5Z"></path><path d="M10.5 6.6h1.2a1.9 1.9 0 1 1 0 3.8h-1.2"></path><path d="M5.2 2.2c0 .7-.7.7-.7 1.4M7.7 2.2c0 .7-.7.7-.7 1.4"></path></svg><span class="src-label">web.cafe</span></span><a class="cat-badge" href="../../?cat=%E5%BB%BA%E7%AB%99%E5%BC%80%E5%8F%91" title="返回目录 · 建站开发">建站开发</a></div>
+  
+  <div class="post-controls" data-meta-mount data-slug="webcafe-ylgpst6t3q"></div>
+  
+  <article class="article">
+<p>最近做了一个在线图片处理工具,趁流程还记得清楚，记录几件对我最有帮助的事。这里只聊方法，不放项目链接。</p>
+<h2 id="sec-1">一、先让核心功能真正好用</h2>
+<p>第一版最重要的是用户能顺利完成一条路径：打开页面、选择图片、调整效果、看到预览、下载结果。功能跑通之后，我又专门用手机测试,才发现电脑上合理的双栏布局到了手机上会让预览跑到很下面。后来把预览移到上传区域附近，上传后立刻能看到结果，体验改善很明显。</p>
+<h2 id="sec-2">二、SEO 先做好基础，不急着堆页面</h2>
+<p>我先检查了标题、描述、H1、页面正文、常见问题、站点地图和 robots.txt，让搜索引擎能读懂这个工具解决什么问题.多语言页面使用独立地址，并设置对应的语言标记和规范地址。构建时把主要内容写进 HTML，而不是让页面只剩一个空容器等脚本加载。后面再根据搜索数据决定写哪些教程和示例，不凭感觉批量做关键词页。</p>
+<h2 id="sec-3">三、首屏速度和移动端体验要一起看</h2>
+<p>字体改为本地加载，首屏图片使用更适合网页的格式并提前加载.视觉图不必一味压到很小，关键是文件大小、清晰度和展示尺寸平衡。第三方统计脚本采用异步加载，后续还要继续看真实访客的速度数据。</p>
+<h2 id="sec-4">四、上线后把“能访问”和“已验证”分开看</h2>
+<p>代码推送后,我会先检查正式站点的页面和静态文件能否访问，再去搜索平台做所有权验证、提交站点地图。统计工具也要确认脚本确实加载，但有代码不代表马上有访问数据；新站通常需要等待抓取和真实访客。广告平台的站点审核则是另一件事，验证文件能访问不等于已经审核通过。</p>
+<h2 id="sec-5">五、给自己留一份维护清单</h2>
+<p>每次改版后用电脑和手机各走一遍上传、预览、下载；每周看一次搜索曝光、点击、收录和热门页面；有第三方统计或广告服务时及时更新隐私说明。把这些都写进项目文档，下次维护就不会重新摸索.</p>
+<p>这次最大的体会是：工具站的增长基础，还是用户一打开就明白怎么用，并且手机上也能顺畅完成操作。搜索优化和数据分析应该围绕这个体验持续迭代。</p>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 0/0。
+    web.cafe 登录态抓取 .custom-html.prose 全文（793 字）；原文无配图、无视频、无附件；评论未收录（默认规则）。
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">一、先让核心功能真正好用</a></li><li><a class="toc-link toc-l1" href="#sec-2">二、SEO 先做好基础，不急着堆页面</a></li><li><a class="toc-link toc-l1" href="#sec-3">三、首屏速度和移动端体验要一起看</a></li><li><a class="toc-link toc-l1" href="#sec-4">四、上线后把“能访问”和“已验证”分开看</a></li><li><a class="toc-link toc-l1" href="#sec-5">五、给自己留一份维护清单</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=f8b6ff32" defer></script>
+<script src="../../assets/reader-settings.js?v=8d53d7e6" defer></script>
+<script src="../../assets/image-zoom.js?v=3e236b3e" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

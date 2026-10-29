@@ -1940,6 +1940,27 @@
       "blocks_count": 67
     },
     {
+      "id": "ylgpst6t3q",
+      "slug": "webcafe-ylgpst6t3q",
+      "title": "从零做一个图片工具站：开发、SEO 和上线记录",
+      "url": "https://new.web.cafe/topic/ylgpst6t3q",
+      "author_name": "白晓锦",
+      "author_username": "web.cafe",
+      "published_utc": "2026-10-29T07:11:08.000Z",
+      "published_local": "2026-10-29 15:11",
+      "category": "建站开发",
+      "category_reason": "主要交付是实现、上线并维护一个可用的图片工具站：核心流程与移动端交互、首屏性能、上线后的可访问与验证、日常维护清单；SEO 只是五节中的一节手段，排除 SEO获客。文章明确只聊方法、无结果数据与成败归因，排除实战复盘。",
+      "description": "",
+      "source_type": "webcafe",
+      "avatar_local": "avatar.jpg",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "web.cafe 登录态抓取 .custom-html.prose 全文（793 字）；原文无配图、无视频、无附件；评论未收录（默认规则）。",
+      "plain_text_len": 793,
+      "blocks_count": 12
+    },
+    {
       "id": "note-2026-10-28-first-site-run-process",
       "slug": "note-first-site-run-process",
       "title": "第一个站不求出单：上线、提交 GSC、被收录就算完成",
