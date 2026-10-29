@@ -1121,6 +1121,34 @@
       "blocks_count": 13
     },
     {
+      "id": "note-2026-10-28-google-intitle-result-count",
+      "slug": "note-google-intitle-result-count",
+      "title": "intitle 结果数在哪看：AITDK 插件或搜索页「工具」",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-28T14:09:00.000Z",
+      "published_local": "2026-10-28 22:09",
+      "category": "SEO获客",
+      "category_reason": "主要交付是查 intitle 结果数这一 SEO 关键词操作的具体方法；排除「需求研究」，因为讨论的不是判断需求值不值得做，而是把已有关键词的搜索结果数读出来；排除「AI工具」，AITDK 是 SEO 插件而非 AI 模型或 API 选型。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "intitle",
+        "AITDK",
+        "Google 搜索结果数",
+        "关键词竞争度",
+        "SEO 工具"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "2115383285446832431",
       "slug": "victor-adsense-pub-id-publicwww-similarweb",
       "title": "用 AdSense 发布商 ID 顺藤摸瓜找站长其它站",

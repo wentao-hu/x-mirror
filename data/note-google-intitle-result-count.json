@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "id": "note-2026-10-28-google-intitle-result-count",
+    "slug": "note-google-intitle-result-count",
+    "title": "intitle 结果数在哪看：AITDK 插件或搜索页「工具」",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-10-28T14:09:00.000Z",
+    "published_local": "2026-10-28 22:09",
+    "category": "SEO获客",
+    "category_reason": "主要交付是查 intitle 结果数这一 SEO 关键词操作的具体方法；排除「需求研究」，因为讨论的不是判断需求值不值得做，而是把已有关键词的搜索结果数读出来；排除「AI工具」，AITDK 是 SEO 插件而非 AI 模型或 API 选型。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "intitle",
+      "AITDK",
+      "Google 搜索结果数",
+      "关键词竞争度",
+      "SEO 工具"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 0,
+    "blocks_count": 0
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "查 intitle 结果数不需要额外的数据站：安装 AITDK 插件后它会自动显示，不装插件时手动点击 Google 搜索页的「工具」也能看到。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "问题出在哪"
+    },
+    {
+      "type": "paragraph",
+      "text": "小楼用 intitle 搜完之后，找不到结果数显示在哪里，于是把搜索页截图发到群里问「intitle 结果数怎么查呀」「显示在哪里呢」。卡住的地方不是不会写查询语句，而是不知道数字藏在页面哪个位置。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "两种查法"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "安装 AITDK 插件：它会自动把结果数显示出来，不用自己找。",
+        "不装插件时：在 Google 搜索结果页手动点击「工具」，也能看到。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "这个数字在判断什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "intitle 把关键词限定在网页标题里，返回的结果数因此常被当作「有多少页面标题正对着这个词」的粗略刻度，用来判断一个关键词在标题层面的拥挤程度。这次聊天只解决了「在哪里看」这一步，具体的数值门槛和判断标准没有展开。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "2026年10月28日 22:09 至 22:11，2 位参与者，共 9 条消息。原记录中的 3 张截图未随归档提供，这里只保留图片文件名占位。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 9,
+      "removed_count": 0,
+      "removed_note": "",
+      "messages": [
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:09",
+          "text": "[图片] 微信图片_202610282209_1.jpg"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:09",
+          "text": "[图片] 微信图片_202610282209_2.jpg"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:09",
+          "text": "请教一下，intitle 结果数怎么查呀"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:10",
+          "text": "这是我搜的结果"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:11",
+          "text": "显示在哪里呢"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月28日 22:11",
+          "text": "[图片] 微信图片_202610282211_3.jpg"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:11",
+          "text": "原来如此！"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年10月28日 22:11",
+          "text": "安装 AITDK 插件会自动显示，或者手动点击“工具”也能看到"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年10月28日 22:11",
+          "text": "好！感谢"
+        }
+      ]
+    }
+  ]
+}
