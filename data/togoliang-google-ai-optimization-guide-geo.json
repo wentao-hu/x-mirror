@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "id": "2115453937155461546",
+    "slug": "togoliang-google-ai-optimization-guide-geo",
+    "title": "如何拿 AI 引荐：按 Google AI 搜索指南做的 6 点核心",
+    "url": "https://x.com/TogoLiang990911/status/2115453937155461546",
+    "author_name": "TogoLiang",
+    "author_username": "TogoLiang990911",
+    "published_utc": "2026-10-28T14:41:36.000Z",
+    "published_local": "2026-10-28 22:41",
+    "category": "SEO获客",
+    "description": "按 Google AI 搜索指南做内容与技术 SEO：排名是基础、集合页、一手经验、技术抓取、llms.txt 不必、GSC 生成式 AI 报告；并提前适配浏览器智能体",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 fxtwitter 全文（API 截断且无 note_tweet）；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 480,
+    "blocks_count": 13
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "如何拿 AI 引荐：按 Google AI 搜索指南做的 6 点核心"
+    },
+    {
+      "type": "paragraph",
+      "text": "最近总有人问我如何拿到AI引荐的"
+    },
+    {
+      "type": "paragraph",
+      "text": "目前我在GEO上面尝试还不太多，体感还是依赖SEO，不过有在根据官方的AI指南去进行一些内容的调整优化。"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体可以看官方的AI搜索指南"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. AI 回答建立在核心排名上，先被检索到，才有被引用的份。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. AI 还会自己发散着查相关问题，一个页面讲透，比为每个变体单开新的一页强。所以集合页很‼️重要。"
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 内容上，第一手的东西写透最重要，通用总结 AI 自己就能写。需要融入自己的一手经验。"
+    },
+    {
+      "type": "paragraph",
+      "text": "4. 技术上没新花样，核心还是让 Google 顺利收录和抓取，页面体验别拉胯。--技术SEO"
+    },
+    {
+      "type": "paragraph",
+      "text": "5. llms.txt Google 自己说了根本不用，内容也不用拆碎了喂 AI。"
+    },
+    {
+      "type": "paragraph",
+      "text": "6. 看效果就去 GSC 的生成式 AI 报告里看。"
+    },
+    {
+      "type": "paragraph",
+      "text": "还有一个核心：尽可能提前了解网站应如何做好准备，以更好地适配浏览器智能体，需提前做好站点规划～"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn"
+    }
+  ],
+  "plain_text": "最近总有人问我如何拿到AI引荐的\n\n目前我在GEO上面尝试还不太多，体感还是依赖SEO，不过有在根据官方的AI指南去进行一些内容的调整优化。\n\n具体可以看官方的AI搜索指南\n\n核心：\n\n1. AI 回答建立在核心排名上，先被检索到，才有被引用的份。\n\n2. AI 还会自己发散着查相关问题，一个页面讲透，比为每个变体单开新的一页强。所以集合页很‼️重要。\n\n3. 内容上，第一手的东西写透最重要，通用总结 AI 自己就能写。需要融入自己的一手经验。\n\n4. 技术上没新花样，核心还是让 Google 顺利收录和抓取，页面体验别拉胯。--技术SEO\n\n5. llms.txt Google 自己说了根本不用，内容也不用拆碎了喂 AI。\n\n6. 看效果就去 GSC 的生成式 AI 报告里看。\n\n还有一个核心：尽可能提前了解网站应如何做好准备，以更好地适配浏览器智能体，需提前做好站点规划～\n\nhttps://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn",
+  "entities": {}
+}
