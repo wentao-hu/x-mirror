@@ -20,12 +20,12 @@
       "SEO 工具"
     ],
     "avatar_local": "",
-    "images_total": 0,
-    "images_ok": 0,
+    "images_total": 3,
+    "images_ok": 3,
     "api_media_count": 0,
     "fidelity_note": "",
-    "plain_text_len": 0,
-    "blocks_count": 0
+    "plain_text_len": 556,
+    "blocks_count": 14
   },
   "blocks": [
     {
@@ -39,7 +39,21 @@
     },
     {
       "type": "paragraph",
-      "text": "小楼用 intitle 搜完之后，找不到结果数显示在哪里，于是把搜索页截图发到群里问「intitle 结果数怎么查呀」「显示在哪里呢」。卡住的地方不是不会写查询语句，而是不知道数字藏在页面哪个位置。"
+      "text": "小楼的场景是给关键词打分：这个工具要输入 `intitle 结果数`、月搜索量和关键词难度 KD，才能算出三项判断指标。他卡在第一个输入框，因为不知道该填什么、去哪儿看。"
+    },
+    {
+      "type": "image",
+      "local": "kgr-intitle-input.jpg",
+      "alt": "关键词筛选工具页面：红框标出第一个输入框「intitle 结果数」，提示为「谷歌搜 intitle:\\\"关键词\\\"（加英文引号），结果页顶部的结果总数」，右侧还有月搜索量与关键词难度 KD 两栏"
+    },
+    {
+      "type": "paragraph",
+      "text": "于是他去 Google 搜了 `intitle:\"pdf\"`，但页面被 AI 概览和搜索结果占满，找不到结果数显示在哪里，就把截图发到群里问「intitle 结果数怎么查呀」「显示在哪里呢」。卡住的地方不是不会写查询语句，而是不知道数字藏在页面哪个位置。"
+    },
+    {
+      "type": "image",
+      "local": "pdf-search-no-count.jpg",
+      "alt": "Google 搜索结果页截图：搜索框内为 intitle:\\\"pdf\\\"，下方依次是 AI 概览、Adobe 与 iLovePDF 等结果条目，整页看不到结果总数"
     },
     {
       "type": "heading",
@@ -53,6 +67,11 @@
         "安装 AITDK 插件：它会自动把结果数显示出来，不用自己找。",
         "不装插件时：在 Google 搜索结果页手动点击「工具」，也能看到。"
       ]
+    },
+    {
+      "type": "image",
+      "local": "tools-menu.jpg",
+      "alt": "哥飞标注的示意图：红色箭头指向 Google 搜索结果页导航栏里的「工具」下拉菜单，搜索框中的 intitle:\\\"pdf\\\" 同时被红框标出"
     },
     {
       "type": "heading",
@@ -70,7 +89,7 @@
     },
     {
       "type": "paragraph",
-      "text": "2026年10月28日 22:09 至 22:11，2 位参与者，共 9 条消息。原记录中的 3 张截图未随归档提供，这里只保留图片文件名占位。"
+      "text": "2026年10月28日 22:09 至 22:11，2 位参与者，共 9 条消息。记录中的 3 张截图已按内容补在正文对应位置，这里保留原始图片文件名。"
     },
     {
       "type": "chat",
