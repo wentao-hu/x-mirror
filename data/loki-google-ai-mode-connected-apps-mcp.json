@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "id": "2115588527501312001",
+    "slug": "loki-google-ai-mode-connected-apps-mcp",
+    "title": "Google AI Mode 可用 Connected Apps 接你的程序了（MCP / AppFunctions）",
+    "url": "https://x.com/loki_yan_seo/status/2115588527501312001",
+    "author_name": "Loki Yan SEO",
+    "author_username": "loki_yan_seo",
+    "published_utc": "2026-10-28T23:36:25.000Z",
+    "published_local": "2026-10-29 07:36",
+    "category": "SEO获客",
+    "description": "Google Connected Apps：用 MCP 或 Android AppFunctions 把功能接进 Gemini，未来几周进搜索；目前仅美国开发者；Adobe 等已上线",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 fxtwitter 全文（API timeline text 截断且无 note_tweet）；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 374,
+    "blocks_count": 8
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Google AI Mode 可用 Connected Apps 接你的程序了（MCP / AppFunctions）"
+    },
+    {
+      "type": "paragraph",
+      "text": "各位开发者们，这个，这个新闻一定要知道。"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google 方面的 AI Mode可以直接可以通过connected app 去连你的程序了。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在 Adobe、Experian、Localiza、Peloton 已经在 Gemini 里上线，Google 说未来几周会接进搜索。\n现在只开放给美国开发者。"
+    },
+    {
+      "type": "paragraph",
+      "text": "开发者写一个 MCP 服务器，或者用安卓的 AppFunctions，在 Google Connected Console 提交审核，就能把自己的功能接进 Gemini 和 Google 搜索。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有没有很像小程序的感觉？"
+    },
+    {
+      "type": "paragraph",
+      "text": "你做的产品可以被调用了吗？"
+    },
+    {
+      "type": "paragraph",
+      "text": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/"
+    }
+  ],
+  "plain_text": "各位开发者们，这个，这个新闻一定要知道。\n\nGoogle 方面的 AI Mode可以直接可以通过connected app 去连你的程序了。\n\n现在 Adobe、Experian、Localiza、Peloton 已经在 Gemini 里上线，Google 说未来几周会接进搜索。\n现在只开放给美国开发者。\n\n开发者写一个 MCP 服务器，或者用安卓的 AppFunctions，在 Google Connected Console 提交审核，就能把自己的功能接进 Gemini 和 Google 搜索。\n\n有没有很像小程序的感觉？\n\n你做的产品可以被调用了吗？\n\nhttps://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+  "entities": {
+    "urls": [
+      {
+        "display_url": "blog.google/innovation-and…",
+        "end": 306,
+        "expanded_url": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+        "start": 283,
+        "url": "https://t.co/dyWAbjKW9L"
+      }
+    ]
+  }
+}
