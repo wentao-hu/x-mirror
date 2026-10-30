@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>【哥飞SEO教程】找不到新词？用 Sitemap 盯住同行最近更新的页面 · X Mirror</title>
+<meta name="description" content="哥飞讲用 Sitemap 盯同行新页面的找词方法：挑持续更新的网站，从 robots.txt 进内容 Sitemap，对比两次 URL 清单找新出现的地址，再用趋势、搜索结果和可实现性三道检查决定做内页还是新站。" />
+<link rel="icon" href="../../assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+<link rel="manifest" href="../../site.webmanifest" />
+<link rel="stylesheet" href="../../assets/site.css?v=7ef7e718" />
+</head>
+<body class="post-page">
+<div class="wrap">
+  <header class="site-header post-header">
+    <a class="back-link" href="../../">← 目录</a>
+    <div class="reader-settings">
+      <button type="button" class="reader-toggle" aria-label="阅读设置" aria-expanded="false" aria-controls="reader-panel" data-reader-toggle>Aa</button>
+    </div>
+  </header>
+  <div class="author">
+    <span class="avatar-empty" aria-hidden="true"></span>
+    <div>
+      <div class="name">哥飞 <span class="meta">@哥飞</span></div>
+      <div class="meta">2026-10-18 21:50</div>
+    </div>
+  </div>
+  <h1 class="title">【哥飞SEO教程】找不到新词？用 Sitemap 盯住同行最近更新的页面</h1>
+  <div class="post-meta-row"><a class="orig-link" href="https://mp.weixin.qq.com/s/-gg2WIpfMml1L9PmstEJ_w" target="_blank" rel="noopener">查看原文（微信公众号）↗</a><span class="source-badge" data-source-type="wechat"><svg class="src-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6.4 3C3.7 3 1.8 4.6 1.8 6.6c0 1.1.6 2 1.6 2.7l-.3 1.5 1.7-.9c.5.1 1 .2 1.6.2 2.7 0 4.6-1.6 4.6-3.6S9.1 3 6.4 3Z"></path><path d="M10.2 6.4c2 0 3.6 1.3 3.6 2.9 0 .9-.5 1.7-1.3 2.3l.3 1.2-1.4-.7c-.4.1-.8.1-1.2.1-2 0-3.6-1.3-3.6-2.9s1.6-2.9 3.6-2.9Z"></path></svg><span class="src-label">微信</span></span><a class="cat-badge" href="../../?cat=%E9%9C%80%E6%B1%82%E7%A0%94%E7%A9%B6" title="返回目录 · 需求研究">需求研究</a></div>
+  
+  <div class="post-controls" data-meta-mount data-slug="wechat-sitemap-monitor-new-keywords"></div>
+  
+  <article class="article">
+<figure class="media"><a class="media-link" href="assets/img-01.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/img-01-640.webp 640w, assets/img-01-960.webp 960w, assets/img-01.webp 1080w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/img-01.png" alt="用 Sitemap 监控新词" loading="lazy" decoding="async" /></picture></a></figure>
+<p>大家好，我是哥飞。</p>
+<p>做新词，很多人已经会建站了，最头疼的还是去哪里更早找到词。</p>
+<p>每天刷新闻和社交媒体当然可以。但一个人能看的地方有限，也很容易等到所有人都在讨论时才发现。</p>
+<p>还有一种办法：找出那些经常上新页面的网站，让它们替你盯着市场。</p>
+<p>2023 年，群友 Banbri 在研究 dragganaitool.com 时，从它的一个内页里发现了新词。确认趋势正在上涨后，他用国庆假期把网站做了出来。上线 9 天，GSC 拿到 7.18 万曝光和 1.97 万点击。</p>
+<p>后来我们把这套动作总结成一句话：<strong>监控一批活跃网站的 Sitemap，从新出现在清单里的 URL 找词。</strong></p>
+<p>Sitemap 原本是网站交给搜索引擎的页面清单。对于找词的人来说，它同时也是一份公开的“最近更新了哪些 URL”。</p>
+<h2 id="sec-1">第一步，先挑值得监控的网站</h2>
+<p>不要看到一个同行就加入监控清单。先找满足下面两个条件的网站：</p>
+<p>• 网站会持续增加产品页、工具页、游戏页或文章页；</p>
+<p>• 它过去上过能拿到搜索流量的页面。搜索这些页面对应的词，如果这个网站经常排在前面，才值得持续监控。</p>
+<p>做游戏站，就找经常上线新游戏页面的老站；做 AI 工具，就找不断增加新模型、新功能和具体场景页的网站；做内容站，就找对行业新话题反应快的网站。</p>
+<p>最开始不用贪多，先选 5～20 个。网站太多，新增 URL 会堆成一片，反而不知道先看哪个。</p>
+<h2 id="sec-2">第二步，从 robots.txt 找到 Sitemap</h2>
+<p>先在域名后面加上：</p>
+<p>/robots.txt</p>
+<p>以 dragganaitool.com 为例，打开 <a href="https://dragganaitool.com/robots.txt，可以直接看到这一行：" rel="noopener noreferrer" target="_blank">https://dragganaitool.com/robots.txt，可以直接看到这一行：</a></p>
+<p>Sitemap: <a href="https://dragganaitool.com/sitemap_index.xml" rel="noopener noreferrer" target="_blank">https://dragganaitool.com/sitemap_index.xml</a></p>
+<figure class="media"><a class="media-link" href="assets/img-02.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/img-02-640.webp 640w, assets/img-02.webp 900w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/img-02.png" alt="dragganaitool.com robots.txt 中标出的 Sitemap 地址" loading="lazy" decoding="async" /></picture></a></figure>
+<p>很多网站都会在 robots.txt 里声明 Sitemap。没有看到时，可以继续尝试：</p>
+<p>/sitemap.xml</p>
+<p>/sitemap_index.xml</p>
+<p>/wp-sitemap.xml</p>
+<p>找到 Sitemap 后先保存地址，不要急着把里面每个 URL 都当成机会。</p>
+<h2 id="sec-3">第三步，找到真正需要监控的内容 Sitemap</h2>
+<p>大一点的网站通常不会把所有 URL 塞进一个文件，而是先放一个 Sitemap 索引。里面可能分成文章、页面、产品、分类和图片等多份清单。</p>
+<p>dragganaitool.com 当前的 Sitemap 索引里，可以看到多份 post-sitemap，右侧还有每份文件的最后更新时间。</p>
+<figure class="media"><a class="media-link" href="assets/img-03.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/img-03-640.webp 640w, assets/img-03.webp 900w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/img-03.png" alt="dragganaitool.com Sitemap 索引中标出的文章 Sitemap 与更新时间" loading="lazy" decoding="async" /></picture></a></figure>
+<p>如果你想找新工具、新游戏或新话题，优先看会持续增加内容的那一类：</p>
+<p>• post-sitemap：通常是文章；</p>
+<p>• product-sitemap：通常是产品；</p>
+<p>• game-sitemap：通常是游戏；</p>
+<p>• page-sitemap：有时会放功能页和落地页。</p>
+<p>文件名只是提示，最后还是要点进去看 URL。分类页、标签页和作者页一般不是我们这次要找的重点。</p>
+<h2 id="sec-4">第四步，从最近更新的 URL 里提取候选词</h2>
+<p>打开文章 Sitemap，重点看两列：</p>
+<p>• URL 或 &lt;loc&gt;：页面地址；</p>
+<p>• Last Mod. 或 &lt;lastmod&gt;：页面最后修改时间。</p>
+<figure class="media"><a class="media-link" href="assets/img-04.png" target="_blank" rel="noopener" aria-label="查看大图"><picture><source srcset="assets/img-04-640.webp 640w, assets/img-04.webp 900w" sizes="(max-width: 760px) calc(100vw - 32px), 835px" type="image/webp"><img src="assets/img-04.png" alt="dragganaitool.com 文章 Sitemap 中标出的近期更新 URL 与时间" loading="lazy" decoding="async" /></picture></a></figure>
+<p>这份清单里，多条 URL 标记了同一天的最后修改时间。地址本身已经把页面主题写了出来。去掉域名、连字符和年份后，可以整理出“下载 Snapchat 故事”“Snapchat 故事查看器”“最长 Snapchat 连续记录”等候选表达。</p>
+<p>这里先叫“候选词”，不要马上叫“新词”。我之前在《<a href="https://mp.weixin.qq.com/s?__biz=MjM5OTIzMzYyMA==&amp;mid=2650081264&amp;idx=1&amp;sn=8caaea3dacb121b5e583ab78473deb33&amp;scene=21#wechat_redirect" rel="noopener noreferrer" target="_blank">哥飞教你一招判断关键词出现时间，找新词不再难</a>》里，把新词定义为“出现时间不超过 12 个月的词”。Sitemap 里的 &lt;lastmod&gt; 只表示站长声明的最后修改时间，不能直接证明页面刚刚发布，更不能证明这个词有搜索量。</p>
+<p>而且当前 Sitemap 记录的页面已经扩展到游戏、社交媒体、销售工具等很多方向。监控它，是为了观察 URL 清单的变化，不是照着它的所有页面抄一遍。</p>
+<h2 id="sec-5">第五步，保存两次清单，只看新出现的 URL</h2>
+<p>刚开始不用搞复杂，也不用写程序。把每次看到的 URL 清单保存到表格里，固定比较同一份内容 Sitemap 就够了：</p>
+<p>1. 第一次把 URL 清单保存到第一列，作为基线；</p>
+<p>2. 第二天或下一次检查时，把新清单放到第二列；</p>
+<p>3. 对比两列，标出只在第二列出现的地址；</p>
+<p>4. 从这些地址中提取候选词，再进入后面的趋势和搜索结果验证。</p>
+<p>如果打开的是 Sitemap 索引，先从里面选中一份文章、产品或游戏 Sitemap。不要一次把整站所有分类混在一起，先盯住最可能出现新需求的页面类型。</p>
+<h2 id="sec-6">第六步，新出现的 URL 还要过三道检查</h2>
+<p>发现候选词后，再决定要不要做。</p>
+<p><strong>第一道，查趋势。</strong></p>
+<p>把候选词放进 Google Trends，看它是刚开始上涨、稳定存在，还是已经回落。时间范围先看过去 90 天，再缩短到过去 30 天和 7 天。</p>
+<p>我之前写过<a href="https://mp.weixin.qq.com/s?__biz=MjM5OTIzMzYyMA==&amp;mid=2650085513&amp;idx=1&amp;sn=aa868237ca6e77406404759a4869dc6b&amp;scene=21#wechat_redirect" rel="noopener noreferrer" target="_blank">《新词新站赚钱秘诀：用好谷歌趋势 Google Trends》</a>，里面专门讲了怎么用趋势判断新词。Sitemap 负责发现，Google Trends 负责验证，两步要接起来。</p>
+<p><strong>第二道，查搜索结果。</strong></p>
+<p>直接搜索完整候选词，看 Google 给出的主要是工具、游戏、教程、新闻还是电商页面。搜索结果展示什么页面，往往说明用户期待看到什么。</p>
+<p>同时看看前排结果的发布时间和域名。如果排在前面的页面大多是最近才发布，结果数量也不多，而且没有被大站完全占住，速度就有价值。</p>
+<p><strong>第三道，查自己能不能满足需求。</strong></p>
+<p>一个词正在上涨，不代表你应该做。你还要问：功能能不能做出来？素材是否合法？页面上线后，用户能不能立刻完成他搜索时想做的事？</p>
+<p>这三道检查没过，先放进观察清单，不要因为同行上了页面就跟着上。</p>
+<h2 id="sec-7">第七步，决定做内页还是新站</h2>
+<p>候选词确认值得跟进后，再决定页面放在哪里。</p>
+<p>它和现有网站的用户、功能都高度相关，就先用老站上一个内页。老站已经有抓取、收录和权重基础，页面通常能更快进入搜索结果。</p>
+<p>它正在快速起势，而且足以支撑一个独立产品，可以同时考虑注册域名做新站。我们反复实践过一种做法：老站靠内页抢速度，新站靠首页集中做这个词。</p>
+<p>不管选哪一种，页面都要真正满足需求。只有一个标题和几段拼出来的介绍，监控再快也接不住用户。</p>
+<h2 id="sec-8">今天就可以开始的监控清单</h2>
+<p>今天选 5 个网站，按下面的顺序做一遍：</p>
+<p>先打开 robots.txt 找到 Sitemap，再从索引里进入文章、产品或游戏 Sitemap。保存当前 URL 建立基线，下一次比较两份清单，找出新出现的 URL 并提取候选词。候选词通过 Google Trends、搜索结果和产品可实现性检查后，再决定上老站内页还是独立新站。</p>
+<p>同行持续更新的 URL 清单，本身就是一份不断变化的需求线索。把 Sitemap 监控起来，你就多了一批替你观察市场的眼睛。</p>
+  </article>
+  <div class="fidelity">
+    镜像说明：正文与图片按原文顺序本地托管；图片优先下载 orig 分辨率。
+    已镜像图片 4/4。
+    微信公众号原文；正文按清洗后的全文顺序完整保留，4 张正文配图全部本地化；原文 3 处代码块（robots.txt 路径、Sitemap 地址、常见 Sitemap 文件名）已按纯文本补入。原文文末关于作者、社群往期推荐与加微信二维码 CTA 已按镜像规则去除。
+  </div>
+  <div class="footer">Personal archive mirror · not affiliated with X/Twitter</div>
+</div>
+<aside class="toc" id="toc-panel" hidden aria-label="文章目录"><div class="toc-head"><span class="toc-title">目录</span><button type="button" class="toc-close" aria-label="隐藏目录">×</button></div><nav class="toc-nav"><ul class="toc-l1-list"><li><a class="toc-link toc-l1" href="#sec-1">第一步，先挑值得监控的网站</a></li><li><a class="toc-link toc-l1" href="#sec-2">第二步，从 robots.txt 找到 Sitemap</a></li><li><a class="toc-link toc-l1" href="#sec-3">第三步，找到真正需要监控的内容 Sitemap</a></li><li><a class="toc-link toc-l1" href="#sec-4">第四步，从最近更新的 URL 里提取候选词</a></li><li><a class="toc-link toc-l1" href="#sec-5">第五步，保存两次清单，只看新出现的 URL</a></li><li><a class="toc-link toc-l1" href="#sec-6">第六步，新出现的 URL 还要过三道检查</a></li><li><a class="toc-link toc-l1" href="#sec-7">第七步，决定做内页还是新站</a></li><li><a class="toc-link toc-l1" href="#sec-8">今天就可以开始的监控清单</a></li></ul></nav></aside><button type="button" class="toc-open" aria-label="展开目录" title="目录" aria-controls="toc-panel" hidden><svg class="toc-open-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h.01M8 6h12M4 12h.01M8 12h12M4 18h.01M8 18h12"/></svg></button>
+<script src="../../assets/meta.js?v=f8b6ff32" defer></script>
+<script src="../../assets/reader-settings.js?v=8d53d7e6" defer></script>
+<script src="../../assets/image-zoom.js?v=3e236b3e" defer></script>
+<script src="../../assets/toc.js?v=5db93ee5" defer></script>
+</body>
+</html>

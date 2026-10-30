@@ -2915,6 +2915,27 @@
       "blocks_count": 12
     },
     {
+      "id": "wechat-gg2WIpfMml1L9PmstEJ_w",
+      "slug": "wechat-sitemap-monitor-new-keywords",
+      "title": "【哥飞SEO教程】找不到新词？用 Sitemap 盯住同行最近更新的页面",
+      "url": "https://mp.weixin.qq.com/s/-gg2WIpfMml1L9PmstEJ_w",
+      "author_name": "哥飞",
+      "author_username": "哥飞",
+      "published_utc": "2026-10-18T13:50:52.000Z",
+      "published_local": "2026-10-18 21:50",
+      "category": "需求研究",
+      "category_reason": "主要交付是用同行 Sitemap 的 URL 变化发现并验证新词机会，属于需求发现与筛选；排除 SEO获客——文章不涉及已定方向后的排名与收录优化，落脚点是判断某个需求值不值得做。",
+      "description": "哥飞讲用 Sitemap 盯同行新页面的找词方法：挑持续更新的网站，从 robots.txt 进内容 Sitemap，对比两次 URL 清单找新出现的地址，再用趋势、搜索结果和可实现性三道检查决定做内页还是新站。",
+      "source_type": "wechat",
+      "avatar_local": "",
+      "images_total": 4,
+      "images_ok": 4,
+      "api_media_count": 5,
+      "fidelity_note": "微信公众号原文；正文按清洗后的全文顺序完整保留，4 张正文配图全部本地化；原文 3 处代码块（robots.txt 路径、Sitemap 地址、常见 Sitemap 文件名）已按纯文本补入。原文文末关于作者、社群往期推荐与加微信二维码 CTA 已按镜像规则去除。",
+      "plain_text_len": 3111,
+      "blocks_count": 70
+    },
+    {
       "id": "60wmnukjzg",
       "slug": "webcafe-60wmnukjzg",
       "title": "哥飞找词思路汇总（截止20250625）",
