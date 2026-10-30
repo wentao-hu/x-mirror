@@ -44,6 +44,34 @@
       "blocks_count": 9
     },
     {
+      "id": "note-2026-10-30-algorithm-engineer-ai-shift-overseas-exit",
+      "slug": "note-algorithm-engineer-ai-shift-overseas-exit",
+      "title": "在后厂村做算法，因 AI 冲击提前另寻出路",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-10-30T00:33:00.000Z",
+      "published_local": "2026-10-30 08:33",
+      "category": "实战复盘",
+      "category_reason": "主要交付是一位算法工程师对自身处境的判断与职业转向决策，属于真实经历的决策复盘；排除「AI工具」，对话没有涉及任何工具或模型选型；排除「需求研究」，没有判断具体产品或关键词机会。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "算法工程师",
+        "AI冲击",
+        "职业转型",
+        "出海建站",
+        "后厂村"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "",
+      "plain_text_len": 471,
+      "blocks_count": 9
+    },
+    {
       "id": "2115642281504153633",
       "slug": "jasonzeyuan-boothie-mrr-53k-ccd-filter",
       "title": "4 个月做出 Boothie：CCD 复古自拍滤镜 App 做到 MRR 5.3 万美元",
