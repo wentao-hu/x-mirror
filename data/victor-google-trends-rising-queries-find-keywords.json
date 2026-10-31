@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "id": "2116379853414973764",
+    "slug": "victor-google-trends-rising-queries-find-keywords",
+    "title": "找词卡住别硬想：去 Google Trends「上升」榜翻飙升词",
+    "url": "https://x.com/victor_UWer/status/2116379853414973764",
+    "author_name": "Victor在西雅图",
+    "author_username": "victor_UWer",
+    "published_utc": "2026-10-31T04:00:52.000Z",
+    "published_local": "2026-10-31 12:00",
+    "category": "SEO获客",
+    "description": "找词卡住别硬想：Google Trends 相关查询切到上升，记下飙升词，再和已知搜索量的老词比较。",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 API note_tweet.text 全文；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 267,
+    "blocks_count": 9
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "找词卡住别硬想：去 Google Trends「上升」榜翻飙升词"
+    },
+    {
+      "type": "paragraph",
+      "text": "找词卡住的时候，别硬想，去 Google Trends 翻\"上升\"榜。"
+    },
+    {
+      "type": "paragraph",
+      "text": "贼简单："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 输入一个大词，比如 pdf converter，地区选美国，时间选过去 12 个月"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 拉到页面底部，找到\"相关查询\"，默认显示\"热门\"，手动切成\"上升\""
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 标了\"飙升\"的词先记下来，基本都是刚冒头的"
+    },
+    {
+      "type": "paragraph",
+      "text": "4. 把候选词和一个你知道搜索量的老词放进\"比较\"，曲线在它上面还是下面，一眼就能判断值不值得做"
+    },
+    {
+      "type": "paragraph",
+      "text": "热门里全是大站占着的词，机会都在上升里。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有些飙升词只火一两周，把时间拉到 5 年再看一眼，如果整条线只有一根尖刺，就别碰了。"
+    }
+  ],
+  "plain_text": "找词卡住的时候，别硬想，去 Google Trends 翻\"上升\"榜。\n\n贼简单：\n\n1. 输入一个大词，比如 pdf converter，地区选美国，时间选过去 12 个月\n\n2. 拉到页面底部，找到\"相关查询\"，默认显示\"热门\"，手动切成\"上升\"\n\n3. 标了\"飙升\"的词先记下来，基本都是刚冒头的\n\n4. 把候选词和一个你知道搜索量的老词放进\"比较\"，曲线在它上面还是下面，一眼就能判断值不值得做\n\n热门里全是大站占着的词，机会都在上升里。\n\n有些飙升词只火一两周，把时间拉到 5 年再看一眼，如果整条线只有一根尖刺，就别碰了。",
+  "entities": {}
+}
