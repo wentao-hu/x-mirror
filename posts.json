@@ -1267,6 +1267,33 @@
       "blocks_count": 9
     },
     {
+      "id": "4224",
+      "slug": "bocai-gefei-guangzhou-sharing-notes",
+      "title": "哥飞广州分享会小记",
+      "url": "https://new.web.cafe/topic/8aeap80koi",
+      "author_name": "菠菜",
+      "author_username": "web.cafe",
+      "published_utc": "2026-10-30T16:14:02.452Z",
+      "published_local": "2026-10-31 00:14",
+      "category": "SEO获客",
+      "category_reason": "主要交付是获取新访问的一整套操作方法：谷歌搜索找词与排名、页面优化、内页养权重、GPT 流量获取与谷歌广告投放；排除实战复盘（没有单一实践的决策与结果归因），也排除需求研究（找词在这里是取流量手段，不是判断需求是否值得做）。",
+      "description": "",
+      "source_type": "webcafe",
+      "tags": [
+        "谷歌SEO",
+        "谷歌广告",
+        "GPT流量",
+        "线下分享会"
+      ],
+      "avatar_local": "avatar.png",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "web.cafe VIP 全文镜像；原文为纯文字、无配图，正文按原文顺序收录；未含评论区。",
+      "plain_text_len": 1870,
+      "blocks_count": 17
+    },
+    {
       "id": "2115727481038860288",
       "slug": "bainian-seo-daily-004-pollo-ai-competitor-brand-keywords",
       "title": "SEO 日课 004｜拆 Pollo AI：从流量起伏看到竞品品牌词截流",
