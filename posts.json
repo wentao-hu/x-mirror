@@ -1173,6 +1173,33 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-01-batch-content-no-traffic",
+      "slug": "note-batch-content-no-traffic",
+      "title": "想到批量生产内容，站就很难拿到流量了",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-01T04:33:00.000Z",
+      "published_local": "2026-11-01 12:33",
+      "category": "SEO获客",
+      "category_reason": "主要交付是判断「批量生产内容」能不能换来持续的自然搜索流量，结论是短期有流量、谷歌一轮更新就暴毙，属于搜索收录与排名层面的获客判断；不归需求研究，因为没有涉及发现或验证用户需求；不归 AI工具，因为 codex 只是产内容的手段。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "批量内容",
+        "Google 更新",
+        "内容站",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 6 条全部保留，无图片与附件。",
+      "plain_text_len": 780,
+      "blocks_count": 6
+    },
+    {
       "id": "2115727481038860288",
       "slug": "bainian-seo-daily-004-pollo-ai-competitor-brand-keywords",
       "title": "SEO 日课 004｜拆 Pollo AI：从流量起伏看到竞品品牌词截流",
@@ -3124,6 +3151,34 @@
       "fidelity_note": "web.cafe 全文镜像；正文与 28 张配图按原文顺序本地托管；首张无信息量的黄色封面图按用户要求不展示；未含评论区。",
       "plain_text_len": 6190,
       "blocks_count": 145
+    },
+    {
+      "id": "note-2026-11-01-marketing-sales-lifetime-skill",
+      "slug": "note-marketing-sales-lifetime-skill",
+      "title": "营销与销售是值得一生投资的技能：任何产品都要走到成交这一步",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-01T04:58:00.000Z",
+      "published_local": "2026-11-01 12:58",
+      "category": "用户运营",
+      "category_reason": "主要交付是理解「营销与销售是把东西卖出去的核心能力，值得长期投入」这一判断；归用户运营，因为讨论落点在把用户转化为付费的成交动作；不归需求研究，因为没有讨论做什么产品或需求是否存在；不归实战复盘，因为没有具体实践过程与结果证据；不归 SEO获客，因为不涉及搜索或其他站外获客渠道的具体做法。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "营销",
+        "销售",
+        "写作",
+        "成交",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 11 条全部保留，无图片与附件；已去除消息内的 [破涕为笑] 表情文字。",
+      "plain_text_len": 669,
+      "blocks_count": 12
     },
     {
       "id": "2115078563246305447",
