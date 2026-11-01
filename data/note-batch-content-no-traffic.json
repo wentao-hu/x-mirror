@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "id": "note-2026-11-01-batch-content-no-traffic",
+    "slug": "note-batch-content-no-traffic",
+    "title": "想到批量生产内容，站就很难拿到流量了",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-01T04:33:00.000Z",
+    "published_local": "2026-11-01 12:33",
+    "category": "SEO获客",
+    "category_reason": "主要交付是判断「批量生产内容」能不能换来持续的自然搜索流量，结论是短期有流量、谷歌一轮更新就暴毙，属于搜索收录与排名层面的获客判断；不归需求研究，因为没有涉及发现或验证用户需求；不归 AI工具，因为 codex 只是产内容的手段。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "批量内容",
+      "Google 更新",
+      "内容站",
+      "微信群聊"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 6 条全部保留，无图片与附件。",
+    "plain_text_len": 780,
+    "blocks_count": 6
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 1 日中午的一段群聊，回答的是一个很具体的问题：手上已经有一套网站构建平台，再交给 codex 接管、批量生产内容，这条路能不能走通。提问的 wxnet 说自己一直没拿到反馈，群里的回复很直接——会想到批量生产内容，这个站大概率就已经很难拿到流量了。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三个人给出的判断"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "wxnet：之前做了一套网站构建平台，打算用 codex 接管、批量生产内容，但一直没拿到反馈。",
+        "哥飞：当你想到了要批量生产内容，那么这个站大概率就很难拿到流量了。",
+        "Skyyyy：批量内容属实没什么意义；短期有流量，谷歌一轮更新暴毙，这是自己的经验。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这段对话没有展开替代做法，只给了一条否定性判断：按产量做内容，换来的是一段时间的流量，而不是能撑过谷歌更新的排名。提问者自己说一直没拿到反馈，方向与群里的判断一致。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 6,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "wxnet",
+          "time": "2026年11月1日 12:33",
+          "text": "我自己之前做了一套网站构建平台，打算用codex接管，批量生产内容"
+        },
+        {
+          "user": "wxnet",
+          "time": "2026年11月1日 12:34",
+          "text": "一直没拿到反馈，还请各位赐教～"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月1日 12:35",
+          "text": "当你想到了要批量生产内容，那么你的站大概率就很难拿到流量了"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月1日 12:37",
+          "text": "批量内容属实没什么意义"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月1日 12:37",
+          "text": "短期有流量，谷歌一轮更新暴毙"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月1日 12:37",
+          "text": "我自己的经验"
+        }
+      ]
+    }
+  ]
+}
