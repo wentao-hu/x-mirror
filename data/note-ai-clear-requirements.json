@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "id": "note-2026-11-01-ai-clear-requirements",
+    "slug": "note-ai-clear-requirements",
+    "title": "AI 搞不出来的人，缺的是把需求说清楚",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-01T04:41:00.000Z",
+    "published_local": "2026-11-01 12:41",
+    "category": "AI工具",
+    "category_reason": "主要交付是理解「用 AI 做不出东西」的根因在于需求表达与不愿动脑，属于 AI 工具的能力边界与使用问题；不归需求研究，因为讨论的不是用户需求或产品机会，而是使用 AI 的一方说不清要求。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "AI 使用",
+      "需求表达",
+      "甲方沟通",
+      "白嫖",
+      "微信群聊"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 8 条全部保留，无图片与附件；已去除消息内的 [旺柴] 表情文字。",
+    "plain_text_len": 862,
+    "blocks_count": 12
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 1 日的一段群聊，把「用 AI 做不出来」归因到了表达上：CloudHu 给面子做了两个晚上的 demo，对方不是没用 AI，而是自己用 AI 搞不出来才来求助；聊了几句，他大概明白了为什么。尔岚的判断是对方觉得 AI 什么都能干、扔给 AI 就不用动脑；CloudHu 则把这类人直接类比成 AI 时代之前只说“给我做一个好看的图”的甲方。最后 chokebit3xp 补了一句：高效的语言表达本来就很难。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "两个晚上的 demo"
+    },
+    {
+      "type": "paragraph",
+      "text": "CloudHu 开场就带着火气：给面子做了两个晚上的 demo，对方却在这白嫖。但他随即修正了判断——不是对方不肯用 AI，而是对方自己用 AI 做不出来，才转去求助别人。聊了几句之后，他大概理解了对方卡在哪。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三个人给出的解释"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "尔岚：对方觉得 AI 什么都能干，把活扔给 AI 就不用动脑。",
+        "CloudHu：这跟 AI 出现之前只会说“给我做一个好看的图”的甲方是同一种性质——要求停在感觉层面，没有可执行标准。",
+        "chokebit3xp：高效的语言表达本身就很难。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "门槛从“做”移到了“说”"
+    },
+    {
+      "type": "paragraph",
+      "text": "三条判断指向同一件事：AI 压缩的是执行成本，没有压缩描述成本。目标、边界和验收标准，说不清就传不过去，AI 也不会替人把这些想清楚。这段对话的推论是：用 AI 做不出东西的人，常常不是撞上了工具上限，而是把“我想不出来”丢给了工具；拿到一版看起来像、却都不是他要的结果，然后记成“AI 不行”。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "对合作的实际意义"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "“用 AI 做不出来”不等于“AI 做不到”，先分清是工具问题还是表达问题。",
+        "说不清需求的合作方，demo 做得再多也换不来明确反馈；两个晚上的 demo 已经是一个例子。",
+        "能把需求写清楚的人，才会被 AI 真正放大。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "原始对话共 8 条，按时间顺序完整保留，无图片与附件。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 8,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "CloudHu",
+          "time": "2026年11月1日 12:41",
+          "text": "我还是比较给他面子的，搞了两个晚上的 demo，搁这白嫖我呢"
+        },
+        {
+          "user": "CloudHu",
+          "time": "2026年11月1日 12:43",
+          "text": "不，他是自己用 ai 搞不出来"
+        },
+        {
+          "user": "CloudHu",
+          "time": "2026年11月1日 12:43",
+          "text": "然后想求助别人"
+        },
+        {
+          "user": "CloudHu",
+          "time": "2026年11月1日 12:43",
+          "text": "然后沟通几句，我大概理解为啥搞不出来了"
+        },
+        {
+          "user": "尔岚",
+          "time": "2026年11月1日 12:44",
+          "text": "我感觉就是他觉得AI啥都行"
+        },
+        {
+          "user": "尔岚",
+          "time": "2026年11月1日 12:44",
+          "text": "扔给AI他就不需要动脑了"
+        },
+        {
+          "user": "CloudHu",
+          "time": "2026年11月1日 12:44",
+          "text": "他本质上和 ai 时代之前“给我做一个好看的图”的那种傻逼甲方一个性质"
+        },
+        {
+          "user": "chokebit3xp",
+          "time": "2026年11月1日 12:45",
+          "text": "高效得语言表达可是很难的"
+        }
+      ]
+    }
+  ]
+}

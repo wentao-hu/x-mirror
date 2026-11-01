@@ -1,6 +1,34 @@
 {
   "posts": [
     {
+      "id": "note-2026-11-01-ai-clear-requirements",
+      "slug": "note-ai-clear-requirements",
+      "title": "AI 搞不出来的人，缺的是把需求说清楚",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-01T04:41:00.000Z",
+      "published_local": "2026-11-01 12:41",
+      "category": "AI工具",
+      "category_reason": "主要交付是理解「用 AI 做不出东西」的根因在于需求表达与不愿动脑，属于 AI 工具的能力边界与使用问题；不归需求研究，因为讨论的不是用户需求或产品机会，而是使用 AI 的一方说不清要求。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "AI 使用",
+        "需求表达",
+        "甲方沟通",
+        "白嫖",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 8 条全部保留，无图片与附件；已去除消息内的 [旺柴] 表情文字。",
+      "plain_text_len": 862,
+      "blocks_count": 12
+    },
+    {
       "id": "note-2026-10-23-ai-api-relay-fake-model",
       "slug": "note-ai-api-relay-fake-model",
       "title": "生成视频推荐 FAL，谨慎选择中转站",
