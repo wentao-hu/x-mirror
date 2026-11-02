@@ -21,12 +21,12 @@
       "选词"
     ],
     "avatar_local": "",
-    "images_total": 0,
-    "images_ok": 0,
-    "api_media_count": 0,
-    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 15 条，保留 14 条（1 条纯表情剔除）；1 处图片仅保留文件名占位，压缩包未附图片实体。",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 1,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 15 条，保留 14 条（1 条纯表情剔除）；聊天中的 1 张图片已补入正文。",
     "plain_text_len": 586,
-    "blocks_count": 12
+    "blocks_count": 13
   },
   "blocks": [
     {
@@ -40,6 +40,11 @@
     {
       "type": "paragraph",
       "text": "Marvin 对比后更偏好 muse，理由很明确：它背靠 Meta 的全家桶。他的评价是「这 muse 可太好了」「无缝连接」——看重的不是单点能力，而是和 Meta 生态里 Instagram、Threads 这些账号体系的打通。"
+    },
+    {
+      "type": "image",
+      "local": "muse-connector-apps.jpg",
+      "alt": "muse 连接器界面截图：可选应用列表包括 Instagram、Retailed、Spotify、Threads 和浏览器"
     },
     {
       "type": "heading",
