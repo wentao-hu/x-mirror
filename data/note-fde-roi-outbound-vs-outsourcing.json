@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "id": "note-2026-11-02-fde-roi-outbound-vs-outsourcing",
+    "slug": "note-fde-roi-outbound-vs-outsourcing",
+    "title": "FDE 的 ROI 不如出海高：本质上是一个要求更高的外包团队",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-02T02:40:00.000Z",
+    "published_local": "2026-11-02 10:40",
+    "category": "需求研究",
+    "category_reason": "主要交付是判断 FDE（前向部署工程师）这个方向值不值得做：ROI 不如出海，且本质是要求比外包更高的交付模式；排除实战复盘（没有具体实践过程与结果归因），排除 AI工具（AI 只是讨论认知边界的背景，不涉及工具选型与使用），也排除用户运营（不涉及已有用户的激活与留存）。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "FDE",
+      "出海",
+      "外包团队",
+      "AI交付",
+      "商业模式"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 7 条全部保留，无图片与附件。",
+    "plain_text_len": 853,
+    "blocks_count": 14
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 2 日上午的一段群聊，从一个判断开始：FDE 的 ROI 不如出海高。往下聊，结论落到两件事上——AI 补齐的只是 FDE 自己的行业认知，补不了客户那一侧的认知落差；而在老板眼里，FDE 和外包团队本质上是同一个降本增效的选项，并且要求还更高。"
+    },
+    {
+      "type": "heading",
+      "text": "FDE 的 ROI 不如出海"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 给出的判断很直接：FDE 的 ROI 不如出海高，CloudHu 随即复述了一遍表示认同。这为后面所有讨论定下了基调——不是讨论 FDE 能不能做，而是讨论它相对出海到底划算在哪、不划算在哪。"
+    },
+    {
+      "type": "heading",
+      "text": "AI 补的是 FDE 自己的行业认知"
+    },
+    {
+      "type": "paragraph",
+      "text": "FDE 需要行业背景，而 AI 对很多行业的基础认知已经能够快速学习和同步。但 Marvin 指出这层同步的边界：AI 同步的基础认知是对 FDE 的，不是对要实施 FDE 的企业、企业老板、企业员工的。换句话说，FDE 可以靠 AI 快速补课，客户侧那套行业语言和认知落差，仍然要人来消化。"
+    },
+    {
+      "type": "heading",
+      "text": "老板视角：FDE 只是降本增效的另一个选项"
+    },
+    {
+      "type": "paragraph",
+      "text": "站到老板的角度，无非是把活交给一个 FDE，还是交给一个外包团队的区别。本质上，交给 FDE 也是降本增效——所以它天然要跟外包放在同一个预算格子里比较，而不是单独享受一个更高的估值。"
+    },
+    {
+      "type": "heading",
+      "text": "要求其实比外包团队更高"
+    },
+    {
+      "type": "paragraph",
+      "text": "README.md 把这个比较推得更远：倒不如说 FDE 的要求比外包团队更高了，现在 FDE 还要综合技术咨询，包括运维的工作。这层要求叠加上前面「被当成外包比价」的定位，就是最后那句「卷呀」——同等价格下承担更多角色。"
+    },
+    {
+      "type": "heading",
+      "text": "可带走的三点"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**ROI 判断**：FDE 的投入产出不如出海高，讨论起点应该是它的相对性价比。",
+        "**认知边界**：AI 帮 FDE 自己快速补齐行业基础认知，但补不了企业、老板与员工那一侧的认知落差。",
+        "**定位本质**：在老板眼里 FDE 与外包团队是同一个降本增效选项，且 FDE 还要综合技术咨询与运维，要求更高。"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "原始对话共 7 条，按时间顺序完整保留，无图片与附件。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 7,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 10:40",
+          "text": "FDE 的 ROI 不如出海高"
+        },
+        {
+          "user": "CloudHu",
+          "time": "2026年11月2日 10:41",
+          "text": "FDE 的 ROI 不如出海高"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 10:41",
+          "text": "并且 FDE 需要行业背景，虽然 AI 对于很多行业基础认知已经能够快速学习和同步了"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 10:42",
+          "text": "AI 同步的基础认知是对 FDE 的，不是对要实施 FDE 的企业、企业老板、企业员工的"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 10:43",
+          "text": "站在老板的角度无非就是把活交给一个 FDE 还是交个一个外包团队的区别，本质上交给 FDE 也是降本增效了"
+        },
+        {
+          "user": "README.md",
+          "time": "2026年11月2日 10:44",
+          "text": "倒不如说FDE的要求比外包团队更高了，现在FDE还要综合技术咨询，包括运维的工作"
+        },
+        {
+          "user": "README.md",
+          "time": "2026年11月2日 10:44",
+          "text": "卷呀"
+        }
+      ]
+    }
+  ]
+}

@@ -2666,6 +2666,34 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-02-fde-roi-outbound-vs-outsourcing",
+      "slug": "note-fde-roi-outbound-vs-outsourcing",
+      "title": "FDE 的 ROI 不如出海高：本质上是一个要求更高的外包团队",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-02T02:40:00.000Z",
+      "published_local": "2026-11-02 10:40",
+      "category": "需求研究",
+      "category_reason": "主要交付是判断 FDE（前向部署工程师）这个方向值不值得做：ROI 不如出海，且本质是要求比外包更高的交付模式；排除实战复盘（没有具体实践过程与结果归因），排除 AI工具（AI 只是讨论认知边界的背景，不涉及工具选型与使用），也排除用户运营（不涉及已有用户的激活与留存）。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "FDE",
+        "出海",
+        "外包团队",
+        "AI交付",
+        "商业模式"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 7 条全部保留，无图片与附件。",
+      "plain_text_len": 853,
+      "blocks_count": 14
+    },
+    {
       "id": "note-2026-10-29-ai-new-term-inner-page-vs-standalone-site",
       "slug": "note-ai-new-term-inner-page-vs-standalone-site",
       "title": "新词做聚合站内页还是独立站：两个一起做，热度不降就做",
