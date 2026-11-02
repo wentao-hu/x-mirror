@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "id": "note-2026-11-02-muse-meta-threads-site-promotion",
+    "slug": "note-muse-meta-threads-site-promotion",
+    "title": "muse 背靠 Meta 全家桶：Threads 能直接给网站做宣传",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-02T04:50:00.000Z",
+    "published_local": "2026-11-02 12:50",
+    "category": "SEO获客",
+    "category_reason": "主要交付是通过 Threads、bsky 等站外社媒给网站带来新访问，并提醒选词选了负面词会影响起量；muse、grok 只是执行手段，因此不归 AI工具；无具体实践结果归因，不归实战复盘。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "muse",
+      "Meta",
+      "Threads",
+      "内容营销",
+      "站外获客",
+      "选词"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 15 条，保留 14 条（1 条纯表情剔除）；1 处图片仅保留文件名占位，压缩包未附图片实体。",
+    "plain_text_len": 586,
+    "blocks_count": 12
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 2 日中午的一段群聊，核心结论是：muse 值得用的原因不是它本身，而是背靠 Meta 全家桶——能无缝连接 Instagram 和 Threads，把账号运营和内容营销直接串起来。"
+    },
+    {
+      "type": "heading",
+      "text": "选 muse 的理由是 Meta 全家桶"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 对比后更偏好 muse，理由很明确：它背靠 Meta 的全家桶。他的评价是「这 muse 可太好了」「无缝连接」——看重的不是单点能力，而是和 Meta 生态里 Instagram、Threads 这些账号体系的打通。"
+    },
+    {
+      "type": "heading",
+      "text": "Threads 账号的门槛与 AI 打理"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 提到 Threads 账号难注册、容易限流封号，用 muse 连接器来操作。小楼补充了更省事的路径：注册了 Instagram 就有 Threads，他自己的账号则交给 grok 打理。"
+    },
+    {
+      "type": "heading",
+      "text": "让 Threads 给网站做宣传"
+    },
+    {
+      "type": "paragraph",
+      "text": "小楼建议让 Threads 给网站做宣传，Marvin 回复已经宣传了，内容营销也安排上了。小楼进一步说，bsky 之类的平台也都可以注册起来，思路是把站外社媒账号铺开。"
+    },
+    {
+      "type": "heading",
+      "text": "选词的影响：负面词起不来量"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 最后把问题落回选词：选了一个负面词，不太容易起来量，有热度还是跟着之前蹭的。也就是说，社媒渠道铺开之后，词选错了仍然拿不到自然流量。"
+    },
+    {
+      "type": "heading",
+      "text": "原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "原始对话共 15 条，按时间顺序保留 14 条，剔除 1 条纯表情消息。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 15,
+      "removed_count": 1,
+      "messages": [
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:50",
+          "text": "muse 也可以"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:50",
+          "text": "更喜欢 muse"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:50",
+          "text": "喜欢的原因是 muse 背靠 meta 的全家桶"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:51",
+          "text": "这 muse 可太好了"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:51",
+          "text": "[图片] 微信图片_202611021251_1.jpg"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:51",
+          "text": "无缝连接"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:52",
+          "text": "threads 账号难注册，容易限流封号是吧，muse 连接器来操作"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:52",
+          "text": "注册 ins 了，就有 threads 了"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:52",
+          "text": "我都交给 grok 去打理了"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:53",
+          "text": "@Marvin 你可以让 threads 给你宣传你的网站"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:53",
+          "text": "宣传了哈哈哈"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:53",
+          "text": "内容营销也安排了"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:54",
+          "text": "bsky 的什么的都可以注册起来"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:54",
+          "text": "还是选词的问题，选了个负面词，不太容易起来量，有热度还是跟着之前蹭的"
+        }
+      ]
+    }
+  ]
+}
