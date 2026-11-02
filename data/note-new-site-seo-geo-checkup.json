@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "id": "note-2026-11-02-new-site-seo-geo-checkup",
+    "slug": "note-new-site-seo-geo-checkup",
+    "title": "新词站一周后的 SEO 与 GEO 体检：收录、图片 alt 和 GSC 判读",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-02T04:27:00.000Z",
+    "published_local": "2026-11-02 12:27",
+    "category": "SEO获客",
+    "category_reason": "主要交付是通过收录提交、图片 alt、meta description 和 GSC 数据判断新词站的搜索获客状态；GEO 评分与 muse、grok bot 只是搜索曝光和内容生产的手段，因此不归 AI工具；聊天没有展开完整建站过程，也不归建站开发。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "SEO",
+      "GEO",
+      "Google Search Console",
+      "收录提交",
+      "图片 alt",
+      "meta description",
+      "新词",
+      "AITDK",
+      "grok bot"
+    ],
+    "avatar_local": "",
+    "images_total": 8,
+    "images_ok": 8,
+    "api_media_count": 0,
+    "fidelity_note": "原始 34 条消息中删除 1 条纯表情，保留 33 条；8 张配图已本地化并按话题内嵌。",
+    "plain_text_len": 1519,
+    "blocks_count": 26
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "这段聊天的主线是给一个跑了一周的新站做 SEO/GEO 体检：整体已经能跑，但要补的三件事很明确——把 Google 和 Bing 的收录提交上、修复 4 张缺失 alt 的图片、把 meta description 控制到 140–160 字符；然后用 GSC 的点击、曝光和排名数据判断新词还有多久的热度窗口，决定是扩词根做长线，还是把它当成一次性的次新词机会。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一周跑起来的站，短板集中在 SEO 与 GEO 的基础项"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 看过 Peyton 的站后给出的判断是「折腾一星期，整体看起来算可以了，seo 和 geo 的部分需要加强」。他用 AITDK 免费版插件跑了官网分析，问题集中在图片 alt 和 meta description 两处。"
+    },
+    {
+      "type": "image",
+      "local": "seo-issues-alt-meta.jpg",
+      "alt": "AITDK 的 SEO Issues 面板：Server Side Rendering Check 开关关闭，Image Alt Text Check 提示 4 张图片缺少 alt，Meta Description Check 建议长度 140–160 字符"
+    },
+    {
+      "type": "paragraph",
+      "text": "SEO Issues 面板显示 4 张图片缺少 alt 文本，meta description 的建议长度是 140–160 字符；面板里的 Server Side Rendering Check 开关处于关闭状态。"
+    },
+    {
+      "type": "image",
+      "local": "missing-alt-images.jpg",
+      "alt": "缺 alt 的 4 张图片清单：一张来自 static.memejolt.com/uploads 的 jpg，以及 memejolt.com 的 meme-poster-02、04、06 三张 SVG，Alt 均为 Missing"
+    },
+    {
+      "type": "paragraph",
+      "text": "缺 alt 的 4 张图都来自被分析的 memejolt.com：一张 uploads 目录下的 jpg，以及 home 目录下的 meme-poster-02、04、06 三张 SVG。"
+    },
+    {
+      "type": "image",
+      "local": "geo-score-84.jpg",
+      "alt": "GEO Score 84 分，Grade B Good，距离 A 还差 6 分，8 个待修项；AI Crawler Access 100、Machine Readability 100、Structured Data 82、Content & Citability 69、Trust & E-E-A-T 64"
+    },
+    {
+      "type": "paragraph",
+      "text": "同一份分析里，GEO Score 是 84 分（B，Good）：AI Crawler Access 和 Machine Readability 都是 100，Structured Data 82，Content & Citability 69，Trust & E-E-A-T 64，距离 A 还差 6 分，仍有 8 个待修项。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "收录与 GSC：先把有没有数据这件事拆开"
+    },
+    {
+      "type": "paragraph",
+      "text": "Marvin 先问「google 和 bing 收录是不是没提交」。Peyton 确认指的是 sitemap 站点索引，并表示当天去改。随后 Marvin 建议绑定 Google Search Console 看实际效果，并贴出自己的 28 天数据：75 次点击、7070 次曝光、平均点击率 1.1%、平均排名 6.7。"
+    },
+    {
+      "type": "image",
+      "local": "gsc-28d-7070-impressions.jpg",
+      "alt": "Google Search Console 28 天效果：总点击 75、总曝光 7070、平均点击率 1.1%、平均排名 6.7，曲线从 2026/10/21 到 10/28"
+    },
+    {
+      "type": "paragraph",
+      "text": "他自己的站收录情况是 Google 175 页，百度、搜狗和 Brave 都是 0。同一套页面在不同搜索引擎里的收录进度可以差很多，不能只看 Google。"
+    },
+    {
+      "type": "image",
+      "local": "indexed-pages-175.jpg",
+      "alt": "AITDK 的 Number Of Indexed Pages 面板：Google 175，Baidu、Sogou、Brave 均为 0，其余搜索引擎显示跳转图标"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新词的曝光要看时间尺度，热度窗口会过去"
+    },
+    {
+      "type": "paragraph",
+      "text": "Peyton 贴出自己新站的 GSC：28 天只有 1 次点击、1 次曝光，问「这个站是刚开始就有曝光吗」。Marvin 的回答是「算次新词」「词本来也有一定热度」「seo 和 geo 也做了优化」，并贴出自己 GEO 100 分的站点作为对照。"
+    },
+    {
+      "type": "image",
+      "local": "gsc-new-site-1-click.jpg",
+      "alt": "手机端 Google Search Console 28 天效果：总点击 1、总曝光 1，曲线从 2026/10/29 到 10/31"
+    },
+    {
+      "type": "image",
+      "local": "geo-score-100.jpg",
+      "alt": "GEO Score 100 分，Grade A Excellent，无待修项；AI Crawler Access、Machine Readability、Structured Data、Content & Citability、Trust & E-E-A-T 五项均为 100"
+    },
+    {
+      "type": "paragraph",
+      "text": "GEO 100 分的面板里，五项全是 100，没有待修项。"
+    },
+    {
+      "type": "paragraph",
+      "text": "grayson 的对照案例是之前随手上的 jev 新词站：3 个月累计 209 次点击、5148 次曝光、点击率 4.1%、平均排名 8.5，但他说「现在已经没人访问了」。Marvin 认为「你这个词其实能做起来」，同时提到自己的词「已经快砍单了」，准备扩词根、做长线运维。"
+    },
+    {
+      "type": "image",
+      "local": "gsc-jev-3mo-209-clicks.jpg",
+      "alt": "Google Search Console 3 个月效果：总点击 209、总曝光 5148、平均点击率 4.1%、平均排名 8.5"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "工具：AITDK 做体检，muse 和 grok bot 做内容"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "AITDK 免费版插件：直接分析官网的 SEO Issues 和 GEO Score，Marvin 推荐先用它跑一遍基础项。",
+        "muse 和 grok bot：Marvin 连说「好用啊」「真的要用起来啊」「夸 100 遍」，小楼也认为 grok bot 真好用。",
+        "小楼提到的用法是「去注册一些网站，然后给自己的网站写软文」，属于群里交流的做法，聊天里没有展开效果验证。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "聊天没有给出这些工具的价格、额度或稳定性结论，也没有对软文做法的效果做进一步验证。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 34,
+      "removed_count": 1,
+      "removed_note": "纯表情",
+      "messages": [
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:27",
+          "text": "折腾一星期，整体看起来算可以了，seo 和 geo 的部分需要加强"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:27",
+          "text": "[图片] 微信图片_202611021227_1.jpg"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:27",
+          "text": "[图片] 微信图片_202611021227_2.jpg"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:27",
+          "text": "google 和 bing 收录是不是没提交"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:28",
+          "text": "[图片] 微信图片_202611021228_3.jpg"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:28",
+          "text": "image-alt 属性缺失"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:30",
+          "text": "是提交 sitemap 站点索引吗"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:31",
+          "text": "这个我今天去改下"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:31",
+          "text": "嗯"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:31",
+          "text": "好的，感谢反馈"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:31",
+          "text": "直接 AITDK 插件免费版分析一下官网"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:31",
+          "text": "ok"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:32",
+          "text": "google search console 绑定看看效果"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:32",
+          "text": "[图片] 微信图片_202611021232_4.jpg"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:34",
+          "text": "有群主抄群主"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:34",
+          "text": "[图片] 微信图片_202611021234_5.jpg"
+        },
+        {
+          "user": "Peyton",
+          "time": "2026年11月2日 12:35",
+          "text": "请教下这个站是刚开始就有曝光吗"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:43",
+          "text": "算次新词"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:44",
+          "text": "词本来也有一定热度"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:44",
+          "text": "seo 和 geo 也做了优化"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:45",
+          "text": "[图片] 微信图片_202611021245_6.jpg"
+        },
+        {
+          "user": "grayson",
+          "time": "2026年11月2日 12:45",
+          "text": "我之前瞎上的网站，那个jev新词"
+        },
+        {
+          "user": "grayson",
+          "time": "2026年11月2日 12:45",
+          "text": "[图片] 微信图片_202611021245_7.jpg"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:45",
+          "text": "[图片] 微信图片_202611021245_8.jpg"
+        },
+        {
+          "user": "grayson",
+          "time": "2026年11月2日 12:45",
+          "text": "现在已经没人访问了"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:45",
+          "text": "你这个词其实能做起来"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:45",
+          "text": "我这词已经快砍单了"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:46",
+          "text": "准备扩词根，然后做长线运维了"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:46",
+          "text": "muse 和 grok bot 好用啊"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:46",
+          "text": "真的要用起来啊"
+        },
+        {
+          "user": "Marvin",
+          "time": "2026年11月2日 12:46",
+          "text": "夸 100 遍"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:47",
+          "text": "grok bot 是真好用"
+        },
+        {
+          "user": "小楼",
+          "time": "2026年11月2日 12:47",
+          "text": "可以去注册一些网站，然后给自己的网站写软文"
+        }
+      ]
+    }
+  ]
+}
