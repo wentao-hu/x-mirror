@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "id": "note-2026-11-03-gefie-three-seo-simulators",
+    "slug": "note-gefie-three-seo-simulators",
+    "title": "哥飞群聊：新进群先玩三个 SEO 模拟器",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-02T16:43:00.000Z",
+    "published_local": "2026-11-03 00:43",
+    "category": "SEO获客",
+    "category_reason": "主要交付是三个可以动手演练搜索收录、搜索结果与网站经营过程的模拟器入口，帮助理解搜索引擎如何给新站流量；排除「AI工具」（不涉及模型或 API 选型）与「需求研究」（不做需求判断）。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "哥飞",
+      "GSC 模拟器",
+      "谷歌搜索模拟器",
+      "SEO 经营模拟器",
+      "新进群"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 0,
+    "blocks_count": 0
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 3 日凌晨，哥飞在群里对新进群的朋友说：这几个模拟器一定要玩。消息里给了三个入口，分别对应 GSC 数据、谷歌搜索结果和 SEO 经营过程，随后还附了一张群友的推荐截图。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三个模拟器入口"
+    },
+    {
+      "type": "list",
+      "items": [
+        "[GSC 模拟器](https://seo.web.cafe/gsc/)",
+        "[谷歌搜索模拟器](https://new.web.cafe/search-simulator/)",
+        "[SEO 经营模拟器](https://new.web.cafe/seosimulator/)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞没有展开每个模拟器怎么玩，原话只有一句「新进群的朋友们，这几个模拟器，一定要玩呀」。三个链接都指向 web.cafe 的模拟器页面。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "附图：初学者用 GSC 模拟器得到的提示"
+    },
+    {
+      "type": "paragraph",
+      "text": "消息后面附了一张截图，是 @xiaofeiyangfe（小肥羊）在 X 上推荐哥飞 GSC 模拟器的帖子，发布于 2026 年 11 月 1 日 23:32。他的评价集中在「不求快、不求多」这件事上。"
+    },
+    {
+      "type": "list",
+      "items": [
+        "作为初学者，模拟器给了很多反直觉、但符合客观规律的提示。",
+        "Step 1 到 Step 9 一直在讲不要求快、不要求多，要让内页求精、求稳。",
+        "Step 9 给了更多落地打法：不是看月份，而是看 GSC 是否在某些长尾词上给了曝光；如果有，就可以用长尾词的「长尾词」去验证自己的猜想是否正确。",
+        "前期的资料是让人更多理解搜索引擎的原理、尊重客观规律，也印证了很多月入万刀的大佬讲述的「半年一年才出单」。"
+      ]
+    },
+    {
+      "type": "image",
+      "local": "img-01-xiaofeiyang-gsc-simulator.jpg",
+      "alt": "截图：小肥羊在 X 上推荐哥飞 GSC 模拟器的帖子"
+    },
+    {
+      "type": "paragraph",
+      "text": "这条帖子本站已完整镜像：[强烈推荐哥飞的 GSC 模拟器](https://x-mirror-af7.pages.dev/posts/xiaofeiyang-recommend-gefei-gsc-simulator/)。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 2,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 00:43",
+          "text": "新进群的朋友们，这几个模拟器，一定要玩呀\n\nGSC 模拟器\nhttps://seo.web.cafe/gsc/\n\n谷歌搜索模拟器\nhttps://new.web.cafe/search-simulator/\n\nSEO 经营模拟器\nhttps://new.web.cafe/seosimulator/"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 00:43",
+          "text": "[图片] 微信图片_202611030043_1.jpg"
+        }
+      ]
+    }
+  ]
+}

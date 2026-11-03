@@ -1240,6 +1240,34 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-03-gefie-three-seo-simulators",
+      "slug": "note-gefie-three-seo-simulators",
+      "title": "哥飞群聊：新进群先玩三个 SEO 模拟器",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-02T16:43:00.000Z",
+      "published_local": "2026-11-03 00:43",
+      "category": "SEO获客",
+      "category_reason": "主要交付是三个可以动手演练搜索收录、搜索结果与网站经营过程的模拟器入口，帮助理解搜索引擎如何给新站流量；排除「AI工具」（不涉及模型或 API 选型）与「需求研究」（不做需求判断）。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "GSC 模拟器",
+        "谷歌搜索模拟器",
+        "SEO 经营模拟器",
+        "新进群"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "note-2026-11-02-gefei-newbie-five-advice",
       "slug": "note-gefei-newbie-five-advice",
       "title": "新词练手，需求才是长期：哥飞给新人的五条建议",
