@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "id": "note-2026-11-04-word-to-site-site-to-word",
+    "slug": "note-word-to-site-site-to-word",
+    "title": "词找站，站找词：用一个老词顺出同行正在追的新词",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-03T16:30:00.000Z",
+    "published_local": "2026-11-04 00:30",
+    "category": "需求研究",
+    "category_reason": "核心交付是一套关键词发现方法：用一个词找站、再从站反查新词，属于需求与关键词研究；排除 SEO 获客——不涉及具体站点的优化执行；排除实战复盘——没有完整实践周期与成败归因。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "哥飞",
+      "词找站",
+      "站找词",
+      "Similarweb",
+      "关键词研究",
+      "hotel lobby ai",
+      "工具链"
+    ],
+    "avatar_local": "",
+    "images_total": 3,
+    "images_ok": 3,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信群聊压缩包整理；原始对话共 8 条，全部保留；3 张截图已本地化。",
+    "blocks_count": 20
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "一个已经不火的词还能拿来做什么？哥飞的回答不是继续做它，而是拿它当入口：先用这个词找到一批能靠内页排上去的站，再顺着这些站找到它们正在追的新词。他把这套动作叫**词找站，站找词**，说白了就是抄同行的作业。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "词找站：用一个词找出一批站"
+    },
+    {
+      "type": "paragraph",
+      "text": "以 hotel lobby ai 为例：搜这个词，找出仅靠内页就能拿到排名的网站，再看这些站还有哪些页面在获取流量、最新上线了哪些页面。"
+    },
+    {
+      "type": "image",
+      "local": "hotel-lobby-ai-serp.jpg",
+      "alt": "截图：Google 搜索 hotel lobby ai，结果含 hotellobby.ai 与 mitte.ai，附 AITDK 的月访问量与域名创建时间"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图里两个结果形成对照：hotellobby.ai 域名创建于 2026 年 9 月 29 日，月访问还是 0；mitte.ai 域名创建于 2024 年 6 月，月访问 12.96 万。同一个词，新站和老站都在做。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "为什么还要看这些站的其他页面"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为这些站有嗅觉：既然能找到 hotel lobby ai 并上页面，自然也能找到别的新词上页面。一直跟踪这些站，就等于持续拿到它们已经筛过一遍的词。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "站找词：用 Similarweb 看落地页"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体路径是：Similarweb → 关键词 → 关键词研究 → 网站浏览工具 → 落地页，输入域名，查看最近 28 天能拿到流量的页面和对应关键词。"
+    },
+    {
+      "type": "image",
+      "local": "similarweb-mitte-landing-pages.jpg",
+      "alt": "截图：Similarweb 关键词研究着陆页报告，域名 mitte.ai，最近 28 天 21 个页面的点击量与关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "以 mitte.ai 为例，截至 10 月 30 日的 28 天里，落地页列表第一行是 /app/hotel-lobby-character-swap，点击量 33.5K、旁注 53.18%，对应关键词正是 hotel lobby ai；往下还有 ozil goal ai、genjutsu ai、character sheet、minecraft skin editor 等一批页面。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "工具链的核心：上一个工具的输出当输入"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞说翻来覆去就用几个工具：熟悉每个工具的输入和输出，把上一个工具的输出当作下一个工具的输入，串起来之后就可以循环往复，不断发现关键词、页面和网站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "他强调这句话要**手动**玩明白，而不是让 AI 代做；手动做熟之后，「你就有了月入万刀的基础了」。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "拿谁当老师：media.io"
+    },
+    {
+      "type": "paragraph",
+      "text": "同样的方法也可以用来查一组对标网站。哥飞特别点名 media.io：这是万兴科技的网站，追踪新词有工具、追得特别快，适合拿来当老师。"
+    },
+    {
+      "type": "image",
+      "local": "hotel-lobby-ai-mediaio-serp.jpg",
+      "alt": "截图：Google 搜索 hotel lobby ai，结果含 media.io、renoise.ai、fuzana.com 及其月访问量"
+    },
+    {
+      "type": "paragraph",
+      "text": "这张结果页里，media.io 月访问 342 万，renoise.ai 月访问 27.13 万，fuzana.com 月访问 3.07 万，各自都做了 hotel lobby ai 的落地页。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 8,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 23:54",
+          "text": "一个已经不火的词可以拿来做什么呢？\n可以拿来帮助我们词找站，之后站找词，抄作业。\n\n举例 hotel lobby ai 这个词，找到哪些仅靠内页就能够拿到排名的网站，去看看这个网站的其他能够获取流量的页面，以及最新上线发布的页面。\n\n为什么找这些网站的别的页面？\n因为既然这些站有这个嗅觉，可以找到 hotel lobby ai 上页面，自然也能找到别的最新的词上页面。\n\n你去一直跟踪这些网站，不就可以找到别的词吗？\n\n这就叫做词找站，站找词。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 23:54",
+          "text": "[图片] 微信图片_202611032354_1.jpg"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 23:58",
+          "text": "Similarweb -> 关键词-> 关键词研究->网站浏览工具->落地页\n输入域名，查看这个域名最近 28 天能够拿到流量的页面，看看都是哪些关键词"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 23:58",
+          "text": "[图片] 微信图片_202611032358_2.jpg"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月4日 00:02",
+          "text": "其实我们翻来覆去，就用几个工具就够了。\n熟悉每一个工具的输入和输出是什么，然后把上一个工具的输出当做下一个工具的输入，这样串起来之后，就可以循环往复，不断发现关键词、页面、网站"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月4日 00:04",
+          "text": "核心就这一句话：\n把上一个工具的输出当做下一个工具的输入\n\n把这句话玩明白了，注意我说的是手动，而不是让 AI 帮你去做，你手动做熟悉之后，你就有了月入万刀的基础了"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月4日 00:09",
+          "text": "后面这几个网站，也用同样的方法去查，尤其是 media.io ，这是万兴科技的网站，他们追踪新词是有工具的，所以追得特别快，就适合拿来当老师。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月4日 00:09",
+          "text": "[图片] 微信图片_202611040009_3.jpg"
+        }
+      ]
+    }
+  ]
+}
