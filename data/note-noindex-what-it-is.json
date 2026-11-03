@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "id": "note-2026-11-03-noindex-what-it-is",
+    "slug": "note-noindex-what-it-is",
+    "title": "noindex 是什么：一张写给搜索引擎的纸条",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-03T14:55:00.000Z",
+    "published_local": "2026-11-03 22:55",
+    "category": "SEO获客",
+    "category_reason": "主要交付是理解 noindex 与收录之间的关系，用于判断页面未被收录的原因归属，属于收录与搜索获客范畴；不归建站开发，因为不涉及具体实现或部署。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "noindex",
+      "Google 收录",
+      "GSC",
+      "搜索引擎",
+      "SEO"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "",
+    "plain_text_len": 620,
+    "blocks_count": 10
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "noindex 可以理解为网站贴给搜索引擎的一张纸条：**这个页面请不要放进搜索目录**。它一般写在网页代码或服务器返回的信息里，普通访客看不到。Google 抓取页面并读到这个指令后，会不收录该页；已经收录的页面也会被移出搜索结果。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以，说「发型页没有 noindex」，意思是：它没有主动挂上「禁止收录」的牌子；目前没收录，不能归因于这个标记。你不需要去「删除 noindex」，也不用为了收录专门添加 index 标签。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三种状态怎么读"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "情况",
+          "含义"
+        ],
+        [
+          "有 noindex",
+          "网站主动要求搜索引擎不要收录"
+        ],
+        [
+          "没有 noindex",
+          "没有这项禁止指令，但不保证 Google 一定收录"
+        ],
+        [
+          "GSC 显示「已编入索引」",
+          "Google 的索引里确实已有这个页面"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "什么时候该用 noindex"
+    },
+    {
+      "type": "paragraph",
+      "text": "个人中心、结账页等不需要搜索流量的页面，常会使用 noindex。但它不是密码锁，不能阻止别人访问；私人页面仍然需要登录权限保护。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "依据"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "[Google 对 noindex 的说明](https://developers.google.com/search/docs/crawling-indexing/block-indexing)",
+        "[请求重新抓取说明](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)"
+      ]
+    }
+  ]
+}

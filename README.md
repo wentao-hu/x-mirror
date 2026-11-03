@@ -31,11 +31,16 @@ posts/<slug>/
 data/<slug>.json      # 抽取后的结构化数据（便于重建）
 assets/
   site.css            # 共享样式（模板以 ?v=<content-hash> 引用）
-  meta.js             # 评分/已读/置顶/分类顺序（KV + localStorage）
+  meta.js             # 评分/已读/置顶/分类顺序与搜索界面（KV + localStorage）
+  search.js           # 全文精确匹配、相关度与按需加载
+  search-worker.js    # 后台加载索引及查询，不阻塞首页交互
+  search-index.json   # 构建生成的完整正文索引，不手工维护
   sites.js            # 网站收藏置顶（复用 meta.js 的同步链路）
   sites/              # 收藏网站的 logo，全部本地托管
 functions/api/meta.js # Pages Function：GET/PUT 评分与已读
 functions/api/category-order.js # Pages Function：分类顺序跨端同步
+functions/api/search.js # Pages Function：仅返回全文命中结果
+functions/_lib/search-version.js # 自动生成，与全文索引版本一致
 functions/_lib/category-names.js # 由 taxonomy 自动生成，禁止手改
 _headers              # Cloudflare Pages 缓存策略
 wrangler.toml         # Pages 配置 + ARTICLE_META KV 绑定
@@ -45,7 +50,9 @@ scripts/
   category_taxonomy.py  # taxonomy 加载、规范化、名称和帖子分类校验
   category_tool.py      # validate / check-post / propose 分类治理命令
   generate_webp.py      # 为 jpg/jpeg/png 生成同名 WebP 副本
-  deploy_cloudflare.sh  # 用 wrangler 部署到 Cloudflare Pages
+  search_index.py       # 正文纯文本提取与索引完整性检查
+  validate_site.py      # 发布前后核对首页、正文、索引与线上文章
+  deploy_cloudflare.sh  # 自动重建、校验，再部署到 Cloudflare Pages
 ```
 
 ## 本地预览
@@ -62,6 +69,14 @@ python3 -m http.server 8765
 - **静态资源版本化**：`assets/site.css`、`assets/meta.js` 以 `?v=<sha256 前 8 位>` 引用，哈希在构建时按文件内容计算。
 - **WebP**：`scripts/generate_webp.py` 为每张 jpg/jpeg/png 生成多档 WebP：原尺寸 `<name>.webp`、960px `<name>-960.webp`、640px `<name>-640.webp`，原图宽度超过 1280 时再加 `<name>-1280.webp`，质量 q82。保留原图作为 `<img src>` 回退，源图更新才重建。模板输出带 `srcset` + `sizes` 的 `<picture>`，浏览器按视口和 DPR 选择合适档位；`picture { display: contents; }` 保证布局不变。正文图片和封面使用 `loading="lazy" decoding="async"`，头像保持 eager。调整 `QUALITY` 后运行构建会全量重建（根目录 `.webp-quality` 记录当前质量）。`rebuild_from_data.py` 与提取流程会在生成 HTML 前自动调用。
 - **`_headers`**：`/`、`/*.html`、`/posts/*/`、`/posts/*/index.html` 为 `max-age=0, must-revalidate`；`/assets/*`、`/posts/:slug/assets/*` 为一年 `immutable`；`/api/*` 为 `no-store`（Functions 响应本身也在 `functions/api/meta.js` 里设置了 `no-store`）。Cloudflare 每条规则只允许一个 `*`，文章资源规则用 `:slug` 占位符避免与 HTML 规则重叠。
+
+## 首页搜索
+
+- 默认检索**标题、完整正文、作者和标签**，也可切换“仅标题”。空格分隔的关键词必须全部命中，可分别出现在标题、作者和正文；中文连续词按原样包含匹配，忽略英文大小写与全角差异，不做模糊猜词。
+- 正文索引由统一构建生成，覆盖列表、表格、代码和折叠聊天，不截断长文、不用摘要代替正文、不做图片 OCR。`link_only` 只搜索已有标题和元信息，不请求外站。
+- 首页不内嵌或立即下载整站正文。Cloudflare 主站优先通过 `/api/search` 在边缘检索，仅传输命中结果及片段；标题先在本机即时匹配，相同查询复用缓存。无 API 的静态预览或 API 失败时使用 Web Worker 加载全文索引回退，失败明确提示并可重试；不会将失败当作“无结果”。
+- 输入防抖 120 ms，中文输入法确认后再查。完整正文索引与边缘函数由同一批数据构建，版本不一致拒绝返回结果；静态索引用内容哈希缓存。此次实测当前网络全量下载较慢，因此没有让主站首搜依赖完整索引下载。
+- 搜索时默认按相关度排列，标题命中优先，再到作者/标签和正文；手动选择时间、评分或未读排序时尊重该排序。正文命中显示上下文与高亮，清空搜索恢复原分类和折叠状态。
 
 ## 评分与已读
 
@@ -93,21 +108,21 @@ id = "9de02bd9638042c0b0289fb3022f8ddd"
 
 ## 部署到 Cloudflare Pages
 
-本机已用 `wrangler`（账号 stevenhwt@gmail.com）直传静态资源，**当前未绑定 GitHub 自动构建**（绑定需在 Cloudflare Dashboard 点 Connect to Git）。
-
-更新内容后发布：
+默认只部署 Cloudflare，不 push、不等待 GitHub Pages。发布入口：
 
 ```bash
 ./scripts/deploy_cloudflare.sh
-# 等价于：
-# npx wrangler pages deploy . --project-name x-mirror --branch main --commit-dirty=true
 ```
 
-`wrangler pages deploy` 会同时上传根目录的 `functions/`，并按 `wrangler.toml` 绑定 KV。若部署时报 namespace 不存在，先到 Dashboard → Workers & Pages → KV 确认 `9de02bd9638042c0b0289fb3022f8ddd` 属于当前账号。
+脚本按顺序 fetch 全部远端、确认当前为 `main` 且包含 `origin/main`、重建所有文章与索引、校验本地和线上清单，再上传并核对主站版本。**不要跳过脚本直接运行 `wrangler pages deploy .`**：那会绕过重建和漏文守门。
 
-Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/view/x-mirror
+发布校验会阻止以下情况：data、首页卡片、posts.json、文章正文与全文索引不一致；slug 重复；资源哈希过期；有文章页但无 data（已删除占位页除外）；待发布目录缺少线上已有文章。可单独运行 `python3 scripts/validate_site.py` 检查本地。
 
-若要改成「push 到 GitHub 自动部署」，在 Dashboard → Workers & Pages → x-mirror → Settings → Builds & deployments → Connect to Git，选 `wentao-hu/x-mirror`，构建命令留空、输出目录填 `/`（或 `.`）。
+守门失败时先同步完整 data / posts 内容并重建；若确实要删文，须单独确认删除范围。并发会话共用目录，发布前应完成当前在途写入，不能把构建通过等同于内容已审核。
+
+**边界：** 该脚本不能拦截 Cloudflare 的 GitHub 自动部署或其他绕过脚本的发布入口。若云端仍启用 Git 自动部署，其他会话 push 仍可能覆盖直传版本；应单独确认云端发布策略，本次不自动修改该设置。
+
+`wrangler pages deploy` 同时上传 `functions/`，按 `wrangler.toml` 绑定 KV。Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/view/x-mirror
 
 ## 新增一篇 X 长文
 
@@ -115,7 +130,7 @@ Dashboard：https://dash.cloudflare.com/076d9900e41523cdf41030af6f7d4326/pages/v
 2. 用 X API / `get_posts_by_id` 拉 metadata，合并进构建用的 API JSON。
 3. 在 `scripts/extract_and_build.py` 的 `WORKDIRS` / `SLUGS` / `CATEGORIES` / `DESCS` 登记该 post id。
 4. 运行 `python3 scripts/extract_and_build.py`
-5. `git push` 后执行 `./scripts/deploy_cloudflare.sh`（或等 Git 绑定自动部署）。
+5. 执行 `./scripts/deploy_cloudflare.sh`，由统一入口重建、验收并发布 Cloudflare；默认不 push。
 
 评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css`、补齐 WebP 副本并保留所有文章页的控件。
 

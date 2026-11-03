@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import importlib.util
 
+from search_index import build_index
+
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("build", ROOT / "scripts" / "extract_and_build.py")
 mod = importlib.util.module_from_spec(spec)
@@ -37,6 +39,7 @@ if posts_path.exists():
     link_only = [p for p in old.get("posts", []) if p.get("entry_type") == "link_only"]
 
 posts_meta = []
+search_documents = []
 for raw in raw_posts:
     meta = raw["meta"]
     blocks = raw["blocks"]
@@ -48,6 +51,7 @@ for raw in raw_posts:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(mod.post_page(meta, body_html, toc_html), encoding="utf-8")
     posts_meta.append(meta)
+    search_documents.append(mod.search_document(meta, body_html))
     print("rebuilt", meta["slug"])
 
 # 按 slug 合并回 link_only，不重复、不覆盖镜像条目
@@ -55,6 +59,7 @@ seen = {p["slug"] for p in posts_meta}
 for item in link_only:
     if item.get("slug") and item["slug"] not in seen:
         posts_meta.append(item)
+        search_documents.append(mod.search_document(item))
         seen.add(item["slug"])
 
 # keep category order stable
@@ -65,6 +70,15 @@ posts_meta.sort(
     key=lambda p: order.index(p["category"])
     if p.get("entry_type") != "link_only" and p["category"] in order
     else len(order)
+)
+search_index = build_index(search_documents, [p["slug"] for p in posts_meta])
+(ROOT / "assets" / "search-index.json").write_text(
+    json.dumps(search_index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
+)
+(ROOT / "functions" / "_lib" / "search-version.js").write_text(
+    '// 由 rebuild_from_data.py 生成，与静态全文索引保持同一版本。\n'
+    f'export const SEARCH_VERSION = "{mod.asset_version("assets/search-index.json")}";\n',
+    encoding="utf-8",
 )
 (ROOT / "posts.json").write_text(json.dumps({"posts": posts_meta}, ensure_ascii=False, indent=2), encoding="utf-8")
 (ROOT / "index.html").write_text(mod.index_page(posts_meta), encoding="utf-8")

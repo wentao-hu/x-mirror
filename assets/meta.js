@@ -545,7 +545,15 @@
     var listActions = document.getElementById('list-actions');
     var catOrderHint = document.querySelector('.cat-order-hint');
     var listCountEl = document.querySelector('.list-count');
-    var ui = { term: '', cat: 'all', type: 'all', rating: 'all', read: 'all', time: 'all', sort: 'default' };
+    var ui = { term: '', scope: 'all', cat: 'all', type: 'all', rating: 'all', read: 'all', time: 'all', sort: 'default' };
+    var searchEngine = global.XMirrorSearch;
+    var searchResults = new Map();
+    var searchState = 'idle', searchPending = false, searchTimer = null, composing = false;
+    var searchClient = null;
+    var search = document.getElementById('q');
+    var searchScope = document.getElementById('search-scope');
+    var searchStatus = document.getElementById('search-status');
+    var searchRetry = document.getElementById('search-retry');
 
     catHeads.forEach(function (h) {
       var cat = h.dataset.cat || '';
@@ -717,7 +725,7 @@
       rebuildSnapshot();
       reorderCategoryButtons(currentCategoryOrder);
 
-      if (ui.sort === 'default') {
+      if (ui.sort === 'default' && !ui.term.trim()) {
         snapshot.forEach(function (node) { list.appendChild(node); });
       }
       if (changed || persist) apply();
@@ -960,7 +968,12 @@
 
     function sortedCards() {
       var arr = cards.slice();
-      if (ui.sort === 'rating') {
+      if (ui.sort === 'default' && ui.term.trim()) {
+        arr.sort(function (a, b) {
+          var ra = searchResults.get(a.dataset.slug), rb = searchResults.get(b.dataset.slug);
+          return ((rb ? rb.score : 0) - (ra ? ra.score : 0)) || (originalIndex(a) - originalIndex(b));
+        });
+      } else if (ui.sort === 'rating') {
         arr.sort(function (a, b) {
           return (metaFor(b).rating - metaFor(a).rating) || (originalIndex(a) - originalIndex(b));
         });
@@ -1001,7 +1014,52 @@
       resetBar(document.querySelector('[data-meta-filter="read"]'));
       resetBar(document.querySelector('[data-meta-filter="time"]'));
       resetBar(document.querySelector('[data-meta-filter="sort"]'));
-      apply();
+      runSearch();
+    }
+
+    function updateSearchStatus() {
+      if (!searchStatus) return;
+      var fullQuery = !!ui.term.trim() && ui.scope === 'all';
+      var text = '空格分隔多个关键词，同时匹配';
+      if (!searchEngine) text = '搜索模块加载失败，请刷新页面；当前仅支持标题和作者匹配';
+      else if (ui.scope === 'title') text = '仅搜索标题 · 空格分隔多个关键词';
+      else if (searchState === 'searching') text = '正在搜索全文，当前先显示标题和作者匹配…';
+      else if (searchState === 'loading') text = '正在加载本地全文索引，当前先显示标题和作者匹配…';
+      else if (searchState === 'error') text = '全文加载失败，当前仅搜索标题、作者和标签';
+      else if (fullQuery && searchPending) text = '正在搜索全文…';
+      else if (fullQuery && searchState === 'ready') text = '已搜索完整正文 · 标题命中优先，包含作者与标签';
+      searchStatus.textContent = text;
+      if (searchRetry) searchRetry.hidden = !(ui.scope === 'all' && searchState === 'error');
+      if (search) search.setAttribute('aria-busy', searchPending || (fullQuery && (searchState === 'loading' || searchState === 'searching')) ? 'true' : 'false');
+    }
+
+    function renderSearchSnippets() {
+      cards.forEach(function (card) {
+        var row = searchResults.get(card.dataset.slug);
+        var text = ui.term.trim() && ui.scope === 'all' && row ? row.snippet : '';
+        var box = card.querySelector('.search-snippet');
+        if (!text) { if (box) box.remove(); return; }
+        if (!box) { box = document.createElement('div'); box.className = 'search-snippet'; card.appendChild(box); }
+        box.replaceChildren(document.createTextNode('正文：'));
+        searchEngine.highlight(text, ui.term).forEach(function (part) {
+          if (!part.match) box.appendChild(document.createTextNode(part.text));
+          else {
+            var mark = document.createElement('mark');
+            mark.textContent = part.text;
+            box.appendChild(mark);
+          }
+        });
+      });
+    }
+
+    function runSearch() {
+      clearTimeout(searchTimer);
+      if (search) ui.term = search.value;
+      if (searchScope) ui.scope = searchScope.value;
+      searchPending = !!ui.term.trim() && ui.scope === 'all';
+      if (searchClient) searchClient.search(ui.term, ui.scope);
+      else { searchPending = false; apply(); }
+      updateSearchStatus();
     }
 
     function apply() {
@@ -1013,7 +1071,8 @@
         var m = metaFor(el);
         var okCat = ui.cat === 'all' || catOf(el) === ui.cat;
         var okType = ui.type === 'all' || el.dataset.sourceType === ui.type;
-        var okQ = !term || (el.dataset.q || '').toLowerCase().indexOf(term) >= 0;
+        var okQ = !term || (searchClient ? searchResults.has(el.dataset.slug)
+          : ((el.dataset.title || '') + (ui.scope === 'title' ? '' : ' ' + (el.dataset.q || ''))).toLowerCase().indexOf(term) >= 0);
         var okRating = ui.rating === 'all'
           ? true
           : (ui.rating === '0' ? m.rating === 0 : m.rating >= Number(ui.rating));
@@ -1026,8 +1085,8 @@
         el.style.display = el._xmShow ? '' : 'none';
       });
 
-      if (ui.sort === 'default') {
-        snapshot.forEach(function (node) { list.appendChild(node); }); // 按原顺序归位
+      if (ui.sort === 'default' && !term) {
+        snapshot.forEach(function (node) { list.appendChild(node); }); // 清空搜索后恢复分类顺序
       } else {
         sortedCards().forEach(function (el) { list.appendChild(el); });
       }
@@ -1038,7 +1097,8 @@
           ? '筛选结果 ' + shown + ' 篇 / 共 ' + cards.length + ' 篇'
           : '共 ' + cards.length + ' 篇';
       }
-      if (emptyEl) emptyEl.hidden = !(filtering && shown === 0);
+      var incompleteSearch = !!term && ui.scope === 'all' && searchState !== 'ready';
+      if (emptyEl) emptyEl.hidden = !(filtering && shown === 0 && !incompleteSearch && !searchPending);
       catHeads.forEach(function (h) {
         var cat = h.dataset.cat || '';
         var folded = ui.sort === 'default' && !filtering && !!collapsed[cat];
@@ -1049,7 +1109,7 @@
         if (toggleButton) toggleButton.setAttribute('aria-expanded', folded ? 'false' : 'true');
         if (dragButton) dragButton.setAttribute('aria-disabled', canReorderCategories() ? 'false' : 'true');
 
-        if (ui.sort !== 'default') { h.style.display = 'none'; return; }
+        if (ui.sort !== 'default' || term) { h.style.display = 'none'; return; }
         if (ui.cat !== 'all' && cat !== ui.cat) { h.style.display = 'none'; return; }
 
         var node = h.nextElementSibling;
@@ -1110,12 +1170,60 @@
       ui.sort = btn.dataset.sort || 'default';
     });
 
-    var search = document.getElementById('q');
-    if (search) {
-      search.addEventListener('input', function () {
-        ui.term = search.value;
-        apply();
+    if (search && searchEngine) {
+      function absolute(url) { return new URL(url, document.baseURI).href; }
+      var useRemoteSearch = /(^|\.)pages\.dev$/i.test(global.location.hostname);
+      searchClient = (useRemoteSearch ? searchEngine.createRemoteClient : searchEngine.createClient)({
+        apiUrl: absolute('api/search'),
+        version: new URL(absolute(search.dataset.searchIndex)).searchParams.get('v'),
+        documents: cards.map(function (card) {
+          return { slug: card.dataset.slug, title: card.dataset.title || '', metadata: card.dataset.q || '', text: '' };
+        }),
+        indexUrl: absolute(search.dataset.searchIndex),
+        workerUrl: absolute(search.dataset.searchWorker),
+        engineUrl: absolute(search.dataset.searchEngine),
+        onStatus: function (state) {
+          searchState = state;
+          if (state === 'error') searchPending = false;
+          updateSearchStatus();
+          apply();
+        },
+        onResult: function (rows, query, scope) {
+          if (query !== ui.term || scope !== ui.scope) return;
+          searchResults = new Map(rows.map(function (row) { return [row.slug, row]; }));
+          searchPending = !!ui.term.trim() && ui.scope === 'all' && searchState !== 'ready' && searchState !== 'error';
+          renderSearchSnippets();
+          updateSearchStatus();
+          apply();
+        }
       });
+      search.addEventListener('focus', function () {
+        if (ui.scope === 'all') searchClient.warm().catch(function () { /* 显示重试入口 */ });
+      });
+      search.addEventListener('compositionstart', function () { composing = true; clearTimeout(searchTimer); });
+      search.addEventListener('compositionend', function () { composing = false; runSearch(); });
+      search.addEventListener('input', function (event) {
+        clearTimeout(searchTimer);
+        if (composing || event.isComposing) return;
+        if (!search.value.trim()) runSearch();
+        else searchTimer = setTimeout(runSearch, 120);
+      });
+      search.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' && !composing && !event.isComposing) runSearch();
+      });
+      if (searchScope) searchScope.addEventListener('change', function () {
+        search.placeholder = searchScope.value === 'title' ? '搜索文章标题…' : '搜索标题、正文、作者…';
+        runSearch();
+      });
+      if (searchRetry) searchRetry.addEventListener('click', function () {
+        searchClient.warm().catch(function () { /* 保留重试入口，成功后客户端会补全当前查询 */ });
+      });
+    } else if (search) {
+      searchState = 'error';
+      search.addEventListener('input', runSearch);
+      if (searchScope) searchScope.addEventListener('change', runSearch);
+      if (searchRetry) searchRetry.addEventListener('click', function () { global.location.reload(); });
+      updateSearchStatus();
     }
 
     function setPanelOpen(open, persist) {

@@ -478,6 +478,17 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   font-size: 16px;
   transition: border-color .12s ease, box-shadow .12s ease;
 }
+.search-row { display: flex; gap: 8px; align-items: center; }
+.search-row .search { flex: 1; min-width: 0; margin-bottom: 0; }
+.search-scope {
+  flex: 0 0 auto; height: 44px; padding: 0 10px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg); color: var(--fg); font: inherit; font-size: 14px;
+}
+.search-help { margin: 7px 0 12px; min-height: 20px; color: var(--muted); font-size: 12px; }
+.search-help button { margin-left: 8px; color: var(--link); background: none; border: 0; cursor: pointer; font: inherit; text-decoration: underline; }
+.search-snippet { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.search-snippet mark { background: color-mix(in srgb, var(--link) 13%, var(--bg)); color: var(--fg); border-radius: 2px; }
 .search::placeholder { color: var(--muted-2); }
 .search:focus {
   outline: none; border-color: var(--link);

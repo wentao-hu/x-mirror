@@ -23,6 +23,7 @@ from category_taxonomy import (
     validate_post_category,
 )
 from generate_webp import generate_all, image_width
+from search_index import extract_text
 
 
 def sniff_ext(path: Path) -> str:
@@ -1561,6 +1562,17 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   font-size: 16px;
   transition: border-color .12s ease, box-shadow .12s ease;
 }
+.search-row { display: flex; gap: 8px; align-items: center; }
+.search-row .search { flex: 1; min-width: 0; margin-bottom: 0; }
+.search-scope {
+  flex: 0 0 auto; height: 44px; padding: 0 10px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg); color: var(--fg); font: inherit; font-size: 14px;
+}
+.search-help { margin: 7px 0 12px; min-height: 20px; color: var(--muted); font-size: 12px; }
+.search-help button { margin-left: 8px; color: var(--link); background: none; border: 0; cursor: pointer; font: inherit; text-decoration: underline; }
+.search-snippet { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.search-snippet mark { background: color-mix(in srgb, var(--link) 13%, var(--bg)); color: var(--fg); border-radius: 2px; }
 .search::placeholder { color: var(--muted-2); }
 .search:focus {
   outline: none; border-color: var(--link);
@@ -2221,6 +2233,18 @@ def sites_page(sites: list[dict]) -> str:
 """
 
 
+def search_document(meta: dict, body_html: str = "") -> dict:
+    return {
+        "slug": meta["slug"],
+        "title": extract_text(linkify(meta["title"])),
+        "metadata": " ".join(filter(None, [
+            meta.get("author_name", ""), meta.get("author_username", ""),
+            meta.get("description", ""), *meta_tags(meta),
+        ])),
+        "text": extract_text(body_html),
+    }
+
+
 def index_page(posts: list[dict]) -> str:
     unknown = sorted({
         p.get("category", "")
@@ -2248,24 +2272,16 @@ def index_page(posts: list[dict]) -> str:
         for p in posts:
             if p["category"] != c:
                 continue
-            q = esc(
-                " ".join(
-                    [
-                        p["title"],
-                        p["author_name"],
-                        p["author_username"],
-                        p.get("description", ""),
-                        *meta_tags(p),
-                    ]
-                )
-            )
+            search_doc = search_document(p)
+            title = esc(search_doc["title"])
+            q = esc(search_doc["metadata"])
             date = esc(p['published_local'][:16])
             if p.get("entry_type") == "link_only":
                 # 仅链接条目：标题直接外链原文，正文/图片一律不镜像
                 # 首页卡片只显示作者名和日期；账号 ID 留到详情页展示
                 cmeta = f"{esc(p['author_name'])} · {date}"
                 cards.append(
-                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}">
+                    f"""<div class="card card-linkonly" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-title="{title}" data-q="{q}">
   <div class="ctitle"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer">{esc(p['title'])}</a>{source_badge(p)}</div>
   <div class="cmeta">{cmeta}</div>
   <div class="card-controls" data-meta-mount data-slug="{esc(p['slug'])}"></div>
@@ -2273,7 +2289,7 @@ def index_page(posts: list[dict]) -> str:
                 )
             else:
                 cards.append(
-                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-q="{q}" href="posts/{esc(p['slug'])}/">
+                    f"""<a class="card" data-slug="{esc(p['slug'])}" data-source-type="{esc(source_type_of(p))}" data-cat="{esc(c)}" data-published="{esc(p.get('published_utc',''))}" data-title="{title}" data-q="{q}" href="posts/{esc(p['slug'])}/">
   <div class="ctitle">{esc(p['title'])}{source_badge(p)}</div>
   <div class="cmeta">{esc(p['author_name'])} · {date}</div>
 </a>"""
@@ -2316,7 +2332,16 @@ def index_page(posts: list[dict]) -> str:
 <body>
 <div class="wrap index-wrap">
   {header_html('posts')}
-  <input class="search" id="q" type="search" placeholder="搜索标题 / 作者…" />
+  <div class="search-row">
+    <input class="search" id="q" type="search" placeholder="搜索标题、正文、作者…" aria-label="搜索文章" aria-describedby="search-status"
+      data-search-index="assets/search-index.json?v={asset_version('assets/search-index.json')}"
+      data-search-worker="assets/search-worker.js?v={asset_version('assets/search-worker.js')}"
+      data-search-engine="assets/search.js?v={asset_version('assets/search.js')}" />
+    <select class="search-scope" id="search-scope" aria-label="搜索范围">
+      <option value="all">标题与正文</option><option value="title">仅标题</option>
+    </select>
+  </div>
+  <div class="search-help"><span id="search-status" role="status" aria-live="polite">空格分隔多个关键词，同时匹配</span><button id="search-retry" type="button" hidden>重试全文加载</button></div>
   <div class="filter-bar">
     <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
       <span class="filter-toggle-label">筛选与排序</span>
@@ -2402,6 +2427,7 @@ def index_page(posts: list[dict]) -> str:
   </div>
   <div class="footer">共 {len(posts)} 篇 · 时间均为北京时间（UTC+8） · Personal archive</div>
 </div>
+<script src="assets/search.js?v={asset_version('assets/search.js')}" defer></script>
 <script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
 <script src="assets/reader-settings.js?v={asset_version('assets/reader-settings.js')}" defer></script>
 </body>
@@ -2581,14 +2607,8 @@ def main():
     for pid in order:
         posts_meta.append(process_one(by_id[pid], users))
 
-    manifest = {"generated_at": datetime.now(TZ8).isoformat(), "posts": posts_meta}
-    (ROOT / "posts.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    (ROOT / "index.html").write_text(index_page(posts_meta), encoding="utf-8")
-    sites = load_sites()
-    (ROOT / "sites.html").write_text(sites_page(sites), encoding="utf-8")
-    print("Wrote index +", len(posts_meta), "posts,", len(sites), "sites")
+    # 抽取只负责落 data；统一重建全部文章与搜索索引，不能用本批覆盖整个首页。
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "rebuild_from_data.py")], check=True)
 
 
 if __name__ == "__main__":
