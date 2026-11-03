@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "id": "2117205326516605245",
+    "slug": "liangzhu-seo-learning-map-checklist",
+    "title": "SEO 学习地图：照着查漏补缺",
+    "url": "https://x.com/liangzhu_AI/status/2117205326516605245",
+    "author_name": "良竹",
+    "author_username": "liangzhu_AI",
+    "published_utc": "2026-11-02T10:41:00.000Z",
+    "published_local": "2026-11-02 18:41",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 API note_tweet.text 全文；无配图；外链「可链接资产」一句按原文保留未闭合括号；评论未收录（默认规则）。",
+    "plain_text_len": 477,
+    "blocks_count": 20
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "SEO 学习地图：照着查漏补缺"
+    },
+    {
+      "type": "paragraph",
+      "text": "这张 SEO 学习地图，照着查漏，比东看一篇西看一篇强。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "关键词研究"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "找词",
+        "长尾词",
+        "低竞争词",
+        "搜索量",
+        "看搜索结果页"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "页面优化"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "标题",
+        "各级小标题",
+        "网址",
+        "图片 SEO",
+        "内链",
+        "结构化标记（Schema）",
+        "点击率优化"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "内容优化"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "找内容缺口",
+        "语义优化（NLP）",
+        "覆盖相关实体（人名、品牌、产品这类词）",
+        "老文更新",
+        "可读性"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "技术 SEO"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "抓取",
+        "收录",
+        "XML 站点地图",
+        "robots.txt",
+        "跳转",
+        "页面速度",
+        "日志分析"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "外链"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "数字公关（做有传播度的内容换报道）",
+        "客座投稿",
+        "死链替换",
+        "没人链接的品牌提及",
+        "可链接资产（别人愿意引用的工具或内容。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "AI SEO"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "AI 搜索里能不能被看到",
+        "实体优化",
+        "被 AI 引用",
+        "Reddit 提及",
+        "第三方提及"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "国际化"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "hreflang（告诉谷歌哪个语言版本给哪个地区）",
+        "多语言 SEO",
+        "翻译 SEO"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "数据"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Search Console",
+        "Bing 站长工具",
+        "Google Analytics",
+        "SEO 报表"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "工具"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Ahrefs",
+        "SEMrush",
+        "Keywords Everywhere",
+        "Screaming Frog"
+      ]
+    }
+  ],
+  "plain_text": "这张 SEO 学习地图，照着查漏，比东看一篇西看一篇强。\n\n关键词研究：找词、长尾词、低竞争词、搜索量、看搜索结果页。\n\n页面优化：标题、各级小标题、网址、图片 SEO、内链、结构化标记（Schema）、点击率优化。\n\n内容优化：找内容缺口、语义优化（NLP）、覆盖相关实体（人名、品牌、产品这类词）、老文更新、可读性。\n\n技术 SEO：抓取、收录、XML 站点地图、robots.txt、跳转、页面速度、日志分析。\n\n外链：数字公关（做有传播度的内容换报道）、客座投稿、死链替换、没人链接的品牌提及、可链接资产（别人愿意引用的工具或内容。\n\nAI SEO：AI 搜索里能不能被看到、实体优化、被 AI 引用、Reddit 提及、第三方提及。\n\n国际化：hreflang（告诉谷歌哪个语言版本给哪个地区）、多语言 SEO、翻译 SEO。\n\n数据：Search Console、Bing 站长工具、Google Analytics、SEO 报表。\n\n工具：Ahrefs、SEMrush、Keywords Everywhere、Screaming Frog。",
+  "entities": {}
+}

@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "id": "2117104628131070388",
+    "slug": "victor-big-keyword-for-profession-niche-tool-pages",
+    "title": "做出海工具站：大词后面挂职业切蓝海",
+    "url": "https://x.com/victor_UWer/status/2117104628131070388",
+    "author_name": "Victor在西雅图",
+    "author_username": "victor_UWer",
+    "published_utc": "2026-11-02T04:00:51.000Z",
+    "published_local": "2026-11-02 12:00",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 API note_tweet.text 全文；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 369,
+    "blocks_count": 6
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "做出海工具站：大词后面挂职业切蓝海"
+    },
+    {
+      "type": "paragraph",
+      "text": "做出海工具站，别死磕大词，换个切法：在大词后面挂一个职业。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如 invoice generator 竞争太狠，但 invoice generator for contractors、for photographers、for tutors 这类词，往往没几个人认真做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "操作贼简单："
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Google 搜大词，后面加 for 再空一格，看下拉框蹦出哪些人群",
+        "把这些词丢进 Semrush 的 Keyword Magic Tool，筛 KD 低的",
+        "点开前十名看一眼，如果全是通用工具硬凑的页面，根本没针对这个职业，那就是机会",
+        "做页面时，模板、示例数据、文案都换成这个职业的。比如承包商版本，直接带上工时和材料费字段"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "功能还是那个功能，换个身份就是一个新页面。用户一看\"这就是给我做的\"，付钱也会爽快很多。"
+    }
+  ],
+  "plain_text": "做出海工具站，别死磕大词，换个切法：在大词后面挂一个职业。\n\n比如 invoice generator 竞争太狠，但 invoice generator for contractors、for photographers、for tutors 这类词，往往没几个人认真做。\n\n操作贼简单：\n\n1. Google 搜大词，后面加 for 再空一格，看下拉框蹦出哪些人群\n\n2. 把这些词丢进 Semrush 的 Keyword Magic Tool，筛 KD 低的\n\n3. 点开前十名看一眼，如果全是通用工具硬凑的页面，根本没针对这个职业，那就是机会\n\n4. 做页面时，模板、示例数据、文案都换成这个职业的。比如承包商版本，直接带上工时和材料费字段\n\n功能还是那个功能，换个身份就是一个新页面。用户一看\"这就是给我做的\"，付钱也会爽快很多。",
+  "entities": {}
+}
