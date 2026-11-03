@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "id": "note-2026-11-03-new-keyword-longtail-page-strategy",
+    "slug": "note-new-keyword-longtail-page-strategy",
+    "title": "新词怎么判断能不能做，长尾词该合并还是单独成页",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-03T01:22:00.000Z",
+    "published_local": "2026-11-03 09:22",
+    "category": "SEO获客",
+    "category_reason": "主要交付是关键词组如何落到页面与标题：变体词合并、细分场景单独做页、标题覆盖全部说法；排除需求研究，因为新词判断只是开场提问引出的前置方法，主体论证在关键词布局与页面承接。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "新词",
+      "长尾词",
+      "变体词",
+      "关键词布局",
+      "Semrush",
+      "哥飞"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "原始聊天 31 条消息全部保留，未删表情；群内 1 张配图已本地化。",
+    "plain_text_len": 0,
+    "blocks_count": 23
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "群里钰洋问，找到一些新词后怎么判断能不能做。哥飞的回答是：新词在 Semrush 里查不到，只能自己去搜，或者让 AI 帮你调查，搞清楚搜这个词的背后是什么样的人。话题随后转到更实际的一层：选定的词怎么落到页面上——同一个需求的不同说法合成一页，细分场景单独做页。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新词没有数据，先搞清楚搜索的人是谁"
+    },
+    {
+      "type": "paragraph",
+      "text": "有人说买个 Semrush 查一下，哥飞直接否掉：新词用 Semrush 查不到。他给的方法是人工搜索了解，或者让 AI 帮忙分析调查——搞清楚搜索这个词背后是什么样的人，在找什么样的东西。再往下追三个问题："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "这个东西是一次性的，还是他有长期使用需求？",
+        "他是否愿意为这个东西付费？",
+        "他这样的群体有多少？"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "新词的长尾词从哪找"
+    },
+    {
+      "type": "paragraph",
+      "text": "钰洋接着问，开做之后除了买词覆盖的域名，长尾词怎么做——新词的相关长尾词在 Semrush 里同样不好查。哥飞说，新词的长尾词可以在谷歌的下拉搜索和相关搜索里看到，谷歌趋势里也能看到一些。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "长尾词是什么"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jason 问长尾词具体指什么，群友 Thor 用口红举例：词是「口红」，长尾词是「口红男士」「口红试色」。哥飞的评价是「通俗易懂」。"
+    },
+    {
+      "type": "image",
+      "local": "ahrefs-search-demand-curve.jpg",
+      "alt": "Ahrefs 搜索需求曲线：纵轴搜索量、横轴关键词数量，分为数量少但热门的「胖头」、有可观月搜索量的「矮胖」和数量以十亿计、单月少量搜索的「长尾」三段"
+    },
+    {
+      "type": "paragraph",
+      "text": "群友 thovino 同时贴了 Ahrefs 的两份中文资料：长尾词专题 [ahrefs.com/zh/blog/long-tail-keywords](https://ahrefs.com/zh/blog/long-tail-keywords/)，以及建议新手先过一遍的 [Ahrefs 公开课程](https://ahrefs.com/zh/seo)。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一个关键词（组）一个页面"
+    },
+    {
+      "type": "paragraph",
+      "text": "Jason 问长词和短词哪个搜索更精准、落地页是不是多用长词，哥飞指出他对长尾词的理解有偏差：做任何页面，永远记住大原则「一个关键词（组）一个页面」。针对每一个词组，去调研这个词背后的需求是什么，然后做出合适的页面来承接这样的搜索流量。这里的「词组」，已经把变体词和长尾词综合进来了。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "变体词：同一个需求，合到一页"
+    },
+    {
+      "type": "paragraph",
+      "text": "ai video generator 和 ai video maker 互为变体词，也就是同一个需求可能有多种不同的表达。因为背后是同一个需求，小站最好把两个说法放到一个页面，同时不能主打两个词——选其中一个更少网页使用、竞争更小的说法作为主词，然后顺带覆盖别的变体词。大多数大站也会把这两个做到同一个页面里。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "长尾词：有的合一页，有的单独做"
+    },
+    {
+      "type": "paragraph",
+      "text": "free ai video maker 是 ai video maker 的长尾词，两者需求大体类似，实际操作中也会做到同一个页面，页面主打的甚至就是 free ai video maker。因为这个词内部本身就包含了 ai video maker，打它的同时也等于在打 ai video maker。加上 free 更主要的作用，是通过这个词吸引点击。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但 ai video maker for youtube shorts 也是 ai video maker 的长尾词，却通常要单独做一个页面。原因在于它是 ai video maker 的一个细分领域、细分使用场景，要拿到这个细分长尾词的搜索流量，就需要单独的页面来接。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "判断标准：两个词的文案语义像不像"
+    },
+    {
+      "type": "paragraph",
+      "text": "怎么区分两个词该放同一页还是分开放，哥飞的原则是：看两个词写出来的网页文案语义是否会很相似。如果写来写去，整体文案语义都很相似，就应该放到同一个页面里。文案让 AI 写没问题，文案的语义也可以让 AI 来判断。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "标题要覆盖所有变体"
+    },
+    {
+      "type": "paragraph",
+      "text": "Wang 问 free ai video maker、ai video maker free、free video maker ai、video maker ai free 算不算一个词，再加个 online 要不要新页面。哥飞说，这些都是相似的意思，一起放在一个页面就好。老 SEO 艺术家通常会合理构造标题，使得覆盖这里的每一个词——如 Free AI Video Maker Online 就把这些词都覆盖了。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 31,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "钰洋",
+          "time": "2026年11月3日 9:22",
+          "text": "@哥飞 找到一些新词后怎么判断能不能做呢"
+        },
+        {
+          "user": "天菜",
+          "time": "2026年11月3日 9:27",
+          "text": "买个Semrush查一下？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 9:28",
+          "text": "新词用 Semrush 查不到"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 9:30",
+          "text": "自己搜索了解，或者让 AI 帮你分析调查，搞清楚搜索这个词背后是什么样的人，在找什么样的东西。\n这个东西，是一次性的，还是他有长期使用需求的？\n他是否愿意为这个东西付费？\n他这样的群体有多少？"
+        },
+        {
+          "user": "钰洋",
+          "time": "2026年11月3日 9:30",
+          "text": "好的"
+        },
+        {
+          "user": "钰洋",
+          "time": "2026年11月3日 9:33",
+          "text": "@哥飞 那开做后就是买这个词覆盖的域名，然后怎么做长尾词呢，新词不是相关的长尾词不好在Semrush 查"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 9:37",
+          "text": "新词的长尾词，可以在谷歌下来搜索和相关搜索里看到，谷歌趋势里也可以看到一些"
+        },
+        {
+          "user": "Jason",
+          "time": "2026年11月3日 9:41",
+          "text": "长尾词具体是指什么"
+        },
+        {
+          "user": "Thor",
+          "time": "2026年11月3日 9:42",
+          "text": "词：口红\n长尾词：口红男士、口红试色"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 9:43",
+          "text": "通俗易懂"
+        },
+        {
+          "user": "songjp",
+          "time": "2026年11月3日 9:48",
+          "text": "学习到了"
+        },
+        {
+          "user": "thovino",
+          "time": "2026年11月3日 9:48",
+          "text": "https://ahrefs.com/zh/blog/long-tail-keywords/"
+        },
+        {
+          "user": "thovino",
+          "time": "2026年11月3日 9:48",
+          "text": "[图片] 微信图片_202611030948_1.jpg"
+        },
+        {
+          "user": "thovino",
+          "time": "2026年11月3日 9:49",
+          "text": "新手入门，先把这个 Ahrefs 的公开课程过一遍 https://ahrefs.com/zh/seo"
+        },
+        {
+          "user": "Jason",
+          "time": "2026年11月3日 10:31",
+          "text": "是长词搜索更精准 还是短词搜索更精准？ 在落地页多用长词？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:40",
+          "text": "你对长尾词的理解有偏差，\n首先做任何页面，永远记住我们的大原则“一个关键词(组)一个页面”，\n针对每一个词(组)，我们去调研了解这词背后的需求是什么，然后做出合适的页面来承接这样的搜索流量。\n\n这里的词(组)就是把变体词和长尾词综合进来了。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:42",
+          "text": "ai video generator 和 ai video maker 算是互为变体词，也就是我们常说的，一个需求，可能会有多种不同的表达。\n\n由于背后是同一个需求，所以我们小站，最好把两个说法放到一个页面去，而且还不能同时主打两个词，最好选择其中一个更少网页使用，竞争更小的说法作为主词，然后顺带覆盖别的变体词。\n大多数大站，也会把这两个做到同一个页面里。"
+        },
+        {
+          "user": "钰洋",
+          "time": "2026年11月3日 10:43",
+          "text": "那就是一个需求一个页面吗"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:44",
+          "text": "free ai video maker 是 ai video maker 的长尾词\n\n这两个词其实需求大体类似，我们实际操作中，也会做到同一个页面里，甚至我们页面主打的会是 free ai video maker 这个词，在打这个词的同时，由于他内部本身就包含了 ai video maker ，所以也可以认为，我们同时在主打 ai video maker"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:46",
+          "text": "ai video maker for youtube shorts 也是 ai video maker 的长尾词\n\n但是通常我们会单独为ai video maker for youtube shorts 做一个页面。\n\n因为 ai video maker for youtube shorts 是 ai video maker 的一个细分领域，细分使用场景，我们为了拿到这个细分长尾词的搜索流量，就需要单独做一个页面。"
+        },
+        {
+          "user": "Joker",
+          "time": "2026年11月3日 10:48",
+          "text": "我理解一下：free ai video maker这种长尾词，是因为更少网页使用，所以竞争小。但是只要有人搜，用了这个关键词的网站，排名就会比只做了ai video maker这个词的网站更高？ 是这个意思莫"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:49",
+          "text": "这里更主要的是想通过 free 这个词来吸引点击"
+        },
+        {
+          "user": "Jason",
+          "time": "2026年11月3日 10:50",
+          "text": "如果用户搜索free ai video maker，会不会更精准就搜到目标网站页面？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:50",
+          "text": "那么怎么区分，两个词，要放到同一个页面里，还是不放到同一个页面呢？\n\n我的原则是，看两个词写出来的网页文案语义是否会很相似，如果两个词写来写去，写出来的网页整体文案语义是很相似的，那么就应该放到同一个页面里。"
+        },
+        {
+          "user": "Jason",
+          "time": "2026年11月3日 10:51",
+          "text": "这个文案语义通常是自己写 还是让AI写？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:51",
+          "text": "文案让 AI 写没问题的\n文案的语义也可以让 AI 来判断"
+        },
+        {
+          "user": "Joker",
+          "time": "2026年11月3日 10:51",
+          "text": "两个词其实能做的内容基本一致 但是加了free，会有更多人愿意点进来。毕竟大家都想用免费工具~~起名的艺术啊哈哈哈"
+        },
+        {
+          "user": "Joker",
+          "time": "2026年11月3日 10:53",
+          "text": "我昨天看ahrefs的新手教程 有说ai味儿太浓太明显了好像会被限制？"
+        },
+        {
+          "user": "Jason",
+          "time": "2026年11月3日 10:53",
+          "text": "在加个括号(Most people choose) , 利用从众心理"
+        },
+        {
+          "user": "Wang",
+          "time": "2026年11月3日 10:53",
+          "text": "free ai video maker、ai video maker free、free video maker ai、video maker ai free，这种就算一个词，放同一个页面对吗？如果再加个online呢，ai video maker free online是需要一个新页面来做？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月3日 10:55",
+          "text": "你说的所有这些，都是相似的意思，一起放在一个页面就好了。\n老 SEO 艺术家，通常会合理的构造标题使得覆盖这里的每一个词。\n如 Free AI Video Maker Online 就把这些词都覆盖了"
+        }
+      ]
+    }
+  ]
+}
