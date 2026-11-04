@@ -1,0 +1,90 @@
+{
+ "meta": {
+  "id": "0crnplfhqt",
+  "slug": "webcafe-0crnplfhqt",
+  "title": "做了个批量 KGR 的 Chrome 插件，今天上了 PH，求老哥支持一票",
+  "url": "https://new.web.cafe/topic/0crnplfhqt",
+  "author_name": "KK",
+  "author_username": "web.cafe",
+  "published_utc": "2026-06-18T02:12:45.239Z",
+  "published_local": "2026-06-18 10:12",
+  "category": "AI工具",
+  "category_reason": "主要交付是介绍作者自制的批量 KGR Chrome 插件 EagleKGR 的功能与获取方式，即工具本身；按用户指定归入工具类。排除 SEO获客（不教关键词排名或站外获客方法），排除需求研究（不交付选词判断方法，KGR 只是插件功能）。",
+  "description": "",
+  "source_type": "webcafe",
+  "tags": [
+   "KGR",
+   "Chrome插件",
+   "EagleKGR",
+   "Product Hunt",
+   "关键词研究"
+  ],
+  "avatar_local": "avatar.jpg",
+  "images_total": 0,
+  "images_ok": 0,
+  "api_media_count": 0,
+  "fidelity_note": "web.cafe 全文镜像；正文按原文顺序并保留行内链接与加粗；原文含 1 个 YouTube 演示视频，按规则不下载、不内嵌，只保留「观看原视频」纯链接；未收录评论区（默认规则）。",
+  "plain_text_len": 647,
+  "blocks_count": 11
+ },
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "哥飞经常推荐用 **KGR（Keyword Golden Ratio）** 来判断一个词值不值得做，尤其适合新站、出海站找「竞争相对小、又有搜索量」的机会。"
+  },
+  {
+   "type": "paragraph",
+   "text": "我自己也一直在用，但词一多就头疼：每个词要查 `allintitle` 结果数，再去 Keyword Planner拉搜索量，最后手算KGR、排序筛选——几个词还能忍，上百个就明显拖效率了."
+  },
+  {
+   "type": "paragraph",
+   "text": "于是做了 **EagleKGR**，一个自动化批量KGR查询和计算的 **Chrome浏览器插件**。"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "大致思路"
+  },
+  {
+   "type": "list",
+   "ordered": true,
+   "items": [
+    "对每个词自动发起 `allintitle` 搜索，抓取结果数",
+    "针对 Google异常流量监测，做了**模拟人工**的处理：页面滚动 + 随机时间间隔,降低被风控的概率",
+    "在Keyword Planner 里**一键抓取**这些词的月搜索量",
+    "自动合并数据、计算 KGR，得出这个词是否值得做的结论",
+    "支持排序、批量导出，方便后续选题和铺内容"
+   ]
+  },
+  {
+   "type": "paragraph",
+   "text": "免费使用。"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "链接"
+  },
+  {
+   "type": "list",
+   "ordered": false,
+   "items": [
+    "[**操作演示**（官网有 demo 视频）](https://eaglekgr.kwverdit.com)",
+    "[**Chrome 插件安装**](https://chromewebstore.google.com/detail/eaglekgr/chpmcdmbhppkbapjbmhpcipoopmcegkp)",
+    "[**Product Hunt**（今天刚提交）](https://www.producthunt.com/products/eaglekgr)"
+   ]
+  },
+  {
+   "type": "paragraph",
+   "text": "如果觉得有用,**麻烦帮忙在 PH投个票**，有使用反馈或改进建议也欢迎在评论区说，我会认真看."
+  },
+  {
+   "type": "paragraph",
+   "text": "先谢谢各位 🙏"
+  },
+  {
+   "type": "paragraph",
+   "text": "[观看原视频（YouTube 操作演示）](https://www.youtube.com/watch?v=Mz4BAeLbB9E)"
+  }
+ ]
+}
