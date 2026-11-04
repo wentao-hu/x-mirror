@@ -1,0 +1,814 @@
+{
+  "meta": {
+    "id": "h9nqii02or",
+    "slug": "webcafe-h9nqii02or",
+    "title": "哥飞.ai 教你怎么挖掘出第一个关键词",
+    "url": "https://new.web.cafe/topic/h9nqii02or",
+    "author_name": "哥飞",
+    "author_username": "web.cafe",
+    "published_utc": "2026-06-23T03:22:35.791Z",
+    "published_local": "2026-06-23 11:22",
+    "category": "需求研究",
+    "category_reason": "主要交付是挖掘并判断第一个值得做的关键词：六种找词方法、KGR/KDRoi 判断标准与逐步实操清单，属于发现和验证需求；建站只是确认后的下一步，排除建站开发与 SEO获客；无单一实践的成败归因，排除实战复盘。",
+    "description": "",
+    "source_type": "webcafe",
+    "tags": [
+      "找需求",
+      "找词",
+      "需求挖掘",
+      "KGR",
+      "KDRoi"
+    ],
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "web.cafe 登录态抓取 .custom-html.prose 全文（约 8100 字）；原文无配图、无视频、无附件；两组「继续追问」问答与参考来源全部保留；评论未收录（默认规则）。",
+    "plain_text_len": 11861,
+    "blocks_count": 148
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "基于已读的4 篇文章,以下是我为你梳理的完整答案。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "一、先搞清楚：你要找的是什么样的关键词？"
+    },
+    {
+      "type": "paragraph",
+      "text": "在哥飞框架里，关键词＝需求。我们聚焦的是**出海 AI工具站**方向——面向全球用户、靠付费变现的工具类关键词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "核心原则是：**新手要找新词，或者找竞争度低的老词**。因为新词意味着竞争环境几乎空白，新站有机会\"上线即排名\"。什么是新词？《哥飞实战手册》[1] 的定义是：**过去12 个月内才开始出现显著搜索量的词汇**。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "二、六种核心挖掘方法"
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**在 2025年 1 月的《再聊需求挖掘：六种挖掘需求方法详解》[2] 里系统总结了六种方法："
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法 1：从词根出发，拓展更多关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "拿一个基础词根（如 `Generator`、`Maker`、`Checker`），用Semrush 的Keyword Magic Tool 或者Ahrefs免费版，输入词根 → 筛选搜索量 ≥30000/月、KD ≤ 60、CPC > 0.01 的词，就能得到一个候选关键词列表。然后结合谷歌趋势判断哪些是新词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**提前准备好了 51个常用词根关键词，你可以直接从这个池子里起步."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法2：研究 SEO大站的流量来源关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "拿 Canva.com这类大站，用Ahrefs / Semrush / Similarweb 查它们的流量来源关键词。特别关注那些**大站仅靠一个内页就拿走流量的词**——既然别人一个内页都能排上去，你做一个专门网站去打，胜算就高得多。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法 3:利用谷歌搜索下拉推荐"
+    },
+    {
+      "type": "paragraph",
+      "text": "直接在谷歌搜索一个词，然后加空格，看谷歌自动推荐的那些长尾关键词——这些都是真实用户高频搜索的词。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法 4：循环组合法"
+    },
+    {
+      "type": "paragraph",
+      "text": "这招是最狠的——把方法1/2/3 串起来循环用："
+    },
+    {
+      "type": "list",
+      "items": [
+        "搜一个关键词 → 找到排在前三的SEO做得好的网站",
+        "去 Similarweb / Semrush研究这些网站 → 挖出更多关键词",
+        "拿新挖到的关键词 → 再回到谷歌,继续找到三个 SEO做得好的网站",
+        "反复循环"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**把这叫做\"在流量的海洋里冲浪，看多了，你绝对能够得到升华\"[2]。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法 5：跟踪大量投广告的关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "在 Similarweb 的关键词浏览工具里，输入某类关键词，选择\"付费流量\"，看看哪些网站在一直投广告。**别人长期砸钱投广告的词，一定是能赚钱的需求**。哥飞拿 `qr code generator` 举例——qr-code-generator.com 每年投730万美元广告费，每月 660万免费流量,即使一个访问量只赚 0.1 美元，每个月也能赚 66万美元[2]。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "方法6：从变现角度反推"
+    },
+    {
+      "type": "paragraph",
+      "text": "找出那些正在赚钱的网站，反向分析它们的需求关键词——这是直接可以\"抄作业\"的思路。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "三、找到关键词后，怎么判断该不该做？"
+    },
+    {
+      "type": "paragraph",
+      "text": "**找词只是第一步，判断才是关键。** 哥飞在《出海 Web多久能有正反馈》[3] 里展示了一个完整判断流程："
+    },
+    {
+      "type": "paragraph",
+      "text": "**案例复盘**：他先用谷歌趋势发现两个候选词——蓝色词热度在走下坡路，红色词热度稳中有升。选了红色词后,进一步验证："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**看供应量**：用 `intitle:关键词` 在谷歌搜索，这个词的网页供应量只有3440",
+        "**看搜索量**：月搜索量20 万",
+        "**看 KD**：Ahrefs显示的 KD才 7",
+        "**用KGR 公式**：`KGR = intitle 结果数 / 月搜索量`，算出来很低，确认是好机会"
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "KGR 越低越好,一般 < 0.25就是蓝海词。哥飞专门写过一篇《使用KGR 公式来量化新词，寻找蓝海词》来详解这个公式。"
+    },
+    {
+      "type": "paragraph",
+      "text": "做完这些判断后，哥飞才拿这个词注册域名、让实习生开发上站。结果呢？上站后 28天的点击数据从10 涨到 15、40、180、600、900、1200、1500——持续增长，四个月走上正轨[3]。"
+    },
+    {
+      "type": "paragraph",
+      "text": "同样的模式在另一个社群成员身上也验证了：他照着哥飞的方法，找到第一个关键词，做第一个网站，上线 24 小时内就拿到3600 多个点击[4]。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "四、《哥飞实战手册》里的新词发现SOP"
+    },
+    {
+      "type": "paragraph",
+      "text": "**新手的必胜策略是\"新词新站\"**[1]。新词发现的 SOP 有三条路径:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**谷歌趋势监控**：用Google Trends 的\"每日搜索趋势\"，关注过去24-48 小时内搜索量突然飙升的词汇（新事件、新产品、新概念的信号）",
+        "**平台引荐分析**：用Similarweb分析 Vercel、Netlify这些平台子域名的流量，发现那些悄然兴起、已获得初步自然流量的新兴工具",
+        "**社交媒体嗅探**:蹲Reddit、Twitter/X、HackerNews 这些开发者聚集地，新产品开始流行时，相关工具需求会在第一时间被讨论"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "找到新词后，坚持**单域名、单站、单关键词**原则——全部资源集中火力攻击一个核心关键词。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "五、动手清单"
+    },
+    {
+      "type": "paragraph",
+      "text": "总结下来，挖掘第一个关键词的实操步骤："
+    },
+    {
+      "type": "list",
+      "items": [
+        "打开Semrush / Ahrefs,从 51 个词根（如 `generator`）出发",
+        "用谷歌趋势筛出\"最近 12个月才出现热度\"的新词",
+        "用 `intitle:` 查供应量 + Ahrefs查KD + KGR 公式算竞争度，确认是蓝海",
+        "去谷歌搜这个词的前三名，研究它们的页面长什么样",
+        "确认值得做 → 注册域名，上站"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**的建议是：不要憋大招。放弃\"一站发财\"心态，踏踏实实从找到第一个关键词开始[3]。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我已经覆盖了核心的挖掘方法论（六种方法）、判断标准（KGR评估）和实操案例，但还有十几篇相关文章未深入——包括具体案例拆解（如emojicombos.com）、KGR 公式的完整教程、新站上页面的策略、以及从支付网关反查赚钱网站等进阶技巧。需要我继续展开这些吗？"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "参考来源"
+    },
+    {
+      "type": "list",
+      "items": [
+        "[1] [《哥飞实战手册》：海外工具站从0到月入万刀全流程指南](https://new.web.cafe/topic/8kgp07yhld)",
+        "[2] [再聊需求挖掘：六种挖掘需求方法详解](https://new.web.cafe/tutorial/detail/ng0iqixalc)",
+        "[3] [出海 Web多久能有正反馈？来看看一个小工具站上线四个多月完整历程](https://mp.weixin.qq.com/s/t6SFuMjUB6YO9mI4gXq1MA)",
+        "[4] [做站终于赚到第 1 美元；新站上线 24 小时 3600 点击；被遗忘的网站赚了 400多美元](https://mp.weixin.qq.com/s/HNabUkfhNbDB3PAEWWHfCg)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "继续追问:"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体怎么做呢？我不要理论，也不要泛泛而谈的教程，我要一步一步的实操步骤指引"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "实操步骤：挖掘你的第一个关键词"
+    },
+    {
+      "type": "paragraph",
+      "text": "以下每一步都来自已读文章中的具体操作，你可以打开电脑跟着走。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第 1步:打开Semrush Keyword Magic Tool"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开 Semrush，进入 Keyword Magic Tool。"
+    },
+    {
+      "type": "paragraph",
+      "text": "输入一个词根，比如 `Generator`。[1]"
+    },
+    {
+      "type": "quote",
+      "text": "哥飞准备了51 个常用词根关键词（如Generator、Maker、Checker等），你可以从中选一个起步.[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你没有Semrush付费账号，可以先用免费的 Ahrefs Keyword Generator 替代：打开[https://ahrefs.com/keyword-generator](https://ahrefs.com/keyword-generator) ，选择谷歌，输入 `Generator`，选择美国。[2]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第2 步:设置筛选条件"
+    },
+    {
+      "type": "paragraph",
+      "text": "在Semrush结果列表里，设置筛选："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**搜索量** ≥ 30000/月",
+        "**KD** ≤ 60",
+        "**CPC** > $0.01"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这两个数字不是金科玉律，只是一个起步范围。目的是筛掉\"没流量\"和\"太难打\"的两端。[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "筛选完后，你会拿到一个候选关键词列表。此时先别急着选，进入第 3步。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第3步:用谷歌趋势判断是不是新词"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开谷歌趋势：[https://trends.google.com/trends/explore](https://trends.google.com/trends/explore)"
+    },
+    {
+      "type": "paragraph",
+      "text": "把候选关键词一个个输入，时间范围选**最近12个月**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "看曲线："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**过去 12个月内才开始出现明显搜索量的 → 新词**，优先做",
+        "一直在平稳上行的 → 老词但需求稳定，也可以做",
+        "最近12个月在走下坡路的 → 放弃[2][3]"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**在实战手册里还补充了一条路径：用 Google Trends 的\"每日搜索趋势\"，关注过去24-48 小时内搜索量突然飙升的词汇——这是新事件、新产品的信号。[3]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第4步：用 KGR 公式算竞争度"
+    },
+    {
+      "type": "paragraph",
+      "text": "这是最关键的一步。KGR公式:"
+    },
+    {
+      "type": "quote",
+      "text": "**KGR = intitle 结果数 ÷ 月搜索量**"
+    },
+    {
+      "type": "paragraph",
+      "text": "具体操作："
+    },
+    {
+      "type": "list",
+      "items": [
+        "在谷歌搜索框输入 `intitle: \"你的关键词\"`（注意带引号）",
+        "记下谷歌显示的搜索结果总数（这就是\"网页供应量\"）",
+        "去Ahrefs / Semrush查你这个关键词的月搜索量",
+        "用上面的公式除一下"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "**判断标准**：KGR越低越好，一般 < 0.25就是蓝海词。[4]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**亲自示范过一个案例：用intitle查一个词，网页供应量只有3440，月搜索量却有 20万，Ahrefs KD 才 7.KGR算出来极低——直接确认是好机会。他注册域名、交实习生开发上站，四个月走上正轨。[4]"
+    },
+    {
+      "type": "quote",
+      "text": "**特别注意**:KGR和 KD必须**两个都看**。KGR看竞争者数量（有多少页面在打这个词），KD 看竞争者质量（排在前面的页面有多强）.两者没有正相关关系，不能只看一个。[5]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第5 步：看前 10 名，确认你能打得过"
+    },
+    {
+      "type": "paragraph",
+      "text": "在谷歌搜索你的关键词，看前10名结果，逐一检查："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**有没有头部大站（DA 80+）在跟你抢？** 如果前 10 全是DA 80+ 老站，即使 KGR 看起来不错，新站也很难上位",
+        "**前10 名里，有多少是首页排名、多少是内页排名？** 如果大多是内页在打这个词，说明你用首页去打，有以强胜弱的机会。如果全是首页在竞争，就要谨慎",
+        "**竞争对手的页面质量怎么样？** 如果前 10 名很多是小站、工具简陋、体验差,那你的机会就大[6]"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "**哥飞**的核心策略：举全站之力用首页去打别人的内页，以弱胜强、以新胜强。[5]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第6步：确认搜索意图和商业价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "最后一步，确认这个词的用户到底在搜什么。"
+    },
+    {
+      "type": "list",
+      "items": [
+        "搜出来的结果是**工具页多**，还是**教程/问答多**？",
+        "谷歌广告位上有多少广告主在投广告？（广告多 = 商业价值高）",
+        "CPC 是多少？（CPC高 = 离钱近，值得做）"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "用哥飞提出的 **KDRoi 公式**做最终判断:"
+    },
+    {
+      "type": "quote",
+      "text": "**KDRoi = 搜索量 × CPC ÷ KD**"
+    },
+    {
+      "type": "paragraph",
+      "text": "两个词放一起比：关键词A（搜索量5000，CPC $2,KD 25 → KDRoi = 400）vs关键词B（搜索量 50000，CPC $0.1，KD 80 → KDRoi = 62.5）。B的搜索量是A的10倍，但 A的性价比是B的6倍。[1]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "第7 步：确认 → 买域名 → 上站"
+    },
+    {
+      "type": "paragraph",
+      "text": "当以上6步全部通过之后："
+    },
+    {
+      "type": "list",
+      "items": [
+        "注册一个跟关键词匹配的域名",
+        "用 AI 工具快速开发上站（**哥飞**有专门的 AI 原生极速交付SOP，数小时内完成上线）[3]",
+        "坚持单域名、单站、单关键词原则，全部资源集中火力打一个核心关键词[3]"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "已完成的部分"
+    },
+    {
+      "type": "paragraph",
+      "text": "上面这7 步覆盖了从\"打开工具\"到\"确认值得做\"的全链条实操，关键公式（KGR、KDRoi）、判断标准（<0.25、前 10 名内页比例、DA 80+ 警戒线）和具体工具操作（Semrush筛选条件、谷歌趋势12个月、intitle 命令）都已给出。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "尚未展开的部分"
+    },
+    {
+      "type": "paragraph",
+      "text": "以下内容已定位到但暂未纳入："
+    },
+    {
+      "type": "list",
+      "items": [
+        "上站之后的具体操作（GSC提交、Reddit/V2EX 引蜘蛛、外链建设 SOP）",
+        "从支付网关反查赚钱网站的进阶挖词方法",
+        "更多新手完整复盘案例（如Morse Code 站从0 到日 4000点击的全过程）",
+        "用 Similarweb分析 Vercel子域名等平台引荐挖词的方法"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "需要我把上站后的操作也拆成一步一步的实操步骤吗？"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "参考来源"
+    },
+    {
+      "type": "list",
+      "items": [
+        "[1] [需求挖掘实操:出海赚钱第一步，选错需求全白做](https://new.web.cafe/topic/qn84nif705)",
+        "[2] [再聊需求挖掘：六种挖掘需求方法详解](https://new.web.cafe/tutorial/detail/ng0iqixalc)",
+        "[3] [《哥飞实战手册》：海外工具站从 0 到月入万刀全流程指南](https://new.web.cafe/topic/8kgp07yhld)",
+        "[4] [出海 Web 多久能有正反馈？来看看一个小工具站上线四个多月完整历程](https://mp.weixin.qq.com/s/t6SFuMjUB6YO9mI4gXq1MA)",
+        "[5] [【2025.11.15】关于KD 和 KGR，到底怎么理解这两个指标。](https://new.web.cafe/tutorial/detail/hxx4rf13h1)",
+        "[6] [确定了KD和 KGR 后找到的长尾词，还要观察5个维度](https://new.web.cafe/topic/e1vgacggxi)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "继续追问："
+    },
+    {
+      "type": "paragraph",
+      "text": "我想更细节的了解找词选词这一步"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "找词选词，逐步细节"
+    },
+    {
+      "type": "paragraph",
+      "text": "以下每一步都是你打开电脑可以直接跟做的操作。所有数字、按钮名称、网址均来自已读到的文章原文。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "一、选词根：51个入口"
+    },
+    {
+      "type": "paragraph",
+      "text": "先从哥飞准备的 51 个词根里挑一个起步，推荐从 `Generator` 开始，因为当前 AI 工具需求大量包含这个词。[1]"
+    },
+    {
+      "type": "paragraph",
+      "text": "清单里的高频词根包括：Generator、Converter、Calculator、Editor、Maker、Checker、Detector、Builder、Template、Downloader、Analyzer、Optimizer、Tracker、Planner、Assistant、Simulator、Scraper、Comparator。[1]"
+    },
+    {
+      "type": "paragraph",
+      "text": "为什么不自己造词根?因为词根代表\"需求大类\"，一个好词根下面能挖出几十上百个候选词，51个词根就是51 片蓝海——直接从验证过的起点出发,比你自己漫无目的乱搜效率高得多.[1]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "二、打开工具，两种路径"
+    },
+    {
+      "type": "paragraph",
+      "text": "**路径A：免费版（Ahrefs Free Keyword Generator）**"
+    },
+    {
+      "type": "paragraph",
+      "text": "不需要登录,打开 [https://ahrefs.com/keyword-generator](https://ahrefs.com/keyword-generator)，选择谷歌，输入 `Generator`，选择美国。[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "注意：免费版默认给出的都是搜索量较大的词，KD都很高，只能做初步感受，真正筛选还得靠 Semrush。[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**路径B：付费版（Semrush Keyword Magic Tool）**"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开 Semrush → 找到「关键词研究」功能 → 输入 `Generator` → 在概览页面向下找到衍生关键词列表 → 点击「查看全部关键词」按钮。[2]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "三、设筛选条件（核心步骤）"
+    },
+    {
+      "type": "paragraph",
+      "text": "进到Keyword Magic Tool的完整关键词列表后，逐个设置："
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "筛选字段",
+          "设置值",
+          "为什么"
+        ],
+        [
+          "Volume（搜索量）",
+          "≥ 30,000/月",
+          "日均 ≥ 1000 次搜索，太小没意义"
+        ],
+        [
+          "KD（关键词难度）",
+          "≤ 60",
+          "过滤掉 90+ 的老站战场"
+        ],
+        [
+          "CPC",
+          "> $0.01",
+          "排除无商业价值的词"
+        ],
+        [
+          "排除词组",
+          "\"near me\"",
+          "本地搜索词，工具站做不了"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "筛完后，还可以点击左侧「关键词群组」选AI，出来的就是全部带 AI且带 Generator 的衍生词.[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**关键认知**：这里设置KD ≤ 60是哥飞 2025年初的写法，到了2026 年 4月的文章（袁锐钦）更激进——**新手只看 KD 0-29**，CPC ≥ $0.1.[1] 两个版本你可以选择：保守起步用 KD ≤ 60（范围更大），追求成功率用KD 0-29（只打低竞争）。"
+    },
+    {
+      "type": "paragraph",
+      "text": "筛选完一个词根，导出CSV，换下一个词根继续——每个词根都能产出几十到上百个候选词。[1]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "四、用年趋势列 + 谷歌趋势确认新词"
+    },
+    {
+      "type": "paragraph",
+      "text": "**第一步：看 Semrush 里的「年趋势」列**"
+    },
+    {
+      "type": "paragraph",
+      "text": "在关键词列表里，每一行都有「年趋势」列，你可以直接**可视化地看出哪些是近几个月才冒头的新词**。比如哥飞拿 `headcanon generator` 举例——趋势曲线显示之前几乎零搜索量,最近几个月突然出现了。[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**第二步：用谷歌趋势深挖**"
+    },
+    {
+      "type": "paragraph",
+      "text": "对感兴趣的词，打开谷歌趋势：[https://trends.google.com/trends/explore?q=你的关键词](https://trends.google.com/trends/explore?q=%E4%BD%A0%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8D)"
+    },
+    {
+      "type": "paragraph",
+      "text": "时间范围选**最近 12 个月**,看曲线形态："
+    },
+    {
+      "type": "list",
+      "items": [
+        "过去12 个月才开始有显著搜索量 → 新词",
+        "一直在平稳上行 → 老词但需求稳定",
+        "最近 12个月走下坡路 → 放弃[2]"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "`headcanon generator` 的案例：谷歌趋势清楚显示这个词是 **5 月底才出现的**。[2]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**第三步（可选）：用谷歌广告后台验证搜索量**"
+    },
+    {
+      "type": "paragraph",
+      "text": "打开谷歌广告后台 → 工具 → 规划 → 关键字规划工具 → 选择「获取搜索量和预测数据」→ 输入关键词 → 地理位置选「全球」→ 时间选最近两个月的具体月份。"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞演示：`headcanon generator` 在谷歌广告里显示 6 月搜索量 **13.5万，日均 4500次搜索**。[2]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "五、三种排序，交替挖金"
+    },
+    {
+      "type": "paragraph",
+      "text": "候选列表出来后，不要只看一种排序。交替切换以下三种："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**按搜索量从高到低排序** → 找大需求",
+        "**按KD从低到高排序** → 找最容易打进去的词",
+        "**按CPC从高到低排序** → 找离钱最近的词[2]"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "这三种排序交叉看，你能同时捕捉到\"流量大 + 竞争低 + 商业价值高\"的交叉窗口词。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "六、用KGR算竞争度（带真实数字）"
+    },
+    {
+      "type": "paragraph",
+      "text": "对进入最终候选池的词，逐一算 KGR："
+    },
+    {
+      "type": "quote",
+      "text": "**KGR = allintitle结果数 ÷ 月搜索量**"
+    },
+    {
+      "type": "paragraph",
+      "text": "步骤："
+    },
+    {
+      "type": "list",
+      "items": [
+        "在谷歌搜索框输入：`allintitle: \"你的关键词\"`（带引号）",
+        "记下谷歌显示的**搜索结果总数**——这就是「供应量」",
+        "去Semrush/Ahrefs查这个词的**月搜索量**",
+        "相除"
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "**判断标准**：KGR < 0.25 是蓝海词。[3]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**真实案例**：哥飞自己挖的一个词——intitle供应量3440，月搜索量 20 万，Ahrefs KD才7。KGR = 3440 ÷ 200000 = 0.0172，远低于0.25 的蓝海线.[3] 他确认后注册域名、交实习生上站,四个月走上正轨。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "七、KDRoi公式做最终排序"
+    },
+    {
+      "type": "paragraph",
+      "text": "候选词超过 5 个、不好抉择时，用KDRoi 公式给每个词算分："
+    },
+    {
+      "type": "quote",
+      "text": "**KDRoi = Volume × CPC ÷ KD**"
+    },
+    {
+      "type": "paragraph",
+      "text": "操作：在导出的 CSV的 Excel 里新增一列,填这个公式，然后按KDRoi从高到低排序——排在最前面的就是综合性价比最高的词.[1]"
+    },
+    {
+      "type": "paragraph",
+      "text": "**对比案例**："
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "",
+          "关键词A",
+          "关键词B"
+        ],
+        [
+          "Volume",
+          "5,000",
+          "50,000"
+        ],
+        [
+          "CPC",
+          "$2",
+          "$0.1"
+        ],
+        [
+          "KD",
+          "25",
+          "80"
+        ],
+        [
+          "**KDRoi**",
+          "**400**",
+          "**62.5**"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "B的搜索量是A的 10倍，但A的性价比是 B的6倍多。这个公式帮你避免被\"大词\"的虚高搜索量迷惑.[1]"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "八、关键陷阱：搜索量大 ≠ 值得做"
+    },
+    {
+      "type": "paragraph",
+      "text": "**Password Generator** 这个关键词,月搜索量几十万，听起来大吧?但 KD 90+，首页全是做了 10 年的老站，DA 80+。你一个新站拿什么打？[1]"
+    },
+    {
+      "type": "paragraph",
+      "text": "这就是为什么**必须同时看KD和KGR**——两者没有正相关关系，KGR 看竞争者数量,KD 看竞争者质量。只盯其中一个会被数据骗。[3]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "已完成的部分"
+    },
+    {
+      "type": "paragraph",
+      "text": "以上覆盖了找词选词的**全链条细节操作**——从选词根到工具筛选数字、从谷歌趋势验证到KGR/KDRoi双公式计算、从真实案例数字到关键陷阱，来自 4 篇核心文章的原文操作内容。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "尚未展开的部分"
+    },
+    {
+      "type": "paragraph",
+      "text": "以下14 篇文章暂未纳入："
+    },
+    {
+      "type": "list",
+      "items": [
+        "**《再聊挖掘需求的方法》**[4]：更早期的词根挖掘教程，包含更多实操截图和网站流量分析方法",
+        "**《有哪些挖掘需求的方法》**[5]：社群成员整理的方法汇总",
+        "**《98个新手找需求关键词根+搜索意图+可能建站机会》**[6]：社群成员在 51个词根基础上扩充到98 个，并标注了每个词根的搜索意图和建站思路",
+        "**《Truman的经验分享》**[7]：新词新站第一名，自己积累了 100+ 词根的完整SOP",
+        "**《风先生年度网站比赛第 21名复盘》**[8]：游戏站找词经验和谷歌趋势实战",
+        "**《奥赛的Morse Code 工具站复盘》**[9]：老词新做、半年日 4000 点击的完整找词和上站路径",
+        "**《做了个批量KGR的 Chrome 插件》**[10]：社群成员开发的自动化 KGR 计算工具",
+        "以及7篇补充材料（KGR 公式详解、新站页面策略、老手新手差异化策略等）"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "需要我继续展开这些吗？特别是Truman和奥赛的完整复盘，里面包含了从找词到上站到日千点击的完整时间线和操作细节。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "参考来源"
+    },
+    {
+      "type": "list",
+      "items": [
+        "[1] [需求挖掘实操:出海赚钱第一步，选错需求全白做](https://new.web.cafe/topic/qn84nif705)",
+        "[2] [再聊需求挖掘：六种挖掘需求方法详解](https://new.web.cafe/tutorial/detail/ng0iqixalc)",
+        "[3] [出海 Web多久能有正反馈？来看看一个小工具站上线四个多月完整历程](https://mp.weixin.qq.com/s/t6SFuMjUB6YO9mI4gXq1MA)",
+        "[4] [再聊挖掘需求的方法](https://new.web.cafe/tutorial/detail/mrozYpTgfu6MGXggeX2Kzr)",
+        "[5] [有哪些挖掘需求的方法](https://new.web.cafe/topic/thfzolfhp1)",
+        "[6] [在飞哥 51 个词根基础上补充，98 个新手找需求关键词根+搜索意图+可能建站机会](https://new.web.cafe/topic/d2n7yy8its)",
+        "[7] [2月新词新站第一名Truman 的经验分享](https://new.web.cafe/tutorial/detail/370kccr9s7)",
+        "[8] [25 年年度网站比赛第 21 名复盘](https://new.web.cafe/topic/87o76cwmpm)",
+        "[9] [奥赛的经验分享：半年时间从零开始把老词工具站做到从谷歌每日获取4000点击](https://mp.weixin.qq.com/s/LMJkDMJ9hCWdYHmCL1bu1A)",
+        "[10] [做了个批量KGR的 Chrome 插件，今天上了PH，求老哥支持一票](https://new.web.cafe/topic/0crnplfhqt)"
+      ]
+    }
+  ]
+}
