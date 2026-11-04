@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#fffaf1"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#344054" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="900" height="520" fill="url(#bg)"/>
+  <text x="58" y="72" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="34" font-weight="800" fill="#101828">判断一个关键词，不要只看搜索量</text>
+  <text x="58" y="114" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="20" fill="#475467">把需求、竞争和商业信号放在一起看，第一轮判断会更接近真实情况。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="58" y="166" width="236" height="238" rx="18" fill="#ffffff"/>
+    <circle cx="104" cy="218" r="28" fill="#e8f1ff"/>
+    <text x="94" y="229" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#1769e0">1</text>
+    <text x="82" y="278" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="27" font-weight="800" fill="#101828">搜索量</text>
+    <text x="82" y="321" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">有没有人搜</text>
+    <text x="82" y="354" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#667085">代表用户需求和市场规模</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="332" y="166" width="236" height="238" rx="18" fill="#ffffff"/>
+    <circle cx="378" cy="218" r="28" fill="#eaf7ef"/>
+    <text x="368" y="229" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#20784d">2</text>
+    <text x="356" y="278" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="27" font-weight="800" fill="#101828">INTITLE</text>
+    <text x="356" y="321" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">有多少人在做</text>
+    <text x="356" y="354" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#667085">粗略判断 SEO 竞争强度</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="606" y="166" width="236" height="238" rx="18" fill="#ffffff"/>
+    <circle cx="652" cy="218" r="28" fill="#fff1d8"/>
+    <text x="642" y="229" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#9a5b00">3</text>
+    <text x="630" y="278" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="27" font-weight="800" fill="#101828">Ads</text>
+    <text x="630" y="321" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">有没有人愿意花钱</text>
+    <text x="630" y="354" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#667085">判断搜索广告里的商业竞争</text>
+  </g>
+
+  <rect x="126" y="442" width="648" height="44" rx="22" fill="#101828"/>
+  <text x="180" y="471" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" font-weight="700" fill="#ffffff">搜索量看需求，INTITLE 看竞争，Ads 看商业价值</text>
+</svg>

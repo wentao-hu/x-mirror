@@ -1,0 +1,671 @@
+{
+  "meta": {
+    "id": "hovzp094jw",
+    "slug": "webcafe-hovzp094jw",
+    "title": "SiteData 新功能：在 Google 搜索页里直接查看关键词搜索量、趋势和广告竞争度",
+    "url": "https://new.web.cafe/topic/hovzp094jw",
+    "author_name": "shine_forever",
+    "author_username": "web.cafe",
+    "published_utc": "2026-06-25T10:25:33.395Z",
+    "published_local": "2026-06-25 18:25",
+    "category": "AI工具",
+    "category_reason": "主要交付是介绍并教用 SiteData 浏览器扩展这一工具的新功能——在 Google 搜索结果页直接查看搜索量、趋势与网站广告投放，属于工具本身的能力与用法；文中关键词判断方法是对工具输出的解读，排除 SEO获客与需求研究；本站工具类只有 AI工具，按用户指定归入该层。",
+    "description": "",
+    "source_type": "webcafe",
+    "tags": [
+      "adsense",
+      "Google ads",
+      "产品分析",
+      "Chrome 插件",
+      "小工具"
+    ],
+    "avatar_local": "avatar.jpg",
+    "images_total": 7,
+    "images_ok": 7,
+    "api_media_count": 7,
+    "fidelity_note": "web.cafe 登录态抓取 .custom-html.prose 全文；7 张配图按原文顺序本地托管；原站 hr 分隔线与重复的大标题不重复展示；评论未收录（默认规则）。",
+    "plain_text_len": 3933,
+    "blocks_count": 139
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "local": "img01.svg",
+      "alt": "SiteData 在 Google 搜索页直接看关键词价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "做关键词研究的时候，很多人都会遇到一个问题："
+    },
+    {
+      "type": "paragraph",
+      "text": "你在 Google里搜索一个关键词,只能看到搜索结果本身."
+    },
+    {
+      "type": "paragraph",
+      "text": "但真正影响判断的，往往不只是「有哪些网页排在前面」。"
+    },
+    {
+      "type": "paragraph",
+      "text": "你更想知道的是："
+    },
+    {
+      "type": "list",
+      "items": [
+        "这个关键词有多少搜索量？",
+        "最近热度是在上升还是下降？",
+        "SEO竞争大不大？",
+        "有没有网站正在为这个关键词投广告？",
+        "搜索结果里的这些网站，最近有没有商业投放行为？"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "以前要看这些信息，通常需要在多个工具之间来回切换：Google 搜索、Google Trends、SEO 工具、广告透明度工具、竞品分析工具……"
+    },
+    {
+      "type": "paragraph",
+      "text": "这次 SiteData 新增的功能，就是想把这些信息直接放到Google搜索页里。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当你搜索一个关键词时，不用离开当前页面，就可以快速完成第一轮判断。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1. 搜索关键词时，直接看到关键词核心数据"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在，当你在Google搜索一个关键词时，SiteData会在搜索结果页面展示一个关键词概览模块。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如搜索："
+    },
+    {
+      "type": "paragraph",
+      "text": "**ai image generator**"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以直接看到这个关键词的几个核心指标："
+    },
+    {
+      "type": "list",
+      "items": [
+        "最近一个月搜索量",
+        "搜索量环比变化",
+        "INTITLE 数量",
+        "最近有多少个网站在投放Google搜索广告"
+      ]
+    },
+    {
+      "type": "image",
+      "local": "img02.png",
+      "alt": "图 1：搜索关键词时，直接显示搜索量、INTITLE 和投放广告的网站数量"
+    },
+    {
+      "type": "paragraph",
+      "text": "这些数据可以帮助你快速判断一个关键词是否值得继续分析."
+    },
+    {
+      "type": "image",
+      "local": "img03.svg",
+      "alt": "信息图：搜索量、INTITLE 和 Ads 分别代表需求、竞争和商业价值"
+    },
+    {
+      "type": "paragraph",
+      "text": "**搜索量** 代表这个词有没有用户需求。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**INTITLE** 代表有多少页面在标题里布局了这个关键词，可以粗略判断 SEO 竞争强度。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**Websites with Ads** 代表最近有多少个网站正在为这个关键词投放 Google搜索广告，可以用来判断商业价值和广告竞争度。"
+    },
+    {
+      "type": "paragraph",
+      "text": "简单说："
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索量告诉你有没有人搜。"
+    },
+    {
+      "type": "paragraph",
+      "text": "INTITLE 告诉你有多少人在做。"
+    },
+    {
+      "type": "paragraph",
+      "text": "广告网站数量告诉你有没有人愿意花钱买这个流量."
+    },
+    {
+      "type": "paragraph",
+      "text": "这三个数据放在一起，比只看搜索量更接近真实情况。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2. 为什么要加入 Websites with Ads？"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多人在做关键词研究时，习惯先看搜索量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但只看搜索量，其实很容易误判。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有些关键词搜索量很高,但转化价值不一定强。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有些关键词搜索量一般，但商业价值可能很高。"
+    },
+    {
+      "type": "paragraph",
+      "text": "还有一些关键词，看起来竞争不大,但其实已经有很多广告主在持续投放。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以，我们新增了一个指标："
+    },
+    {
+      "type": "paragraph",
+      "text": "**Websites with Ads**"
+    },
+    {
+      "type": "paragraph",
+      "text": "它表示最近一段时间内，有多少个网站在为这个关键词投放 Google 搜索广告。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果一个关键词有不少网站在投广告，说明这个词背后大概率存在商业价值。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当然，这不代表你一定要去做这个词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "它只是一个更直接的商业信号。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如一个关键词："
+    },
+    {
+      "type": "list",
+      "items": [
+        "搜索量很高",
+        "INTITLE很高",
+        "投广告的网站也很多"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "那它大概率是一个热门市场，但竞争也会非常激烈。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你是新站，可能不适合直接硬刚主词，而是应该继续挖长尾词."
+    },
+    {
+      "type": "paragraph",
+      "text": "但如果一个关键词："
+    },
+    {
+      "type": "list",
+      "items": [
+        "搜索量适中",
+        "INTITLE 不算夸张",
+        "同时也有一些网站在投广告"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这种词反而可能更值得深入研究。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3. 直接在搜索页查看 Google Trends 趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "除了关键词概览，SiteData 还新增了 Google Trends 趋势模块。"
+    },
+    {
+      "type": "paragraph",
+      "text": "以前你想看一个关键词的趋势,通常要打开Google Trends，再重新输入关键词，选择地区、时间范围,再进行对比。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在你可以直接在Google 搜索结果页里查看趋势。"
+    },
+    {
+      "type": "image",
+      "local": "img04.png",
+      "alt": "图 2：在 Google 搜索结果页中直接查看关键词趋势"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以设置："
+    },
+    {
+      "type": "list",
+      "items": [
+        "对比关键词",
+        "时间范围",
+        "趋势周期"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "比如你搜索 **ai image generator**,可以直接和其他关键词进行对比，看看最近 30天谁的热度更高，谁的走势更稳定。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个功能适合用来判断："
+    },
+    {
+      "type": "list",
+      "items": [
+        "一个关键词是不是短期热点",
+        "热度是上升、下降，还是稳定",
+        "两个相似关键词之间，哪个更值得优先做",
+        "当前搜索量是否还能代表真实趋势"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你觉得这个关键词确实值得继续分析，也可以一键跳转到Google Trends 查看更完整的数据。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这样就不用在 Google搜索页和Google Trends之间来回切换了。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4. 趋势模块可以自定义对比词和时间范围"
+    },
+    {
+      "type": "paragraph",
+      "text": "除了直接查看趋势，你也可以在 SiteData的设置里调整趋势模块。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如你可以自定义对比关键词，也可以调整趋势统计的时间范围。"
+    },
+    {
+      "type": "image",
+      "local": "img05.png",
+      "alt": "图 3：自定义 Google Trends 的对比关键词和时间范围"
+    },
+    {
+      "type": "paragraph",
+      "text": "这对做关键词比较尤其有用."
+    },
+    {
+      "type": "paragraph",
+      "text": "有时候两个词看起来意思差不多,但真实热度完全不同。"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如："
+    },
+    {
+      "type": "list",
+      "items": [
+        "ai image generator",
+        "AI image maker",
+        "text to image AI",
+        "free AI image generator"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这些词都和 AI图片生成有关，但用户搜索意图、商业价值、竞争强度可能并不一样。"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果能在搜索页里直接对比趋势，你就可以更快判断哪个词值得优先分析。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5. 搜索结果里的每个网站，也能看到广告投放行为"
+    },
+    {
+      "type": "paragraph",
+      "text": "除了关键词层面的数据，我们还在 Google搜索结果页面里增加了网站层面的广告数据。"
+    },
+    {
+      "type": "paragraph",
+      "text": "当你浏览SERP搜索结果时，SiteData 会结合我们自己的广告数据，显示这个网站最近四周是否有 Google搜索广告投放行为,以及大概投放了多少条广告。"
+    },
+    {
+      "type": "image",
+      "local": "img06.png",
+      "alt": "图 4：在 SERP 搜索结果中查看网站最近四周的 Google 搜索广告投放行为"
+    },
+    {
+      "type": "paragraph",
+      "text": "比如你搜索一个关键词后，可以直接看到:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "某个网站最近有没有投广告",
+        "投放了多少条 Google搜索广告",
+        "自然排名靠前的网站，是否也在买广告",
+        "这个行业里哪些网站商业化动作更明显"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "这个功能对做竞品分析很有用。"
+    },
+    {
+      "type": "paragraph",
+      "text": "因为你不只是看到「谁排在前面」，还可以看到「谁最近在花钱买流量」。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有些网站自然排名不错,同时还在投广告."
+    },
+    {
+      "type": "paragraph",
+      "text": "这通常说明它对这个关键词很重视，也可能说明这个关键词带来的转化价值比较高."
+    },
+    {
+      "type": "paragraph",
+      "text": "有些网站排在前面,但没有明显广告投放."
+    },
+    {
+      "type": "paragraph",
+      "text": "这可能说明它更偏内容流量，也可能说明这个词的广告竞争没有那么强。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这些信息放在SERP页面里，会比单独打开广告工具更直观。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6. 目前统计的是Google 搜索广告"
+    },
+    {
+      "type": "paragraph",
+      "text": "这里需要说明一下："
+    },
+    {
+      "type": "paragraph",
+      "text": "SiteData 目前统计的广告数据，主要是 **Google搜索广告**."
+    },
+    {
+      "type": "paragraph",
+      "text": "也就是说，我们现在关注的是：用户在 Google搜索关键词时，相关网站是否有搜索广告投放行为。"
+    },
+    {
+      "type": "paragraph",
+      "text": "目前不包含 YouTube广告、展示广告、Performance Max 等其他广告类型。"
+    },
+    {
+      "type": "paragraph",
+      "text": "所以你在使用这个数据时,可以把它理解为："
+    },
+    {
+      "type": "paragraph",
+      "text": "这个关键词或这个网站，最近是否在 Google 搜索广告里有投放痕迹."
+    },
+    {
+      "type": "paragraph",
+      "text": "这个数据更适合用来判断搜索流量里的商业竞争，而不是完整广告预算分析。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7. 这个功能适合哪些场景？"
+    },
+    {
+      "type": "paragraph",
+      "text": "**SEO 选词**"
+    },
+    {
+      "type": "paragraph",
+      "text": "你可以在搜索关键词时，直接判断这个词有没有搜索量、SEO竞争强不强，以及有没有商业价值。"
+    },
+    {
+      "type": "paragraph",
+      "text": "不用打开一堆工具，先在Google 搜索页里完成第一轮筛选。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**独立站选品**"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你在做工具站、内容站、联盟站、SaaS 或电商站，可以用它判断某个关键词背后是否有真实需求和付费竞争。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有搜索量，只能说明有人搜。"
+    },
+    {
+      "type": "paragraph",
+      "text": "有人投广告，才更接近商业信号。"
+    },
+    {
+      "type": "paragraph",
+      "text": "**竞品分析**"
+    },
+    {
+      "type": "paragraph",
+      "text": "在SERP结果中，你可以看到哪些网站最近有广告投放行为。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这可以帮助你判断："
+    },
+    {
+      "type": "list",
+      "items": [
+        "谁在积极买流量",
+        "谁可能是重点竞品",
+        "哪些网站不仅做 SEO，也在做广告投放"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "**内容选题**"
+    },
+    {
+      "type": "paragraph",
+      "text": "如果你在做英文内容站，也可以用这个功能判断一个主题是否值得写."
+    },
+    {
+      "type": "paragraph",
+      "text": "搜索量、趋势、INTITLE、广告投放数据放在一起看，会比单纯靠感觉选题靠谱很多。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "8. 一个更实用的判断方式"
+    },
+    {
+      "type": "paragraph",
+      "text": "以后判断一个关键词，不要只问:"
+    },
+    {
+      "type": "paragraph",
+      "text": "**这个词搜索量高不高？**"
+    },
+    {
+      "type": "paragraph",
+      "text": "可以换成下面这几个问题:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "这个词最近一个月有没有稳定搜索量？",
+        "搜索量相比上个月是在增长还是下降?",
+        "有多少页面已经在标题里布局了这个词？",
+        "最近有没有网站为这个词投放 Google 搜索广告？",
+        "SERP 结果里的竞品有没有广告投放行为？",
+        "趋势是上涨、稳定，还是下滑？"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "如果一个关键词同时满足："
+    },
+    {
+      "type": "list",
+      "items": [
+        "有搜索量",
+        "趋势稳定或增长",
+        "INTITLE 竞争不算离谱",
+        "有一定广告投放行为"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "那它通常比单纯「搜索量很高」的关键词更值得继续分析。"
+    },
+    {
+      "type": "paragraph",
+      "text": "反过来，如果一个词搜索量很高，但INTITLE 巨高，广告竞争也很激烈，那么新站可能就不适合直接做主词，而应该继续拆长尾词."
+    },
+    {
+      "type": "paragraph",
+      "text": "比如从 **ai image generator** 继续拆："
+    },
+    {
+      "type": "list",
+      "items": [
+        "free ai image generator",
+        "ai image generator from text",
+        "ai image generator for product photos",
+        "ai anime image generator",
+        "ai image generator no login",
+        "ai image generator for ecommerce"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "主词用来判断市场规模。"
+    },
+    {
+      "type": "paragraph",
+      "text": "长尾词用来寻找真正可以切入的机会。"
+    },
+    {
+      "type": "image",
+      "local": "img07.svg",
+      "alt": "信息图：从主词到长尾词的关键词筛选流程"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9. 我们为什么做这个功能？"
+    },
+    {
+      "type": "paragraph",
+      "text": "SiteData一直想解决的问题是："
+    },
+    {
+      "type": "paragraph",
+      "text": "不要让用户为了看一个网站、一个关键词、一个竞品，在多个工具之间反复切换."
+    },
+    {
+      "type": "paragraph",
+      "text": "很多时候,用户并不需要一开始就进入复杂的分析系统。"
+    },
+    {
+      "type": "paragraph",
+      "text": "他只是想在搜索的时候，顺手判断一下："
+    },
+    {
+      "type": "list",
+      "items": [
+        "这个关键词有没有价值？",
+        "这个网站是不是竞品？",
+        "这个行业有没有人在投广告？",
+        "这个市场是不是还在增长？"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "所以我们把这些信息直接放进Google 搜索页面。"
+    },
+    {
+      "type": "paragraph",
+      "text": "你搜索关键词时，就能看到关键词数据。"
+    },
+    {
+      "type": "paragraph",
+      "text": "你查看搜索结果时，就能看到网站广告行为。"
+    },
+    {
+      "type": "paragraph",
+      "text": "你想看趋势时，也可以直接在当前页面查看。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这就是这次更新的核心目的："
+    },
+    {
+      "type": "paragraph",
+      "text": "**让关键词研究、趋势判断和广告竞争分析，尽可能在Google 搜索页里完成。**"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "思考"
+    },
+    {
+      "type": "paragraph",
+      "text": "这次 SiteData 新增了三个比较实用的能力:"
+    },
+    {
+      "type": "paragraph",
+      "text": "第一,在 Google 搜索关键词时，直接查看搜索量、INTITLE 和广告投放网站数量。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第二，在搜索结果页内查看 Google Trends趋势，并支持自定义时间范围和对比关键词。"
+    },
+    {
+      "type": "paragraph",
+      "text": "第三，在 SERP 搜索结果中，查看每个网站最近四周的 Google搜索广告投放行为。"
+    },
+    {
+      "type": "paragraph",
+      "text": "对 SEO、独立站、SaaS、联盟营销、内容站和竞品分析来说,这些数据都可以作为第一轮判断信号。"
+    },
+    {
+      "type": "paragraph",
+      "text": "它不能替代完整的深度分析，但可以帮你更快判断一个关键词值不值得继续研究。"
+    },
+    {
+      "type": "paragraph",
+      "text": "以前你可能需要打开多个工具来回切换。"
+    },
+    {
+      "type": "paragraph",
+      "text": "现在，你可以先在 Google搜索页里完成第一步判断。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这就是SiteData 这次更新想带来的变化。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef7ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#344054" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)"/>
+  <text x="58" y="72" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="34" font-weight="800" fill="#101828">从主词到机会词：一个更实用的筛选流程</text>
+  <text x="58" y="114" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="20" fill="#475467">主词判断市场规模，长尾词寻找真正能切入的位置。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="166" width="192" height="104" rx="18" fill="#ffffff"/>
+    <text x="104" y="207" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="22" font-weight="800" fill="#101828">输入主词</text>
+    <text x="104" y="242" font-family="Arial, sans-serif" font-size="18" fill="#1769e0">ai image generator</text>
+  </g>
+  <path d="M278 218 H350" stroke="#98a2b3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M350 218 l-13 -9 v18 z" fill="#98a2b3"/>
+
+  <g filter="url(#shadow)">
+    <rect x="366" y="166" width="192" height="104" rx="18" fill="#ffffff"/>
+    <text x="398" y="207" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="22" font-weight="800" fill="#101828">看三类信号</text>
+    <text x="398" y="242" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">搜索量 / 趋势 / Ads</text>
+  </g>
+  <path d="M572 218 H644" stroke="#98a2b3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M644 218 l-13 -9 v18 z" fill="#98a2b3"/>
+
+  <g filter="url(#shadow)">
+    <rect x="660" y="166" width="168" height="104" rx="18" fill="#ffffff"/>
+    <text x="692" y="207" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="22" font-weight="800" fill="#101828">判断竞争</text>
+    <text x="692" y="242" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">INTITLE 是否过高</text>
+  </g>
+
+  <path d="M744 286 V344" stroke="#98a2b3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M744 344 l-9 -13 h18 z" fill="#98a2b3"/>
+
+  <g filter="url(#shadow)">
+    <rect x="524" y="360" width="304" height="118" rx="18" fill="#fffaf1"/>
+    <text x="558" y="405" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="22" font-weight="800" fill="#101828">主词竞争太强？</text>
+    <text x="558" y="440" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="18" fill="#475467">继续拆长尾词，找更具体的需求</text>
+  </g>
+  <path d="M510 419 H390" stroke="#98a2b3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M390 419 l13 -9 v18 z" fill="#98a2b3"/>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="342" width="306" height="154" rx="18" fill="#ffffff"/>
+    <text x="104" y="384" font-family="'STHeiti Medium', 'Arial Unicode MS', sans-serif" font-size="22" font-weight="800" fill="#101828">长尾词方向</text>
+    <text x="104" y="420" font-family="Arial, sans-serif" font-size="18" fill="#475467">free ai image generator</text>
+    <text x="104" y="450" font-family="Arial, sans-serif" font-size="18" fill="#475467">ai image generator no login</text>
+    <text x="104" y="480" font-family="Arial, sans-serif" font-size="18" fill="#475467">ai image generator for ecommerce</text>
+  </g>
+</svg>
