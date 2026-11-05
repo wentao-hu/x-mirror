@@ -1401,6 +1401,35 @@
       "blocks_count": 57
     },
     {
+      "id": "ahrefs-dr4-preview",
+      "slug": "ahrefs-dr4-preview",
+      "title": "推出 DR4 预览：用于评估外链档案的全新 Domain Rating 模型",
+      "url": "https://ahrefs.com/blog/domain-rating-dr4/",
+      "author_name": "Glen Allsopp",
+      "author_username": "",
+      "published_utc": "2026-11-05T14:35:40.000Z",
+      "published_local": "2026-11-05 22:35",
+      "category": "SEO获客",
+      "category_reason": "主要交付是理解 Ahrefs DR4 外链评分模型的变化、数据依据与影响，读者据此判断外链档案分数和排名难度；不归「外链」，因为文章不涉及获取外链的渠道、提交或验收；不归「需求研究」，因为不讨论产品机会判断。",
+      "description": "",
+      "source_type": "web_article",
+      "avatar_local": "avatar.jpg",
+      "tags": [
+        "Domain Rating",
+        "DR4",
+        "外链",
+        "子域评分",
+        "Ahrefs",
+        "SEO指标"
+      ],
+      "images_total": 5,
+      "images_ok": 5,
+      "api_media_count": 0,
+      "fidelity_note": "Ahrefs 官方博客原文全文翻译；正文 5 张配图（2 张数据图表、2 张评分卡片、1 张外链报告界面）按 1200px 原图下载，未热链；2 个数据表格转为站内表格；原文页面内的推广位与文末 CTA 未收录。原文中「How to view…」为 24px 伪标题，译为 h3；「Sidenote」旁注合并为一段。作者 Glen Allsopp（贡献者 Xibeijia Guan，审阅 Ryan Law）；原文发布时间 2026-11-05 14:35 UTC（北京时间 22:35）。",
+      "plain_text_len": 3459,
+      "blocks_count": 70
+    },
+    {
       "id": "note-2026-11-05-google-penalized-domain-new-site-reuse",
       "slug": "note-google-penalized-domain-new-site-reuse",
       "title": "谷歌惩罚的域名很难恢复，换新域名别复用旧站内容",
