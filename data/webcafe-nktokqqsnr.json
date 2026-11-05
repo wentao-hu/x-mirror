@@ -1,0 +1,72 @@
+{
+ "meta": {
+  "id": "nktokqqsnr",
+  "slug": "webcafe-nktokqqsnr",
+  "title": "订阅站终于突破首单了，很开心",
+  "url": "https://new.web.cafe/topic/nktokqqsnr",
+  "author_name": "奔跑的阿白",
+  "author_username": "web.cafe",
+  "published_utc": "2026-11-05T01:21:22.768Z",
+  "published_local": "2026-11-05 09:21",
+  "category": "实战复盘",
+  "category_reason": "主要交付是对一次真实建站实践的结果复盘：一个视频方向的老词站一个多月出单，附域名时间、访问数据和首单支付截图，并归因到持续迭代与尽快上线；排除 SEO获客（只提到外链只发了几十个，没有讲外链或排名方法），排除建站开发（迭代只是经历描述，不是技术教程）。",
+  "description": "",
+  "source_type": "webcafe",
+  "tags": [
+   "订阅站",
+   "首单",
+   "老词",
+   "外链",
+   "网站迭代"
+  ],
+  "avatar_local": "avatar.png",
+  "images_total": 3,
+  "images_ok": 3,
+  "api_media_count": 3,
+  "fidelity_note": "web.cafe 登录态抓取 .custom-html.prose 全文；正文 3 段按原文顺序保留，3 张配图全部本地托管；原文无行内链接、无视频、无附件；评论未收录（默认规则）。",
+  "plain_text_len": 138,
+  "blocks_count": 7
+ },
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "一个视频方向的老词,一个多月，今天终于出单了，外链只发了几十个"
+  },
+  {
+   "type": "callout",
+   "title": "重点",
+   "items": [
+    "一个视频方向的老词,一个多月，今天终于出单了，**外链只发了几十个**"
+   ]
+  },
+  {
+   "type": "image",
+   "local": "01.png",
+   "orig_url": "https://s.web.cafe/image/06c128af2cc34ad1a46d75d7f408bddc.png",
+   "alt": "域名创建时间 2026-09-30（UTC）",
+   "key": "06c128af2cc34ad1a46d75d7f408bddc"
+  },
+  {
+   "type": "image",
+   "local": "02.png",
+   "orig_url": "https://s.web.cafe/image/8a03716704b34b5c89a2779982fbd26d.png",
+   "alt": "最近 7 天访问数据：访客 723、访问次数 822、浏览量 1.26k、跳出率 18%、平均访问时长 2m21s",
+   "key": "8a03716704b34b5c89a2779982fbd26d"
+  },
+  {
+   "type": "image",
+   "local": "03.png",
+   "orig_url": "https://s.web.cafe/image/23319dcbf43f432fa4c0cf289c241aab.png",
+   "alt": "首单支付成功：Customer paid $4.99（2026-11-04 UTC）",
+   "key": "23319dcbf43f432fa4c0cf289c241aab"
+  },
+  {
+   "type": "paragraph",
+   "text": "这个网站一直在迭代,开始只上了浏览器本地化的工具，后面逐步迭代上线了云端的功能。"
+  },
+  {
+   "type": "paragraph",
+   "text": "我觉得听哥飞的只要去做，尽快上线还是能有收获的,功能没问题就能突破。"
+  }
+ ]
+}
