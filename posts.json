@@ -1401,6 +1401,35 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-05-kgr-low-volume-longtail-intitle",
+      "slug": "note-kgr-low-volume-longtail-intitle",
+      "title": "KGR 只适合低量长尾词，大词看 intitle 没有意义",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-05T02:56:00.000Z",
+      "published_local": "2026-11-05 10:56",
+      "category": "SEO获客",
+      "category_reason": "主要交付是判断 KGR 这一关键词竞争度指标的适用范围与选词方法，归「SEO获客」的关键词布局与竞争度判断；排除「需求研究」，因为不是发现或验证新需求，而是在既定方向下筛词；排除「实战复盘」，因为小站出单只是用来说明单一领域方法的例子，不是以实践决策与结果归因为主体。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "KGR",
+        "intitle",
+        "长尾关键词",
+        "搜索量门槛",
+        "关键词竞争度",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 3,
+      "images_ok": 3,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 9 条全部保留，含 3 张图片并按内容补入正文；无纯表情消息。",
+      "plain_text_len": 1327,
+      "blocks_count": 17
+    },
+    {
       "id": "note-2026-11-05-dr-quantity-quality",
       "slug": "note-dr-quantity-quality",
       "title": "外链别只比 DR：数量和质量都要",
