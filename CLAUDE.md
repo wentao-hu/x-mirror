@@ -2,10 +2,9 @@
 
 ## 部署优先级（硬规则）
 
-- **Cloudflare Pages 是主站**：https://x-mirror-af7.pages.dev/。任何改动完成后默认只部署 Cloudflare：`./scripts/deploy_cloudflare.sh`。
-- **GitHub Pages 是备用站**，默认不同步、不验证、不等待。只有用户明确要求「同步 GitHub Pages」时，才 `git push` 到 `main` 并确认 GH Pages 构建完成。
-- **不要为了 GitHub Pages 单独改代码或加兼容逻辑**。共享脚本里已有的 `*.github.io` 走 Cloudflare `/api/meta` 的兜底（`assets/meta.js`）保持不变。
-- 部署 Cloudflare 后，GH Pages 是否为最新**不作为完成标准**；不检查两边内容一致性。
+- **Cloudflare Pages 是主站**：https://x-mirror-af7.pages.dev/。任何改动完成后部署 Cloudflare：`./scripts/deploy_cloudflare.sh`。
+- **GitHub push 是正常收尾**：完成标准 = Cloudflare 已部署 + 本次改动已提交并 push 到 `main`，push 的目的是备份、防止修改丢失，不是维护 GitHub Pages。
+- **不用管 GitHub Pages**：不等待、不验证 GH Pages 构建，不检查两边内容一致性，也不为它单独改代码或加兼容逻辑。共享脚本里已有的 `*.github.io` 走 Cloudflare `/api/meta` 的兜底（`assets/meta.js`）保持不变。
 
 ## 笔记类型（原创整理）
 
