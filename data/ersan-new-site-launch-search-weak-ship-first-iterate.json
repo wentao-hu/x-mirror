@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "2116339408874172470",
+    "slug": "ersan-new-site-launch-search-weak-ship-first-iterate",
+    "title": "新站上线搜索很差：新词该先占位置再迭代效果",
+    "url": "https://x.com/ErSan_23X/status/2116339408874172470",
+    "author_name": "贰叁",
+    "author_username": "ErSan_23X",
+    "published_utc": "2026-10-31T01:20:09.000Z",
+    "published_local": "2026-10-31 09:20",
+    "category": "实战复盘",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 API text 全文；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 125,
+    "blocks_count": 4
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "新站上线搜索很差：新词该先占位置再迭代效果"
+    },
+    {
+      "type": "paragraph",
+      "text": "昨晚上了个新站，今天起来看了一下，搜索结果很差，基本上搜不到自己的站。"
+    },
+    {
+      "type": "paragraph",
+      "text": "调研靠前的网站，一眼就发现对方的效果没有我的好。但是昨天花了大量时间试模型，调效果，反而上线晚了，成本也很高。"
+    },
+    {
+      "type": "paragraph",
+      "text": "吸收经验，新词做的是流量生意，应该先上站，占位置，再迭代效果。"
+    }
+  ],
+  "plain_text": "昨晚上了个新站，今天起来看了一下，搜索结果很差，基本上搜不到自己的站。\n\n调研靠前的网站，一眼就发现对方的效果没有我的好。但是昨天花了大量时间试模型，调效果，反而上线晚了，成本也很高。\n\n吸收经验，新词做的是流量生意，应该先上站，占位置，再迭代效果。",
+  "entities": {}
+}
