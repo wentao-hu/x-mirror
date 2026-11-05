@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "taxonomy_revision": 1,
+  "taxonomy_revision": 2,
   "name_policy": {
     "max_codepoints": 6,
     "max_display_units": 8
@@ -63,6 +63,19 @@
         "SEO基础",
         "外链推广"
       ]
+    },
+    {
+      "name": "外链",
+      "definition": "主要交付是获取站外链接：外链渠道与工具、导航站与目录提交、外链效果的验收。只把外链当作获客手段之一、主体是关键词与排名时仍归「SEO获客」。",
+      "includes": [
+        "导航站、目录站与发布平台的提交",
+        "外链工具、渠道筛选、提交节奏与效果验收"
+      ],
+      "excludes": [
+        "关键词布局、收录与排名等不以外链为主要交付的搜索优化",
+        "判断需求、建站实现与已有用户运营"
+      ],
+      "aliases": []
     },
     {
       "name": "建站开发",

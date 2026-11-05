@@ -7,6 +7,7 @@ export const CATEGORY_NAMES = Object.freeze([
   "实战复盘",
   "海外收款",
   "SEO获客",
+  "外链",
   "建站开发",
   "需求研究",
   "用户运营"
