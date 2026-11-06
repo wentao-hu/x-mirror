@@ -3057,6 +3057,34 @@
       "blocks_count": 69
     },
     {
+      "id": "note-2026-11-06-self-site-interlink",
+      "slug": "note-self-site-interlink-gefei-pbn-tool-sites",
+      "title": "自己的站能不能互链：哥飞的两个说法",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-06T03:20:00.000Z",
+      "published_local": "2026-11-06 11:20",
+      "category": "外链",
+      "category_reason": "主要交付是判断自己的站之间能否互链、以及互链怎样才不算自链，属于外链结构与风险判断；排除「SEO获客」，因为本条不讨论关键词布局与排名优化。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "外链",
+        "互链",
+        "PBN",
+        "站群",
+        "哥飞"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据用户提供的群聊记录与哥飞文章观点整理；无配图。",
+      "plain_text_len": 380,
+      "blocks_count": 12
+    },
+    {
       "id": "note-2026-11-05-new-site-backlink-navigation-sites",
       "slug": "note-new-site-backlink-start-navigation-sites",
       "title": "新站外链起步：先小量上 taaft、ph 这类导航站",

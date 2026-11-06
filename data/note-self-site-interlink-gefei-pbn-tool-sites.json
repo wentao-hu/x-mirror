@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "id": "note-2026-11-06-self-site-interlink",
+    "slug": "note-self-site-interlink-gefei-pbn-tool-sites",
+    "title": "自己的站能不能互链：哥飞的两个说法",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-06T03:20:00.000Z",
+    "published_local": "2026-11-06 11:20",
+    "category": "外链",
+    "category_reason": "主要交付是判断自己的站之间能否互链、以及互链怎样才不算自链，属于外链结构与风险判断；排除「SEO获客」，因为本条不讨论关键词布局与排名优化。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "外链",
+      "互链",
+      "PBN",
+      "站群",
+      "哥飞"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "根据用户提供的群聊记录与哥飞文章观点整理；无配图。",
+    "plain_text_len": 380,
+    "blocks_count": 12
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "自己的站能不能互链：哥飞的两个说法"
+    },
+    {
+      "type": "quote",
+      "text": "群里朋友吃过亏，不建议自己的站互链。——哥飞，3 群，2024-03-06"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "两个看似矛盾的说法"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞本人对「自己的站互链」是明确反对的：同一段群聊里，他说群里朋友吃过亏，不建议自己的站互链（3 群，2024-03-06）。"
+    },
+    {
+      "type": "paragraph",
+      "text": "但另一面，他给出的白帽路径其实就是「多站互链」。2025-05-09 的《什么是 PBN？为什么谷歌要打击 PBN？》里，他建议做有用的免费小工具站，吸引自然传播拿到真实外链，再在这些小工具站里给主站加外链。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "区别不在有没有链，而在结构"
+    },
+    {
+      "type": "list",
+      "items": [
+        "链接是给「一个主站」的，不是三个平级站互相串成一个闭环。",
+        "每个小站本身要有真实流量和独立价值。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "六条防误判条件"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "各有实际价值。",
+        "各有真实访问量。",
+        "模板不能完全一样。",
+        "不发内容相同的文章。",
+        "各有自己的品牌和 Logo。",
+        "自身反链主要自然真实。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "同一主体很容易被识别"
+    },
+    {
+      "type": "paragraph",
+      "text": "同一套模板、同一个 GA/GSC 账号、同一个 IP/C 段、同一个 AdSense 账号——被识别成一家不是惩罚，但互链立刻降级为自链，白做。"
+    },
+    {
+      "type": "callout",
+      "title": "整理者归纳",
+      "text": "互链是否成立，不看有没有链，而看每个站是否真的独立、链接是否指向一个主站：平级闭环是自链，给主站单向导流的独立工具站才是外链。"
+    }
+  ]
+}
