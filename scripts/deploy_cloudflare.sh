@@ -12,14 +12,23 @@ if ! git merge-base --is-ancestor origin/main HEAD; then
   exit 1
 fi
 
+# 删文须点名确认：ALLOW_REMOVE=slug1,slug2 显式放行本次下架的线上文章。
+ALLOW_ARGS=()
+if [[ -n "${ALLOW_REMOVE:-}" ]]; then
+  IFS=',' read -ra REMOVE_SLUGS <<< "$ALLOW_REMOVE"
+  for slug in "${REMOVE_SLUGS[@]}"; do
+    ALLOW_ARGS+=(--allow-remove "$slug")
+  done
+fi
+
 # 任何 Agent 都经同一条构建与验收路径，漏卡片/漏正文索引直接阻止上传。
 python3 scripts/rebuild_from_data.py
-python3 scripts/validate_site.py --online https://x-mirror-af7.pages.dev/
+python3 scripts/validate_site.py --online https://x-mirror-af7.pages.dev/ ${ALLOW_ARGS[@]+"${ALLOW_ARGS[@]}"}
 
 # 静态资源与 Pages Functions 一起上传，KV 绑定沿用 wrangler.toml。
 npx --yes wrangler pages deploy . \
   --project-name x-mirror \
   --branch main \
   --commit-dirty=true
-python3 scripts/validate_site.py --verify-online https://x-mirror-af7.pages.dev/
+python3 scripts/validate_site.py --verify-online https://x-mirror-af7.pages.dev/ ${ALLOW_ARGS[@]+"${ALLOW_ARGS[@]}"}
 printf '主站: https://x-mirror-af7.pages.dev/\n'

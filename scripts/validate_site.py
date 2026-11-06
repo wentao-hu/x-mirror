@@ -101,8 +101,8 @@ def validate_local(root: Path = ROOT) -> set[str]:
     return all_slugs
 
 
-def ensure_no_loss(local: set[str], online: set[str], *, exact: bool = False) -> None:
-    missing = online - local
+def ensure_no_loss(local: set[str], online: set[str], *, exact: bool = False, allow_remove: set[str] = frozenset()) -> None:
+    missing = online - local - allow_remove
     if missing:
         raise ValueError(f'待发布版本会丢失线上文章: {sorted(missing)}；先同步完整数据，删文须单独确认')
     if exact and local != online:
@@ -116,14 +116,14 @@ def fetch(url: str) -> bytes:
     ])
 
 
-def verify_online(base: str, local: set[str], *, exact: bool = False) -> None:
+def verify_online(base: str, local: set[str], *, exact: bool = False, allow_remove: set[str] = frozenset()) -> None:
     base = base.rstrip('/') + '/'
     posts = json.loads(fetch(urljoin(base, 'posts.json')))['posts']
     online = unique([post['slug'] for post in posts], '线上清单')
     html = fetch(base)
     soup = BeautifulSoup(html, 'html.parser')
     cards = unique([c['data-slug'] for c in soup.select('#list .card[data-slug]')], '线上首页')
-    ensure_no_loss(local, online | cards, exact=exact)
+    ensure_no_loss(local, online | cards, exact=exact, allow_remove=allow_remove)
     if exact:
         same_slugs(cards, local, '线上首页')
         same_slugs(online, local, '线上清单')
@@ -142,13 +142,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--online', help='上线前防止覆盖线上独有文章')
     parser.add_argument('--verify-online', help='上线后严格核对首页与搜索资源')
+    parser.add_argument('--allow-remove', action='append', default=[], metavar='SLUG',
+                        help='确认为有意删除的线上文章 slug，可重复传入')
     args = parser.parse_args()
+    allow_remove = set(args.allow_remove)
     try:
         slugs = validate_local()
         if args.online:
-            verify_online(args.online, slugs)
+            verify_online(args.online, slugs, allow_remove=allow_remove)
         if args.verify_online:
-            verify_online(args.verify_online, slugs, exact=True)
+            verify_online(args.verify_online, slugs, exact=True, allow_remove=allow_remove)
     except (ValueError, KeyError, OSError, subprocess.CalledProcessError) as error:
         print(f'发布校验失败: {error}', file=sys.stderr)
         raise SystemExit(1)

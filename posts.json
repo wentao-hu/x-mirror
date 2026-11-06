@@ -3580,25 +3580,6 @@
       "blocks_count": 4
     },
     {
-      "id": "feishu-BqrRwoyjDidlcLk6H7FcVN0unnc",
-      "slug": "cloudhu-feishu-newbie-runthrough",
-      "title": "跑通出海网站-新手跟练版",
-      "url": "https://qcnj3k0hgb3d.feishu.cn/wiki/BqrRwoyjDidlcLk6H7FcVN0unnc",
-      "author_name": "CloudHu",
-      "author_username": "知行有迹",
-      "published_utc": "2026-10-20T00:00:00.000Z",
-      "published_local": "2026-10-20",
-      "category": "建站开发",
-      "description": "CloudHu 飞书新手跟练：找词→AI 做站→GitHub/Vercel 部署→买域名绑 DNS→GSC/Bing 登记；含 35 张截图与常见问题",
-      "source_type": "web_article",
-      "images_total": 35,
-      "images_ok": 35,
-      "api_media_count": 35,
-      "fidelity_note": "全文来自飞书 wiki 抓取包；作者微信联系方式及联系用二维码已按抓取约定剥离。两份嵌入附件 01-项目需求文档.md / 02-部署执行文档.md 未下载（飞书 preview URL 疑似会话绑定），页面以原 wiki 链接作纯文本超链。代码块原样保留。",
-      "plain_text_len": 5859,
-      "blocks_count": 180
-    },
-    {
       "id": "2109883678897909932",
       "slug": "cloudhu-ai-site-tutorial",
       "title": "出海收获第一桶金，同时做一份小白真正可以跟着做的AI出海建站教程",
