@@ -3640,6 +3640,35 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-06-keyword-first-step",
+      "slug": "note-keyword-first-step-execution",
+      "title": "找词只是第一步：验证过的词靠投入，新词先赌 PMF",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-06T14:29:00.000Z",
+      "published_local": "2026-11-06 22:29",
+      "category": "需求研究",
+      "category_reason": "主要交付是判断「词找到之后值不值得做、新词的机会有多大」这类产品机会判断；排除「外链」，因为外链只是投入成本中的一项而不是主体；排除「实战复盘」，因为没有具体实践对象与结果证据。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "找词",
+        "PMF",
+        "外链成本",
+        "新词",
+        "耐磨",
+        "机会判断"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊导出包整理；原始对话共 14 条，无图片与链接。",
+      "plain_text_len": 2100,
+      "blocks_count": 22
+    },
+    {
       "id": "note-2026-11-05-paid-mid-large-keyword",
       "slug": "note-paid-mid-large-keyword-definition",
       "title": "有付费需求的中大词：按月搜索量划线，看排名页靠广告还是订阅",
