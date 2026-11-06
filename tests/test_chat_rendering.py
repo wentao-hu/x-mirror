@@ -346,5 +346,55 @@ class TargetPostDataTest(unittest.TestCase):
         self.assertEqual(data["meta"]["plain_text_len"], len(data["plain_text"]))
 
 
+class ChatAccentColorTest(unittest.TestCase):
+    def test_each_speaker_gets_its_own_accent(self):
+        soup = BeautifulSoup(
+            builder.render_chat_html(
+                {
+                    "messages": [
+                        {"user": "甲", "text": "一"},
+                        {"user": "乙", "text": "二"},
+                        {"user": "甲", "text": "三"},
+                    ]
+                }
+            ),
+            "html.parser",
+        )
+        accents = {}
+        for msg in soup.select(".chat-msg"):
+            user = msg.select_one(".chat-user").get_text(strip=True)
+            accents.setdefault(user, msg.get("style"))
+            self.assertEqual(accents[user], msg.get("style"))
+        self.assertNotEqual(accents["甲"], accents["乙"])
+
+    def test_accent_is_stable_across_blocks_in_one_article(self):
+        shared: dict[str, str] = {}
+        first = builder.render_chat_html(
+            {"messages": [{"user": "甲", "text": "一"}]}, accents=shared
+        )
+        second = builder.render_chat_html(
+            {"messages": [{"user": "乙", "text": "二"}, {"user": "甲", "text": "三"}]},
+            accents=shared,
+        )
+        first_style = BeautifulSoup(first, "html.parser").select_one(
+            ".chat-msg"
+        ).get("style")
+        second_styles = {
+            msg.select_one(".chat-user").get_text(strip=True): msg.get("style")
+            for msg in BeautifulSoup(second, "html.parser").select(".chat-msg")
+        }
+        self.assertEqual(second_styles["甲"], first_style)
+        self.assertNotEqual(second_styles["甲"], second_styles["乙"])
+
+    def test_bubble_tints_follow_the_accent_on_a_white_card(self):
+        css = builder.CSS
+        self.assertIn(".chat-appendix {\n  border: 1px solid var(--border); "
+                      "border-radius: 12px; background: var(--bg);", css)
+        self.assertIn(
+            "background: color-mix(in srgb, var(--chat-accent, #4a5568) 11%, #fff);",
+            css,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

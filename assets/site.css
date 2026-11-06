@@ -385,7 +385,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 /* 聊天记录：微信式左头像气泡；整块默认折叠，点击 summary 展开 */
 .chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
 .chat-appendix {
-  border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 12px; background: var(--bg);
   overflow: hidden;
 }
 /* 作者样式里的 display 会盖过浏览器对 details 的默认隐藏，这里显式收起 */
@@ -401,12 +401,13 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .chat-avatar {
   display: flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
-  background: var(--card); box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
+  background: var(--chat-accent, var(--card));
+  box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
 }
 .chat-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .chat-avatar__initial {
   display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 100%; background: var(--chat-avatar-bg, #4a5568);
+  width: 100%; height: 100%; background: var(--chat-accent, #4a5568);
   color: #fff; font-size: 15px; font-weight: 750; line-height: 1;
 }
 .chat-message { min-width: 0; }
@@ -416,16 +417,24 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .chat-user { color: color-mix(in srgb, var(--fg) 84%, var(--muted)); font-weight: 700; }
 .chat-time { color: var(--muted-2); font-size: 11.5px; font-weight: 400; }
+/* 气泡与头像同色系：头像用实色，气泡取同一颜色混白，颜色变量挂在 .chat-msg 上 */
 .chat-bubble {
   position: relative; display: inline-block;
   max-width: min(100%, 680px); padding: 10px 14px;
-  border: 1px solid #e0e9e2; border-radius: 4px 14px 14px 14px;
-  background: #f1f7f2;
+  border: 1px solid #e6eaec; border-radius: 4px 14px 14px 14px;
+  border-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  background: #f5f7f8;
+  background: color-mix(in srgb, var(--chat-accent, #4a5568) 11%, #fff);
 }
 .chat-bubble::before {
   content: ""; position: absolute; top: 13px; left: -5px;
-  width: 9px; height: 9px; border-left: 1px solid #e0e9e2;
-  border-bottom: 1px solid #e0e9e2; background: #f1f7f2;
+  width: 9px; height: 9px;
+  border-left: 1px solid #e6eaec;
+  border-left-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  border-bottom: 1px solid #e6eaec;
+  border-bottom-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  background: #f5f7f8;
+  background: color-mix(in srgb, var(--chat-accent, #4a5568) 11%, #fff);
   transform: rotate(45deg);
 }
 .chat-text {

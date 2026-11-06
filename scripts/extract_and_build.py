@@ -816,6 +816,7 @@ _X_STATUS_URL_RE = re.compile(
     r"[^\s<>\"']+/status/\d+(?:\?[^\s<>\"']*)?",
     re.I,
 )
+# 12 色覆盖常见群聊人数（最多 12 人），色相均匀打散，保证同段对话里不撞色
 _CHAT_AVATAR_COLORS = (
     "#2f855a",
     "#2b6cb0",
@@ -825,6 +826,10 @@ _CHAT_AVATAR_COLORS = (
     "#6b46c1",
     "#2c7a7b",
     "#4a5568",
+    "#b83280",
+    "#6b7a16",
+    "#4c51bf",
+    "#0f6e8c",
 )
 
 
@@ -855,13 +860,7 @@ def chat_avatar_html(
             inner = image_html(src, "", assets_dir=assets_dir, lazy=True)
     else:
         initial = user[:1].upper() if user else "?"
-        color = _CHAT_AVATAR_COLORS[
-            sum(ord(char) for char in user) % len(_CHAT_AVATAR_COLORS)
-        ]
-        inner = (
-            '<span class="chat-avatar__initial" '
-            f'style="--chat-avatar-bg:{color}">{esc(initial)}</span>'
-        )
+        inner = f'<span class="chat-avatar__initial">{esc(initial)}</span>'
     return f'<span class="chat-avatar" aria-hidden="true">{inner}</span>'
 
 
@@ -869,6 +868,7 @@ def chat_message_html(
     msg: dict,
     assets_rel: str = "assets",
     assets_dir: Path | None = None,
+    accent: str | None = None,
 ) -> str:
     """Render one left-aligned WeChat-style message."""
     user = str(msg.get("user") or "匿名").strip()
@@ -877,8 +877,9 @@ def chat_message_html(
         f'<span class="chat-time">{esc(sent_at)}</span>' if sent_at else ""
     )
     text = clean_chat_text(str(msg.get("text") or ""))
+    accent_style = f' style="--chat-accent:{accent}"' if accent else ""
     return (
-        '<div class="chat-msg" role="listitem">'
+        f'<div class="chat-msg" role="listitem"{accent_style}>'
         f'{chat_avatar_html(msg, assets_rel, assets_dir)}'
         '<div class="chat-message">'
         '<div class="chat-meta">'
@@ -894,12 +895,15 @@ def render_chat_html(
     b: dict,
     assets_rel: str = "assets",
     assets_dir: Path | None = None,
+    accents: dict[str, str] | None = None,
 ) -> str:
     """Render a chat log as one collapsed, expandable bubble list."""
     messages = b["messages"]
     if not messages:
         return ""
-    people = list(dict.fromkeys(str(m.get("user") or "匿名") for m in messages))
+    people = list(
+        dict.fromkeys(str(m.get("user") or "匿名").strip() for m in messages)
+    )
     raw = b.get("raw_count", len(messages))
     removed = b.get("removed_count", 0)
     removed_note = b.get("removed_note", "纯表情")
@@ -916,8 +920,30 @@ def render_chat_html(
         + (f"，删除 {removed} 条{esc(removed_note)}" if removed else "")
     )
     note = " · ".join(note_parts)
+    # 颜色按文章内出场顺序分配：一篇文章里同一个人始终同色，尽量一人一色；
+    # 超出 12 人时循环，但保证同段对话内相邻出场者不同色
+    accents = accents if accents is not None else {}
+    taken = set(accents.values())
+    for person in people:
+        if person in accents:
+            continue
+        start = len(accents)
+        color = next(
+            (
+                _CHAT_AVATAR_COLORS[(start + step) % len(_CHAT_AVATAR_COLORS)]
+                for step in range(len(_CHAT_AVATAR_COLORS))
+                if _CHAT_AVATAR_COLORS[(start + step) % len(_CHAT_AVATAR_COLORS)]
+                not in taken
+            ),
+            _CHAT_AVATAR_COLORS[start % len(_CHAT_AVATAR_COLORS)],
+        )
+        accents[person] = color
+        taken.add(color)
     log_html = "\n".join(
-        chat_message_html(m, assets_rel, assets_dir) for m in messages
+        chat_message_html(m, assets_rel, assets_dir, accents.get(
+            str(m.get("user") or "匿名").strip()
+        ))
+        for m in messages
     )
     return (
         '<div class="chat-block">'
@@ -1001,6 +1027,7 @@ def render_blocks_html(
     blocks = [dict(b) for b in blocks]  # 内部 id 不回写到数据
     assign_heading_ids(blocks)
     parts = []
+    chat_accents: dict[str, str] = {}
     for b in blocks:
         t = b["type"]
         if t == "heading":
@@ -1067,7 +1094,7 @@ def render_blocks_html(
             items = "".join(f"<li>{linkify(i)}</li>" for i in b["items"])
             parts.append(f"<{tag}>{items}</{tag}>")
         elif t == "chat":
-            parts.append(render_chat_html(b, assets_rel, assets_dir))
+            parts.append(render_chat_html(b, assets_rel, assets_dir, chat_accents))
         elif t == "table":
             rows_html = []
             for ri, row in enumerate(b["rows"]):
@@ -1469,7 +1496,7 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 /* 聊天记录：微信式左头像气泡；整块默认折叠，点击 summary 展开 */
 .chat-block { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 26px; }
 .chat-appendix {
-  border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 12px; background: var(--bg);
   overflow: hidden;
 }
 /* 作者样式里的 display 会盖过浏览器对 details 的默认隐藏，这里显式收起 */
@@ -1485,12 +1512,13 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .chat-avatar {
   display: flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
-  background: var(--card); box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
+  background: var(--chat-accent, var(--card));
+  box-shadow: inset 0 0 0 1px rgba(15, 20, 25, .06);
 }
 .chat-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .chat-avatar__initial {
   display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 100%; background: var(--chat-avatar-bg, #4a5568);
+  width: 100%; height: 100%; background: var(--chat-accent, #4a5568);
   color: #fff; font-size: 15px; font-weight: 750; line-height: 1;
 }
 .chat-message { min-width: 0; }
@@ -1500,16 +1528,24 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 }
 .chat-user { color: color-mix(in srgb, var(--fg) 84%, var(--muted)); font-weight: 700; }
 .chat-time { color: var(--muted-2); font-size: 11.5px; font-weight: 400; }
+/* 气泡与头像同色系：头像用实色，气泡取同一颜色混白，颜色变量挂在 .chat-msg 上 */
 .chat-bubble {
   position: relative; display: inline-block;
   max-width: min(100%, 680px); padding: 10px 14px;
-  border: 1px solid #e0e9e2; border-radius: 4px 14px 14px 14px;
-  background: #f1f7f2;
+  border: 1px solid #e6eaec; border-radius: 4px 14px 14px 14px;
+  border-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  background: #f5f7f8;
+  background: color-mix(in srgb, var(--chat-accent, #4a5568) 11%, #fff);
 }
 .chat-bubble::before {
   content: ""; position: absolute; top: 13px; left: -5px;
-  width: 9px; height: 9px; border-left: 1px solid #e0e9e2;
-  border-bottom: 1px solid #e0e9e2; background: #f1f7f2;
+  width: 9px; height: 9px;
+  border-left: 1px solid #e6eaec;
+  border-left-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  border-bottom: 1px solid #e6eaec;
+  border-bottom-color: color-mix(in srgb, var(--chat-accent, #4a5568) 26%, #fff);
+  background: #f5f7f8;
+  background: color-mix(in srgb, var(--chat-accent, #4a5568) 11%, #fff);
   transform: rotate(45deg);
 }
 .chat-text {
