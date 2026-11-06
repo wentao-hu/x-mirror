@@ -1441,6 +1441,35 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-06-indexnow-chatgpt-traffic",
+      "slug": "note-indexnow-chatgpt-traffic-backlink-check",
+      "title": "新站拿 ChatGPT 流量：IndexNow 提交值得与主动对话一起做",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-06T02:41:00.000Z",
+      "published_local": "2026-11-06 10:41",
+      "category": "SEO获客",
+      "category_reason": "主要交付是让新站更快获得来自 ChatGPT 与搜索的新访问，手段是 IndexNow 主动提交加主动对话；文末的外链值不值得买属于站外获客的附带判断方法，不是本篇主体，因此不归「外链」。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "IndexNow",
+        "ChatGPT流量",
+        "AI搜索",
+        "收录",
+        "外链判断",
+        "AITDK"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊导出包整理；原始对话共 9 条，聊天中的 1 张 IndexNow 简介截图已本地化，并按原始对话位置插入正文。",
+      "plain_text_len": 1600,
+      "blocks_count": 15
+    },
+    {
       "id": "ahrefs-dr4-preview",
       "slug": "ahrefs-dr4-preview",
       "title": "推出 DR4 预览：用于评估外链档案的全新 Domain Rating 模型",
