@@ -3640,6 +3640,35 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-06-new-keyword-volume-estimate",
+      "slug": "note-new-keyword-volume-estimate-gpts-benchmark",
+      "title": "新词没搜索量时怎么估体量：上升的词直接博，平稳的词用 GPTs 每天 3000 折算",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-06T14:32:00.000Z",
+      "published_local": "2026-11-06 22:32",
+      "category": "需求研究",
+      "category_reason": "主要交付是判断新词需求体量的方法与折算基准；排除 SEO获客，因为不涉及关键词布局、收录、排名或外链执行。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "新词",
+        "搜索量",
+        "Google Trends",
+        "GPTs",
+        "需求判断",
+        "体量估算"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始聊天 6 条消息，全部保留。",
+      "plain_text_len": 1130,
+      "blocks_count": 15
+    },
+    {
       "id": "note-2026-11-06-keyword-first-step",
       "slug": "note-keyword-first-step-execution",
       "title": "找词只是第一步：验证过的词靠投入，新词先赌 PMF",
