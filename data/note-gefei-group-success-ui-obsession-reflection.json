@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "note-2026-11-07-gefei-group-success-ui-obsession",
+    "slug": "note-gefei-group-success-ui-obsession-reflection",
+    "title": "群友报喜之后：投入不够与 UI 执念的反思",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-07T04:15:00.000Z",
+    "published_local": "2026-11-07 12:15",
+    "category": "实战复盘",
+    "category_reason": "主要交付是个人复盘：投入与执行力不足、设计师式 UI 执念耽误商业闭环，并对照哥飞早年教训；不是在教选词或找需求方法。",
+    "description": "",
+    "source_type": "note",
+    "tags": [],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "用户口述原文整理为自建 note；仅做明显笔误修正（一一个→一个、修改I→修改UI、通I改→通，改），未改语义。",
+    "plain_text_len": 307,
+    "blocks_count": 5
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "群友报喜之后：投入不够与 UI 执念的反思"
+    },
+    {
+      "type": "paragraph",
+      "text": "最近看到哥飞群里不少群友陆续发报喜帖，有人流量起来了，有人开始稳定出单，说实话，挺羡慕的。回头看看自己，从2025年5月开始学习AI编程，到现在已经一年半了。期间也陆陆续续做了十几个网站，但基本没赚到什么钱，离当初想要实现职业自由的目标还差得很远。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这段时间也反思了很久，感觉自己确实有不少问题。"
+    },
+    {
+      "type": "paragraph",
+      "text": "一方面是投入不够坚定，执行力也一般；另一方面，可能是设计师的职业习惯，总喜欢在UI和交互细节上反复折腾。一个网站改来改去，自我感觉越来越好了，结果上线后却无人问津。"
+    },
+    {
+      "type": "paragraph",
+      "text": "前几天看到哥飞老师分享自己早年创业时，因为反复修改UI耽误了核心功能开发的经历，挺有感触。连核心功能和商业闭环都没跑通，改得再漂亮又有什么用呢？"
+    }
+  ]
+}

@@ -128,6 +128,28 @@
       "blocks_count": 11
     },
     {
+      "id": "note-2026-11-07-gefei-group-success-ui-obsession",
+      "slug": "note-gefei-group-success-ui-obsession-reflection",
+      "title": "群友报喜之后：投入不够与 UI 执念的反思",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-07T04:15:00.000Z",
+      "published_local": "2026-11-07 12:15",
+      "category": "实战复盘",
+      "category_reason": "主要交付是个人复盘：投入与执行力不足、设计师式 UI 执念耽误商业闭环，并对照哥飞早年教训；不是在教选词或找需求方法。",
+      "description": "",
+      "source_type": "note",
+      "tags": [],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "用户口述原文整理为自建 note；仅做明显笔误修正（一一个→一个、修改I→修改UI、通I改→通，改），未改语义。",
+      "plain_text_len": 307,
+      "blocks_count": 5
+    },
+    {
       "id": "nktokqqsnr",
       "slug": "webcafe-nktokqqsnr",
       "title": "订阅站终于突破首单了，很开心",
