@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "id": "2118282338530406702",
+    "slug": "victor-reverse-verify-similarweb-semrush-trends",
+    "title": "出海信息差要倒着验：Similarweb + Semrush + Trends",
+    "url": "https://x.com/victor_UWer/status/2118282338530406702",
+    "author_name": "Victor在西雅图",
+    "author_username": "victor_UWer",
+    "published_utc": "2026-11-05T10:00:39.000Z",
+    "published_local": "2026-11-05 18:00",
+    "category": "SEO获客",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "正文取自 note_tweet 全文；无配图；评论未收录（默认规则）。",
+    "plain_text_len": 249,
+    "blocks_count": 9
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "出海信息差要倒着验：Similarweb + Semrush + Trends"
+    },
+    {
+      "type": "paragraph",
+      "text": "出海信息差，别光听别人复盘，要学会倒着验："
+    },
+    {
+      "type": "paragraph",
+      "text": "关注一堆出海博主，每天刷完就过去了，真正落地的没几个。"
+    },
+    {
+      "type": "paragraph",
+      "text": "我的做法是，看到有人提某个产品，先别急着学，花两分钟核一下数据："
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 域名丢进 Similarweb，看近 6 个月的访问量曲线"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 去 Semrush 进 Organic Rankings，看流量靠哪几个词撑起来的"
+    },
+    {
+      "type": "paragraph",
+      "text": "3. 再把这几个词拿去 Google Trends，看热度是在涨还是已经在掉"
+    },
+    {
+      "type": "paragraph",
+      "text": "曲线向上，词还没被做烂，才值得继续研究。"
+    },
+    {
+      "type": "paragraph",
+      "text": "曲线已经掉头的，别碰，博主说得再好也白搭。"
+    }
+  ],
+  "plain_text": "出海信息差，别光听别人复盘，要学会倒着验：\n\n关注一堆出海博主，每天刷完就过去了，真正落地的没几个。\n\n我的做法是，看到有人提某个产品，先别急着学，花两分钟核一下数据：\n\n1. 域名丢进 Similarweb，看近 6 个月的访问量曲线\n\n2. 去 Semrush 进 Organic Rankings，看流量靠哪几个词撑起来的\n\n3. 再把这几个词拿去 Google Trends，看热度是在涨还是已经在掉\n\n曲线向上，词还没被做烂，才值得继续研究。\n\n曲线已经掉头的，别碰，博主说得再好也白搭。",
+  "entities": {}
+}
