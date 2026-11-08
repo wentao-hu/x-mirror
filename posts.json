@@ -3116,6 +3116,35 @@
       "blocks_count": 69
     },
     {
+      "id": "note-2026-11-08-daily-10-backlinks-too-few",
+      "slug": "note-daily-10-backlinks-too-few",
+      "title": "一天提 10 条外链不叫多，叫微少",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-08T02:02:00.000Z",
+      "published_local": "2026-11-08 10:02",
+      "category": "外链",
+      "category_reason": "主要交付是外链提交的量级判断、收录转化率与效果验收节奏；排除「SEO获客」——主体不是关键词布局与排名，而是外链提交渠道与收录验收。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "外链",
+        "grokbot",
+        "GSC",
+        "收录",
+        "Bing",
+        "哥飞",
+        "批量提交"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 26 条，保留 25 条（删除 1 条纯表情），无图片附件。",
+      "blocks_count": 11
+    },
+    {
       "id": "note-2026-11-06-self-site-interlink",
       "slug": "note-self-site-interlink-gefei-pbn-tool-sites",
       "title": "自己的站能不能互链：哥飞的两个说法",
@@ -3638,6 +3667,34 @@
       "fidelity_note": "微信原文；正文无配图，保留原文封面图与作者头像。",
       "plain_text_len": 756,
       "blocks_count": 26
+    },
+    {
+      "id": "note-2026-11-08-tool-chain-input-output-google",
+      "slug": "note-tool-chain-input-output-google",
+      "title": "把上一个工具的输出当下一个工具的输入：谷歌搜索与趋势的输入输出清单",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-08T09:30:00.000Z",
+      "published_local": "2026-11-08 17:30",
+      "category": "需求研究",
+      "category_reason": "主要交付是一套靠工具串联发现新关键词、新网站、新需求的通用方法，以及谷歌搜索与谷歌趋势的输入输出清单，属于需求与关键词发现；排除 SEO获客——不涉及具体站点的布局、收录与排名执行；排除实战复盘——没有完整实践周期与成败归因。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "工具串联",
+        "谷歌搜索",
+        "谷歌趋势",
+        "关键词发现",
+        "需求发现"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信聊天记录导出包整理；原始对话共 3 条，全部保留；原文无图片。",
+      "blocks_count": 14
     },
     {
       "id": "note-2026-11-06-new-keyword-volume-estimate",
