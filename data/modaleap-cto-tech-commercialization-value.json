@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "id": "2118355341918564482",
+    "slug": "modaleap-cto-tech-commercialization-value",
+    "title": "CTO 最核心的价值是技术的商业化能力",
+    "url": "https://x.com/modaleap/status/2118355341918564482",
+    "author_name": "丁震宇",
+    "author_username": "modaleap",
+    "published_utc": "2026-11-05T14:50:45.000Z",
+    "published_local": "2026-11-05 22:50",
+    "category": "实战复盘",
+    "description": "",
+    "source_type": "x_post",
+    "avatar_local": "avatar.jpg",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 1,
+    "fidelity_note": "主帖短文全文；1 张配图（微信朋友圈截图）已本地化；用户点名收录评论，评论区 29 条按时间序全文收录（可折叠 chat）；无 note_tweet，不是 X Article。",
+    "plain_text_len": 73,
+    "blocks_count": 7
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "CTO 最核心的价值是技术的商业化能力"
+    },
+    {
+      "type": "paragraph",
+      "text": "很多人其实意识不到CTO最核心的价值其实是技术的商业化能力"
+    },
+    {
+      "type": "paragraph",
+      "text": "只有把技术到产品然后到商品的商业化能力拉满"
+    },
+    {
+      "type": "paragraph",
+      "text": "才能赚钱，赚到钱了才能给员工更好的福利待遇"
+    },
+    {
+      "type": "image",
+      "local": "01.jpg",
+      "orig_url": "https://pbs.twimg.com/media/HWXo9AlbsAAlrdU.jpg?name=orig",
+      "alt": "丁震宇朋友圈截图：产研视角 vs 合理商业化；多赚点钱给团队涨工资发奖金",
+      "key": "01"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "评论区"
+    },
+    {
+      "type": "chat",
+      "raw_count": 29,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "Yamabuki Yuki (smurf)",
+          "username": "kirara_sogo",
+          "time": "2026-11-05 22:54",
+          "text": "少爷在理"
+        },
+        {
+          "user": "Zebro",
+          "username": "321sssrt",
+          "time": "2026-11-05 22:56",
+          "text": "借用冯的有句话,完成大于完美,先完成赚到钱,再做更好的打磨"
+        },
+        {
+          "user": "AsperforMias",
+          "username": "AsperforMias000",
+          "time": "2026-11-05 23:00",
+          "text": "是这样. 最近开始发现,很多东西并不需要多少特别优雅的技术, 而是能可靠的用, 流量能转化留存, 产品能卖且用户画像清晰+付费能力在线"
+        },
+        {
+          "user": "小许",
+          "username": "xuxuyp777",
+          "time": "2026-11-05 23:03",
+          "text": "好想去你手下干活"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-05 23:06",
+          "text": "感谢公子哥支持",
+          "reply_to": "kirara_sogo"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-05 23:07",
+          "text": "是的 很多人不敢迈出去这一步觉得丢人🤓其实管那么多干嘛呢先卖再说",
+          "reply_to": "321sssrt"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-05 23:07",
+          "text": "是的 商业化很重要",
+          "reply_to": "AsperforMias000"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-05 23:07",
+          "text": "感谢大佬支持 以后说不定有机会",
+          "reply_to": "xuxuyp777"
+        },
+        {
+          "user": "Yamabuki Yuki (smurf)",
+          "username": "kirara_sogo",
+          "time": "2026-11-05 23:09",
+          "text": "速来，来测全新力作reirin coding agent",
+          "reply_to": "xuxuyp777"
+        },
+        {
+          "user": "小许",
+          "username": "xuxuyp777",
+          "time": "2026-11-05 23:12",
+          "text": "🤧",
+          "reply_to": "kirara_sogo"
+        },
+        {
+          "user": "小许",
+          "username": "xuxuyp777",
+          "time": "2026-11-05 23:13",
+          "text": "🫡 肯定有机会的",
+          "reply_to": "modaleap"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-05 23:15",
+          "text": "加油大佬💪",
+          "reply_to": "xuxuyp777"
+        },
+        {
+          "user": "何陋轩主人",
+          "username": "HelouMaster",
+          "time": "2026-11-06 07:50",
+          "text": "技术人员天生迷恋解题，但市场只为买单买账"
+        },
+        {
+          "user": "Xima（Zima’s ultimate and exclusive version）",
+          "username": "blue_zima1",
+          "time": "2026-11-06 08:29",
+          "text": "商业的背后还有政治嗅觉对政策宏观调整对产业和风向的把握"
+        },
+        {
+          "user": "Shengshenlan",
+          "username": "zhu_lan42791",
+          "time": "2026-11-06 09:09",
+          "text": "其实还真是，能让产品赚到钱才是好技术。"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 10:17",
+          "text": "是的",
+          "reply_to": "HelouMaster"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 10:18",
+          "text": "确实",
+          "reply_to": "blue_zima1"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 10:18",
+          "text": "感谢老板支持👍",
+          "reply_to": "zhu_lan42791"
+        },
+        {
+          "user": "Sen 说 AI",
+          "username": "senai2026",
+          "time": "2026-11-06 15:46",
+          "text": "也不只是 CTO 吧，感觉高层的老板。都是要怎么的把技术转化为产品卖出去。"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 17:27",
+          "text": "其他种类老板更多是搞关系和搞融资",
+          "reply_to": "senai2026"
+        },
+        {
+          "user": "maY",
+          "username": "maymagicus",
+          "time": "2026-11-06 17:39",
+          "text": "我觉得最核心的价值是，如何协调好长期的技术演进和短期的商业目标，并推动他们能够互相促进。"
+        },
+        {
+          "user": "踏雪寻仙",
+          "username": "TaXue2025",
+          "time": "2026-11-06 18:35",
+          "text": "因为现实中有很多因素影响并约束，不一定能用上最好的技术。但只要能比原来的更好大家有得赚，其实就能有足够的商业回报"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 18:36",
+          "text": "大佬你这个说的也很有道理🤓",
+          "reply_to": "maymagicus"
+        },
+        {
+          "user": "Jack Mo",
+          "username": "JackMoinSEA",
+          "time": "2026-11-06 18:52",
+          "text": "基本上所有职能都为最终的商业化服务的，要不然更多是自我感动"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 18:55",
+          "text": "有些不用管商业化 比如行政啥的",
+          "reply_to": "JackMoinSEA"
+        },
+        {
+          "user": "Jack Mo",
+          "username": "JackMoinSEA",
+          "time": "2026-11-06 18:58",
+          "text": "从更广义的“商业化”来说，行政也是要不断优化自己流程，减少组织内部的管理成本和运营成本，当然他们和营收没有直接关系hh",
+          "reply_to": "modaleap"
+        },
+        {
+          "user": "inKerk | 硬核老王",
+          "username": "xingyuwang",
+          "time": "2026-11-06 20:45",
+          "text": "程序员、技术总监和 CTO 虽然是技术的一条发展线，但是完全是不同的角色。不是真的做过这样的角色的人，他是不能够理解的。"
+        },
+        {
+          "user": "丁震宇",
+          "username": "modaleap",
+          "time": "2026-11-06 21:36",
+          "text": "是的 大佬说的很在理👍",
+          "reply_to": "xingyuwang"
+        },
+        {
+          "user": "inKerk | 硬核老王",
+          "username": "xingyuwang",
+          "time": "2026-11-06 21:51",
+          "text": "客气了，大伙儿都是探讨一个问题罢了。😂",
+          "reply_to": "modaleap"
+        }
+      ]
+    }
+  ]
+}
