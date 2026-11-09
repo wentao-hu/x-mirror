@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "id": "note-2026-11-09-chatgpt-first-channel",
+    "slug": "note-chatgpt-first-channel-higher-paying-users",
+    "title": "认真对待 ChatGPT：它是第一渠道，来的人也更愿意付钱",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-09T14:31:00.000Z",
+    "published_local": "2026-11-09 22:31",
+    "category": "SEO获客",
+    "category_reason": "主要交付是通过 AI 搜索渠道获得新访问与付费用户：把用户会问 ChatGPT 的问题逐条做成直接回答的页面、加 llms.txt、放开 AI 爬虫，从而被 ChatGPT 推荐；不是在讲 AI 工具选型，也不是一次实践的完整决策复盘。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "ChatGPT",
+      "GEO",
+      "AI搜索",
+      "llms.txt",
+      "付费转化"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "用户提供的原文整理为自建 note；保留原文措辞与数据，仅清理复制残留的列表标记。",
+    "plain_text_len": 233,
+    "blocks_count": 4
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "认真对待 ChatGPT：它是第一渠道，来的人也更愿意付钱。"
+    },
+    {
+      "type": "paragraph",
+      "text": "ChatGPT 来的用户付费率是 Google 的 1.7 倍（9.1% 对 5.4%），后面几个站差距更大。我做了以下的事情："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "先列出用户会问 ChatGPT 的问题：这是什么趋势？怎么做？能免费试吗？多少钱？多久出片？",
+        "每个问题都有一个页面或一段文字直接回答，第一句就给答案，尽量写具体数字；",
+        "加上 llms.txt，robots 不要挡 AI 爬虫。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "上线第二三天，ChatGPT 就把我排在了推荐的第一位。"
+    }
+  ]
+}
