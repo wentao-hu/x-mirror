@@ -3934,6 +3934,34 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-10-new-keywords-starter-village",
+      "slug": "note-new-keywords-starter-village-not-endgame",
+      "title": "新词只是新手村，不是终局",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-10T07:36:00.000Z",
+      "published_local": "2026-11-10 15:36",
+      "category": "需求研究",
+      "category_reason": "主要交付是对「靠不断打新词保障月收入」这条路径的判断：新词是走出新手村的练习，不是终局；排除实战复盘——没有具体站点、周期与结果数据；排除 SEO获客——未涉及关键词布局、收录与排名手法。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "新词站",
+        "新手村",
+        "哥飞",
+        "长期收入",
+        "工具站"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "群聊原文 7 条全部收录于对话块，摘要仅提炼各发言原意；无图片与附件。",
+      "plain_text_len": 320,
+      "blocks_count": 10
+    },
+    {
       "id": "note-2026-11-10-game-sites-easier-for-beginners",
       "slug": "note-game-sites-easier-for-beginners",
       "title": "新手做新词，游戏站比工具词更容易出反馈",
