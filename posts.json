@@ -3934,6 +3934,34 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-10-game-sites-easier-for-beginners",
+      "slug": "note-game-sites-easier-for-beginners",
+      "title": "新手做新词，游戏站比工具词更容易出反馈",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-10T02:57:00.000Z",
+      "published_local": "2026-11-10 10:57",
+      "category": "需求研究",
+      "category_reason": "主要交付是新手做站的方向判断：新词优先，新词里游戏词比工具词更容易拿到反馈，并指出变现前提是流量；排除实战复盘——没有具体站点、周期与结果数据；排除 SEO获客——未涉及关键词布局、收录与排名手法。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "新词站",
+        "游戏站",
+        "新手",
+        "哥飞",
+        "网站变现"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "群聊原文 4 条全部收录于对话块，摘要仅提炼哥飞原意；无图片与附件；一坤的追问在原记录中未获回答，正文如实注明。",
+      "plain_text_len": 430,
+      "blocks_count": 10
+    },
+    {
       "id": "note-2026-11-08-tool-chain-input-output-google",
       "slug": "note-tool-chain-input-output-google",
       "title": "把上一个工具的输出当下一个工具的输入：谷歌搜索与趋势的输入输出清单",
