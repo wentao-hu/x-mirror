@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "id": "note-2026-11-10-auto-backlinks-bot-industry-match",
+    "slug": "note-auto-backlinks-bot-industry-match",
+    "title": "自动发外链：交给 bot 过验证，外链库按行业挑",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-10T14:07:00.000Z",
+    "published_local": "2026-11-10 22:07",
+    "category": "外链",
+    "category_reason": "主要交付是用 bot 自动化提交外链，以及外链库要按行业匹配的选库原则，属于外链；排除 AI工具——bot 只是执行手段，不是教工具本身；排除 SEO获客——不涉及搜索流量的整体策略。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "外链",
+      "自动化",
+      "grok bot",
+      "ds-bot",
+      "ego",
+      "人机验证",
+      "扒竞品",
+      "行业匹配"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "15 条群聊消息按原始时间顺序全部保留；本次导出包不含图片。",
+    "blocks_count": 7
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "群里有人问怎么自动发外链、人机验证怎么过。浅水虾的做法是直接交给 bot：现成的用 **grok bot**，自己搭就用 **ds-bot + ego**，把外链列表丢给它照着发。后半段大家补了更重要的前提：外链库不能拿来群发，得按网站所属行业挑。"
+    },
+    {
+      "type": "heading",
+      "text": "让 bot 替你发外链"
+    },
+    {
+      "type": "list",
+      "items": [
+        "现成方案：直接用 **grok bot**，不用自己搭",
+        "自建方案：**ds-bot + ego**，人机验证这类环节由 bot 代过",
+        "输入只要一份**外链列表**，让 bot 照着发",
+        "列表从哪来：**扒竞品**的外链"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "外链库不能群发"
+    },
+    {
+      "type": "list",
+      "items": [
+        "网站类型不一样，对外链的要求也不一样，**大部分不通用**",
+        "先看自己网站**属于什么行业**，再去对应行业的外链",
+        "**不相关的外链没什么意义**",
+        "群里提到的现成资源：[社群 bounty 帖](https://new.web.cafe/ask/bounty/wlhmhdaoqg)"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "原始对话"
+    },
+    {
+      "type": "chat",
+      "raw_count": 15,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:07",
+          "text": "@Free 最近上了自动化工具，在发外链。"
+        },
+        {
+          "user": "Free",
+          "time": "2026年11月10日 22:07",
+          "text": "@浅水虾 哥，教我"
+        },
+        {
+          "user": "Free",
+          "time": "2026年11月10日 22:07",
+          "text": "我需要自动发外链"
+        },
+        {
+          "user": "Free",
+          "time": "2026年11月10日 22:08",
+          "text": "那个人机验证要怎么才能自动过啊"
+        },
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:08",
+          "text": "你现在直接用 grok bot 就可以了"
+        },
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:08",
+          "text": "我自己用的是 ds-bot + ego"
+        },
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:09",
+          "text": "可以自己搭一下的"
+        },
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:10",
+          "text": "你给他外链列表，让他发就是了"
+        },
+        {
+          "user": "浅水虾",
+          "time": "2026年11月10日 22:10",
+          "text": "扒竞品"
+        },
+        {
+          "user": "superceo",
+          "time": "2026年11月10日 23:01",
+          "text": "老师 有整理好的外链库吗 适合群发的 如果没有可以大家一起整理一份"
+        },
+        {
+          "user": "永健",
+          "time": "2026年11月10日 23:04",
+          "text": "不一样吧，网站类型不一样，对外链的要求也不一样\n大部分不通用"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月10日 23:04",
+          "text": "网站你得看你属于什么行业"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月10日 23:04",
+          "text": "才能去到对应的外链"
+        },
+        {
+          "user": "Skyyyy",
+          "time": "2026年11月10日 23:05",
+          "text": "不相关的外链其实没什么意义"
+        },
+        {
+          "user": "blank",
+          "time": "2026年11月10日 23:10",
+          "text": "社群网站里就有 https://new.web.cafe/ask/bounty/wlhmhdaoqg"
+        }
+      ]
+    }
+  ]
+}

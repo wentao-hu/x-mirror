@@ -3353,6 +3353,36 @@
       "blocks_count": 69
     },
     {
+      "id": "note-2026-11-10-auto-backlinks-bot-industry-match",
+      "slug": "note-auto-backlinks-bot-industry-match",
+      "title": "自动发外链：交给 bot 过验证，外链库按行业挑",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-10T14:07:00.000Z",
+      "published_local": "2026-11-10 22:07",
+      "category": "外链",
+      "category_reason": "主要交付是用 bot 自动化提交外链，以及外链库要按行业匹配的选库原则，属于外链；排除 AI工具——bot 只是执行手段，不是教工具本身；排除 SEO获客——不涉及搜索流量的整体策略。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "外链",
+        "自动化",
+        "grok bot",
+        "ds-bot",
+        "ego",
+        "人机验证",
+        "扒竞品",
+        "行业匹配"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "15 条群聊消息按原始时间顺序全部保留；本次导出包不含图片。",
+      "blocks_count": 7
+    },
+    {
       "id": "note-2026-11-08-daily-10-backlinks-too-few",
       "slug": "note-daily-10-backlinks-too-few",
       "title": "一天提 10 条外链不叫多，叫微少",
