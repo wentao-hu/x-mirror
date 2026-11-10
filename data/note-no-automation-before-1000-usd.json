@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "id": "note-2026-11-10-no-automation-before-1000-usd",
+    "slug": "note-no-automation-before-1000-usd",
+    "title": "赚到 1000 美金之前，先别想着自动化",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-10T05:43:00.000Z",
+    "published_local": "2026-11-10 13:43",
+    "category": "建站开发",
+    "category_reason": "主要交付是上站流程该手动还是自动化的执行方式，以及新人的上手节奏：先手动跑通找词到外链的每一步，赚到 1000 美金后再谈自动化；排除 SEO获客——没有讲具体获客手法；排除实战复盘——没有具体站点数据与周期。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "自动化",
+      "空杯心态",
+      "哥飞",
+      "新手",
+      "上站流程"
+    ],
+    "avatar_local": "",
+    "images_total": 0,
+    "images_ok": 0,
+    "api_media_count": 0,
+    "fidelity_note": "用户提供的哥飞原文完整保留，按主题拆分为小标题与列表，未增删观点；无图片与附件。",
+    "plain_text_len": 330,
+    "blocks_count": 10
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "最近线下见多了群友，听多了大家的故事，哥飞又把这段话拿出来，分享给每一位新朋友。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "想法太多的人，反而赚不到钱"
+    },
+    {
+      "type": "paragraph",
+      "text": "这几年实践下来，有太多自己想法的人，加入哥飞社群，一般都赚不到钱；反而是严格按照哥飞教程执行、不自己乱加戏的，出单更快。"
+    },
+    {
+      "type": "quote",
+      "text": "干出海，做网站，从谷歌获取流量，最怕的就是带着旧经验，结果装不进新东西。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "空杯心态，先依葫芦画瓢"
+    },
+    {
+      "type": "paragraph",
+      "text": "建议空杯心态，从零出发，先依葫芦画瓢。后面上站多了，有自己的体感了，才适合加入自己的思考。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "赚到 1000 美金之前，别想着自动化"
+    },
+    {
+      "type": "paragraph",
+      "text": "一上来别想着自动化。当你不熟悉手动操作时，你的自动化就只是个花架子。先手动做每一个步骤："
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "找词",
+        "分析词背后的需求",
+        "AI 写代码",
+        "写文案",
+        "部署",
+        "上线发布",
+        "提交外链"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "所有流程都建议手动。在你赚到 1000 美金之前，先别想着自动化。"
+    }
+  ]
+}
