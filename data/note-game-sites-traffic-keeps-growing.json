@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "id": "note-2026-11-11-game-sites-traffic-keeps-growing",
+    "slug": "note-game-sites-traffic-keeps-growing",
+    "title": "新手做游戏站：方向和体验对了，流量会一直涨",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-10T16:21:00.000Z",
+    "published_local": "2026-11-11 00:21",
+    "category": "需求研究",
+    "category_reason": "主要交付是新手做站方向判断：游戏站值得做，并给出找对方向、做好体验两个前提；排除实战复盘——没有站点、周期与结果的完整数据；排除 SEO获客——未涉及关键词布局与排名手法。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "游戏站",
+      "新手",
+      "流量",
+      "哥飞",
+      "网站变现"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "群聊 3 条全部收录于对话块；1 张 Cloudflare 后台截图已本地化并按原位置插入正文，截图中的站点标识在原图里已打码。",
+    "plain_text_len": 700,
+    "blocks_count": 13
+  },
+  "blocks": [
+    {
+      "type": "quote",
+      "text": "新手还是挺建议做游戏站的，找对了方向，做好了体验，流量会一直涨。"
+    },
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 11 日凌晨，哥飞在群里给新手补了一句方向建议：游戏站值得做。随后贴出一张自家站点的 Cloudflare 后台截图，半小时后又补了一篇游戏站科普文章，作为展开说明。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "截图里的数字"
+    },
+    {
+      "type": "image",
+      "local": "cloudflare-analytics-daily.png",
+      "alt": "Cloudflare Analytics 截图：截图时 90 人在线；11 月 10 日独立访客 12.9k、总访问 13.5k、页面浏览 23.7k，11 月 9 日分别为 10.2k、10.6k、18.3k"
+    },
+    {
+      "type": "paragraph",
+      "text": "截图统计的是 11 月 9 日和 10 日两天：单日独立访客 12.9k 和 10.2k，总访问 13.5k 和 10.6k，页面浏览 23.7k 和 18.3k，截图时刻还有 90 人在线。日 PV 接近日 UV 的两倍，说明访客平均会看两个以上页面，这是游戏站典型的使用方式——进来玩，还想再玩一个。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "「找对方向」和「做好体验」是两个前提"
+    },
+    {
+      "type": "paragraph",
+      "text": "涨流量不是一个动作，是两个条件同时成立。方向指需求判断：选对玩法，找到真正有人在搜、又没有被大站吃干净的那类游戏词。体验指站内质量：游戏站的用户会直接拿同类站来对比，加载慢一点、广告挡一下屏，跳出就是分分钟的事。"
+    },
+    {
+      "type": "paragraph",
+      "text": "游戏站的流量还有一层和工具站不同的性质：它会累积。工具站做完一次任务就走，游戏站有回访，玩家会记住站点，口碑和搜索排名一起滚。所以「流量会一直涨」不是一句乐观的说法，前提就是前面两条真的做到了。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "延伸阅读"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞在群里补充的游戏站科普文章：https://new.web.cafe/tutorial/detail/65tv6y1tzb"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "附录：原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "本次对话共 3 条消息（含 1 张图片），时间跨度 2026 年 11 月 11 日 00:21–00:37。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 3,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "哥飞",
+          "time": "2026年11月11日 00:21",
+          "text": "新手还是挺建议做游戏站的，找对了方向，做好了体验，流量会一直涨。"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月11日 00:21",
+          "text": "[图片] 微信图片_202611110021_1.jpg"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月11日 00:37",
+          "text": "游戏站的科普，看这篇文章\nhttps://new.web.cafe/tutorial/detail/65tv6y1tzb"
+        }
+      ]
+    }
+  ]
+}

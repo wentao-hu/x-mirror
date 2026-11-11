@@ -1604,6 +1604,36 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-11-gefie-seo-practice-four-step-keyword",
+      "slug": "note-gefie-seo-practice-four-step-keyword",
+      "title": "哥飞群聊：SEO 是练出来的，找词靠四步循环",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-11T05:26:00.000Z",
+      "published_local": "2026-11-11 13:26",
+      "category": "SEO获客",
+      "category_reason": "主要交付是 SEO 的练习方式与找关键词方法：不断上站复盘练手感、四步循环看词看站；内容与需求只是补充判断，因此不归需求研究，也不涉及具体建站实现，不归建站开发。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "SEO 练习",
+        "找关键词",
+        "AITDK",
+        "先找需求",
+        "产品调研",
+        "群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信聊天记录导出包整理；两段群聊转发共 13 条消息，全部保留，无删除；导出包不含图片。",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "note-2026-11-09-ahrefs-not-needed-under-50k",
       "slug": "note-ahrefs-not-needed-under-50k",
       "title": "月入五万刀以下，用不上 ahrefs",
@@ -3962,6 +3992,34 @@
       "fidelity_note": "微信原文；正文无配图，保留原文封面图与作者头像。",
       "plain_text_len": 756,
       "blocks_count": 26
+    },
+    {
+      "id": "note-2026-11-11-game-sites-traffic-keeps-growing",
+      "slug": "note-game-sites-traffic-keeps-growing",
+      "title": "新手做游戏站：方向和体验对了，流量会一直涨",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-10T16:21:00.000Z",
+      "published_local": "2026-11-11 00:21",
+      "category": "需求研究",
+      "category_reason": "主要交付是新手做站方向判断：游戏站值得做，并给出找对方向、做好体验两个前提；排除实战复盘——没有站点、周期与结果的完整数据；排除 SEO获客——未涉及关键词布局与排名手法。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "游戏站",
+        "新手",
+        "流量",
+        "哥飞",
+        "网站变现"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "群聊 3 条全部收录于对话块；1 张 Cloudflare 后台截图已本地化并按原位置插入正文，截图中的站点标识在原图里已打码。",
+      "plain_text_len": 700,
+      "blocks_count": 13
     },
     {
       "id": "note-2026-11-10-new-keywords-starter-village",
