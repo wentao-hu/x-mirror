@@ -5128,6 +5128,36 @@
       "blocks_count": 145
     },
     {
+      "id": "note-2026-11-13-subscription-funnel-tracking",
+      "slug": "note-subscription-funnel-tracking",
+      "title": "没开单先补漏斗和埋点：订阅从哪来、卡在哪一步都要看得见",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-12T16:20:00.000Z",
+      "published_local": "2026-11-13 00:20",
+      "category": "用户运营",
+      "category_reason": "主要交付是让读者在没开单时先补漏斗与埋点，从订阅路径和来源渠道定位转化卡点，属于改善已有用户转化；不归建站开发，因为埋点实现只是手段，交付不是技术功能本身。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "漏斗分析",
+        "埋点",
+        "订阅归因",
+        "渠道追踪",
+        "转化分析",
+        "AI 辅助开发",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 3 条全部保留，无图片与附件；已去除消息内的 [破涕为笑] 表情文字。",
+      "plain_text_len": 1126,
+      "blocks_count": 16
+    },
+    {
       "id": "note-2026-11-11-video-site-free-quota-by-region",
       "slug": "note-video-site-free-quota-by-region",
       "title": "视频站免费额度按地区分档：白嫖地区不给，其他只送一次最低配置",
