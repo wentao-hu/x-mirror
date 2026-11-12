@@ -3994,6 +3994,34 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-12-image-vs-video-chargeback",
+      "slug": "note-image-vs-video-chargeback",
+      "title": "生图好赚、视频难做，退订争议费躲不掉",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-12T15:45:00.000Z",
+      "published_local": "2026-11-12 23:45",
+      "category": "需求研究",
+      "category_reason": "主要内容是对 AI 生成类产品机会与付费意愿的判断——生图与生视频谁更值得做、用户是否满意；退订扣款争议是用户不满意后的结果佐证，不是支付渠道接入，也不是存量用户的运营方法，故不归「海外收款」或「用户运营」。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "AI生图",
+        "AI生视频",
+        "订阅退订",
+        "扣款争议",
+        "AI变现"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始对话 4 条消息全部收录，无图片、附件与删除内容。",
+      "plain_text_len": 520,
+      "blocks_count": 10
+    },
+    {
       "id": "note-2026-11-11-vercel-subdomain-validated-demand",
       "slug": "note-vercel-subdomain-validated-demand",
       "title": "免费子域名下的高流量页面，都是别人替我们验证过的需求",
