@@ -3994,6 +3994,35 @@
       "blocks_count": 26
     },
     {
+      "id": "note-2026-11-11-vercel-subdomain-validated-demand",
+      "slug": "note-vercel-subdomain-validated-demand",
+      "title": "免费子域名下的高流量页面，都是别人替我们验证过的需求",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-11T08:14:00.000Z",
+      "published_local": "2026-11-11 16:14",
+      "category": "需求研究",
+      "category_reason": "主要交付是一套需求发现方法：从 vercel.app、github.io、pages.dev 等免费子域名的高流量页面里找别人已经被验证过的需求；排除 SEO获客——没有讲具体站点的关键词布局与排名执行；排除建站开发——不涉及页面实现与部署。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "vercel.app",
+        "免费子域名",
+        "需求发现",
+        "web.cafe",
+        "群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信聊天记录导出包整理；转发的原始对话共 6 条，全部保留，无删除；1 张截图已本地化。",
+      "plain_text_len": 0,
+      "blocks_count": 0
+    },
+    {
       "id": "note-2026-11-11-game-sites-traffic-keeps-growing",
       "slug": "note-game-sites-traffic-keeps-growing",
       "title": "新手做游戏站：方向和体验对了，流量会一直涨",

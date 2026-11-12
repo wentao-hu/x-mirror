@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "id": "note-2026-11-11-vercel-subdomain-validated-demand",
+    "slug": "note-vercel-subdomain-validated-demand",
+    "title": "免费子域名下的高流量页面，都是别人替我们验证过的需求",
+    "url": "",
+    "author_name": "萧禹",
+    "author_username": "",
+    "published_utc": "2026-11-11T08:14:00.000Z",
+    "published_local": "2026-11-11 16:14",
+    "category": "需求研究",
+    "category_reason": "主要交付是一套需求发现方法：从 vercel.app、github.io、pages.dev 等免费子域名的高流量页面里找别人已经被验证过的需求；排除 SEO获客——没有讲具体站点的关键词布局与排名执行；排除建站开发——不涉及页面实现与部署。",
+    "description": "",
+    "source_type": "note",
+    "tags": [
+      "哥飞",
+      "vercel.app",
+      "免费子域名",
+      "需求发现",
+      "web.cafe",
+      "群聊"
+    ],
+    "avatar_local": "",
+    "images_total": 1,
+    "images_ok": 1,
+    "api_media_count": 0,
+    "fidelity_note": "根据微信聊天记录导出包整理；转发的原始对话共 6 条，全部保留，无删除；1 张截图已本地化。",
+    "plain_text_len": 0,
+    "blocks_count": 0
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "群友发来一张 vercel.app 的着陆页流量报表，问这个页面该看什么。哥飞没有直接讲报表怎么读，而是先讲原理：这类免费子域名下流量高的页面，需求已经被人验证过了；而发布者大概率不懂 SEO，把 SEO 做好就有机会拿到排名和流量。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "谁会用 Vercel 子域名直接发页面"
+    },
+    {
+      "type": "paragraph",
+      "text": "哥飞先给这类发布者画了个像：懂一些编程，或者不懂编程但用 AI 写出了页面；大概率也不懂 SEO，也不想去花钱买域名。于是就在 Vercel 上放一个工具或小游戏，给别人用、给别人玩。"
+    },
+    {
+      "type": "paragraph",
+      "text": "这个画像决定了这批页面的价值：它们既承载真实需求，又缺少专业运营。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "从高流量页面反推能做需求"
+    },
+    {
+      "type": "list",
+      "items": [
+        "去 Vercel 这类子域名下找流量比较高的页面，从中发现一些可能能做的需求。",
+        "这些需求别人已经帮我们验证过了，不用再猜市场是否存在。",
+        "但对方的 SEO 大概率做得不好，我们把 SEO 做好，就有可能拿到排名、拿到流量。"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "群里发的那张截图就是这样的报表：12axes.vercel.app 的英文页最近 28 天拿到 368.7K 次自然点击，gesture-synth-weld.vercel.app 有 149K，playtav.vercel.app 有 115.6K，全部是挂在免费子域名上的页面。"
+    },
+    {
+      "type": "image",
+      "local": "vercel-subdomain-landing-pages.jpg",
+      "alt": "截图：vercel.app 域名着陆页流量报表，12axes、gesture-synth-weld、playtav 等子域名页面在最近 28 天获得数十万自然点击"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "在哪看这些数据"
+    },
+    {
+      "type": "paragraph",
+      "text": "范围不只是 Vercel。哥飞说，vercel.app、github.io、pages.dev 等子域名的流量页面和关键词都可以看，他们的数据服务已经把这类数据抓取好了：[new.web.cafe/hosted](https://new.web.cafe/hosted)。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "原始对话"
+    },
+    {
+      "type": "paragraph",
+      "text": "2026 年 11 月 11 日下午的群聊，由哥飞转发的一段对话展开：化鹏先是贴了报表截图提问，哥飞解释原理后，wxnet 追问截图是不是 vercel 的页面。原始记录共 6 条，按时间顺序全部保留。"
+    },
+    {
+      "type": "chat",
+      "raw_count": 6,
+      "removed_count": 0,
+      "messages": [
+        {
+          "user": "化鹏",
+          "time": "2026年11月11日 16:14",
+          "text": "[图片] 微信图片_202611111614_1.jpg"
+        },
+        {
+          "user": "化鹏",
+          "time": "2026年11月11日 16:14",
+          "text": "这个页面是看什么啊？"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月11日 16:19",
+          "text": "要从理解原理的角度去看这个页面。\n\n哪些人会用vercel的子域名直接发布页面呢？\n\n大概率是他，懂一些编程，或者说不懂编程用AI写出来的页面，然后呢，大概率也不懂SEO，也不想去花钱买域名。\n\n就做了一个工具，或者做了一个小游戏，放到 Vercel 上面来，然后给别人用，给别人玩。\n\n我们通过去看 Vercel 这个子域名下去发现这类流量比较高的页面，从而发现一些可能能做的需求。\n\n而这些需求呢，别人已经帮我们验证过了。但同时呢，对方的 SEO 大概率做得不好，我们把SEO 做好，就有可能拿到排名，拿到流量。"
+        },
+        {
+          "user": "wxnet",
+          "time": "2026年11月11日 16:23",
+          "text": "飞哥，那对话里张图是vercel 的页面么"
+        },
+        {
+          "user": "哥飞",
+          "time": "2026年11月11日 16:25",
+          "text": "看  vercel.app、github.io、pages.dev 等子域名的流量页面和关键词，我们的数据服务，已经帮大家抓取好了\nhttps://new.web.cafe/hosted"
+        },
+        {
+          "user": "Stu(dy ing)",
+          "time": "2026年11月11日 16:26",
+          "text": "牛蛙，这个很实用"
+        }
+      ]
+    }
+  ]
+}
