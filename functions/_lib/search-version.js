@@ -1,2 +1,2 @@
 // 由 rebuild_from_data.py 生成，与静态全文索引保持同一版本。
-export const SEARCH_VERSION = "7bc8da77";
+export const SEARCH_VERSION = "5690e3a0";

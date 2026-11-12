@@ -128,6 +128,35 @@
       "blocks_count": 11
     },
     {
+      "id": "note-2026-11-12-new-keyword-site-one-day-999-clicks",
+      "slug": "note-new-keyword-site-one-day-999-clicks",
+      "title": "新词站上线一天：999 点击、1.09 万曝光，接入支付即出单 $3.99",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-12T15:50:00.000Z",
+      "published_local": "2026-11-12 23:50",
+      "category": "实战复盘",
+      "category_reason": "主要交付是一次新词站从选词到上线优化的完整实践，并附 Search Console 与付款后台截图；有具体对象、过程与结果证据，因此归实战复盘。选词与排名只是流程中的环节，不单列需求研究或 SEO 获客；建站是实现手段，不单列建站开发；付款只是结果之一，不涉及收款流程，不归海外收款。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞新词服务",
+        "SEO Agent",
+        "Codex",
+        "Google Trends",
+        "新词站",
+        "群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 3,
+      "images_ok": 3,
+      "api_media_count": 0,
+      "fidelity_note": "根据两个微信群聊导出包按时间顺序合并整理；共 11 条消息全部保留，其中 3 条图片已本地化并按原位置插入正文。导出包把每段内的消息统一标记为同一发言人。",
+      "plain_text_len": 1413,
+      "blocks_count": 18
+    },
+    {
       "id": "wechat-0jTrLh_Tf3orFMhjmAkPKA",
       "slug": "wechat-wu-new-keyword-site-4days-1000",
       "title": "接上支付10秒就来了第一单：一位群友的新词站4天收入破千美元",
