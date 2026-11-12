@@ -1633,6 +1633,34 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-12-one-keyword-one-page",
+      "slug": "note-one-keyword-one-page",
+      "title": "栏目页和文章页不抢词：一个关键词一个页面",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-12T05:31:00.000Z",
+      "published_local": "2026-11-12 13:31",
+      "category": "SEO获客",
+      "category_reason": "核心交付是站点栏目页与文章页的关键词分工判断——一个关键词对应一个页面，属于关键词布局；排除需求研究——不涉及找词与判断需求；排除实战复盘——全文用一个假设案例说明单一方法，没有实践结果与成败归因。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "关键词布局",
+        "一个关键词一个页面",
+        "栏目页",
+        "关键词蚕食",
+        "信息架构"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊压缩包整理；原始对话共 3 条，全部保留。",
+      "blocks_count": 11
+    },
+    {
       "id": "note-2026-11-11-gefie-seo-practice-four-step-keyword",
       "slug": "note-gefie-seo-practice-four-step-keyword",
       "title": "哥飞群聊：SEO 是练出来的，找词靠四步循环",
@@ -4049,6 +4077,35 @@
       "fidelity_note": "原始对话 4 条消息全部收录，无图片、附件与删除内容。",
       "plain_text_len": 520,
       "blocks_count": 10
+    },
+    {
+      "id": "note-2026-11-12-keyword-discovery-provenance",
+      "slug": "note-keyword-discovery-provenance",
+      "title": "新词服务加了找词溯源：每个词都能点开看当初是怎么发现的",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-12T12:44:00.000Z",
+      "published_local": "2026-11-12 20:44",
+      "category": "需求研究",
+      "category_reason": "主要交付是一套发现和验证新词需求的方法：新词服务的关键词页面新增「这个词是怎么找出来的」模块，把发现路径、谷歌趋势相关查询和复现链接全部摊开，读者照着就能找下一个词；排除 SEO获客——不涉及关键词布局与排名执行；排除实战复盘——没有实践结果与成败归因；企业客户识别只是附带提醒，不是主体，不归用户运营。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "哥飞",
+        "新词服务",
+        "找词",
+        "Google Trends",
+        "需求发现",
+        "群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 1,
+      "images_ok": 1,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊导出包整理；原始对话共 6 条全部保留，其中 1 条图片消息的截图已本地化并插入正文。",
+      "plain_text_len": 0,
+      "blocks_count": 0
     },
     {
       "id": "note-2026-11-11-vercel-subdomain-validated-demand",
