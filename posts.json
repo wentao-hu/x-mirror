@@ -5042,6 +5042,35 @@
       "blocks_count": 145
     },
     {
+      "id": "5vzlm4qjdd",
+      "slug": "webcafe-5vzlm4qjdd",
+      "title": "哥飞强推的 AI 辅助精细化运营实操教程",
+      "url": "https://new.web.cafe/topic/5vzlm4qjdd",
+      "author_name": "哥飞",
+      "author_username": "web.cafe",
+      "published_utc": "2026-11-11T11:57:57.792Z",
+      "published_local": "2026-11-11 19:57",
+      "category": "用户运营",
+      "category_reason": "主要交付是一套用 AI 驱动已上线产品精细化运营的九步方法：数据打通、实验系统、按扣费后收入判定、报警回滚、客服政策化与上线纪律，读者读完能做的是改善现有访客的转化与收入，故归「用户运营」。排除「实战复盘」：虽有 rapduo.ai 五周真实数据，但主体是可照做的步骤与可复制模板，不是对一次实践成败的归因；排除「SEO获客」：热点页只是九步之一且被定位为低成本试错。",
+      "description": "",
+      "source_type": "webcafe",
+      "tags": [
+        "AI运营",
+        "实验系统",
+        "定价策略",
+        "转化优化",
+        "PVUV.ai",
+        "自动化运营"
+      ],
+      "avatar_local": "avatar.jpg",
+      "images_total": 2,
+      "images_ok": 2,
+      "api_media_count": 0,
+      "fidelity_note": "web.cafe 付费帖，登录态抓取 .custom-html.prose 全文镜像；正文顺序、加粗、表格与 5 段可复制模板代码块均按原文保留；2 张配图已本地化；无视频、无附件、无行内链接；评论未收录（默认规则）。",
+      "plain_text_len": 13291,
+      "blocks_count": 105
+    },
+    {
       "id": "note-2026-11-10-gpt-channel-pricing-trial-pack",
       "slug": "note-gpt-channel-pricing-trial-pack",
       "title": "按来源渠道定价：ChatGPT 来的不给免费额度，改 9.99 美元 3 次试玩装",
