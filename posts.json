@@ -5042,6 +5042,34 @@
       "blocks_count": 145
     },
     {
+      "id": "note-2026-11-11-video-site-free-quota-by-region",
+      "slug": "note-video-site-free-quota-by-region",
+      "title": "视频站免费额度按地区分档：白嫖地区不给，其他只送一次最低配置",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-11T12:18:00.000Z",
+      "published_local": "2026-11-11 20:18",
+      "category": "用户运营",
+      "category_reason": "主要交付是给视频站新用户设计按地区分档的免费额度策略，控制试用成本并筛选高意向用户，属于用户激活与转化；不归海外收款（不涉及收款流程），不归需求研究（不判断需求机会），也不归实战复盘（没有结果数据）。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "视频站",
+        "免费额度",
+        "积分策略",
+        "水印",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信群聊导出包整理；原始对话共 6 条全部保留，无图片与附件。",
+      "plain_text_len": 720,
+      "blocks_count": 11
+    },
+    {
       "id": "5vzlm4qjdd",
       "slug": "webcafe-5vzlm4qjdd",
       "title": "哥飞强推的 AI 辅助精细化运营实操教程",
