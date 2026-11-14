@@ -1,0 +1,2863 @@
+{
+ "meta": {
+  "id": "wlhmhdaoqg",
+  "slug": "webcafe-backlink-sites-top150",
+  "title": "网站上线后去哪提交外链？web.cafe 悬赏榜前 150 个网站（994 条群友提交）",
+  "url": "https://new.web.cafe/ask/bounty/wlhmhdaoqg",
+  "author_name": "哥飞",
+  "author_username": "web.cafe",
+  "published_utc": "2026-08-23T06:12:29.065Z",
+  "published_local": "2026-08-23 14:12",
+  "category": "外链",
+  "category_reason": "主要交付是网站上线后可提交外链的平台清单：按群友推荐票数排序的 150 个站点，附每个站点的推荐理由与收费/限制。核心是外链渠道与导航站目录提交，排除关键词与排名为主的 SEO获客，也排除建站实现。",
+  "description": "",
+  "source_type": "webcafe",
+  "tags": [
+   "外链",
+   "导航站",
+   "目录提交",
+   "Product Hunt",
+   "出海"
+  ],
+  "avatar_local": "avatar.jpg",
+  "images_total": 0,
+  "images_ok": 0,
+  "api_media_count": 0,
+  "fidelity_note": "web.cafe 征集悬赏原帖：完整榜单 695 个选项、225 人提交，本页按票数取前 150；网站名做品牌化整理，链接取官网地址；每个网站下保留全部提交者的理由与缺点（同内容合并作者），未写理由的按人数列出；帖子级评论区需解锁，未收录；原文为文字提交，无图片、无视频、无附件。",
+  "plain_text_len": 31918,
+  "blocks_count": 461
+ },
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "这是 web.cafe「问大咖」上一道已结题的征集悬赏：哥飞提问「网站上线之后，你会去哪些地方提交外链？」，要求写清去这里提交的理由、是否收费。最终收到 **225 人提交的 695 个网站选项**，赏金池 34400 咖啡豆，2026-08-23 开榜。"
+  },
+  {
+   "type": "quote",
+   "text": "可以是任何网站，需要写清楚去这里提交的理由，是否收费等等。—— 原帖问题"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "这份榜单怎么读"
+  },
+  {
+   "type": "list",
+   "items": [
+    "排名按合并后的票数从高到低：同一个网站被多人重复提交时会合并，票数累加，所以票数也代表群友推荐的集中度。",
+    "每个网站名都是可点击的官网链接；下面的条目来自原帖提交者，前半句是**推荐理由**，标注「缺点」的是原帖里写明的注意点或限制。",
+    "票数相同（尤其是 2 票段）的网站很多，这里按原站榜单顺序截取前 150 个；完整榜单一共 695 个选项。",
+    "帖子级评论区需要付费解锁，本页未收录；每个网站下只保留选项本身的提交内容。"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Top 1–10（17–81 票）"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "1. [Product Hunt](https://producthunt.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "producthunt.com · **81 票** · 80 人提交（合并 5 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**XH**：不费事儿获得一个外链。缺点：选项太多",
+    "**哥飞**：缺点 —— 越来越难被编辑精选了，而且如果你不是准备了充足的票数资源，就不要去冲榜，直接提交完就走就行，拿到一个外链就行",
+    "**mhhya**：免费，权重高，gsc收录",
+    "**GIGI**：权威 上线快（nofollow）",
+    "**袁锐钦**：外链权重顶级。发布当天冲排名是门技术活，提前准备图 + 介绍 + 找朋友顶",
+    "**一箭**：高权重免费外链",
+    "**阿迪ζ**：P站，最大产品发布平台，必发",
+    "**向左**：免费，高权重产品页、品牌曝光、可直接放官网；还可能获得真实用户和二次转载",
+    "**轻舟**：免费提交。适合新品首发，能拿到早期用户和真实反馈。",
+    "**貮皮**：DR 91，月访问量 3.6M",
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**星辰千里**：权重高，流量大，容易发，免费",
+    "**东君**：免费提交，带来一定的曝光量",
+    "**Tyler**：适合新网站/新产品上线时发布，可以获得产品曝光、用户访问和自然外链，也有机会获得早期用户反馈。",
+    "**shine_forever**：海外人群一个曝光机会",
+    "**峻菁**：一个各种新的AI产品都会被投放的一个平台",
+    "**宁十七、犀利豆**：免费",
+    "**低位**：免费，高权重",
+    "**Nitor**：适合正式上线的软件和 AI 产品，能建立长期产品页面并带来早期用户、评论和品牌曝光。基础发布免费，但个人账号通常需要注册满一周才能发布",
+    "**一成**：免费的目录站，爬虫来的频繁",
+    "**清仔**：NoFollow，但是免费，不过个人没必要花很多精力打榜了",
+    "**日出东方**：高权重 免费",
+    "**Geektao**：出海冷启动绕不开的地方",
+    "**(广秉)林之宝(大白如云)**：基础免费；推广广告付费。优点:1. 海外新产品标杆渠道，曝光大；2. 产品页面永久收录；3. 获取早期种子用户、开发者反馈；4. 品牌背书强；月访问约 600 万。缺点：1. 发布竞争激烈，冲榜需要前期社区准备；2. 禁止买赞，违规会下架产品；3. 链接是 nofollow，不直接传递权重",
+    "**Shixy**：新产品引流效果好",
+    "**longPc**：类似网站版的 appstore",
+    "**苏基…👏**：冷启动必备，虽然ph本身没有do follow，但是有很多抓ph站数据的站，是有dofollow的，相当于被动加了一部分外链",
+    "**Canen**：免费，高DR，最值得提交的外链之一",
+    "**欧文AI出海**：这个是很容易提交的，添加评论之后可以有对应的外链了",
+    "**大学牲**：基础发布免费，适合产品首发和获取早期用户。",
+    "**沐珈**：发布就算正式对外上线了，最近分析竞品发现新增一些dofollow，研究一看其实是那种自动抓取ph的站点，一般都是抓ph当天的top10，所以如能进十，应该会有一批这样的会自动去抓，争取进前十吧",
+    "**2jahfz9cpb**：免费、权重高",
+    "**Snufkin**：免费 快",
+    "**前行**：免费提交，可以选定发布日期，产品力强还可以获得不少曝光，所以建议功能完善后再提交",
+    "**Jeremy**：免费，权重高，可以用AI直接提交",
+    "**国际范～**：上线后，会被很多爬虫爬",
+    "**张宇、mingming**：免费提交",
+    "**张睿_Ray**：product hunt你值得拥有",
+    "**阿宽**：免费 新手友好 建议谷歌登录",
+    "**thovino**：适合新品上线展示，产品页可集中介绍功能与官网，并有机会获得用户反馈和品牌曝光。",
+    "另有 38 人提交但没写理由：NightWatch、樹、ly、Borsalino、Jing、行知、Qiang Gao、金玄宇等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "2. [There's An AI For That](https://theresanaiforthat.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "theresanaiforthat.com · **63 票** · 63 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**哥飞**：最具性价比的 AI 导航网站，流量够大，且价格不贵，只需要 49 美金。",
+    "**袁锐钦**：AI 目录里权重最高的一家。免费提交手动审核，通过就进库；",
+    "**轻舟**：付费提交。AI 用户很集中，适合做精准曝光和外链。",
+    "**杨feng**：AI 导航站龙头，付费",
+    "**江城子**：首选的付费导航站之一，群友多次推荐认证",
+    "**kingluo**：一次性 $49，官方承诺永久收录；适合 AI 产品获取高流量垂直目录曝光，新站必提交。",
+    "**Geektao**：收费，两个套餐，49 刀的和 349 刀的，哥飞工具评价值 429 美刀",
+    "**正林**：访问、注册、付费的用户比提交到其他导航站的更多，性价比高",
+    "**shine_forever**：性价比最高,人工审核严格,如果产品可以,会有一个月左右的持续流量!",
+    "**JsonChao**：全球最大的导航站，有付费用户，性价比极高",
+    "**宁十七**：价格适中，有真实流量，审核严格，还会帮你找一些网站存在的问题",
+    "**Andy**：流量大， 可以带来一些点击",
+    "**阿林**：SEO 友好，会带来大量真实 AI 用户",
+    "**犀利豆**：性价比之王 49 刀",
+    "**清仔**：全球最大的导航站平台，能真正的给页面带来用户",
+    "**日出东方**：AI目录 免费排队/付费加速",
+    "**苏基…👏**：仅49刀的价格就能提交，冷启动能带来较多精准流量",
+    "**Canen**：付费外链里投产比最高的1条了，有真实的用户",
+    "**Serdes**：这是很多大佬赚到第一桶金的地方",
+    "**嘉禾**：如果这个平台的流量有你的用户，可以是付费提交，验证一下产品需求是否准确",
+    "**正午**：性价比最高",
+    "**Dawn**：这个导航站质量高，也收费，但是能带量",
+    "**麦塔**：能带来真实用户的点击和转化，性价比高",
+    "**Angler**：欧美用户多，有真实流量，价格便宜",
+    "**L**：49美金确实不贵",
+    "**H an**：有流量，能带来付费用户",
+    "**Toby**：49刀，性价比超高，真实用户",
+    "**Robby**：性价比超高",
+    "**frank**：免费提交可以有外链；付费也不贵",
+    "**新原**：提交了是真的给流量",
+    "**国际范～**：全球最大的导航站，提交之后，真的可以带来不少流量",
+    "**mingming**：可以带来真实用户",
+    "**thovino**：人工智能工具用户集中，按使用需求展示产品，便于接触目标用户并获得垂直领域曝光。",
+    "另有 30 人提交但没写理由：袁智翔、WW、NightWatch、Mushan、Pot.、Borsalino、CT、叶无敌等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "3. [Toolify AI](https://toolify.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolify.ai · **47 票** · 47 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**哥飞**：有真实流量，能够带来付费用户，价格 99 美元。",
+    "**tedy5735**：权重高，反馈快",
+    "**袁锐钦**：提交表单直接填工具名 + URL + 描述，人工审核。可选付费推广位（$99），基础收录不用钱",
+    "**zry**：性价比高，可以带来很多真实流量",
+    "**向左**：收费，页面数量多，很多 AI 长尾词",
+    "**老菜**：价格合理，自然流量",
+    "**轻舟**：付费提交，约 99 美元。AI 工具目录流量大，适合做收录和外链。",
+    "**江城子**：首选的付费导航站之一，收录速度快",
+    "**sunboy**：付费, 99刀, 值得, 会被抓去toolify的网站抓取自动收录, 变相等于多买了些外链",
+    "**Geektao**：收费，99 美刀，哥飞工具评价值 250 美刀",
+    "**正林**：流量不错",
+    "**shine_forever**：有一定作用,但是现在自带流量有点少了",
+    "**JsonChao**：全球第二大的导航站，有付费用户，性价比较高",
+    "**峻菁**：AI的应用产品在这里可以看到很多排名，能弄到这里的外链权重会非常好。",
+    "**低位**：99美金，权重高",
+    "**Andy**：大家都知道的",
+    "**一成**：高dr付费外链，会被其他爬虫爬取",
+    "**清仔**：国内最大的AI导航站",
+    "**日出东方**：AI站点提交 99刀",
+    "**Shixy**：适合 AI 工具展示，可获得 AI 目录流量",
+    "**Serdes**：不必多言",
+    "**Dawn**：这个是收费的，但是流量较大，收录快，能带量",
+    "**麦塔**：能够持续带来流量",
+    "**thovino**：工具分类丰富，便于用户按具体需求发现产品，适合展示功能特色并拓展长尾搜索曝光。",
+    "另有 23 人提交但没写理由：WW、NightWatch、Mushan、Pot.、Alpha、CT、岩三、井然等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "4. [SaaSHub](https://saashub.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "saashub.com · **34 票** · 34 人提交（合并 4 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**mhhya**：免费，权重流量不错，gsc收录",
+    "**GIGI**：免费 dofollow 但是需要有官方邮箱验证",
+    "**阿迪ζ**：SaaS 目录站",
+    "**向左**：免费基础版，付费推广",
+    "**安徒生、mingming**：免费",
+    "**zzl**：收录快",
+    "**貮皮**：DR 80，月访问量 362.6k",
+    "**Zephyrion（即刻同名）**：免费提交",
+    "**蓝星空**：【免费】提交网站后可以获取多条外链，能获取到一些真实的用户流量 。",
+    "**Terence‮‮‮脚一你了踹并‭**：DR 79，权重较高，效果好",
+    "**kingluo**：基础产品提交免费，适合 SaaS、软件和在线工具；审核收录后可获得独立产品页、分类曝光和竞品替代方案页面展示。",
+    "**Nitor**：适合英文网站和已经上线的独立域名产品；需要经过审核。",
+    "**沐白**：免费、权重高",
+    "**清仔**：DoFollow,免费导航站,适合SaaS 类",
+    "**Link**：适合长期挂着，持续吃流量",
+    "**日出东方**：SaaS目录 免费 dofollow",
+    "**亿豪**：当前入口可访问；本地记录标注免费基础收录，审核后生成公开产品页与官网链接。",
+    "**Geektao**：创业项目、技术产品适合",
+    "**Shixy**：有软件分类、竞品和替代品页面，适合做长尾曝光",
+    "**Jeremy**：免费，收录挺快的",
+    "**thovino**：软件分类与替代品页面有利于产品被发现，可展示功能介绍和官网，接触有需求的用户。",
+    "另有 12 人提交但没写理由：Mushan、CT、行知、东君、班纳、摩西、kevinbai、欧文AI出海等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "5. [GitHub](https://github.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "github.com · **33 票** · 35 人提交（合并 5 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**tedy5735**：建立readme做项目介绍和使用案例，能快速见效",
+    "**袁锐钦**：README 写清楚项目是干嘛的 + 官网链接",
+    "**向左**：免费，官网、Profile README、开源项目 README 都可以形成稳定品牌引用",
+    "**轻舟**：免费。适合开源或开发者产品，可以在仓库介绍里放官网链接。",
+    "**cherry**：nofollow 但高权重很容易获得谷歌考前的排名，给自己的网站引流",
+    "**Lessur**：免费，找一些开源项目提 issue，权重会涨得很快",
+    "**蓝星空**：【免费】Github 的页面在 Google 搜索的排名也是非常好的，Tag 可以多加一些已经被 Google 收录Tab列表页的，可以有效增加权重，并能带来实际的用户点击。",
+    "**江城子**：github可以快速被其他的网站爬取，有利于扩展自己的网站",
+    "**Tyler**：如果网站有开源项目、技术文档、API、Demo 或相关代码，可以在项目 README 中放官网链接。GitHub 页面权重和曝光度较高，也能给网站带来开发者用户。",
+    "**马兄弟**：简单、高权重",
+    "**犀利豆、清仔、miya**：免费",
+    "**Lone Ranger**：收录中国独立开发者项目列表，免费，收录速度快",
+    "**日出东方**：高权重 免费",
+    "**Shixy**：高相关性，适合技术站",
+    "**嘉禾**：高权重的收入，很好的外链",
+    "**一箭**：高权重免费外链",
+    "**欧文AI出海**：README 外链收录快",
+    "**大学牲**：免费，找到相关 Awesome 仓库后按贡献规范提交 PR。",
+    "**甜果果🍎🍊**：免费，简单",
+    "**thovino**：项目介绍和使用文档可以自然放入官网链接，适合展示技术能力并吸引相关开发者关注。",
+    "另有 12 人提交但没写理由：Zhou.、NightWatch、樹、ly、Borsalino、CT、Qiang Gao、Mushan等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "6. [V2EX](https://v2ex.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "v2ex.com · **29 票** · 29 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小龙**：免费提交，但是账号怎么注册。缺点：你们咋注册的账号？为什么说对新人友好？一个账号都注册不了，怎么就对新人友好了？",
+    "**tedy5735**：新手友好，不会封号",
+    "**小羊**：权重高，老牌技术社区，别人越骂你，权重越高",
+    "**小郑**：Google抓取速度较快，适合作为产品上线后的首批引流渠道，有助于加速Google收录。注册需要邀请码，可以通过crypto或者闲鱼购买邀请码注册",
+    "**大林子**：这个一次买，然后就是一条至少值199刀外链，发了收录很快",
+    "**阿迪ζ**：V站，权重高，提高谷歌收录速度",
+    "**老菜**：高权重，低封号风险",
+    "**召唤兽**：注册后免费发布，高价值高权重",
+    "**Lessur**：免费，很活跃的中文社区，并且 AI 引用率很高",
+    "**谈小罗🌟**：提交 profile，是个 dofollow 的地址，且会给三个外链，分别是 global，egde，主站的",
+    "**江城子**：收录速度非常快，而且是免费的",
+    "**宁十七**：收录快，免费，有账号就能发",
+    "**阿林**：Google 索引快",
+    "**日出东方**：论坛 免费或收费搞账号",
+    "**longPc**：收录快，发布后会突然涌入很多用户",
+    "**苏基…👏**：google爬虫访问v2ex的频率比较高，加快google收录",
+    "**嘉禾**：帮助自己的网站快速索引",
+    "**大学牲**：免费，适合在创造者或开源节点真实分享，避免硬广。",
+    "**MaynorAI(tryallapi.com)**：权重高",
+    "**甜果果🍎🍊**：收录快，每次上站后 第一个外链就是它",
+    "**蓝星空**：Google 收录非常快，有真实用户",
+    "**我想问问天**：见效很快，而且提交也没有什么门槛，还经常有人过来给我的帖子评论",
+    "**thovino**：中文开发者社区讨论活跃，适合分享产品上线经历，获得真实反馈并接触潜在种子用户。",
+    "另有 6 人提交但没写理由：樹、行知、岩三、王家郴、ToiletLord、Leo"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "7. [Hacker News](https://news.ycombinator.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "news.ycombinator.com · **25 票** · 25 人提交（合并 6 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**GIGI**：权威 收录快（nofollow）",
+    "**一箭**：高权重免费外链",
+    "**大林子**：免费，但要养号，也是谷歌爬虫很喜欢的",
+    "**向左**：免费，技术产品非常值得做，一旦内容被认可能产生大量自然二次链接",
+    "**老菜**：高权重，有可能爆量",
+    "**轻舟**：免费。适合能直接体验的技术产品，容易拿到真实反馈和一波流量。",
+    "**Zephyrion（即刻同名）**：超高DR，超高流量，免费提交",
+    "**蓝星空**：【免费】Hacker Newsnew 网站的权重很高，提交的页面几乎 100% 会被 Google 收录（只要没有被删除）。需要注意的地方：需要提前一周时间先养号，新号发链接被封号的概率很高。",
+    "**东君**：免费提交，技术和创业用户质量高",
+    "**Nitor**：免费且能直接提交产品网址，优秀项目可能获得大量技术用户和自然讨论。只适合已经可实际使用、由本人开发且有技术亮点的产品；不能拉票，新账号应先正常参与社区。",
+    "**日出东方**：免费发表文章",
+    "**Geektao**：创业项目、技术产品适合",
+    "**(广秉)林之宝(大白如云)**：完全免费。优点：1. 流量巨大，月访问约 2000 万；2. 受众是工程师、技术创始人；3. 帖子会长期被谷歌收录；4. 爆帖带来海量访问。缺点：1. 规则严格，Show HN 要求产品可直接试用，纯落地页 / 软文不允许；2. 新账号容易被审核；3. 严禁拉人点赞，会域名影子封禁；4. 大部分帖子沉底没有流量",
+    "**Shixy**：技术行业影响力较强，但必须有真实技术内容，不能硬广",
+    "**星辰千里**：DR91 流量1425万",
+    "**大学牲**：免费，适合有实质创新的产品发布 Show HN。",
+    "**thovino**：技术与创业用户集中，适合展示可体验的创新产品，有机会获得深入反馈和自然传播。",
+    "另有 8 人提交但没写理由：NightWatch、ly、Jing、ToiletLord、班纳、kevinbai、夜航西飞、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "8. [Reddit](https://reddit.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "reddit.com · **18 票** · 18 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小郑**：免费（新手友好），需要混评论区养号，个别子版块允许发比较硬的推广贴，对新手来说是一个权重高、成本低的渠道",
+    "**向左**：免费，以社区内容为主，不能硬发广告",
+    "**Zephyrion（即刻同名）**：超高DR，超高流量，免费提交",
+    "**蓝星空**：【免费】Reddit 的页面在 Google 搜索的排名非常好，而且 GEO 的效果可能是所有网站里面最好的。也是需要先养号（换 IP 地区容易被封号，不过可以申请解封，如果大家有兴趣，我可以把我的解封经历整理一下发出来）",
+    "**Tyler**：可以寻找与网站目标用户相关的 Subreddit，通过经验分享、产品介绍或回答问题的方式带来精准流量和品牌曝光。",
+    "**马兄弟**：个人的profile里面 简单、高权重",
+    "**日出东方**：高权重 免费",
+    "**Shixy**：公认好用的免费推广平台，适合品牌和真实用户流量",
+    "**大学牲**：免费，只适合真实讨论和经验分享，避免直接发广告链接。",
+    "**麦塔**：对垂直领域的网站非常友好，能够拿到很靠前的排名",
+    "**thovino**：细分社区覆盖广，围绕真实问题分享产品与经验，便于接触目标用户并积累相关讨论。",
+    "另有 7 人提交但没写理由：没人关注正好安心练剑、唐先生、kevinbai、夜航西飞、欧文AI出海、LRN、brianflows"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "9. [Fazier](https://fazier.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "fazier.com · **17 票** · 17 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**得鹿梦鱼**：收费/免费，流量/DR尚可，价格不贵",
+    "**召唤兽**：免费提交需挂徽章",
+    "**安徒生**：$19",
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**Kaiun**：DR82，老牌AI目录站，缺点目前排期长",
+    "**sunboy**：收录比较高,真人投票, 非常好的导航站, 免费和付费都有",
+    "**Angler**：86K 免费提交 需要放徽章",
+    "**沐白**：免费、权重高",
+    "**日出东方**：目录提交 免费",
+    "**blank**：流量和 DR 还不错",
+    "**thovino**：新品展示形式清晰，产品介绍与官网入口集中，适合增加上线曝光并接触早期体验用户。",
+    "另有 6 人提交但没写理由：袁智翔、CT、行知、Mushan、_i6ю、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "10. [DEV Community](https://dev.to)"
+  },
+  {
+   "type": "paragraph",
+   "text": "dev.to · **17 票** · 17 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小郑**：免费（新手友好）、高DR、也没有养号要求。唯一需要注意的是，不要批量发布 AI 生成的低质量内容，有封号风险。",
+    "**向左**：免费，可以围绕产品技术方案写教程并自然引用自己的工具",
+    "**李胜**：免费/效果可以",
+    "**蓝星空**：【免费】一个英语的开发者社区，可以发文章加外链，文章被 Google 收录的比较快，不过最近管的比较严，容易被封号（可以邮件申请解封，大概需要2、3天时间）。",
+    "**Tyler**：可以发布与网站业务相关的技术文章、教程或案例，并在文章中合理引用官网，获得长期内容曝光和外链。",
+    "**Link**：开发者工具",
+    "**日出东方**：高权重 免费",
+    "**thovino**：开发者受众明确，可通过技术教程和案例自然介绍产品，持续积累内容曝光与相关访问。",
+    "另有 9 人提交但没写理由：Zhou.、ly、CT、Mushan、DIU哥、清仔、kevinbai、欧文AI出海等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "第 11–30 名（7–17 票）"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "11. [Medium](https://medium.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "medium.com · **17 票** · 18 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**曾大发啦啦啦**：其实ai现在可以写的很好，你可以搜集一些文章给你的ai,然后你给清晰的用户画像和关键词，说不定还能吸引不少流量。缺点：最好就是参考主题类似的高数据文章，不要太广告了，",
+    "**向左**：免费，可以发布博客文章",
+    "**Geektao**：同步自己搭建网站的文章，可以带来高权重价值流量。",
+    "**峻菁**：国外有一个类似博客的网站，很多人去看，所以曝光量会很大。被加上外链的话，就可以提高网站权重",
+    "**日出东方**：高权重 免费",
+    "**(广秉)林之宝(大白如云)**：免费发文。优点：1. 极高域名权重，谷歌收录极快；2. 适合长文科普、产品故事；3. 可以做内容分发，带来自然流量；4. 排版体验好。1. 全部外链 nofollow，拿不到直接权重；2. 大量 AI 水文会被降权；3. 平台算法波动，文章可能流量归零",
+    "**Shixy**：收录快，链接多为 nofollow",
+    "**Canen**：长尾流量多，免费，高DR",
+    "**thovino**：长文适合完整讲清产品价值和使用场景，可自然引用官网，积累内容曝光与品牌认知。",
+    "另有 8 人提交但没写理由：Zhou.、CT、61x3rutvwh、崔顺彪、夜航西飞、欧文AI出海、大学牲、马兄弟"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "12. [Dang.ai](https://dang.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "dang.ai · **17 票** · 17 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**召唤兽**：免费提交需挂徽章，DR 81",
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "**V.**：高dr有流量，免费+付费，50美金",
+    "**Angler**：358K 免费提交需要放徽章排队",
+    "**日出东方**：AI目录 免费/付费加速",
+    "**frank**：免费提交、审核严（有反链验证门槛），通过即代表站方认可，dofollow 已索引，含 logo/截图/完整描述，品牌展示最完整",
+    "**夏天夏**：审核快",
+    "**thovino**：专注人工智能工具展示，分类目录便于用户发现产品，适合增加垂直曝光与官网访问。",
+    "另有 9 人提交但没写理由：WW、CT、行知、Mushan、Andy、DIU哥、欧文AI出海、DengBiao等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "13. [AlternativeTo](https://alternativeto.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "alternativeto.net · **17 票** · 17 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**mingming**：缺点 —— 免费需要排队",
+    "**袁锐钦**：核心玩法：把你的工具挂成「XX 的替代品」",
+    "**洪江、Zephyrion（即刻同名）**：免费提交",
+    "**貮皮**：月访问量 2.2M，排队免费发布",
+    "**楓之随刃**：免费 工具替代品目录，\"xxx alternative\"精准长尾流量",
+    "**东君**：免费提交，用户带着“寻找替代工具”的明确需求访问",
+    "**Tyler**：如果网站属于工具、SaaS 或在线服务，可以提交产品信息，通过“某产品的替代方案”等页面获得长期曝光和外链，同时流量比较精准。",
+    "**日出东方**：替代品目录 高权重 免费",
+    "**Shixy**：用户主动寻找竞品替代品，适合软件、SaaS 获取精准流量",
+    "**辰亮**：这个有免费的，但审核很慢，但有5美金一次的加速，值得买吗？",
+    "**thovino**：以软件替代方案为核心，便于触达正在比较工具的用户，突出产品差异并获得精准曝光。",
+    "另有 5 人提交但没写理由：CT、班纳、Link、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "14. [Creati.ai](https://creati.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "creati.ai · **16 票** · 16 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**哥飞**：只要需求是真实的，且产品做得不错，就能够带来付费订单，价格 69 美元。",
+    "**江城子**：首选的付费导航站之一，价格优惠，而且DR事",
+    "**JsonChao**：能带来付费用户的导航站，有付费用户，性价比较高",
+    "**王马扎**：性价比很高",
+    "**thovino**：人工智能产品受众集中，适合展示实际使用场景，让有需求的用户发现工具并了解官网。",
+    "另有 11 人提交但没写理由：NightWatch、Mushan、Alpha、CT、井然、zojian、swimming、正午等"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "15. [PromoteProject](https://promoteproject.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "promoteproject.com · **16 票** · 16 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**召唤兽**：免费提交，可发博客，DR50",
+    "**Zephyrion（即刻同名）**：中等DR/流量，免费提交",
+    "**沐白**：免费，收录快",
+    "**哞咦**：免费，DR还不错",
+    "**日出东方**：目录提交 免费",
+    "**嵩皓**：免费，成本是先给 5 个别人的项目点赞换积分。Google 登录后提交，秒上线（instant publish），无审核队列。亲测：8月12日提交当分钟确认 live，2 个 dofollow 锚文本。全流程 10 分钟内完成",
+    "**Lyman**：无需审核，免费提交，dofollow",
+    "**swimming**：免费提交，但需要给别人投票，攒5积分才能发",
+    "**thovino**：可结合项目介绍与相关文章展示产品，丰富官网之外的信息入口，帮助新项目积累曝光。",
+    "另有 7 人提交但没写理由：NightWatch、CT、行知、Qiang Gao、zty、2jahfz9cpb、Rhythmus"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "16. [Indie Hackers](https://indiehackers.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "indiehackers.com · **15 票** · 16 人提交（合并 3 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**阿迪ζ**：独立开发者社区",
+    "**向左**：免费, 不只是外链，可以获得真实 founder 流量、反馈、品牌搜索",
+    "**Tyler**：适合分享独立产品、SaaS 或网站上线经历，可以通过产品介绍、开发过程和经验分享获得目标用户访问。",
+    "**钟耀**：强大",
+    "**Link**：独立开发者类的产品还是很有流量价值",
+    "**日出东方**：社区类 免费",
+    "**Shixy**：相关性和精准流量较好",
+    "**Shixy**：免费社区，高质量外链",
+    "**thovino**：独立开发者和创业者集中，分享产品进展与实践经验，便于获取同行反馈和潜在用户关注。",
+    "另有 7 人提交但没写理由：CT、金玄宇、kevinbai、星辰千里、欧文AI出海、大学牲、Rhythmus"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "17. [Peerlist](https://peerlist.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "peerlist.io · **13 票** · 13 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**一箭**：高权重免费外链",
+    "**cherry**：提交项目后可以发帖宣传自己的网站，通过给别人的帖子点赞对方一般也会给你的帖子点赞，你的帖子进入active disscussions 模块后会获得更多的流量，曾经有个网站给我持续带来了几千的用户；",
+    "**貮皮**：月访问量 533.3k",
+    "**Zephyrion（即刻同名）**：免费提交",
+    "**谈小罗🌟**：社交化的 launch 平台，权重很高，有几个小词我搜索头名都不是我的站点，而是这个站我发布的",
+    "**Lone Ranger**：类似领英，可以展示自己的作品, 也类似ProductHub，也是免费的",
+    "**日出东方**：技术类 免费",
+    "**Shixy**：适合技术人才、项目和创业产品展示",
+    "**thovino**：项目展示与职业社区结合，便于呈现作品和开发过程，接触开发者并获得早期用户反馈。",
+    "另有 4 人提交但没写理由：Pot.、2jahfz9cpb、欧文AI出海、Rhythmus"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "18. [Crunchbase](https://crunchbase.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "crunchbase.com · **13 票** · 14 人提交（合并 3 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：免费维护公司资料。方便别人查品牌信息，也能放上官网链接。",
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "**Terence‮‮‮脚一你了踹并‭**：DR 90，权重较高，效果好",
+    "**日出东方**：高权重 免费基础档案",
+    "**Geektao**：创业项目、技术产品适合",
+    "**Shixy**：品牌信号和引荐流量",
+    "**thovino**：公司档案可集中展示业务介绍与官网信息，方便他人了解品牌，增强企业信息的可发现性。",
+    "另有 6 人提交但没写理由：CT、kevinbai、星辰千里、欧文AI出海、大学牲、brianflows"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "19. [Blogger.com](https://blogger.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "blogger.com · **12 票** · 12 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，可以发布博客文章",
+    "**马兄弟**：高权重",
+    "**日出东方**：高权重 免费",
+    "**Jimmy**：免费，无审核。实测 44 篇复查有 38 篇 dofollow 存活（86%），是所有第三方平台里存活率最高的一个，正文锚文本真给 dofollow 而不是 ugc/nofollow。注意 blogger.com 和 blogspot.com 是同一个博客的两个入口，别当两条外链算。",
+    "**欧文AI出海**：Google 自家平台",
+    "**thovino**：可自主发布产品教程与案例，灵活安排内容和官网链接，适合逐步积累长期内容资产。",
+    "另有 6 人提交但没写理由：Zhou.、CT、崔顺彪、手可弹棉花、唐先生、欧明宇"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "20. [TopAI.tools](https://topai.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "topai.tools · **12 票** · 12 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：$47",
+    "**JsonChao**：能带来付费用户的导航站，有付费用户，性价比较高",
+    "**一成**：高质量导航站",
+    "**日出东方**：AI目录 免费",
+    "**Serdes**：几乎很多高流量网站都能看到这个外链",
+    "**thovino**：聚焦人工智能工具与应用场景，分类浏览便于用户筛选产品，帮助工具获得垂直领域曝光。",
+    "另有 6 人提交但没写理由：WW、Mushan、NightWatch、CT、欧文AI出海、小羽"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "21. [Substack](https://substack.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "substack.com · **11 票** · 11 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小郑**：可以发博客 post ，可带上产品链接，免费的渠道多多益善，成本不够，努力来凑",
+    "**向左**：免费，Newsletter/深度文章",
+    "**杨feng**：高DR，免费",
+    "**日出东方**：高权重 免费",
+    "**Shixy**：适合发布英文行业文章和 Newsletter，便于长期内容引流",
+    "**欧文AI出海**：SEO 良好，文章可排名",
+    "**没人关注正好安心练剑**：可以发guest blog",
+    "另有 4 人提交但没写理由：CT、欧明宇、大学牲、brianflows"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "22. [G2](https://g2.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "g2.com · **11 票** · 11 人提交（合并 4 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，Google 很容易搜到 G2 产品页，对 SaaS 品牌可信度非常有帮助",
+    "**轻舟**：基础收录免费，推广收费。适合积累评价，接触正在选软件的人。",
+    "**星辰千里**：权重高，流量大，容易发，免费",
+    "**Nitor**：权威的软件评价平台，产品页面适合长期积累评论、品牌可信度和购买意向流量。创建及认领基础产品资料免费，需要人工审核。",
+    "**日出东方**：高权重 免费",
+    "**Geektao**：SaaS和B2B产品必投，流量很准",
+    "**Shixy**：企业软件采购用户多，产品资料和评价有助于建立信任",
+    "另有 4 人提交但没写理由：CT、2jahfz9cpb、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "23. [Uneed](https://uneed.best)"
+  },
+  {
+   "type": "paragraph",
+   "text": "uneed.best · **11 票** · 11 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**貮皮**：月访问量 171.9k，排队免费发布",
+    "**V.**：高dr有流量，免费+付费，15美金",
+    "**Kent**：有真实流量的导航站，30刀",
+    "**日出东方**：免费目录提交 要排队",
+    "**Shixy**：适合新产品发布和早期用户获取",
+    "**blank**：流量和 DR 还不错",
+    "另有 5 人提交但没写理由：Alpha、CT、欧文AI出海、大学牲、葫芦娃Q壳壳"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "24. [BetaList](https://betalist.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "betalist.com · **10 票** · 10 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小羽**：dr传播高。缺点：收费",
+    "**得鹿梦鱼**：收费，流量/DR尚可，价格不贵",
+    "**阿迪ζ**：早期产品收录，老牌目录",
+    "**日出东方**：创业产品目录 免费排队/付费加速",
+    "**Geektao**：创业项目、技术产品适合",
+    "**Shixy**：适合新网站、AI 工具和初创产品早期曝光",
+    "另有 4 人提交但没写理由：CT、班纳、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "25. [Startup Fame](https://startupfa.me)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startupfa.me · **10 票** · 10 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**转角喻到 AI**：免费工具站，有一定权重，挂徽章后一周内通过",
+    "**安徒生**：免费，自助操作，不需要审核",
+    "**召唤兽**：免费提交需挂徽章",
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**Geektao**：免费档即给 Dofollow，首页挂个 verification badge 等 7 天审核即可。",
+    "**V.**：高dr有流量，免费+付费，19美金",
+    "另有 4 人提交但没写理由：CT、行知、叶无敌、NightWatch"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "26. [SideProjectors](https://sideprojectors.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "sideprojectors.com · **10 票** · 10 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：免费，可直接导入 produnthunt 的产品",
+    "**正林**：免费，收录快，DR70，Dofollow",
+    "**杨feng**：便宜，20$，AS 35，网站增长",
+    "**日出东方**：目录提交 免费",
+    "**Shixy**：适合独立项目、微型 SaaS 和副业产品曝光",
+    "**羊羊羊**：已验证过，semrush能抓到，免费提交，SideProjectors 是一个专门针对开发者、创客和独立创业者（Indie Hackers）的副业项目交易与展示社区",
+    "**枫**：目录提交 3天审核",
+    "另有 3 人提交但没写理由：Philex、CT、洋洋"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "27. [SourceForge](https://sourceforge.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "sourceforge.net · **8 票** · 8 人提交（合并 3 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：免费，仅适合开源软件。能多一个项目页、下载入口和外链。",
+    "**楓之随刃**：登录 流量大，开源工具托管，DA 高",
+    "**Zephyrion（即刻同名）**：高流量、高DR",
+    "**Geektao**：开发者工具、开源项目友好，老牌站",
+    "**日出东方**：高权重 免费",
+    "**Shixy**：适合软件、开源项目和开发工具，可获得项目与下载流量",
+    "另有 2 人提交但没写理由：欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "28. [Twelve Tools](https://twelve.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "twelve.tools · **8 票** · 8 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**召唤兽**：免费提交需挂徽章",
+    "**Lessur**：免费，需要挂互联，网站权重很高",
+    "**Zephyrion（即刻同名）**：高流量，高DR",
+    "**谈小罗🌟**：收录快，现在是验证了反链就给收录",
+    "**V.**：高dr有流量，免费+付费，25美金",
+    "**哞咦**：工具导航站，免费，DR高",
+    "另有 2 人提交但没写理由：CT、ETF拯救世界"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "29. [F6S](https://f6s.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "f6s.com · **8 票** · 8 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**楓之随刃**：免费 创业产品免费发布，高 DA + 百万流量",
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "**Geektao**：全球最大创业加速器平台，免费 Dofollow，SaaS/AI/Gaming 分类精准匹配。",
+    "**Terence‮‮‮脚一你了踹并‭**：DR 82，权重较高，效果好",
+    "**日出东方**：创业社区 免费",
+    "**没人关注正好安心练剑**：创业者比较好用的免费平台",
+    "另有 2 人提交但没写理由：CT、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "30. [X](https://x.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "x.com · **7 票** · 7 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**大林子**：免费，如果帖子写的好，还能带来流量",
+    "**Zephyrion（即刻同名）**：超高DR，超高流量，免费提交",
+    "**星辰千里**：权重高，流量大，容易发，来得快，免费",
+    "**马兄弟**：常用社交网站",
+    "**日出东方**：高权重 免费",
+    "另有 2 人提交但没写理由：唐先生、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "第 31–60 名（4–7 票）"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "31. [GetApp](https://getapp.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "getapp.com · **7 票** · 7 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：基础收录免费，推广收费。适合让正在比选软件的人发现你的产品。",
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "**日出东方**：目录提交 免费",
+    "**Shixy**：与 Capterra 类似，可获得软件分类页和买家流量",
+    "另有 3 人提交但没写理由：CT、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "32. [ToolPilot](https://toolpilot.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolpilot.ai · **7 票** · 8 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**V.**：高dr，免费+付费，99美金",
+    "**日出东方**：AI目录 免费",
+    "另有 4 人提交但没写理由：CT、行知、欧文AI出海、湖泊"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "33. [Futurepedia](https://futurepedia.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "futurepedia.io · **6 票** · 6 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：AI目录 免费+付费",
+    "**Shixy**：AI 产品目录和工具推荐场景，适合 AI 网站",
+    "另有 4 人提交但没写理由：WW、CT、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "34. [AI Tools Directory](https://aitoolsdirectory.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolsdirectory.com · **6 票** · 6 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**kingluo**：AI 工具可通过标准通道免费提交并接受人工审核，也可付费加速；收录后可获得垂直用户曝光和独立工具介绍页。",
+    "另有 5 人提交但没写理由：WW、CT、行知、Mushan、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "35. [TinyLaunch](https://tinylaunch.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "tinylaunch.com · **6 票** · 6 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**醉春风**：免费",
+    "**Angler**：80k 流量，免费提交，需要排队。",
+    "**日出东方**：目录提交 免费",
+    "另有 2 人提交但没写理由：Jing、行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "36. [Quora](https://quora.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "quora.com · **6 票** · 6 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费发表文章",
+    "**Shixy**：适合精准引流，不能硬广",
+    "**欧文AI出海**：收录极快",
+    "**大学牲**：免费，回答应先解决问题并披露利益关系。",
+    "另有 2 人提交但没写理由：CT、brianflows"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "37. [YouTube](https://youtube.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "youtube.com · **6 票** · 6 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，产品 Demo、教程、介绍页面都能持续带品牌流量",
+    "**Zephyrion（即刻同名）**：超高DR，超高流量，免费提交",
+    "**杨feng**：bing 搜索助力，免费",
+    "**唐先生**：油管主页",
+    "**日出东方**：高权重 免费",
+    "另有 1 人提交但没写理由：云涯"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "38. [Linkedin](https://linkedin.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "linkedin.com · **6 票** · 7 人提交（合并 3 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，Founder/Product 内容",
+    "**日出东方**：高权重 免费",
+    "**日出东方**：免费发表文章",
+    "**Shixy**：品牌曝光和引荐流量",
+    "**欧文AI出海**：文章收录快",
+    "另有 2 人提交但没写理由：61x3rutvwh、唐先生"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "39. [Capterra](https://www.capterra.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "capterra.com · **6 票** · 6 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Geektao**：偏企业软件和SaaS，B2B方向重点投",
+    "**日出东方**：目录提交 免费",
+    "**Shixy**：软件对比和采购意图强，适合 B2B、CRM、营销工具",
+    "另有 3 人提交但没写理由：CT、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "40. [Trustpilot](https://trustpilot.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "trustpilot.com · **5 票** · 5 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**mhhya**：免费，权重高，gsc收录",
+    "**日出东方**：目录提交 免费",
+    "**Shixy**：主要提升品牌信任和转化，也有助于品牌词搜索曝光",
+    "另有 2 人提交但没写理由：CT、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "41. [Future Tools](https://futuretools.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "futuretools.io · **5 票** · 5 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 5 人提交但没写理由：WW、CT、行知、ph、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "42. [知乎](https://zhihu.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "zhihu.com · **5 票** · 5 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：高DR/流量，免费提交",
+    "**日出东方**：中文高权重 免费",
+    "**欧文AI出海**：SEO 强，收录快",
+    "另有 2 人提交但没写理由：NightWatch、唐先生"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "43. [AIToolly](https://aitoolly.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolly.com · **5 票** · 5 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**得鹿梦鱼**：流量/DR尚可，涨价了",
+    "**安徒生**：$15.9, 也可免费提交",
+    "另有 3 人提交但没写理由：CT、井然、Andy"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "44. [Findly.tools](https://findly.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "findly.tools · **5 票** · 5 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**转角喻到 AI**：免费工具站，有一定权重，挂徽章后就通过",
+    "**安徒生**：操作简单，自助操作，不需要审核",
+    "**召唤兽**：免费提交需挂徽章",
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "另有 1 人提交但没写理由：NightWatch"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "45. [MossAI](https://mossai.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "mossai.org · **5 票** · 5 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**山沟沟的孩子**：免费",
+    "**Flicker**：免费，权重高",
+    "另有 3 人提交但没写理由：NightWatch、CT、DIU哥"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "46. [Dofollow.Tools](https://dofollow.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "dofollow.tools · **5 票** · 5 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**程普**：DR 高，价格实惠。缺点：免费收录要等7天",
+    "**Kaiun**：DR73，外链质量高",
+    "另有 3 人提交但没写理由：CT、叶无敌、ETF拯救世界"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "47. [StackShare](https://stackshare.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "stackshare.io · **5 票** · 6 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交",
+    "**Geektao**：开发者技术栈目录，免费 Dofollow。",
+    "**Geektao**：创业项目、技术产品适合",
+    "另有 3 人提交但没写理由：CT、kevinbai、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "48. [Hashnode](https://hashnode.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "hashnode.com · **5 票** · 5 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费发表文章",
+    "**欧文AI出海**：技术内容权重高",
+    "另有 3 人提交但没写理由：CT、崔顺彪、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "49. [AIxploria](https://aixploria.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aixploria.com · **5 票** · 5 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**JsonChao**：能带来付费用户的导航站，有付费用户，性价比尚可",
+    "**日出东方**：AI目录 免费",
+    "另有 3 人提交但没写理由：CT、叶无敌、Mushan"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "50. [Pinterest](https://pinterest.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "pinterest.com · **5 票** · 5 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**唐先生**：pinterest发图片带网址",
+    "**清仔**：适合图片相关站点,AI可以自动化发布",
+    "**日出东方**：高权重 免费",
+    "另有 2 人提交但没写理由：欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "51. [Microlaunch](https://microlaunch.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "microlaunch.net · **5 票** · 5 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：目录提交 免费",
+    "**Shixy**：适合独立开发者和小型 SaaS 产品推广",
+    "**blank**：流量和 DR 还不错",
+    "另有 2 人提交但没写理由：欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "52. [Gpt Demo](https://gptdemo.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "gptdemo.net · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**洪江**：价格19.9不贵(同时获取aitoolhub.net)的24条外链",
+    "另有 3 人提交但没写理由：Mushan、小强 Rex、NightWatch"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "53. [aitoolnet.com](https://aitoolnet.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolnet.com · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：$9.9",
+    "另有 3 人提交但没写理由：CT、小强 Rex、NightWatch"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "54. [showmebest.ai](https://showmebest.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "showmebest.ai · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**zzl**：收录快，权重高",
+    "另有 3 人提交但没写理由：CT、Mushan、Hex"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "55. [AIStage](https://aistage.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aistage.net · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：$9.9, 也可免费提交",
+    "另有 3 人提交但没写理由：CT、Hex、小羽"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "56. [Behance](https://behance.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "behance.net · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Terence‮‮‮脚一你了踹并‭**：DR 92，权重较高，效果好",
+    "**日出东方**：高权重 免费",
+    "另有 2 人提交但没写理由：CT、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "57. [Dev Hunt](https://devhunt.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "devhunt.org · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：目录提交 免费",
+    "另有 3 人提交但没写理由：CT、欧文AI出海、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "58. [ListedAI](https://listedai.co)"
+  },
+  {
+   "type": "paragraph",
+   "text": "listedai.co · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：中等DR/流量，免费提交",
+    "另有 3 人提交但没写理由：行知、CT、Qiang Gao"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "59. [Launch Your Project](https://launchtory.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "launchtory.com · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：中等DR/流量，免费提交",
+    "**嵩皓**：免费，邮箱注册后提交，人工审核。亲测：8月12日提交，8月16日确认上线——但两个锚文本都是 rel=\"nofollow\"",
+    "另有 2 人提交但没写理由：行知、CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "60. [Turbo0](https://turbo0.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "turbo0.com · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：中等DR/流量，免费提交",
+    "**日出东方**：AI目录 免费",
+    "另有 2 人提交但没写理由：行知、CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "第 61–100 名（3–4 票）"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "61. [aitools.fyi](https://aitools.fyi)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitools.fyi · **4 票** · 4 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小羽**：dr传播高。缺点：收费",
+    "**日出东方**：AI目录 免费",
+    "**H an**：aherf查了 这个居然是bestlink",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "62. [SaaS AI Tools](https://saasaitools.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "saasaitools.com · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Angler**：40K 免费提交需要审核",
+    "另有 3 人提交但没写理由：CT、行知、摩西"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "63. [SaaSworthy](https://saasworthy.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "saasworthy.com · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：目录提交 免费",
+    "另有 3 人提交但没写理由：CT、行知、班纳"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "64. [Startup Stash](https://startupstash.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startupstash.com · **4 票** · 4 人提交（合并 2 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：目录提交 免费",
+    "另有 3 人提交但没写理由：CT、行知、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "65. [Stack Overflow](https://stackoverflow.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "stackoverflow.com · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：技术类 免费",
+    "**Shixy**：技术问题回答可带来精准访问，但只有真正解决问题时才适合放链接",
+    "**大学牲**：免费，仅在真正解决问题时引用产品，禁止广告式回答。",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "66. [Google Sites](https://sites.google.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "sites.google.com · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小羊**：顶级域名，不要白不要",
+    "**唐先生**：谷歌网站制作",
+    "**日出东方**：免费发表文章",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "67. [SlideShare](https://slideshare.net)"
+  },
+  {
+   "type": "paragraph",
+   "text": "slideshare.net · **4 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：文档类 免费",
+    "**Shixy**：可上传白皮书、行业报告和演示文稿，适合 B2B 网站",
+    "另有 2 人提交但没写理由：欧明宇、阿才"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "68. [StartupBase](https://startupbase.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startupbase.io · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，需要审核",
+    "**日出东方**：目录提交 免费",
+    "另有 1 人提交但没写理由：欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "69. [Easy With AI](https://easywithai.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "easywithai.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小羽**：dr传播高。缺点：收费",
+    "**向左**：需要审核，有真实 AI 搜索用户",
+    "**日出东方**：AI目录 免费"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "70. [iuu.ai](https://iuu.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "iuu.ai · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**李胜**：便宜/性价比高/效果超预期",
+    "另有 2 人提交但没写理由：井然、Mushan"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "71. [Ubersuggest](https://aitools.neilpatel.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitools.neilpatel.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：免费提交，是否收录看审核。多一个 AI 工具目录曝光和外链。",
+    "**Zephyrion（即刻同名）**：免费提交，do follow",
+    "另有 1 人提交但没写理由：行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "72. [Financesonline.com](https://financesonline.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "financesonline.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：基础申请免费，推广另算。适合 B2B 软件，多一个评测入口和外链。",
+    "**Geektao**：偏企业软件和SaaS，B2B方向重点投",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "73. [GoodFirms](https://goodfirms.co)"
+  },
+  {
+   "type": "paragraph",
+   "text": "goodfirms.co · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**轻舟**：基础收录免费，推广收费。适合展示案例、评价和公司实力。",
+    "**Shixy**：有公司资料、案例和评价页面，适合 B2B 服务商",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "74. [Best AI Tools Directory](https://bai.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "bai.tools · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：$19.9",
+    "另有 2 人提交但没写理由：CT、井然"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "75. [ToolFame](https://toolfame.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolfame.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交",
+    "**hyhor**：免费提交，权重高。付费立刻发布，价格不贵。",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "76. [Clutch](https://clutch.co)"
+  },
+  {
+   "type": "paragraph",
+   "text": "clutch.co · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Shixy**：适合开发、设计、营销、外包等服务型公司获取询盘",
+    "另有 2 人提交但没写理由：CT、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "77. [about.me](https://about.me)"
+  },
+  {
+   "type": "paragraph",
+   "text": "about.me · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费 二级域名博客",
+    "另有 2 人提交但没写理由：CT、brianflows"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "78. [AppSumo](https://appsumo.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "appsumo.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "另有 2 人提交但没写理由：CT、班纳"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "79. [Cal.com](https://cal.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "cal.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**江城子**：注册就可以提交",
+    "**黄楚标**：制作一个帖子互联后可直接查看",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "80. [StartupRanking](https://startupranking.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startupranking.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Terence‮‮‮脚一你了踹并‭**：DR 62，权重较高，效果好",
+    "**日出东方**：目录提交 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "81. [AIToolboard](https://aitoolboard.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolboard.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "**嵩皓**：完全免费，提交本身不用注册（只有查看自己的提交记录才需要账号）。有 $75/$99 付费位，但免费档真实可用。亲测：7月30日提交，约 2 周过审上线，落地页给了 4 个 dofollow 锚文本",
+    "另有 1 人提交但没写理由：行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "82. [掘金](https://juejin.cn)"
+  },
+  {
+   "type": "paragraph",
+   "text": "juejin.cn · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：中文开发者 免费",
+    "**longPc**：写篇文章，介绍下自己的网站",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "83. [CrozDesk](https://crozdesk.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "crozdesk.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：目录提交 免费",
+    "另有 2 人提交但没写理由：CT、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "84. [EU-Startups](https://eu-startups.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "eu-startups.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交",
+    "另有 2 人提交但没写理由：CT、星辰千里"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "85. [aitoolguru.com](https://aitoolguru.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolguru.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Angler**：35K 免费提交需要审核",
+    "另有 2 人提交但没写理由：CT、行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "86. [AITopTools](https://aitoptools.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoptools.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Kent**：有真实流量的导航站，69刀",
+    "另有 2 人提交但没写理由：CT、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "87. [aiwith.me](https://aiwith.me)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aiwith.me · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**AwesomeYang**：单次付费 19$，月付 29$ 无限提交 ，dofollow，接收 AI 工具提交，审核快，一般当天审核上线，快的话几小时上线，Google 收录快。",
+    "另有 2 人提交但没写理由：CT、小羽"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "88. [Submit AI Tools](https://submitaitools.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "submitaitools.org · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 3 人提交但没写理由：Jing、CT、叶无敌"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "89. [Viesearch](https://viesearch.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "viesearch.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**V.**：高dr，免费+付费",
+    "**鹏之大一锅炖不下**：可以免费提交，流量还挺高的每个月有67K",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "90. [Chrome 应用商店](https://chromewebstore.google.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "chromewebstore.google.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**蓝星空**：【5美元】Chrome 应用商店发布一个插件后可以获取至少3个链接，如果设置了多语言还可以获取更多的链接（注册开发者账号需要5美元，最多可以发布大概20个插件）。另外，在 Chrome 应用商店发布插件后，还会被一些第三方插件市场采集，从而被动获得更多的外链。",
+    "**唐先生**：谷歌Chrome 应用商店",
+    "**大学牲**：需提交真实插件，开发者注册或增值服务可能收费。"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "91. [GitBook](https://gitbook.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "gitbook.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，Documentation/Knowledge Base",
+    "**黄楚标**：互联后可直接查看",
+    "**日出东方**：高权重 免费"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "92. Google 插件（Chrome 扩展）"
+  },
+  {
+   "type": "paragraph",
+   "text": "**3 票** · 3 人提交（合并 1 个重复提交） · 原帖未给出具体网址"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**醉春风**：给网站做个插件可以免费挂一个外链",
+    "**阿林**：GSC 一定要先提交等收录",
+    "另有 1 人提交但没写理由：Meepo"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "93. [PeerPush](https://peerpush.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "peerpush.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Kent**：有真实流量的导航站，39刀",
+    "**Jimmy**：成功率高",
+    "另有 1 人提交但没写理由：@Business"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "94. [Gravatar](https://gravatar.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "gravatar.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Geektao**：高DR，提交简单，可给权重",
+    "**日出东方**：高权重 免费",
+    "另有 1 人提交但没写理由：@Business"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "95. [Facebook](https://facebook.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "facebook.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：高权重 免费",
+    "另有 2 人提交但没写理由：唐先生、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "96. [Instagram](https://instagram.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "instagram.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：高权重 免费",
+    "另有 2 人提交但没写理由：唐先生、欧文AI出海"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "97. [WordPress.com](https://wordpress.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "wordpress.com · **3 票** · 4 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：高权重,免费",
+    "**日出东方**：免费发表文章",
+    "另有 2 人提交但没写理由：欧明宇、大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "98. [Tumblr](https://tumblr.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "tumblr.com · **3 票** · 3 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费发表文章",
+    "**欧文AI出海**：收录快，外链可带",
+    "另有 1 人提交但没写理由：欧明宇"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "99. [Wellfound](https://wellfound.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "wellfound.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Geektao**：免费 Dofollow，品牌搜索可见度极强。",
+    "**日出东方**：公司页 免费",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "100. [Hugging Face](https://huggingface.co)"
+  },
+  {
+   "type": "paragraph",
+   "text": "huggingface.co · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：技术类 免费",
+    "**Shixy**：AI 用户集中，模型、Spaces、数据集页面相关性很高",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "第 101–150 名（2–3 票）"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "101. [Launching Next](https://launchingnext.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "launchingnext.com · **3 票** · 3 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**向左**：免费，可能有推广",
+    "**日出东方**：目录提交 免费",
+    "**大学牲**：可免费提交，付费加速或推广为可选项。"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "102. [Notion](https://notion.so)"
+  },
+  {
+   "type": "paragraph",
+   "text": "notion.so · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费发表文章",
+    "另有 1 人提交但没写理由：Zhou."
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "103. [NodeSeek](https://nodeseek.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "nodeseek.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**小羊**：类v2ex的社区，审核制",
+    "**MaynorAI(tryallapi.com)**：权重高"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "104. [somi.ai](https://somi.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "somi.ai · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：性价比高，只需要$19",
+    "另有 1 人提交但没写理由：@Business"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "105. [AI Agents Directory](https://aiagentsdirectory.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aiagentsdirectory.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：免费，需要换链",
+    "另有 1 人提交但没写理由：阿才"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "106. [poweredbyai](https://poweredbyai.app)"
+  },
+  {
+   "type": "paragraph",
+   "text": "poweredbyai.app · **2 票** · 2 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**得鹿梦鱼**：流量/DR尚可",
+    "**安徒生**：$14.9"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "107. [NxGn Tools](https://nxgntools.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "nxgntools.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：19",
+    "另有 1 人提交但没写理由：行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "108. [ToolAI.io](https://toolai.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolai.io · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：$49",
+    "另有 1 人提交但没写理由：Jackson"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "109. [Code.market](https://code.market)"
+  },
+  {
+   "type": "paragraph",
+   "text": "code.market · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "110. [CurateClick](https://curateclick.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "curateclick.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**安徒生**：可免费，要换链",
+    "**张成**：几乎每周审核，可以周五提交。"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "111. [DeepLaunch.io](https://deeplaunch.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "deeplaunch.io · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**山南见曦**：高dr的导航站收录速度快,可以免费提交需添加徽章，付费免徽章",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "112. [Website Launches](https://websitelaunches.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "websitelaunches.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：免费目录提交",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "113. [sitelike.org](https://sitelike.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "sitelike.org · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、班纳"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "114. [Domain Rank App](https://domainrank.app)"
+  },
+  {
+   "type": "paragraph",
+   "text": "domainrank.app · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、DIU哥"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "115. [Yo.directory](https://yo.directory)"
+  },
+  {
+   "type": "paragraph",
+   "text": "yo.directory · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、叶无敌"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "116. [Lovable App](https://lovableapp.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "lovableapp.org · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**张成**：互换链接，审核很快",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "117. [AIToolFame](https://aitoolfame.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolfame.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**hyhor**：免费提交，权重高。付费价格也不贵。",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "118. [SaaSFame](https://saasfame.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "saasfame.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**hyhor**：免费提交，权重高。付费价格也不贵。",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "119. [activesearchresults.com](https://activesearchresults.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "activesearchresults.com · **2 票** · 2 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、星辰千里"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "120. [Awesome Indie](https://awesomeindie.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "awesomeindie.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、bin"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "121. [Imgur](https://imgur.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "imgur.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：设计图片类 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "122. [Kaggle](https://kaggle.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "kaggle.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：技术类 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "123. [WebCatalog](https://webcatalog.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "webcatalog.io · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Terence‮‮‮脚一你了踹并‭**：DR 60，权重较高，效果好",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "124. [Startup Buffer](https://startupbuffer.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startupbuffer.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交",
+    "**日出东方**：目录提交 免费"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "125. [Firsto](https://firsto.co)"
+  },
+  {
+   "type": "paragraph",
+   "text": "firsto.co · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交",
+    "另有 1 人提交但没写理由：zojian"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "126. [AIBase](https://aibase.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aibase.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、Mushan"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "127. [AI Tool Hunt](https://aitoolhunt.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolhunt.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：AI目录 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "128. [TopAIHubs](https://topaihubs.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "topaihubs.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、Hex"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "129. [TopTool](https://toptool.app)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toptool.app · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、井然"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "130. [Phygital+ AI Library](https://library.phygital.plus)"
+  },
+  {
+   "type": "paragraph",
+   "text": "library.phygital.plus · **2 票** · 2 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "131. [AI Tools](https://aitools.inc)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitools.inc · **2 票** · 2 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：高DR高流量，免费提交",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "132. [CtrlAlt.cc](https://ctrlalt.cc)"
+  },
+  {
+   "type": "paragraph",
+   "text": "ctrlalt.cc · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**黄楚标**：可免费发布",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "133. [GeekWire](https://geekwire.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "geekwire.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Zephyrion（即刻同名）**：免费提交，高流量，高DR",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "134. [HuntScreens](https://huntscreens.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "huntscreens.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**山沟沟的孩子**：免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "135. [ToolRain](https://toolrain.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolrain.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Kaiun**：DR57，目前少数不用等排期的免费外链AI目录站",
+    "另有 1 人提交但没写理由：行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "136. [ToolScout.ai](https://toolscout.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "toolscout.ai · **2 票** · 2 人提交（合并 1 个重复提交）"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "137. [AI Dirs](https://aidirs.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aidirs.org · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、Brennan"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "138. [AIToolsGuide](https://aitoolsguide.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "aitoolsguide.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：CT、行知"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "139. [Issuu](https://issuu.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "issuu.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：文档类 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "140. [500px](https://500px.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "500px.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：设计图片类 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "141. [Qiita](https://qiita.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "qiita.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**蓝星空**：【免费】一个日语社区，可以发文章加外链，值得好好运营，能带来真实的付费用户。",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "142. [Goodreads](https://goodreads.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "goodreads.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**日出东方**：书籍类 免费",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "143. [Linktree](https://linktr.ee)"
+  },
+  {
+   "type": "paragraph",
+   "text": "linktr.ee · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Terence‮‮‮脚一你了踹并‭**：DR 93，权重较高，效果好",
+    "另有 1 人提交但没写理由：CT"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "144. [Firefox Add-ons](https://addons.mozilla.org)"
+  },
+  {
+   "type": "paragraph",
+   "text": "addons.mozilla.org · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**蓝星空**：【免费】只有用户 Profile 页面能加一条外链，插件详情页是没有外链的，所以建议一个网站注册一个用户。",
+    "**日出东方**：高权重,免费"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "145. [llms.txt directory](https://llmstxt.site)"
+  },
+  {
+   "type": "paragraph",
+   "text": "llmstxt.site · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**accessiblefish**：免费提交llm.txt获取外链",
+    "另有 1 人提交但没写理由：@Business"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "146. [StartupHub.ai](https://startuphub.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "startuphub.ai · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**陈陈chen**：免费提交的导航站，月访问 500 多 k",
+    "另有 1 人提交但没写理由：@Business"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "147. [itch.io](https://itch.io)"
+  },
+  {
+   "type": "paragraph",
+   "text": "itch.io · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**黄楚标**：游戏发布必发",
+    "另有 1 人提交但没写理由：大学牲"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "148. [Vimeo](https://vimeo.com)"
+  },
+  {
+   "type": "paragraph",
+   "text": "vimeo.com · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**黄楚标**：注册推送视频等待收录",
+    "**日出东方**：高权重 免费"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "149. [YesChat.ai](https://yeschat.ai)"
+  },
+  {
+   "type": "paragraph",
+   "text": "yeschat.ai · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "另有 2 人提交但没写理由：Mushan、小羽"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "150. [TopAl.tools](https://topal.tools)"
+  },
+  {
+   "type": "paragraph",
+   "text": "topal.tools · **2 票** · 2 人提交"
+  },
+  {
+   "type": "list",
+   "items": [
+    "**Geektao**：收费，47 美刀，高价值",
+    "另有 1 人提交但没写理由：Meepo"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "数据说明"
+  },
+  {
+   "type": "paragraph",
+   "text": "榜单取自 web.cafe 悬赏页的完整选项榜单（695 项、1568 条提交记录），按票数降序截取前 150 项。网站名做了品牌化整理（原站有些条目直接用了网页标题或域名），链接优先取页面给出的官网地址，其次取提交者原文里的网址。每个网站下列出的条目是把同一网站下的全部提交理由与缺点按「内容 + 作者」合并后的结果，没有删减理由。"
+  }
+ ]
+}
