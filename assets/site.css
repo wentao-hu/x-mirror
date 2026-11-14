@@ -83,7 +83,6 @@ a:focus-visible, button:focus-visible {
 .site-header nav a:hover { color: var(--fg); background: var(--card); text-decoration: none; }
 .site-header nav a.active { background: var(--fg); color: #fff; }
 .site-header nav a.active:hover { background: var(--fg); color: #fff; }
-.site-header nav .gh-link { margin-left: 4px; }
 /* 阅读设置入口：Aa 小按钮，视觉上不抢正文 */
 .reader-settings { position: relative; display: inline-flex; align-items: center; }
 .post-header .reader-settings { margin-left: auto; }
@@ -854,6 +853,52 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .site-title { font-weight: 600; font-size: 15.5px; line-height: 1.4; overflow-wrap: anywhere; }
 .site-host { color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
 
+/* GitHub 仓库浏览 */
+.repo-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px 12px; margin: 6px 0 16px;
+}
+.repo-count { color: var(--muted); font-size: 13.5px; overflow-wrap: anywhere; }
+.repo-sort { display: flex; gap: 6px; }
+.repo-sort button {
+  border: 1px solid transparent; background: var(--card); border-radius: 999px;
+  padding: 6px 13px; cursor: pointer; font-size: 13.5px; color: var(--muted);
+  transition: background .12s ease, color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.repo-sort button:hover { background: var(--card-hover); color: var(--fg); }
+.repo-sort button.active { background: var(--fg); color: #fff; border-color: var(--fg); }
+.repo-list { display: flex; flex-direction: column; gap: 10px; }
+.repo-card {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 12px 14px 17px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .repo-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 24px rgba(15, 20, 25, .06); }
+}
+.repo-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.repo-title-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.repo-name { font-weight: 700; font-size: 16px; line-height: 1.4; overflow-wrap: anywhere; }
+.repo-badge {
+  padding: 1px 8px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); color: var(--muted); font-size: 11.5px; font-weight: 600; line-height: 1.7;
+}
+.repo-desc { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; overflow-wrap: anywhere; }
+.repo-desc.is-empty { color: var(--muted-2); }
+.repo-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px;
+  color: var(--muted-2); font-size: 12.5px; line-height: 1.5;
+}
+.repo-lang { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
+.repo-lang-dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--lang, #8b949e);
+}
+.pinned-item .repo-card { height: 100%; }
+
 /* 手机端：单列、更大触控区、正文不出现横向滚动 */
 @media (max-width: 760px) {
   #list { grid-template-columns: 1fr; }
@@ -868,7 +913,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .site-header { margin-bottom: 20px; }
   .site-header .brand { font-size: 16.5px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
-  .site-header nav .gh-link { display: none; }
   .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
   .site-header nav .reader-toggle { padding: 6px 10px; font-size: 13.5px; }
   /* 行宽只对桌面有意义，移动端不显示这一项 */
@@ -903,4 +947,10 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .filter-row .filters button { padding: 7px 12px; font-size: 13px; }
   .list-actions button { padding: 6px 12px; min-height: 32px; }
   .footer { margin-top: 40px; }
+  .repo-toolbar { align-items: flex-start; }
+  .repo-card { padding: 13px 10px 13px 14px; }
+}
+@media (max-width: 380px) {
+  .site-header .brand { font-size: 15.5px; }
+  .site-header nav a, .site-header nav .reader-toggle { padding: 6px 8px; font-size: 13px; }
 }

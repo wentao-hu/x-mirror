@@ -1,0 +1,114 @@
+{
+  "user": "wentao-hu",
+  "fetched_at": "2026-11-14T10:25:50Z",
+  "repos": [
+    {
+      "name": "hittheroaddudeai-official",
+      "url": "https://github.com/wentao-hu/hittheroaddudeai-official",
+      "description": "Official English product page for Hit the Road Dude AI — turn one photo into a short vertical meme video.",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-14T10:20:50Z",
+      "created_at": "2026-11-02T06:21:18Z"
+    },
+    {
+      "name": "glowupai-official",
+      "url": "https://github.com/wentao-hu/glowupai-official",
+      "description": "Official English product page for Glow Up AI — a browser-based selfie styling preview tool.",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-14T10:20:42Z",
+      "created_at": "2026-11-02T05:56:40Z"
+    },
+    {
+      "name": "econradar",
+      "url": "https://github.com/wentao-hu/econradar",
+      "description": "市场数据雷达，方便查看市场数据",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-14T10:20:17Z",
+      "created_at": "2026-08-08T06:50:14Z"
+    },
+    {
+      "name": "x-mirror",
+      "url": "https://github.com/wentao-hu/x-mirror",
+      "description": "X Article static mirror (local images) for SEO出海收藏",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-14T09:30:04Z",
+      "created_at": "2026-10-20T07:45:11Z"
+    },
+    {
+      "name": "deepseek-harness",
+      "url": "https://github.com/wentao-hu/deepseek-harness",
+      "description": "DeepSeek Harness: Everything is a Plugin.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "fork": true,
+      "archived": false,
+      "pushed_at": "2026-10-26T04:41:22Z",
+      "created_at": "2026-09-11T02:06:44Z"
+    },
+    {
+      "name": "gefei-learn",
+      "url": "https://github.com/wentao-hu/gefei-learn",
+      "description": "Gefei SEO 学习路线与进度待办",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-10-19T14:04:50Z",
+      "created_at": "2026-10-19T13:44:28Z"
+    },
+    {
+      "name": "dsh-desktop",
+      "url": "https://github.com/wentao-hu/dsh-desktop",
+      "description": "DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "fork": true,
+      "archived": false,
+      "pushed_at": "2026-09-11T03:04:24Z",
+      "created_at": "2026-09-10T15:21:13Z"
+    },
+    {
+      "name": "HDPMF",
+      "url": "https://github.com/wentao-hu/HDPMF",
+      "description": "implementation for \"dencentralized matrix factorization with heterogeneous differential privacy\"",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2023-08-19T06:35:40Z",
+      "created_at": "2023-05-24T07:37:52Z"
+    },
+    {
+      "name": "DIPSGNN",
+      "url": "https://github.com/wentao-hu/DIPSGNN",
+      "description": "implementation for \"Towards Differential Privacy in Sequential Recommendation: A Noisy Graph Neural Network Approach\"\"",
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2023-08-19T06:23:16Z",
+      "created_at": "2023-05-24T07:53:09Z"
+    }
+  ]
+}

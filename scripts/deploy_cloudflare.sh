@@ -21,6 +21,9 @@ if [[ -n "${ALLOW_REMOVE:-}" ]]; then
   done
 fi
 
+# 刷新 GitHub 仓库清单；失败时沿用已提交的数据，不阻塞文章发布。
+python3 scripts/fetch_github_repos.py || printf '警告：GitHub 仓库数据刷新失败，沿用 github-repos.json 旧数据。\n' >&2
+
 # 任何 Agent 都经同一条构建与验收路径，漏卡片/漏正文索引直接阻止上传。
 python3 scripts/rebuild_from_data.py
 python3 scripts/validate_site.py --online https://x-mirror-af7.pages.dev/ ${ALLOW_ARGS[@]+"${ALLOW_ARGS[@]}"}

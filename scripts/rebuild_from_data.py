@@ -87,3 +87,7 @@ print("index ok", len(posts_meta))
 sites = mod.load_sites()
 (ROOT / "sites.html").write_text(mod.sites_page(sites), encoding="utf-8")
 print("sites ok", len(sites))
+
+github = mod.load_github_data()
+(ROOT / "github.html").write_text(mod.github_page(github), encoding="utf-8")
+print("github ok", len(github.get("repos", [])))

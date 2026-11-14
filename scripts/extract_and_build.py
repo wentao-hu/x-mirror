@@ -63,6 +63,34 @@ WORKDIRS = {
 SITES_FILE = ROOT / "sites.json"
 SITE_CATEGORY_ORDER = ["SEO 内容站", "工具站", "域名注册", "支付"]
 
+# GitHub 仓库：数据由 scripts/fetch_github_repos.py 写入，页面为 github.html
+GITHUB_REPOS_FILE = ROOT / "github-repos.json"
+GITHUB_USER = "wentao-hu"
+LANGUAGE_COLORS = {
+    "Python": "#3572A5",
+    "JavaScript": "#f1e05a",
+    "TypeScript": "#3178c6",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "Vue": "#41b883",
+    "Svelte": "#ff3e00",
+    "Astro": "#ff5a03",
+    "Go": "#00ADD8",
+    "Rust": "#dea584",
+    "Java": "#b07219",
+    "Kotlin": "#A97BFF",
+    "Swift": "#F05138",
+    "C": "#555555",
+    "C++": "#f34b7d",
+    "C#": "#178600",
+    "Ruby": "#701516",
+    "PHP": "#4F5D95",
+    "Shell": "#89e051",
+    "Lua": "#000080",
+    "Dart": "#00B4AB",
+    "Jupyter Notebook": "#DA5B0B",
+}
+
 CATEGORIES = {
     "2110669876482203775": "实战复盘",
     "2112216903150436383": "实战复盘",
@@ -1194,7 +1222,6 @@ a:focus-visible, button:focus-visible {
 .site-header nav a:hover { color: var(--fg); background: var(--card); text-decoration: none; }
 .site-header nav a.active { background: var(--fg); color: #fff; }
 .site-header nav a.active:hover { background: var(--fg); color: #fff; }
-.site-header nav .gh-link { margin-left: 4px; }
 /* 阅读设置入口：Aa 小按钮，视觉上不抢正文 */
 .reader-settings { position: relative; display: inline-flex; align-items: center; }
 .post-header .reader-settings { margin-left: auto; }
@@ -1965,6 +1992,52 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 .site-title { font-weight: 600; font-size: 15.5px; line-height: 1.4; overflow-wrap: anywhere; }
 .site-host { color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
 
+/* GitHub 仓库浏览 */
+.repo-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px 12px; margin: 6px 0 16px;
+}
+.repo-count { color: var(--muted); font-size: 13.5px; overflow-wrap: anywhere; }
+.repo-sort { display: flex; gap: 6px; }
+.repo-sort button {
+  border: 1px solid transparent; background: var(--card); border-radius: 999px;
+  padding: 6px 13px; cursor: pointer; font-size: 13.5px; color: var(--muted);
+  transition: background .12s ease, color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.repo-sort button:hover { background: var(--card-hover); color: var(--fg); }
+.repo-sort button.active { background: var(--fg); color: #fff; border-color: var(--fg); }
+.repo-list { display: flex; flex-direction: column; gap: 10px; }
+.repo-card {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 12px 14px 17px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg);
+  transition: border-color .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .repo-card:hover { border-color: var(--border-strong); box-shadow: 0 8px 24px rgba(15, 20, 25, .06); }
+}
+.repo-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.repo-title-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.repo-name { font-weight: 700; font-size: 16px; line-height: 1.4; overflow-wrap: anywhere; }
+.repo-badge {
+  padding: 1px 8px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); color: var(--muted); font-size: 11.5px; font-weight: 600; line-height: 1.7;
+}
+.repo-desc { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; overflow-wrap: anywhere; }
+.repo-desc.is-empty { color: var(--muted-2); }
+.repo-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px;
+  color: var(--muted-2); font-size: 12.5px; line-height: 1.5;
+}
+.repo-lang { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
+.repo-lang-dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--lang, #8b949e);
+}
+.pinned-item .repo-card { height: 100%; }
+
 /* 手机端：单列、更大触控区、正文不出现横向滚动 */
 @media (max-width: 760px) {
   #list { grid-template-columns: 1fr; }
@@ -1979,7 +2052,6 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .site-header { margin-bottom: 20px; }
   .site-header .brand { font-size: 16.5px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
-  .site-header nav .gh-link { display: none; }
   .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
   .site-header nav .reader-toggle { padding: 6px 10px; font-size: 13.5px; }
   /* 行宽只对桌面有意义，移动端不显示这一项 */
@@ -2014,6 +2086,12 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .filter-row .filters button { padding: 7px 12px; font-size: 13px; }
   .list-actions button { padding: 6px 12px; min-height: 32px; }
   .footer { margin-top: 40px; }
+  .repo-toolbar { align-items: flex-start; }
+  .repo-card { padding: 13px 10px 13px 14px; }
+}
+@media (max-width: 380px) {
+  .site-header .brand { font-size: 15.5px; }
+  .site-header nav a, .site-header nav .reader-toggle { padding: 6px 8px; font-size: 13px; }
 }
 """
 
@@ -2152,20 +2230,22 @@ SPECULATION_PREFETCH = """<script type="speculationrules">
 
 
 def header_html(active: str) -> str:
-    """目录页顶部导航：文章 / 网站 两个 tab。active 取 posts 或 sites。"""
+    """目录页顶部导航：文章 / 网站 / GitHub 三个 tab。active 取 posts、sites 或 github。"""
     posts_cls = "tab active" if active == "posts" else "tab"
     sites_cls = "tab active" if active == "sites" else "tab"
+    github_cls = "tab active" if active == "github" else "tab"
     posts_aria = ' aria-current="page"' if active == "posts" else ""
     sites_aria = ' aria-current="page"' if active == "sites" else ""
+    github_aria = ' aria-current="page"' if active == "github" else ""
     return f"""<header class="site-header">
     <a class="brand" href="./"><img class="brand-mark" src="assets/logo.svg" alt="" width="26" height="26" />X Mirror</a>
     <nav>
       <a class="{posts_cls}" href="./"{posts_aria}>文章</a>
       <a class="{sites_cls}" href="sites.html"{sites_aria}>网站</a>
+      <a class="{github_cls}" href="github.html"{github_aria}>GitHub</a>
       <div class="reader-settings">
         <button type="button" class="reader-toggle" aria-label="阅读设置" aria-expanded="false" aria-controls="reader-panel" data-reader-toggle>设置</button>
       </div>
-      <a class="gh-link" href="https://github.com/wentao-hu/x-mirror">GitHub</a>
     </nav>
   </header>"""
 
@@ -2193,6 +2273,12 @@ def site_logo_html(site: dict) -> str:
     return f'<span class="site-logo site-logo-fallback" aria-hidden="true">{letter}</span>'
 
 
+PIN_ICON = """<svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>"""
+
+
 def sites_page(sites: list[dict]) -> str:
     cats = [c for c in SITE_CATEGORY_ORDER if any(s["category"] == c for s in sites)]
     for s in sites:
@@ -2214,10 +2300,7 @@ def sites_page(sites: list[dict]) -> str:
         </span>
       </a>
       <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 {esc(s['title'])}" title="置顶">
-        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        {PIN_ICON}
       </button>
     </div>"""
             )
@@ -2267,6 +2350,140 @@ def sites_page(sites: list[dict]) -> str:
 </body>
 </html>
 """
+
+
+def github_repo_slug(name: str) -> str:
+    base = re.sub(r"[^a-z0-9-]+", "-", name.lower()).strip("-") or "repo"
+    return f"repo-{base[:70]}"
+
+
+def github_time(value: str, fmt: str) -> str:
+    try:
+        moment = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (AttributeError, ValueError):
+        return ""
+    return moment.astimezone(TZ8).strftime(fmt)
+
+
+def github_repo_card(repo: dict) -> str:
+    name = repo.get("name") or ""
+    title = esc(name)
+    badges = []
+    if repo.get("fork"):
+        badges.append('<span class="repo-badge">Fork</span>')
+    if repo.get("archived"):
+        badges.append('<span class="repo-badge">已归档</span>')
+    badges_html = "".join(badges)
+    description = (repo.get("description") or "").strip()
+    desc_html = (
+        f'<p class="repo-desc">{esc(description)}</p>'
+        if description
+        else '<p class="repo-desc is-empty">暂无描述</p>'
+    )
+    meta_items = []
+    language = (repo.get("language") or "").strip()
+    if language:
+        color = LANGUAGE_COLORS.get(language, "#8b949e")
+        meta_items.append(
+            f'<span class="repo-lang"><span class="repo-lang-dot" style="--lang:{color}"></span>'
+            f'{esc(language)}</span>'
+        )
+    stars = int(repo.get("stars") or 0)
+    if stars:
+        meta_items.append(f"<span>★ {stars}</span>")
+    forks = int(repo.get("forks") or 0)
+    if forks:
+        meta_items.append(f"<span>⑂ {forks}</span>")
+    updated = github_time(repo.get("pushed_at") or "", "%Y-%m-%d")
+    if updated:
+        meta_items.append(f"<span>更新于 {esc(updated)}</span>")
+    meta_html = "".join(meta_items)
+    return f"""<div class="repo-card" data-slug="{github_repo_slug(name)}" data-name="{esc(name.lower())}" data-pushed="{esc(repo.get('pushed_at') or '')}">
+  <div class="repo-main">
+    <div class="repo-title-row">
+      <a class="repo-name" href="{esc(repo.get('url') or '')}" target="_blank" rel="noopener noreferrer">{title}</a>{badges_html}
+    </div>
+    {desc_html}
+    <div class="repo-meta">
+      {meta_html}
+    </div>
+  </div>
+  <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 {title}" title="置顶">
+    {PIN_ICON}
+  </button>
+</div>"""
+
+
+def github_page(data: dict) -> str:
+    repos = [repo for repo in data.get("repos", []) if repo.get("name")]
+    repos.sort(key=lambda repo: repo.get("pushed_at") or "", reverse=True)
+    seen: dict[str, str] = {}
+    for repo in repos:
+        slug = github_repo_slug(repo["name"])
+        if slug in seen:
+            raise ValueError(f"GitHub 仓库 slug 冲突: {seen[slug]} / {repo['name']}")
+        seen[slug] = repo["name"]
+    cards = "\n".join(github_repo_card(repo) for repo in repos)
+    list_html = (
+        f'<div class="repo-list" id="repo-list">\n{cards}\n</div>'
+        if cards
+        else '<p class="index-intro">还没有仓库数据，运行 python3 scripts/fetch_github_repos.py 后重新构建。</p>'
+    )
+    fetched = github_time(data.get("fetched_at") or "", "%Y-%m-%d %H:%M")
+    footer_parts = [f"共 {len(repos)} 个公开仓库"]
+    if fetched:
+        footer_parts.append(f"数据更新于 {esc(fetched)}")
+    footer_parts.append(
+        f'本站源码：<a href="https://github.com/{GITHUB_USER}/x-mirror" '
+        f'target="_blank" rel="noopener noreferrer">x-mirror</a>'
+    )
+    footer = " · ".join(footer_parts)
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>GitHub 仓库 · X Mirror</title>
+<meta name="description" content="wentao-hu 的 GitHub 公开仓库浏览：按最近更新或名称排序，可置顶常用仓库。" />
+<link rel="icon" href="assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="stylesheet" href="assets/site.css?v={asset_version('assets/site.css')}" />
+</head>
+<body>
+<div class="wrap index-wrap">
+  {header_html('github')}
+  <div class="repo-toolbar">
+    <span class="repo-count">共 {len(repos)} 个公开仓库 · <a href="https://github.com/{GITHUB_USER}" target="_blank" rel="noopener noreferrer">github.com/{GITHUB_USER} ↗</a></span>
+    <div class="repo-sort" role="group" aria-label="排序方式">
+      <button type="button" class="active" data-sort="updated" aria-pressed="true">最近更新</button>
+      <button type="button" data-sort="name" aria-pressed="false">名称</button>
+    </div>
+  </div>
+  <section class="pinned" id="repos-pinned" hidden>
+    <h2 class="pinned-title is-toggle" id="repos-pinned-toggle" role="button" tabindex="0" aria-expanded="true">
+      <span>置顶</span><span class="cat-chevron" aria-hidden="true">▾</span>
+    </h2>
+    <div class="pinned-list" id="repos-pinned-list"></div>
+  </section>
+  {list_html}
+  <div class="footer">{footer}</div>
+</div>
+<script src="assets/meta.js?v={asset_version('assets/meta.js')}" defer></script>
+<script src="assets/repos.js?v={asset_version('assets/repos.js')}" defer></script>
+<script src="assets/reader-settings.js?v={asset_version('assets/reader-settings.js')}" defer></script>
+</body>
+</html>
+"""
+
+
+def load_github_data() -> dict:
+    if not GITHUB_REPOS_FILE.is_file():
+        return {"user": GITHUB_USER, "fetched_at": "", "repos": []}
+    return json.loads(GITHUB_REPOS_FILE.read_text(encoding="utf-8"))
 
 
 def search_document(meta: dict, body_html: str = "") -> dict:
