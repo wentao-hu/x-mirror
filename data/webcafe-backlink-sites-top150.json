@@ -23,8 +23,8 @@
   "images_total": 0,
   "images_ok": 0,
   "api_media_count": 0,
-  "fidelity_note": "web.cafe 征集悬赏原帖：完整榜单 695 个选项、225 人提交，本页按票数取前 150；网站名做品牌化整理，链接取官网地址；每个网站下保留全部提交者的理由与缺点（同内容合并作者），未写理由的按人数列出；帖子级评论区需解锁，未收录；原文为文字提交，无图片、无视频、无附件。",
-  "plain_text_len": 31918,
+  "fidelity_note": "web.cafe 征集悬赏原帖：完整榜单 695 个选项、225 人提交，本页按票数取前 150；网站名做品牌化整理，链接取官网地址；每个网站下保留全部提交者的理由与缺点（同内容合并作者），未写理由的按人数列出，人数按唯一提交者计；帖子级评论区需解锁，未收录；原文为文字提交，无图片、无视频、无附件。",
+  "plain_text_len": 31902,
   "blocks_count": 461
  },
  "blocks": [
@@ -240,7 +240,7 @@
   },
   {
    "type": "paragraph",
-   "text": "github.com · **33 票** · 35 人提交（合并 5 个重复提交）"
+   "text": "github.com · **33 票** · 33 人提交（合并 5 个重复提交）"
   },
   {
    "type": "list",
@@ -425,7 +425,7 @@
   },
   {
    "type": "paragraph",
-   "text": "medium.com · **17 票** · 18 人提交（合并 1 个重复提交）"
+   "text": "medium.com · **17 票** · 17 人提交（合并 1 个重复提交）"
   },
   {
    "type": "list",
@@ -542,7 +542,7 @@
   },
   {
    "type": "paragraph",
-   "text": "indiehackers.com · **15 票** · 16 人提交（合并 3 个重复提交）"
+   "text": "indiehackers.com · **15 票** · 15 人提交（合并 3 个重复提交）"
   },
   {
    "type": "list",
@@ -590,7 +590,7 @@
   },
   {
    "type": "paragraph",
-   "text": "crunchbase.com · **13 票** · 14 人提交（合并 3 个重复提交）"
+   "text": "crunchbase.com · **13 票** · 13 人提交（合并 3 个重复提交）"
   },
   {
    "type": "list",
@@ -890,7 +890,7 @@
   },
   {
    "type": "paragraph",
-   "text": "toolpilot.ai · **7 票** · 8 人提交（合并 2 个重复提交）"
+   "text": "toolpilot.ai · **7 票** · 7 人提交（合并 2 个重复提交）"
   },
   {
    "type": "list",
@@ -999,7 +999,7 @@
   },
   {
    "type": "paragraph",
-   "text": "linkedin.com · **6 票** · 7 人提交（合并 3 个重复提交）"
+   "text": "linkedin.com · **6 票** · 6 人提交（合并 3 个重复提交）"
   },
   {
    "type": "list",
@@ -1158,7 +1158,7 @@
   },
   {
    "type": "paragraph",
-   "text": "stackshare.io · **5 票** · 6 人提交（合并 2 个重复提交）"
+   "text": "stackshare.io · **5 票** · 5 人提交（合并 2 个重复提交）"
   },
   {
    "type": "list",
@@ -1996,7 +1996,7 @@
   },
   {
    "type": "paragraph",
-   "text": "wordpress.com · **3 票** · 4 人提交（合并 1 个重复提交）"
+   "text": "wordpress.com · **3 票** · 3 人提交（合并 1 个重复提交）"
   },
   {
    "type": "list",
