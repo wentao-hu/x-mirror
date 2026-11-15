@@ -3740,6 +3740,35 @@
       "blocks_count": 461
     },
     {
+      "id": "note-2026-11-15-gefeeisites-new-version-seo-agent",
+      "slug": "note-gefeeisites-new-version-seo-agent",
+      "title": "哥飞 GeFeiSites 新版：SEO Agent 查问题、AI 改站，人只做复查",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-15T14:57:00.000Z",
+      "published_local": "2026-11-15 22:57",
+      "category": "建站开发",
+      "category_reason": "主要讲哥飞 GeFeiSites 建站引擎新版本的用法：上线清单接入 SEO Agent、待办与 AI 改站的闭环、fork 用户用 Sync fork 同步新版；核心是建站与上线的工具流程，不涉及找词或外链方法，故归建站开发。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "GeFeiSites",
+        "哥飞",
+        "SEO Agent",
+        "Claude Code",
+        "上线清单",
+        "微信群聊"
+      ],
+      "avatar_local": "",
+      "images_total": 7,
+      "images_ok": 7,
+      "api_media_count": 0,
+      "fidelity_note": "根据微信聊天记录导出包整理；原始对话 18 条全部保留，无删除；7 张截图已本地化并插入正文。",
+      "plain_text_len": 2548,
+      "blocks_count": 30
+    },
+    {
       "id": "note-2026-11-10-no-automation-before-1000-usd",
       "slug": "note-no-automation-before-1000-usd",
       "title": "赚到 1000 美金之前，先别想着自动化",
