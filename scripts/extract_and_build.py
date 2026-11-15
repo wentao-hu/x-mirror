@@ -1963,17 +1963,26 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   cursor: pointer;
 }
 .sites-count { font-size: 13.5px; color: var(--muted-2); }
-.sites-copy {
-  margin-left: auto;
-  padding: 7px 16px; border: 1px solid var(--fg); border-radius: 999px;
-  background: var(--fg); color: #fff;
+.sites-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+.sites-btn {
+  padding: 7px 16px; border-radius: 999px;
   font: inherit; font-size: 13.5px; font-weight: 600;
   cursor: pointer;
   transition: opacity .12s ease, background .12s ease, border-color .12s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.sites-copy:disabled { opacity: .35; cursor: default; }
-.sites-copy.on { background: var(--ok); border-color: var(--ok); opacity: 1; }
+.sites-btn:disabled { opacity: .35; cursor: default; }
+.sites-btn.on { opacity: 1; }
+.sites-open { border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); }
+.sites-open.on { background: var(--ok-soft); border-color: #b7e0c6; color: var(--ok); }
+.sites-copy { border: 1px solid var(--fg); background: var(--fg); color: #fff; }
+.sites-copy.on { background: var(--ok); border-color: var(--ok); }
+.sites-hint {
+  margin: -8px 0 18px; padding: 10px 14px;
+  border: 1px solid #f0d3a8; border-radius: 12px;
+  background: #fff8ea; color: #8a5a00;
+  font-size: 13.5px; line-height: 1.65;
+}
 .site-select {
   flex: none; display: inline-flex; align-items: center; justify-content: center;
   width: 30px; height: 34px; margin-left: 3px;
@@ -2091,6 +2100,8 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
   .site-header .brand-mark { width: 24px; height: 24px; }
   .site-header nav a { padding: 6px 10px; font-size: 13.5px; }
   .site-header nav .reader-toggle { padding: 6px 10px; font-size: 13.5px; }
+  .sites-actions { margin-left: 0; width: 100%; }
+  .sites-btn { flex: 1; }
   /* 行宽只对桌面有意义，移动端不显示这一项 */
   .reader-field--width { display: none; }
   h1.title { font-size: 25px; line-height: 1.36; margin-bottom: 14px; }
@@ -2383,8 +2394,12 @@ def sites_page(sites: list[dict]) -> str:
     <div class="sites-toolbar">
       <label class="sites-all"><input type="checkbox" id="sites-check-all" />全选</label>
       <span class="sites-count" id="sites-selected-count" aria-live="polite">已选 0 个</span>
-      <button type="button" class="sites-copy" id="sites-copy" title="复制选中链接，以空格分隔" disabled>复制链接</button>
+      <div class="sites-actions">
+        <button type="button" class="sites-btn sites-open" id="sites-open" title="在新标签页打开选中网站，首次使用可能需允许本站弹窗" disabled>全部打开</button>
+        <button type="button" class="sites-btn sites-copy" id="sites-copy" title="复制选中链接，以空格分隔" disabled>复制链接</button>
+      </div>
     </div>
+    <p class="sites-hint" id="sites-hint" hidden></p>
 {body}
   </div>
   <div class="footer">共 {len(sites)} 个网站 · Personal archive</div>

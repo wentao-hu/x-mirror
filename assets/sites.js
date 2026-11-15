@@ -123,6 +123,8 @@
   var checkAll = doc.getElementById('sites-check-all');
   var countEl = doc.getElementById('sites-selected-count');
   var copyBtn = doc.getElementById('sites-copy');
+  var openBtn = doc.getElementById('sites-open');
+  var hintEl = doc.getElementById('sites-hint');
 
   function mainCards() {
     return Array.prototype.slice.call(doc.querySelectorAll('#sites .site-card[data-slug]'));
@@ -145,6 +147,7 @@
     var n = selectedCards().length;
     if (countEl) countEl.textContent = '已选 ' + n + ' 个';
     if (copyBtn) copyBtn.disabled = n === 0;
+    if (openBtn) openBtn.disabled = n === 0;
     if (checkAll) {
       checkAll.checked = total > 0 && n === total;
       checkAll.indeterminate = n > 0 && n < total;
@@ -197,6 +200,37 @@
       try { ok = doc.execCommand('copy'); } catch (err) { ok = false; }
       doc.body.removeChild(ta);
       if (ok) resolve(); else reject(new Error('copy failed'));
+    });
+  }
+
+  if (openBtn) {
+    var openTimer = 0;
+    openBtn.addEventListener('click', function () {
+      var urls = selectedCards().map(cardUrl).filter(Boolean);
+      if (!urls.length) return;
+      /* Chrome 一次点击只放行一个弹窗；返回 null 即被拦截，需引导用户允许本站弹窗 */
+      var blocked = 0;
+      urls.forEach(function (url) {
+        var win = global.open(url, '_blank');
+        if (win) {
+          try { win.opener = null; } catch (e) { /* ignore */ }
+        } else {
+          blocked++;
+        }
+      });
+      if (hintEl) {
+        hintEl.textContent = '浏览器拦截了 ' + blocked +
+          ' 个标签页：点地址栏右侧的弹窗图标，允许本站弹窗后，再点一次「全部打开」即可。';
+        hintEl.hidden = blocked === 0;
+      }
+      openBtn.classList.add('on');
+      openBtn.textContent = '已打开 ' + (urls.length - blocked) + ' 个';
+      global.clearTimeout(openTimer);
+      openTimer = global.setTimeout(function () {
+        openBtn.classList.remove('on');
+        openBtn.textContent = '全部打开';
+        refreshSelection();
+      }, 1800);
     });
   }
 
