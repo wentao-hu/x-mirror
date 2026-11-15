@@ -118,4 +118,106 @@
   doc.addEventListener('xm-meta-refreshed', renderAll);
   META.ready.then(renderAll);
   renderAll();
+
+  /* 多选与批量复制：选中链接按空格分隔 */
+  var checkAll = doc.getElementById('sites-check-all');
+  var countEl = doc.getElementById('sites-selected-count');
+  var copyBtn = doc.getElementById('sites-copy');
+
+  function mainCards() {
+    return Array.prototype.slice.call(doc.querySelectorAll('#sites .site-card[data-slug]'));
+  }
+
+  function selectedCards() {
+    return mainCards().filter(function (card) {
+      var cb = card.querySelector('.site-check');
+      return cb && cb.checked;
+    });
+  }
+
+  function cardUrl(card) {
+    var a = card.querySelector('.site-main');
+    return a ? a.getAttribute('href') : '';
+  }
+
+  function refreshSelection() {
+    var total = mainCards().length;
+    var n = selectedCards().length;
+    if (countEl) countEl.textContent = '已选 ' + n + ' 个';
+    if (copyBtn) copyBtn.disabled = n === 0;
+    if (checkAll) {
+      checkAll.checked = total > 0 && n === total;
+      checkAll.indeterminate = n > 0 && n < total;
+    }
+  }
+
+  /* 置顶区是主卡片的克隆，按 slug 全文档同步选中态 */
+  function setSlugSelected(slug, checked) {
+    var list = doc.querySelectorAll('.site-card[data-slug="' + slug + '"]');
+    Array.prototype.forEach.call(list, function (card) {
+      var cb = card.querySelector('.site-check');
+      if (cb) cb.checked = checked;
+      card.classList.toggle('is-selected', checked);
+    });
+    refreshSelection();
+  }
+
+  doc.addEventListener('change', function (e) {
+    var cb = e.target;
+    if (!cb || !cb.classList || !cb.classList.contains('site-check')) return;
+    var card = cb.closest ? cb.closest('.site-card') : null;
+    if (!card) return;
+    setSlugSelected(card.dataset.slug, cb.checked);
+  });
+
+  if (checkAll) {
+    checkAll.addEventListener('change', function () {
+      mainCards().forEach(function (card) {
+        var cb = card.querySelector('.site-check');
+        if (cb) cb.checked = checkAll.checked;
+        card.classList.toggle('is-selected', checkAll.checked);
+      });
+      refreshSelection();
+    });
+  }
+
+  function copyText(text) {
+    if (global.navigator && navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = doc.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      doc.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = doc.execCommand('copy'); } catch (err) { ok = false; }
+      doc.body.removeChild(ta);
+      if (ok) resolve(); else reject(new Error('copy failed'));
+    });
+  }
+
+  if (copyBtn) {
+    var copyTimer = 0;
+    copyBtn.addEventListener('click', function () {
+      var urls = selectedCards().map(cardUrl).filter(Boolean);
+      if (!urls.length) return;
+      copyText(urls.join(' ')).then(function () {
+        copyBtn.classList.add('on');
+        copyBtn.textContent = '已复制 ' + urls.length + ' 个链接';
+        global.clearTimeout(copyTimer);
+        copyTimer = global.setTimeout(function () {
+          copyBtn.classList.remove('on');
+          copyBtn.textContent = '复制链接';
+          refreshSelection();
+        }, 1800);
+      }, function () {
+        copyBtn.textContent = '复制失败';
+        global.setTimeout(function () { copyBtn.textContent = '复制链接'; }, 1800);
+      });
+    });
+  }
 })(window);

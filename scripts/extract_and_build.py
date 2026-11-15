@@ -1947,6 +1947,43 @@ h2[id], h3[id] { scroll-margin-top: 20px; }
 
 /* 网站收藏 */
 #sites { display: block; }
+.sites-toolbar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px;
+  margin: 0 0 20px; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--card);
+}
+.sites-all {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; color: var(--muted); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sites-all input, .site-check {
+  width: 17px; height: 17px; margin: 0; accent-color: #1d9bf0;
+  cursor: pointer;
+}
+.sites-count { font-size: 13.5px; color: var(--muted-2); }
+.sites-copy {
+  margin-left: auto;
+  padding: 7px 16px; border: 1px solid var(--fg); border-radius: 999px;
+  background: var(--fg); color: #fff;
+  font: inherit; font-size: 13.5px; font-weight: 600;
+  cursor: pointer;
+  transition: opacity .12s ease, background .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.sites-copy:disabled { opacity: .35; cursor: default; }
+.sites-copy.on { background: var(--ok); border-color: var(--ok); opacity: 1; }
+.site-select {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 34px; margin-left: 3px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.site-card.is-selected {
+  border-color: #1d9bf0;
+  background: rgba(29, 155, 240, .05);
+}
 .site-group { margin: 0 0 26px; }
 .site-group .cat { margin: 0 0 12px; }
 .sites-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -2292,6 +2329,9 @@ def sites_page(sites: list[dict]) -> str:
                 continue
             cards.append(
                 f"""<div class="site-card" data-slug="site-{esc(s['slug'])}">
+      <label class="site-select" title="选择 {esc(s['title'])}">
+        <input type="checkbox" class="site-check" aria-label="选择 {esc(s['title'])}" />
+      </label>
       <a class="site-main" href="{esc(s['url'])}" target="_blank" rel="noopener noreferrer">
         {site_logo_html(s)}
         <span class="site-info">
@@ -2321,8 +2361,8 @@ def sites_page(sites: list[dict]) -> str:
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
-<title>网站收藏 · X Mirror</title>
-<meta name="description" content="收藏的有用网站：SEO 内容站、工具站、域名注册、支付等，按用途分类。" />
+<title>我的网站 · X Mirror</title>
+<meta name="description" content="我建立的网站合集，支持多选批量复制链接。" />
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -2340,6 +2380,11 @@ def sites_page(sites: list[dict]) -> str:
     <div class="pinned-list" id="sites-pinned-list"></div>
   </section>
   <div id="sites">
+    <div class="sites-toolbar">
+      <label class="sites-all"><input type="checkbox" id="sites-check-all" />全选</label>
+      <span class="sites-count" id="sites-selected-count" aria-live="polite">已选 0 个</span>
+      <button type="button" class="sites-copy" id="sites-copy" title="复制选中链接，以空格分隔" disabled>复制链接</button>
+    </div>
 {body}
   </div>
   <div class="footer">共 {len(sites)} 个网站 · Personal archive</div>

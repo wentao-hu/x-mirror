@@ -1,7 +1,43 @@
 {
   "user": "wentao-hu",
-  "fetched_at": "2026-11-14T10:29:38Z",
+  "fetched_at": "2026-11-15T14:03:13Z",
   "repos": [
+    {
+      "name": "econradar",
+      "url": "https://github.com/wentao-hu/econradar",
+      "description": "市场数据雷达，方便查看市场数据",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-15T14:00:19Z",
+      "created_at": "2026-08-08T06:50:14Z"
+    },
+    {
+      "name": "x-mirror",
+      "url": "https://github.com/wentao-hu/x-mirror",
+      "description": "X Article static mirror (local images) for SEO出海收藏",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-15T13:28:31Z",
+      "created_at": "2026-10-20T07:45:11Z"
+    },
+    {
+      "name": "upscalekit-official",
+      "url": "https://github.com/wentao-hu/upscalekit-official",
+      "description": "Official English product page for UpscaleKit — an AI image upscaler for enlarging and unblurring photos.",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "2026-11-14T13:27:28Z",
+      "created_at": "2026-11-14T13:26:01Z"
+    },
     {
       "name": "glowupai-official",
       "url": "https://github.com/wentao-hu/glowupai-official",
@@ -25,30 +61,6 @@
       "archived": false,
       "pushed_at": "2026-11-14T10:20:50Z",
       "created_at": "2026-11-02T06:21:18Z"
-    },
-    {
-      "name": "econradar",
-      "url": "https://github.com/wentao-hu/econradar",
-      "description": "市场数据雷达，方便查看市场数据",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "fork": false,
-      "archived": false,
-      "pushed_at": "2026-11-14T10:20:17Z",
-      "created_at": "2026-08-08T06:50:14Z"
-    },
-    {
-      "name": "x-mirror",
-      "url": "https://github.com/wentao-hu/x-mirror",
-      "description": "X Article static mirror (local images) for SEO出海收藏",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "fork": false,
-      "archived": false,
-      "pushed_at": "2026-11-14T09:30:04Z",
-      "created_at": "2026-10-20T07:45:11Z"
     },
     {
       "name": "deepseek-harness",

@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
-<title>网站收藏 · X Mirror</title>
-<meta name="description" content="收藏的有用网站：SEO 内容站、工具站、域名注册、支付等，按用途分类。" />
+<title>我的网站 · X Mirror</title>
+<meta name="description" content="我建立的网站合集，支持多选批量复制链接。" />
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="manifest" href="site.webmanifest" />
-<link rel="stylesheet" href="assets/site.css?v=798a6cce" />
+<link rel="stylesheet" href="assets/site.css?v=c92fdaf0" />
 </head>
 <body>
 <div class="wrap index-wrap">
@@ -33,103 +33,62 @@
     <div class="pinned-list" id="sites-pinned-list"></div>
   </section>
   <div id="sites">
+    <div class="sites-toolbar">
+      <label class="sites-all"><input type="checkbox" id="sites-check-all" />全选</label>
+      <span class="sites-count" id="sites-selected-count" aria-live="polite">已选 0 个</span>
+      <button type="button" class="sites-copy" id="sites-copy" title="复制选中链接，以空格分隔" disabled>复制链接</button>
+    </div>
 <section class="site-group">
-<h2 class="cat is-static"><span class="cat-name">SEO 内容站</span><span class="cat-count">3 个</span></h2>
+<h2 class="cat is-static"><span class="cat-name">我的站点</span><span class="cat-count">3 个</span></h2>
 <div class="sites-grid">
-<div class="site-card" data-slug="site-webcafe">
-      <a class="site-main" href="https://new.web.cafe/all" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/webcafe.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+<div class="site-card" data-slug="site-upscalekit">
+      <label class="site-select" title="选择 UpscaleKit">
+        <input type="checkbox" class="site-check" aria-label="选择 UpscaleKit" />
+      </label>
+      <a class="site-main" href="https://upscalekit.net/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/upscalekit.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
         <span class="site-info">
-          <span class="site-title">Web.Cafe</span>
-          <span class="site-host">new.web.cafe</span>
+          <span class="site-title">UpscaleKit</span>
+          <span class="site-host">upscalekit.net</span>
         </span>
       </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Web.Cafe" title="置顶">
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 UpscaleKit" title="置顶">
         <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
           <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
-<div class="site-card" data-slug="site-aichuhai">
-      <a class="site-main" href="https://aichuhai.dev/" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/aichuhai.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+<div class="site-card" data-slug="site-glowupai">
+      <label class="site-select" title="选择 Glow Up AI">
+        <input type="checkbox" class="site-check" aria-label="选择 Glow Up AI" />
+      </label>
+      <a class="site-main" href="https://glowupai.tech/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/glowupai.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
         <span class="site-info">
-          <span class="site-title">AI 网站出海开发者社区</span>
-          <span class="site-host">aichuhai.dev</span>
+          <span class="site-title">Glow Up AI</span>
+          <span class="site-host">glowupai.tech</span>
         </span>
       </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 AI 网站出海开发者社区" title="置顶">
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Glow Up AI" title="置顶">
         <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
           <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
-<div class="site-card" data-slug="site-wangmazha">
-      <a class="site-main" href="https://wangmazha.com/blog" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/wangmazha.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
+<div class="site-card" data-slug="site-hittheroad">
+      <label class="site-select" title="选择 Hit The Road Dude AI">
+        <input type="checkbox" class="site-check" aria-label="选择 Hit The Road Dude AI" />
+      </label>
+      <a class="site-main" href="https://hittheroaddudeai.fun/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/sites/hittheroad.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
         <span class="site-info">
-          <span class="site-title">Mazza Blog</span>
-          <span class="site-host">wangmazha.com</span>
+          <span class="site-title">Hit The Road Dude AI</span>
+          <span class="site-host">hittheroaddudeai.fun</span>
         </span>
       </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Mazza Blog" title="置顶">
-        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-</div>
-</section>
-<section class="site-group">
-<h2 class="cat is-static"><span class="cat-name">域名注册</span><span class="cat-count">2 个</span></h2>
-<div class="sites-grid">
-<div class="site-card" data-slug="site-cloudflare">
-      <a class="site-main" href="https://www.cloudflare.com/domains/" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/cloudflare.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
-        <span class="site-info">
-          <span class="site-title">Cloudflare Registrar</span>
-          <span class="site-host">cloudflare.com</span>
-        </span>
-      </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Cloudflare Registrar" title="置顶">
-        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-<div class="site-card" data-slug="site-spaceship">
-      <a class="site-main" href="https://www.spaceship.com/zh/" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/spaceship.png" alt="" width="40" height="40" loading="lazy" decoding="async" />
-        <span class="site-info">
-          <span class="site-title">Spaceship</span>
-          <span class="site-host">spaceship.com</span>
-        </span>
-      </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Spaceship" title="置顶">
-        <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-</div>
-</section>
-<section class="site-group">
-<h2 class="cat is-static"><span class="cat-name">支付</span><span class="cat-count">1 个</span></h2>
-<div class="sites-grid">
-<div class="site-card" data-slug="site-stripe">
-      <a class="site-main" href="https://stripe.com/cn" target="_blank" rel="noopener noreferrer">
-        <img class="site-logo" src="assets/sites/stripe.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
-        <span class="site-info">
-          <span class="site-title">Stripe</span>
-          <span class="site-host">stripe.com</span>
-        </span>
-      </a>
-      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Stripe" title="置顶">
+      <button type="button" class="site-pin" aria-pressed="false" aria-label="置顶 Hit The Road Dude AI" title="置顶">
         <svg class="site-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
           <path d="M8 1.6a3.6 3.6 0 0 0-3.6 3.6c0 2.5 2.6 4.8 3.6 5.7 1-.9 3.6-3.2 3.6-5.7A3.6 3.6 0 0 0 8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M8 10.9v3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -139,10 +98,10 @@
 </div>
 </section>
   </div>
-  <div class="footer">共 6 个网站 · Personal archive</div>
+  <div class="footer">共 3 个网站 · Personal archive</div>
 </div>
 <script src="assets/meta.js?v=2694ebb7" defer></script>
-<script src="assets/sites.js?v=b0e93283" defer></script>
+<script src="assets/sites.js?v=75b41695" defer></script>
 <script src="assets/reader-settings.js?v=8d53d7e6" defer></script>
 </body>
 </html>

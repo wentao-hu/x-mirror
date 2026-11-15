@@ -134,19 +134,19 @@ id = "9de02bd9638042c0b0289fb3022f8ddd"
 
 评分与已读控件由 `extract_and_build.py` 里的 `post_page` / `index_page` 模板生成。只想用 `data/*.json` 重建页面时运行 `python3 scripts/rebuild_from_data.py`，会同时重写 `assets/site.css`、补齐 WebP 副本并保留所有文章页的控件。
 
-## 网站收藏
+## 我的网站
 
-目录页顶部有「文章 / 网站」两个 tab：`index.html` 是文章列表，`sites.html` 是网站收藏。网站页按分类分组，每个网站显示本地 logo、标题（超链接，新窗口打开）和域名。
+目录页顶部有「文章 / 网站 / GitHub」三个 tab：`index.html` 是文章列表，`sites.html` 是我的网站清单。网站页每个条目显示本地 logo、标题（超链接，新窗口打开）和域名；卡片左侧可多选，工具栏支持全选与批量复制，复制出的链接以空格分隔。
 
-收藏数据在根目录 `sites.json`，新增一个网站加一条即可：
+数据在根目录 `sites.json`，新增一个网站加一条即可：
 
 ```json
 {
-  "slug": "stripe",
-  "title": "Stripe",
-  "url": "https://stripe.com/cn",
-  "category": "支付",
-  "logo": "assets/sites/stripe.svg"
+  "slug": "upscalekit",
+  "title": "UpscaleKit",
+  "url": "https://upscalekit.net/",
+  "category": "我的站点",
+  "logo": "assets/sites/upscalekit.png"
 }
 ```
 

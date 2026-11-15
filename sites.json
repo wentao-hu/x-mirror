@@ -1,46 +1,25 @@
 {
   "sites": [
     {
-      "slug": "webcafe",
-      "title": "Web.Cafe",
-      "url": "https://new.web.cafe/all",
-      "category": "SEO 内容站",
-      "logo": "assets/sites/webcafe.png"
+      "slug": "upscalekit",
+      "title": "UpscaleKit",
+      "url": "https://upscalekit.net/",
+      "category": "我的站点",
+      "logo": "assets/sites/upscalekit.png"
     },
     {
-      "slug": "aichuhai",
-      "title": "AI 网站出海开发者社区",
-      "url": "https://aichuhai.dev/",
-      "category": "SEO 内容站",
-      "logo": "assets/sites/aichuhai.png"
+      "slug": "glowupai",
+      "title": "Glow Up AI",
+      "url": "https://glowupai.tech/",
+      "category": "我的站点",
+      "logo": "assets/sites/glowupai.png"
     },
     {
-      "slug": "wangmazha",
-      "title": "Mazza Blog",
-      "url": "https://wangmazha.com/blog",
-      "category": "SEO 内容站",
-      "logo": "assets/sites/wangmazha.png"
-    },
-    {
-      "slug": "cloudflare",
-      "title": "Cloudflare Registrar",
-      "url": "https://www.cloudflare.com/domains/",
-      "category": "域名注册",
-      "logo": "assets/sites/cloudflare.png"
-    },
-    {
-      "slug": "spaceship",
-      "title": "Spaceship",
-      "url": "https://www.spaceship.com/zh/",
-      "category": "域名注册",
-      "logo": "assets/sites/spaceship.png"
-    },
-    {
-      "slug": "stripe",
-      "title": "Stripe",
-      "url": "https://stripe.com/cn",
-      "category": "支付",
-      "logo": "assets/sites/stripe.svg"
+      "slug": "hittheroad",
+      "title": "Hit The Road Dude AI",
+      "url": "https://hittheroaddudeai.fun/",
+      "category": "我的站点",
+      "logo": "assets/sites/hittheroad.png"
     }
   ]
 }
