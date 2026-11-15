@@ -1633,6 +1633,33 @@
       "blocks_count": 57
     },
     {
+      "id": "note-2026-11-13-used-domain-hurts-indexing",
+      "slug": "note-used-domain-hurts-indexing",
+      "title": "别人用过的老域名，会拖慢网站收录",
+      "url": "",
+      "author_name": "萧禹",
+      "author_username": "",
+      "published_utc": "2026-11-13T01:51:00.000Z",
+      "published_local": "2026-11-13 09:51",
+      "category": "SEO获客",
+      "category_reason": "主要交付是理解老域名对收录的影响以及买域名前的排查方法，属于收录与搜索获客问题；排除建站开发——不涉及网站实现与部署；排除需求研究——不涉及需求判断。",
+      "description": "",
+      "source_type": "note",
+      "tags": [
+        "老域名",
+        "域名",
+        "收录",
+        "Wayback",
+        "404"
+      ],
+      "avatar_local": "",
+      "images_total": 0,
+      "images_ok": 0,
+      "api_media_count": 0,
+      "fidelity_note": "原始对话 16 条全部保留；无图片与附件。",
+      "blocks_count": 9
+    },
+    {
       "id": "note-2026-11-12-one-keyword-one-page",
       "slug": "note-one-keyword-one-page",
       "title": "栏目页和文章页不抢词：一个关键词一个页面",
